@@ -1,0 +1,29 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.stablesocial.post.api-instagram-highlights",
+  "title": "StableSocial — POST /api/instagram/highlights",
+  "description": "Get Instagram user highlights",
+  "capabilities": [
+    "tiktok",
+    "instagram",
+    "facebook",
+    "reddit",
+    "scraping",
+    "social",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://stablesocial.dev/api/instagram/highlights"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.06"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "stablesocial:POST:/api/instagram/highlights"
+  }
+}

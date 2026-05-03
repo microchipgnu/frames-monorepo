@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-api-health-check",
+  "title": "Test an API endpoint: send request, validate response status and schema. Integra",
+  "description": "Test an API endpoint: send request, validate response status and schema. Integration testing as a service. SQS: 96/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/api-health-check"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/api-health-check",
+    "x402_version": 1
+  }
+}

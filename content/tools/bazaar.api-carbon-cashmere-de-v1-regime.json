@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-regime",
+  "title": "Get real-time crypto market regime classification via Hidden Markov Model — accu",
+  "description": "Get real-time crypto market regime classification via Hidden Markov Model — accumulation, markup, distribution, markdown, or high_volatility. Returns confidence, stability metric, duration, and 24-hour transition probability matrix. AI agent API for market cycle detection, regime-based strategy selection, and macro trend identification.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/regime"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/regime",
+    "x402_version": 2
+  }
+}

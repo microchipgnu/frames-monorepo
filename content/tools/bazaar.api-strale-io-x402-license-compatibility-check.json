@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-license-compatibility-check",
+  "title": "Check whether a set of software licenses are compatible with each other and a gi",
+  "description": "Check whether a set of software licenses are compatible with each other and a given use case (commercial, open-source, SaaS, internal). Covers 30+ SPDX licenses including MIT, Apache-2.0, GPL, AGPL, MPL, and proprietary licenses. SQS: 96/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/license-compatibility-check"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/license-compatibility-check",
+    "x402_version": 1
+  }
+}

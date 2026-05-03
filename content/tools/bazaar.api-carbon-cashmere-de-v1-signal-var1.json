@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-signal-var1",
+  "title": "Get AI-powered crypto trading signal from 5-model ML ensemble — XGBoost, LightGB",
+  "description": "Get AI-powered crypto trading signal from 5-model ML ensemble — XGBoost, LightGBM, LSTM neural network, Adaptive Random Forest, and MetaLearner. Returns direction (bullish/bearish), probability, confidence, and per-model agreement for BTC, ETH, SOL, TAO, KAS, XLM, QUBIC. AI agent API for algorithmic trading, ML-based price prediction, and quantitative crypto analysis.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/signal/:var1"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/signal/:var1",
+    "x402_version": 2
+  }
+}

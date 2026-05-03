@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-webhook-manager-api-ac0365-dlq",
+  "title": "Webhook management: delivery logging, exponential backoff retry, HMAC signature ",
+  "description": "Webhook management: delivery logging, exponential backoff retry, HMAC signature verification, payload transformation, fa",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/webhook-manager-api-ac0365/dlq"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/webhook-manager-api-ac0365/dlq",
+    "x402_version": 2
+  }
+}

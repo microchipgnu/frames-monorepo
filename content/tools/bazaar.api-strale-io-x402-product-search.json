@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-product-search",
+  "title": "Search products on Google Shopping. Returns product listings with title, price, ",
+  "description": "Search products on Google Shopping. Returns product listings with title, price, merchant, rating. SQS: 84/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/product-search"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/product-search",
+    "x402_version": 1
+  }
+}

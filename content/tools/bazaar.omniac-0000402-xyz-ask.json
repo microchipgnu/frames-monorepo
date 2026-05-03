@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.omniac-0000402-xyz-ask",
+  "title": "Pay $0.01 USDC to ask Omniac, the Omniacs DAO mascot, any question about crypto,",
+  "description": "Pay $0.01 USDC to ask Omniac, the Omniacs DAO mascot, any question about crypto, data science, or tech. Responses are concise by default. Powered by llama-3.3-70b via Venice.ai. Max question length: 2000 characters. Network: Base Mainnet. Each request sends one natural-language question to the model and returns one direct answer, making it useful for crypto explainers, technical Q&A, research support, and agent knowledge lookups.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://omniac.0000402.xyz/ask"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://omniac.0000402.xyz/ask",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-web-extraction-compliance-checker-api-9a65d7-check-extraction",
+  "title": "Check web extraction workflows for consent, robots sensitivity, PII exposure, ra",
+  "description": "Check web extraction workflows for consent, robots sensitivity, PII exposure, rate pressure, and reuse risk",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/web-extraction-compliance-checker-api-9a65d7/check-extraction%20-%20Check%20web%20extraction%20workflows%20for%20consent,%20robots%20sensitivity,%20PII%20exposure,%20rate%20pressure,%20and%20reuse%20risk%20using%20deterministic%20rule%20scoring"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/web-extraction-compliance-checker-api-9a65d7/check-extraction%20-%20Check%20web%20extraction%20workflows%20for%20consent,%20robots%20sensitivity,%20PII%20exposure,%20rate%20pressure,%20and%20reuse%20risk%20using%20deterministic%20rule%20scoring",
+    "x402_version": 2
+  }
+}

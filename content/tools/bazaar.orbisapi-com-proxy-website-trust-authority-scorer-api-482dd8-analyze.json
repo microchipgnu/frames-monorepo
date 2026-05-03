@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-website-trust-authority-scorer-api-482dd8-analyze",
+  "title": "Scores website trustworthiness using SSL, legal pages, contact info, and social ",
+  "description": "Scores website trustworthiness using SSL, legal pages, contact info, and social proof signals.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/website-trust-authority-scorer-api-482dd8/analyze"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/website-trust-authority-scorer-api-482dd8/analyze",
+    "x402_version": 2
+  }
+}

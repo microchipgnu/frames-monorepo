@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.test-x402labs-sh-v1-social-truthsocial-user-posts",
+  "title": "Truth Social user posts lookup",
+  "description": "Truth Social user posts lookup",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://test.x402labs.sh/v1/social/truthsocial/user-posts"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base-sepolia",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://test.x402labs.sh/v1/social/truthsocial/user-posts",
+    "x402_version": 2
+  }
+}

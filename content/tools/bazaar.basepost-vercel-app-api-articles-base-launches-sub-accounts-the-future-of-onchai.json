@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.basepost-vercel-app-api-articles-base-launches-sub-accounts-the-future-of-onchai",
+  "title": "BasePost by basepost.base.eth: Base introduces Sub Accounts, allowing developers",
+  "description": "BasePost by basepost.base.eth: Base introduces Sub Accounts, allowing developers to create frictionless onchain experiences without repeated wallet approvals",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://basepost.vercel.app/api/articles/base-launches-sub-accounts-the-future-of-onchain-ux"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://basepost.vercel.app/api/articles/base-launches-sub-accounts-the-future-of-onchain-ux",
+    "x402_version": 1
+  }
+}

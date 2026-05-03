@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-fine-tuning-dataset-curator-quality-gate-api-2a8688-analyze",
+  "title": "Validates and curates fine-tuning datasets by detecting duplicates, class imbala",
+  "description": "Validates and curates fine-tuning datasets by detecting duplicates, class imbalance, and quality issues.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/fine-tuning-dataset-curator-quality-gate-api-2a8688/analyze"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/fine-tuning-dataset-curator-quality-gate-api-2a8688/analyze",
+    "x402_version": 2
+  }
+}

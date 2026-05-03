@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-blockchain-fee-comparator-api-b8fbf4-openapi",
+  "title": "Compare transaction fees across Ethereum, L2s, Solana, and other chains.",
+  "description": "Compare transaction fees across Ethereum, L2s, Solana, and other chains.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/blockchain-fee-comparator-api-b8fbf4/openapi"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/blockchain-fee-comparator-api-b8fbf4/openapi",
+    "x402_version": 2
+  }
+}

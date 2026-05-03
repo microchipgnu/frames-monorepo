@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.hackernews-x402-vercel-app-hn-user",
+  "title": "Hacker News user profile. Returns karma score, account age, about text, and numb",
+  "description": "Hacker News user profile. Returns karma score, account age, about text, and number of submissions.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://hackernews-x402.vercel.app/hn/user"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://hackernews-x402.vercel.app/hn/user",
+    "x402_version": 2
+  }
+}

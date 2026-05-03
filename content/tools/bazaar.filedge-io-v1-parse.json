@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.filedge-io-v1-parse",
+  "title": "Parse SEC filings (10-Q, 10-K, 8-K, Form 4) and earnings transcripts into struct",
+  "description": "Parse SEC filings (10-Q, 10-K, 8-K, Form 4) and earnings transcripts into structured JSON. Supports EDGAR by ticker or direct URL.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://filedge.io/v1/parse"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://filedge.io/v1/parse",
+    "x402_version": 2
+  }
+}

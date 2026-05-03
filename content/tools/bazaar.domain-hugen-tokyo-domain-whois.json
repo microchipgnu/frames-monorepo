@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.domain-hugen-tokyo-domain-whois",
+  "title": "WHOIS registration lookup — registrar, creation/expiry/updated dates, domain age",
+  "description": "WHOIS registration lookup — registrar, creation/expiry/updated dates, domain age in days, name servers, DNSSEC, registrant country/org, EPP status codes. All TLDs (.com .net .org .io .dev .ai ccTLDs gTLDs). Per-field error resilience for TLD-specific parsing quirks. No WHOIS library setup or TLD-specific parsing needed. Accepts USDC payments on Base and Solana",
+  "capabilities": [
+    "whois",
+    "dns",
+    "ssl",
+    "domain"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://domain.hugen.tokyo/domain/whois"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://domain.hugen.tokyo/domain/whois",
+    "x402_version": 2
+  }
+}

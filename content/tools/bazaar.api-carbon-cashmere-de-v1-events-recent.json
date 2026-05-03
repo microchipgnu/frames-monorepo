@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-events-recent",
+  "title": "Polling-based event feed — x402-native alternative to push webhooks. Aggregates ",
+  "description": "Polling-based event feed — x402-native alternative to push webhooks. Aggregates 5 event types: whale_tx (BTC ZMQ stream), regime_change (market regime transitions), funding_extreme (z-score > threshold), price_spike (1h move > threshold), anomaly_fired (ML anomaly alerts). Configurable window (1-1440 min), type filter, coin filter, severity thresholds. Recommended polling cadence: every 1-5 minutes. Cache 60s. Informational research data — not investment advice.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/events/recent"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/events/recent",
+    "x402_version": 2
+  }
+}

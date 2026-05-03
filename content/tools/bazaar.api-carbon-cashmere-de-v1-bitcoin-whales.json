@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-bitcoin-whales",
+  "title": "Bitcoin whale transaction tracker from our own Bitcoin Core full node via ZMQ st",
+  "description": "Bitcoin whale transaction tracker from our own Bitcoin Core full node via ZMQ stream. Filter by min BTC threshold, look back up to 168h. Returns transaction details (BTC/USD value, fee rate, size, ancestors/descendants, BIP125 RBF flag, confirmation status) plus aggregate summary. Proprietary ZMQ-connected pipeline — sub-second freshness. Informational research data only — not investment advice.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/bitcoin/whales"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.12"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/bitcoin/whales",
+    "x402_version": 2
+  }
+}

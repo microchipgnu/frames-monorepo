@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.alpha-palmvox-com-api-base-new-pairs",
+  "title": "Newly listed token pairs on Base DEXs — discover tokens before they trend. Live ",
+  "description": "Newly listed token pairs on Base DEXs — discover tokens before they trend. Live from DexScreener. Includes liquidity, volume, and age.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://alpha.palmvox.com/api/base/new-pairs"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://alpha.palmvox.com/api/base/new-pairs",
+    "x402_version": 2
+  }
+}

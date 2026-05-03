@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.nonvisceral-eloisa-mousily-ngrok-free-dev-api-gold-signal",
+  "title": "Gold XAU trading signal API: real-time gold price with directional signal (bulli",
+  "description": "Gold XAU trading signal API: real-time gold price with directional signal (bullish, bearish, neutral), RSI(14) indicator, and 4h fib retracement context. Commodity and precious-metals market data for trading agents and automated strategies. Derived from Hyperliquid HIP-3 gold perpetuals — one of the few API sources for on-chain gold perp signals with no-KYC agent access.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://nonvisceral-eloisa-mousily.ngrok-free.dev/api/gold-signal"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.03"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://nonvisceral-eloisa-mousily.ngrok-free.dev/api/gold-signal",
+    "x402_version": 2
+  }
+}

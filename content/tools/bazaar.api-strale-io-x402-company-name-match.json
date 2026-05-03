@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-company-name-match",
+  "title": "Fuzzy match and normalize company names. Compares two names accounting for Ltd/L",
+  "description": "Fuzzy match and normalize company names. Compares two names accounting for Ltd/Limited, AB/Aktiebolag, Inc/Incorporated, GmbH, etc. Returns match confidence using Levenshtein, Jaro-Winkler, and token overlap algorithms. SQS: 98/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/company-name-match"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/company-name-match",
+    "x402_version": 1
+  }
+}

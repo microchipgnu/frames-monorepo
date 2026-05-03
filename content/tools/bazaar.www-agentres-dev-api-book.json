@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.www-agentres-dev-api-book",
+  "title": "Paid resource ($0.1 USDC)",
+  "description": "Paid resource ($0.1 USDC)",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://www.agentres.dev/api/book"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://www.agentres.dev/api/book",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.alpha-palmvox-com-api-agent-plan",
+  "title": "UNIQUE: AI action planner for agents. Tell it your goal (e.g. 'maximize yield on",
+  "description": "UNIQUE: AI action planner for agents. Tell it your goal (e.g. 'maximize yield on $100 USDC on Base') and get a specific step-by-step plan with endpoints to call, amounts, and expected outcomes. Powered by local LLM.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://alpha.palmvox.com/api/agent/plan"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://alpha.palmvox.com/api/agent/plan",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-ottoai-services-twitter-summary",
+  "title": "Quick pulse check from crypto Twitter. Breaking news, trending narratives, and s",
+  "description": "Quick pulse check from crypto Twitter. Breaking news, trending narratives, and sentiment shifts at a glance.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.ottoai.services/twitter-summary"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402.ottoai.services/twitter-summary",
+    "x402_version": 2
+  }
+}

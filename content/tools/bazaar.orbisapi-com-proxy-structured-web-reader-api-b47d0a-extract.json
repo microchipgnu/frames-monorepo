@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-structured-web-reader-api-b47d0a-extract",
+  "title": "Fetch any URL and return clean Markdown with metadata and LLM-ready chunks — fla",
+  "description": "Fetch any URL and return clean Markdown with metadata and LLM-ready chunks — flat $0.10 per call, no credit multiplier",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/structured-web-reader-api-b47d0a/extract"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/structured-web-reader-api-b47d0a/extract",
+    "x402_version": 2
+  }
+}

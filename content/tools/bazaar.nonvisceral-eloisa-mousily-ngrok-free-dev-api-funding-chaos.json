@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.nonvisceral-eloisa-mousily-ngrok-free-dev-api-funding-chaos",
+  "title": "Funding chaos index API: counts sub-12h funding-rate sign flips for BTC/ETH/SOL ",
+  "description": "Funding chaos index API: counts sub-12h funding-rate sign flips for BTC/ETH/SOL on Hyperliquid. Returns chaos level (NONE/LOW/MODERATE/ELEVATED/HIGH), per-asset flips, cycle counts, implied bias (LONG_EXHAUSTION/SHORT_EXHAUSTION/MIXED/NEUTRAL). Mean-reversion + fade-fresh-flip contrarian signal. Decision-ready funding-regime product.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://nonvisceral-eloisa-mousily.ngrok-free.dev/api/funding-chaos"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.03"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://nonvisceral-eloisa-mousily.ngrok-free.dev/api/funding-chaos",
+    "x402_version": 2
+  }
+}

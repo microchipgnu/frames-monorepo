@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-linkedin-company-data-api-3ab3b7-search",
+  "title": "Access LinkedIn company profiles, job listings, company search, and industry ref",
+  "description": "Access LinkedIn company profiles, job listings, company search, and industry reference data.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/linkedin-company-data-api-3ab3b7/search"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/linkedin-company-data-api-3ab3b7/search",
+    "x402_version": 2
+  }
+}

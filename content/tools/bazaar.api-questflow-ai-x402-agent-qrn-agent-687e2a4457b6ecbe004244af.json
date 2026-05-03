@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-questflow-ai-x402-agent-qrn-agent-687e2a4457b6ecbe004244af",
+  "title": "Virtuals Agent is a professional AI project search assistant that provides real-",
+  "description": "Virtuals Agent is a professional AI project search assistant that provides real-time data queries for Virtuals protocol projects. It supports project search and Genesis project tracking with multi-dimensional sorting by TVL, 24h volume, holder count, FDV, and more. Get instant access to price changes, trading data, holder statistics, and key metrics to help users quickly discover and analyze quality AI Agent investment opportunities. | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.questflow.ai/x402/agent/qrn:agent:687e2a4457b6ecbe004244af"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "UNKNOWN",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.questflow.ai/x402/agent/qrn:agent:687e2a4457b6ecbe004244af",
+    "x402_version": 1
+  }
+}

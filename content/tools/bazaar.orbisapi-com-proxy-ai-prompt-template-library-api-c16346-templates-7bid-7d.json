@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-ai-prompt-template-library-api-c16346-templates-7bid-7d",
+  "title": "Browse, suggest, and fill structured prompt templates for AI workflows",
+  "description": "Browse, suggest, and fill structured prompt templates for AI workflows",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/ai-prompt-template-library-api-c16346/templates/%7Bid%7D"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/ai-prompt-template-library-api-c16346/templates/%7Bid%7D",
+    "x402_version": 2
+  }
+}

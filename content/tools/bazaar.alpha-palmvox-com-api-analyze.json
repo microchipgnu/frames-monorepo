@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.alpha-palmvox-com-api-analyze",
+  "title": "Deep analysis of a specific token: risk score, smart money activity, social sent",
+  "description": "Deep analysis of a specific token: risk score, smart money activity, social sentiment, market context, and trade recommendation. Send a token symbol (e.g. ETH, AERO, DEGEN) and get a full data-driven analysis.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://alpha.palmvox.com/api/analyze"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://alpha.palmvox.com/api/analyze",
+    "x402_version": 2
+  }
+}

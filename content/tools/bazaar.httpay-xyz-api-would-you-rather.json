@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.httpay-xyz-api-would-you-rather",
+  "title": "Crypto 'Would You Rather' scenarios",
+  "description": "Crypto 'Would You Rather' scenarios",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://httpay.xyz/api/would-you-rather"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://httpay.xyz/api/would-you-rather",
+    "x402_version": 1
+  }
+}

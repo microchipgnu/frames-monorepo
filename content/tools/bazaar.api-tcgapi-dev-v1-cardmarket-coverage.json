@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-tcgapi-dev-v1-cardmarket-coverage",
+  "title": "Cardmarket EU pricing coverage statistics across all indexed TCG card sets — Pok",
+  "description": "Cardmarket EU pricing coverage statistics across all indexed TCG card sets — Pokemon, Magic: The Gathering, Yu-Gi-Oh, Lorcana.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.tcgapi.dev/v1/cardmarket/coverage"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.tcgapi.dev/v1/cardmarket/coverage",
+    "x402_version": 1
+  }
+}

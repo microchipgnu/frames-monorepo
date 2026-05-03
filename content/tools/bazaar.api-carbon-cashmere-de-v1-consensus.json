@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-consensus",
+  "title": "Get accuracy-weighted consensus from 4 independent AI prediction agents for 34 c",
+  "description": "Get accuracy-weighted consensus from 4 independent AI prediction agents for 34 crypto assets — BTC, ETH, SOL, and 31 more. Includes market regime context and composite market score. AI agent API for multi-agent consensus trading, ensemble prediction aggregation, and conviction-weighted signals.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/consensus"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.08"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/consensus",
+    "x402_version": 2
+  }
+}

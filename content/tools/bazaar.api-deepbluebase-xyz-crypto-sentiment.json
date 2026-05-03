@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-deepbluebase-xyz-crypto-sentiment",
+  "title": "Premium crypto sentiment bundle — sentiment scores, funding rates, liquidation d",
+  "description": "Premium crypto sentiment bundle — sentiment scores, funding rates, liquidation data, and open interest across BTC/ETH/SOL/XRP",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.deepbluebase.xyz/crypto-sentiment"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "solana-mainnet",
+    "currency": "UNKNOWN",
+    "price_hint": "0.03"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.deepbluebase.xyz/crypto-sentiment",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-oatp-cc-tools-tx-explainer",
+  "title": "OATP · tx_explainer — Fetch a Solana transaction by signature and return a human",
+  "description": "OATP · tx_explainer — Fetch a Solana transaction by signature and return a human-readable explanation: programs invoked, token balance changes, fee (SOL + USD), and a one-line summary.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.oatp.cc/tools/tx_explainer"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "solana-mainnet",
+    "currency": "UNKNOWN",
+    "price_hint": "0.1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.oatp.cc/tools/tx_explainer",
+    "x402_version": 2
+  }
+}

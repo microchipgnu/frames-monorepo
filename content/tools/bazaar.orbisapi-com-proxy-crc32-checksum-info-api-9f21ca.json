@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-crc32-checksum-info-api-9f21ca",
+  "title": "Reference guide for CRC32 error detection, use in ZIP files, and network packets",
+  "description": "Reference guide for CRC32 error detection, use in ZIP files, and network packets.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/crc32-checksum-info-api-9f21ca"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/crc32-checksum-info-api-9f21ca",
+    "x402_version": 2
+  }
+}

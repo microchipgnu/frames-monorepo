@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.bazaar-gateway-vercel-app-api-crypto-prices",
+  "title": "Real-time cryptocurrency prices for BTC, ETH, SOL, and other major coins. Data s",
+  "description": "Real-time cryptocurrency prices for BTC, ETH, SOL, and other major coins. Data sourced from CoinGecko. Returns current price in USD, 24h change percentage, and market cap.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://bazaar-gateway.vercel.app/api/crypto-prices"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://bazaar-gateway.vercel.app/api/crypto-prices",
+    "x402_version": 2
+  }
+}

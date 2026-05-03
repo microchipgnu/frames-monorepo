@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.www-stablebrowser-dev-api-sessions",
+  "title": "Create a new browser session ($0.10). Optionally pass sessionId to resume an exi",
+  "description": "Create a new browser session ($0.10). Optionally pass sessionId to resume an existing Browserbase session. Returns sessionId (Browserbase session ID) to use for all subsequent calls.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://www.stablebrowser.dev/api/sessions"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://www.stablebrowser.dev/api/sessions",
+    "x402_version": 2
+  }
+}

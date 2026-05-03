@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-swedish-company-data",
+  "title": "Extract Swedish company data (name, org number, VAT number, revenue, employees, ",
+  "description": "Extract Swedish company data (name, org number, VAT number, revenue, employees, profit, fiscal year) for a Swedish organization number. Accepts org number or fuzzy company name. SQS: 67/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/swedish-company-data"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/swedish-company-data",
+    "x402_version": 1
+  }
+}

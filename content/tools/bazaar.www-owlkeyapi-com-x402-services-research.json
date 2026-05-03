@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.www-owlkeyapi-com-x402-services-research",
+  "title": "Fast structured AI research API for agents. Turns a topic and objective into con",
+  "description": "Fast structured AI research API for agents. Turns a topic and objective into concise findings, risks, sources, and next actions.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://www.owlkeyapi.com/x402/services/research"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.008"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://www.owlkeyapi.com/x402/services/research",
+    "x402_version": 2
+  }
+}

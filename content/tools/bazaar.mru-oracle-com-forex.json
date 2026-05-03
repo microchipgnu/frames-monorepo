@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.mru-oracle-com-forex",
+  "title": "MUR exchange rates ÃÂ¢ÃÂÃÂ all currency pairs from Bank of Mauritius",
+  "description": "MUR exchange rates ÃÂ¢ÃÂÃÂ all currency pairs from Bank of Mauritius",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://mru-oracle.com/forex"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://mru-oracle.com/forex",
+    "x402_version": 2
+  }
+}

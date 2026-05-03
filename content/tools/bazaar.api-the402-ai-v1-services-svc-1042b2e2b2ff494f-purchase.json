@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-the402-ai-v1-services-svc-1042b2e2b2ff494f-purchase",
+  "title": "Purchase: Web Search (Tavily) ",
+  "description": "Purchase: Web Search (Tavily) ",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.the402.ai/v1/services/svc_1042b2e2b2ff494f/purchase"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.the402.ai/v1/services/svc_1042b2e2b2ff494f/purchase",
+    "x402_version": 1
+  }
+}

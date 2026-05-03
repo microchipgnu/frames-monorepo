@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.aiagentoracle-ai-api-v1-tokens-movers",
+  "title": "AgentOracle: top 10 gainers and top 10 losers by 24h price change percentage acr",
+  "description": "AgentOracle: top 10 gainers and top 10 losers by 24h price change percentage across all tracked on-chain tokens. Returns two parallel arrays plus an `asOf` timestamp.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://aiagentoracle.ai/api/v1/tokens/movers"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://aiagentoracle.ai/api/v1/tokens/movers",
+    "x402_version": 2
+  }
+}

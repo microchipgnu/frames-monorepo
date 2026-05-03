@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-printmoneylab-com-api-v1-global-vs-korea-divergence",
+  "title": "Global vs Korea divergence (light tier) — CoinGecko global price + Korean exchan",
+  "description": "Global vs Korea divergence (light tier) — CoinGecko global price + Korean exchange + 1-2 sentence AI summary. For deeper analysis with Korean news signals and structured AI breakdown, use /api/v1/global-vs-korea-divergence-deep ($0.10).",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.printmoneylab.com/api/v1/global-vs-korea-divergence"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.printmoneylab.com/api/v1/global-vs-korea-divergence",
+    "x402_version": 2
+  }
+}

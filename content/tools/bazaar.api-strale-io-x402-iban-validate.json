@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-iban-validate",
+  "title": "Validate an IBAN number. Checks format, length, and mod-97 checksum. Extracts co",
+  "description": "Validate an IBAN number. Checks format, length, and mod-97 checksum. Extracts country code, bank identifier, and branch code. Pure algorithmic — fast and cheap. SQS: 98/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/iban-validate"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/iban-validate",
+    "x402_version": 1
+  }
+}

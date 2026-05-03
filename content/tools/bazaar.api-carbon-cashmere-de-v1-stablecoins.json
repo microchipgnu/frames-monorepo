@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-stablecoins",
+  "title": "Get stablecoin market data from DefiLlama — total market cap, per-coin circulati",
+  "description": "Get stablecoin market data from DefiLlama — total market cap, per-coin circulating supply, and chain-level distribution for USDT, USDC, DAI, BUSD, and 26 more stablecoins across Ethereum, Tron, BSC, Solana, Arbitrum, Base. Filter by chain. AI agent API for stablecoin flow analysis, crypto market liquidity tracking, and capital rotation detection.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/stablecoins"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/stablecoins",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.solopreneur-402box-io-cfo-financial-strategist",
+  "title": "High-level financial strategy, forecasting, budgeting, capital planning, and fin",
+  "description": "High-level financial strategy, forecasting, budgeting, capital planning, and financial decision-making for business growth",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://solopreneur.402box.io/cfo_financial_strategist"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://solopreneur.402box.io/cfo_financial_strategist",
+    "x402_version": 1
+  }
+}

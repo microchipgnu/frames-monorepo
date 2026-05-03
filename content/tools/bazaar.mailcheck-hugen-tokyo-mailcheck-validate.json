@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.mailcheck-hugen-tokyo-mailcheck-validate",
+  "title": "6 email validation checks in one call — syntax (RFC 5322), MX record verificatio",
+  "description": "6 email validation checks in one call — syntax (RFC 5322), MX record verification, disposable detection (5,000+ domains), free provider identification, role-based address detection (admin@, info@), and typo suggestion. Returns a 0-1 confidence score with detailed per-check results. POST method protects email addresses from access logs. No API keys, no multiple service integrations needed. Accepts USDC payments on Base and Solana",
+  "capabilities": [
+    "email",
+    "mx",
+    "disposable"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://mailcheck.hugen.tokyo/mailcheck/validate"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://mailcheck.hugen.tokyo/mailcheck/validate",
+    "x402_version": 2
+  }
+}

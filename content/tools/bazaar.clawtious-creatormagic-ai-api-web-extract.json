@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.clawtious-creatormagic-ai-api-web-extract",
+  "title": "Extract clean text or markdown from any URL — web scraping for AI agents",
+  "description": "Extract clean text or markdown from any URL — web scraping for AI agents",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://clawtious.creatormagic.ai/api/web/extract"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://clawtious.creatormagic.ai/api/web/extract",
+    "x402_version": 2
+  }
+}

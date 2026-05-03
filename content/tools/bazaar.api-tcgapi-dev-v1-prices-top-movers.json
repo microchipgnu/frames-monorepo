@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-tcgapi-dev-v1-prices-top-movers",
+  "title": "Trending TCG price movers — biggest daily gainers and losers across Pokemon, Mag",
+  "description": "Trending TCG price movers — biggest daily gainers and losers across Pokemon, Magic: The Gathering, Yu-Gi-Oh, and Lorcana cards.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.tcgapi.dev/v1/prices/top-movers"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.tcgapi.dev/v1/prices/top-movers",
+    "x402_version": 1
+  }
+}

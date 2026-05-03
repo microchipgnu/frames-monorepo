@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-questflow-ai-x402-swarm-qrn-swarm-688a23cbc6520a7b2678f77a",
+  "title": "Snipr is an autonomous Swarm built to hunt early Base, BNB and Solana chain toke",
+  "description": "Snipr is an autonomous Swarm built to hunt early Base, BNB and Solana chain tokens before they explode.\nIt scans Dexscreener for low-FDV, high-volume movers, checks for Twitter hype, smart money activity, and contract safety and then instantly sends alerts to Telegram and posts summaries to Twitter.\n\t•\tFresh Base, BNB and SOL tokens (FDV < $5M, 24h volume spike)\n\t•\tWhale wallet detection\n\t•\tSocial buzz filter\n\t•\tContract safety scan\n\t•\tReal-time alerts, zero noise\n\nBuilt for speed. Tuned for alpha. Powered by agents. | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.questflow.ai/x402/swarm/qrn:swarm:688a23cbc6520a7b2678f77a"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "UNKNOWN",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.questflow.ai/x402/swarm/qrn:swarm:688a23cbc6520a7b2678f77a",
+    "x402_version": 1
+  }
+}

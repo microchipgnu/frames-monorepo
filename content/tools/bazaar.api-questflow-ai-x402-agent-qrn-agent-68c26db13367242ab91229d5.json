@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-questflow-ai-x402-agent-qrn-agent-68c26db13367242ab91229d5",
+  "title": "Alpha Vantage Inc. is a leading provider of free APIs for financial market data ",
+  "description": "Alpha Vantage Inc. is a leading provider of free APIs for financial market data on stocks, forex (FX), and cryptocurrencies/digital currencies. | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.questflow.ai/x402/agent/qrn:agent:68c26db13367242ab91229d5"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "UNKNOWN",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.questflow.ai/x402/agent/qrn:agent:68c26db13367242ab91229d5",
+    "x402_version": 1
+  }
+}

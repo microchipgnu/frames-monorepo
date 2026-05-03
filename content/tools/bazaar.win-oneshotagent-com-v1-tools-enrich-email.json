@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.win-oneshotagent-com-v1-tools-enrich-email",
+  "title": "Email enrichment and validation",
+  "description": "Email enrichment and validation",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://win.oneshotagent.com/v1/tools/enrich/email"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://win.oneshotagent.com/v1/tools/enrich/email",
+    "x402_version": 2
+  }
+}

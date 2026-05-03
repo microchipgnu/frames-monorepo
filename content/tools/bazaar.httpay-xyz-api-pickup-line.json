@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.httpay-xyz-api-pickup-line",
+  "title": "Crypto/web3 themed pickup lines",
+  "description": "Crypto/web3 themed pickup lines",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://httpay.xyz/api/pickup-line"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://httpay.xyz/api/pickup-line",
+    "x402_version": 1
+  }
+}

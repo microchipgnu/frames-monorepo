@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402station-io-api-v1-whats-new",
+  "title": "x402 whats-new: catalog diff since a timestamp. Returns added_endpoints[] (first",
+  "description": "x402 whats-new: catalog diff since a timestamp. Returns added_endpoints[] (first_seen >= since), removed_endpoints[] (is_active=false AND last_seen >= since), and counts. Default window: 24h. Price changes are not yet tracked — coming in /api/v1/price-history. Cheap ($0.001) so polling agents can run hourly without breaking the bank.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402station.io/api/v1/whats-new"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402station.io/api/v1/whats-new",
+    "x402_version": 2
+  }
+}

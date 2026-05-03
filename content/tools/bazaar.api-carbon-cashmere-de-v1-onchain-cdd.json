@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-onchain-cdd",
+  "title": "Get BTC Coin Days Destroyed — measures smart money movement by tracking the age-",
+  "description": "Get BTC Coin Days Destroyed — measures smart money movement by tracking the age-weighted volume of moved coins. High CDD indicates long-term holders selling. 24-hour history. AI agent API for smart money tracking, HODLer behavior analysis, and market top/bottom detection.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/onchain/cdd"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/onchain/cdd",
+    "x402_version": 2
+  }
+}

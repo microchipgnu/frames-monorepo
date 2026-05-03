@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.shiba-x420-dev-api-puff-custom",
+  "title": "Buy custom USDC amount worth of Shiba tokens 0x0E8ef9f6355566E91B0F4903d11ae1bDE",
+  "description": "Buy custom USDC amount worth of Shiba tokens 0x0E8ef9f6355566E91B0F4903d11ae1bDE1F08b07",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://shiba.x420.dev/api/puff-custom"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://shiba.x420.dev/api/puff-custom",
+    "x402_version": 1
+  }
+}

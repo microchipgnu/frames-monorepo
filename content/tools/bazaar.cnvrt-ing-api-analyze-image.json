@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.cnvrt-ing-api-analyze-image",
+  "title": "Extract raw artifacts from images: OCR text and detected objects. No interpretat",
+  "description": "Extract raw artifacts from images: OCR text and detected objects. No interpretation, just clean machine-readable data. Powered by GPT-4o Vision. Payment via USDC on base.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://cnvrt.ing/api/analyze-image"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://cnvrt.ing/api/analyze-image",
+    "x402_version": 1
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.netintel-production-440c-up-railway-app-github-intel-analyze",
+  "title": "Fetch public metadata for any GitHub repository — stars, forks, open issues, lan",
+  "description": "Fetch public metadata for any GitHub repository — stars, forks, open issues, language breakdown, license, contributors, last commit date, topics, and an activity/health score — so agents can evaluate dependencies, research projects, and assess open source health without the GitHub API complexity.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://netintel-production-440c.up.railway.app/github-intel/analyze"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://netintel-production-440c.up.railway.app/github-intel/analyze",
+    "x402_version": 2
+  }
+}

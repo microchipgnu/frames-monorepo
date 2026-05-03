@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-whale-tracker-guide-api-4fd98c",
+  "title": "How to track crypto whale wallets — tools, patterns and interpretation guide. Bu",
+  "description": "How to track crypto whale wallets — tools, patterns and interpretation guide. Built for AI crypto research agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/whale-tracker-guide-api-4fd98c"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/whale-tracker-guide-api-4fd98c",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.polynews-news-api-v1-arbitrage",
+  "title": "Cross-platform arbitrage detection between Polymarket and Kalshi: matched market",
+  "description": "Cross-platform arbitrage detection between Polymarket and Kalshi: matched markets, price spreads, fee-adjusted EV",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://polynews.news/api/v1/arbitrage"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://polynews.news/api/v1/arbitrage",
+    "x402_version": 1
+  }
+}

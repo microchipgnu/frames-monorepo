@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-cybercentry-web-application-verification-up-railway-app-verify",
+  "title": "Verify any url using the Cybercentry Web Application Verification (CWAV) API. Re",
+  "description": "Verify any url using the Cybercentry Web Application Verification (CWAV) API. Returns a scan_id and scan_url for verification via the proxy endpoint",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402-cybercentry-web-application-verification.up.railway.app/verify"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402-cybercentry-web-application-verification.up.railway.app/verify",
+    "x402_version": 1
+  }
+}

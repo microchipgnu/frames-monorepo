@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-aitrailblazer-net-v1-daily-changes-latest",
+  "title": "Latest published SEC daily-changes snapshot for the tracked slice.",
+  "description": "Latest published SEC daily-changes snapshot for the tracked slice.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.aitrailblazer.net/v1/daily-changes/latest"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.03"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.aitrailblazer.net/v1/daily-changes/latest",
+    "x402_version": 2
+  }
+}

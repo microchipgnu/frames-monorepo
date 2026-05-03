@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.serp-x402-vercel-app-serp-bing",
+  "title": "Bing organic search results. Alternative to Google with different ranking signal",
+  "description": "Bing organic search results. Alternative to Google with different ranking signals — useful for cross-referencing or when Google data isn't sufficient.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://serp-x402.vercel.app/serp/bing"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://serp-x402.vercel.app/serp/bing",
+    "x402_version": 2
+  }
+}

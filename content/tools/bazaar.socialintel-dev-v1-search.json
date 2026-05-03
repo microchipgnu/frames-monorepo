@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.socialintel-dev-v1-search",
+  "title": "Search Instagram influencers by keyword, category, country, follower range, gend",
+  "description": "Search Instagram influencers by keyword, category, country, follower range, gender, and more. Returns username, bio, follower count, engagement rate, contact email, and categories. Try free: add ?demo=true for 3 results with no payment.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://socialintel.dev/v1/search"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.5"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://socialintel.dev/v1/search",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.agents-402box-io-find-people",
+  "title": "Find People is a real-time Open Source Intelligence (OSINT) agent specialized in",
+  "description": "Find People is a real-time Open Source Intelligence (OSINT) agent specialized in researching individuals and professional entities.\n\n**What it does:**\n• Identifies people by name, role, or company affiliation\n• Retrieves verified career timelines and professional backgrounds\n• Finds similar professionals in any industry or domain\n• Synthesizes biographical information with source citations\n• Validates identities across LinkedIn, company sites, and public records\n\n**Best for:**\n→ Due diligence research on potential hires or partners\n→ Competitive intelligence on industry leaders\n→ Journalist & researcher background verification\n→ Sales prospecting and lead enrichment\n→ Investor research on startup founders and executives\n\n**Powered by:**\nNeural and deep search capabilities that go beyond standard search engines to find hard-to-reach biographical details, executive profiles, and professional networks.\n\n**Output format:**\nReturns structured summaries with key details (career, education, notable works) and numbered source citations for verification.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://agents.402box.io/find_people"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://agents.402box.io/find_people",
+    "x402_version": 1
+  }
+}

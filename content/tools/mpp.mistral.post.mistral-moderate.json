@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.mistral.post.mistral-moderate",
+  "title": "Mistral AI — POST /mistral/moderate",
+  "description": "Moderation",
+  "capabilities": [
+    "llm",
+    "chat",
+    "embeddings",
+    "code",
+    "reasoning",
+    "ai"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://mistral.mpp.paywithlocus.com/mistral/moderate"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.008"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "mistral:POST:/mistral/moderate"
+  }
+}

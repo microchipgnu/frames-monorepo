@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.tavily.post.tavily-map",
+  "title": "Tavily — POST /tavily/map",
+  "description": "Map",
+  "capabilities": [
+    "ai-search",
+    "web-search",
+    "extraction",
+    "crawling",
+    "search",
+    "web"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://tavily.mpp.paywithlocus.com/tavily/map"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.09"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "tavily:POST:/tavily/map"
+  }
+}

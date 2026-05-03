@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.blockrun-ai-api-v1-pm-polymarket-wallet-positions-address",
+  "title": "Get open and historical positions for a wallet address",
+  "description": "Get open and historical positions for a wallet address",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://blockrun.ai/api/v1/pm/polymarket/wallet/positions/:address"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://blockrun.ai/api/v1/pm/polymarket/wallet/positions/:address",
+    "x402_version": 2
+  }
+}

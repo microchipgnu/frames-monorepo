@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.pubmed-trends-x402-ben-miles2-workers-dev-api-v1-emerging",
+  "title": "Detect emerging research topics with accelerating publication rates",
+  "description": "Detect emerging research topics with accelerating publication rates",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://pubmed-trends-x402.ben-miles2.workers.dev/api/v1/emerging"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://pubmed-trends-x402.ben-miles2.workers.dev/api/v1/emerging",
+    "x402_version": 2
+  }
+}

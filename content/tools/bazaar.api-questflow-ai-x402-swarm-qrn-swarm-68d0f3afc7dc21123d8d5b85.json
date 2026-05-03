@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-questflow-ai-x402-swarm-qrn-swarm-68d0f3afc7dc21123d8d5b85",
+  "title": "A powerful workflow that combines Exa Search for precise, high-quality discovery",
+  "description": "A powerful workflow that combines Exa Search for precise, high-quality discovery with Firecrawl for intelligent web crawling and structured data extraction. | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.questflow.ai/x402/swarm/qrn:swarm:68d0f3afc7dc21123d8d5b85"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "UNKNOWN",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.questflow.ai/x402/swarm/qrn:swarm:68d0f3afc7dc21123d8d5b85",
+    "x402_version": 1
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-ai-webhook-event-classifier-e77ff6-api-priority",
+  "title": "Classify, route and prioritize webhook events from any source — built for integr",
+  "description": "Classify, route and prioritize webhook events from any source — built for integration AI agents",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/ai-webhook-event-classifier-e77ff6/api/priority"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/ai-webhook-event-classifier-e77ff6/api/priority",
+    "x402_version": 2
+  }
+}

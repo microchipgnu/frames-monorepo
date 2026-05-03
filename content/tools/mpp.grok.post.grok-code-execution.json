@@ -1,0 +1,29 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.grok.post.grok-code-execution",
+  "title": "Grok — POST /grok/code-execution",
+  "description": "Chat with Code Execution",
+  "capabilities": [
+    "llm",
+    "chat",
+    "x-search",
+    "web-search",
+    "image-generation",
+    "tts",
+    "ai"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://grok.mpp.paywithlocus.com/grok/code-execution"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "dynamic"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "grok:POST:/grok/code-execution"
+  }
+}

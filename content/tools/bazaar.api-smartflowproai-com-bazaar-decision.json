@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-smartflowproai-com-bazaar-decision",
+  "title": "AI-powered crypto trading decision — BUY/WATCH/AVOID with confidence score, risk",
+  "description": "AI-powered crypto trading decision — BUY/WATCH/AVOID with confidence score, risk level, and reasoning. Aggregates 5 real-time signal feeds.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.smartflowproai.com/bazaar/decision"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.smartflowproai.com/bazaar/decision",
+    "x402_version": 2
+  }
+}

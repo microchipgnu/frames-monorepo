@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.netintel-production-440c-up-railway-app-robots-txt-analyze",
+  "title": "Fetch and parse a domain's robots.txt file — returns all crawl rules by user-age",
+  "description": "Fetch and parse a domain's robots.txt file — returns all crawl rules by user-agent, sitemap URLs, crawl delay settings, and checks whether a specific path is allowed or blocked for any bot — so agents can respect crawl policies and locate sitemaps before scraping.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://netintel-production-440c.up.railway.app/robots-txt/analyze"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://netintel-production-440c.up.railway.app/robots-txt/analyze",
+    "x402_version": 2
+  }
+}

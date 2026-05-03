@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.blockrun-ai-api-v1-pm-polymarket-positions",
+  "title": "Fetch all user positions with filtering and pagination",
+  "description": "Fetch all user positions with filtering and pagination",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://blockrun.ai/api/v1/pm/polymarket/positions"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://blockrun.ai/api/v1/pm/polymarket/positions",
+    "x402_version": 2
+  }
+}

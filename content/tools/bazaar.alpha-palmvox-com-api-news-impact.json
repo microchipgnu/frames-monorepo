@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.alpha-palmvox-com-api-news-impact",
+  "title": "Latest crypto news headline with AI-predicted market impact score (1-10), affect",
+  "description": "Latest crypto news headline with AI-predicted market impact score (1-10), affected tokens, and recommended action. Combines news data with sentiment analysis.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://alpha.palmvox.com/api/news/impact"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://alpha.palmvox.com/api/news/impact",
+    "x402_version": 2
+  }
+}

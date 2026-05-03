@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-gdp-data-api-6edac9",
+  "title": "GDP and economic data for 6 major economies — total GDP, per capita, credit rati",
+  "description": "GDP and economic data for 6 major economies — total GDP, per capita, credit ratings and stock exchanges.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/gdp-data-api-6edac9"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/gdp-data-api-6edac9",
+    "x402_version": 2
+  }
+}

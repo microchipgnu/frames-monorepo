@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.graph-advocate-production-up-railway-app-route",
+  "title": "Route an onchain data request through Graph Advocate. Returns a ready-to-execute",
+  "description": "Route an onchain data request through Graph Advocate. Returns a ready-to-execute query, subgraph ID, and MCP install hint.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://graph-advocate-production.up.railway.app/route"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://graph-advocate-production.up.railway.app/route",
+    "x402_version": 2
+  }
+}

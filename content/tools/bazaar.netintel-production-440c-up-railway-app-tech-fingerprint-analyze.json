@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.netintel-production-440c-up-railway-app-tech-fingerprint-analyze",
+  "title": "Fetch a URL and detect the full technology stack from HTTP response headers, HTM",
+  "description": "Fetch a URL and detect the full technology stack from HTTP response headers, HTML meta tags, cookies, and script patterns — returns CMS, framework, CDN, server, analytics, and security tool detections so agents can profile any web target without a browser.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://netintel-production-440c.up.railway.app/tech-fingerprint/analyze"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://netintel-production-440c.up.railway.app/tech-fingerprint/analyze",
+    "x402_version": 2
+  }
+}

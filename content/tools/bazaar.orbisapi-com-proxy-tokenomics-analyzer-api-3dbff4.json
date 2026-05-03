@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-tokenomics-analyzer-api-3dbff4",
+  "title": "Analyze token distribution, vesting schedules and inflation rates. Score tokenom",
+  "description": "Analyze token distribution, vesting schedules and inflation rates. Score tokenomics from 0-100. Built for AI crypto research agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/tokenomics-analyzer-api-3dbff4"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/tokenomics-analyzer-api-3dbff4",
+    "x402_version": 2
+  }
+}

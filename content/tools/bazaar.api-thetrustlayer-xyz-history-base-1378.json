@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-thetrustlayer-xyz-history-base-1378",
+  "title": "Full score time-series for an agent. Returns all historical trust score snapshot",
+  "description": "Full score time-series for an agent. Returns all historical trust score snapshots, trajectory (7d/30d change), and volatility (standard deviation).",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.thetrustlayer.xyz/history/base:1378"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.thetrustlayer.xyz/history/base:1378",
+    "x402_version": 2
+  }
+}

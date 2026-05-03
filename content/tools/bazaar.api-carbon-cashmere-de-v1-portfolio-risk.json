@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-portfolio-risk",
+  "title": "Analyze portfolio risk for 2-10 crypto assets — returns Value-at-Risk (95%/99%),",
+  "description": "Analyze portfolio risk for 2-10 crypto assets — returns Value-at-Risk (95%/99%), Conditional VaR, annualized volatility, Sharpe ratio, Sortino ratio, maximum drawdown, full correlation matrix, per-asset risk breakdown, and diversification ratio. Custom portfolio weights supported. AI agent API for portfolio risk management, position sizing optimization, and institutional-grade risk analytics.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/portfolio-risk"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/portfolio-risk",
+    "x402_version": 2
+  }
+}

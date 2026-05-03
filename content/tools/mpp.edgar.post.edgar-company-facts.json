@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.edgar.post.edgar-company-facts",
+  "title": "EDGAR (SEC) — POST /edgar/company-facts",
+  "description": "Company Facts",
+  "capabilities": [
+    "sec",
+    "filings",
+    "company-data",
+    "financials",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://edgar.mpp.paywithlocus.com/edgar/company-facts"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.008"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "edgar:POST:/edgar/company-facts"
+  }
+}

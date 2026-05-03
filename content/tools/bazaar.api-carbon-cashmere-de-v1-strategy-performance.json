@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-strategy-performance",
+  "title": "Historical performance track record from Risk Engine v1 — 3 quantitative researc",
+  "description": "Historical performance track record from Risk Engine v1 — 3 quantitative research methodologies with live win rate, cumulative metric, Sharpe ratio, max drawdown, and recent outcome history. Includes kill-switch status and methodology summary. Research-grade performance data for AI agents and analytics — informational purposes only, not investment advice.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/strategy-performance"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/strategy-performance",
+    "x402_version": 2
+  }
+}

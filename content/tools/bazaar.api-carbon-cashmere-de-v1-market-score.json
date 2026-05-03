@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-market-score",
+  "title": "Get composite crypto market health score (0-100) from 7 weighted components — BT",
+  "description": "Get composite crypto market health score (0-100) from 7 weighted components — BTC trend, altcoin momentum, funding rate bias, signal density, liquidation ratio, volume profile, and Fear & Greed. AI agent API for market regime assessment, risk management, and macro crypto analysis.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/market-score"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/market-score",
+    "x402_version": 2
+  }
+}

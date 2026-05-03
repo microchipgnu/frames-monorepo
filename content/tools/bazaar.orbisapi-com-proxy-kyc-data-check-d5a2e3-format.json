@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-kyc-data-check-d5a2e3-format",
+  "title": "Identity verification data points for KYC compliance workflows",
+  "description": "Identity verification data points for KYC compliance workflows",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/kyc-data-check-d5a2e3/format"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/kyc-data-check-d5a2e3/format",
+    "x402_version": 2
+  }
+}

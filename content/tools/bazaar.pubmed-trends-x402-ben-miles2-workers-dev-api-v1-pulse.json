@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.pubmed-trends-x402-ben-miles2-workers-dev-api-v1-pulse",
+  "title": "Daily-resolution publication pulse with 7d/30d/90d windows and year-over-year ch",
+  "description": "Daily-resolution publication pulse with 7d/30d/90d windows and year-over-year change",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://pubmed-trends-x402.ben-miles2.workers.dev/api/v1/pulse"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://pubmed-trends-x402.ben-miles2.workers.dev/api/v1/pulse",
+    "x402_version": 2
+  }
+}

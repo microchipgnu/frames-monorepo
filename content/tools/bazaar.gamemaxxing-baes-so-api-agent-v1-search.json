@@ -1,0 +1,34 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.gamemaxxing-baes-so-api-agent-v1-search",
+  "title": "Search GAMEMAXXING's video games and gaming knowledge base for game concepts acr",
+  "description": "Search GAMEMAXXING's video games and gaming knowledge base for game concepts across game design, game business, game culture, and gaming history, then return ranked JSON hits with full content first and source URLs second.",
+  "capabilities": [
+    "game",
+    "games",
+    "video-games",
+    "gaming",
+    "game-research",
+    "game-search",
+    "game-concepts",
+    "game-design",
+    "game-business",
+    "knowledge-base"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://gamemaxxing.baes.so/api/agent/v1/search"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://gamemaxxing.baes.so/api/agent/v1/search",
+    "x402_version": 2
+  }
+}

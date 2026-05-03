@@ -1,0 +1,31 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.openai.post.v1-chat-completions",
+  "title": "OpenAI — POST /v1/chat/completions",
+  "description": "Chat completions (GPT-4o, GPT-4, o1, etc.) - price varies by model",
+  "capabilities": [
+    "llm",
+    "gpt-4o",
+    "dall-e",
+    "whisper",
+    "tts",
+    "embeddings",
+    "chat",
+    "ai",
+    "media"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://openai.mpp.tempo.xyz/v1/chat/completions"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "dynamic"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "openai:POST:/v1/chat/completions"
+  }
+}

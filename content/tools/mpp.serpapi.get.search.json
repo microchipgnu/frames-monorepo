@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.serpapi.get.search",
+  "title": "SerpApi — GET /search",
+  "description": "Google Flights search",
+  "capabilities": [
+    "search",
+    "flights",
+    "google",
+    "prices",
+    "data"
+  ],
+  "invocation": {
+    "method": "GET",
+    "url": "https://serpapi.mpp.tempo.xyz/search"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.015"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "serpapi:GET:/search"
+  }
+}

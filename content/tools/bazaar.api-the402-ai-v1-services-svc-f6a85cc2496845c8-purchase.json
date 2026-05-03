@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-the402-ai-v1-services-svc-f6a85cc2496845c8-purchase",
+  "title": "Purchase: Content Summarization",
+  "description": "Purchase: Content Summarization",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.the402.ai/v1/services/svc_f6a85cc2496845c8/purchase"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.the402.ai/v1/services/svc_f6a85cc2496845c8/purchase",
+    "x402_version": 1
+  }
+}

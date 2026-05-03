@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-url-domain-extractor-api-929644-info",
+  "title": "Extract registered domain subdomain TLD and public suffix from URLs",
+  "description": "Extract registered domain subdomain TLD and public suffix from URLs",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/url-domain-extractor-api-929644/info"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/url-domain-extractor-api-929644/info",
+    "x402_version": 2
+  }
+}

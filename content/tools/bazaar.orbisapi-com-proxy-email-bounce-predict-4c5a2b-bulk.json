@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-email-bounce-predict-4c5a2b-bulk",
+  "title": "Predict bounce probability for email addresses before sending",
+  "description": "Predict bounce probability for email addresses before sending",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/email-bounce-predict-4c5a2b/bulk"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/email-bounce-predict-4c5a2b/bulk",
+    "x402_version": 2
+  }
+}

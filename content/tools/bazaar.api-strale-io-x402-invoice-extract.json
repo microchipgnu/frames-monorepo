@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-invoice-extract",
+  "title": "Extract structured data from an invoice or receipt image/PDF. Returns line items",
+  "description": "Extract structured data from an invoice or receipt image/PDF. Returns line items, totals, dates, vendor info, VAT amounts. SQS: 77/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/invoice-extract"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/invoice-extract",
+    "x402_version": 1
+  }
+}

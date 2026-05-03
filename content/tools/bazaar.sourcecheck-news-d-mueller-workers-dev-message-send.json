@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.sourcecheck-news-d-mueller-workers-dev-message-send",
+  "title": "Send an A2A message to SourceCheck News.",
+  "description": "Send an A2A message to SourceCheck News.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://sourcecheck-news.d-mueller.workers.dev/message:send"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.16"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://sourcecheck-news.d-mueller.workers.dev/message:send",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-staking-rewards-data-api-26f882-liquid-staking",
+  "title": "Track proof-of-stake tokens, liquid staking, and estimate staking rewards.",
+  "description": "Track proof-of-stake tokens, liquid staking, and estimate staking rewards.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/staking-rewards-data-api-26f882/liquid_staking"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/staking-rewards-data-api-26f882/liquid_staking",
+    "x402_version": 2
+  }
+}

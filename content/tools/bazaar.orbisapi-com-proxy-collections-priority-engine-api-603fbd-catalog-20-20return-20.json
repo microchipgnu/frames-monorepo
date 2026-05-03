@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-collections-priority-engine-api-603fbd-catalog-20-20return-20",
+  "title": "Prioritize collections outreach from invoice age, amount, relationship, dispute,",
+  "description": "Prioritize collections outreach from invoice age, amount, relationship, dispute, and payment likelihood",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/collections-priority-engine-api-603fbd/catalog%20-%20Return%20scoring%20bands%20and%20rule%20metadata"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/collections-priority-engine-api-603fbd/catalog%20-%20Return%20scoring%20bands%20and%20rule%20metadata",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-impaired-driving-score-api-a1742b-info",
+  "title": "Score impaired driving enforcement program effectiveness",
+  "description": "Score impaired driving enforcement program effectiveness",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/impaired-driving-score-api-a1742b/info"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/impaired-driving-score-api-a1742b/info",
+    "x402_version": 2
+  }
+}

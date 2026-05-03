@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-deepbluebase-xyz-market-snapshot",
+  "title": "All-coins snapshot in one call — BTC, ETH, SOL, XRP prices, signals, and sentime",
+  "description": "All-coins snapshot in one call — BTC, ETH, SOL, XRP prices, signals, and sentiment",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.deepbluebase.xyz/market-snapshot"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "solana-mainnet",
+    "currency": "UNKNOWN",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.deepbluebase.xyz/market-snapshot",
+    "x402_version": 2
+  }
+}

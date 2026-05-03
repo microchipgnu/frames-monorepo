@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-slug-generator-url-utilities-api-c2c13f-url-domain",
+  "title": "Generate URL slugs with variants, parse URLs, build URLs with params, extract do",
+  "description": "Generate URL slugs with variants, parse URLs, build URLs with params, extract domain info. Built for AI agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/slug-generator-url-utilities-api-c2c13f/url/domain"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/slug-generator-url-utilities-api-c2c13f/url/domain",
+    "x402_version": 2
+  }
+}

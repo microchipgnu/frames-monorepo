@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-reloadpi-com-api-catalog-vouchers-offers-offerid",
+  "title": "Reloadpi — Get full details for a specific voucher or gift card offer by ID",
+  "description": "Reloadpi — Get full details for a specific voucher or gift card offer by ID",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.reloadpi.com/api/catalog/vouchers/offers/:offerId"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.reloadpi.com/api/catalog/vouchers/offers/:offerId",
+    "x402_version": 2
+  }
+}

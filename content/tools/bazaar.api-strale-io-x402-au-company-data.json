@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-au-company-data",
+  "title": "Look up Australian company data from the Australian Business Register (ABR). Acc",
+  "description": "Look up Australian company data from the Australian Business Register (ABR). Accepts an ABN (11 digits). Returns entity name, status, type, GST registration, and address details. Free government API — fast and reliable. SQS: 81/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/au-company-data"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/au-company-data",
+    "x402_version": 1
+  }
+}

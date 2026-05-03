@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-chart-coin",
+  "title": "Get 4h candlestick chart as base64 PNG plus structured technical features. Deliv",
+  "description": "Get 4h candlestick chart as base64 PNG plus structured technical features. Delivers chart image + candles count + timeframe metadata for any coin. AI agent API for visual market intelligence, chart-based technical analysis, and image-backed reporting.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/chart/:coin"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/chart/:coin",
+    "x402_version": 2
+  }
+}

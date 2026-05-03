@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-history-anomalies",
+  "title": "ML-detected market anomaly log. Each anomaly includes ts, symbol, score, severit",
+  "description": "ML-detected market anomaly log. Each anomaly includes ts, symbol, score, severity (low/medium/high/critical), features dict (RSI, MA distance, volume ratio, volatility, price changes, liquidation ratio, funding z-score), and natural-language description. Filter by symbol or min severity. 340+ anomalies over 48 days stored. AI agent API for anomaly-driven alerting, pattern mining, and ML-feature provenance.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/history/anomalies"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.03"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/history/anomalies",
+    "x402_version": 2
+  }
+}

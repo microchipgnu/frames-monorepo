@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-nansen-ai-api-v1-profiler-address-current-balance",
+  "title": "Get Address Current Balance Data",
+  "description": "Get Address Current Balance Data",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.nansen.ai/api/v1/profiler/address/current-balance"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.nansen.ai/api/v1/profiler/address/current-balance",
+    "x402_version": 2
+  }
+}

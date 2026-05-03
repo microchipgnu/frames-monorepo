@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-loyalspark-online-x402-gateway-recipient-api-offers",
+  "title": "Loyal Spark API — recipient-api/offers",
+  "description": "Loyal Spark API — recipient-api/offers",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.loyalspark.online/x402-gateway/recipient-api/offers"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.loyalspark.online/x402-gateway/recipient-api/offers",
+    "x402_version": 2
+  }
+}

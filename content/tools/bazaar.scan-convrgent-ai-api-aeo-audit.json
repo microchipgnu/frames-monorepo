@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.scan-convrgent-ai-api-aeo-audit",
+  "title": "Scanner for AI search visibility (AEO, GEO) and agent readiness — audits JSON-LD",
+  "description": "Scanner for AI search visibility (AEO, GEO) and agent readiness — audits JSON-LD Schema.org structured data, meta tags, robots.txt, llms.txt, sitemap, content quality, and agent-discovery signals for discoverability in ChatGPT, Perplexity, Google AI Overviews, and Bing Copilot. 67+ checks across 12 categories with per-page breakdown.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://scan.convrgent.ai/api/aeo/audit"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://scan.convrgent.ai/api/aeo/audit",
+    "x402_version": 2
+  }
+}

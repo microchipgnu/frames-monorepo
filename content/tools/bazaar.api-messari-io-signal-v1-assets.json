@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-messari-io-signal-v1-assets",
+  "title": "Get crypto asset mindshare rankings with sentiment and momentum context.",
+  "description": "Get crypto asset mindshare rankings with sentiment and momentum context.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.messari.io/signal/v1/assets"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.55"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.messari.io/signal/v1/assets",
+    "x402_version": 2
+  }
+}

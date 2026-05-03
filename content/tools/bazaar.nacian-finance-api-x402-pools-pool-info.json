@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.nacian-finance-api-x402-pools-pool-info",
+  "title": "Access detailed information (including token prices, tvl, volumes, fees and more",
+  "description": "Access detailed information (including token prices, tvl, volumes, fees and more) about specific liquidity pools across multiple chains (Arbitrum, Base, Ethereum). Exchanges supported on Ethereum include Uniswap V2 / V4, Pancake V2 and Sushiswap V2 / V3. Exchanges supported on Arbitrum include Uniswap V4, Sushiswap V2 / V3 and Camelot V3. Exchanges supported on Base include Uniswap V2 / V3 / V4 and Sushiswap V3.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://nacian.finance/api/x402/pools/pool-info"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://nacian.finance/api/x402/pools/pool-info",
+    "x402_version": 1
+  }
+}

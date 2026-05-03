@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-hash-generator-api-3d7d54-bulk",
+  "title": "Generate MD5, SHA-1, SHA-256, SHA-512, and HMAC hashes.",
+  "description": "Generate MD5, SHA-1, SHA-256, SHA-512, and HMAC hashes.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/hash-generator-api-3d7d54/bulk"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/hash-generator-api-3d7d54/bulk",
+    "x402_version": 2
+  }
+}

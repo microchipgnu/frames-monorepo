@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-company-id-detect",
+  "title": "Identify the type and country of a company registration number. Detects Swedish ",
+  "description": "Identify the type and country of a company registration number. Detects Swedish org numbers, Finnish business IDs, German HRB numbers, LEIs, DUNS, and 20+ other formats. Pure algorithmic. SQS: 98/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/company-id-detect"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/company-id-detect",
+    "x402_version": 1
+  }
+}

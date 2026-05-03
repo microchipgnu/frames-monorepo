@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.trader-rigoblock-com-api-quote",
+  "title": "Rigoblock price oracle — DEX price quotes from Uniswap across 7 chains (Ethereum",
+  "description": "Rigoblock price oracle — DEX price quotes from Uniswap across 7 chains (Ethereum, Base, Arbitrum, Optimism, Polygon, BNB, Unichain).",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://trader.rigoblock.com/api/quote"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://trader.rigoblock.com/api/quote",
+    "x402_version": 2
+  }
+}

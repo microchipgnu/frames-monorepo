@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-global-value-chain-score-api-eb4a64-score",
+  "title": "Score global value chain participation and upgrading",
+  "description": "Score global value chain participation and upgrading",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/global-value-chain-score-api-eb4a64/score"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/global-value-chain-score-api-eb4a64/score",
+    "x402_version": 2
+  }
+}

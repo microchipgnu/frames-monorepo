@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-uk-company-data",
+  "title": "Look up UK company data from Companies House. Accepts company number (8 digits) ",
+  "description": "Look up UK company data from Companies House. Accepts company number (8 digits) or fuzzy company name. Returns company name, status, incorporation date, SIC codes, registered address. SQS: 82/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/uk-company-data"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/uk-company-data",
+    "x402_version": 1
+  }
+}

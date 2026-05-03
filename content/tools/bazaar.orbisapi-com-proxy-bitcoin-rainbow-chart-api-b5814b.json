@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-bitcoin-rainbow-chart-api-b5814b",
+  "title": "Bitcoin rainbow chart guide — log price bands and historical market cycle analys",
+  "description": "Bitcoin rainbow chart guide — log price bands and historical market cycle analysis. Built for AI crypto agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/bitcoin-rainbow-chart-api-b5814b"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/bitcoin-rainbow-chart-api-b5814b",
+    "x402_version": 2
+  }
+}

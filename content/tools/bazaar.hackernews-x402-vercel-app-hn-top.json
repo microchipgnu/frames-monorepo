@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.hackernews-x402-vercel-app-hn-top",
+  "title": "Hacker News top stories feed. Returns the current top-ranked stories with title,",
+  "description": "Hacker News top stories feed. Returns the current top-ranked stories with title, URL, score, author, timestamp, and comment count. Tech industry's premier social news aggregator.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://hackernews-x402.vercel.app/hn/top"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://hackernews-x402.vercel.app/hn/top",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.mon-x420-dev-api-puff",
+  "title": "Buy 1 USDC worth of MON tokens 0x4DA4C8349bAe3f9986A56Dba62cDB583fA91cb07",
+  "description": "Buy 1 USDC worth of MON tokens 0x4DA4C8349bAe3f9986A56Dba62cDB583fA91cb07",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://mon.x420.dev/api/puff"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://mon.x420.dev/api/puff",
+    "x402_version": 1
+  }
+}

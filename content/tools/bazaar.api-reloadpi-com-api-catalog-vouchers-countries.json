@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-reloadpi-com-api-catalog-vouchers-countries",
+  "title": "Reloadpi — List all countries where digital vouchers and gift cards are availabl",
+  "description": "Reloadpi — List all countries where digital vouchers and gift cards are available",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.reloadpi.com/api/catalog/vouchers/countries"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.reloadpi.com/api/catalog/vouchers/countries",
+    "x402_version": 2
+  }
+}

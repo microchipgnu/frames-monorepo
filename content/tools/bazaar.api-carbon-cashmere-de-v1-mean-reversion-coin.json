@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-mean-reversion-coin",
+  "title": "Mean-reversion analytics — z-score to 20/50/200-bar MAs, Ornstein-Uhlenbeck half",
+  "description": "Mean-reversion analytics — z-score to 20/50/200-bar MAs, Ornstein-Uhlenbeck half-life in days (AR(1) regression on log prices), reversion probability (2-sided normal CDF). Identifies coins stretched from equilibrium and speed of mean reversion. Informational research data — not investment advice.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/mean-reversion/:coin"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.12"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/mean-reversion/:coin",
+    "x402_version": 2
+  }
+}

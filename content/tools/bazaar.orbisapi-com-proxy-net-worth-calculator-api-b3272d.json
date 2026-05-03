@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-net-worth-calculator-api-b3272d",
+  "title": "Calculate net worth from assets and liabilities with breakdown",
+  "description": "Calculate net worth from assets and liabilities with breakdown",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/net-worth-calculator-api-b3272d"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/net-worth-calculator-api-b3272d",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-data-breach-notification-timer-api-bd6209-bulk",
+  "title": "Calculate breach notification deadlines for GDPR, HIPAA, CCPA, PCI DSS, and more",
+  "description": "Calculate breach notification deadlines for GDPR, HIPAA, CCPA, PCI DSS, and more.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/data-breach-notification-timer-api-bd6209/bulk"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/data-breach-notification-timer-api-bd6209/bulk",
+    "x402_version": 2
+  }
+}

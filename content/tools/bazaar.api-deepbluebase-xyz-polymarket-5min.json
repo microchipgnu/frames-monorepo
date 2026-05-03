@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-deepbluebase-xyz-polymarket-5min",
+  "title": "5-minute epoch prediction market discovery — active BTC/ETH markets with current",
+  "description": "5-minute epoch prediction market discovery — active BTC/ETH markets with current odds and timing",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.deepbluebase.xyz/polymarket/5min"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "solana-mainnet",
+    "currency": "UNKNOWN",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.deepbluebase.xyz/polymarket/5min",
+    "x402_version": 2
+  }
+}

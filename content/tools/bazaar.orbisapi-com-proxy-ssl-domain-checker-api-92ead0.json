@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-ssl-domain-checker-api-92ead0",
+  "title": "Check domain security — suspicious TLDs, structure analysis, and security scorin",
+  "description": "Check domain security — suspicious TLDs, structure analysis, and security scoring.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/ssl-domain-checker-api-92ead0"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/ssl-domain-checker-api-92ead0",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.dev-x420-dev-api-puff-custom",
+  "title": "Buy custom USDC amount worth of DEV tokens 0x64a3fc16f47d5c39D526eF40adEcc8C0507",
+  "description": "Buy custom USDC amount worth of DEV tokens 0x64a3fc16f47d5c39D526eF40adEcc8C050751b07",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://dev.x420.dev/api/puff-custom"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://dev.x420.dev/api/puff-custom",
+    "x402_version": 1
+  }
+}

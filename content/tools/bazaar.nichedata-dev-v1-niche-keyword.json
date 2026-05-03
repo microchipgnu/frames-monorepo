@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.nichedata-dev-v1-niche-keyword",
+  "title": "KDP niche intelligence: demand, competition, BSR, revenue, pricing.",
+  "description": "KDP niche intelligence: demand, competition, BSR, revenue, pricing.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://nichedata.dev/v1/niche/:keyword"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.03"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://nichedata.dev/v1/niche/:keyword",
+    "x402_version": 2
+  }
+}

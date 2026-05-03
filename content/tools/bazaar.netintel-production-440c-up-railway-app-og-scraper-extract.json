@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.netintel-production-440c-up-railway-app-og-scraper-extract",
+  "title": "Fetch any public URL and extract structured metadata — Open Graph tags, Twitter ",
+  "description": "Fetch any public URL and extract structured metadata — Open Graph tags, Twitter Card tags, canonical URL, title, description, favicon, article author/date, JSON-LD structured data, and content type — so agents can preview, classify, and enrich links without building their own scraper.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://netintel-production-440c.up.railway.app/og-scraper/extract"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://netintel-production-440c.up.railway.app/og-scraper/extract",
+    "x402_version": 2
+  }
+}

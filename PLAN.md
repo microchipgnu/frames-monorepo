@@ -2,16 +2,51 @@
 
 Staged build for the canonical hosted tool catalog at `catalog.frames.ag`.
 
-## C0 — Repo scaffold (initial commit)
+## C0 — Repo scaffold
 
 - README, PLAN
 - `server/` skeleton: `handler.ts`, `cache.ts`, `content.ts`, `types.ts`, `canonical.ts` (JCS), `descriptor-id.ts`
-- Cloudflare adapter (`adapters/cloudflare-kv.ts`) + `wrangler.toml` + entry
-- Vercel adapter (`adapters/vercel-kv.ts`) + `vercel.json` + entry
-- 3 hand-written descriptors in `content/tools/` (search.exa, extract.anthropic-opus, scrape.firecrawl)
+- Cloudflare adapter + Vercel adapter, both with their deploy entry
 - `validate.yml` CI
 
 **Status:** done.
+
+## C0.5 — Mirror Bazaar + MPP into content/tools/
+
+The catalog's content is **mirrored** from the existing live discovery sources, not hand-curated:
+
+- **Coinbase x402 Bazaar** (`api.cdp.coinbase.com/platform/v2/x402/discovery/resources`) — paginated, paid HTTP resources across Base, Solana, others
+- **MPP directory** (`mpp.dev/api/services`) — services with paid endpoints (Anthropic, AgentMail, etc.)
+
+`scripts/refresh.ts` (Bun) fetches both, normalizes each entry into a pay v0.0.1 ToolDescriptor, and writes to `content/tools/<slugged-id>.json`. Run:
+
+```
+bun run scripts/refresh.ts                  # full refresh
+bun run scripts/refresh.ts --limit 20       # sample
+bun run scripts/refresh.ts --source bazaar  # one source
+```
+
+Initial mirror produced **5,748 descriptors** (5,099 Bazaar + 669 MPP, with ~20 slug collisions silently overwritten — known issue, fix in C0.6).
+
+**Status:** done.
+
+## C0.6 — Refresh quality fixes
+
+- Slug collisions: append a content-hash suffix when two normalized IDs collide (today the second overwrites)
+- MPP capabilities are sometimes empty (`["unspecified"]`) — enrich via service category mapping
+- Bazaar tools with `quality.l30DaysTotalCalls == 0` and no recent activity: filter out as spam, or tag separately
+- Asset symbol detection for non-USDC tokens
+
+Effort: ½ day.
+
+## C0.7 — Server pagination for `/catalog`
+
+With ~6,000 descriptors, the current `/catalog` handler fetches each one to build the list response. That's too many subrequests per call. Two fixes needed before public deploy:
+
+1. Pre-build a `content/index.json` during refresh containing only `(id, title, capabilities, payment.network, payment.protocol)` per tool. Worker reads that one file for `/catalog` and `/catalog?capability=…`. Full descriptors are still fetched on-demand from `/tools/:id`.
+2. Cursor-based pagination for `/catalog` since 6,000 items shouldn't ship in one response.
+
+Effort: ½ day. Required before C2.
 
 ## C1 — Local validation against pay (1 day)
 

@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.coingecko.post.coingecko-coin-history",
+  "title": "CoinGecko — POST /coingecko/coin-history",
+  "description": "Coin History",
+  "capabilities": [
+    "crypto",
+    "prices",
+    "market-cap",
+    "exchanges",
+    "trending",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://coingecko.mpp.paywithlocus.com/coingecko/coin-history"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.06"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "coingecko:POST:/coingecko/coin-history"
+  }
+}

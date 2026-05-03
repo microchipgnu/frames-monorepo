@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-og-image-check",
+  "title": "Validate Open Graph and Twitter Card images for a URL. Checks dimensions, file s",
+  "description": "Validate Open Graph and Twitter Card images for a URL. Checks dimensions, file size, format, alt text. SQS: 96/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/og-image-check"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/og-image-check",
+    "x402_version": 1
+  }
+}

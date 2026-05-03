@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.poim-io-api-x402-answer",
+  "title": "Submit answer to trivia question and mint POIC tokens if correct. Minimal paymen",
+  "description": "Submit answer to trivia question and mint POIC tokens if correct. Minimal payment for x402scan visibility.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://poim.io/api/x402/answer"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://poim.io/api/x402/answer",
+    "x402_version": 1
+  }
+}

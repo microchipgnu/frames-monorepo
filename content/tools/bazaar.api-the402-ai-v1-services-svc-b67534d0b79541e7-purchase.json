@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-the402-ai-v1-services-svc-b67534d0b79541e7-purchase",
+  "title": "Purchase: Website Performance",
+  "description": "Purchase: Website Performance",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.the402.ai/v1/services/svc_b67534d0b79541e7/purchase"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.the402.ai/v1/services/svc_b67534d0b79541e7/purchase",
+    "x402_version": 1
+  }
+}

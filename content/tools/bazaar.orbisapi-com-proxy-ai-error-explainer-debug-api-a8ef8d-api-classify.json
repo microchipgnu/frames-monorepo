@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-ai-error-explainer-debug-api-a8ef8d-api-classify",
+  "title": "Explain errors in plain English, generate fixes and debug checklists — built for",
+  "description": "Explain errors in plain English, generate fixes and debug checklists — built for coding AI agents",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/ai-error-explainer-debug-api-a8ef8d/api/classify"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/ai-error-explainer-debug-api-a8ef8d/api/classify",
+    "x402_version": 2
+  }
+}

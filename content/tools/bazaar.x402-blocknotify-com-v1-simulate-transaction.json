@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-blocknotify-com-v1-simulate-transaction",
+  "title": "Simulate an EVM transaction and return execution details including success statu",
+  "description": "Simulate an EVM transaction and return execution details including success status, gas usage, and the full Tenderly trace. Designed for agents that need raw simulation data without risk interpretation.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.blocknotify.com/v1/simulate-transaction"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.03"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402.blocknotify.com/v1/simulate-transaction",
+    "x402_version": 2
+  }
+}

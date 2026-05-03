@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.thinkexchange-ai-api-v1-x402-tasks",
+  "title": "AI Council Debate - Multi-agent AI discussion with expert personas",
+  "description": "AI Council Debate - Multi-agent AI discussion with expert personas",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://thinkexchange.ai/api/v1/x402/tasks"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://thinkexchange.ai/api/v1/x402/tasks",
+    "x402_version": 1
+  }
+}

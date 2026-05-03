@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.pubmed-sekgen-xyz-api-v1-emerging",
+  "title": "Detect emerging biomedical research topics with accelerating publication rates i",
+  "description": "Detect emerging biomedical research topics with accelerating publication rates in oncology, neuroscience, immunology, gene therapy, cardiology, and custom scientific domains",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://pubmed.sekgen.xyz/api/v1/emerging"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://pubmed.sekgen.xyz/api/v1/emerging",
+    "x402_version": 2
+  }
+}

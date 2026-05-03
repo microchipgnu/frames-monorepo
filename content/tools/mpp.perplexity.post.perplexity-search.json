@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.perplexity.post.perplexity-search",
+  "title": "Perplexity — POST /perplexity/search",
+  "description": "Web Search",
+  "capabilities": [
+    "search",
+    "ai-search",
+    "web-grounding",
+    "sonar",
+    "ai"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://perplexity.mpp.paywithlocus.com/perplexity/search"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "dynamic"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "perplexity:POST:/perplexity/search"
+  }
+}

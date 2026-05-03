@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-liquidations",
+  "title": "Get real-time crypto liquidation data from Binance Futures — total long/short vo",
+  "description": "Get real-time crypto liquidation data from Binance Futures — total long/short volume, long-short ratio, cascade detection, and largest liquidation events. AI agent API for liquidation cascade alerts, market stress detection, and leveraged position analysis.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/liquidations"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/liquidations",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-kaspa-dag-pulse",
+  "title": "Proprietary Kaspa DAG metrics direct from our Rusty-Kaspa full node (v1.1.0, pru",
+  "description": "Proprietary Kaspa DAG metrics direct from our Rusty-Kaspa full node (v1.1.0, pruned) — node-RPC data unavailable via public APIs. Returns block count, header count, difficulty, virtual DAA score, hashrate in TH/s, mempool size, DAG tip count, peer count, sync status; plus derived rates (blocks/sec, DAA/sec, sync age). Updated every 5 minutes. Informational research data — not investment advice.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/kaspa/dag-pulse"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/kaspa/dag-pulse",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402endpoint-utiwoa54hq-uc-a-run-app-get-card",
+  "title": "Get Laso Finance prepaid card for use inside the United States",
+  "description": "Get Laso Finance prepaid card for use inside the United States",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402endpoint-utiwoa54hq-uc.a.run.app/get-card"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "5"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402endpoint-utiwoa54hq-uc.a.run.app/get-card",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-questflow-ai-x402-agent-qrn-agent-68e4cc307ad7f91b3bcf0085",
+  "title": "Generate high-quality videos using OpenAI Sora 2 Pro model. Supports text-to-vid",
+  "description": "Generate high-quality videos using OpenAI Sora 2 Pro model. Supports text-to-video and video remix capabilities. | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.questflow.ai/x402/agent/qrn:agent:68e4cc307ad7f91b3bcf0085"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "UNKNOWN",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.questflow.ai/x402/agent/qrn:agent:68e4cc307ad7f91b3bcf0085",
+    "x402_version": 1
+  }
+}

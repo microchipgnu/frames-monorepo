@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.nonvisceral-eloisa-mousily-ngrok-free-dev-api-composite-signal",
+  "title": "Bundled market state inference API: combines BTC/ETH regime direction, liquidati",
+  "description": "Bundled market state inference API: combines BTC/ETH regime direction, liquidation cascade risk + open interest velocity, and composite crypto sentiment in a single call. Discounted vs $0.07 a-la-carte. Designed for trading agents that need a complete market snapshot per decision cycle.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://nonvisceral-eloisa-mousily.ngrok-free.dev/api/composite-signal"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.06"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://nonvisceral-eloisa-mousily.ngrok-free.dev/api/composite-signal",
+    "x402_version": 2
+  }
+}

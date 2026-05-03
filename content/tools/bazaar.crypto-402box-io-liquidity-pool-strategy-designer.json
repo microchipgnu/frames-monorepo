@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.crypto-402box-io-liquidity-pool-strategy-designer",
+  "title": "Design LP composition, initial liquidity depth, fee tiers, and concentrated liqu",
+  "description": "Design LP composition, initial liquidity depth, fee tiers, and concentrated liquidity ranges across different DEXs",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://crypto.402box.io/liquidity_pool_strategy_designer"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://crypto.402box.io/liquidity_pool_strategy_designer",
+    "x402_version": 1
+  }
+}

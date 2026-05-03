@@ -1,0 +1,29 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-silverbackdefi-app-api-v1-solana-trending",
+  "title": "Trending tokens and pools on Solana. Returns top trading pairs by volume and act",
+  "description": "Trending tokens and pools on Solana. Returns top trading pairs by volume and activity.",
+  "capabilities": [
+    "solana",
+    "trending",
+    "tokens",
+    "defi",
+    "momentum"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.silverbackdefi.app/api/v1/solana-trending"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402.silverbackdefi.app/api/v1/solana-trending",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-indicators-coin",
+  "title": "Technical indicators (RSI, MACD, Bollinger Bands, ADX, ATR, Stochastic, CCI, Wil",
+  "description": "Technical indicators (RSI, MACD, Bollinger Bands, ADX, ATR, Stochastic, CCI, Williams %R, OBV, VWAP) computed from our historical OHLCV data for 116+ coins. Supports basic/extended/all indicator sets, intervals 15m/1h/4h/1d, lookback 1-90 days. Cached 60s. Informational research data — not investment advice.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/indicators/:coin"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/indicators/:coin",
+    "x402_version": 2
+  }
+}

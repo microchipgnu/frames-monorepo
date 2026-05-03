@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-onchain-signal-api-930b53-v1-token-flows",
+  "title": "Onchain wallet intelligence for AI agents and traders",
+  "description": "Onchain wallet intelligence for AI agents and traders",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/onchain-signal-api-930b53/v1/token/flows"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/onchain-signal-api-930b53/v1/token/flows",
+    "x402_version": 2
+  }
+}

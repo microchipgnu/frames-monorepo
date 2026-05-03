@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.agentic-x402-router-production-up-railway-app-v1-model-call",
+  "title": "x402-paid model gateway for agent-discoverable LLM inference",
+  "description": "x402-paid model gateway for agent-discoverable LLM inference",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://agentic-x402-router-production.up.railway.app/v1/model-call"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base-sepolia",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://agentic-x402-router-production.up.railway.app/v1/model-call",
+    "x402_version": 2
+  }
+}

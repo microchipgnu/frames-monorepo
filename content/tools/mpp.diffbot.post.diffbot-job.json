@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.diffbot.post.diffbot-job",
+  "title": "Diffbot — POST /diffbot/job",
+  "description": "Job Posting",
+  "capabilities": [
+    "web-scraping",
+    "extraction",
+    "articles",
+    "products",
+    "web",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://diffbot.mpp.paywithlocus.com/diffbot/job"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.0042"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "diffbot:POST:/diffbot/job"
+  }
+}

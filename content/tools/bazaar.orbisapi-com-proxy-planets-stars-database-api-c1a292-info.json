@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-planets-stars-database-api-c1a292-info",
+  "title": "Solar system planet facts, star data, NASA Astronomy Picture of the Day.",
+  "description": "Solar system planet facts, star data, NASA Astronomy Picture of the Day.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/planets-stars-database-api-c1a292/info"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/planets-stars-database-api-c1a292/info",
+    "x402_version": 2
+  }
+}

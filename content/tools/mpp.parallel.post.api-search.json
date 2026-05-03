@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.parallel.post.api-search",
+  "title": "Parallel — POST /api/search",
+  "description": "Search the web",
+  "capabilities": [
+    "search",
+    "web",
+    "extraction",
+    "research",
+    "ai"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://parallelmpp.dev/api/search"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "parallel:POST:/api/search"
+  }
+}

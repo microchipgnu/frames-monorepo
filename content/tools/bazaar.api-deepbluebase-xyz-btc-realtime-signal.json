@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-deepbluebase-xyz-btc-realtime-signal",
+  "title": "Live BTC directional signal — real-time UP/DOWN prediction with confidence score",
+  "description": "Live BTC directional signal — real-time UP/DOWN prediction with confidence score and regime",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.deepbluebase.xyz/btc/realtime-signal"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "solana-mainnet",
+    "currency": "UNKNOWN",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.deepbluebase.xyz/btc/realtime-signal",
+    "x402_version": 2
+  }
+}

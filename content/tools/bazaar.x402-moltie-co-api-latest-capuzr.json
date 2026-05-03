@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-moltie-co-api-latest-capuzr",
+  "title": "One-shot fallback endpoint: pay $0.01 USDC on Base to get the latest non-retweet",
+  "description": "One-shot fallback endpoint: pay $0.01 USDC on Base to get the latest non-retweet, non-reply tweet from an X account. Not credited to a balance, not a subscription. Use /api/subscribe + delivery_mode=sse for push; use this only if your agent can't hold a connection open. Account: @capuzr.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.moltie.co/api/latest/CapuzR"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402.moltie.co/api/latest/CapuzR",
+    "x402_version": 1
+  }
+}

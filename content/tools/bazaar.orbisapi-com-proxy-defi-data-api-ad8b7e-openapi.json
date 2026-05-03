@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-defi-data-api-ad8b7e-openapi",
+  "title": "DeFi protocol market data, global stats, and category breakdown.",
+  "description": "DeFi protocol market data, global stats, and category breakdown.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/defi-data-api-ad8b7e/openapi"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/defi-data-api-ad8b7e/openapi",
+    "x402_version": 2
+  }
+}

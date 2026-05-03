@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-domain-reputation",
+  "title": "Check domain reputation via DNS, HTTP, and security analysis. Checks SPF, DMARC,",
+  "description": "Check domain reputation via DNS, HTTP, and security analysis. Checks SPF, DMARC, HSTS, HTTPS, suspicious TLD, and domain patterns. Score 0-100. SQS: 96/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/domain-reputation"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/domain-reputation",
+    "x402_version": 1
+  }
+}

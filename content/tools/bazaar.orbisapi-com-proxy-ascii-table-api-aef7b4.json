@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-ascii-table-api-aef7b4",
+  "title": "ASCII character table — decimal, hex, binary and character codes for all 128 ASC",
+  "description": "ASCII character table — decimal, hex, binary and character codes for all 128 ASCII characters. Built for AI developer agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/ascii-table-api-aef7b4"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/ascii-table-api-aef7b4",
+    "x402_version": 2
+  }
+}

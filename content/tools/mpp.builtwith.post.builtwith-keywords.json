@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.builtwith.post.builtwith-keywords",
+  "title": "BuiltWith — POST /builtwith/keywords",
+  "description": "Keywords",
+  "capabilities": [
+    "technology-profiling",
+    "tech-stack",
+    "competitive-intel",
+    "domains",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://builtwith.mpp.paywithlocus.com/builtwith/keywords"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.035"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "builtwith:POST:/builtwith/keywords"
+  }
+}

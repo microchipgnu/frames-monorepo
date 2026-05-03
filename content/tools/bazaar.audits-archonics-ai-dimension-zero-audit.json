@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.audits-archonics-ai-dimension-zero-audit",
+  "title": "Archonics Dimension Zero Audit — programmatic discoverability audit across MCP R",
+  "description": "Archonics Dimension Zero Audit — programmatic discoverability audit across MCP Registry, x402scan, CDP Bazaar, agentic.market, and the service's own .well-known documents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://audits.archonics.ai/dimension-zero-audit"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://audits.archonics.ai/dimension-zero-audit",
+    "x402_version": 1
+  }
+}

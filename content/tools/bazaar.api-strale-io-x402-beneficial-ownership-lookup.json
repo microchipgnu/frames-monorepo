@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-beneficial-ownership-lookup",
+  "title": "Look up beneficial ownership (UBO) information for a company. Returns individual",
+  "description": "Look up beneficial ownership (UBO) information for a company. Returns individuals who ultimately own or control the entity, their ownership percentage, and the ownership chain. Uses OpenOwnership and Companies House for UK companies. SQS: 98/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/beneficial-ownership-lookup"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/beneficial-ownership-lookup",
+    "x402_version": 1
+  }
+}

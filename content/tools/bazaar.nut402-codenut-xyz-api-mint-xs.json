@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.nut402-codenut-xyz-api-mint-xs",
+  "title": "$0.01 for 30 $NUT402, fair launch, no pre-mine or team allocation, and liquidity",
+  "description": "$0.01 for 30 $NUT402, fair launch, no pre-mine or team allocation, and liquidity auto-added at mint completion.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://nut402.codenut.xyz/api/mint/xs"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://nut402.codenut.xyz/api/mint/xs",
+    "x402_version": 1
+  }
+}

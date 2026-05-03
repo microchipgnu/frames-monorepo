@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-itsgloria-ai-recaps",
+  "title": "Get a recap of the news or summary of a covered news topic over the past 12-24 h",
+  "description": "Get a recap of the news or summary of a covered news topic over the past 12-24 hours.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.itsgloria.ai/recaps"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.itsgloria.ai/recaps",
+    "x402_version": 1
+  }
+}

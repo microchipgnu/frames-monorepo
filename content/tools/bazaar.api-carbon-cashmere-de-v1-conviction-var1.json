@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-conviction-var1",
+  "title": "Composite conviction metric (0-100) per crypto asset — fuses multi-agent consens",
+  "description": "Composite conviction metric (0-100) per crypto asset — fuses multi-agent consensus, market extremity indicators, confluence density, and ML anomaly detection into a single research metric with tier classification (low/medium/high/extreme). Quantitative research data for AI agents and analytics — informational purposes only, not investment advice.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/conviction/:var1"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/conviction/:var1",
+    "x402_version": 2
+  }
+}

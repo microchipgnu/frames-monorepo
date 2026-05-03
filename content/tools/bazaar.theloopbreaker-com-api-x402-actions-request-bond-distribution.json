@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.theloopbreaker-com-api-x402-actions-request-bond-distribution",
+  "title": "Request distribution payout for a Vaultfire bond (partnership or accountability)",
+  "description": "Request distribution payout for a Vaultfire bond (partnership or accountability). Pay $0.10 USDC, receive an unsigned tx, sign in your wallet to trigger the distribution flow on-chain.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://theloopbreaker.com/api/x402/actions/request-bond-distribution"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://theloopbreaker.com/api/x402/actions/request-bond-distribution",
+    "x402_version": 1
+  }
+}

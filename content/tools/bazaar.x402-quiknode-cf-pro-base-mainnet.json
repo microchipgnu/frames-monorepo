@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-quiknode-cf-pro-base-mainnet",
+  "title": "Payment for Quicknode RPC access. Options: per-request ($0.001/request), nanopay",
+  "description": "Payment for Quicknode RPC access. Options: per-request ($0.001/request), nanopayment ($0.0001/request via Circle Gateway), or credit drawdown with SIWX authentication.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.quiknode-cf.pro/base-mainnet"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base-sepolia",
+    "currency": "USDC",
+    "price_hint": "1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402.quiknode-cf.pro/base-mainnet",
+    "x402_version": 2
+  }
+}

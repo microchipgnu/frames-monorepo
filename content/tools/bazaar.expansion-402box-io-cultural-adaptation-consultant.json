@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.expansion-402box-io-cultural-adaptation-consultant",
+  "title": "Guide cultural messaging adaptation, color/symbol sensitivities, communication n",
+  "description": "Guide cultural messaging adaptation, color/symbol sensitivities, communication norms, hierarchy considerations, and avoiding cultural missteps",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://expansion.402box.io/cultural_adaptation_consultant"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://expansion.402box.io/cultural_adaptation_consultant",
+    "x402_version": 1
+  }
+}

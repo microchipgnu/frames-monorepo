@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-blockchain-data-api-92cf0a",
+  "title": "Blockchain data reference — chain metrics, gas patterns, token standards and DeF",
+  "description": "Blockchain data reference — chain metrics, gas patterns, token standards and DeFi risk for 6 major chains.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/blockchain-data-api-92cf0a"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/blockchain-data-api-92cf0a",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.stabletravel.get.api-flightaware-airports-id-flights-counts",
+  "title": "StableTravel — GET /api/flightaware/airports/:id/flights/counts",
+  "description": "Get flight count statistics",
+  "capabilities": [
+    "amadeus",
+    "flightaware",
+    "flights",
+    "hotels",
+    "activities",
+    "transfers",
+    "travel",
+    "data",
+    "web"
+  ],
+  "invocation": {
+    "method": "GET",
+    "url": "https://stabletravel.dev/api/flightaware/airports/:id/flights/counts"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.2"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "stabletravel:GET:/api/flightaware/airports/:id/flights/counts"
+  }
+}

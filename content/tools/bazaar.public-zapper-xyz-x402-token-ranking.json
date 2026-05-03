@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.public-zapper-xyz-x402-token-ranking",
+  "title": "Get a ranked list of tokens based on swap activity and velocity of adoption, opt",
+  "description": "Get a ranked list of tokens based on swap activity and velocity of adoption, optionally tailored for a farcaster user.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://public.zapper.xyz/x402/token-ranking"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.0045"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://public.zapper.xyz/x402/token-ranking",
+    "x402_version": 2
+  }
+}

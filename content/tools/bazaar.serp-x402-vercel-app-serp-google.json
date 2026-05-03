@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.serp-x402-vercel-app-serp-google",
+  "title": "Google organic search results. Returns top URLs, titles, descriptions ranked by ",
+  "description": "Google organic search results. Returns top URLs, titles, descriptions ranked by relevance. Accepts any query. Optional: location (default US), num (default 10, max 100).",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://serp-x402.vercel.app/serp/google"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://serp-x402.vercel.app/serp/google",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.solopreneur-402box-io-bookkeeper-accountant",
+  "title": "Day-to-day accounting, bookkeeping systems, reconciliation, financial statements",
+  "description": "Day-to-day accounting, bookkeeping systems, reconciliation, financial statements, expense tracking, and accounting best practices",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://solopreneur.402box.io/bookkeeper_accountant"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://solopreneur.402box.io/bookkeeper_accountant",
+    "x402_version": 1
+  }
+}

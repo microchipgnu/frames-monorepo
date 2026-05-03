@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-open-interest",
+  "title": "Get aggregated open interest across Binance, Bybit, and OKX for 27 crypto assets",
+  "description": "Get aggregated open interest across Binance, Bybit, and OKX for 27 crypto assets — BTC, ETH, SOL, and 24 more. Returns per-exchange OI in USD, total OI, and 1h/4h/24h percentage deltas. Updated every 5 minutes. AI agent API for derivatives market analysis, open interest divergence detection, and leveraged position sizing.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/open-interest"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.03"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/open-interest",
+    "x402_version": 2
+  }
+}

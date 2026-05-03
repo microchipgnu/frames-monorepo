@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-secure-api-t54-ai-x402-tools-get-overall-score",
+  "title": "Get comprehensive x402 server security assessment with overall score (0-100), ri",
+  "description": "Get comprehensive x402 server security assessment with overall score (0-100), risk level, sub-scores (API health, webpage, social, onchain), and scam indicators. Ideal for pre-transaction safety validation. Price: $0.01 USDC",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402-secure-api.t54.ai/x402/tools/get_overall_score"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402-secure-api.t54.ai/x402/tools/get_overall_score",
+    "x402_version": 1
+  }
+}

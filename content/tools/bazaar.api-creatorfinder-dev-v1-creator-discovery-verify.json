@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-creatorfinder-dev-v1-creator-discovery-verify",
+  "title": "CreatorFinder finds creator profiles for the segment you care about. Use this en",
+  "description": "CreatorFinder finds creator profiles for the segment you care about. Use this endpoint when you already have one creator URL to verify.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.creatorfinder.dev/v1/creator-discovery/verify"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.creatorfinder.dev/v1/creator-discovery/verify",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-env-template-generate",
+  "title": "Scan source code for environment variable references (process.env, os.environ, e",
+  "description": "Scan source code for environment variable references (process.env, os.environ, etc.) and generate a .env template with descriptions and example values. SQS: 95/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/env-template-generate"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/env-template-generate",
+    "x402_version": 1
+  }
+}

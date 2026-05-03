@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-food-chain-risk-score-api-8d88d9",
+  "title": "Score zoonotic disease risk across the food production chain",
+  "description": "Score zoonotic disease risk across the food production chain",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/food-chain-risk-score-api-8d88d9/"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/food-chain-risk-score-api-8d88d9/",
+    "x402_version": 2
+  }
+}

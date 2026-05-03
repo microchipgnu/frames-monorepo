@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.express-legacy-production-up-railway-app-market-daily-briefing-quick",
+  "title": "dailyBriefing — quick tier ($0.002 USDC)",
+  "description": "dailyBriefing — quick tier ($0.002 USDC)",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://express-legacy-production.up.railway.app/market/daily-briefing/quick"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://express-legacy-production.up.railway.app/market/daily-briefing/quick",
+    "x402_version": 2
+  }
+}

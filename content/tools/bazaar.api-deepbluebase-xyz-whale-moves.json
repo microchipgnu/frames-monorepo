@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-deepbluebase-xyz-whale-moves",
+  "title": "Whale movements and exchange flows — large transfers, exchange inflows/outflows,",
+  "description": "Whale movements and exchange flows — large transfers, exchange inflows/outflows, accumulation signals",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.deepbluebase.xyz/whale-moves"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "solana-mainnet",
+    "currency": "UNKNOWN",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.deepbluebase.xyz/whale-moves",
+    "x402_version": 2
+  }
+}

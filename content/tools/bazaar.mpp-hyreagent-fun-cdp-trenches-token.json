@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.mpp-hyreagent-fun-cdp-trenches-token",
+  "title": "HYRE Agent — Solana token metadata + top holders + liquidity breakdown with AI D",
+  "description": "HYRE Agent — Solana token metadata + top holders + liquidity breakdown with AI DeFi insights.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://mpp.hyreagent.fun/cdp/trenches/token"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://mpp.hyreagent.fun/cdp/trenches/token",
+    "x402_version": 1
+  }
+}

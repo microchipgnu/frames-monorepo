@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-blockchain-comparison-fe5c3e-blockchain-7bname-7d",
+  "title": "Compare 12 major blockchains side by side. TPS, fees, consensus, use cases and m",
+  "description": "Compare 12 major blockchains side by side. TPS, fees, consensus, use cases and more in JSON.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/blockchain-comparison-fe5c3e/blockchain/%7Bname%7D"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/blockchain-comparison-fe5c3e/blockchain/%7Bname%7D",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-uncertainty-budget-calculator-api-00fb59-bulk",
+  "title": "Calculate measurement uncertainty budgets from component data",
+  "description": "Calculate measurement uncertainty budgets from component data",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/uncertainty-budget-calculator-api-00fb59/bulk"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/uncertainty-budget-calculator-api-00fb59/bulk",
+    "x402_version": 2
+  }
+}

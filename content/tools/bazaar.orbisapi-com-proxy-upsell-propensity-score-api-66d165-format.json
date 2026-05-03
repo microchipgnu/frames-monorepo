@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-upsell-propensity-score-api-66d165-format",
+  "title": "Score upsell propensity from product usage and segment data",
+  "description": "Score upsell propensity from product usage and segment data",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/upsell-propensity-score-api-66d165/format"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/upsell-propensity-score-api-66d165/format",
+    "x402_version": 2
+  }
+}

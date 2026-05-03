@@ -1,0 +1,31 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.agentmail.post.v0-inboxes-inbox-id-drafts",
+  "title": "AgentMail — POST /v0/inboxes/:inbox_id/drafts",
+  "description": "Create draft",
+  "capabilities": [
+    "email",
+    "inboxes",
+    "domains",
+    "drafts",
+    "threads",
+    "webhooks",
+    "messaging",
+    "ai",
+    "social"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://mpp.api.agentmail.to/v0/inboxes/:inbox_id/drafts"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "agentmail:POST:/v0/inboxes/:inbox_id/drafts"
+  }
+}

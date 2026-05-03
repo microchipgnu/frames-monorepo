@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-email-internationalization-api-6d5538-validate",
+  "title": "Guide to internationalized email addresses (EAI) with Unicode local and domain p",
+  "description": "Guide to internationalized email addresses (EAI) with Unicode local and domain parts.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/email-internationalization-api-6d5538/validate"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/email-internationalization-api-6d5538/validate",
+    "x402_version": 2
+  }
+}

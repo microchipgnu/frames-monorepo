@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.emc2ai-io-x402-bitquery-earlysignals-raw",
+  "title": "Early opportunity signals aggregated for BSC chain.",
+  "description": "Early opportunity signals aggregated for BSC chain.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://emc2ai.io/x402/bitquery/earlysignals/raw"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://emc2ai.io/x402/bitquery/earlysignals/raw",
+    "x402_version": 1
+  }
+}

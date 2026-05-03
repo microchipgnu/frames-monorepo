@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-the402-ai-v1-services-svc-fa0c3f78361a4baa-purchase",
+  "title": "Purchase: PDF Generation",
+  "description": "Purchase: PDF Generation",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.the402.ai/v1/services/svc_fa0c3f78361a4baa/purchase"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.the402.ai/v1/services/svc_fa0c3f78361a4baa/purchase",
+    "x402_version": 1
+  }
+}

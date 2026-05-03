@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-location-data-quality-control-api-6918be-examples-20-20return",
+  "title": "Audit location datasets for coordinate validity, duplicates, outliers, precision",
+  "description": "Audit location datasets for coordinate validity, duplicates, outliers, precision, and coverage",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/location-data-quality-control-api-6918be/examples%20-%20Return%20single,%20batch,%20and%20compare%20example%20payloads"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/location-data-quality-control-api-6918be/examples%20-%20Return%20single,%20batch,%20and%20compare%20example%20payloads",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-mempool-distribution",
+  "title": "Get BTC mempool fee distribution — transaction counts per fee-rate bucket (0-1, ",
+  "description": "Get BTC mempool fee distribution — transaction counts per fee-rate bucket (0-1, 1-2, 2-5, ..., 200+ sat/vB). Shows transaction priority landscape and fee pressure. AI agent API for optimal fee estimation, mempool congestion analysis, and transaction timing.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/mempool/distribution"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/mempool/distribution",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.norm-agentutil-net-v1-check",
+  "title": "Is this expense, salary, or other common metric normal? Sanity-check values agai",
+  "description": "Is this expense, salary, or other common metric normal? Sanity-check values against real-world benchmarks (BLS, IRS, GSA data) to flag anomalies before they become problems",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://norm.agentutil.net/v1/check"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://norm.agentutil.net/v1/check",
+    "x402_version": 2
+  }
+}

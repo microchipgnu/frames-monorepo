@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.scan-convrgent-ai-api-aeo-compare",
+  "title": "Competitive scanner for AI search visibility (AEO, GEO) and agent readiness — sc",
+  "description": "Competitive scanner for AI search visibility (AEO, GEO) and agent readiness — scans your site and a competitor side-by-side, surfaces exactly which JSON-LD Schema.org, meta tags, llms.txt signals, robots.txt directives, and structured data they have that you lack. Outputs overtake fix code to close the gap for ChatGPT, Perplexity, Google AI Overviews, and Bing Copilot.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://scan.convrgent.ai/api/aeo/compare"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "3"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://scan.convrgent.ai/api/aeo/compare",
+    "x402_version": 2
+  }
+}

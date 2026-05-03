@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.another-superb-scuba-separation-trycloudflare-com-signals",
+  "title": "Real-time financial signals (Mainnet)",
+  "description": "Real-time financial signals (Mainnet)",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://another-superb-scuba-separation.trycloudflare.com/signals"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://another-superb-scuba-separation.trycloudflare.com/signals",
+    "x402_version": 2
+  }
+}

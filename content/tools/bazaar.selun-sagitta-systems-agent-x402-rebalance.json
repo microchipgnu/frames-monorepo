@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.selun-sagitta-systems-agent-x402-rebalance",
+  "title": "Portfolio rebalance engine. Call this after allocation or on a monitoring schedu",
+  "description": "Portfolio rebalance engine. Call this after allocation or on a monitoring schedule with current holdings. Returns target-vs-current drift and the adjustments required to rebalance within policy constraints for the requested portfolio segment.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://selun.sagitta.systems/agent/x402/rebalance"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://selun.sagitta.systems/agent/x402/rebalance",
+    "x402_version": 2
+  }
+}

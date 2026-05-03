@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.stable-travel-git-migrate-stabletravel-router-140-merit-systems-vercel-app-api-f",
+  "title": "Get disruption counts by entity type (airline, origin, destination)",
+  "description": "Get disruption counts by entity type (airline, origin, destination)",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://stable-travel-git-migrate-stabletravel-router-140-merit-systems.vercel.app/api/flightaware/disruption-counts/airline"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://stable-travel-git-migrate-stabletravel-router-140-merit-systems.vercel.app/api/flightaware/disruption-counts/airline",
+    "x402_version": 2
+  }
+}

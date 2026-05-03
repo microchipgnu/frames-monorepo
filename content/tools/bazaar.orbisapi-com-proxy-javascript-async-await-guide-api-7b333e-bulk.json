@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-javascript-async-await-guide-api-7b333e-bulk",
+  "title": "Guide to async/await syntax, error handling, and common pitfalls.",
+  "description": "Guide to async/await syntax, error handling, and common pitfalls.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/javascript-async-await-guide-api-7b333e/bulk"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/javascript-async-await-guide-api-7b333e/bulk",
+    "x402_version": 2
+  }
+}

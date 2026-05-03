@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-age-verifier-api-f04a53",
+  "title": "Verify age from date of birth and check legal eligibility for 20+ countries and ",
+  "description": "Verify age from date of birth and check legal eligibility for 20+ countries and activities.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/age-verifier-api-f04a53"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/age-verifier-api-f04a53",
+    "x402_version": 2
+  }
+}

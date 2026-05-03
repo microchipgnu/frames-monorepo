@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-chains",
+  "title": "Multi-chain block-height monitor. Returns latest block + last update timestamp f",
+  "description": "Multi-chain block-height monitor. Returns latest block + last update timestamp for arbitrum, avalanche, base, ethereum, optimism, polygon, solana. AI agent API for sync detection, chain-of-truth checks before settlement, and cross-chain liveness monitoring.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/chains"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/chains",
+    "x402_version": 2
+  }
+}

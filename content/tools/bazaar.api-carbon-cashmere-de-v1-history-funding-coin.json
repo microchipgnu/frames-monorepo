@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-history-funding-coin",
+  "title": "Funding rate history for any perpetual-futures pair — up to 2 YEARS of history (",
+  "description": "Funding rate history for any perpetual-futures pair — up to 2 YEARS of history (17000+ rows for BTCUSDT since 2024-04-08). Bucket via ?interval=1h/4h/8h/1d, look-back via ?days=1..730. Per bucket returns rate, predicted_rate, open_interest, annualized_pct, sample count. Plus stats (min/max/avg/current rate). AI agent API for funding-rate backtesting, carry-trade strategy research, and long-horizon derivatives analysis.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/history/funding/:coin"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/history/funding/:coin",
+    "x402_version": 2
+  }
+}

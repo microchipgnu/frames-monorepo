@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.pay-codenut-ai-credit-drop-xl",
+  "title": "CodeNut Credit x402 Offer - get 100x worth of CodeNut credits with $100 and buil",
+  "description": "CodeNut Credit x402 Offer - get 100x worth of CodeNut credits with $100 and build! - NOT A TOKEN",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://pay.codenut.ai/credit-drop/xl"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://pay.codenut.ai/credit-drop/xl",
+    "x402_version": 1
+  }
+}

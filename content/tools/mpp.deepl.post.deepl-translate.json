@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.deepl.post.deepl-translate",
+  "title": "DeepL — POST /deepl/translate",
+  "description": "Translate",
+  "capabilities": [
+    "translation",
+    "languages",
+    "glossary",
+    "document-translation",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://deepl.mpp.paywithlocus.com/deepl/translate"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "dynamic"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "deepl:POST:/deepl/translate"
+  }
+}

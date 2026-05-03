@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-flesch-kincaid-api-3af2dd",
+  "title": "Calculate Flesch Reading Ease and Kincaid Grade Level for any text. Built for AI",
+  "description": "Calculate Flesch Reading Ease and Kincaid Grade Level for any text. Built for AI content and education agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/flesch-kincaid-api-3af2dd"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/flesch-kincaid-api-3af2dd",
+    "x402_version": 2
+  }
+}

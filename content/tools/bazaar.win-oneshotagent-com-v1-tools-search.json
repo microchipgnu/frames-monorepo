@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.win-oneshotagent-com-v1-tools-search",
+  "title": "Web search returning URLs, titles, and descriptions",
+  "description": "Web search returning URLs, titles, and descriptions",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://win.oneshotagent.com/v1/tools/search"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://win.oneshotagent.com/v1/tools/search",
+    "x402_version": 2
+  }
+}

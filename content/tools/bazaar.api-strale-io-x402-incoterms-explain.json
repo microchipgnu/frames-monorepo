@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-incoterms-explain",
+  "title": "Explain any Incoterms 2020 rule. Returns seller/buyer obligations, risk/cost tra",
+  "description": "Explain any Incoterms 2020 rule. Returns seller/buyer obligations, risk/cost transfer points, suitability. SQS: 68/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/incoterms-explain"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/incoterms-explain",
+    "x402_version": 1
+  }
+}

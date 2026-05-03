@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-ai-readiness-scorer-api-8d0d4b-lookup",
+  "title": "Score organizational AI readiness across data, technical, clarity and risk dimen",
+  "description": "Score organizational AI readiness across data, technical, clarity and risk dimensions.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/ai-readiness-scorer-api-8d0d4b/lookup"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/ai-readiness-scorer-api-8d0d4b/lookup",
+    "x402_version": 2
+  }
+}

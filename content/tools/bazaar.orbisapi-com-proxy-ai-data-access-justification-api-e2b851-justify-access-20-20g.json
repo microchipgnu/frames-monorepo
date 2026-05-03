@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-ai-data-access-justification-api-e2b851-justify-access-20-20g",
+  "title": "Generate AI data access justifications from purpose, sensitivity, role, retentio",
+  "description": "Generate AI data access justifications from purpose, sensitivity, role, retention, and control coverage",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/ai-data-access-justification-api-e2b851/justify-access%20-%20Generate%20AI%20data%20access%20justifications%20from%20purpose,%20sensitivity,%20role,%20retention,%20and%20control%20coverage%20using%20deterministic%20scoring%20rules"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/ai-data-access-justification-api-e2b851/justify-access%20-%20Generate%20AI%20data%20access%20justifications%20from%20purpose,%20sensitivity,%20role,%20retention,%20and%20control%20coverage%20using%20deterministic%20scoring%20rules",
+    "x402_version": 2
+  }
+}

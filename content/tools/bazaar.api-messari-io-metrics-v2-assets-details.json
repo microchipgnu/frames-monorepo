@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-messari-io-metrics-v2-assets-details",
+  "title": "Get rich cryptocurrency asset snapshots for one or more asset ids or slugs.",
+  "description": "Get rich cryptocurrency asset snapshots for one or more asset ids or slugs.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.messari.io/metrics/v2/assets/details"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.messari.io/metrics/v2/assets/details",
+    "x402_version": 2
+  }
+}

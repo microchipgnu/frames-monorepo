@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-kaspa-block-propagation",
+  "title": "Kaspa network health analytics from our own Rusty-Kaspa full node: block-rate pr",
+  "description": "Kaspa network health analytics from our own Rusty-Kaspa full node: block-rate progression (blocks/sec, % of 10 bps target), DAA score advancement, tip-parallelism (concurrent chain-tips = DAG structure), mempool utilization, peer-count stability, and sync uptime over configurable window (1-168h). Node-backed (v1.1.0). Informational research data — not investment advice.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/kaspa/block-propagation"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.08"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/kaspa/block-propagation",
+    "x402_version": 2
+  }
+}

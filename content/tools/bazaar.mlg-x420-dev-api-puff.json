@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.mlg-x420-dev-api-puff",
+  "title": "Buy 1 USDC worth of MLG tokens 0x0A3006C07808e1BF3b57980Bc73A4B6159fEEB07",
+  "description": "Buy 1 USDC worth of MLG tokens 0x0A3006C07808e1BF3b57980Bc73A4B6159fEEB07",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://mlg.x420.dev/api/puff"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://mlg.x420.dev/api/puff",
+    "x402_version": 1
+  }
+}

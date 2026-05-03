@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.www-qrbase-xyz-api-x402-ping",
+  "title": "Ping - 0.001 USDC on Base",
+  "description": "Ping - 0.001 USDC on Base",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://www.qrbase.xyz/api/x402/ping"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://www.qrbase.xyz/api/x402/ping",
+    "x402_version": 1
+  }
+}

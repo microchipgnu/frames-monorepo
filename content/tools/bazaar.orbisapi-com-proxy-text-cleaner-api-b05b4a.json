@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-text-cleaner-api-b05b4a",
+  "title": "Clean, normalize and fix any text — remove HTML, fix spacing, normalize quotes a",
+  "description": "Clean, normalize and fix any text — remove HTML, fix spacing, normalize quotes and extract clean content",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/text-cleaner-api-b05b4a"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/text-cleaner-api-b05b4a",
+    "x402_version": 2
+  }
+}

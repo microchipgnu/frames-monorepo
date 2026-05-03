@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-derivatives-analytics-coin",
+  "title": "Derivatives market analytics: funding rate z-score (30d), 7d funding momentum, a",
+  "description": "Derivatives market analytics: funding rate z-score (30d), 7d funding momentum, annualized carry with regime classification (elevated_long_bias/elevated_short_bias/positive_carry/negative_carry/neutral), open-interest total USD across Binance/Bybit/OKX, 24h OI delta with accumulation/distribution/short_buildup regime. Built on 730d funding history + own OI pipeline. Informational research data — not investment advice.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/derivatives-analytics/:coin"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.15"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/derivatives-analytics/:coin",
+    "x402_version": 2
+  }
+}

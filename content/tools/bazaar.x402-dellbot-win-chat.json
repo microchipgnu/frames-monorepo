@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-dellbot-win-chat",
+  "title": "Mid-tier OpenAI-compatible chat completion. Choose from Qwen3 235B (instruct or ",
+  "description": "Mid-tier OpenAI-compatible chat completion. Choose from Qwen3 235B (instruct or thinking), DeepSeek V3.2, Grok 4 beta, or venice-uncensored. Supports tools/tool_choice and stream:true SSE.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.dellbot.win/chat"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402.dellbot.win/chat",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-options",
+  "title": "Get BTC and ETH options market intelligence from Deribit — put/call ratio, at-th",
+  "description": "Get BTC and ETH options market intelligence from Deribit — put/call ratio, at-the-money implied volatility, max pain distance from spot price. Updated every 15 minutes. AI agent API for options flow analysis, volatility trading, and hedging strategy optimization.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/options"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.03"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/options",
+    "x402_version": 2
+  }
+}

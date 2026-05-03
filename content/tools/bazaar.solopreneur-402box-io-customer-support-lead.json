@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.solopreneur-402box-io-customer-support-lead",
+  "title": "Support systems design, ticket management, response templates, escalation proced",
+  "description": "Support systems design, ticket management, response templates, escalation procedures, and customer service operations",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://solopreneur.402box.io/customer_support_lead"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://solopreneur.402box.io/customer_support_lead",
+    "x402_version": 1
+  }
+}

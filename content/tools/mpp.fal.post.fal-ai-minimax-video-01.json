@@ -1,0 +1,30 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.fal.post.fal-ai-minimax-video-01",
+  "title": "fal.ai — POST /fal-ai/minimax/video-01",
+  "description": "MiniMax Video-01 - Text/image to video generation",
+  "capabilities": [
+    "image",
+    "video",
+    "flux",
+    "stable-diffusion",
+    "grok",
+    "generation",
+    "ai",
+    "media"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://fal.mpp.tempo.xyz/fal-ai/minimax/video-01"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.07"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "fal:POST:/fal-ai/minimax/video-01"
+  }
+}

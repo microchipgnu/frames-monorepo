@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-airdrop-eligibility-checker-api-9c1dc4-analyze",
+  "title": "Score wallet airdrop eligibility from on-chain activity: age, tx count, protocol",
+  "description": "Score wallet airdrop eligibility from on-chain activity: age, tx count, protocols, volume, NFTs.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/airdrop-eligibility-checker-api-9c1dc4/analyze"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/airdrop-eligibility-checker-api-9c1dc4/analyze",
+    "x402_version": 2
+  }
+}

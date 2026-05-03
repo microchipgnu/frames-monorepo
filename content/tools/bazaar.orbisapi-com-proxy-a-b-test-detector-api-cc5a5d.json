@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-a-b-test-detector-api-cc5a5d",
+  "title": "Detect A/B testing and experimentation tools on any website",
+  "description": "Detect A/B testing and experimentation tools on any website",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/a-b-test-detector-api-cc5a5d"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/a-b-test-detector-api-cc5a5d",
+    "x402_version": 2
+  }
+}

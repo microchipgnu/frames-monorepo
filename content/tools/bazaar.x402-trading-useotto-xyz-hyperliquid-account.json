@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-trading-useotto-xyz-hyperliquid-account",
+  "title": "Hyperliquid perpetual trading account snapshot with open positions, balances, an",
+  "description": "Hyperliquid perpetual trading account snapshot with open positions, balances, and active orders",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402-trading.useotto.xyz/hyperliquid-account"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402-trading.useotto.xyz/hyperliquid-account",
+    "x402_version": 2
+  }
+}

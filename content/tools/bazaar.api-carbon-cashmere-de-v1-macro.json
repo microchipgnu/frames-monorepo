@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-macro",
+  "title": "Live TradFi macro indicators — Crude Oil (CL), DXY, Gold (GC), VIX, US 10-Year Y",
+  "description": "Live TradFi macro indicators — Crude Oil (CL), DXY, Gold (GC), VIX, US 10-Year Yield, S&P futures (ES). Per-instrument 1h/4h/24h price changes. Updated every 5min. AI agent API for risk-on/off classification, dollar-strength regime detection, and crypto-macro correlation context. Informational research data only.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/macro"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/macro",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-questflow-ai-x402-agent-qrn-agent-687df69ab234010b7d3317e5",
+  "title": "Can perform deep search on the web using Google Gemini model. | Powered by Quest",
+  "description": "Can perform deep search on the web using Google Gemini model. | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.questflow.ai/x402/agent/qrn:agent:687df69ab234010b7d3317e5"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "UNKNOWN",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.questflow.ai/x402/agent/qrn:agent:687df69ab234010b7d3317e5",
+    "x402_version": 1
+  }
+}

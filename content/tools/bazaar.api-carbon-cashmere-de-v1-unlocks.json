@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-unlocks",
+  "title": "Get upcoming token unlock schedule — cliff and linear vesting events with USD va",
+  "description": "Get upcoming token unlock schedule — cliff and linear vesting events with USD value, percentage of circulating supply, and dates. Covers ARB, OP, APT, SUI, and more. AI agent API for token supply analysis, unlock event trading, and sell pressure prediction.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/unlocks"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/unlocks",
+    "x402_version": 2
+  }
+}

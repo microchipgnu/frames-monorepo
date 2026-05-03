@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-xlsx-data-extract-8b2ca1-bulk",
+  "title": "Extract data from Excel spreadsheets as structured JSON",
+  "description": "Extract data from Excel spreadsheets as structured JSON",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/xlsx-data-extract-8b2ca1/bulk"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/xlsx-data-extract-8b2ca1/bulk",
+    "x402_version": 2
+  }
+}

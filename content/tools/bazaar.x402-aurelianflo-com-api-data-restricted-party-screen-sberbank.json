@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-aurelianflo-com-api-data-restricted-party-screen-sberbank",
+  "title": "Legacy alias for OFAC sanctions and restricted-party screening. Returns grouped ",
+  "description": "Legacy alias for OFAC sanctions and restricted-party screening. Returns grouped potential matches, aliases, source lists, sanctions programs, and a manual-review recommendation. Optional query params: minScore, type, country, program, list, limit.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.aurelianflo.com/api/data/restricted-party/screen/SBERBANK"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402.aurelianflo.com/api/data/restricted-party/screen/SBERBANK",
+    "x402_version": 2
+  }
+}

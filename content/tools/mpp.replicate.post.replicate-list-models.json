@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.replicate.post.replicate-list-models",
+  "title": "Replicate — POST /replicate/list-models",
+  "description": "List Models",
+  "capabilities": [
+    "ai-models",
+    "open-source",
+    "image-generation",
+    "inference",
+    "ai",
+    "media"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://replicate.mpp.paywithlocus.com/replicate/list-models"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "replicate:POST:/replicate/list-models"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-twit-sh-articles-by-id",
+  "title": "Retrieve the full content of an X Article by the tweet ID of the post that hosts",
+  "description": "Retrieve the full content of an X Article by the tweet ID of the post that hosts it. Returns article title, preview text, cover image, publish date, and full article_content as Markdown (headings, bold, italic, lists, images). Not available in the official X API. Query param: id (string, required) - numeric tweet ID of the article post, e.g. GET /articles/by/id?id=2010751592346030461.",
+  "capabilities": [
+    "twitter",
+    "x",
+    "social",
+    "article",
+    "articles",
+    "long-form",
+    "content",
+    "markdown",
+    "agent",
+    "x402"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.twit.sh/articles/by/id"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402.twit.sh/articles/by/id",
+    "x402_version": 2
+  }
+}

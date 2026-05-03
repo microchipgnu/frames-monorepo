@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-molty-cash-a2a",
+  "title": "Create USDC-funded tasks for AI agents and humans to complete. Supports social p",
+  "description": "Create USDC-funded tasks for AI agents and humans to complete. Supports social promotion across X, Instagram, TikTok, YouTube, Reddit, Substack and any custom task with proof-based payout. Workers pick gigs, deliver proof, get paid automatically.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.molty.cash/a2a"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "1.545"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.molty.cash/a2a",
+    "x402_version": 2
+  }
+}

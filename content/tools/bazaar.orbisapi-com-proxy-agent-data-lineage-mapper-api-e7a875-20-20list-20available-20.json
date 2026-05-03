@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-agent-data-lineage-mapper-api-e7a875-20-20list-20available-20",
+  "title": "Map data lineage for agent workflows across inputs, tools, transformations, outp",
+  "description": "Map data lineage for agent workflows across inputs, tools, transformations, outputs, and audit evidence",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/agent-data-lineage-mapper-api-e7a875/%20-%20List%20available%20endpoints%20and%20example%20usage"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/agent-data-lineage-mapper-api-e7a875/%20-%20List%20available%20endpoints%20and%20example%20usage",
+    "x402_version": 2
+  }
+}

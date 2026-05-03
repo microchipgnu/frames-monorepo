@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-printmoneylab-com-api-v1-arbitrage-scanner",
+  "title": "Token-by-token Kimchi Premium for 189+ tokens, reverse premium, Upbit-Bithumb ga",
+  "description": "Token-by-token Kimchi Premium for 189+ tokens, reverse premium, Upbit-Bithumb gaps, market share",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.printmoneylab.com/api/v1/arbitrage-scanner"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.printmoneylab.com/api/v1/arbitrage-scanner",
+    "x402_version": 2
+  }
+}

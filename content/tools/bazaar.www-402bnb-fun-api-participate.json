@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.www-402bnb-fun-api-participate",
+  "title": "Pay 10 USDC to participate in 402onbnb token sale (one payment per address only)",
+  "description": "Pay 10 USDC to participate in 402onbnb token sale (one payment per address only)",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://www.402bnb.fun/api/participate"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://www.402bnb.fun/api/participate",
+    "x402_version": 1
+  }
+}

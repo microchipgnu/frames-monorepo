@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.legal-apitoai-xyz-smart-contract-audit-preparation",
+  "title": "Create audit readiness checklists, documentation requirements, test coverage pla",
+  "description": "Create audit readiness checklists, documentation requirements, test coverage plans, and auditor selection criteria for secure launches",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://legal.apitoai.xyz/smart_contract_audit_preparation"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://legal.apitoai.xyz/smart_contract_audit_preparation",
+    "x402_version": 1
+  }
+}

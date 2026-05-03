@@ -1,0 +1,29 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.megapot.post.purchase",
+  "title": "Megapot — POST /purchase",
+  "description": "Purchase a Megapot lottery ticket for a recipient wallet",
+  "capabilities": [
+    "lottery",
+    "gaming",
+    "tickets",
+    "base",
+    "agent-commerce",
+    "web",
+    "blockchain"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://megapot.mpp.paysponge.com/purchase"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "1"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "megapot:POST:/purchase"
+  }
+}

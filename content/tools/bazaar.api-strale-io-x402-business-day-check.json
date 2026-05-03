@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-business-day-check",
+  "title": "Check if a specific date is a business day in a given country. Accounts for week",
+  "description": "Check if a specific date is a business day in a given country. Accounts for weekends and public holidays. Also returns the next business day if the given date is not one. SQS: 96/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/business-day-check"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/business-day-check",
+    "x402_version": 1
+  }
+}

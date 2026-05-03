@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.nonvisceral-eloisa-mousily-ngrok-free-dev-api-cascade-risk",
+  "title": "Liquidation cascade risk API: decision-ready risk level (NONE/LOW/MODERATE/ELEVA",
+  "description": "Liquidation cascade risk API: decision-ready risk level (NONE/LOW/MODERATE/ELEVATED/HIGH) per coin, plus recommended position-size-discount and entry-threshold-boost used internally by the Kerdos trading fleet. Direct complement to /api/liquidations — liquidations gives you raw data, cascade-risk gives you the classification and action recommendation. Monopoly: derived from OI velocity + large-trade clustering + liquidation cluster count on Hyperliquid.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://nonvisceral-eloisa-mousily.ngrok-free.dev/api/cascade-risk"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://nonvisceral-eloisa-mousily.ngrok-free.dev/api/cascade-risk",
+    "x402_version": 2
+  }
+}

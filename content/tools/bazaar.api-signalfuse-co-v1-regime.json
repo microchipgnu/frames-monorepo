@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-signalfuse-co-v1-regime",
+  "title": "Macro regime classification (risk-on/risk-off/neutral)",
+  "description": "Macro regime classification (risk-on/risk-off/neutral)",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.signalfuse.co/v1/regime"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.signalfuse.co/v1/regime",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.pqs-onchainintel-net-api-preflight",
+  "title": "Pass/Fail before you waste budget on a doomed call. Decide whether to make a pai",
+  "description": "Pass/Fail before you waste budget on a doomed call. Decide whether to make a paid LLM call before you make it. Preflight scores your prompt against an 8-dimension quality rubric (pass/fail at 28/80) and optionally pulls the target endpoint's on-chain trust signals — total payments, unique payers, last activity. Two-in-one circuit breaker for agents that don't want to waste budget on weak prompts or sketchy endpoints.",
+  "capabilities": [
+    "preflight",
+    "prompt-quality",
+    "endpoint-trust",
+    "x402",
+    "pqs"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://pqs.onchainintel.net/api/preflight"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://pqs.onchainintel.net/api/preflight",
+    "x402_version": 2
+  }
+}

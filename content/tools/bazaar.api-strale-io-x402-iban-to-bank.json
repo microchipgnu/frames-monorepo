@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-iban-to-bank",
+  "title": "Extract bank name and branch information from an IBAN. Returns bank name, BIC/SW",
+  "description": "Extract bank name and branch information from an IBAN. Returns bank name, BIC/SWIFT code, branch, and country. Pure algorithmic — uses bank code lookup tables. SQS: 96/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/iban-to-bank"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/iban-to-bank",
+    "x402_version": 1
+  }
+}

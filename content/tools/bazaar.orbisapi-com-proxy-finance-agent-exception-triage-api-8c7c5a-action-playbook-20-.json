@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-finance-agent-exception-triage-api-8c7c5a-action-playbook-20-",
+  "title": "Triage finance workflow exceptions by payment risk, approval gap, reconciliation",
+  "description": "Triage finance workflow exceptions by payment risk, approval gap, reconciliation issue, and urgency",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/finance-agent-exception-triage-api-8c7c5a/action-playbook%20-%20Return%20recommended%20action%20levels%20for%20low,%20medium,%20high,%20and%20critical%20findings"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/finance-agent-exception-triage-api-8c7c5a/action-playbook%20-%20Return%20recommended%20action%20levels%20for%20low,%20medium,%20high,%20and%20critical%20findings",
+    "x402_version": 2
+  }
+}

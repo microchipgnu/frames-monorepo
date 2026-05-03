@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-spotify-track-search-api-a8c110-trending",
+  "title": "Search Spotify tracks, get audio features, recommendations, and new releases.",
+  "description": "Search Spotify tracks, get audio features, recommendations, and new releases.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/spotify-track-search-api-a8c110/trending"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/spotify-track-search-api-a8c110/trending",
+    "x402_version": 2
+  }
+}

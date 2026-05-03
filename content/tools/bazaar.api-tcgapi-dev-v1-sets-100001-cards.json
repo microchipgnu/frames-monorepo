@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-tcgapi-dev-v1-sets-100001-cards",
+  "title": "All cards in a TCG set — Pokemon boosters, Magic: The Gathering expansions, Yu-G",
+  "description": "All cards in a TCG set — Pokemon boosters, Magic: The Gathering expansions, Yu-Gi-Oh structure decks, Lorcana chapters, One Piece sets.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.tcgapi.dev/v1/sets/100001/cards"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.tcgapi.dev/v1/sets/100001/cards",
+    "x402_version": 1
+  }
+}

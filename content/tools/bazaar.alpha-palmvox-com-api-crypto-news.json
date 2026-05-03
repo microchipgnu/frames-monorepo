@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.alpha-palmvox-com-api-crypto-news",
+  "title": "Latest crypto news headline with sentiment analysis and market impact assessment",
+  "description": "Latest crypto news headline with sentiment analysis and market impact assessment. Breaking news from top sources, updated every 2 hours.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://alpha.palmvox.com/api/crypto/news"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://alpha.palmvox.com/api/crypto/news",
+    "x402_version": 2
+  }
+}

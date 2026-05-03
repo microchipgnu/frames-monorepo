@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-deepnets-ai-api-flagged-tokens",
+  "title": "List of recently flagged Solana tokens (DANGEROUS or RISKY safety level) with re",
+  "description": "List of recently flagged Solana tokens (DANGEROUS or RISKY safety level) with reasons.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.deepnets.ai/api/flagged-tokens"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "solana-mainnet",
+    "currency": "UNKNOWN",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.deepnets.ai/api/flagged-tokens",
+    "x402_version": 2
+  }
+}

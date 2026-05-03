@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-country-finance-api-65ec1f",
+  "title": "Country financial data for US, Germany, Japan, China, UK and Singapore — GDP, in",
+  "description": "Country financial data for US, Germany, Japan, China, UK and Singapore — GDP, inflation, interest rates and credit ratings.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/country-finance-api-65ec1f"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/country-finance-api-65ec1f",
+    "x402_version": 2
+  }
+}

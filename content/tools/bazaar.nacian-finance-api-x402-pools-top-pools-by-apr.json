@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.nacian-finance-api-x402-pools-top-pools-by-apr",
+  "title": "Calculate APR for liquidity pools across multiple chains (Arbitrum, Base, Ethere",
+  "description": "Calculate APR for liquidity pools across multiple chains (Arbitrum, Base, Ethereum). Tokens do not necessarily need to be token0 and token1 respectively in the pool, they are reordered automatically. Price range must be specified based on the ratio of token0 / token1. For example, if the provided token0 is ETH and the provided token1 is USDC, a correct price lower could be 1000 and price upper could be 8000. Viceversa, if the provided token0 is USDC and token1 is ETH, a correct price lower could be 0.000125 and price upper could be 0.001.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://nacian.finance/api/x402/pools/top-pools-by-apr"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://nacian.finance/api/x402/pools/top-pools-by-apr",
+    "x402_version": 1
+  }
+}

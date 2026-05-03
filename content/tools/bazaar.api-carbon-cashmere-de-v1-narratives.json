@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-narratives",
+  "title": "Get trending crypto narratives extracted from 9,000+ news articles — 11 categori",
+  "description": "Get trending crypto narratives extracted from 9,000+ news articles — 11 categories (regulation, DeFi, AI, macro, hack, NFT, stablecoin, layer2, ETF, exchange, general) with average sentiment score, trending coins, top headline, and momentum direction (rising/stable/fading). AI agent API for narrative-driven trading, crypto trend detection, and news-based alpha generation.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/narratives"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.03"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/narratives",
+    "x402_version": 2
+  }
+}

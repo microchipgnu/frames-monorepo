@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.bazaar-gateway-vercel-app-api-market-report",
+  "title": "AI-generated cryptocurrency market analysis report. Fetches real-time prices fro",
+  "description": "AI-generated cryptocurrency market analysis report. Fetches real-time prices from CoinGecko then uses Claude AI to generate a professional market analysis with trends, risks, and opportunities.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://bazaar-gateway.vercel.app/api/market-report"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://bazaar-gateway.vercel.app/api/market-report",
+    "x402_version": 2
+  }
+}

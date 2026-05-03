@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-crypto-trading-tools-api-8fc973",
+  "title": "Portfolio analysis, arbitrage opportunities, technical indicators (RSI, SMA, Bol",
+  "description": "Portfolio analysis, arbitrage opportunities, technical indicators (RSI, SMA, Bollinger Bands), news feed and buy/sell screener. Built for AI trading agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/crypto-trading-tools-api-8fc973"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/crypto-trading-tools-api-8fc973",
+    "x402_version": 2
+  }
+}

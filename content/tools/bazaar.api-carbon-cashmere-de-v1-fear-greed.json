@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-fear-greed",
+  "title": "Crypto Fear & Greed Index (0-100) with 7-day history. Sentiment indicator from a",
+  "description": "Crypto Fear & Greed Index (0-100) with 7-day history. Sentiment indicator from alternative.me with cached delta and z-score for anomaly detection. AI agent API for sentiment-aware position sizing and contrarian-strategy triggers. Informational research data only, not investment advice.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/fear-greed"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/fear-greed",
+    "x402_version": 2
+  }
+}

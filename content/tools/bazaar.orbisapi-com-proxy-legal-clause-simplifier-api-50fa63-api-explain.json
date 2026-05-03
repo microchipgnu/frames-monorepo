@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-legal-clause-simplifier-api-50fa63-api-explain",
+  "title": "Simplify legal clauses, explain terms of service and translate legalese to plain",
+  "description": "Simplify legal clauses, explain terms of service and translate legalese to plain English — built for AI agents",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/legal-clause-simplifier-api-50fa63/api/explain"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/legal-clause-simplifier-api-50fa63/api/explain",
+    "x402_version": 2
+  }
+}

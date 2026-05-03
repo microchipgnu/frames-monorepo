@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-intel-history-coin",
+  "title": "Historical intelligence data — OHLCV 4h candles, funding rates, open interest, a",
+  "description": "Historical intelligence data — OHLCV 4h candles, funding rates, open interest, and ML signals with configurable lookback (1-720h) and include filters. 730 days of data for 34 coins. AI agent API for backtesting, trend analysis, and historical pattern detection.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/intel/history/:coin"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/intel/history/:coin",
+    "x402_version": 2
+  }
+}

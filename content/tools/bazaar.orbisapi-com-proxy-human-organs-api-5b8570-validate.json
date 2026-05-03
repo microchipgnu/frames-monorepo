@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-human-organs-api-5b8570-validate",
+  "title": "10 human organs with weight, function, fascinating facts — the liver regenerates",
+  "description": "10 human organs with weight, function, fascinating facts — the liver regenerates, skin replaces itself every 27 days.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/human-organs-api-5b8570/validate"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/human-organs-api-5b8570/validate",
+    "x402_version": 2
+  }
+}

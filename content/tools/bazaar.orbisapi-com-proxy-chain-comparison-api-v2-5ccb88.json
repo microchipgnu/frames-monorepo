@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-chain-comparison-api-v2-5ccb88",
+  "title": "Compare blockchain networks head-to-head — speed, cost, security and use cases f",
+  "description": "Compare blockchain networks head-to-head — speed, cost, security and use cases for 8 major chains. Built for AI agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/chain-comparison-api-v2-5ccb88"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/chain-comparison-api-v2-5ccb88",
+    "x402_version": 2
+  }
+}

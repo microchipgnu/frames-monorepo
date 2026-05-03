@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-crypto-market-movers-api-f3aefe-top-gainers",
+  "title": "Get top gainers, losers, volume leaders, and real-time market pulse from CoinGec",
+  "description": "Get top gainers, losers, volume leaders, and real-time market pulse from CoinGecko.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/crypto-market-movers-api-f3aefe/top_gainers"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/crypto-market-movers-api-f3aefe/top_gainers",
+    "x402_version": 2
+  }
+}

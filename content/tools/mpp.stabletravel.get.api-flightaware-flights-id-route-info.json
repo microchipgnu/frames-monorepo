@@ -1,0 +1,31 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.stabletravel.get.api-flightaware-flights-id-route-info",
+  "title": "StableTravel — GET /api/flightaware/flights/:id/route-info",
+  "description": "Get route info (fixes, waypoints) for a flight",
+  "capabilities": [
+    "amadeus",
+    "flightaware",
+    "flights",
+    "hotels",
+    "activities",
+    "transfers",
+    "travel",
+    "data",
+    "web"
+  ],
+  "invocation": {
+    "method": "GET",
+    "url": "https://stabletravel.dev/api/flightaware/flights/:id/route-info"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "stabletravel:GET:/api/flightaware/flights/:id/route-info"
+  }
+}

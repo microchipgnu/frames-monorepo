@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.brave.post.brave-answers",
+  "title": "Brave Search — POST /brave/answers",
+  "description": "AI Answers",
+  "capabilities": [
+    "search",
+    "web-search",
+    "privacy",
+    "news",
+    "images"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://brave.mpp.paywithlocus.com/brave/answers"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.085"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "brave:POST:/brave/answers"
+  }
+}

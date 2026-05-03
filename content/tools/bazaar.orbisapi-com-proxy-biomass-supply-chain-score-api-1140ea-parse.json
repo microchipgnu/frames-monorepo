@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-biomass-supply-chain-score-api-1140ea-parse",
+  "title": "Score biomass supply chain sustainability certification",
+  "description": "Score biomass supply chain sustainability certification",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/biomass-supply-chain-score-api-1140ea/parse"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/biomass-supply-chain-score-api-1140ea/parse",
+    "x402_version": 2
+  }
+}

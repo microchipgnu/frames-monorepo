@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-ottoai-services-llm-research",
+  "title": "Instant AI research on any topic powered by Gemini 3.1 Flash-Lite with live web ",
+  "description": "Instant AI research on any topic powered by Gemini 3.1 Flash-Lite with live web search. Ask about science, tech, crypto, history, or anything else. Can analyze images and summarize webpages from URLs. Max 180 character prompts.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.ottoai.services/llm-research"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.5"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402.ottoai.services/llm-research",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-portfolio-beta-calculator-api-0ccef1",
+  "title": "Calculate weighted portfolio beta from individual stock betas and allocation per",
+  "description": "Calculate weighted portfolio beta from individual stock betas and allocation percentages.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/portfolio-beta-calculator-api-0ccef1"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/portfolio-beta-calculator-api-0ccef1",
+    "x402_version": 2
+  }
+}

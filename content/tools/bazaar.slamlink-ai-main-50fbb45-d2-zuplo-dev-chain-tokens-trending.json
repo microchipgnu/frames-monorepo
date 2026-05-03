@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.slamlink-ai-main-50fbb45-d2-zuplo-dev-chain-tokens-trending",
+  "title": "Returns trending tokens across the entire blockchain for a specified activity wi",
+  "description": "Returns trending tokens across the entire blockchain for a specified activity window and optional category.\nThe size of the increase in active wallets over the activity window determines the token's trending rank.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://slamlink-ai-main-50fbb45.d2.zuplo.dev/chain/tokens/trending"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://slamlink-ai-main-50fbb45.d2.zuplo.dev/chain/tokens/trending",
+    "x402_version": 1
+  }
+}

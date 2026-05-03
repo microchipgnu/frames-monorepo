@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.nine-x420-dev-api-puff-custom",
+  "title": "Buy custom USDC amount worth of nine tokens 0x3a105f1247B27DED116B5d8dFe3D8e2415",
+  "description": "Buy custom USDC amount worth of nine tokens 0x3a105f1247B27DED116B5d8dFe3D8e24151c1B07",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://nine.x420.dev/api/puff-custom"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://nine.x420.dev/api/puff-custom",
+    "x402_version": 1
+  }
+}

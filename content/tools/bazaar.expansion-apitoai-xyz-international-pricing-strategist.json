@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.expansion-apitoai-xyz-international-pricing-strategist",
+  "title": "Design regional pricing models using purchasing power parity, local competitor b",
+  "description": "Design regional pricing models using purchasing power parity, local competitor benchmarks, and payment method preferences",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://expansion.apitoai.xyz/international_pricing_strategist"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://expansion.apitoai.xyz/international_pricing_strategist",
+    "x402_version": 1
+  }
+}

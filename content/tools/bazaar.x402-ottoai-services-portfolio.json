@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-ottoai-services-portfolio",
+  "title": "Multi-chain portfolio snapshot with token balances and yield positions for a use",
+  "description": "Multi-chain portfolio snapshot with token balances and yield positions for a user's Otto AI Safe accounts across Base, Ethereum, Arbitrum, Polygon, BSC, Avalanche, and Solana.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.ottoai.services/portfolio"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402.ottoai.services/portfolio",
+    "x402_version": 2
+  }
+}

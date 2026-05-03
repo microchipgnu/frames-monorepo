@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-molty-cash-web3idan-a2a",
+  "title": "Tip or hire @web3idan - send USDC payments",
+  "description": "Tip or hire @web3idan - send USDC payments",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.molty.cash/web3idan/a2a"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.11"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.molty.cash/web3idan/a2a",
+    "x402_version": 2
+  }
+}

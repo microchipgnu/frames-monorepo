@@ -18,12 +18,28 @@ POST /webhooks/invalidate       evict KV cache (called from a content-repo webho
 
 Each response carries `ETag` matching the descriptor's `descriptor_id`. `Cache-Control: public, s-maxage=60, stale-while-revalidate=600`.
 
-## Adding a tool
+## Where descriptors come from
 
-1. Write a descriptor in `content/tools/<id>.json` conforming to [pay/SPEC.md](https://github.com/microchipgnu/pay/blob/main/SPEC.md#tool-descriptor).
-2. Validate locally: `pay catalog validate content/tools/<id>.json` (when pay v0.0.2 ships).
-3. PR to this repo. CI validates.
-4. Merge → webhook → KV invalidate → live in seconds.
+Most descriptors are **mirrored from existing live discovery sources**, not hand-written:
+
+- **Coinbase x402 Bazaar** — `https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources` (Base, Solana, …)
+- **MPP directory** — `https://mpp.dev/api/services` (Anthropic, AgentMail, …)
+
+`scripts/refresh.ts` pulls both, normalizes each entry into a pay v0.0.1 `ToolDescriptor`, and writes to `content/tools/<slug>.json`. Run with Bun:
+
+```
+bun run scripts/refresh.ts                  # full refresh
+bun run scripts/refresh.ts --limit 50       # sample
+bun run scripts/refresh.ts --source bazaar  # one source
+```
+
+Hand-written descriptors are also valid — drop a `.json` file in `content/tools/` matching the SPEC. CI validates both.
+
+## Contributing
+
+1. For a hand-written descriptor: write a JSON conforming to [pay/SPEC.md](https://github.com/microchipgnu/pay/blob/main/SPEC.md#tool-descriptor).
+2. PR to this repo. CI validates the file.
+3. Merge → webhook → KV invalidate → live in seconds.
 
 ## Self-hosting
 

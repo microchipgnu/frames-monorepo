@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.httpay-xyz-api-coin-flip",
+  "title": "Flip a blockchain-verified* coin (*not actually verified)",
+  "description": "Flip a blockchain-verified* coin (*not actually verified)",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://httpay.xyz/api/coin-flip"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://httpay.xyz/api/coin-flip",
+    "x402_version": 1
+  }
+}

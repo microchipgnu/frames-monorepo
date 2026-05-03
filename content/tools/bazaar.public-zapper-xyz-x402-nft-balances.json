@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.public-zapper-xyz-x402-nft-balances",
+  "title": "Get individual NFT balances and estimated values for a single address, or a list",
+  "description": "Get individual NFT balances and estimated values for a single address, or a list of addresses.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://public.zapper.xyz/x402/nft-balances"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001125"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://public.zapper.xyz/x402/nft-balances",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-canonical-url-validator-api-2f18f5-bulk",
+  "title": "Validate canonical tag correctness — HTTPS, protocol match, trailing slash, and ",
+  "description": "Validate canonical tag correctness — HTTPS, protocol match, trailing slash, and cross-domain.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/canonical-url-validator-api-2f18f5/bulk"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/canonical-url-validator-api-2f18f5/bulk",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-bittensor-netuid",
+  "title": "Get full Bittensor subnet metagraph snapshot — 28 summary fields (block, gini, t",
+  "description": "Get full Bittensor subnet metagraph snapshot — 28 summary fields (block, gini, top5 share, emissions, validator dominance) plus per-neuron array of up to 256 miners with stake, trust, incentive, emission, consensus, dividends, validator_permit, alpha_stake, tao_stake. Accepts integer netuid or named aliases (mantis, sn123). Live from our own Subtensor lite node. AI agent API for subnet analysis, miner performance tracking, validator-weight mapping, and decentralized-AI network intelligence.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/bittensor/:netuid"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/bittensor/:netuid",
+    "x402_version": 2
+  }
+}

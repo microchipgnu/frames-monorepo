@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-company-industry-classify",
+  "title": "Classify a company's industry using standard codes. Given a company name, descri",
+  "description": "Classify a company's industry using standard codes. Given a company name, description, or website URL, returns SIC, NAICS, and NACE codes with confidence levels. SQS: 83/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/company-industry-classify"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/company-industry-classify",
+    "x402_version": 1
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.pubmed-sekgen-xyz-api-v1-snapshot",
+  "title": "Single-year biomedical publication count from PubMed for any medical, clinical, ",
+  "description": "Single-year biomedical publication count from PubMed for any medical, clinical, pharmaceutical, or scientific search query",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://pubmed.sekgen.xyz/api/v1/snapshot"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://pubmed.sekgen.xyz/api/v1/snapshot",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-ip-risk-score",
+  "title": "Assess fraud risk for an IP address. Detects VPNs, proxies, Tor exit nodes, host",
+  "description": "Assess fraud risk for an IP address. Detects VPNs, proxies, Tor exit nodes, hosting/datacenter IPs. Returns risk score and risk factors. SQS: 98/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/ip-risk-score"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/ip-risk-score",
+    "x402_version": 1
+  }
+}

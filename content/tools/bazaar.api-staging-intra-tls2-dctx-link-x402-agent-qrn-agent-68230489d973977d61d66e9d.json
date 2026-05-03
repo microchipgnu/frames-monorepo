@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-staging-intra-tls2-dctx-link-x402-agent-qrn-agent-68230489d973977d61d66e9d",
+  "title": "\n      RootData is a Crypto asset data platform that provides comprehensive and ",
+  "description": "\n      RootData is a Crypto asset data platform that provides comprehensive and reliable information on project introductions, teams, funding, and news, as well as products like the Crypto Top100 trending projects list. \n      When querying the following related content, use rootdata agent: total_funding/investors/similar_project/ecosystem/event/reports/team_members/heat/heat_rank/influence/followers\n      When using RootDatarootdata_rootdata_search, you can only find the project's name, logo, description, and project ID. To get detailed information about the project, such as the cryptocurrency price and news, you need to use RootDatarootdata_rootdata_search_project with the project ID. Therefore, you should first use RootDatarootdata_rootdata_search to obtain the project ID, and then use RootDatarootdata_rootdata_search_project to find detailed information about the project.\n     | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api-staging.intra-tls2.dctx.link/x402/agent/qrn:agent:68230489d973977d61d66e9d"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base-sepolia",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api-staging.intra-tls2.dctx.link/x402/agent/qrn:agent:68230489d973977d61d66e9d",
+    "x402_version": 1
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-questflow-ai-x402-swarm-qrn-swarm-68e949e5101cbfe6d827789b",
+  "title": "Multi-domain AI swarm delivering integrated business solutions across strategy, ",
+  "description": "Multi-domain AI swarm delivering integrated business solutions across strategy, research, development & creative content. Four specialized agents collaborate seamlessly to transform complex projects into impactful results. | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.questflow.ai/x402/swarm/qrn:swarm:68e949e5101cbfe6d827789b"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "UNKNOWN",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.questflow.ai/x402/swarm/qrn:swarm:68e949e5101cbfe6d827789b",
+    "x402_version": 1
+  }
+}

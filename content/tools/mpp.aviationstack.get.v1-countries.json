@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.aviationstack.get.v1-countries",
+  "title": "AviationStack — GET /v1/countries",
+  "description": "Countries lookup",
+  "capabilities": [
+    "flights",
+    "aviation",
+    "tracking",
+    "airports",
+    "airlines",
+    "data"
+  ],
+  "invocation": {
+    "method": "GET",
+    "url": "https://aviationstack.mpp.tempo.xyz/v1/countries"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "aviationstack:GET:/v1/countries"
+  }
+}

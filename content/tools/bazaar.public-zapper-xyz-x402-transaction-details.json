@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.public-zapper-xyz-x402-transaction-details",
+  "title": "Get human-readable interpretation, metadata, and balance changes for a specific ",
+  "description": "Get human-readable interpretation, metadata, and balance changes for a specific transaction.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://public.zapper.xyz/x402/transaction-details"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001125"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://public.zapper.xyz/x402/transaction-details",
+    "x402_version": 2
+  }
+}

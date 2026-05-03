@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.ecosystem-intelligence-onrender-com-v2-paid-signals-latest",
+  "title": "Latest 5-signal ecosystem snapshot for a blockchain (capital rotation, whale act",
+  "description": "Latest 5-signal ecosystem snapshot for a blockchain (capital rotation, whale activity, user activity, social momentum, anomaly detection, confidence, narrative hint). Ideal for autonomous agents polling for alerting or decision context.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://ecosystem-intelligence.onrender.com/v2/paid/signals/latest"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://ecosystem-intelligence.onrender.com/v2/paid/signals/latest",
+    "x402_version": 1
+  }
+}

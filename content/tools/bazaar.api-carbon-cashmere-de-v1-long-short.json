@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-long-short",
+  "title": "Get long/short ratios from 4 sources — Binance Global Accounts, Top Trader Accou",
+  "description": "Get long/short ratios from 4 sources — Binance Global Accounts, Top Trader Accounts, Top Trader Positions, and Bybit. Includes contrarian signal (extreme_long/extreme_short/neutral) with signal strength. 15 perpetual futures pairs. AI agent API for crowd sentiment analysis, contrarian trading signals, and market positioning intelligence.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/long-short"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/long-short",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.gateway-agonx402-com-v1-x402-tokens-assets-assetid-risk-summary",
+  "title": "Return a simple risk summary for a mint of the asset.",
+  "description": "Return a simple risk summary for a mint of the asset.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://gateway.agonx402.com/v1/x402/tokens/assets/:assetId/risk-summary"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "solana-mainnet",
+    "currency": "UNKNOWN",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://gateway.agonx402.com/v1/x402/tokens/assets/:assetId/risk-summary",
+    "x402_version": 2
+  }
+}

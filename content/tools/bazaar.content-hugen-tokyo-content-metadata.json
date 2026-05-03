@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.content-hugen-tokyo-content-metadata",
+  "title": "Extract structured metadata from any web page — title, author, publication date,",
+  "description": "Extract structured metadata from any web page — title, author, publication date, Open Graph tags, canonical URL, language, word count, reading time. Handles HTML meta tags, og: tags, and article:published_time. No web scraping setup needed — one call returns structured JSON. Accepts USDC payments on Base and Solana",
+  "capabilities": [
+    "web",
+    "extract",
+    "summary",
+    "ai"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://content.hugen.tokyo/content/metadata"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://content.hugen.tokyo/content/metadata",
+    "x402_version": 2
+  }
+}

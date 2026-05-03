@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.utilsforagents-com-v1-html-to-markdown",
+  "title": "Convert an HTML string to clean Markdown. Strips navigation, scripts, styles, an",
+  "description": "Convert an HTML string to clean Markdown. Strips navigation, scripts, styles, and non-content elements. Use when you have an HTML string in memory and want Markdown for an LLM context window, document processing, or storage. Send {\"html\": \"<html string>\"}. Also accepts a raw text/html body. Max 5 MB.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://utilsforagents.com/v1/html/to-markdown"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://utilsforagents.com/v1/html/to-markdown",
+    "x402_version": 2
+  }
+}

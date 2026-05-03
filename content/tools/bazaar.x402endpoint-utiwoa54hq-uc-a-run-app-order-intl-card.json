@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402endpoint-utiwoa54hq-uc-a-run-app-order-intl-card",
+  "title": "Order an international non-reloadable prepaid card (USD). The order is queued an",
+  "description": "Order an international non-reloadable prepaid card (USD). The order is queued and fulfilled by an admin, after which the card details are retrievable via GET /get-card-data with card_type=\"Non-Reloadable International\". A 3.8% fee is added on top of the on-card amount.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402endpoint-utiwoa54hq-uc.a.run.app/order-intl-card"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "103.8"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402endpoint-utiwoa54hq-uc.a.run.app/order-intl-card",
+    "x402_version": 2
+  }
+}

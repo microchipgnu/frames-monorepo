@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.solopreneur-apitoai-xyz-qa-testing-specialist",
+  "title": "Test strategy, quality assurance processes, test automation, bug tracking, and q",
+  "description": "Test strategy, quality assurance processes, test automation, bug tracking, and quality management for software products",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://solopreneur.apitoai.xyz/qa_testing_specialist"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://solopreneur.apitoai.xyz/qa_testing_specialist",
+    "x402_version": 1
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-lightbrush-art-omnigen-generate",
+  "title": "Paid render execution on curated ComfyUI workflows (image/video) with secure job",
+  "description": "Paid render execution on curated ComfyUI workflows (image/video) with secure job tracking.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.lightbrush.art/omnigen/generate"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "1.5"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402.lightbrush.art/omnigen/generate",
+    "x402_version": 2
+  }
+}

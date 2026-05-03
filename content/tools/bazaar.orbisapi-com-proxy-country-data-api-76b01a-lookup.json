@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-country-data-api-76b01a-lookup",
+  "title": "Look up country data — capital, population, currency, language and phone prefix.",
+  "description": "Look up country data — capital, population, currency, language and phone prefix.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/country-data-api-76b01a/lookup"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/country-data-api-76b01a/lookup",
+    "x402_version": 2
+  }
+}

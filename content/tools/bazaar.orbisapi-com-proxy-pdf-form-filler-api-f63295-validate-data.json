@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-pdf-form-filler-api-f63295-validate-data",
+  "title": "Analyzes and processes pdf form filler data — optimized for agents, LLMs, and MC",
+  "description": "Analyzes and processes pdf form filler data — optimized for agents, LLMs, and MCP pipelines.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/pdf-form-filler-api-f63295/validate_data"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/pdf-form-filler-api-f63295/validate_data",
+    "x402_version": 2
+  }
+}

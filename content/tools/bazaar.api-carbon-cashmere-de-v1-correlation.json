@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-correlation",
+  "title": "Get Pearson correlation matrix for 2-10 crypto assets — daily return correlation",
+  "description": "Get Pearson correlation matrix for 2-10 crypto assets — daily return correlations computed over 7 to 90 days with full NxN matrix and unique pair list. Supports any combination of 116 tracked coins. AI agent API for portfolio diversification analysis, cross-asset correlation monitoring, and risk decomposition.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/correlation"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/correlation",
+    "x402_version": 2
+  }
+}

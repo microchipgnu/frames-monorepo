@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.web-production-18a32-up-railway-app-stamp-duty",
+  "title": "UK Stamp Duty Land Tax (SDLT) calculator with first-time buyer relief and surcha",
+  "description": "UK Stamp Duty Land Tax (SDLT) calculator with first-time buyer relief and surcharges.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://web-production-18a32.up.railway.app/stamp-duty"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://web-production-18a32.up.railway.app/stamp-duty",
+    "x402_version": 2
+  }
+}

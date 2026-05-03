@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.netintel-production-440c-up-railway-app-domain-availability-check",
+  "title": "Check if a domain name is available for registration by querying RDAP and DNS — ",
+  "description": "Check if a domain name is available for registration by querying RDAP and DNS — returns registration status, whether it's taken or free, expiry date if registered, and availability of the same name across 10 popular TLDs simultaneously so agents can find the best domain for a brand or project.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://netintel-production-440c.up.railway.app/domain-availability/check"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://netintel-production-440c.up.railway.app/domain-availability/check",
+    "x402_version": 2
+  }
+}

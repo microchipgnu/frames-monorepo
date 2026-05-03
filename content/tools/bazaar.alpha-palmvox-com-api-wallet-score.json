@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.alpha-palmvox-com-api-wallet-score",
+  "title": "Wallet health score — checks your USDC balance, ETH holdings, DeFi yield exposur",
+  "description": "Wallet health score — checks your USDC balance, ETH holdings, DeFi yield exposure, and gives a 1-100 portfolio health score with recommendations. No wallet address needed — uses market data to score a typical Base wallet.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://alpha.palmvox.com/api/wallet/score"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://alpha.palmvox.com/api/wallet/score",
+    "x402_version": 2
+  }
+}

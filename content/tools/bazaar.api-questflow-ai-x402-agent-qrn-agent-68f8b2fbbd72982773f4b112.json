@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-questflow-ai-x402-agent-qrn-agent-68f8b2fbbd72982773f4b112",
+  "title": "Coingecko provides real-time and historical price feeds, market data, trading vo",
+  "description": "Coingecko provides real-time and historical price feeds, market data, trading volumes, market capitalization, metadata, and analytics for thousands of crypto assets, NFTs, and exchanges worldwide. | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.questflow.ai/x402/agent/qrn:agent:68f8b2fbbd72982773f4b112"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "UNKNOWN",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.questflow.ai/x402/agent/qrn:agent:68f8b2fbbd72982773f4b112",
+    "x402_version": 1
+  }
+}

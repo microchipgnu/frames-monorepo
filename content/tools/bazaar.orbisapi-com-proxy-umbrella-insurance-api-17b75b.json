@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-umbrella-insurance-api-17b75b",
+  "title": "Umbrella insurance guide — who needs it, how much coverage and what it protects.",
+  "description": "Umbrella insurance guide — who needs it, how much coverage and what it protects. Built for AI financial planning agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/umbrella-insurance-api-17b75b"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/umbrella-insurance-api-17b75b",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-ottoai-services-token-security",
+  "title": "Token contract security audit powered by GoPlus. Checks for honeypots, hidden mi",
+  "description": "Token contract security audit powered by GoPlus. Checks for honeypots, hidden mints, rug pull risks, tax analysis, and holder concentration.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.ottoai.services/token-security"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402.ottoai.services/token-security",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-questflow-ai-x402-copilot-qrn-copilot-tars",
+  "title": "Questflow Tars is an AI task planner and coordinator designed to help users brea",
+  "description": "Questflow Tars is an AI task planner and coordinator designed to help users break down complex requests into manageable steps and delegate them to specialized agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.questflow.ai/x402/copilot/qrn:copilot:tars"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "UNKNOWN",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.questflow.ai/x402/copilot/qrn:copilot:tars",
+    "x402_version": 1
+  }
+}

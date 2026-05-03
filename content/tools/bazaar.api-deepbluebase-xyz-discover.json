@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-deepbluebase-xyz-discover",
+  "title": "Search the x402 ecosystem directory. Find APIs, tools, facilitators, and service",
+  "description": "Search the x402 ecosystem directory. Find APIs, tools, facilitators, and services indexed from x402.eco. Query with ?q=your+search&category=services-endpoints&limit=10",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.deepbluebase.xyz/discover"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "solana-mainnet",
+    "currency": "UNKNOWN",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.deepbluebase.xyz/discover",
+    "x402_version": 2
+  }
+}

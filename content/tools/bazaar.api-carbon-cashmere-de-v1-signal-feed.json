@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-signal-feed",
+  "title": "Multi-coin actionable ML trading signals — direction (long/short/neutral), proba",
+  "description": "Multi-coin actionable ML trading signals — direction (long/short/neutral), probability, confidence, actionable flag, and 30-day backtest track record for up to 20 coins. V3 tsfresh XGBoost models. AI agent API for autonomous trading, signal screening, and ML-based portfolio signals.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/signal-feed"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/signal-feed",
+    "x402_version": 2
+  }
+}

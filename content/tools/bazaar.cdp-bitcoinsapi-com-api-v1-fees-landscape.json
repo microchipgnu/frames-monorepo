@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.cdp-bitcoinsapi-com-api-v1-fees-landscape",
+  "title": "Satoshi API Bitcoin fee landscape: send now or wait timing and confirmation cont",
+  "description": "Satoshi API Bitcoin fee landscape: send now or wait timing and confirmation context for agents, backed by 46.8% average fee-savings analysis.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://cdp.bitcoinsapi.com/api/v1/fees/landscape"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://cdp.bitcoinsapi.com/api/v1/fees/landscape",
+    "x402_version": 2
+  }
+}

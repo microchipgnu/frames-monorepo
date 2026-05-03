@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.chrombot-x402-vercel-app-chrombot-public-sale",
+  "title": "ChromBot Public Sale - Coming Soon! Be the first to know when registration opens",
+  "description": "ChromBot Public Sale - Coming Soon! Be the first to know when registration opens. Developed by EvalEngine & Chromia team.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://chrombot-x402.vercel.app/chrombot-public-sale"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://chrombot-x402.vercel.app/chrombot-public-sale",
+    "x402_version": 1
+  }
+}

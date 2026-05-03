@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-reloadpi-com-api-catalog-esims-offers",
+  "title": "Reloadpi — Browse eSIM data plans for international travel across 190+ countries",
+  "description": "Reloadpi — Browse eSIM data plans for international travel across 190+ countries",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.reloadpi.com/api/catalog/esims/offers"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.reloadpi.com/api/catalog/esims/offers",
+    "x402_version": 2
+  }
+}

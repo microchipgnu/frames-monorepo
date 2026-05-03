@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-ai-token-counter-text-analyzer-api-eae7f1-batch",
+  "title": "Count tokens and estimate LLM costs for 15+ models before every API call — built",
+  "description": "Count tokens and estimate LLM costs for 15+ models before every API call — built for AI agents",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/ai-token-counter-text-analyzer-api-eae7f1/batch"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/ai-token-counter-text-analyzer-api-eae7f1/batch",
+    "x402_version": 2
+  }
+}

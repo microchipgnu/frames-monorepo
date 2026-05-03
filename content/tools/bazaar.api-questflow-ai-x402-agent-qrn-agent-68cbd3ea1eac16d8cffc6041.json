@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-questflow-ai-x402-agent-qrn-agent-68cbd3ea1eac16d8cffc6041",
+  "title": "Introducing browser-use cloud MCP server - web automation for any model through ",
+  "description": "Introducing browser-use cloud MCP server - web automation for any model through server-side MCP. | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.questflow.ai/x402/agent/qrn:agent:68cbd3ea1eac16d8cffc6041"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "UNKNOWN",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.questflow.ai/x402/agent/qrn:agent:68cbd3ea1eac16d8cffc6041",
+    "x402_version": 1
+  }
+}

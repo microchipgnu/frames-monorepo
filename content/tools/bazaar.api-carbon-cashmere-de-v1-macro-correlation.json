@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-macro-correlation",
+  "title": "Macro Correlation — rolling 7d and 30d Pearson correlations between BTC and DXY,",
+  "description": "Macro Correlation — rolling 7d and 30d Pearson correlations between BTC and DXY, VIX, 10Y Treasury, Oil, Gold. Includes signal interpretation and macro regime classification. AI agent API for macro-crypto correlation analysis, risk regime detection, and cross-asset intelligence.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/macro-correlation"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.03"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/macro-correlation",
+    "x402_version": 2
+  }
+}

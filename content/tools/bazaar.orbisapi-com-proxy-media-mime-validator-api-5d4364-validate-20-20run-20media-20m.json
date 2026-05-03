@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-media-mime-validator-api-5d4364-validate-20-20run-20media-20m",
+  "title": "Validate media MIME types, file extensions, size limits, and upload acceptance r",
+  "description": "Validate media MIME types, file extensions, size limits, and upload acceptance rules",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/media-mime-validator-api-5d4364/validate%20-%20Run%20media%20MIME%20validation%20from%20submitted%20media%20metadata"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/media-mime-validator-api-5d4364/validate%20-%20Run%20media%20MIME%20validation%20from%20submitted%20media%20metadata",
+    "x402_version": 2
+  }
+}

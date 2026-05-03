@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-lorem-ipsum-generator-api-9bb6a2-format",
+  "title": "Generate placeholder words, sentences, and paragraphs for any UI project.",
+  "description": "Generate placeholder words, sentences, and paragraphs for any UI project.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/lorem-ipsum-generator-api-9bb6a2/format"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/lorem-ipsum-generator-api-9bb6a2/format",
+    "x402_version": 2
+  }
+}

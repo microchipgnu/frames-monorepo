@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-cointegration-pair",
+  "title": "Engle-Granger cointegration test + Augmented Dickey-Fuller on spread + half-life",
+  "description": "Engle-Granger cointegration test + Augmented Dickey-Fuller on spread + half-life of mean reversion. Pair format: BASE-QUOTE (e.g. /v1/cointegration/BTC-ETH). Returns test_statistic, p_value, critical values (1/5/10 pct), is_cointegrated flags, spread analytics (beta coefficient, current z-score, mean/std), and OU half-life in days if stationary. Statistical pairs-trading research tool. Informational research data — not investment advice.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/cointegration/:pair"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.12"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/cointegration/:pair",
+    "x402_version": 2
+  }
+}

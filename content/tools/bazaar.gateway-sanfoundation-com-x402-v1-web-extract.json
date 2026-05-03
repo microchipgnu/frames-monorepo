@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.gateway-sanfoundation-com-x402-v1-web-extract",
+  "title": "Fetch and extract the readable content of a single URL. Returns the page title, ",
+  "description": "Fetch and extract the readable content of a single URL. Returns the page title, publish date when known, the most relevant excerpts (optionally focused by an `objective`), and the full readable text of the page.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://gateway.sanfoundation.com/x402/v1/web-extract"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://gateway.sanfoundation.com/x402/v1/web-extract",
+    "x402_version": 2
+  }
+}

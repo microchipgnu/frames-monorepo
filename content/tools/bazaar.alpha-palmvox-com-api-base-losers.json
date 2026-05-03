@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.alpha-palmvox-com-api-base-losers",
+  "title": "Top losers on Base DEXs in the last 24h — live from DexScreener. Token, price, c",
+  "description": "Top losers on Base DEXs in the last 24h — live from DexScreener. Token, price, change%, volume. Identify dumps and potential bounce plays.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://alpha.palmvox.com/api/base/losers"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://alpha.palmvox.com/api/base/losers",
+    "x402_version": 2
+  }
+}

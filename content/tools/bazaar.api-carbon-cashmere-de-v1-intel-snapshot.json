@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-intel-snapshot",
+  "title": "Multi-coin intelligence snapshot — ML signals, funding rates, OI changes, regime",
+  "description": "Multi-coin intelligence snapshot — ML signals, funding rates, OI changes, regime, volatility, and key features for up to 34 coins in a single call. Sub-50ms Redis-only. Use detail=full for 60+ features per coin. AI agent API for market screening, portfolio monitoring, and multi-asset intelligence.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/intel/snapshot"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.008"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/intel/snapshot",
+    "x402_version": 2
+  }
+}

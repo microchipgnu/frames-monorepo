@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.nonvisceral-eloisa-mousily-ngrok-free-dev-api-liquidations",
+  "title": "Cryptocurrency liquidation data API: real-time open interest velocity, cascade r",
+  "description": "Cryptocurrency liquidation data API: real-time open interest velocity, cascade risk detection, large trade tracking ($50K+) for Bitcoin BTC, Ethereum ETH, and Solana SOL. Market risk and liquidation heatmap data from Hyperliquid DEX.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://nonvisceral-eloisa-mousily.ngrok-free.dev/api/liquidations"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://nonvisceral-eloisa-mousily.ngrok-free.dev/api/liquidations",
+    "x402_version": 2
+  }
+}

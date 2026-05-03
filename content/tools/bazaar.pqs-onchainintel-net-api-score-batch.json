@@ -1,0 +1,29 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.pqs-onchainintel-net-api-score-batch",
+  "title": "PQS batch scoring - score up to 10 prompts in one call",
+  "description": "PQS batch scoring - score up to 10 prompts in one call",
+  "capabilities": [
+    "prompt-quality",
+    "llm",
+    "batch-scoring",
+    "x402",
+    "pqs"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://pqs.onchainintel.net/api/score/batch"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.25"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://pqs.onchainintel.net/api/score/batch",
+    "x402_version": 2
+  }
+}

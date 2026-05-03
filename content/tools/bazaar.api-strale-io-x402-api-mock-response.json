@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-api-mock-response",
+  "title": "Generate a realistic mock API response with proper headers, status codes, and sc",
+  "description": "Generate a realistic mock API response with proper headers, status codes, and schema-matching body data. SQS: 97/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/api-mock-response"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/api-mock-response",
+    "x402_version": 1
+  }
+}

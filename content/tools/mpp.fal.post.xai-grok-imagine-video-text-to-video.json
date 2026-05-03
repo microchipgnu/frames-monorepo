@@ -1,0 +1,30 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.fal.post.xai-grok-imagine-video-text-to-video",
+  "title": "fal.ai — POST /xai/grok-imagine-video/text-to-video",
+  "description": "Grok Imagine Video - xAI text-to-video generation",
+  "capabilities": [
+    "image",
+    "video",
+    "flux",
+    "stable-diffusion",
+    "grok",
+    "generation",
+    "ai",
+    "media"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://fal.mpp.tempo.xyz/xai/grok-imagine-video/text-to-video"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.3"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "fal:POST:/xai/grok-imagine-video/text-to-video"
+  }
+}

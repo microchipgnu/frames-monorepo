@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.theloopbreaker-com-api-x402-trust-bridge",
+  "title": "Cross-chain bridge state for any chain — outbound/inbound message counts, paused",
+  "description": "Cross-chain bridge state for any chain — outbound/inbound message counts, paused state, relayer count, and synced agent/bond/reputation totals. Reads VaultfireTeleporterBridge live.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://theloopbreaker.com/api/x402/trust/bridge"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://theloopbreaker.com/api/x402/trust/bridge",
+    "x402_version": 1
+  }
+}

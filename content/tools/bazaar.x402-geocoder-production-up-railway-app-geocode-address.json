@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-geocoder-production-up-railway-app-geocode-address",
+  "title": "Geocode a US street address to lat/lng plus US Census FIPS codes (state/county/t",
+  "description": "Geocode a US street address to lat/lng plus US Census FIPS codes (state/county/tract/block). Backed by the US Census Bureau Geocoder. Query params: street (required, e.g. '1600 Pennsylvania Ave NW'), city (optional, improves accuracy), state (optional, 2-letter abbrev), zip (optional, 5-digit). Returns match: false with no lat/lng when Census can't find the address; payment is charged per call regardless of match outcome.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402-geocoder-production.up.railway.app/geocode/address"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402-geocoder-production.up.railway.app/geocode/address",
+    "x402_version": 1
+  }
+}

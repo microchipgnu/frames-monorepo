@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-rotation",
+  "title": "Cross-sectional rotation metrics across core (32 coins) or all-universe cohort. ",
+  "description": "Cross-sectional rotation metrics across core (32 coins) or all-universe cohort. Returns top-10 gainers/losers ranked by z-normalized returns, sector-level attribution (L1/DeFi/Meme/Infrastructure/Privacy/Payments/RWA/Exchange/Other), and rotation-velocity metric (mean absolute rank-change over 7d). Periods: 7d/30d/90d. Informational research data — not investment advice.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/rotation"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/rotation",
+    "x402_version": 2
+  }
+}

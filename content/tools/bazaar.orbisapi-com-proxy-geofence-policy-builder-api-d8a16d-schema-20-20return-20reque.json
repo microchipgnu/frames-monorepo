@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-geofence-policy-builder-api-d8a16d-schema-20-20return-20reque",
+  "title": "Build geofence policy recommendations from radius, dwell time, risk, and consent",
+  "description": "Build geofence policy recommendations from radius, dwell time, risk, and consent constraints",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/geofence-policy-builder-api-d8a16d/schema%20-%20Return%20request%20schema%20and%20expected%20fields"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/geofence-policy-builder-api-d8a16d/schema%20-%20Return%20request%20schema%20and%20expected%20fields",
+    "x402_version": 2
+  }
+}

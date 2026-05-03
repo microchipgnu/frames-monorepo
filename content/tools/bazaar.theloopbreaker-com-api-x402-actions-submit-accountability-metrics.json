@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.theloopbreaker-com-api-x402-actions-submit-accountability-metrics",
+  "title": "Submit Flourishing Metrics (income distribution, poverty rate, health, mental he",
+  "description": "Submit Flourishing Metrics (income distribution, poverty rate, health, mental health, education access, purpose/agency scores) to AIAccountabilityBondsV2. Pay $0.25 USDC, sign in your wallet — six dimensions of human flourishing recorded on-chain.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://theloopbreaker.com/api/x402/actions/submit-accountability-metrics"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://theloopbreaker.com/api/x402/actions/submit-accountability-metrics",
+    "x402_version": 1
+  }
+}

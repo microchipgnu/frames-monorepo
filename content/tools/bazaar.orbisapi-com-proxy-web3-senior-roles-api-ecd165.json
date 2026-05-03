@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-web3-senior-roles-api-ecd165",
+  "title": "Senior Web3 roles — lead engineer, principal researcher and head of protocol sal",
+  "description": "Senior Web3 roles — lead engineer, principal researcher and head of protocol salaries and responsibilities.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/web3-senior-roles-api-ecd165"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/web3-senior-roles-api-ecd165",
+    "x402_version": 2
+  }
+}

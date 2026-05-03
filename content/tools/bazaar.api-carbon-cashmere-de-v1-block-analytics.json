@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-block-analytics",
+  "title": "Get per-block analytics for the last N Bitcoin blocks (max 144) — fee distributi",
+  "description": "Get per-block analytics for the last N Bitcoin blocks (max 144) — fee distribution percentiles, SegWit adoption percentage, UTXO set changes, block fill rate, and summary trends. From local Bitcoin Core node via getblockstats. AI agent API for Bitcoin block analysis, fee market research, and mining economics.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/block-analytics"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/block-analytics",
+    "x402_version": 2
+  }
+}

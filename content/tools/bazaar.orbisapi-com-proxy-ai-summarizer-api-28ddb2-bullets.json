@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-ai-summarizer-api-28ddb2-bullets",
+  "title": "Summarize any text in 3 formats, convert to bullets, compare 5 texts and generat",
+  "description": "Summarize any text in 3 formats, convert to bullets, compare 5 texts and generate headlines — built for research agents",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/ai-summarizer-api-28ddb2/bullets"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.03"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/ai-summarizer-api-28ddb2/bullets",
+    "x402_version": 2
+  }
+}

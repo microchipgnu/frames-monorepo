@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-ai-agent-memory-api-c5cab4-api-memory-retrieve",
+  "title": "Persistent memory storage for AI agents — store, retrieve and clear across sessi",
+  "description": "Persistent memory storage for AI agents — store, retrieve and clear across sessions",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/ai-agent-memory-api-c5cab4/api/memory/retrieve"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/ai-agent-memory-api-c5cab4/api/memory/retrieve",
+    "x402_version": 2
+  }
+}

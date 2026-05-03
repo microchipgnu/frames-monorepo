@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.wayback-x402-vercel-app-wayback-history",
+  "title": "Wayback Machine archive history for a URL. Returns a chronological list of archi",
+  "description": "Wayback Machine archive history for a URL. Returns a chronological list of archived snapshots (one per day) with direct archive URLs. Use to track how a webpage changed over time.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://wayback-x402.vercel.app/wayback/history"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://wayback-x402.vercel.app/wayback/history",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.minifetch-com-api-v1-x402-extract-url-metadata",
+  "title": "Extracts rich structured metadata from a URL: title, description, og/twitter tag",
+  "description": "Extracts rich structured metadata from a URL: title, description, og/twitter tags, json-ld, images, headings, response headers, and more. Perfect for SEO research or metadata indexing & analysis",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://minifetch.com/api/v1/x402/extract/url-metadata"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://minifetch.com/api/v1/x402/extract/url-metadata",
+    "x402_version": 2
+  }
+}

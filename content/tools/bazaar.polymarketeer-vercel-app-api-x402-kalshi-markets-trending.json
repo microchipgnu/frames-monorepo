@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.polymarketeer-vercel-app-api-x402-kalshi-markets-trending",
+  "title": "Get trending Kalshi markets sorted by 24-hour trading volume",
+  "description": "Get trending Kalshi markets sorted by 24-hour trading volume",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://polymarketeer.vercel.app/api/x402/kalshi/markets/trending"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://polymarketeer.vercel.app/api/x402/kalshi/markets/trending",
+    "x402_version": 1
+  }
+}

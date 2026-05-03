@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.canvas-0000402-xyz-buy",
+  "title": "Pay $0.01/pixel to buy a canvas region. Provide x1,y1,x2,y2 for a specific posit",
+  "description": "Pay $0.01/pixel to buy a canvas region. Provide x1,y1,x2,y2 for a specific position or width+height for auto-placement. Minimum region: 10×10 pixels. Returns region_id and owner_token. Use owner_token to update content later for free. Network: Base Mainnet. Each request purchases one region and returns placement coordinates plus the owner token.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://canvas.0000402.xyz/buy"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://canvas.0000402.xyz/buy",
+    "x402_version": 2
+  }
+}

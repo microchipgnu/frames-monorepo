@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-dispersion",
+  "title": "Cross-sectional dispersion metrics: cross-sectional volatility (std across coins",
+  "description": "Cross-sectional dispersion metrics: cross-sectional volatility (std across coins per timestamp, averaged over period), hierarchical correlation clusters (2-5 groups, avg intra-cluster correlation), diffusion indexes (7d/30d % of coins with positive return), advance-decline ratio, new highs/lows percentages. Periods: 7d/30d/90d. Informational research data — not investment advice.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/dispersion"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/dispersion",
+    "x402_version": 2
+  }
+}

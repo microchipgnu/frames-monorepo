@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-aml-risk-score",
+  "title": "Calculate a composite Anti-Money Laundering (AML) risk score for a person or com",
+  "description": "Calculate a composite Anti-Money Laundering (AML) risk score for a person or company. Aggregates sanctions screening, PEP status, and jurisdiction risk into a single 0-100 risk score with risk level classification. SQS: 96/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/aml-risk-score"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/aml-risk-score",
+    "x402_version": 1
+  }
+}

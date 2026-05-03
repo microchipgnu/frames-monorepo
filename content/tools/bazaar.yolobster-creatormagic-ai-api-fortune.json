@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.yolobster-creatormagic-ai-api-fortune",
+  "title": "Get a random motivational fortune from YOLObster. No parameters needed.",
+  "description": "Get a random motivational fortune from YOLObster. No parameters needed.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://yolobster.creatormagic.ai/api/fortune"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://yolobster.creatormagic.ai/api/fortune",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-skill-gap-analyze",
+  "title": "Compare required skills against candidate skills with fuzzy matching. Returns ma",
+  "description": "Compare required skills against candidate skills with fuzzy matching. Returns matched, missing, extra, and match score. SQS: 98/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/skill-gap-analyze"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/skill-gap-analyze",
+    "x402_version": 1
+  }
+}

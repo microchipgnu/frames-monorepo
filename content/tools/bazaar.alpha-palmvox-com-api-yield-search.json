@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.alpha-palmvox-com-api-yield-search",
+  "title": "Search DeFi yields by token, chain, or minimum APY. Query: ?token=USDC&chain=bas",
+  "description": "Search DeFi yields by token, chain, or minimum APY. Query: ?token=USDC&chain=base&minApy=5. Returns matching yield opportunities from Aave, Compound, Morpho across all chains.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://alpha.palmvox.com/api/yield/search"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://alpha.palmvox.com/api/yield/search",
+    "x402_version": 2
+  }
+}

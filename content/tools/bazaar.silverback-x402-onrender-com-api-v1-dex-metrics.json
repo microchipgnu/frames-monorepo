@@ -1,0 +1,31 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.silverback-x402-onrender-com-api-v1-dex-metrics",
+  "title": "Base chain DEX ecosystem overview with volume, TVL, gas stats, and top pairs",
+  "description": "Base chain DEX ecosystem overview with volume, TVL, gas stats, and top pairs",
+  "capabilities": [
+    "dex",
+    "metrics",
+    "volume",
+    "tvl",
+    "base",
+    "statistics",
+    "gas"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://silverback-x402.onrender.com/api/v1/dex-metrics"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://silverback-x402.onrender.com/api/v1/dex-metrics",
+    "x402_version": 2
+  }
+}

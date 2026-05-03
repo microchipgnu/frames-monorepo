@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-campaign-roi-calculator-api-0ea9cc-parse",
+  "title": "Calculate marketing campaign ROI, net profit, ROAS, and break-even revenue.",
+  "description": "Calculate marketing campaign ROI, net profit, ROAS, and break-even revenue.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/campaign-roi-calculator-api-0ea9cc/parse"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/campaign-roi-calculator-api-0ea9cc/parse",
+    "x402_version": 2
+  }
+}

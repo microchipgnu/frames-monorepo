@@ -1,0 +1,29 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.kenoodl-com-api-x402-bazaar",
+  "title": "kenoodl is an orthogonal synthesis engine that maps your context against cross-d",
+  "description": "kenoodl is an orthogonal synthesis engine that maps your context against cross-domain pattern libraries outside your training data. Returns the structural read no model can assemble.",
+  "capabilities": [
+    "orthogonal-synthesis",
+    "synthesis",
+    "cross-domain",
+    "analysis",
+    "decision-support"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://kenoodl.com/api/x402/bazaar"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://kenoodl.com/api/x402/bazaar",
+    "x402_version": 2
+  }
+}

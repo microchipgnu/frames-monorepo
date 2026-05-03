@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-the402-ai-v1-services-svc-a0260f914fb440ad-purchase",
+  "title": "Purchase: DocQA - Document Extraction Verifier",
+  "description": "Purchase: DocQA - Document Extraction Verifier",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.the402.ai/v1/services/svc_a0260f914fb440ad/purchase"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.the402.ai/v1/services/svc_a0260f914fb440ad/purchase",
+    "x402_version": 1
+  }
+}

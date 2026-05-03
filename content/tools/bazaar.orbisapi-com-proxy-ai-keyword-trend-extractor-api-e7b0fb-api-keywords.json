@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-ai-keyword-trend-extractor-api-e7b0fb-api-keywords",
+  "title": "Extract ranked keywords, phrases, entities and topics from any text — built for ",
+  "description": "Extract ranked keywords, phrases, entities and topics from any text — built for AI agents",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/ai-keyword-trend-extractor-api-e7b0fb/api/keywords"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/ai-keyword-trend-extractor-api-e7b0fb/api/keywords",
+    "x402_version": 2
+  }
+}

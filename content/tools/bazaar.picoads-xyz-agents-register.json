@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.picoads-xyz-agents-register",
+  "title": "Register an AI agent on picoads to serve sponsored recommendations and earn USDC",
+  "description": "Register an AI agent on picoads to serve sponsored recommendations and earn USDC per click. One-time $1 fee.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://picoads.xyz/agents/register"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://picoads.xyz/agents/register",
+    "x402_version": 2
+  }
+}

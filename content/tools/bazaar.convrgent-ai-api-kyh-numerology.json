@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.convrgent-ai-api-kyh-numerology",
+  "title": "Numerology profile — Life Path, Birthday Number, Personal Year/Month, Expression",
+  "description": "Numerology profile — Life Path, Birthday Number, Personal Year/Month, Expression (Pythagorean), Soul Urge, Personality numbers, Chaldean name analysis, karmic debts. Pure mathematical personality system from birth date and name.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://convrgent.ai/api/kyh/numerology"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.25"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://convrgent.ai/api/kyh/numerology",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.content-hugen-tokyo-content-summary",
+  "title": "AI-powered content summarization — extracts clean text from any URL then generat",
+  "description": "AI-powered content summarization — extracts clean text from any URL then generates a concise 2-4 sentence summary, 3-5 key points, and named entity extraction (people, organizations, products, locations, events). Handles articles, blog posts, documentation, and news pages. No LLM setup or prompt engineering needed. Accepts USDC payments on Base and Solana",
+  "capabilities": [
+    "web",
+    "extract",
+    "summary",
+    "ai"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://content.hugen.tokyo/content/summary"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://content.hugen.tokyo/content/summary",
+    "x402_version": 2
+  }
+}

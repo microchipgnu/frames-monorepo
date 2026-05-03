@@ -1,0 +1,38 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.googlemaps.get.roads-v1-nearestroads",
+  "title": "Google Maps — GET /roads/v1/nearestRoads",
+  "description": "Find nearest roads to coordinates",
+  "capabilities": [
+    "maps",
+    "google",
+    "geocoding",
+    "directions",
+    "places",
+    "routes",
+    "tiles",
+    "weather",
+    "air-quality",
+    "solar",
+    "roads",
+    "pollen",
+    "geolocation",
+    "aerial",
+    "validation",
+    "data"
+  ],
+  "invocation": {
+    "method": "GET",
+    "url": "https://googlemaps.mpp.tempo.xyz/roads/v1/nearestRoads"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "googlemaps:GET:/roads/v1/nearestRoads"
+  }
+}

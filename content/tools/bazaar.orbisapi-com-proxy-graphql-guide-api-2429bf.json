@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-graphql-guide-api-2429bf",
+  "title": "GraphQL guide — queries, mutations, subscriptions and schema design best practic",
+  "description": "GraphQL guide — queries, mutations, subscriptions and schema design best practices. Built for AI developer agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/graphql-guide-api-2429bf"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/graphql-guide-api-2429bf",
+    "x402_version": 2
+  }
+}

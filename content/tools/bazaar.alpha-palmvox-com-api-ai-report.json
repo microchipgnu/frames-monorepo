@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.alpha-palmvox-com-api-ai-report",
+  "title": "Generate a custom AI market report on any topic. Specify focus area: 'defi yield",
+  "description": "Generate a custom AI market report on any topic. Specify focus area: 'defi yields', 'btc analysis', 'base ecosystem', 'risk assessment', etc. 200-300 word original analysis powered by local LLM with live data.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://alpha.palmvox.com/api/ai/report"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.03"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://alpha.palmvox.com/api/ai/report",
+    "x402_version": 2
+  }
+}

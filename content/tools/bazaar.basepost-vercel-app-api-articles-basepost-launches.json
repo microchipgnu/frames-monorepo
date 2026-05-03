@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.basepost-vercel-app-api-articles-basepost-launches",
+  "title": "BasePost by basepost.base.eth: The internet used to be fun. Now every article co",
+  "description": "BasePost by basepost.base.eth: The internet used to be fun. Now every article comes with 47 ads, 12 popups, and a newsletter signup that won't take no for an answer. BasePost brings back the good old days: clean pages, good writing, and you pay a few cents for what you actually want to read.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://basepost.vercel.app/api/articles/basepost-launches"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://basepost.vercel.app/api/articles/basepost-launches",
+    "x402_version": 1
+  }
+}

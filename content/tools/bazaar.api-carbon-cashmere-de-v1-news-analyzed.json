@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-news-analyzed",
+  "title": "Get crypto news articles enriched with AI sentiment scores and Carbon & Cashmere",
+  "description": "Get crypto news articles enriched with AI sentiment scores and Carbon & Cashmere market context (Market Score, Funding Rate, Regime). Filter by coin, impact level, category. 40+ sources, keyword sentiment scoring.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/news/analyzed"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/news/analyzed",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.solopreneur-apitoai-xyz-product-manager",
+  "title": "Product roadmap, feature prioritization, user research, requirements gathering, ",
+  "description": "Product roadmap, feature prioritization, user research, requirements gathering, and product strategy for successful products",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://solopreneur.apitoai.xyz/product_manager"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://solopreneur.apitoai.xyz/product_manager",
+    "x402_version": 1
+  }
+}

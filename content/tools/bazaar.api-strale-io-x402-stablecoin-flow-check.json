@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-stablecoin-flow-check",
+  "title": "Check stablecoin supply and flows. Query by chain (stablecoin supply on Ethereum",
+  "description": "Check stablecoin supply and flows. Query by chain (stablecoin supply on Ethereum, Base, etc.), by stablecoin (USDC market cap and circulation), or get the overall market summary. Data from DeFi Llama. SQS: 98/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/stablecoin-flow-check"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/stablecoin-flow-check",
+    "x402_version": 1
+  }
+}

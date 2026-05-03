@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-charity-lookup-uk",
+  "title": "Look up UK charities via the Charity Commission API. Search by registration numb",
+  "description": "Look up UK charities via the Charity Commission API. Search by registration number or name. Returns status, income, activities. SQS: 96/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/charity-lookup-uk"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/charity-lookup-uk",
+    "x402_version": 1
+  }
+}

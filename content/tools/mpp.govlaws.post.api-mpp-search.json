@@ -1,0 +1,30 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.govlaws.post.api-mpp-search",
+  "title": "GovLaws — POST /api/mpp/search",
+  "description": "Semantic search across current U.S. federal regulations",
+  "capabilities": [
+    "legal",
+    "regulatory",
+    "government",
+    "citations",
+    "compliance",
+    "federal",
+    "data",
+    "search"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://govlaws.ai/api/mpp/search"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.03"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "govlaws:POST:/api/mpp/search"
+  }
+}

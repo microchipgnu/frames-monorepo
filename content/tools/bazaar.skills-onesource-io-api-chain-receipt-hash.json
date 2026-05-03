@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.skills-onesource-io-api-chain-receipt-hash",
+  "title": "Transaction receipt via eth_getTransactionReceipt - status, gas, and event logs ",
+  "description": "Transaction receipt via eth_getTransactionReceipt - status, gas, and event logs for a mined Ethereum transaction",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://skills.onesource.io/api/chain/receipt/:hash"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://skills.onesource.io/api/chain/receipt/:hash",
+    "x402_version": 2
+  }
+}

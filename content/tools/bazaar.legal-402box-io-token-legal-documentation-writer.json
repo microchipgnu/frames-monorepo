@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.legal-402box-io-token-legal-documentation-writer",
+  "title": "Draft Terms of Service, Privacy Policies, Risk Disclosures, and disclaimers comp",
+  "description": "Draft Terms of Service, Privacy Policies, Risk Disclosures, and disclaimers compliant with SEC, MiCA, and regional requirements",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://legal.402box.io/token_legal_documentation_writer"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://legal.402box.io/token_legal_documentation_writer",
+    "x402_version": 1
+  }
+}

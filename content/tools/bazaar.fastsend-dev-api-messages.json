@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.fastsend-dev-api-messages",
+  "title": "Send an SMS or email message via Fastsend.",
+  "description": "Send an SMS or email message via Fastsend.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://fastsend.dev/api/messages"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.165"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://fastsend.dev/api/messages",
+    "x402_version": 2
+  }
+}

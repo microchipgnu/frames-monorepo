@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-postal-code-lookup",
+  "title": "Look up location information from a postal/ZIP code. Returns city, region/state,",
+  "description": "Look up location information from a postal/ZIP code. Returns city, region/state, and approximate coordinates. Covers 60+ countries via Zippopotam.us. SQS: 96/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/postal-code-lookup"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/postal-code-lookup",
+    "x402_version": 1
+  }
+}

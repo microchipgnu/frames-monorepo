@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-phishing-site-check",
+  "title": "Check if a URL is a known phishing site targeting Web3 users. Detects cloned dAp",
+  "description": "Check if a URL is a known phishing site targeting Web3 users. Detects cloned dApp frontends, fake token claim pages, and wallet drainer sites. Uses GoPlus Security's phishing database. SQS: 96/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/phishing-site-check"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/phishing-site-check",
+    "x402_version": 1
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-web-form-automation-mapper-api-dca917-field-rules-20-20return",
+  "title": "Map web forms into agent-fillable fields, validation rules, risk flags, and subm",
+  "description": "Map web forms into agent-fillable fields, validation rules, risk flags, and submission readiness",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/web-form-automation-mapper-api-dca917/field-rules%20-%20Return%20hardcoded%20web%20form%20automation%20mapper%20rules,%20weights,%20and%20evaluation%20criteria"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/web-form-automation-mapper-api-dca917/field-rules%20-%20Return%20hardcoded%20web%20form%20automation%20mapper%20rules,%20weights,%20and%20evaluation%20criteria",
+    "x402_version": 2
+  }
+}

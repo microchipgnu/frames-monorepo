@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.aiagentoracle-ai-api-v1-token-eth",
+  "title": "AgentOracle: lookup a single on-chain crypto token by ticker symbol (case-insens",
+  "description": "AgentOracle: lookup a single on-chain crypto token by ticker symbol (case-insensitive, e.g. ETH, BTC, SOL). Returns the full price / volume / liquidity / market-cap snapshot, or 404 if the symbol is unknown.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://aiagentoracle.ai/api/v1/token/ETH"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://aiagentoracle.ai/api/v1/token/ETH",
+    "x402_version": 2
+  }
+}

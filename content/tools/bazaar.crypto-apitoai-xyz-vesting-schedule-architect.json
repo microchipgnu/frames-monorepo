@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.crypto-apitoai-xyz-vesting-schedule-architect",
+  "title": "Create cliff and linear vesting schedules for team, investors, and advisors with",
+  "description": "Create cliff and linear vesting schedules for team, investors, and advisors with industry benchmarks and smart contract parameters",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://crypto.apitoai.xyz/vesting_schedule_architect"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://crypto.apitoai.xyz/vesting_schedule_architect",
+    "x402_version": 1
+  }
+}

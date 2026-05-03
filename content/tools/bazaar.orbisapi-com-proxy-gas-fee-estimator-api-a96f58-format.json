@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-gas-fee-estimator-api-a96f58-format",
+  "title": "Estimate Ethereum gas fees for transfers, swaps, NFT mints, and DeFi interaction",
+  "description": "Estimate Ethereum gas fees for transfers, swaps, NFT mints, and DeFi interactions.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/gas-fee-estimator-api-a96f58/format"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/gas-fee-estimator-api-a96f58/format",
+    "x402_version": 2
+  }
+}

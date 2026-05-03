@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-garch-coin",
+  "title": "GARCH(1,1) conditional volatility model fit with forecasts at 1d/7d/30d horizons",
+  "description": "GARCH(1,1) conditional volatility model fit with forecasts at 1d/7d/30d horizons. Returns model parameters (omega, alpha_1, beta_1), persistence (alpha+beta), half-life in days (if stationary), and annualized conditional vol. Built via arch package on ohlcv_4h returns. Informational research data — not investment advice.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/garch/:coin"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.15"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/garch/:coin",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-retirement-age-calculator-api-7cf655-parse",
+  "title": "Calculate projected retirement age based on savings rate and spending",
+  "description": "Calculate projected retirement age based on savings rate and spending",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/retirement-age-calculator-api-7cf655/parse"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/retirement-age-calculator-api-7cf655/parse",
+    "x402_version": 2
+  }
+}

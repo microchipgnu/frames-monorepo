@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-data-size-converter-api-39c5a7",
+  "title": "Convert data sizes — bytes, KB, MB, GB, TB and bits. Built for AI developer and ",
+  "description": "Convert data sizes — bytes, KB, MB, GB, TB and bits. Built for AI developer and utility agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/data-size-converter-api-39c5a7"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/data-size-converter-api-39c5a7",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.nonvisceral-eloisa-mousily-ngrok-free-dev-api-funding",
+  "title": "Cryptocurrency perpetual futures funding rates and open interest API: real-time ",
+  "description": "Cryptocurrency perpetual futures funding rates and open interest API: real-time BTC Bitcoin and ETH Ethereum funding rate data from Hyperliquid DEX. Open interest volume for crypto market analysis and trading signals.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://nonvisceral-eloisa-mousily.ngrok-free.dev/api/funding"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://nonvisceral-eloisa-mousily.ngrok-free.dev/api/funding",
+    "x402_version": 2
+  }
+}

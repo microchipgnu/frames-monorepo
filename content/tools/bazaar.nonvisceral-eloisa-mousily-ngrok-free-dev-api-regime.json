@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.nonvisceral-eloisa-mousily-ngrok-free-dev-api-regime",
+  "title": "Bitcoin and Ethereum market trend direction API: current bull or bear regime sig",
+  "description": "Bitcoin and Ethereum market trend direction API: current bull or bear regime signal based on 50-period 1-hour EMA moving average with composite directional confidence score. Real-time LONG or SHORT trend indicator for BTC and ETH crypto trading decisions. Suitable for momentum-following, trend-confirmation, and regime-aware position sizing strategies.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://nonvisceral-eloisa-mousily.ngrok-free.dev/api/regime"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://nonvisceral-eloisa-mousily.ngrok-free.dev/api/regime",
+    "x402_version": 2
+  }
+}

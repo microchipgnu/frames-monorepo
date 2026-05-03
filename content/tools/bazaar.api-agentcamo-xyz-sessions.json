@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-agentcamo-xyz-sessions",
+  "title": "Returns proxy credentials for a geo-targeted exit IP. Residential, mobile/5G, SO",
+  "description": "Returns proxy credentials for a geo-targeted exit IP. Residential, mobile/5G, SOCKS5, WireGuard. 249 countries, mid-session geo-swap. No signup.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.agentcamo.xyz/sessions"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.agentcamo.xyz/sessions",
+    "x402_version": 2
+  }
+}

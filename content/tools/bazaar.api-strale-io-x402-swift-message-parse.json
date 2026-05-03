@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-swift-message-parse",
+  "title": "Parse SWIFT MT messages (MT103/MT940/MT202) into structured data. Extracts sende",
+  "description": "Parse SWIFT MT messages (MT103/MT940/MT202) into structured data. Extracts sender/receiver BIC, amount, currency, beneficiary. SQS: 98/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/swift-message-parse"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/swift-message-parse",
+    "x402_version": 1
+  }
+}

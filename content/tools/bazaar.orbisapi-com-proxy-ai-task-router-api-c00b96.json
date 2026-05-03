@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-ai-task-router-api-c00b96",
+  "title": "Route AI tasks to appropriate models and tools based on intent classification an",
+  "description": "Route AI tasks to appropriate models and tools based on intent classification and complexity. Built for AI agent developers.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/ai-task-router-api-c00b96"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/ai-task-router-api-c00b96",
+    "x402_version": 2
+  }
+}

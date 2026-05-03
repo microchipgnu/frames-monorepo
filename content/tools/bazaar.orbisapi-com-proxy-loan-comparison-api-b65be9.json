@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-loan-comparison-api-b65be9",
+  "title": "Compare multiple loans side by side — monthly payments, total interest and best ",
+  "description": "Compare multiple loans side by side — monthly payments, total interest and best deal finder. Built for AI finance agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/loan-comparison-api-b65be9"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/loan-comparison-api-b65be9",
+    "x402_version": 2
+  }
+}

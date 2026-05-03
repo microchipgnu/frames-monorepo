@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-tools-vercel-app-api-concerts",
+  "title": "Search for upcoming concerts. Supports city, date range, genre, and artist filte",
+  "description": "Search for upcoming concerts. Supports city, date range, genre, and artist filtering.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402-tools.vercel.app/api/concerts"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402-tools.vercel.app/api/concerts",
+    "x402_version": 2
+  }
+}

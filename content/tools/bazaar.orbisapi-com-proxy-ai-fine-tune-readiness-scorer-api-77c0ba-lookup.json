@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-ai-fine-tune-readiness-scorer-api-77c0ba-lookup",
+  "title": "Score a training dataset for fine-tuning readiness: size, field completeness, ou",
+  "description": "Score a training dataset for fine-tuning readiness: size, field completeness, output variance and class balance.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/ai-fine-tune-readiness-scorer-api-77c0ba/lookup"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/ai-fine-tune-readiness-scorer-api-77c0ba/lookup",
+    "x402_version": 2
+  }
+}

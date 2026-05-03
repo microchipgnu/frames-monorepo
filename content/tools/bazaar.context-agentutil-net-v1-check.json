@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.context-agentutil-net-v1-check",
+  "title": "Should I take this action right now? Checks timezone, holidays, business calenda",
+  "description": "Should I take this action right now? Checks timezone, holidays, business calendar, and platform status across 11 countries before sending emails, deploying code, or running campaigns",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://context.agentutil.net/v1/check"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://context.agentutil.net/v1/check",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.nansen.post.api-v1-token-screener",
+  "title": "Nansen — POST /api/v1/token-screener",
+  "description": "Real-time token analytics across chains",
+  "capabilities": [
+    "blockchain",
+    "smart-money",
+    "wallet",
+    "tokens",
+    "defi",
+    "analytics",
+    "profiler",
+    "dex",
+    "pnl",
+    "onchain",
+    "prediction-market",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.nansen.ai/api/v1/token-screener"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "nansen:POST:/api/v1/token-screener"
+  }
+}

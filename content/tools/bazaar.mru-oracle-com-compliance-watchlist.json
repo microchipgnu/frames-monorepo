@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.mru-oracle-com-compliance-watchlist",
+  "title": "Sentinel AML Intelligence: search 1.1M+ OFAC/UN/EU sanctions, PEPs, Interpol, Wo",
+  "description": "Sentinel AML Intelligence: search 1.1M+ OFAC/UN/EU sanctions, PEPs, Interpol, World Bank debarment, crypto watchlists",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://mru-oracle.com/compliance/watchlist"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://mru-oracle.com/compliance/watchlist",
+    "x402_version": 2
+  }
+}

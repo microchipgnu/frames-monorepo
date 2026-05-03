@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-northeastdealintel-com-v1-agent-search",
+  "title": "Search active commercial real estate listings in the Northeast US with scoring",
+  "description": "Search active commercial real estate listings in the Northeast US with scoring",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.northeastdealintel.com/v1/agent/search"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.northeastdealintel.com/v1/agent/search",
+    "x402_version": 2
+  }
+}

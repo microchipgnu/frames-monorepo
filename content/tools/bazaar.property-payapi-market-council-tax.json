@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.property-payapi-market-council-tax",
+  "title": "UK council tax bands A–H by postcode.",
+  "description": "UK council tax bands A–H by postcode.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://property.payapi.market/council-tax"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://property.payapi.market/council-tax",
+    "x402_version": 2
+  }
+}

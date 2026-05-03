@@ -1,0 +1,31 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.stabletravel.get.api-hotels-search",
+  "title": "StableTravel — GET /api/hotels/search",
+  "description": "Search hotel offers by hotel IDs",
+  "capabilities": [
+    "amadeus",
+    "flightaware",
+    "flights",
+    "hotels",
+    "activities",
+    "transfers",
+    "travel",
+    "data",
+    "web"
+  ],
+  "invocation": {
+    "method": "GET",
+    "url": "https://stabletravel.dev/api/hotels/search"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.0324"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "stabletravel:GET:/api/hotels/search"
+  }
+}

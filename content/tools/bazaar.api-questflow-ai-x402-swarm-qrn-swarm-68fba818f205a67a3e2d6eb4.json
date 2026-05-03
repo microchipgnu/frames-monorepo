@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-questflow-ai-x402-swarm-qrn-swarm-68fba818f205a67a3e2d6eb4",
+  "title": "Your crypto alpha intelligence hub - tracks trending tokens, discovers new airdr",
+  "description": "Your crypto alpha intelligence hub - tracks trending tokens, discovers new airdrops, and delivers real-time market insights with AI-powered video reports from top sources. | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.questflow.ai/x402/swarm/qrn:swarm:68fba818f205a67a3e2d6eb4"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "UNKNOWN",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.questflow.ai/x402/swarm/qrn:swarm:68fba818f205a67a3e2d6eb4",
+    "x402_version": 1
+  }
+}

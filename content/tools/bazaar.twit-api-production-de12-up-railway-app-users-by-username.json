@@ -1,0 +1,37 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.twit-api-production-de12-up-railway-app-users-by-username",
+  "title": "Look up a Twitter/X user profile by their screen name. Returns full profile data",
+  "description": "Look up a Twitter/X user profile by their screen name. Returns full profile data including id, name, username, bio, follower count, following count, tweet count, verification status, and profile image URL. Query param: username (string, required) - Twitter screen name without @, e.g. GET /users/by/username?username=elonmusk. Returns X v2 API-compatible JSON.",
+  "capabilities": [
+    "twitter",
+    "x",
+    "social",
+    "user",
+    "profile",
+    "lookup",
+    "username",
+    "screen-name",
+    "followers",
+    "bio",
+    "verification",
+    "agent",
+    "x402"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://twit-api-production-de12.up.railway.app/users/by/username"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://twit-api-production-de12.up.railway.app/users/by/username",
+    "x402_version": 2
+  }
+}

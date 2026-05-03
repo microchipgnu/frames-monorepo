@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-thetrustlayer-xyz-score-base-99999999",
+  "title": "Basic ERC-8004 agent trust score. Returns score 0-100, component breakdown, and ",
+  "description": "Basic ERC-8004 agent trust score. Returns score 0-100, component breakdown, and agent metadata. For full Sybil forensics use /trust/ instead.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.thetrustlayer.xyz/score/base:99999999"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.thetrustlayer.xyz/score/base:99999999",
+    "x402_version": 2
+  }
+}

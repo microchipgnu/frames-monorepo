@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.crypto-apitoai-xyz-governance-framework-designer",
+  "title": "Design voting mechanisms, proposal processes, quorum requirements, delegation sy",
+  "description": "Design voting mechanisms, proposal processes, quorum requirements, delegation systems, and timelock parameters",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://crypto.apitoai.xyz/governance_framework_designer"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://crypto.apitoai.xyz/governance_framework_designer",
+    "x402_version": 1
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.mako-pollinateresearch-com-api-agent-commerce-verify",
+  "title": "_MAKO Agent Commerce Verifier: paid x402 preflight for agents deciding whether t",
+  "description": "_MAKO Agent Commerce Verifier: paid x402 preflight for agents deciding whether to call, trust, or pay another agent/API. Checks x402 discovery metadata, route schemas, payment options, price fit, networks, settlement readiness, and returns a machine-readable verdict plus call plan and signed/hash receipt. Keywords: agent commerce verifier, x402 trust monitor, paid agent preflight, Bazaar metadata, agent-to-agent payments, USDC.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://mako.pollinateresearch.com/api/agent-commerce/verify"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.25"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://mako.pollinateresearch.com/api/agent-commerce/verify",
+    "x402_version": 2
+  }
+}

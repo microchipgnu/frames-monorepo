@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.cron-0000402-xyz-schedule",
+  "title": "Pay $0.10 USDC to schedule a one-shot webhook delivery. Provide a URL and a dela",
+  "description": "Pay $0.10 USDC to schedule a one-shot webhook delivery. Provide a URL and a delay in seconds — the server fires a signed POST to your URL when the timer expires. Automatic retries on failure (up to 3 attempts). Network: Base Mainnet. Each request creates one delayed webhook job and returns identifiers for status checks and cancellation.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://cron.0000402.xyz/schedule"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://cron.0000402.xyz/schedule",
+    "x402_version": 2
+  }
+}

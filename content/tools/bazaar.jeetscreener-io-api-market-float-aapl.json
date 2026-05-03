@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.jeetscreener-io-api-market-float-aapl",
+  "title": "Float data - free float shares outstanding and percentage",
+  "description": "Float data - free float shares outstanding and percentage",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://jeetscreener.io/api/market/float/AAPL"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "solana-mainnet",
+    "currency": "UNKNOWN",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://jeetscreener.io/api/market/float/AAPL",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-agent-security-api-475f3b",
+  "title": "Secure AI agents — prompt injection detection, output sanitization and access co",
+  "description": "Secure AI agents — prompt injection detection, output sanitization and access control. Built for AI developers.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/agent-security-api-475f3b"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/agent-security-api-475f3b",
+    "x402_version": 2
+  }
+}

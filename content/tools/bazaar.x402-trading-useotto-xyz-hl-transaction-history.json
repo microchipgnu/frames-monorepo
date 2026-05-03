@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-trading-useotto-xyz-hl-transaction-history",
+  "title": "Hyperliquid perpetual trading history including fills, funding payments, and PnL",
+  "description": "Hyperliquid perpetual trading history including fills, funding payments, and PnL",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402-trading.useotto.xyz/hl-transaction-history"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402-trading.useotto.xyz/hl-transaction-history",
+    "x402_version": 2
+  }
+}

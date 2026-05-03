@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.theloopbreaker-com-api-x402-trust-reputation-decay",
+  "title": "Read an agent's time-decayed reputation via ReputationDecay.getCurrentScore() — ",
+  "description": "Read an agent's time-decayed reputation via ReputationDecay.getCurrentScore() — decayed score, original base score, days since last activity, and lifetime activity count.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://theloopbreaker.com/api/x402/trust/reputation-decay"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://theloopbreaker.com/api/x402/trust/reputation-decay",
+    "x402_version": 1
+  }
+}

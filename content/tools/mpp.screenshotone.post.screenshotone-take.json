@@ -1,0 +1,26 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.screenshotone.post.screenshotone-take",
+  "title": "ScreenshotOne — POST /screenshotone/take",
+  "description": "Take Screenshot",
+  "capabilities": [
+    "screenshots",
+    "webpage-capture",
+    "rendering",
+    "compute"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://screenshotone.mpp.paywithlocus.com/screenshotone/take"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.055"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "screenshotone:POST:/screenshotone/take"
+  }
+}

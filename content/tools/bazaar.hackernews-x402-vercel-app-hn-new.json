@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.hackernews-x402-vercel-app-hn-new",
+  "title": "Hacker News newest stories. Returns the most recently submitted stories — great ",
+  "description": "Hacker News newest stories. Returns the most recently submitted stories — great for real-time tech news monitoring.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://hackernews-x402.vercel.app/hn/new"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://hackernews-x402.vercel.app/hn/new",
+    "x402_version": 2
+  }
+}

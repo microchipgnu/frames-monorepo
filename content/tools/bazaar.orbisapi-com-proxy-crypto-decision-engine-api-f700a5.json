@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-crypto-decision-engine-api-f700a5",
+  "title": "Turn crypto risk, tokenomics, scam, and sentiment signals into a final decision",
+  "description": "Turn crypto risk, tokenomics, scam, and sentiment signals into a final decision",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/crypto-decision-engine-api-f700a5"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/crypto-decision-engine-api-f700a5",
+    "x402_version": 2
+  }
+}

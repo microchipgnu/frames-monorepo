@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-vasp-non-compliant-check",
+  "title": "Check if a crypto-asset service provider is on ESMA's non-compliant entities lis",
+  "description": "Check if a crypto-asset service provider is on ESMA's non-compliant entities list under MiCA regulation. Flags entities that have been identified for regulatory infringement. SQS: 96/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/vasp-non-compliant-check"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/vasp-non-compliant-check",
+    "x402_version": 1
+  }
+}

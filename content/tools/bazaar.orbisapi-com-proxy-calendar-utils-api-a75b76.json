@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-calendar-utils-api-a75b76",
+  "title": "Calendar utilities — calculate week numbers, quarters, days until events and dat",
+  "description": "Calendar utilities — calculate week numbers, quarters, days until events and date arithmetic. Built for AI scheduling agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/calendar-utils-api-a75b76"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/calendar-utils-api-a75b76",
+    "x402_version": 2
+  }
+}

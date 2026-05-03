@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.stabletravel-dev-api-activities-search",
+  "title": "Search tours and activities near a location",
+  "description": "Search tours and activities near a location",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://stabletravel.dev/api/activities/search"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.054"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://stabletravel.dev/api/activities/search",
+    "x402_version": 2
+  }
+}

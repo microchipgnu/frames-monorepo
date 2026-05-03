@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.crypto-apitoai-xyz-airdrop-economics-planner",
+  "title": "Plan airdrop sizing, eligibility criteria, Sybil resistance mechanisms, cliff/ve",
+  "description": "Plan airdrop sizing, eligibility criteria, Sybil resistance mechanisms, cliff/vesting for recipients, and distribution mechanics",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://crypto.apitoai.xyz/airdrop_economics_planner"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://crypto.apitoai.xyz/airdrop_economics_planner",
+    "x402_version": 1
+  }
+}

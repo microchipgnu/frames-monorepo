@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.crypto-apitoai-xyz-token-launch-sequencing-strategist",
+  "title": "Create token launch timeline: fair launch vs presale, DEX vs CEX sequencing, liq",
+  "description": "Create token launch timeline: fair launch vs presale, DEX vs CEX sequencing, liquidity bootstrapping, and market maker coordination",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://crypto.apitoai.xyz/token_launch_sequencing_strategist"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://crypto.apitoai.xyz/token_launch_sequencing_strategist",
+    "x402_version": 1
+  }
+}

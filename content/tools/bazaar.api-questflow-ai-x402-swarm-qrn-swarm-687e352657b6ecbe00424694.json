@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-questflow-ai-x402-swarm-qrn-swarm-687e352657b6ecbe00424694",
+  "title": "Santa, innovated AI by Questflow, is graduating from a holiday mascot to a full-",
+  "description": "Santa, innovated AI by Questflow, is graduating from a holiday mascot to a full-fledged Swarm of Autonomous Networked Task Agents—letting every crypto team hire a bespoke on-chain chief-of-staff, pre-loaded with workflows that handle rewards, analytics, community comms, and feedback loops while founders build the future. | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.questflow.ai/x402/swarm/qrn:swarm:687e352657b6ecbe00424694"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "UNKNOWN",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.questflow.ai/x402/swarm/qrn:swarm:687e352657b6ecbe00424694",
+    "x402_version": 1
+  }
+}

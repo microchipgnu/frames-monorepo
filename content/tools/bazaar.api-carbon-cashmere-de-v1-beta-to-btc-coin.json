@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-beta-to-btc-coin",
+  "title": "Beta coefficient of coin vs BTC via OLS regression on 4h returns + rolling 30d s",
+  "description": "Beta coefficient of coin vs BTC via OLS regression on 4h returns + rolling 30d stability analysis. Returns full-period beta, alpha (daily pct), r-squared, regime classification (high_amplifier/amplifier/coupled/partial_coupled/decoupled/inverted), and rolling 30d stats (mean/std/min/max). Stability rating (stable/moderate/unstable) based on coefficient-of-variation. Informational research data — not investment advice.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/beta-to-btc/:coin"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/beta-to-btc/:coin",
+    "x402_version": 2
+  }
+}

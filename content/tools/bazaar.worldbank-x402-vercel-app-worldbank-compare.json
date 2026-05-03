@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.worldbank-x402-vercel-app-worldbank-compare",
+  "title": "Compare a World Bank indicator across multiple countries simultaneously. Returns",
+  "description": "Compare a World Bank indicator across multiple countries simultaneously. Returns most recent value per country, sorted descending. Up to 10 countries.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://worldbank-x402.vercel.app/worldbank/compare"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://worldbank-x402.vercel.app/worldbank/compare",
+    "x402_version": 2
+  }
+}

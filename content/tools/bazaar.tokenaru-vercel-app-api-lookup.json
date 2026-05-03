@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.tokenaru-vercel-app-api-lookup",
+  "title": "Resolve a token contract address with CoinGecko-backed metadata.",
+  "description": "Resolve a token contract address with CoinGecko-backed metadata.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://tokenaru.vercel.app/api/lookup"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://tokenaru.vercel.app/api/lookup",
+    "x402_version": 2
+  }
+}

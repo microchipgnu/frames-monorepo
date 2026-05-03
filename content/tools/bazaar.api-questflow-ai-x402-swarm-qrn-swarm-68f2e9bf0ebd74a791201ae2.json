@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-questflow-ai-x402-swarm-qrn-swarm-68f2e9bf0ebd74a791201ae2",
+  "title": "Advanced crypto intelligence swarm that monitors emerging tokens, tracks social ",
+  "description": "Advanced crypto intelligence swarm that monitors emerging tokens, tracks social media buzz, and delivers instant Telegram alerts for new opportunities and major unlock events. Your 24/7 crypto radar! 🚀 | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.questflow.ai/x402/swarm/qrn:swarm:68f2e9bf0ebd74a791201ae2"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "UNKNOWN",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.questflow.ai/x402/swarm/qrn:swarm:68f2e9bf0ebd74a791201ae2",
+    "x402_version": 1
+  }
+}

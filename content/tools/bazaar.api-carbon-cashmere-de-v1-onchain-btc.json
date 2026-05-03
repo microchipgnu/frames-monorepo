@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-onchain-btc",
+  "title": "Get real-time Bitcoin on-chain intelligence from local Bitcoin Core pruned node ",
+  "description": "Get real-time Bitcoin on-chain intelligence from local Bitcoin Core pruned node — network hashrate, mining difficulty, block height, mempool transaction count, fee estimates by priority, and minutes between blocks. Data from Blockchain.com and Blockstream. AI agent API for Bitcoin network health monitoring, mining analysis, and on-chain fundamentals.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/onchain/btc"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/onchain/btc",
+    "x402_version": 2
+  }
+}

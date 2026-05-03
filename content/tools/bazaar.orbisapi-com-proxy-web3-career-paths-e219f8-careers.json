@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-web3-career-paths-e219f8-careers",
+  "title": "10 Web3 career paths with salaries, skills, and resources. Perfect for career ap",
+  "description": "10 Web3 career paths with salaries, skills, and resources. Perfect for career apps and AI agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/web3-career-paths-e219f8/careers"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/web3-career-paths-e219f8/careers",
+    "x402_version": 2
+  }
+}

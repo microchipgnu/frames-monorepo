@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-airdrop-sybil-risk-scorer-api-e4c0e6-catalog-20-20return-20ha",
+  "title": "Score airdrop Sybil risk from wallet age, activity bursts, funding links, and re",
+  "description": "Score airdrop Sybil risk from wallet age, activity bursts, funding links, and repetition",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/airdrop-sybil-risk-scorer-api-e4c0e6/catalog%20-%20Return%20hardcoded%20sybilSignals%20reference%20data%20and%20rules"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/airdrop-sybil-risk-scorer-api-e4c0e6/catalog%20-%20Return%20hardcoded%20sybilSignals%20reference%20data%20and%20rules",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-questflow-ai-x402-swarm-qrn-swarm-68e795cd7ad7f91b3bd36b15",
+  "title": "Your crypto intelligence companion powered by CoinGecko Pro. Get instant analysi",
+  "description": "Your crypto intelligence companion powered by CoinGecko Pro. Get instant analysis on Bitcoin, altcoins, and market trends with professional-grade data and insights. | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.questflow.ai/x402/swarm/qrn:swarm:68e795cd7ad7f91b3bd36b15"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "UNKNOWN",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.questflow.ai/x402/swarm/qrn:swarm:68e795cd7ad7f91b3bd36b15",
+    "x402_version": 1
+  }
+}

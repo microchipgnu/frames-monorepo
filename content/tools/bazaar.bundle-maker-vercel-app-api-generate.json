@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.bundle-maker-vercel-app-api-generate",
+  "title": "Generate a curated bundle of x402 endpoints from a natural-language prompt.",
+  "description": "Generate a curated bundle of x402 endpoints from a natural-language prompt.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://bundle-maker.vercel.app/api/generate"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://bundle-maker.vercel.app/api/generate",
+    "x402_version": 2
+  }
+}

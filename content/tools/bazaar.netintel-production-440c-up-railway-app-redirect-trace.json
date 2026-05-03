@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.netintel-production-440c-up-railway-app-redirect-trace",
+  "title": "Follows a URL through its full redirect chain (up to 20 hops), recording status ",
+  "description": "Follows a URL through its full redirect chain (up to 20 hops), recording status codes, timing, headers, TLS status, and protocol downgrades per hop, then returns an overall redirect health grade (A–F).",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://netintel-production-440c.up.railway.app/redirect/trace"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://netintel-production-440c.up.railway.app/redirect/trace",
+    "x402_version": 2
+  }
+}

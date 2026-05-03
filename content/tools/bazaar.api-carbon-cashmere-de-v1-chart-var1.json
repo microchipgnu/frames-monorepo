@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-chart-var1",
+  "title": "Get AI chart vision analysis — Claude Vision reads 4h candlestick charts and ext",
+  "description": "Get AI chart vision analysis — Claude Vision reads 4h candlestick charts and extracts 7 structured technical features: trend strength, support/resistance distance, chart pattern recognition, volume profile, momentum bias, and overall directional bias. AI agent API for technical analysis automation, chart pattern detection, and visual market intelligence.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/chart/:var1"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.08"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/chart/:var1",
+    "x402_version": 2
+  }
+}

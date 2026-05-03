@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-belgian-company-data",
+  "title": "Look up Belgian company data from KBO/BCE (Crossroads Bank for Enterprises). Acc",
+  "description": "Look up Belgian company data from KBO/BCE (Crossroads Bank for Enterprises). Accepts enterprise number (e.g. 0404.616.494) or company name. Returns company name, registration number, VAT number, address, and status. SQS: 77/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/belgian-company-data"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/belgian-company-data",
+    "x402_version": 1
+  }
+}

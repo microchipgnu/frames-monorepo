@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-dataset-quality-scorer-api-fc3a29-info",
+  "title": "Score ML dataset quality across missing values, duplicates, label noise, imbalan",
+  "description": "Score ML dataset quality across missing values, duplicates, label noise, imbalance, and sample count.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/dataset-quality-scorer-api-fc3a29/info"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/dataset-quality-scorer-api-fc3a29/info",
+    "x402_version": 2
+  }
+}

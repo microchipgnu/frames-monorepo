@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.dog-x420-dev-api-puff",
+  "title": "Buy 1 USDC worth of DOG tokens 0xC6BCf27D02B724ad9869f138b1A41024648E4b07",
+  "description": "Buy 1 USDC worth of DOG tokens 0xC6BCf27D02B724ad9869f138b1A41024648E4b07",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://dog.x420.dev/api/puff"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://dog.x420.dev/api/puff",
+    "x402_version": 1
+  }
+}

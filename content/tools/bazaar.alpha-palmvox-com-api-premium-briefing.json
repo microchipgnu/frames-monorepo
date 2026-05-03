@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.alpha-palmvox-com-api-premium-briefing",
+  "title": "PREMIUM: Executive market briefing — top 3 signals, sentiment summary, key news,",
+  "description": "PREMIUM: Executive market briefing — top 3 signals, sentiment summary, key news, and actionable recommendation in a concise format optimized for agent consumption.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://alpha.palmvox.com/api/premium/briefing"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.03"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://alpha.palmvox.com/api/premium/briefing",
+    "x402_version": 2
+  }
+}

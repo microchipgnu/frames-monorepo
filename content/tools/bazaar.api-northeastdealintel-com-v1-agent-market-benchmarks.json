@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-northeastdealintel-com-v1-agent-market-benchmarks",
+  "title": "Live cap rate benchmarks by state and property type for Northeast US commercial ",
+  "description": "Live cap rate benchmarks by state and property type for Northeast US commercial real estate",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.northeastdealintel.com/v1/agent/market-benchmarks"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.northeastdealintel.com/v1/agent/market-benchmarks",
+    "x402_version": 2
+  }
+}

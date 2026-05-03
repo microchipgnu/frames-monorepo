@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.httpay-xyz-api-mev-risk",
+  "title": "Pre-swap MEV sandwich risk scoring. Params: ?tokenIn=0x...&tokenOut=0x...&amount",
+  "description": "Pre-swap MEV sandwich risk scoring. Params: ?tokenIn=0x...&tokenOut=0x...&amountUsd=1000&dex=uniswap. Returns riskScore 0-100, verdict LOW/MEDIUM/HIGH, and mitigation factors. Uses GoPlus + DexScreener.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://httpay.xyz/api/mev-risk"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://httpay.xyz/api/mev-risk",
+    "x402_version": 1
+  }
+}

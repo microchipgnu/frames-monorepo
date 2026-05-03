@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-dev-agents-skillfulai-io-api-x402-demo-testnet-premium",
+  "title": "Demo X402 premium endpoint (testnet) - pay $0.01 USDC",
+  "description": "Demo X402 premium endpoint (testnet) - pay $0.01 USDC",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api-dev.agents.skillfulai.io/api/x402/demo/testnet/premium"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base-sepolia",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api-dev.agents.skillfulai.io/api/x402/demo/testnet/premium",
+    "x402_version": 1
+  }
+}

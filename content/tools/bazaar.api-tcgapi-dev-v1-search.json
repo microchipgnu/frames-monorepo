@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-tcgapi-dev-v1-search",
+  "title": "Full-text card search across 89+ trading card games — Pokemon, Magic: The Gather",
+  "description": "Full-text card search across 89+ trading card games — Pokemon, Magic: The Gathering, Yu-Gi-Oh, Lorcana, Flesh and Blood, One Piece, Riftbound.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.tcgapi.dev/v1/search"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.tcgapi.dev/v1/search",
+    "x402_version": 1
+  }
+}

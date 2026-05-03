@@ -1,0 +1,29 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.silverback-x402-onrender-com-api-v1-pool-analysis",
+  "title": "Analyze Base chain liquidity pools with health scoring",
+  "description": "Analyze Base chain liquidity pools with health scoring",
+  "capabilities": [
+    "pool",
+    "liquidity",
+    "analysis",
+    "tvl",
+    "base"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://silverback-x402.onrender.com/api/v1/pool-analysis"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://silverback-x402.onrender.com/api/v1/pool-analysis",
+    "x402_version": 2
+  }
+}

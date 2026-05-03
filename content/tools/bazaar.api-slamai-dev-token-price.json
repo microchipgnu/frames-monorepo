@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-slamai-dev-token-price",
+  "title": "\nReturns current token prices with FDV, liquidity, and 24h price change, quoted ",
+  "description": "\nReturns current token prices with FDV, liquidity, and 24h price change, quoted in **USD**, **ETH**, or **BTC**.\n\n### Rules\n- Provide **either** `symbols` or `addresses`, not both.\n- Max **30 entries** for either parameter (pipe-delimited).\n- `quote_symbol` must be one of: `USD`, `ETH`, `BTC`.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.slamai.dev/token/price"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.slamai.dev/token/price",
+    "x402_version": 1
+  }
+}

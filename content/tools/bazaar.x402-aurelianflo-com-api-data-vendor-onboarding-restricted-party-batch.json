@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-aurelianflo-com-api-data-vendor-onboarding-restricted-party-batch",
+  "title": "Low-friction batch restricted-party screen for up to 25 counterparties in one pa",
+  "description": "Low-friction batch restricted-party screen for up to 25 counterparties in one paid call. Returns per-name screening results, flagged counterparties, a batch-level proceed-or-pause recommendation, and machine-readable review signals for procurement, payouts, and cross-border onboarding workflows. Required query param: names separated with the pipe character (|). Optional query params: workflow, minScore, type, country, program, list, limit.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.aurelianflo.com/api/data/vendor-onboarding/restricted-party-batch"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.15"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402.aurelianflo.com/api/data/vendor-onboarding/restricted-party-batch",
+    "x402_version": 2
+  }
+}

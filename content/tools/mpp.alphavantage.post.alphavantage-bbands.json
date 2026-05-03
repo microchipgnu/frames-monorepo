@@ -1,0 +1,29 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.alphavantage.post.alphavantage-bbands",
+  "title": "Alpha Vantage — POST /alphavantage/bbands",
+  "description": "Bollinger Bands",
+  "capabilities": [
+    "finance",
+    "stocks",
+    "forex",
+    "crypto",
+    "market-data",
+    "technical-analysis",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://alphavantage.mpp.paywithlocus.com/alphavantage/bbands"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.008"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "alphavantage:POST:/alphavantage/bbands"
+  }
+}

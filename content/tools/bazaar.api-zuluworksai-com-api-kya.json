@@ -1,0 +1,29 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-zuluworksai-com-api-kya",
+  "title": "Verify caller trust from real-time Cloudflare edge signals (TLS, HTTP protocol, ",
+  "description": "Verify caller trust from real-time Cloudflare edge signals (TLS, HTTP protocol, geo, ASN). Returns a 0–1 trust score. Bot detection / KYA / handshake verification at $0.005 per call.",
+  "capabilities": [
+    "trust",
+    "bot-detection",
+    "kya",
+    "verification",
+    "handshake"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.zuluworksai.com/api/kya"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.zuluworksai.com/api/kya",
+    "x402_version": 2
+  }
+}

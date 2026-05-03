@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-dellbot-win-chat-pro",
+  "title": "Pro-tier reasoning & code. Kimi K2 Thinking for deep reasoning or Qwen3 Coder 48",
+  "description": "Pro-tier reasoning & code. Kimi K2 Thinking for deep reasoning or Qwen3 Coder 480B for code generation. OpenAI-compatible. Supports tools/tool_choice and stream:true SSE.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.dellbot.win/chat-pro"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402.dellbot.win/chat-pro",
+    "x402_version": 2
+  }
+}

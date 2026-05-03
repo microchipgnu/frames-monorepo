@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-advanced-blockchain-forensics-tracing-pro-api-800250-openapi",
+  "title": "Traces transaction paths up to N hops, detects mixer patterns, and scores addres",
+  "description": "Traces transaction paths up to N hops, detects mixer patterns, and scores address risk for compliance.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/advanced-blockchain-forensics-tracing-pro-api-800250/openapi"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/advanced-blockchain-forensics-tracing-pro-api-800250/openapi",
+    "x402_version": 2
+  }
+}

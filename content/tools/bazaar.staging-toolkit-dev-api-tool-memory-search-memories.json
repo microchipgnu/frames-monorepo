@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.staging-toolkit-dev-api-tool-memory-search-memories",
+  "title": "Search through stored memories. This method is called ANYTIME the user asks anyt",
+  "description": "Search through stored memories. This method is called ANYTIME the user asks anything.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://staging.toolkit.dev/api/tool/memory/search-memories"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://staging.toolkit.dev/api/tool/memory/search-memories",
+    "x402_version": 1
+  }
+}

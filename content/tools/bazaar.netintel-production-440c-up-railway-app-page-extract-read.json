@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.netintel-production-440c-up-railway-app-page-extract-read",
+  "title": "Fetch any article or web page and extract clean readable text stripped of naviga",
+  "description": "Fetch any article or web page and extract clean readable text stripped of navigation, ads, and boilerplate — returns the main content body, word count, estimated reading time, detected language, and key sentences so agents can read the web without a browser or third-party scraping service.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://netintel-production-440c.up.railway.app/page-extract/read"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://netintel-production-440c.up.railway.app/page-extract/read",
+    "x402_version": 2
+  }
+}

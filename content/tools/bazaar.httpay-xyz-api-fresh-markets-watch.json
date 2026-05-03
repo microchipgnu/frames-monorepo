@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.httpay-xyz-api-fresh-markets-watch",
+  "title": "Fresh Markets Watch — newly created DeFi pools/markets sorted by APY with TVL, p",
+  "description": "Fresh Markets Watch — newly created DeFi pools/markets sorted by APY with TVL, protocol, token pair, and risk warnings for new pools. Supports ?chain=base&hours=24&demo=true.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://httpay.xyz/api/fresh-markets-watch"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://httpay.xyz/api/fresh-markets-watch",
+    "x402_version": 1
+  }
+}

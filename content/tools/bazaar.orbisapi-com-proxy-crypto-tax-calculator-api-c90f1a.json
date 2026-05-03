@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-crypto-tax-calculator-api-c90f1a",
+  "title": "Full crypto tax calculation with FIFO/LIFO/HIFO — short/long term gains and tax ",
+  "description": "Full crypto tax calculation with FIFO/LIFO/HIFO — short/long term gains and tax events.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/crypto-tax-calculator-api-c90f1a"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/crypto-tax-calculator-api-c90f1a",
+    "x402_version": 2
+  }
+}

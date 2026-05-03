@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.alpha-palmvox-com-api-ai-ask",
+  "title": "Ask any crypto question — AI answers using live market data. Powered by local LL",
+  "description": "Ask any crypto question — AI answers using live market data. Powered by local LLM with real-time prices, sentiment, yields, and signals. No hallucination — grounded in actual data. POST {question: 'Should I buy ETH?'}",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://alpha.palmvox.com/api/ai/ask"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://alpha.palmvox.com/api/ai/ask",
+    "x402_version": 2
+  }
+}

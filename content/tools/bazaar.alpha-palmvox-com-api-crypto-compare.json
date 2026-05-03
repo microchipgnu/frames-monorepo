@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.alpha-palmvox-com-api-crypto-compare",
+  "title": "Compare two or more tokens — relative strength, which to buy, sentiment comparis",
+  "description": "Compare two or more tokens — relative strength, which to buy, sentiment comparison. Send {tokens: ['BTC','ETH','SOL']} and get ranked analysis.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://alpha.palmvox.com/api/crypto/compare"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://alpha.palmvox.com/api/crypto/compare",
+    "x402_version": 2
+  }
+}

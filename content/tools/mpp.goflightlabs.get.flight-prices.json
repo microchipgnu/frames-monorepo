@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.goflightlabs.get.flight-prices",
+  "title": "GoFlightLabs — GET /flight-prices",
+  "description": "Flight price search",
+  "capabilities": [
+    "flights",
+    "tracking",
+    "prices",
+    "airlines",
+    "airports",
+    "data"
+  ],
+  "invocation": {
+    "method": "GET",
+    "url": "https://goflightlabs.mpp.tempo.xyz/flight-prices"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "goflightlabs:GET:/flight-prices"
+  }
+}

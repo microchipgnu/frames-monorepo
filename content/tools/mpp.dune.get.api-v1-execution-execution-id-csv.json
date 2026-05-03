@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.dune.get.api-v1-execution-execution-id-csv",
+  "title": "Dune — GET /api/v1/execution/:execution_id/csv",
+  "description": "Download CSV results for an execution",
+  "capabilities": [
+    "sql",
+    "analytics",
+    "blockchain",
+    "data",
+    "query"
+  ],
+  "invocation": {
+    "method": "GET",
+    "url": "https://api.dune.com/api/v1/execution/:execution_id/csv"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "dynamic"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "dune:GET:/api/v1/execution/:execution_id/csv"
+  }
+}

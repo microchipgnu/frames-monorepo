@@ -1,0 +1,30 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.www-agentcrush-xyz-api-agent-crewai-trust-summary",
+  "title": "Current trust state, rank, and multi-signal score for an AI agent on AgentCrush.",
+  "description": "Current trust state, rank, and multi-signal score for an AI agent on AgentCrush. Updated every 4 hours.",
+  "capabilities": [
+    "ai-agents",
+    "trust",
+    "verification",
+    "analytics",
+    "identity",
+    "kya"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://www.agentcrush.xyz/api/agent/crewai/trust-summary"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://www.agentcrush.xyz/api/agent/crewai/trust-summary",
+    "x402_version": 2
+  }
+}

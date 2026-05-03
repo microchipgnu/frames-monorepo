@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.bazaaro-agent-vercel-app-api-list",
+  "title": "Lists x402 services supported by Bazaaro with optional price filtering",
+  "description": "Lists x402 services supported by Bazaaro with optional price filtering",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://bazaaro-agent.vercel.app/api/list"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://bazaaro-agent.vercel.app/api/list",
+    "x402_version": 1
+  }
+}

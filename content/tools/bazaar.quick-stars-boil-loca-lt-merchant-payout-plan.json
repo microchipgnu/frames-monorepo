@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.quick-stars-boil-loca-lt-merchant-payout-plan",
+  "title": "Batch payout window and fee-band plan for a Bitcoin merchant payout run",
+  "description": "Batch payout window and fee-band plan for a Bitcoin merchant payout run",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://quick-stars-boil.loca.lt/merchant-payout-plan"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base-sepolia",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://quick-stars-boil.loca.lt/merchant-payout-plan",
+    "x402_version": 2
+  }
+}

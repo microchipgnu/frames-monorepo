@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-blockchain-gas-price-forecaster-api-05e621-lookup",
+  "title": "Forecasts gas prices 6 hours ahead using trend analysis and recommends optimal t",
+  "description": "Forecasts gas prices 6 hours ahead using trend analysis and recommends optimal transaction timing.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/blockchain-gas-price-forecaster-api-05e621/lookup"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/blockchain-gas-price-forecaster-api-05e621/lookup",
+    "x402_version": 2
+  }
+}

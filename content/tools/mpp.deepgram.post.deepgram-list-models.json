@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.deepgram.post.deepgram-list-models",
+  "title": "Deepgram — POST /deepgram/list-models",
+  "description": "List Models",
+  "capabilities": [
+    "speech-to-text",
+    "transcription",
+    "tts",
+    "audio",
+    "sentiment",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://deepgram.mpp.paywithlocus.com/deepgram/list-models"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "deepgram:POST:/deepgram/list-models"
+  }
+}

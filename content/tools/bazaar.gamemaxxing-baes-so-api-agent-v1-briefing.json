@@ -1,0 +1,34 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.gamemaxxing-baes-so-api-agent-v1-briefing",
+  "title": "Turn a video game topic into a grounded research briefing about games, game desi",
+  "description": "Turn a video game topic into a grounded research briefing about games, game design, game culture, or the game industry, with full concept content, examples, follow-up terms, and citations.",
+  "capabilities": [
+    "game",
+    "games",
+    "video-games",
+    "gaming",
+    "game-research",
+    "game-briefing",
+    "game-analysis",
+    "game-industry",
+    "game-culture",
+    "citations"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://gamemaxxing.baes.so/api/agent/v1/briefing"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://gamemaxxing.baes.so/api/agent/v1/briefing",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.mako-pollinateresearch-com-api-governance-weekly-brief",
+  "title": "Generate a neutral DAO governance weekly brief from Snapshot and Tally proposal ",
+  "description": "Generate a neutral DAO governance weekly brief from Snapshot and Tally proposal sources. Returns source-linked Markdown and structured proposal metadata. Informational only; does not vote, sign transactions, custody funds, or provide investment/legal/tax/compliance advice.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://mako.pollinateresearch.com/api/governance/weekly-brief"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://mako.pollinateresearch.com/api/governance/weekly-brief",
+    "x402_version": 2
+  }
+}

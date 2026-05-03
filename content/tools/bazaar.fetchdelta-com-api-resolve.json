@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.fetchdelta-com-api-resolve",
+  "title": "Resolve a public web page into clean markdown and metadata for autonomous agents",
+  "description": "Resolve a public web page into clean markdown and metadata for autonomous agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://fetchdelta.com/api/resolve"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://fetchdelta.com/api/resolve",
+    "x402_version": 2
+  }
+}

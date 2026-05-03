@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-oatp-cc-tools-tx-simulator",
+  "title": "OATP · tx_simulator — Simulate a base64-encoded Solana transaction without broad",
+  "description": "OATP · tx_simulator — Simulate a base64-encoded Solana transaction without broadcasting it. Returns success/err, logs, compute units consumed, and any accounts the simulator surfaces.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.oatp.cc/tools/tx_simulator"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "solana-mainnet",
+    "currency": "UNKNOWN",
+    "price_hint": "0.2"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.oatp.cc/tools/tx_simulator",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.worldbank-x402-vercel-app-worldbank-indicator",
+  "title": "World Bank development indicator for any country. Supports named shortcuts (gdp,",
+  "description": "World Bank development indicator for any country. Supports named shortcuts (gdp, gdp_per_capita, population, life_expectancy, inflation, unemployment, co2_per_capita, poverty, internet_users, gini, literacy) or raw indicator codes like NY.GDP.MKTP.CD.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://worldbank-x402.vercel.app/worldbank/indicator"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://worldbank-x402.vercel.app/worldbank/indicator",
+    "x402_version": 2
+  }
+}

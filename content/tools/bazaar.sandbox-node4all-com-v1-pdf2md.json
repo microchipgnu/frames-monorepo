@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.sandbox-node4all-com-v1-pdf2md",
+  "title": "Node4All pdf2md — layout-aware PDF → Markdown (pdf2md) conversion powered by @op",
+  "description": "Node4All pdf2md — layout-aware PDF → Markdown (pdf2md) conversion powered by @opendocsg/pdf2md, ideal for ingesting long documents into agent context windows. Accepts a multipart \"file\" upload (application/pdf, ≤10MB) and returns text/markdown. Operator: Node4All (https://node4all.com). Currency: USDC on Base.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://sandbox.node4all.com/v1/pdf2md"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base-sepolia",
+    "currency": "USDC",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://sandbox.node4all.com/v1/pdf2md",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.agents-allium-so-api-v1-developer-prices-history",
+  "title": "API request: /api/v1/developer/prices/history",
+  "description": "API request: /api/v1/developer/prices/history",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://agents.allium.so/api/v1/developer/prices/history"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://agents.allium.so/api/v1/developer/prices/history",
+    "x402_version": 2
+  }
+}

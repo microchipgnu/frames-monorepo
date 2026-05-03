@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.postalform.post.api-machine-mpp-orders",
+  "title": "PostalForm — POST /api/machine/mpp/orders",
+  "description": "Create and pay for a print-and-mail order",
+  "capabilities": [
+    "mail",
+    "print",
+    "letters",
+    "physical",
+    "postal",
+    "web"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://postalform.com/api/machine/mpp/orders"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "dynamic"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "postalform:POST:/api/machine/mpp/orders"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-deepnets-ai-api-token-safety-solana-address",
+  "title": "Token safety analysis for a Solana mint: overall risk level, wallet-network conc",
+  "description": "Token safety analysis for a Solana mint: overall risk level, wallet-network concentration, bundle detection, mintable/freezable flags, critical risks, and warnings. Returns the most recent cached analysis.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.deepnets.ai/api/token-safety/:solana_address"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "solana-mainnet",
+    "currency": "UNKNOWN",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.deepnets.ai/api/token-safety/:solana_address",
+    "x402_version": 2
+  }
+}

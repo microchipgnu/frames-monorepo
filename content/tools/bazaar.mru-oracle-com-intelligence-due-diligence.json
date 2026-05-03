@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.mru-oracle-com-intelligence-due-diligence",
+  "title": "Compound entity screening: watchlist screening (1.1M+ records) + jurisdiction ri",
+  "description": "Compound entity screening: watchlist screening (1.1M+ records) + jurisdiction risk + Mauritius FSC check + forex context ÃÂ¢ÃÂÃÂ replaces 5 API calls",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://mru-oracle.com/intelligence/due-diligence"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://mru-oracle.com/intelligence/due-diligence",
+    "x402_version": 2
+  }
+}

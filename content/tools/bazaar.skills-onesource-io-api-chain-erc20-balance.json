@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.skills-onesource-io-api-chain-erc20-balance",
+  "title": "ERC20 token balance for any Ethereum wallet - USDC, USDT, DAI, or any token - vi",
+  "description": "ERC20 token balance for any Ethereum wallet - USDC, USDT, DAI, or any token - via balanceOf (eth_call) on OneSource live Ethereum RPC",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://skills.onesource.io/api/chain/erc20-balance"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://skills.onesource.io/api/chain/erc20-balance",
+    "x402_version": 2
+  }
+}

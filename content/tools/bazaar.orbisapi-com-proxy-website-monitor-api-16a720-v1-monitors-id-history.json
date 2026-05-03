@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-website-monitor-api-16a720-v1-monitors-id-history",
+  "title": "Monitor any URL for changes — detects content diffs, summarizes what changed and",
+  "description": "Monitor any URL for changes — detects content diffs, summarizes what changed and delivers alerts via webhook.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/website-monitor-api-16a720/v1/monitors/:id/history"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.008"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/website-monitor-api-16a720/v1/monitors/:id/history",
+    "x402_version": 2
+  }
+}

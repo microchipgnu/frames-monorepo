@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-kaspa-mining-economics",
+  "title": "Kaspa mining economics model: hashrate + difficulty + KAS price → revenue per TH",
+  "description": "Kaspa mining economics model: hashrate + difficulty + KAS price → revenue per TH/s/day. Calculates kas-per-day yield, USD revenue, cost per TH/s (based on 40W typical ASIC + configurable electricity cost), profit margin, and breakeven KAS price. Block reward 132 KAS assumed (Kaspa emission schedule). Node-backed hashrate. Informational research data — not investment advice.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/kaspa/mining-economics"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/kaspa/mining-economics",
+    "x402_version": 2
+  }
+}

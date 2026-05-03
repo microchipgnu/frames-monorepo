@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-url-parse-detailed-api-534f53-validate",
+  "title": "Parse any URL into all components scheme host path query fragment",
+  "description": "Parse any URL into all components scheme host path query fragment",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/url-parse-detailed-api-534f53/validate"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/url-parse-detailed-api-534f53/validate",
+    "x402_version": 2
+  }
+}

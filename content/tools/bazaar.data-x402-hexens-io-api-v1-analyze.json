@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.data-x402-hexens-io-api-v1-analyze",
+  "title": "Token Risks API. This API provides the deepest and the most high-precision resul",
+  "description": "Token Risks API. This API provides the deepest and the most high-precision results finding token risks and unique edge cases using a deterministic engine. Use this API after deploying a token or trading a token to check for the contract risk score and if needed make decisions based on that.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://data-x402.hexens.io/api/v1/analyze"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://data-x402.hexens.io/api/v1/analyze",
+    "x402_version": 1
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.expansion-apitoai-xyz-regional-regulatory-navigator",
+  "title": "Map country-specific regulations: data residency, content restrictions, crypto l",
+  "description": "Map country-specific regulations: data residency, content restrictions, crypto legality, consumer protection laws, and local licensing",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://expansion.apitoai.xyz/regional_regulatory_navigator"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://expansion.apitoai.xyz/regional_regulatory_navigator",
+    "x402_version": 1
+  }
+}

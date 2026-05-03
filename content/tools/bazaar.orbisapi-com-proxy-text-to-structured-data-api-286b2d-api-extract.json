@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-text-to-structured-data-api-286b2d-api-extract",
+  "title": "Extract any fields from any text instantly — built for AI agents",
+  "description": "Extract any fields from any text instantly — built for AI agents",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/text-to-structured-data-api-286b2d/api/extract"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/text-to-structured-data-api-286b2d/api/extract",
+    "x402_version": 2
+  }
+}

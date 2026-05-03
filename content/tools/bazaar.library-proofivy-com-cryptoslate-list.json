@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.library-proofivy-com-cryptoslate-list",
+  "title": "Get list of all available CryptoSlate content URLs with their last updated dates",
+  "description": "Get list of all available CryptoSlate content URLs with their last updated dates",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://library.proofivy.com/cryptoslate_list"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://library.proofivy.com/cryptoslate_list",
+    "x402_version": 2
+  }
+}

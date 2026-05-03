@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-synthetic-data-privacy-risk-api-18b0e0-catalog-20-20return-20",
+  "title": "Score synthetic data privacy risk from uniqueness, linkage, memorization, and ut",
+  "description": "Score synthetic data privacy risk from uniqueness, linkage, memorization, and utility signals",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/synthetic-data-privacy-risk-api-18b0e0/catalog%20-%20Return%20hardcoded%20privacySignals%20reference%20data"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/synthetic-data-privacy-risk-api-18b0e0/catalog%20-%20Return%20hardcoded%20privacySignals%20reference%20data",
+    "x402_version": 2
+  }
+}

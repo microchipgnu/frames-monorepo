@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-credit-score-guide-v2-api-93d891",
+  "title": "Credit score ranges, improvement factors and tips to boost your score. Built for",
+  "description": "Credit score ranges, improvement factors and tips to boost your score. Built for AI personal finance agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/credit-score-guide-v2-api-93d891"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/credit-score-guide-v2-api-93d891",
+    "x402_version": 2
+  }
+}

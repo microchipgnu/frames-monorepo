@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.utilsforagents-com-v1-html-fetch-markdown",
+  "title": "Fetch a URL and convert its HTML content to Markdown. Handles redirects, downloa",
+  "description": "Fetch a URL and convert its HTML content to Markdown. Handles redirects, downloads the HTML, and returns clean Markdown suitable for LLM context windows or document processing. Use this to read and summarize web pages, documentation, or articles. Send {\"url\": \"https://...\"}. Remote fetch timeout: 5s, max download size: 2 MB.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://utilsforagents.com/v1/html/fetch-markdown"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://utilsforagents.com/v1/html/fetch-markdown",
+    "x402_version": 2
+  }
+}

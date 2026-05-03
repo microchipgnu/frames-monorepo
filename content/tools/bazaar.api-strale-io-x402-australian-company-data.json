@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-australian-company-data",
+  "title": "Look up Australian company data from ABN Lookup. Accepts ABN (11 digits), ACN (9",
+  "description": "Look up Australian company data from ABN Lookup. Accepts ABN (11 digits), ACN (9 digits), or fuzzy company name. SQS: 63/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/australian-company-data"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/australian-company-data",
+    "x402_version": 1
+  }
+}

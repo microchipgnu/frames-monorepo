@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.www-xquant-api-xyz-api-xquant-stonk",
+  "title": "Pay 1 USDC, receive 100 xTest tokens - automatically minted to your wallet",
+  "description": "Pay 1 USDC, receive 100 xTest tokens - automatically minted to your wallet",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://www.xquant-api.xyz/api/xQuant-stonk"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://www.xquant-api.xyz/api/xQuant-stonk",
+    "x402_version": 1
+  }
+}

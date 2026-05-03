@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-currency-math-api-1ffff6",
+  "title": "Currency math utilities — percentage calculations, rounding and number formattin",
+  "description": "Currency math utilities — percentage calculations, rounding and number formatting for financial apps. Built for AI finance agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/currency-math-api-1ffff6"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/currency-math-api-1ffff6",
+    "x402_version": 2
+  }
+}

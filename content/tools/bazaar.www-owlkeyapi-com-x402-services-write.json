@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.www-owlkeyapi-com-x402-services-write",
+  "title": "Low-cost AI writing API for agents. Generates launch copy, posts, summaries, hoo",
+  "description": "Low-cost AI writing API for agents. Generates launch copy, posts, summaries, hooks, and reusable text variants.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://www.owlkeyapi.com/x402/services/write"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://www.owlkeyapi.com/x402/services/write",
+    "x402_version": 2
+  }
+}

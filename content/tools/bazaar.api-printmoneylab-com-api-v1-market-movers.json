@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-printmoneylab-com-api-v1-market-movers",
+  "title": "1-minute price surges/crashes, volume spikes, top 20 tokens by volume on Korean ",
+  "description": "1-minute price surges/crashes, volume spikes, top 20 tokens by volume on Korean exchanges",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.printmoneylab.com/api/v1/market-movers"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.printmoneylab.com/api/v1/market-movers",
+    "x402_version": 2
+  }
+}

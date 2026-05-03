@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.mako-pollinateresearch-com-api-pulse-score",
+  "title": "_MAKO Pulse: endpoint reliability score derived from _MAKO's verification histor",
+  "description": "_MAKO Pulse: endpoint reliability score derived from _MAKO's verification history. Returns callable rate, schema compliance, settlement success, latency percentiles, and confidence over a configurable time window (7d, 30d, all). Pairs with the _MAKO Agent Commerce Verifier: every paid verify call makes Pulse smarter. Keywords: MAKO, _MAKO, Pollinate Research, endpoint reliability, uptime, x402 trust monitor, agent commerce, agent reliability, x402, USDC. Informational only.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://mako.pollinateresearch.com/api/pulse/score"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://mako.pollinateresearch.com/api/pulse/score",
+    "x402_version": 2
+  }
+}

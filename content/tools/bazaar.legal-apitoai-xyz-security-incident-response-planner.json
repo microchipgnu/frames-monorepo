@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.legal-apitoai-xyz-security-incident-response-planner",
+  "title": "Create exploit response playbooks: detection, pause mechanisms, communication pr",
+  "description": "Create exploit response playbooks: detection, pause mechanisms, communication protocols, white-hat coordination, and post-mortem processes",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://legal.apitoai.xyz/security_incident_response_planner"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://legal.apitoai.xyz/security_incident_response_planner",
+    "x402_version": 1
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-trading-useotto-xyz-portfolio",
+  "title": "Multi-chain portfolio with token balances and yield positions across Safe accoun",
+  "description": "Multi-chain portfolio with token balances and yield positions across Safe accounts",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402-trading.useotto.xyz/portfolio"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402-trading.useotto.xyz/portfolio",
+    "x402_version": 2
+  }
+}

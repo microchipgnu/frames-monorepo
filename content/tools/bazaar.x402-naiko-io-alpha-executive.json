@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-naiko-io-alpha-executive",
+  "title": "AI-generated executive summary of current market trends, top narratives, and not",
+  "description": "AI-generated executive summary of current market trends, top narratives, and notable momentum shifts.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.naiko.io/alpha/executive"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402.naiko.io/alpha/executive",
+    "x402_version": 2
+  }
+}

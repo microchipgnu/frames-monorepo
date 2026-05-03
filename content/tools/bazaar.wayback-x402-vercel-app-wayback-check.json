@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.wayback-x402-vercel-app-wayback-check",
+  "title": "Wayback Machine availability check. Returns whether a URL has been archived and ",
+  "description": "Wayback Machine availability check. Returns whether a URL has been archived and the closest snapshot to a given timestamp. Use to verify if a page existed at a specific point in time.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://wayback-x402.vercel.app/wayback/check"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://wayback-x402.vercel.app/wayback/check",
+    "x402_version": 2
+  }
+}

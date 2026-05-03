@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.kari-mayim-mayim-com-api-bazaar-confession",
+  "title": "Agent Confession API",
+  "description": "Agent Confession API",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://kari.mayim-mayim.com/api/bazaar/confession"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://kari.mayim-mayim.com/api/bazaar/confession",
+    "x402_version": 2
+  }
+}

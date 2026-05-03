@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-orderbook-var1",
+  "title": "Get Binance L2 orderbook microstructure for 15 crypto assets — bid/ask volume im",
+  "description": "Get Binance L2 orderbook microstructure for 15 crypto assets — bid/ask volume imbalance, spread in basis points, bid wall ratio, ask wall ratio. Institutional-grade depth analysis for BTC, ETH, SOL, and 12 more. AI agent API for order flow analysis, market making signals, and liquidity assessment.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/orderbook/:var1"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/orderbook/:var1",
+    "x402_version": 2
+  }
+}

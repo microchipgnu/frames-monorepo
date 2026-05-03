@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.httpay-xyz-api-mempool-scanner",
+  "title": "Base sequencer pending transaction feed — large pending swaps, MEV opportunities",
+  "description": "Base sequencer pending transaction feed — large pending swaps, MEV opportunities, frontrunning signals. Base uses a centralized sequencer so this shows the sequencer queue rather than a traditional mempool.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://httpay.xyz/api/mempool-scanner"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://httpay.xyz/api/mempool-scanner",
+    "x402_version": 1
+  }
+}

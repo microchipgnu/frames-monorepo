@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-smart-money-intelligence-api-06f13e-smart-money-on-chain-metr",
+  "title": "Detect whale accumulation and distribution patterns using on-chain signals to id",
+  "description": "Detect whale accumulation and distribution patterns using on-chain signals to identify smart money moves early.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/smart-money-intelligence-api-06f13e/smart-money/on-chain-metrics"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/smart-money-intelligence-api-06f13e/smart-money/on-chain-metrics",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.gifu-server-onrender-com-api-x402-credits-purchase-10",
+  "title": "Purchase 10 credits for unlimited searches and AI chat features",
+  "description": "Purchase 10 credits for unlimited searches and AI chat features",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://gifu-server.onrender.com/api/x402/credits/purchase/10"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://gifu-server.onrender.com/api/x402/credits/purchase/10",
+    "x402_version": 1
+  }
+}

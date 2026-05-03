@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.alpha-palmvox-com-api-gas-tracker",
+  "title": "Base network gas tracker — current gas price, recommended gas, average tx cost, ",
+  "description": "Base network gas tracker — current gas price, recommended gas, average tx cost, and best time to transact. Essential for agents optimizing transaction costs.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://alpha.palmvox.com/api/gas/tracker"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://alpha.palmvox.com/api/gas/tracker",
+    "x402_version": 2
+  }
+}

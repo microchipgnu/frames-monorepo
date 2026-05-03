@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-volatility-coin",
+  "title": "Multi-estimator realized volatility analytics — realized vol (7d/30d/full), Park",
+  "description": "Multi-estimator realized volatility analytics — realized vol (7d/30d/full), Parkinson range-based (high-low log), Garman-Klass (O/H/L/C), downside semi-variance, vol-of-vol. All annualized for 4h bars (× sqrt(2190)). Informational research data — not investment advice.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/volatility/:coin"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.12"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/volatility/:coin",
+    "x402_version": 2
+  }
+}

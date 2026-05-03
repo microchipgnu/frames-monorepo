@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.frogs-x420-dev-api-puff",
+  "title": "Buy 1 USDC worth of FROGS tokens 0xbdB03E709EC61316D5Df8D7a6BBF203572E6cB07",
+  "description": "Buy 1 USDC worth of FROGS tokens 0xbdB03E709EC61316D5Df8D7a6BBF203572E6cB07",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://frogs.x420.dev/api/puff"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://frogs.x420.dev/api/puff",
+    "x402_version": 1
+  }
+}

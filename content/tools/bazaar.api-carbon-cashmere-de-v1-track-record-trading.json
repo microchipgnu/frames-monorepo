@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-track-record-trading",
+  "title": "Detailed trading track-record — per-coin win rate, total trades, total PnL, aver",
+  "description": "Detailed trading track-record — per-coin win rate, total trades, total PnL, average and best/worst trades. Includes FTMO prop-firm $100k Challenge results (passed +5.04% in 5 days, 81.3% win rate on BTC). On-chain-verifiable via x402 settlements. AI agent API for due-diligence on signal quality before subscribing to paid streams.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/track-record/trading"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/track-record/trading",
+    "x402_version": 2
+  }
+}

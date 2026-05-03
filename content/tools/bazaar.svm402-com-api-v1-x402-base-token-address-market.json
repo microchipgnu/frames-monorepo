@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.svm402-com-api-v1-x402-base-token-address-market",
+  "title": "Real-time market snapshot for any Base ERC-20 token. Returns top DexScreener poo",
+  "description": "Real-time market snapshot for any Base ERC-20 token. Returns top DexScreener pool, USD price, 24h price change, FDV, market cap, 24h volume, USD liquidity, and pool count. Address is supplied via the `:address` path parameter (0x-prefixed Base mainnet ERC-20). Pay-per-call via x402 / USDC on Base.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://svm402.com/api/v1/x402/base/token/:address/market"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://svm402.com/api/v1/x402/base/token/:address/market",
+    "x402_version": 2
+  }
+}

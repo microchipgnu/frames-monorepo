@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.svm402-com-api-v1-x402-base-token-address-honeypot",
+  "title": "Honeypot.is buy/sell simulation for a Base ERC-20. Returns is_honeypot verdict, ",
+  "description": "Honeypot.is buy/sell simulation for a Base ERC-20. Returns is_honeypot verdict, buy/sell/transfer tax percentages, simulation success flag, and a free-form reason string when a honeypot is detected. Use to detect malicious tax/transfer-restriction tokens before trading. Address is supplied via the `:address` path parameter. Pay-per-call via x402 / USDC on Base.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://svm402.com/api/v1/x402/base/token/:address/honeypot"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://svm402.com/api/v1/x402/base/token/:address/honeypot",
+    "x402_version": 2
+  }
+}

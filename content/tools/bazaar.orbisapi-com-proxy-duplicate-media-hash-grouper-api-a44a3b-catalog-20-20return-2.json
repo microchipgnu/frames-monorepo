@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-duplicate-media-hash-grouper-api-a44a3b-catalog-20-20return-2",
+  "title": "Group duplicate media assets by hash, size, name similarity, and storage path hi",
+  "description": "Group duplicate media assets by hash, size, name similarity, and storage path hints",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/duplicate-media-hash-grouper-api-a44a3b/catalog%20-%20Return%20hardcoded%20dedupeSignals%20reference%20data"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/duplicate-media-hash-grouper-api-a44a3b/catalog%20-%20Return%20hardcoded%20dedupeSignals%20reference%20data",
+    "x402_version": 2
+  }
+}

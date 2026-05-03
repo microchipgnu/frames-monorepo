@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.shield-vainplex-dev-api-cdp-check-domain",
+  "title": "ShieldAPI - Security intelligence and domain reputation check for agent security",
+  "description": "ShieldAPI - Security intelligence and domain reputation check for agent security",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://shield.vainplex.dev/api/cdp/check-domain"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://shield.vainplex.dev/api/cdp/check-domain",
+    "x402_version": 2
+  }
+}

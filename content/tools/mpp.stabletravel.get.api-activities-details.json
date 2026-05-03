@@ -1,0 +1,31 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.stabletravel.get.api-activities-details",
+  "title": "StableTravel — GET /api/activities/details",
+  "description": "Get activity details by ID",
+  "capabilities": [
+    "amadeus",
+    "flightaware",
+    "flights",
+    "hotels",
+    "activities",
+    "transfers",
+    "travel",
+    "data",
+    "web"
+  ],
+  "invocation": {
+    "method": "GET",
+    "url": "https://stabletravel.dev/api/activities/details"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.054"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "stabletravel:GET:/api/activities/details"
+  }
+}

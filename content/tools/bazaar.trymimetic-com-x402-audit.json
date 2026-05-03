@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.trymimetic-com-x402-audit",
+  "title": "Analyze any website for conversion rate improvements: page speed bottlenecks, br",
+  "description": "Analyze any website for conversion rate improvements: page speed bottlenecks, broken analytics and attribution, compliance risks, accessibility gaps, and how the site stacks up against competitors. Returns prioritized fixes with estimated impact.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://trymimetic.com/x402/audit"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://trymimetic.com/x402/audit",
+    "x402_version": 2
+  }
+}

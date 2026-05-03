@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.stableupload-dev-api-site",
+  "title": "Buy a site upload slot. Upload a zip file, then activate to extract and serve as",
+  "description": "Buy a site upload slot. Upload a zip file, then activate to extract and serve as a static site.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://stableupload.dev/api/site"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://stableupload.dev/api/site",
+    "x402_version": 2
+  }
+}

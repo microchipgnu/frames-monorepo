@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.web-production-60258-up-railway-app-macro-releases",
+  "title": "Economic data releases — what published in the last 30 days",
+  "description": "Economic data releases — what published in the last 30 days",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://web-production-60258.up.railway.app/macro/releases"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://web-production-60258.up.railway.app/macro/releases",
+    "x402_version": 2
+  }
+}

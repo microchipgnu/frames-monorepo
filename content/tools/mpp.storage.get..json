@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.storage.get.",
+  "title": "Object Storage — GET /",
+  "description": "List objects",
+  "capabilities": [
+    "s3",
+    "r2",
+    "objects",
+    "blobs",
+    "files",
+    "storage"
+  ],
+  "invocation": {
+    "method": "GET",
+    "url": "https://storage.mpp.tempo.xyz/"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.0001"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "storage:GET:/"
+  }
+}

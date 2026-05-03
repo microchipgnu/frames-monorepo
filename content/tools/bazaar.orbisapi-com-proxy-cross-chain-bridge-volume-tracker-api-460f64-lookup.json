@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-cross-chain-bridge-volume-tracker-api-460f64-lookup",
+  "title": "Rank cross-chain bridges by volume with market share, avg tx size and 7-day volu",
+  "description": "Rank cross-chain bridges by volume with market share, avg tx size and 7-day volume change.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/cross-chain-bridge-volume-tracker-api-460f64/lookup"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/cross-chain-bridge-volume-tracker-api-460f64/lookup",
+    "x402_version": 2
+  }
+}

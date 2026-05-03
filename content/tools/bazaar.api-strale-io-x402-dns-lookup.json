@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-dns-lookup",
+  "title": "Perform a comprehensive DNS lookup for a domain. Returns A, AAAA, MX, NS, TXT, C",
+  "description": "Perform a comprehensive DNS lookup for a domain. Returns A, AAAA, MX, NS, TXT, CNAME records plus SPF and DMARC detection. SQS: 96/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/dns-lookup"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/dns-lookup",
+    "x402_version": 1
+  }
+}

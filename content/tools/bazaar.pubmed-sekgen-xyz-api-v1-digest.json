@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.pubmed-sekgen-xyz-api-v1-digest",
+  "title": "Full biomedical research digest — scored papers, MeSH term landscape, and top au",
+  "description": "Full biomedical research digest — scored papers, MeSH term landscape, and top authors for any medical, clinical, or scientific query from PubMed and OpenAlex",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://pubmed.sekgen.xyz/api/v1/digest"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.08"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://pubmed.sekgen.xyz/api/v1/digest",
+    "x402_version": 2
+  }
+}

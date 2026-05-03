@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-pr-description-generate",
+  "title": "Generate pull request descriptions from diffs or commit logs. Returns title, sum",
+  "description": "Generate pull request descriptions from diffs or commit logs. Returns title, summary, changes list, testing steps. SQS: 98/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/pr-description-generate"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/pr-description-generate",
+    "x402_version": 1
+  }
+}

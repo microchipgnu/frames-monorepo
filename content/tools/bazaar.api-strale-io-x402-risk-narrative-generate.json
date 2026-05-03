@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-risk-narrative-generate",
+  "title": "Generates a plain-language risk narrative from structured check results. Designe",
+  "description": "Generates a plain-language risk narrative from structured check results. Designed for non-technical users reviewing AI agent output. Supports KYB and invoice fraud contexts. SQS: 96/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/risk-narrative-generate"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/risk-narrative-generate",
+    "x402_version": 1
+  }
+}

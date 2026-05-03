@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-cross-chain-bridge-fee-estimator-api-0aa0f5-analyze",
+  "title": "Estimate cross-chain bridge fees and times across Ethereum, Polygon, Arbitrum, O",
+  "description": "Estimate cross-chain bridge fees and times across Ethereum, Polygon, Arbitrum, Optimism and BSC. Returns cheapest and fa",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/cross-chain-bridge-fee-estimator-api-0aa0f5/analyze"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/cross-chain-bridge-fee-estimator-api-0aa0f5/analyze",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402station-io-api-v1-alternatives",
+  "title": "x402 alternatives: given a URL flagged by preflight (or a taskClass hint), retur",
+  "description": "x402 alternatives: given a URL flagged by preflight (or a taskClass hint), return up to 5 healthy sibling endpoints in the same provider/domain/category/price-band. Filters out 7-day-dead and 1-hour-erroring candidates; ranks by uptime + latency. Solves the routing-fallback question that follows ok=false from preflight.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402station.io/api/v1/alternatives"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402station.io/api/v1/alternatives",
+    "x402_version": 2
+  }
+}

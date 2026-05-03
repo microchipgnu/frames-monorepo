@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-aurelianflo-com-api-sim-composed",
+  "title": "Compose weighted scenario components into a blended probability with per-compone",
+  "description": "Compose weighted scenario components into a blended probability with per-component simulation traces.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.aurelianflo.com/api/sim/composed"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.09"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402.aurelianflo.com/api/sim/composed",
+    "x402_version": 2
+  }
+}

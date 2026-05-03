@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-ai-lead-enrichment-company-data-api-1b09e6-api-outreach",
+  "title": "Enrich leads, score prospects and generate outreach intelligence — built for sal",
+  "description": "Enrich leads, score prospects and generate outreach intelligence — built for sales AI agents",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/ai-lead-enrichment-company-data-api-1b09e6/api/outreach"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/ai-lead-enrichment-company-data-api-1b09e6/api/outreach",
+    "x402_version": 2
+  }
+}

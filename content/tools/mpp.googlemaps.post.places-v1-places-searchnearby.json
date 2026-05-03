@@ -1,0 +1,38 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.googlemaps.post.places-v1-places-searchnearby",
+  "title": "Google Maps — POST /places/v1/places:searchNearby",
+  "description": "Nearby search for places",
+  "capabilities": [
+    "maps",
+    "google",
+    "geocoding",
+    "directions",
+    "places",
+    "routes",
+    "tiles",
+    "weather",
+    "air-quality",
+    "solar",
+    "roads",
+    "pollen",
+    "geolocation",
+    "aerial",
+    "validation",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://googlemaps.mpp.tempo.xyz/places/v1/places:searchNearby"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.032"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "googlemaps:POST:/places/v1/places:searchNearby"
+  }
+}

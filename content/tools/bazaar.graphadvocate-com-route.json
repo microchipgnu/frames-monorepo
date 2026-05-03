@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.graphadvocate-com-route",
+  "title": "Ask any onchain question in plain English. Returns the right subgraph from 15k+ ",
+  "description": "Ask any onchain question in plain English. Returns the right subgraph from 15k+ on The Graph, a runnable GraphQL query, and an MCP install hint.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://graphadvocate.com/route"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://graphadvocate.com/route",
+    "x402_version": 2
+  }
+}

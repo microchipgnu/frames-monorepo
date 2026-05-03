@@ -1,0 +1,34 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-twit-sh-lists-by-id",
+  "title": "Retrieve details of a specific Twitter/X List by its numeric ID. Returns name, d",
+  "description": "Retrieve details of a specific Twitter/X List by its numeric ID. Returns name, description, mode, member count, subscriber count, creation date, banner image, and owner profile. Query param: id (string, required) - numeric List ID, e.g. GET /lists/by/id?id=84839422. Returns X v2 API-compatible JSON.",
+  "capabilities": [
+    "twitter",
+    "x",
+    "social",
+    "list",
+    "lists",
+    "lookup",
+    "details",
+    "metadata",
+    "agent",
+    "x402"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.twit.sh/lists/by/id"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.0025"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402.twit.sh/lists/by/id",
+    "x402_version": 2
+  }
+}

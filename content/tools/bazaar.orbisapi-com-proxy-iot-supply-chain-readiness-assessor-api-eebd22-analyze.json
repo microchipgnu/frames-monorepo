@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-iot-supply-chain-readiness-assessor-api-eebd22-analyze",
+  "title": "Assess IoT readiness across network coverage, sensors, IT infrastructure, cloud ",
+  "description": "Assess IoT readiness across network coverage, sensors, IT infrastructure, cloud and staff capability.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/iot-supply-chain-readiness-assessor-api-eebd22/analyze"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/iot-supply-chain-readiness-assessor-api-eebd22/analyze",
+    "x402_version": 2
+  }
+}

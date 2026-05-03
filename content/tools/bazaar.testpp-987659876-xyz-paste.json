@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.testpp-987659876-xyz-paste",
+  "title": "Pay $0.01 USDC to store up to 100 KB of text or code. Returns a token for free r",
+  "description": "Pay $0.01 USDC to store up to 100 KB of text or code. Returns a token for free retrieval anytime via GET /paste/{token}. Network: Base Mainnet.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://testpp.987659876.xyz/paste"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://testpp.987659876.xyz/paste",
+    "x402_version": 2
+  }
+}

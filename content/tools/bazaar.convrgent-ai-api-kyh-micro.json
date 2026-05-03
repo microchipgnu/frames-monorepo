@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.convrgent-ai-api-kyh-micro",
+  "title": "Quick personality micro-query: single_psych_dimension — single data point, light",
+  "description": "Quick personality micro-query: single_psych_dimension — single data point, lightweight, fast personality data",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://convrgent.ai/api/kyh/micro"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://convrgent.ai/api/kyh/micro",
+    "x402_version": 2
+  }
+}

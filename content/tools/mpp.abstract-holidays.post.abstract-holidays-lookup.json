@@ -1,0 +1,26 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.abstract-holidays.post.abstract-holidays-lookup",
+  "title": "Holidays — POST /abstract-holidays/lookup",
+  "description": "Lookup",
+  "capabilities": [
+    "holidays",
+    "countries",
+    "public-holidays",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://abstract-holidays.mpp.paywithlocus.com/abstract-holidays/lookup"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.006"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "abstract-holidays:POST:/abstract-holidays/lookup"
+  }
+}

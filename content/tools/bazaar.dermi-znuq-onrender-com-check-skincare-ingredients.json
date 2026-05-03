@@ -1,0 +1,34 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.dermi-znuq-onrender-com-check-skincare-ingredients",
+  "title": "Check skincare and makeup ingredients for pore-clogging (comedogenic) compounds ",
+  "description": "Check skincare and makeup ingredients for pore-clogging (comedogenic) compounds - $0.01 USDC",
+  "capabilities": [
+    "skincare",
+    "makeup",
+    "cosmetics",
+    "ingredients",
+    "comedogenic",
+    "pore-clogging",
+    "dermatology",
+    "health",
+    "agent",
+    "x402"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://dermi-znuq.onrender.com/check-skincare-ingredients"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "stellar:testnet",
+    "currency": "UNKNOWN",
+    "price_hint": "0.1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://dermi-znuq.onrender.com/check-skincare-ingredients",
+    "x402_version": 2
+  }
+}

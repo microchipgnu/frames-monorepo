@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-slinkylayer-ai-api-v1-proxy-id-serp-rank",
+  "title": "Check Google SERP rank for a given keyword with optional language, location, and",
+  "description": "Check Google SERP rank for a given keyword with optional language, location, and size parameters, returning structured search result data.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.slinkylayer.ai/api/v1/proxy/:id/serp-rank"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402.slinkylayer.ai/api/v1/proxy/:id/serp-rank",
+    "x402_version": 1
+  }
+}

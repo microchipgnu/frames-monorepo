@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-car-model-guide-d68a26",
+  "title": "Reliability, specs, pros, cons, and ownership info for popular cars",
+  "description": "Reliability, specs, pros, cons, and ownership info for popular cars",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/car-model-guide-d68a26"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/car-model-guide-d68a26",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-on-chain-sentiment-scorer-api-35deef-lookup",
+  "title": "Score on-chain market sentiment from exchange netflow, active addresses, NVT rat",
+  "description": "Score on-chain market sentiment from exchange netflow, active addresses, NVT ratio and long-term holders.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/on-chain-sentiment-scorer-api-35deef/lookup"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/on-chain-sentiment-scorer-api-35deef/lookup",
+    "x402_version": 2
+  }
+}

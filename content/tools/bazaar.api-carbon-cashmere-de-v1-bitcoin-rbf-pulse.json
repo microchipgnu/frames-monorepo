@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-bitcoin-rbf-pulse",
+  "title": "BIP125 Replace-By-Fee analytics across whale transactions. Returns RBF-flagged c",
+  "description": "BIP125 Replace-By-Fee analytics across whale transactions. Returns RBF-flagged count, confirmation rate, BTC value distribution, fee-rate premium of RBF vs non-RBF transactions (RBF users typically pay higher for fee flexibility). Mempool fullrbf policy state. Whale-tx tracking via own ZMQ stream. Informational research data — not investment advice.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/bitcoin/rbf-pulse"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.08"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/bitcoin/rbf-pulse",
+    "x402_version": 2
+  }
+}

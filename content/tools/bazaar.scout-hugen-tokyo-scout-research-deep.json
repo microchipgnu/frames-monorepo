@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.scout-hugen-tokyo-scout-research-deep",
+  "title": "Comprehensive AI-synthesized report — searches all 18 sources (including X/Twitt",
+  "description": "Comprehensive AI-synthesized report — searches all 18 sources (including X/Twitter) in parallel, then synthesizes with multi-source AI synthesis. Maximum coverage for thorough market and technical analysis. AI agent API for full-spectrum competitive intelligence, investment due diligence, and strategic planning. Accepts USDC payments on Base and Solana",
+  "capabilities": [
+    "multi-source",
+    "x402",
+    "structured-json"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://scout.hugen.tokyo/scout/research/deep"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.5"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://scout.hugen.tokyo/scout/research/deep",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.httpay-xyz-api-x402-recent-txns",
+  "title": "Real-time x402 transaction monitor — fetches recent USDC transfers facilitated b",
+  "description": "Real-time x402 transaction monitor — fetches recent USDC transfers facilitated by known x402 facilitators on Base",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://httpay.xyz/api/x402-recent-txns"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://httpay.xyz/api/x402-recent-txns",
+    "x402_version": 1
+  }
+}

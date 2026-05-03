@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.fred-x402-vercel-app-fred-history",
+  "title": "Historical observations for any FRED series. Returns up to 100 data points in ch",
+  "description": "Historical observations for any FRED series. Returns up to 100 data points in chronological order. Great for trend analysis and time-series modeling.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://fred-x402.vercel.app/fred/history"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://fred-x402.vercel.app/fred/history",
+    "x402_version": 2
+  }
+}

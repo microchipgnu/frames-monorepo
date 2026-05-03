@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-printmoneylab-com-api-v1-kr-prices",
+  "title": "Korean exchange prices (Upbit, Bithumb) for a single token in KRW",
+  "description": "Korean exchange prices (Upbit, Bithumb) for a single token in KRW",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.printmoneylab.com/api/v1/kr-prices"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.printmoneylab.com/api/v1/kr-prices",
+    "x402_version": 2
+  }
+}

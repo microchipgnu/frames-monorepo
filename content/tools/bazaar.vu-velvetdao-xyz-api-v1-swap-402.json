@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.vu-velvetdao-xyz-api-v1-swap-402",
+  "title": "DeFi token swap: returns best route and ready-to-sign transaction data.",
+  "description": "DeFi token swap: returns best route and ready-to-sign transaction data.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://vu.velvetdao.xyz/api/v1/swap_402"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://vu.velvetdao.xyz/api/v1/swap_402",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.stabletravel-dev-api-flightaware-airports-mad-delays",
+  "title": "Get current delay information for a specific airport",
+  "description": "Get current delay information for a specific airport",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://stabletravel.dev/api/flightaware/airports/MAD/delays"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://stabletravel.dev/api/flightaware/airports/MAD/delays",
+    "x402_version": 2
+  }
+}

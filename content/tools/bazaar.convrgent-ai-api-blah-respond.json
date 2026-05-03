@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.convrgent-ai-api-blah-respond",
+  "title": "Real-time response coaching — given a human's message and conversation objective",
+  "description": "Real-time response coaching — given a human's message and conversation objective, generate ranked response options with detected emotional state and avoidance list. Speed-optimized.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://convrgent.ai/api/blah/respond"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.35"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://convrgent.ai/api/blah/respond",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.crypto-apitoai-xyz-token-supply-distribution-designer",
+  "title": "Design total token supply, initial allocation percentages, emission schedules, a",
+  "description": "Design total token supply, initial allocation percentages, emission schedules, and distribution rationale with multi-chain considerations",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://crypto.apitoai.xyz/token_supply_distribution_designer"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://crypto.apitoai.xyz/token_supply_distribution_designer",
+    "x402_version": 1
+  }
+}

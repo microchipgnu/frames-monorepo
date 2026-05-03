@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.clawtious-creatormagic-ai-api-ai-brainstorm",
+  "title": "AI idea generation — brainstorm 5 ideas on any topic",
+  "description": "AI idea generation — brainstorm 5 ideas on any topic",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://clawtious.creatormagic.ai/api/ai/brainstorm"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://clawtious.creatormagic.ai/api/ai/brainstorm",
+    "x402_version": 2
+  }
+}

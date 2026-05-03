@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-flight-status",
+  "title": "Look up flight status by flight number (e.g. LH400, BA117). Returns departure/ar",
+  "description": "Look up flight status by flight number (e.g. LH400, BA117). Returns departure/arrival times, delays, gates. Requires AVIATIONSTACK_API_KEY for live data. SQS: 96/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/flight-status"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/flight-status",
+    "x402_version": 1
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-northeastdealintel-com-v1-agent-owner-lookup",
+  "title": "Owner name, years held, aging signal from 100K+ deed records",
+  "description": "Owner name, years held, aging signal from 100K+ deed records",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.northeastdealintel.com/v1/agent/owner-lookup"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.northeastdealintel.com/v1/agent/owner-lookup",
+    "x402_version": 2
+  }
+}

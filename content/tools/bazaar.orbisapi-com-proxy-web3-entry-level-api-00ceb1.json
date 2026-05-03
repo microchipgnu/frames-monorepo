@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-web3-entry-level-api-00ceb1",
+  "title": "Entry-level Web3 job guide — junior roles, salary expectations and skills to lan",
+  "description": "Entry-level Web3 job guide — junior roles, salary expectations and skills to land your first crypto job.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/web3-entry-level-api-00ceb1"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/web3-entry-level-api-00ceb1",
+    "x402_version": 2
+  }
+}

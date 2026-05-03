@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.theloopbreaker-com-api-x402-trust-scoped-delegations",
+  "title": "List the scoped delegations granted by an agent via ScopedDelegation.getGrantedS",
+  "description": "List the scoped delegations granted by an agent via ScopedDelegation.getGrantedScopes() — returns the array of scope ids the agent has issued.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://theloopbreaker.com/api/x402/trust/scoped-delegations"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://theloopbreaker.com/api/x402/trust/scoped-delegations",
+    "x402_version": 1
+  }
+}

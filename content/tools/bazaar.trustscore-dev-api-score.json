@@ -1,0 +1,56 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.trustscore-dev-api-score",
+  "title": "Check if a phone number, crypto token, or property address is trustworthy. Retur",
+  "description": "Check if a phone number, crypto token, or property address is trustworthy. Returns a 0-100 trust score, confidence, risk flags, and plain-English summary. Detects phone fraud, spam, robocalls, and VoIP; crypto rugpulls, honeypots, and scam tokens; property deed fraud and shady listings. One call, three asset types.",
+  "capabilities": [
+    "trust-score",
+    "phone",
+    "phone-number",
+    "phone-validation",
+    "phone-verification",
+    "fraud",
+    "fraud-detection",
+    "scam",
+    "spam",
+    "robocall",
+    "voip",
+    "voip-detection",
+    "fake-number-detection",
+    "line-type",
+    "mobile-detection",
+    "e164",
+    "crypto",
+    "token",
+    "rugpull",
+    "honeypot",
+    "scam-token",
+    "property",
+    "address",
+    "real-estate",
+    "deed-fraud",
+    "risk",
+    "risk-scoring",
+    "verification",
+    "reputation",
+    "identity",
+    "api",
+    "x402"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://trustscore.dev/api/score"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://trustscore.dev/api/score",
+    "x402_version": 2
+  }
+}

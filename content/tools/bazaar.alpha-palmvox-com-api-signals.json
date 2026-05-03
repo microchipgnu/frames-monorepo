@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.alpha-palmvox-com-api-signals",
+  "title": "Real-time crypto alpha signals with entry, target, and stop-loss prices. Sourced",
+  "description": "Real-time crypto alpha signals with entry, target, and stop-loss prices. Sourced from smart money tracking (Nansen), volume analysis, and social sentiment.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://alpha.palmvox.com/api/signals"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://alpha.palmvox.com/api/signals",
+    "x402_version": 2
+  }
+}

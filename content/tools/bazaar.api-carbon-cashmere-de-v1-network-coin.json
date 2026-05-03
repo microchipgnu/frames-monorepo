@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-network-coin",
+  "title": "Get coin-specific network stats — TAO (Bittensor subnet data, stake ratio), KAS ",
+  "description": "Get coin-specific network stats — TAO (Bittensor subnet data, stake ratio), KAS (hashrate, DAG tips, difficulty), XLM (ledger stats, tx counts), ALGO (round, protocol), QUBIC (tick, epoch). AI agent API for L1 network health monitoring and fundamental analysis.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/network/:coin"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/network/:coin",
+    "x402_version": 2
+  }
+}

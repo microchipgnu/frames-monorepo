@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-webhook-signature-validator-api-075834-parse",
+  "title": "Verify webhook signatures for Stripe, GitHub, Slack, Shopify, and generic HMAC.",
+  "description": "Verify webhook signatures for Stripe, GitHub, Slack, Shopify, and generic HMAC.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/webhook-signature-validator-api-075834/parse"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/webhook-signature-validator-api-075834/parse",
+    "x402_version": 2
+  }
+}

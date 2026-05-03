@@ -1,0 +1,30 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.www-agentcrush-xyz-api-agent-crewai-history",
+  "title": "Rank and score history for an AI agent on AgentCrush. Daily snapshots including ",
+  "description": "Rank and score history for an AI agent on AgentCrush. Daily snapshots including visibility, reputation, and weekly delta. Coverage varies by agent.",
+  "capabilities": [
+    "ai-agents",
+    "trust",
+    "verification",
+    "analytics",
+    "identity",
+    "kya"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://www.agentcrush.xyz/api/agent/crewai/history"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://www.agentcrush.xyz/api/agent/crewai/history",
+    "x402_version": 2
+  }
+}

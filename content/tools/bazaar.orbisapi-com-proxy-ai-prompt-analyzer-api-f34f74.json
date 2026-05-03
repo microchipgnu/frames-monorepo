@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-ai-prompt-analyzer-api-f34f74",
+  "title": "Analyze prompt quality — score, detect missing elements and suggest improvements",
+  "description": "Analyze prompt quality — score, detect missing elements and suggest improvements. Built for AI developer agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/ai-prompt-analyzer-api-f34f74"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/ai-prompt-analyzer-api-f34f74",
+    "x402_version": 2
+  }
+}

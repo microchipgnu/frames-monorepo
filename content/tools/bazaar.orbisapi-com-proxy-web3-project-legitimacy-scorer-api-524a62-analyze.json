@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-web3-project-legitimacy-scorer-api-524a62-analyze",
+  "title": "Score Web3 project legitimacy across audits, team doxxing, GitHub activity, whit",
+  "description": "Score Web3 project legitimacy across audits, team doxxing, GitHub activity, whitepaper, open source and liquidity lockin",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/web3-project-legitimacy-scorer-api-524a62/analyze"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/web3-project-legitimacy-scorer-api-524a62/analyze",
+    "x402_version": 2
+  }
+}

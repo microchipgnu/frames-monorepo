@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-features-var1",
+  "title": "Get 34 quantitative ML features across 10 categories — price returns, volatility",
+  "description": "Get 34 quantitative ML features across 10 categories — price returns, volatility (7d/30d), volume ratio, RSI/MACD momentum, Fear & Greed sentiment, HMM regime probabilities, orderbook imbalance, options put/call ratio, implied volatility. Per-coin feature vector for BTC, ETH, SOL, and more. AI agent API for feature engineering, custom ML model input, and quantitative crypto research.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/features/:var1"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/features/:var1",
+    "x402_version": 2
+  }
+}

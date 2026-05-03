@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.rng-sociologic-ai-shuffle",
+  "title": "Shuffle an array using Fisher-Yates algorithm (max 1000 items)",
+  "description": "Shuffle an array using Fisher-Yates algorithm (max 1000 items)",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://rng.sociologic.ai/shuffle"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://rng.sociologic.ai/shuffle",
+    "x402_version": 2
+  }
+}

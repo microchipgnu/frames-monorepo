@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.solopreneur-apitoai-xyz-business-analyst",
+  "title": "Requirements analysis, process mapping, stakeholder management, business case de",
+  "description": "Requirements analysis, process mapping, stakeholder management, business case development, and analytical problem-solving",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://solopreneur.apitoai.xyz/business_analyst"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://solopreneur.apitoai.xyz/business_analyst",
+    "x402_version": 1
+  }
+}

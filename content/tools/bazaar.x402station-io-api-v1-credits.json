@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402station-io-api-v1-credits",
+  "title": "x402 credits: buy 1000 prepaid /api/v1/preflight calls for $0.50 USDC. Effective",
+  "description": "x402 credits: buy 1000 prepaid /api/v1/preflight calls for $0.50 USDC. Effective rate $0.0005/call, 50% off the per-call $0.001 tier. Returns { creditId, balance, expiresAt }. Pass creditId via X-Credit-Id header on subsequent /api/v1/preflight calls; on expiration/exhaustion the middleware falls through to per-call x402 automatically.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402station.io/api/v1/credits"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.5"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402station.io/api/v1/credits",
+    "x402_version": 2
+  }
+}

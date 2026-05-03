@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-food-safety-rating-uk",
+  "title": "Look up UK food hygiene ratings via the FSA API. Search by business name and opt",
+  "description": "Look up UK food hygiene ratings via the FSA API. Search by business name and optional location. Returns ratings, scores, addresses. SQS: 96/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/food-safety-rating-uk"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/food-safety-rating-uk",
+    "x402_version": 1
+  }
+}

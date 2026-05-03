@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-arr-calculator-api-ed545f",
+  "title": "Calculate annual recurring revenue from MRR, and model ARR growth scenarios. Bui",
+  "description": "Calculate annual recurring revenue from MRR, and model ARR growth scenarios. Built for AI SaaS analytics agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/arr-calculator-api-ed545f"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/arr-calculator-api-ed545f",
+    "x402_version": 2
+  }
+}

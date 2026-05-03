@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.diffbot-kg.post.diffbot-kg-enhance",
+  "title": "Diffbot KG — POST /diffbot-kg/enhance",
+  "description": "Enhance",
+  "capabilities": [
+    "knowledge-graph",
+    "entities",
+    "enrichment",
+    "company-data",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://diffbot-kg.mpp.paywithlocus.com/diffbot-kg/enhance"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "dynamic"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "diffbot-kg:POST:/diffbot-kg/enhance"
+  }
+}

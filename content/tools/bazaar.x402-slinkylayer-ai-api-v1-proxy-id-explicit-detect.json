@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-slinkylayer-ai-api-v1-proxy-id-explicit-detect",
+  "title": "Analyze an image file for explicit or sensitive content using the selected AI pr",
+  "description": "Analyze an image file for explicit or sensitive content using the selected AI provider. Supports Azure, Google, and others as requested_service.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.slinkylayer.ai/api/v1/proxy/:id/explicit-detect"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402.slinkylayer.ai/api/v1/proxy/:id/explicit-detect",
+    "x402_version": 1
+  }
+}

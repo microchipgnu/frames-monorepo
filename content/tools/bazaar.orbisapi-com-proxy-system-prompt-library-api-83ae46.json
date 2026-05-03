@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-system-prompt-library-api-83ae46",
+  "title": "Library of system prompts for common AI agent roles — assistant, analyst, coder,",
+  "description": "Library of system prompts for common AI agent roles — assistant, analyst, coder, writer and more. Built for AI developers.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/system-prompt-library-api-83ae46"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/system-prompt-library-api-83ae46",
+    "x402_version": 2
+  }
+}

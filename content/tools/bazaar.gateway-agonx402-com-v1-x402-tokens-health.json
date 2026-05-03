@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.gateway-agonx402-com-v1-x402-tokens-health",
+  "title": "Proxy the Tokens API v1 health check.",
+  "description": "Proxy the Tokens API v1 health check.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://gateway.agonx402.com/v1/x402/tokens/health"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "solana-mainnet",
+    "currency": "UNKNOWN",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://gateway.agonx402.com/v1/x402/tokens/health",
+    "x402_version": 2
+  }
+}

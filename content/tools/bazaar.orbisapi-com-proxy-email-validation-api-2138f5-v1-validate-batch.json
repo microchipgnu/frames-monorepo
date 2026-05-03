@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-email-validation-api-2138f5-v1-validate-batch",
+  "title": "AI-powered email validation and deliverability scoring",
+  "description": "AI-powered email validation and deliverability scoring",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/email-validation-api-2138f5/v1/validate/batch"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/email-validation-api-2138f5/v1/validate/batch",
+    "x402_version": 2
+  }
+}

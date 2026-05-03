@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-rail-dwell-time-calculator-api-0011ca-score",
+  "title": "Calculate station dwell time from boarding and alighting",
+  "description": "Calculate station dwell time from boarding and alighting",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/rail-dwell-time-calculator-api-0011ca/score"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/rail-dwell-time-calculator-api-0011ca/score",
+    "x402_version": 2
+  }
+}

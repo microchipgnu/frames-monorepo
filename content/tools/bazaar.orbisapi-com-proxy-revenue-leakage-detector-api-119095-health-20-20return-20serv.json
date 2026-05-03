@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-revenue-leakage-detector-api-119095-health-20-20return-20serv",
+  "title": "Detect revenue leakage from failed payments, discounts, refunds, tax gaps, and e",
+  "description": "Detect revenue leakage from failed payments, discounts, refunds, tax gaps, and entitlement mismatch",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/revenue-leakage-detector-api-119095/health%20-%20Return%20service%20health%20and%20version%20metadata"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/revenue-leakage-detector-api-119095/health%20-%20Return%20service%20health%20and%20version%20metadata",
+    "x402_version": 2
+  }
+}

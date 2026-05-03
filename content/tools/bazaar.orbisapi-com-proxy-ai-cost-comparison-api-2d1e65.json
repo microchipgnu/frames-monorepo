@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-ai-cost-comparison-api-2d1e65",
+  "title": "Compare all major LLM providers side by side on cost per request, context window",
+  "description": "Compare all major LLM providers side by side on cost per request, context window and speed — sorted cheapest to most expensive.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/ai-cost-comparison-api-2d1e65"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/ai-cost-comparison-api-2d1e65",
+    "x402_version": 2
+  }
+}

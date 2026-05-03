@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.utilsforagents-com-v1-image-scrub-metadata",
+  "title": "Remove all embedded metadata (EXIF, XMP, IPTC) from a JPEG or PNG image and retu",
+  "description": "Remove all embedded metadata (EXIF, XMP, IPTC) from a JPEG or PNG image and return the cleaned image binary. Use this to strip GPS coordinates, camera info, author data, and other privacy-sensitive metadata before sharing or publishing images. Send raw binary body (Content-Type: image/jpeg or image/png) or multipart/form-data with field 'file'. Max 5 MB. Returns cleaned binary image with Content-Type matching the original format.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://utilsforagents.com/v1/image/scrub-metadata"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://utilsforagents.com/v1/image/scrub-metadata",
+    "x402_version": 2
+  }
+}

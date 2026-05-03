@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.nonvisceral-eloisa-mousily-ngrok-free-dev-api-market-overview",
+  "title": "Real-time cryptocurrency market data API — one-call market snapshot bundle for t",
+  "description": "Real-time cryptocurrency market data API — one-call market snapshot bundle for trading agents. Returns Bitcoin BTC price, Ethereum ETH price, gold XAU price, RSI indicator, market trend direction, perpetual funding rates, open interest, Fear and Greed index, and composite sentiment signal. Live trading data from Hyperliquid DEX. Low-cost gateway endpoint ($0.01) — ideal first call for agents discovering the API surface or building a per-tick decision context.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://nonvisceral-eloisa-mousily.ngrok-free.dev/api/market-overview"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://nonvisceral-eloisa-mousily.ngrok-free.dev/api/market-overview",
+    "x402_version": 2
+  }
+}

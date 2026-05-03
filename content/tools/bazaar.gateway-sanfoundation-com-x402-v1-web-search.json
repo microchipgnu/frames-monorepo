@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.gateway-sanfoundation-com-x402-v1-web-search",
+  "title": "Search the open web for a topic and return ranked results with relevant excerpts",
+  "description": "Search the open web for a topic and return ranked results with relevant excerpts. Each result includes the source URL, page title, publish date when known, and the excerpts the underlying ranker scored as most relevant.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://gateway.sanfoundation.com/x402/v1/web-search"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.03"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://gateway.sanfoundation.com/x402/v1/web-search",
+    "x402_version": 2
+  }
+}

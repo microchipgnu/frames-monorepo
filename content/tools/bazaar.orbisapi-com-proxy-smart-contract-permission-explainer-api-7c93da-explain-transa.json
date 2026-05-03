@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-smart-contract-permission-explainer-api-7c93da-explain-transa",
+  "title": "Explain smart contract approvals, admin roles, upgrades, minting, burning, and f",
+  "description": "Explain smart contract approvals, admin roles, upgrades, minting, burning, and fund controls",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/smart-contract-permission-explainer-api-7c93da/explain-transaction"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/smart-contract-permission-explainer-api-7c93da/explain-transaction",
+    "x402_version": 2
+  }
+}

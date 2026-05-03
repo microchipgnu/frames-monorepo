@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-ecosystem-watch",
+  "title": "Ecosystem Watch — budget market pulse: current regime + fear/greed index + 30d r",
+  "description": "Ecosystem Watch — budget market pulse: current regime + fear/greed index + 30d rotation (34-coin cross-sectional) + signal activity 24h. Budget-tier bundle for high-frequency agents who need market context. $0.08 = 33% discount vs. separate components. Informational research data — not investment advice.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/ecosystem-watch"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.08"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/ecosystem-watch",
+    "x402_version": 2
+  }
+}

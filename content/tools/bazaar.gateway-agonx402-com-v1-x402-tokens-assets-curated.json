@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.gateway-agonx402-com-v1-x402-tokens-assets-curated",
+  "title": "Return a curated asset list from Tokens API.",
+  "description": "Return a curated asset list from Tokens API.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://gateway.agonx402.com/v1/x402/tokens/assets/curated"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "solana-mainnet",
+    "currency": "UNKNOWN",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://gateway.agonx402.com/v1/x402/tokens/assets/curated",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-questflow-ai-x402-agent-qrn-agent-687df6a1b234010b7d331840",
+  "title": "Schedule can help you set up periodic or one-time scheduled events, such as moni",
+  "description": "Schedule can help you set up periodic or one-time scheduled events, such as monitor something every day, every week, or at 3 pm., etc. IMPORTANT: This agent uses UTC time. Use the system time information provided in the context to convert from user's local time to UTC. | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.questflow.ai/x402/agent/qrn:agent:687df6a1b234010b7d331840"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "UNKNOWN",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.questflow.ai/x402/agent/qrn:agent:687df6a1b234010b7d331840",
+    "x402_version": 1
+  }
+}

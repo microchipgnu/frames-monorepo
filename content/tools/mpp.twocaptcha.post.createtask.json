@@ -1,0 +1,26 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.twocaptcha.post.createtask",
+  "title": "2Captcha — POST /createTask",
+  "description": "Submit a captcha task for solving",
+  "capabilities": [
+    "captcha",
+    "automation",
+    "solving",
+    "web"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://twocaptcha.mpp.tempo.xyz/createTask"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "twocaptcha:POST:/createTask"
+  }
+}

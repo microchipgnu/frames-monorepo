@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-rolling-correlation-pair",
+  "title": "Rolling Pearson correlation between two coins over configurable window (7-90d). ",
+  "description": "Rolling Pearson correlation between two coins over configurable window (7-90d). Pair format in path: BASE-QUOTE (e.g. /v1/rolling-correlation/BTC-ETH). Returns current correlation, regime classification (strongly_positive/positive/weak/negative/strongly_negative), trend direction (strengthening/weakening/stable), summary statistics over lookback, and rolling snapshot sampled to 30 points. Informational research data — not investment advice.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/rolling-correlation/:pair"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/rolling-correlation/:pair",
+    "x402_version": 2
+  }
+}

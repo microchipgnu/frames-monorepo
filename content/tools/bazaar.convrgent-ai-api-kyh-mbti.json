@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.convrgent-ai-api-kyh-mbti",
+  "title": "MBTI / 16 Personalities — personality type (INTJ, ENFP, INFJ, ENTP, etc.), cogni",
+  "description": "MBTI / 16 Personalities — personality type (INTJ, ENFP, INFJ, ENTP, etc.), cognitive function stack, extraversion/introversion, sensing/intuition, thinking/feeling, judging/perceiving dichotomies with confidence scores.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://convrgent.ai/api/kyh/mbti"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.5"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://convrgent.ai/api/kyh/mbti",
+    "x402_version": 2
+  }
+}

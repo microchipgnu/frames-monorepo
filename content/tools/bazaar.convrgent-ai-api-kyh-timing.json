@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.convrgent-ai-api-kyh-timing",
+  "title": "Timing intelligence — predict optimal windows for interactions using planetary t",
+  "description": "Timing intelligence — predict optimal windows for interactions using planetary transits, numerology personal day, Vedic Dasha periods, and BaZi energy cycles. 7-30 day forecast with action-specific scoring.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://convrgent.ai/api/kyh/timing"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://convrgent.ai/api/kyh/timing",
+    "x402_version": 2
+  }
+}

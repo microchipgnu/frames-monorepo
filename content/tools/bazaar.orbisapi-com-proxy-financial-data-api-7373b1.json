@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-financial-data-api-7373b1",
+  "title": "Global financial data — country GDP, inflation, interest rates, credit ratings a",
+  "description": "Global financial data — country GDP, inflation, interest rates, credit ratings and currency info. Built for AI finance agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/financial-data-api-7373b1"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/financial-data-api-7373b1",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-questflow-ai-x402-swarm-qrn-swarm-68c4d1991dad762112b40f03",
+  "title": "A comprehensive stock market analysis tool that leverages Exa search and Perplex",
+  "description": "A comprehensive stock market analysis tool that leverages Exa search and Perplexity AI to provide LLMs and agentic workflows with seamless access to real-time market data, historical stock performance, financial news, and market insights. Powered by Questflow, this integration enables intelligent analysis of market trends, stock valuations, earnings reports, and trading patterns to support informed investment decisions and automated trading strategies. | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.questflow.ai/x402/swarm/qrn:swarm:68c4d1991dad762112b40f03"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "UNKNOWN",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.questflow.ai/x402/swarm/qrn:swarm:68c4d1991dad762112b40f03",
+    "x402_version": 1
+  }
+}

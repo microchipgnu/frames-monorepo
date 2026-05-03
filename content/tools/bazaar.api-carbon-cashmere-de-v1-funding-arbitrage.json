@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-funding-arbitrage",
+  "title": "Funding Arbitrage Scanner — scans funding rates and OI concentration across Bina",
+  "description": "Funding Arbitrage Scanner — scans funding rates and OI concentration across Binance, Bybit, OKX. Returns per-coin spreads, exchange dominance, and OI-imbalance-based arbitrage opportunities. AI agent API for funding rate arbitrage, exchange flow analysis, and derivatives market scanning.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/funding-arbitrage"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/funding-arbitrage",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.horizon-pulse-vercel-app-api-signals",
+  "title": "Horizon Pulse Signals - real RSI(14), MACD(12,26,9), Bollinger(20,2), and live p",
+  "description": "Horizon Pulse Signals - real RSI(14), MACD(12,26,9), Bollinger(20,2), and live perpetual funding rates for BTC/ETH/SOL. Transparent rule-based buy/hold/sell signal. No black box.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://horizon-pulse.vercel.app/api/signals"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://horizon-pulse.vercel.app/api/signals",
+    "x402_version": 1
+  }
+}

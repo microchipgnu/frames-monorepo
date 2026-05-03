@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.openweather.post.openweather-forecast-5day",
+  "title": "OpenWeather — POST /openweather/forecast-5day",
+  "description": "5-Day Forecast",
+  "capabilities": [
+    "weather",
+    "forecast",
+    "conditions",
+    "temperature",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://openweather.mpp.paywithlocus.com/openweather/forecast-5day"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.008"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "openweather:POST:/openweather/forecast-5day"
+  }
+}

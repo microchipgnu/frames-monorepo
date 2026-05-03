@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-web-form-automation-mapper-api-dca917-flag-submission-risks-2",
+  "title": "Map web forms into agent-fillable fields, validation rules, risk flags, and subm",
+  "description": "Map web forms into agent-fillable fields, validation rules, risk flags, and submission readiness",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/web-form-automation-mapper-api-dca917/flag-submission-risks%20-%20Generate%20focused%20next%20steps%20for%20web%20form%20automation%20mapper%20based%20on%20risk,%20urgency,%20confidence,%20and%20owner%20readiness"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/web-form-automation-mapper-api-dca917/flag-submission-risks%20-%20Generate%20focused%20next%20steps%20for%20web%20form%20automation%20mapper%20based%20on%20risk,%20urgency,%20confidence,%20and%20owner%20readiness",
+    "x402_version": 2
+  }
+}

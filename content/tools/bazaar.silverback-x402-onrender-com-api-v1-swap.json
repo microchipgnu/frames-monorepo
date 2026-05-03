@@ -1,0 +1,31 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.silverback-x402-onrender-com-api-v1-swap",
+  "title": "Token swap via 0x Permit2. You sign EIP-712 data, append signature to tx, and br",
+  "description": "Token swap via 0x Permit2. You sign EIP-712 data, append signature to tx, and broadcast. Response includes step-by-step instructions with code examples.",
+  "capabilities": [
+    "swap",
+    "dex",
+    "permit2",
+    "base",
+    "trading",
+    "token",
+    "exchange"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://silverback-x402.onrender.com/api/v1/swap"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://silverback-x402.onrender.com/api/v1/swap",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.expansion-apitoai-xyz-cross-border-payments-banking-setup",
+  "title": "Design international payment infrastructure: multi-currency accounts, payment pr",
+  "description": "Design international payment infrastructure: multi-currency accounts, payment processors, forex management, and crypto payment rails",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://expansion.apitoai.xyz/cross_border_payments_banking_setup"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://expansion.apitoai.xyz/cross_border_payments_banking_setup",
+    "x402_version": 1
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.leaderboard-0000402-xyz-entry",
+  "title": "Pay $0.01 USDC to create a leaderboard or add, update, or delete one entry. Use ",
+  "description": "Pay $0.01 USDC to create a leaderboard or add, update, or delete one entry. Use a secret leaderboard_key UUID to continue writing to the same board. If value is null, the named entry is deleted. Public pages stay free at GET /leaderboard/{slug}. Network: Base Mainnet. Each request writes one named score and returns the board key and URLs.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://leaderboard.0000402.xyz/entry"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://leaderboard.0000402.xyz/entry",
+    "x402_version": 2
+  }
+}

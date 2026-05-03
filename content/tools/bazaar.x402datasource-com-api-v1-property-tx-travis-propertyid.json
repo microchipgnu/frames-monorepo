@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402datasource-com-api-v1-property-tx-travis-propertyid",
+  "title": "Look up a Travis County property by its county-specific identifier (TCAD account",
+  "description": "Look up a Travis County property by its county-specific identifier (TCAD account number).",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402datasource.com/api/v1/property/tx/travis/:propertyId"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402datasource.com/api/v1/property/tx/travis/:propertyId",
+    "x402_version": 2
+  }
+}

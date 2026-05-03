@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-random-user-api-7e3e61-test-data",
+  "title": "Generate realistic random user profiles for testing and prototyping.",
+  "description": "Generate realistic random user profiles for testing and prototyping.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/random-user-api-7e3e61/test_data"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/random-user-api-7e3e61/test_data",
+    "x402_version": 2
+  }
+}

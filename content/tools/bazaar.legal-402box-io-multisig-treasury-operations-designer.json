@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.legal-402box-io-multisig-treasury-operations-designer",
+  "title": "Design Gnosis Safe configurations, signer policies, transaction approval workflo",
+  "description": "Design Gnosis Safe configurations, signer policies, transaction approval workflows, and operational security procedures for on-chain treasuries",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://legal.402box.io/multisig_treasury_operations_designer"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://legal.402box.io/multisig_treasury_operations_designer",
+    "x402_version": 1
+  }
+}

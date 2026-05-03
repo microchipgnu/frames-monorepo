@@ -1,0 +1,30 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-silverbackdefi-app-api-v1-jupiter-quote",
+  "title": "Get a swap quote from Jupiter aggregator for Solana tokens. Returns optimal rout",
+  "description": "Get a swap quote from Jupiter aggregator for Solana tokens. Returns optimal route, price impact, and fees.",
+  "capabilities": [
+    "solana",
+    "jupiter",
+    "swap",
+    "quote",
+    "dex",
+    "spl"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.silverbackdefi.app/api/v1/jupiter-quote"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402.silverbackdefi.app/api/v1/jupiter-quote",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.marketing-402box-io-seo-keyword-researcher",
+  "title": "Research high-value keywords with search volume, difficulty scores, and intent a",
+  "description": "Research high-value keywords with search volume, difficulty scores, and intent analysis for SEO strategy optimization",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://marketing.402box.io/seo_keyword_researcher"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://marketing.402box.io/seo_keyword_researcher",
+    "x402_version": 1
+  }
+}

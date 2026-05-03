@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.solopreneur-apitoai-xyz-learning-development-specialist",
+  "title": "Training programs, skill development, onboarding design, learning paths, and emp",
+  "description": "Training programs, skill development, onboarding design, learning paths, and employee development strategies",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://solopreneur.apitoai.xyz/learning_development_specialist"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://solopreneur.apitoai.xyz/learning_development_specialist",
+    "x402_version": 1
+  }
+}

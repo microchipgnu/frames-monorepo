@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.stabletravel-dev-api-google-flights-search",
+  "title": "Search Google Flights for flight offers. Returns best flights, other flights, pr",
+  "description": "Search Google Flights for flight offers. Returns best flights, other flights, price insights, and airport info.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://stabletravel.dev/api/google-flights/search"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://stabletravel.dev/api/google-flights/search",
+    "x402_version": 2
+  }
+}

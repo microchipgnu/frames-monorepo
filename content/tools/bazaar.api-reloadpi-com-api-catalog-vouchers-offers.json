@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-reloadpi-com-api-catalog-vouchers-offers",
+  "title": "Reloadpi — Search gift cards and vouchers from 5000+ brands across 150+ countrie",
+  "description": "Reloadpi — Search gift cards and vouchers from 5000+ brands across 150+ countries",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.reloadpi.com/api/catalog/vouchers/offers"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.reloadpi.com/api/catalog/vouchers/offers",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.stabletravel.get.api-reference-airports",
+  "title": "StableTravel — GET /api/reference/airports",
+  "description": "Find nearby airports by latitude/longitude",
+  "capabilities": [
+    "amadeus",
+    "flightaware",
+    "flights",
+    "hotels",
+    "activities",
+    "transfers",
+    "travel",
+    "data",
+    "web"
+  ],
+  "invocation": {
+    "method": "GET",
+    "url": "https://stabletravel.dev/api/reference/airports"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.0054"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "stabletravel:GET:/api/reference/airports"
+  }
+}

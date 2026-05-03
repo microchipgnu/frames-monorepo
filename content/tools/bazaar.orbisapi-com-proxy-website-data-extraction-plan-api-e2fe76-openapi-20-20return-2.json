@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-website-data-extraction-plan-api-e2fe76-openapi-20-20return-2",
+  "title": "Plan website data extraction from page patterns, field reliability, pagination, ",
+  "description": "Plan website data extraction from page patterns, field reliability, pagination, rate limits, and compliance risk",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/website-data-extraction-plan-api-e2fe76/openapi%20-%20Return%20this%20API's%20OpenAPI%203.0%20specification"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/website-data-extraction-plan-api-e2fe76/openapi%20-%20Return%20this%20API's%20OpenAPI%203.0%20specification",
+    "x402_version": 2
+  }
+}

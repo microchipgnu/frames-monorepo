@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.agent-research-brief-api-production-up-railway-app-api-agentic-market-brief",
+  "title": "Best when an agent or operator wants to decide what to build, buy, or monetize o",
+  "description": "Best when an agent or operator wants to decide what to build, buy, or monetize on Agentic.Market right now. Returns live category pressure, opportunity lanes, x402 spending guardrails, and a concrete revenue execution plan.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://agent-research-brief-api-production.up.railway.app/api/agentic-market-brief"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.25"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://agent-research-brief-api-production.up.railway.app/api/agentic-market-brief",
+    "x402_version": 2
+  }
+}

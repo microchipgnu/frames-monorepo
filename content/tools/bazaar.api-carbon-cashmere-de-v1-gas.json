@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-gas",
+  "title": "Get real-time gas prices — Ethereum slow/standard/fast in gwei with base fee, Bi",
+  "description": "Get real-time gas prices — Ethereum slow/standard/fast in gwei with base fee, Bitcoin fee estimates in sat/vB with mempool stats. AI agent API for transaction cost optimization, gas fee monitoring, and optimal execution timing.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/gas"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/gas",
+    "x402_version": 2
+  }
+}

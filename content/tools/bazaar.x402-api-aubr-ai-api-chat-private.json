@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-api-aubr-ai-api-chat-private",
+  "title": "Send an HPKE-encrypted prompt to the Aubrai chat agent running inside a Tinfoil ",
+  "description": "Send an HPKE-encrypted prompt to the Aubrai chat agent running inside a Tinfoil TEE. Only the enclave can decrypt your message.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402-api.aubr.ai/api/chat-private"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402-api.aubr.ai/api/chat-private",
+    "x402_version": 2
+  }
+}

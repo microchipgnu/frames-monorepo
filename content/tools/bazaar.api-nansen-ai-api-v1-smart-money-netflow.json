@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-nansen-ai-api-v1-smart-money-netflow",
+  "title": "Get Smart Money Netflow Data",
+  "description": "Get Smart Money Netflow Data",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.nansen.ai/api/v1/smart-money/netflow"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.nansen.ai/api/v1/smart-money/netflow",
+    "x402_version": 2
+  }
+}

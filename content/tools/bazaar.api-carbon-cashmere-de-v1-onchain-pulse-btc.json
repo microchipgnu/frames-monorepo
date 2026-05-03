@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-onchain-pulse-btc",
+  "title": "BTC on-chain pulse analytics from our own Bitcoin Core full node — mempool press",
+  "description": "BTC on-chain pulse analytics from our own Bitcoin Core full node — mempool pressure z-score over 30d, hashrate 7d/30d momentum with trend classification (expanding/stable/contracting), fee regime with 90d percentile rank, UTXO count velocity, SegWit adoption trajectory, difficulty adjustment prediction with hash-ribbon crossover detection. Latency <250ms via Postgres-cached node state. Informational research data — not investment advice.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/onchain-pulse/btc"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.15"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/onchain-pulse/btc",
+    "x402_version": 2
+  }
+}

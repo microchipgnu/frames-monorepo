@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.alpha-palmvox-com-api-fear-greed",
+  "title": "Crypto Fear and Greed Index with market sentiment analysis, news headline, and a",
+  "description": "Crypto Fear and Greed Index with market sentiment analysis, news headline, and actionable bias (risk-on/risk-off/neutral). Cheapest sentiment endpoint on x402.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://alpha.palmvox.com/api/fear-greed"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://alpha.palmvox.com/api/fear-greed",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-agentinternetruntime-com-v1-registry-discover",
+  "title": "Agent Registry discovery ($0.01/request direct, or $0.003/request via Session Ti",
+  "description": "Agent Registry discovery ($0.01/request direct, or $0.003/request via Session Ticket at /v1/billing/tickets)",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.agentinternetruntime.com/v1/registry/discover"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.agentinternetruntime.com/v1/registry/discover",
+    "x402_version": 2
+  }
+}

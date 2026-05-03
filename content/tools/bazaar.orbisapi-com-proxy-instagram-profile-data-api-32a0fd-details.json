@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-instagram-profile-data-api-32a0fd-details",
+  "title": "Access public Instagram profile data including follower counts, bio, and post in",
+  "description": "Access public Instagram profile data including follower counts, bio, and post information.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/instagram-profile-data-api-32a0fd/details"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/instagram-profile-data-api-32a0fd/details",
+    "x402_version": 2
+  }
+}

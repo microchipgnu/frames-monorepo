@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-imgzen-dev-v1-models-gpt-image-1-generate",
+  "title": "imgzen — gpt-image-1, OpenAI high quality — $0.100/image (charged only on succes",
+  "description": "imgzen — gpt-image-1, OpenAI high quality — $0.100/image (charged only on success)",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.imgzen.dev/v1/models/gpt-image-1/generate"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.imgzen.dev/v1/models/gpt-image-1/generate",
+    "x402_version": 2
+  }
+}

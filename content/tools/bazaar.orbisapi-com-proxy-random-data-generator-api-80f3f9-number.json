@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-random-data-generator-api-80f3f9-number",
+  "title": "Generate random test data — people, companies, addresses, credit cards and color",
+  "description": "Generate random test data — people, companies, addresses, credit cards and colors. Built for AI agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/random-data-generator-api-80f3f9/number"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/random-data-generator-api-80f3f9/number",
+    "x402_version": 2
+  }
+}

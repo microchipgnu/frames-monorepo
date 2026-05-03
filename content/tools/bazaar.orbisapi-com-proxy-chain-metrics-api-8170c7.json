@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-chain-metrics-api-8170c7",
+  "title": "Blockchain network metrics for Ethereum, Bitcoin, Solana, Polygon, Arbitrum and ",
+  "description": "Blockchain network metrics for Ethereum, Bitcoin, Solana, Polygon, Arbitrum and Base. TPS, finality and consensus data.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/chain-metrics-api-8170c7"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/chain-metrics-api-8170c7",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402scan-j55w7ornb-merit-systems-vercel-app-api-data-wallets-address-stats",
+  "title": "Aggregate stats for a wallet (tx count, total amount, unique recipients)",
+  "description": "Aggregate stats for a wallet (tx count, total amount, unique recipients)",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402scan-j55w7ornb-merit-systems.vercel.app/api/data/wallets/:address/stats"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402scan-j55w7ornb-merit-systems.vercel.app/api/data/wallets/:address/stats",
+    "x402_version": 2
+  }
+}

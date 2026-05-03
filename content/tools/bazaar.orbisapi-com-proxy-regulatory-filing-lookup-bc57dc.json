@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-regulatory-filing-lookup-bc57dc",
+  "title": "Search SEC EDGAR FINRA and other regulatory filings",
+  "description": "Search SEC EDGAR FINRA and other regulatory filings",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/regulatory-filing-lookup-bc57dc"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/regulatory-filing-lookup-bc57dc",
+    "x402_version": 2
+  }
+}

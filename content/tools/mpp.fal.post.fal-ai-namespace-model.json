@@ -1,0 +1,30 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.fal.post.fal-ai-namespace-model",
+  "title": "fal.ai — POST /fal-ai/:namespace/:model",
+  "description": "fal.ai model generation (with namespace)",
+  "capabilities": [
+    "image",
+    "video",
+    "flux",
+    "stable-diffusion",
+    "grok",
+    "generation",
+    "ai",
+    "media"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://fal.mpp.tempo.xyz/fal-ai/:namespace/:model"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "fal:POST:/fal-ai/:namespace/:model"
+  }
+}

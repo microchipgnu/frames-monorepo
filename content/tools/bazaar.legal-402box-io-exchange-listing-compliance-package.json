@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.legal-402box-io-exchange-listing-compliance-package",
+  "title": "Prepare CEX listing requirements: legal opinions, token analysis, compliance doc",
+  "description": "Prepare CEX listing requirements: legal opinions, token analysis, compliance documentation, market maker agreements, and listing applications",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://legal.402box.io/exchange_listing_compliance_package"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://legal.402box.io/exchange_listing_compliance_package",
+    "x402_version": 1
+  }
+}

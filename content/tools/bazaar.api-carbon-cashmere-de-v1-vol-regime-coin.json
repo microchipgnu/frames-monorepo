@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-vol-regime-coin",
+  "title": "Volatility regime classification (compressed/normal/expanded/extreme) based on r",
+  "description": "Volatility regime classification (compressed/normal/expanded/extreme) based on rolling 14-bar vol percentile over lookback window. Returns Markov transition probabilities from current regime + vol-clustering ACF (lag 1-5). Informational research data — not investment advice.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/vol-regime/:coin"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.12"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/vol-regime/:coin",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-maximum-sustainable-yield-calculator-api-24a43e-analyze",
+  "title": "Calculate maximum sustainable yield from population model data",
+  "description": "Calculate maximum sustainable yield from population model data",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/maximum-sustainable-yield-calculator-api-24a43e/analyze"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/maximum-sustainable-yield-calculator-api-24a43e/analyze",
+    "x402_version": 2
+  }
+}

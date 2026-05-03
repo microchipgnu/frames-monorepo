@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.scry-solanahub-de-x402-solana-hot-wallets-daily",
+  "title": "Returns today's GMGN-24h-trending Solana wallets for autonomous agents, pre-filt",
+  "description": "Returns today's GMGN-24h-trending Solana wallets for autonomous agents, pre-filtered against known routers, exchanges, services, and vaults. Each wallet includes source rank context, Scry coverage gaps, missing dimensions, and a credit-aware Helius depth-call plan before single-wallet forensics.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://scry.solanahub.de/x402/solana/hot-wallets/daily"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.49"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://scry.solanahub.de/x402/solana/hot-wallets/daily",
+    "x402_version": 2
+  }
+}

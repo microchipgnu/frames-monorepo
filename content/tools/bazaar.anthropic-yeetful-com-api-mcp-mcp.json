@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.anthropic-yeetful-com-api-mcp-mcp",
+  "title": "Anthropic Claude Haiku 4.5 inference over MCP Streamable HTTP. Exposes ask_claud",
+  "description": "Anthropic Claude Haiku 4.5 inference over MCP Streamable HTTP. Exposes ask_claude (single-prompt completion) and claude_chat (multi-turn) tools, capped at 256 output tokens per call. Pay-per-call in USDC.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://anthropic.yeetful.com/api/mcp/mcp"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://anthropic.yeetful.com/api/mcp/mcp",
+    "x402_version": 1
+  }
+}

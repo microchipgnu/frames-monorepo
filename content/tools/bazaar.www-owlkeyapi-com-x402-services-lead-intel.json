@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.www-owlkeyapi-com-x402-services-lead-intel",
+  "title": "Company and domain intelligence API for sales agents. Returns ICP fit, sales ang",
+  "description": "Company and domain intelligence API for sales agents. Returns ICP fit, sales angles, buying signals, risk flags, and sourced research.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://www.owlkeyapi.com/x402/services/lead-intel"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.008"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://www.owlkeyapi.com/x402/services/lead-intel",
+    "x402_version": 2
+  }
+}

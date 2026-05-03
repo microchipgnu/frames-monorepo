@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.console-sanfoundation-com-x402-v1-reports-noah",
+  "title": "Retrieve synthesized intelligence reports from a SAN agent. Each report consolid",
+  "description": "Retrieve synthesized intelligence reports from a SAN agent. Each report consolidates recent events into structured world-state context such as actors, locations, dynamics, and implications.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://console.sanfoundation.com/x402/v1/reports/noah"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://console.sanfoundation.com/x402/v1/reports/noah",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-questflow-ai-x402-agent-qrn-agent-68ee1cfebd72982773cd07e8",
+  "title": "The Tavily provides comprehensive web search and data extraction capabilities th",
+  "description": "The Tavily provides comprehensive web search and data extraction capabilities through four powerful tools: tavily-search for real-time web search, tavily-extract for intelligent data extraction from web pages, tavily-map for creating structured website maps, and tavily-crawl for systematic website exploration. This server enables AI assistants to access current web information, extract relevant data, and navigate complex web structures efficiently. | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.questflow.ai/x402/agent/qrn:agent:68ee1cfebd72982773cd07e8"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "UNKNOWN",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.questflow.ai/x402/agent/qrn:agent:68ee1cfebd72982773cd07e8",
+    "x402_version": 1
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-prompt-optimizer-api-3def69",
+  "title": "Optimize prompts for better AI outputs — analyze quality, suggest improvements a",
+  "description": "Optimize prompts for better AI outputs — analyze quality, suggest improvements and estimate token costs. Built for AI developers.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/prompt-optimizer-api-3def69"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/prompt-optimizer-api-3def69",
+    "x402_version": 2
+  }
+}

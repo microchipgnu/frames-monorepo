@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.81c7b32a76ce41-lhr-life-base-edge",
+  "title": "Research-driven Base watchlist for agent wallets, x402 payments, and blocked-gat",
+  "description": "Research-driven Base watchlist for agent wallets, x402 payments, and blocked-gate paper collection.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://81c7b32a76ce41.lhr.life/base-edge"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://81c7b32a76ce41.lhr.life/base-edge",
+    "x402_version": 2
+  }
+}

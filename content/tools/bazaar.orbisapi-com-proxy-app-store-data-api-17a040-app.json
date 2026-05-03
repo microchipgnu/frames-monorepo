@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-app-store-data-api-17a040-app",
+  "title": "Get app store data from iOS and Android with ratings, downloads and category ran",
+  "description": "Get app store data from iOS and Android with ratings, downloads and category rankings",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/app-store-data-api-17a040/app"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/app-store-data-api-17a040/app",
+    "x402_version": 2
+  }
+}

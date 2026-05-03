@@ -1,0 +1,35 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.allium.get.api-v1-explorer-query-runs-run-id-results",
+  "title": "Allium — GET /api/v1/explorer/query-runs/:run_id/results",
+  "description": "Fetch results of a completed query",
+  "capabilities": [
+    "blockchain",
+    "prices",
+    "tokens",
+    "wallet",
+    "balances",
+    "transactions",
+    "pnl",
+    "sql",
+    "explorer",
+    "solana",
+    "base",
+    "defi",
+    "data"
+  ],
+  "invocation": {
+    "method": "GET",
+    "url": "https://agents.allium.so/api/v1/explorer/query-runs/:run_id/results"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "dynamic"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "allium:GET:/api/v1/explorer/query-runs/:run_id/results"
+  }
+}

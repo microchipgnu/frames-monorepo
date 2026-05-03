@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.www-owlkeyapi-com-x402-services-image",
+  "title": "Prompt-to-image generation API for agents. Returns generated image data or URLs ",
+  "description": "Prompt-to-image generation API for agents. Returns generated image data or URLs with OpenAI-compatible metadata.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://www.owlkeyapi.com/x402/services/image"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.039"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://www.owlkeyapi.com/x402/services/image",
+    "x402_version": 2
+  }
+}

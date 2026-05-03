@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-personal-finance-dashboard-api-2725bf-score",
+  "title": "Personal finance: net worth tracking, budget analysis, subscription audit, fee d",
+  "description": "Personal finance: net worth tracking, budget analysis, subscription audit, fee detection, savings rate optimizer, debt p",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/personal-finance-dashboard-api-2725bf/score"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/personal-finance-dashboard-api-2725bf/score",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-tunedfor-ai-analyze-market",
+  "title": "Pre-trade macro check. Data-only, no LLM. Returns price snapshot, pulse directio",
+  "description": "Pre-trade macro check. Data-only, no LLM. Returns price snapshot, pulse direction with confidence, and macro regime your agent can branch on. 15 tokens.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.tunedfor.ai/analyze/market"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.25"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402.tunedfor.ai/analyze/market",
+    "x402_version": 2
+  }
+}

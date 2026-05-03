@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.alpha-palmvox-com-api-base-overview",
+  "title": "Base network overview — live prices for AERO, DEGEN, ETH on Base, network TPS, g",
+  "description": "Base network overview — live prices for AERO, DEGEN, ETH on Base, network TPS, gas price, and top DeFi yields. Everything a Base-native agent needs.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://alpha.palmvox.com/api/base/overview"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://alpha.palmvox.com/api/base/overview",
+    "x402_version": 2
+  }
+}

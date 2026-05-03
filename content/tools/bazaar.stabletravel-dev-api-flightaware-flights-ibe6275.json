@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.stabletravel-dev-api-flightaware-flights-ibe6275",
+  "title": "Get flight information by ident (designator, registration, or fa_flight_id)",
+  "description": "Get flight information by ident (designator, registration, or fa_flight_id)",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://stabletravel.dev/api/flightaware/flights/IBE6275"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://stabletravel.dev/api/flightaware/flights/IBE6275",
+    "x402_version": 2
+  }
+}

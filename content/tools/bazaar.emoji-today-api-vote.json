@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.emoji-today-api-vote",
+  "title": "Cast a paid vote for today's emoji election on emoji.today",
+  "description": "Cast a paid vote for today's emoji election on emoji.today",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://emoji.today/api/vote"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://emoji.today/api/vote",
+    "x402_version": 2
+  }
+}

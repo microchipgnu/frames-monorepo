@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-aurelianflo-com-api-data-vendor-entity-brief",
+  "title": "Short vendor entity brief for procurement, payouts, and cross-border onboarding.",
+  "description": "Short vendor entity brief for procurement, payouts, and cross-border onboarding. Query by legal name and get a machine-usable GLEIF entity match summary, LEI candidate shortlist, jurisdiction and registration details, plus OFAC restricted-party screening and a proceed-or-pause recommendation when the buyer needs a compact handoff artifact.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.aurelianflo.com/api/data/vendor-entity-brief"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.25"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402.aurelianflo.com/api/data/vendor-entity-brief",
+    "x402_version": 2
+  }
+}

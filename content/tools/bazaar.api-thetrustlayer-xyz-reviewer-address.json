@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-thetrustlayer-xyz-reviewer-address",
+  "title": "Reviewer quality lookup. Returns quality score and review history for a wallet a",
+  "description": "Reviewer quality lookup. Returns quality score and review history for a wallet address that has left ERC-8004 feedback.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.thetrustlayer.xyz/reviewer/:address"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.thetrustlayer.xyz/reviewer/:address",
+    "x402_version": 2
+  }
+}

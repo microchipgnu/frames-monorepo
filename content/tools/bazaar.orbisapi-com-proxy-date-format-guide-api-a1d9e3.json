@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-date-format-guide-api-a1d9e3",
+  "title": "Date format reference — ISO 8601, Unix timestamp, strftime formats and locale va",
+  "description": "Date format reference — ISO 8601, Unix timestamp, strftime formats and locale variations. Built for AI developer agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/date-format-guide-api-a1d9e3"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/date-format-guide-api-a1d9e3",
+    "x402_version": 2
+  }
+}

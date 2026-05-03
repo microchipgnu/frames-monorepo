@@ -1,0 +1,34 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-twit-sh-tweets-quote-tweets",
+  "title": "Get a list of tweets that quote a specific tweet. Returns paginated quote tweets",
+  "description": "Get a list of tweets that quote a specific tweet. Returns paginated quote tweets with author profiles for a given tweet ID. Query params: id (string, required) - numeric tweet ID; next_token (string, optional) - pagination cursor, e.g. GET /tweets/quote_tweets?id=1110302988. Returns X v2 API-compatible JSON.",
+  "capabilities": [
+    "twitter",
+    "x",
+    "social",
+    "tweets",
+    "quotes",
+    "quote-tweets",
+    "repost",
+    "paginated",
+    "agent",
+    "x402"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.twit.sh/tweets/quote_tweets"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402.twit.sh/tweets/quote_tweets",
+    "x402_version": 2
+  }
+}

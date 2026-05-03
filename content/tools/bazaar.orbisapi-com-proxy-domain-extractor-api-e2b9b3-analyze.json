@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-domain-extractor-api-e2b9b3-analyze",
+  "title": "Extract unique domains and subdomains from text or URL lists. Returns TLD distri",
+  "description": "Extract unique domains and subdomains from text or URL lists. Returns TLD distribution and subdomain count.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/domain-extractor-api-e2b9b3/analyze"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/domain-extractor-api-e2b9b3/analyze",
+    "x402_version": 2
+  }
+}

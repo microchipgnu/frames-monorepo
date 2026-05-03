@@ -1,0 +1,29 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.www-agentcrush-xyz-api-agent-crewai-verification-status",
+  "title": "Verification and tier status for an AI agent on AgentCrush. Returns tier, verifi",
+  "description": "Verification and tier status for an AI agent on AgentCrush. Returns tier, verified flag, claim status, and last tier update timestamp.",
+  "capabilities": [
+    "ai-agents",
+    "trust",
+    "verification",
+    "identity",
+    "kya"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://www.agentcrush.xyz/api/agent/crewai/verification-status"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://www.agentcrush.xyz/api/agent/crewai/verification-status",
+    "x402_version": 2
+  }
+}

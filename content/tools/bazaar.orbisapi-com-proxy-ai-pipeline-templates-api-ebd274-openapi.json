@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-ai-pipeline-templates-api-ebd274-openapi",
+  "title": "Ready-to-use AI pipeline templates — RAG, agent, extract-transform, review-revis",
+  "description": "Ready-to-use AI pipeline templates — RAG, agent, extract-transform, review-revise.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/ai-pipeline-templates-api-ebd274/openapi"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/ai-pipeline-templates-api-ebd274/openapi",
+    "x402_version": 2
+  }
+}

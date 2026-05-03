@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-web-scrape-tester-api-5ad1d7-lookup",
+  "title": "Run assertion-based tests on extracted data fields with pass/fail reporting.",
+  "description": "Run assertion-based tests on extracted data fields with pass/fail reporting.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/web-scrape-tester-api-5ad1d7/lookup"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/web-scrape-tester-api-5ad1d7/lookup",
+    "x402_version": 2
+  }
+}

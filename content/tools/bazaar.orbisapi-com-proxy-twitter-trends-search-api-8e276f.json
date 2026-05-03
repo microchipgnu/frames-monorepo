@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-twitter-trends-search-api-8e276f",
+  "title": "Search Twitter/X for tweets, hashtags, users, and retrieve worldwide trending to",
+  "description": "Search Twitter/X for tweets, hashtags, users, and retrieve worldwide trending topics.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/twitter-trends-search-api-8e276f"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/twitter-trends-search-api-8e276f",
+    "x402_version": 2
+  }
+}

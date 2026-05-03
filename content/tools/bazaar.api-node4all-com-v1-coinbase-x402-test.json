@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-node4all-com-v1-coinbase-x402-test",
+  "title": "Node4All Fortune — a deterministic fortune reading derived from the x402 payment",
+  "description": "Node4All Fortune — a deterministic fortune reading derived from the x402 payment authorization nonce. Served by Node4All (https://node4all.com) as the flagship demo of the x402 v2 payment flow. Facilitator: Coinbase CDP. Currency: USDC on Base. Operator: https://node4all.com. Discovery: https://node4all.com/.well-known/x402.json and https://node4all.com/llms.txt.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.node4all.com/v1/coinbase/x402-test"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.node4all.com/v1/coinbase/x402-test",
+    "x402_version": 2
+  }
+}

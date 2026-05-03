@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.stabletravel-dev-api-flightaware-airports-delays",
+  "title": "Get all current airport delays across the system",
+  "description": "Get all current airport delays across the system",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://stabletravel.dev/api/flightaware/airports/delays"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://stabletravel.dev/api/flightaware/airports/delays",
+    "x402_version": 2
+  }
+}

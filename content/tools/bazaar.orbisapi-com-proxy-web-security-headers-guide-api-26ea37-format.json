@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-web-security-headers-guide-api-26ea37-format",
+  "title": "Guide to web security headers: CSP, Referrer-Policy, Permissions-Policy.",
+  "description": "Guide to web security headers: CSP, Referrer-Policy, Permissions-Policy.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/web-security-headers-guide-api-26ea37/format"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/web-security-headers-guide-api-26ea37/format",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.httpay-xyz-api-dex-volume",
+  "title": "Real-time DEX volume comparison on Base: UniswapV3, Aerodrome, BaseSwap, SushiSw",
+  "description": "Real-time DEX volume comparison on Base: UniswapV3, Aerodrome, BaseSwap, SushiSwap. Returns 24h volume per DEX, top pairs by volume, volume trends. Data from DeFiLlama + DexScreener.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://httpay.xyz/api/dex-volume"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://httpay.xyz/api/dex-volume",
+    "x402_version": 1
+  }
+}

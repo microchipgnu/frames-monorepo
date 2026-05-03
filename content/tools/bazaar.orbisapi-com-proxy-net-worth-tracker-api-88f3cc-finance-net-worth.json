@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-net-worth-tracker-api-88f3cc-finance-net-worth",
+  "title": "Calculate net worth from assets and liabilities. Debt-to-asset ratio, financial ",
+  "description": "Calculate net worth from assets and liabilities. Debt-to-asset ratio, financial health score and liquidity ratio. Built for AI agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/net-worth-tracker-api-88f3cc/finance/net-worth"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/net-worth-tracker-api-88f3cc/finance/net-worth",
+    "x402_version": 2
+  }
+}

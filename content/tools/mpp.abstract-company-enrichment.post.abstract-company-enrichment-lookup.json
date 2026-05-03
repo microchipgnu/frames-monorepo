@@ -1,0 +1,26 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.abstract-company-enrichment.post.abstract-company-enrichment-lookup",
+  "title": "Company Enrichment — POST /abstract-company-enrichment/lookup",
+  "description": "Lookup",
+  "capabilities": [
+    "company",
+    "enrichment",
+    "domain-lookup",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://abstract-company-enrichment.mpp.paywithlocus.com/abstract-company-enrichment/lookup"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.006"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "abstract-company-enrichment:POST:/abstract-company-enrichment/lookup"
+  }
+}

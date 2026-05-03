@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402factory-ai-base-tts",
+  "title": "Base text-to-speech API paid via x402. Converts text input into a hosted audio U",
+  "description": "Base text-to-speech API paid via x402. Converts text input into a hosted audio URL. Dynamic pricing for TTS: the prepaid price is computed per request based on the input and charged upfront via x402. Prepaid price for pure discovery requests without text is an upper bound; clients should re-run discovery with their concrete input if they need an exact quote.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402factory.ai/base/tts"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402factory.ai/base/tts",
+    "x402_version": 1
+  }
+}

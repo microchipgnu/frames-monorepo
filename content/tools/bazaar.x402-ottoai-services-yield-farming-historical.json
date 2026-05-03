@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-ottoai-services-yield-farming-historical",
+  "title": "Historical (closed) yield farming positions for a user across all protocols and ",
+  "description": "Historical (closed) yield farming positions for a user across all protocols and chains, with realized yield and exit timestamps.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.ottoai.services/yield-farming-historical"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402.ottoai.services/yield-farming-historical",
+    "x402_version": 2
+  }
+}

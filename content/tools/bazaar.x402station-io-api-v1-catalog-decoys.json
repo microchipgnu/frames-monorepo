@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402station-io-api-v1-catalog-decoys",
+  "title": "x402 catalog/decoys: full known-bad list of x402 endpoints. Returns every active",
+  "description": "x402 catalog/decoys: full known-bad list of x402 endpoints. Returns every active endpoint currently flagged with a critical signal (decoy_price_extreme, zombie, dead_7d, mostly_dead). Pull periodically and use as a local blacklist.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402station.io/api/v1/catalog/decoys"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402station.io/api/v1/catalog/decoys",
+    "x402_version": 2
+  }
+}

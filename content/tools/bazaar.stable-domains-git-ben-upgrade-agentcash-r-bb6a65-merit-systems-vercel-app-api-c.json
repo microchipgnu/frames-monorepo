@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.stable-domains-git-ben-upgrade-agentcash-r-bb6a65-merit-systems-vercel-app-api-c",
+  "title": "Check domain availability and current registration price.",
+  "description": "Check domain availability and current registration price.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://stable-domains-git-ben-upgrade-agentcash-r-bb6a65-merit-systems.vercel.app/api/check"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://stable-domains-git-ben-upgrade-agentcash-r-bb6a65-merit-systems.vercel.app/api/check",
+    "x402_version": 2
+  }
+}

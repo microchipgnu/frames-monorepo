@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-tools-vercel-app-api-polymarket-trending",
+  "title": "Get the top trending prediction markets on Polymarket, sorted by 24h volume. Ret",
+  "description": "Get the top trending prediction markets on Polymarket, sorted by 24h volume. Returns up to 5 markets by default.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402-tools.vercel.app/api/polymarket/trending"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402-tools.vercel.app/api/polymarket/trending",
+    "x402_version": 2
+  }
+}

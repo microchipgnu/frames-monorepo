@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-web3-jobs-api-ae22f3",
+  "title": "Web3 job roles, salaries, top hiring companies and market trends. Covers Solidit",
+  "description": "Web3 job roles, salaries, top hiring companies and market trends. Covers Solidity, ZK, DeFi, DAO and more. Built for AI career agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/web3-jobs-api-ae22f3"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/web3-jobs-api-ae22f3",
+    "x402_version": 2
+  }
+}

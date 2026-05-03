@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-credit-score-band",
+  "title": "Convert and interpret credit scores between different scoring systems. Maps FICO",
+  "description": "Convert and interpret credit scores between different scoring systems. Maps FICO, VantageScore, Experian, Equifax scores to universal risk bands with percentile estimates. SQS: 96/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/credit-score-band"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/credit-score-band",
+    "x402_version": 1
+  }
+}

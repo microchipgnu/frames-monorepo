@@ -1,0 +1,34 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-twit-sh-tweets-replies",
+  "title": "Get replies to a specific Twitter/X tweet. Returns paginated reply tweets for a ",
+  "description": "Get replies to a specific Twitter/X tweet. Returns paginated reply tweets for a given tweet ID. Query params: id (string, required) - numeric tweet ID; next_token (string, optional) - pagination cursor, e.g. GET /tweets/replies?id=1110302988. Returns X v2 API-compatible JSON.",
+  "capabilities": [
+    "twitter",
+    "x",
+    "social",
+    "tweets",
+    "replies",
+    "conversation",
+    "thread",
+    "paginated",
+    "agent",
+    "x402"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.twit.sh/tweets/replies"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402.twit.sh/tweets/replies",
+    "x402_version": 2
+  }
+}

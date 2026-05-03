@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-language-detector-api-3629b3-parse",
+  "title": "Detect text language using script detection and n-gram frequency for 12 or more ",
+  "description": "Detect text language using script detection and n-gram frequency for 12 or more languages.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/language-detector-api-3629b3/parse"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/language-detector-api-3629b3/parse",
+    "x402_version": 2
+  }
+}

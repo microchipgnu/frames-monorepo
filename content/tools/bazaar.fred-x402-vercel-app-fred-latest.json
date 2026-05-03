@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.fred-x402-vercel-app-fred-latest",
+  "title": "Latest value for any FRED economic series. Accepts series ID (e.g. CPIAUCSL) or ",
+  "description": "Latest value for any FRED economic series. Accepts series ID (e.g. CPIAUCSL) or plain-English name (e.g. 'inflation', 'unemployment', 'fed rate'). Returns value, units, date, frequency.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://fred-x402.vercel.app/fred/latest"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://fred-x402.vercel.app/fred/latest",
+    "x402_version": 2
+  }
+}

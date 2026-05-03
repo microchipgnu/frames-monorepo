@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-ottoai-services-token-alpha",
+  "title": "Premium token intelligence: price metrics, news, Twitter sentiment, and futures ",
+  "description": "Premium token intelligence: price metrics, news, Twitter sentiment, and futures data. Find out why your token is moving.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.ottoai.services/token-alpha"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402.ottoai.services/token-alpha",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.pubmed-trends-x402-ben-miles2-workers-dev-api-v1-trends",
+  "title": "PubMed publication trend data for a search query over a year range",
+  "description": "PubMed publication trend data for a search query over a year range",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://pubmed-trends-x402.ben-miles2.workers.dev/api/v1/trends"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://pubmed-trends-x402.ben-miles2.workers.dev/api/v1/trends",
+    "x402_version": 2
+  }
+}

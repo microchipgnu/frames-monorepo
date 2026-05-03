@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.pro-api-coingecko-com-api-v3-x402-onchain-simple-networks-base-token-price-addre",
+  "title": "Query onchain DEX token price & market data based on the provided token contract",
+  "description": "Query onchain DEX token price & market data based on the provided token contract addresses on a network.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://pro-api.coingecko.com/api/v3/x402/onchain/simple/networks/base/token_price/:address"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://pro-api.coingecko.com/api/v3/x402/onchain/simple/networks/base/token_price/:address",
+    "x402_version": 2
+  }
+}

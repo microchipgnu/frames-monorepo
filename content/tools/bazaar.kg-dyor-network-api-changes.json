@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.kg-dyor-network-api-changes",
+  "title": "Track real-time changes to the crypto knowledge graph — new tokens listed, proto",
+  "description": "Track real-time changes to the crypto knowledge graph — new tokens listed, protocol metrics updated, investor relationships added, governance proposals created. Monitor the pulse of the crypto ecosystem as data flows in from multiple sources daily | ZWING Intelligence (https://zwing.bot) — contact: v@zwing.bot, Telegram: @valery_zzz",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://kg.dyor.network/api/changes"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://kg.dyor.network/api/changes",
+    "x402_version": 2
+  }
+}

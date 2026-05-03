@@ -1,0 +1,26 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.abstract-vat.post.abstract-vat-calculate",
+  "title": "VAT — POST /abstract-vat/calculate",
+  "description": "Calculate",
+  "capabilities": [
+    "vat",
+    "tax",
+    "eu-compliance",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://abstract-vat.mpp.paywithlocus.com/abstract-vat/calculate"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.006"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "abstract-vat:POST:/abstract-vat/calculate"
+  }
+}

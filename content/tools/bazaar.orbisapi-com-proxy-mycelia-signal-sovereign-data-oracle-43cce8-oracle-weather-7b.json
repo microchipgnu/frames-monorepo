@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-mycelia-signal-sovereign-data-oracle-43cce8-oracle-weather-7b",
+  "title": "Cryptographically signed crypto pairs, econ indicators, DLCs, FX & market indice",
+  "description": "Cryptographically signed crypto pairs, econ indicators, DLCs, FX & market indices — pay-per-query over x402, no API keys",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/mycelia-signal-sovereign-data-oracle-43cce8/oracle/weather/%7Blat%7D/%7Blon%7D/wind/%7Bwindow%7Dd"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/mycelia-signal-sovereign-data-oracle-43cce8/oracle/weather/%7Blat%7D/%7Blon%7D/wind/%7Bwindow%7Dd",
+    "x402_version": 2
+  }
+}

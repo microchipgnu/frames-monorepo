@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.poim-io-api-x402-question",
+  "title": "Generate AI-powered trivia question using Claude Sonnet 4.5. Payment goes to LP ",
+  "description": "Generate AI-powered trivia question using Claude Sonnet 4.5. Payment goes to LP pool.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://poim.io/api/x402/question"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://poim.io/api/x402/question",
+    "x402_version": 1
+  }
+}

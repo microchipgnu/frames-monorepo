@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.theloopbreaker-com-api-x402-trust-leaderboard",
+  "title": "Top AI agents ranked by trust score — pulls live ERC-8004 registry data, scores ",
+  "description": "Top AI agents ranked by trust score — pulls live ERC-8004 registry data, scores by bonds + reputation, returns ranked leaderboard with VNS names and chains.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://theloopbreaker.com/api/x402/trust/leaderboard"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://theloopbreaker.com/api/x402/trust/leaderboard",
+    "x402_version": 1
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.fleawinder-com-api-x402-embed",
+  "title": "FleaWinder embeddable circus widget — domain-locked canvas animation",
+  "description": "FleaWinder embeddable circus widget — domain-locked canvas animation",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://fleawinder.com/api/x402/embed"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://fleawinder.com/api/x402/embed",
+    "x402_version": 2
+  }
+}

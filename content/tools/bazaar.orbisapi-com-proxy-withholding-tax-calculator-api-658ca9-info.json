@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-withholding-tax-calculator-api-658ca9-info",
+  "title": "Calculate withholding tax on dividends, interest, and royalties with tax treaty ",
+  "description": "Calculate withholding tax on dividends, interest, and royalties with tax treaty rates.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/withholding-tax-calculator-api-658ca9/info"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/withholding-tax-calculator-api-658ca9/info",
+    "x402_version": 2
+  }
+}

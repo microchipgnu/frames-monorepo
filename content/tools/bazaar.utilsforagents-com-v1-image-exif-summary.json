@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.utilsforagents-com-v1-image-exif-summary",
+  "title": "Extract EXIF metadata from a JPEG image. Returns structured fields including cam",
+  "description": "Extract EXIF metadata from a JPEG image. Returns structured fields including camera make/model, GPS coordinates, timestamp, aperture, shutter speed, ISO, and more. Useful for reading location data from photos, auditing camera settings, or checking what metadata is embedded in an image. Send the image as a raw binary body (Content-Type: image/jpeg) or multipart/form-data with field name 'file'. Max 5 MB.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://utilsforagents.com/v1/image/exif-summary"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://utilsforagents.com/v1/image/exif-summary",
+    "x402_version": 2
+  }
+}

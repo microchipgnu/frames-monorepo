@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.edgar-x402-vercel-app-edgar-filings",
+  "title": "Search SEC EDGAR recent filings by company name or topic. Filter by form type (1",
+  "description": "Search SEC EDGAR recent filings by company name or topic. Filter by form type (10-K, 10-Q, 8-K, S-1, DEF14A, etc.). Returns filing date, period, and direct URL.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://edgar-x402.vercel.app/edgar/filings"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://edgar-x402.vercel.app/edgar/filings",
+    "x402_version": 2
+  }
+}

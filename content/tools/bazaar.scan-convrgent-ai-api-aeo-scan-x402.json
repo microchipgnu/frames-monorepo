@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.scan-convrgent-ai-api-aeo-scan-x402",
+  "title": "Paid equivalent of /api/aeo/scan — scanner for AI search visibility (AEO, GEO) a",
+  "description": "Paid equivalent of /api/aeo/scan — scanner for AI search visibility (AEO, GEO) and agent readiness. Triple score + AI Identity Card + top issues covering JSON-LD Schema.org, meta tags, llms.txt, robots.txt, sitemap, and agent-discovery signals for ChatGPT, Perplexity, Google AI Overviews, Bing Copilot. $0.01 in USDC (Base or Solana) — Bazaar-indexable variant; the free version at /api/aeo/scan stays accessible via MCP and raw HTTP.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://scan.convrgent.ai/api/aeo/scan-x402"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://scan.convrgent.ai/api/aeo/scan-x402",
+    "x402_version": 2
+  }
+}

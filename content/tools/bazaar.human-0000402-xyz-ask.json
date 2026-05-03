@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.human-0000402-xyz-ask",
+  "title": "Pay $0.10 USDC to submit a question to a real human community (Discord & Telegra",
+  "description": "Pay $0.10 USDC to submit a question to a real human community (Discord & Telegram). Returns a token to poll for responses. Status becomes 'ready' once at least 1 human response(s) are collected. Max question length: 2000 characters. Poll GET /status/{token} to check progress and GET /responses/{token} to retrieve answers. Network: Base Mainnet. Useful for human-in-the-loop reviews and preference checks.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://human.0000402.xyz/ask"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://human.0000402.xyz/ask",
+    "x402_version": 2
+  }
+}

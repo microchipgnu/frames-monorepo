@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-questflow-ai-x402-agent-qrn-agent-687df69db234010b7d331809",
+  "title": "Advanced search agent powered by Jina AI with internet access capabilities. Prov",
+  "description": "Advanced search agent powered by Jina AI with internet access capabilities. Provides real-time web search results with source citations. | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.questflow.ai/x402/agent/qrn:agent:687df69db234010b7d331809"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "UNKNOWN",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.questflow.ai/x402/agent/qrn:agent:687df69db234010b7d331809",
+    "x402_version": 1
+  }
+}

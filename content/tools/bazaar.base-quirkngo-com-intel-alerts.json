@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.base-quirkngo-com-intel-alerts",
+  "title": "Knowledge Scout alerts for AI, crypto, and agent-commerce developments.",
+  "description": "Knowledge Scout alerts for AI, crypto, and agent-commerce developments.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://base.quirkngo.com/intel/alerts"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://base.quirkngo.com/intel/alerts",
+    "x402_version": 1
+  }
+}

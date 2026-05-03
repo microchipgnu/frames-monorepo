@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-ohlcv-coin",
+  "title": "Get historical OHLCV candlestick data for 116 cryptocurrencies — open, high, low",
+  "description": "Get historical OHLCV candlestick data for 116 cryptocurrencies — open, high, low, close prices with sample count per candle. Intervals: 15min, 1hour, 4hour, 1day. Up to 90 days of history for BTC, ETH, SOL, and 113 more coins. AI agent API for technical analysis, charting, backtesting data feeds, and price history retrieval.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/ohlcv/:coin"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/ohlcv/:coin",
+    "x402_version": 2
+  }
+}

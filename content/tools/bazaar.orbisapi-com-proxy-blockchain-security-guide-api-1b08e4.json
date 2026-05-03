@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-blockchain-security-guide-api-1b08e4",
+  "title": "Complete blockchain security guide — vulnerabilities, audit checklist, risk scor",
+  "description": "Complete blockchain security guide — vulnerabilities, audit checklist, risk scoring and security firms. Built for AI security agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/blockchain-security-guide-api-1b08e4"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/blockchain-security-guide-api-1b08e4",
+    "x402_version": 2
+  }
+}

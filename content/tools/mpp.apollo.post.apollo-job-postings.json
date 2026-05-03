@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.apollo.post.apollo-job-postings",
+  "title": "Apollo — POST /apollo/job-postings",
+  "description": "Organization Job Postings",
+  "capabilities": [
+    "leads",
+    "enrichment",
+    "contacts",
+    "sales-intelligence",
+    "b2b",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://apollo.mpp.paywithlocus.com/apollo/job-postings"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "apollo:POST:/apollo/job-postings"
+  }
+}

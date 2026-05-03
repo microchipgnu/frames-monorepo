@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.alpha-palmvox-com-api-daily-digest",
+  "title": "AI-written daily crypto market digest — 300 word original analysis covering pric",
+  "description": "AI-written daily crypto market digest — 300 word original analysis covering prices, sentiment, DeFi yields, whale activity, and actionable recommendations. Written by local LLM using live data. Updated daily.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://alpha.palmvox.com/api/daily/digest"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://alpha.palmvox.com/api/daily/digest",
+    "x402_version": 2
+  }
+}

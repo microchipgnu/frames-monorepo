@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.diffbot-nl.post.diffbot-nl-analyze",
+  "title": "Diffbot NL — POST /diffbot-nl/analyze",
+  "description": "Analyze Text",
+  "capabilities": [
+    "nlp",
+    "ner",
+    "sentiment",
+    "summarization",
+    "ai"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://diffbot-nl.mpp.paywithlocus.com/diffbot-nl/analyze"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "dynamic"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "diffbot-nl:POST:/diffbot-nl/analyze"
+  }
+}

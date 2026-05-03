@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-mempool-congestion-api-ba4052",
+  "title": "Real-time mempool congestion data for Ethereum and Bitcoin. Pending transactions",
+  "description": "Real-time mempool congestion data for Ethereum and Bitcoin. Pending transactions, congestion levels and recommended fees. Built for AI agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/mempool-congestion-api-ba4052"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/mempool-congestion-api-ba4052",
+    "x402_version": 2
+  }
+}

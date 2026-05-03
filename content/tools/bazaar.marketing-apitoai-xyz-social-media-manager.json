@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.marketing-apitoai-xyz-social-media-manager",
+  "title": "Generate engaging social media posts, hashtag strategies, posting schedules, and",
+  "description": "Generate engaging social media posts, hashtag strategies, posting schedules, and platform-specific content recommendations",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://marketing.apitoai.xyz/social_media_manager"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://marketing.apitoai.xyz/social_media_manager",
+    "x402_version": 1
+  }
+}

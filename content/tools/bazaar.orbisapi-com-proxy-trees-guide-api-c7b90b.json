@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-trees-guide-api-c7b90b",
+  "title": "Guide to binary trees, BST, AVL, and heap properties with traversal orders.",
+  "description": "Guide to binary trees, BST, AVL, and heap properties with traversal orders.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/trees-guide-api-c7b90b"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/trees-guide-api-c7b90b",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-run402-com-tiers-v1-prototype",
+  "title": "Set prototype tier ($0.10 USDC) — auto-detects subscribe/renew/upgrade",
+  "description": "Set prototype tier ($0.10 USDC) — auto-detects subscribe/renew/upgrade",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.run402.com/tiers/v1/prototype"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.run402.com/tiers/v1/prototype",
+    "x402_version": 2
+  }
+}

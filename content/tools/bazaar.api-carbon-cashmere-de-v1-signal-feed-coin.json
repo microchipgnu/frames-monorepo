@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-signal-feed-coin",
+  "title": "Single coin detailed ML trading signal — V3 tsfresh model output with variant co",
+  "description": "Single coin detailed ML trading signal — V3 tsfresh model output with variant comparison (A/B/C), regime context, key derivatives data, and 30-day backtest track record. AI agent API for single-asset trading decisions, signal deep-dive, and model transparency.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/signal-feed/:coin"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/signal-feed/:coin",
+    "x402_version": 2
+  }
+}

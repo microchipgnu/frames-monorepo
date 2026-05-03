@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-printmoneylab-com-api-v1-kr-sentiment",
+  "title": "Korean crypto sentiment — AI analysis combining 189+ tokens exchange data with K",
+  "description": "Korean crypto sentiment — AI analysis combining 189+ tokens exchange data with Korean news. First-in-world Korean-to-English crypto sentiment API.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.printmoneylab.com/api/v1/kr-sentiment"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.printmoneylab.com/api/v1/kr-sentiment",
+    "x402_version": 2
+  }
+}

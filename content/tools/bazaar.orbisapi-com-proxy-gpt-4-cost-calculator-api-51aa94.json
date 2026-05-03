@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-gpt-4-cost-calculator-api-51aa94",
+  "title": "Calculate GPT-4 and GPT-4o API costs by token usage and monthly volume — with co",
+  "description": "Calculate GPT-4 and GPT-4o API costs by token usage and monthly volume — with comparison against cheaper alternatives for the same task.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/gpt-4-cost-calculator-api-51aa94"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/gpt-4-cost-calculator-api-51aa94",
+    "x402_version": 2
+  }
+}

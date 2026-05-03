@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.openweather-coral-vercel-app-weather-forecast",
+  "title": "5-day weather forecast with 3-hour intervals including precipitation probability",
+  "description": "5-day weather forecast with 3-hour intervals including precipitation probability",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://openweather-coral.vercel.app/weather/forecast"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://openweather-coral.vercel.app/weather/forecast",
+    "x402_version": 2
+  }
+}

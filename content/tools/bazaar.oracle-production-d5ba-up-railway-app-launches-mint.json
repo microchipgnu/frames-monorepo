@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.oracle-production-d5ba-up-railway-app-launches-mint",
+  "title": "Detailed launch info with AI-generated risk summary (English + Japanese) and 0-1",
+  "description": "Detailed launch info with AI-generated risk summary (English + Japanese) and 0-100 risk score for a specific Solana mint address.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://oracle-production-d5ba.up.railway.app/launches/:mint"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://oracle-production-d5ba.up.railway.app/launches/:mint",
+    "x402_version": 2
+  }
+}

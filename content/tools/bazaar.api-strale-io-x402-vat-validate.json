@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-vat-validate",
+  "title": "Validate a European VAT number against the VIES database. Returns company name, ",
+  "description": "Validate a European VAT number against the VIES database. Returns company name, address, and validity. Caches results for 24 hours for instant responses on repeated lookups. Serves cached data when VIES is down. SQS: 85/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/vat-validate"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/vat-validate",
+    "x402_version": 1
+  }
+}

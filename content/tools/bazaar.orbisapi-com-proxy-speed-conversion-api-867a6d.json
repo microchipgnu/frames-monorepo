@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-speed-conversion-api-867a6d",
+  "title": "Convert between mph, km/h, knots, meters per second, and Mach number.",
+  "description": "Convert between mph, km/h, knots, meters per second, and Mach number.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/speed-conversion-api-867a6d"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/speed-conversion-api-867a6d",
+    "x402_version": 2
+  }
+}

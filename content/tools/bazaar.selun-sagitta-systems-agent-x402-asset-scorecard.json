@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.selun-sagitta-systems-agent-x402-asset-scorecard",
+  "title": "Asset scoring engine. Call this before asset selection or allocation. Returns li",
+  "description": "Asset scoring engine. Call this before asset selection or allocation. Returns liquidity, structural stability, role classification, and composite quality scores for candidate assets, shaped by the requested portfolio segment.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://selun.sagitta.systems/agent/x402/asset-scorecard"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.5"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://selun.sagitta.systems/agent/x402/asset-scorecard",
+    "x402_version": 2
+  }
+}

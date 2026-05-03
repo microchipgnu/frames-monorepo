@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-history-oi-coin",
+  "title": "Open Interest time series for any tracked coin across Binance + Bybit + OKX. Hou",
+  "description": "Open Interest time series for any tracked coin across Binance + Bybit + OKX. Hourly buckets up to 60 days. Returns per-exchange breakdown + total + price per bucket. Stats include min/max/avg/current total USD and 30-day change_pct. AI agent API for OI divergence detection, leverage-cycle analysis, and cross-exchange flow tracking.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/history/oi/:coin"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/history/oi/:coin",
+    "x402_version": 2
+  }
+}

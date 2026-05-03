@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.netintel-production-440c-up-railway-app-subnet-calc",
+  "title": "Calculates IPv4/IPv6 subnet details from CIDR notation including network/broadca",
+  "description": "Calculates IPv4/IPv6 subnet details from CIDR notation including network/broadcast addresses, netmask, usable host range, supernet, and possible subnets; for multiple CIDRs, detects overlaps and classifies relationships.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://netintel-production-440c.up.railway.app/subnet/calc"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://netintel-production-440c.up.railway.app/subnet/calc",
+    "x402_version": 2
+  }
+}

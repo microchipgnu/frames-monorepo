@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.pro-api-coingecko-com-api-v3-x402-onchain-search-pools",
+  "title": "Search onchain DEX pools and token, by contract address, name, or token symbol.",
+  "description": "Search onchain DEX pools and token, by contract address, name, or token symbol.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://pro-api.coingecko.com/api/v3/x402/onchain/search/pools"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://pro-api.coingecko.com/api/v3/x402/onchain/search/pools",
+    "x402_version": 2
+  }
+}

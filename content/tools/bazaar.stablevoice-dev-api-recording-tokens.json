@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.stablevoice-dev-api-recording-tokens",
+  "title": "Mint a one-hour recording URL the recordee opens in a browser. They speak the op",
+  "description": "Mint a one-hour recording URL the recordee opens in a browser. They speak the optional suggestedText, we transcode their audio to MP3 and PUT it into the StableUpload slot you reserved. The slot's publicUrl is what you'll plug into /api/speech as referenceAudioUrl. Advanced callers may pass requestedExpiresAt only when they also reserved a matching longer StableUpload upload URL and pass its uploadUrlExpiresAt as expiresAt.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://stablevoice.dev/api/recording-tokens"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://stablevoice.dev/api/recording-tokens",
+    "x402_version": 2
+  }
+}

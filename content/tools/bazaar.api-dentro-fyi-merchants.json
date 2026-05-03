@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-dentro-fyi-merchants",
+  "title": "Merchant directory + product search for independent e-commerce. Query by keyword",
+  "description": "Merchant directory + product search for independent e-commerce. Query by keyword, country, category, or platform. 22,000+ stores across 16 countries; Shopify, WooCommerce, Magento, custom storefronts. No API key. Pay per call.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.dentro.fyi/merchants"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.dentro.fyi/merchants",
+    "x402_version": 2
+  }
+}

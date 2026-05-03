@@ -1,0 +1,31 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.tako.post.api-mpp-v1-thinviz-create",
+  "title": "Tako — POST /api/mpp/v1/thinviz/create",
+  "description": "Create an embeddable ThinViz card",
+  "capabilities": [
+    "data",
+    "visualization",
+    "charts",
+    "research",
+    "search",
+    "reports",
+    "datasets",
+    "analytics",
+    "ai"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://tako.com/api/mpp/v1/thinviz/create"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "usd",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "tako:POST:/api/mpp/v1/thinviz/create"
+  }
+}

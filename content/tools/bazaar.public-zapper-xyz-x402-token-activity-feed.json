@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.public-zapper-xyz-x402-token-activity-feed",
+  "title": "Get a combined activity feed for a specific token, including swaps and top Farca",
+  "description": "Get a combined activity feed for a specific token, including swaps and top Farcaster casts, personalized for a given user.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://public.zapper.xyz/x402/token-activity-feed"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.00375"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://public.zapper.xyz/x402/token-activity-feed",
+    "x402_version": 2
+  }
+}

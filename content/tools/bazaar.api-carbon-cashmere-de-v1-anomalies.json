@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-anomalies",
+  "title": "Get ML-detected market anomalies — unusual patterns across crypto assets from th",
+  "description": "Get ML-detected market anomalies — unusual patterns across crypto assets from the last 24 hours. Detects volume spikes, price deviations, correlation breaks, and structural changes. AI agent API for anomaly-based alpha generation, risk alert systems, and market microstructure analysis.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/anomalies"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/anomalies",
+    "x402_version": 2
+  }
+}

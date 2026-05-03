@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.crypto-402box-io-token-utility-mechanics-designer",
+  "title": "Define token use cases, governance rights, staking utility, payment mechanics, a",
+  "description": "Define token use cases, governance rights, staking utility, payment mechanics, and economic sinks to create sustainable demand",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://crypto.402box.io/token_utility_mechanics_designer"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://crypto.402box.io/token_utility_mechanics_designer",
+    "x402_version": 1
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x420dog-x420-dev-api-puff-custom",
+  "title": "Buy custom USDC amount worth of x420dog tokens 0xe44DE6EaaA85e5C55D1EeF8fBB1785B",
+  "description": "Buy custom USDC amount worth of x420dog tokens 0xe44DE6EaaA85e5C55D1EeF8fBB1785B03dcD3B07",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x420dog.x420.dev/api/puff-custom"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x420dog.x420.dev/api/puff-custom",
+    "x402_version": 1
+  }
+}

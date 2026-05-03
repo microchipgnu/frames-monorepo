@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.httpay-xyz-api-fee-tracker",
+  "title": "Track Base network fee trends over time — avg gas per block, cheapest hours, L1 ",
+  "description": "Track Base network fee trends over time — avg gas per block, cheapest hours, L1 vs L2 comparison. Useful for agents timing their transactions.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://httpay.xyz/api/fee-tracker"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://httpay.xyz/api/fee-tracker",
+    "x402_version": 1
+  }
+}

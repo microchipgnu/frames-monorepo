@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-slamai-dev-token-price-exotic",
+  "title": "Retrieves token price details including FDV, liquidity, and 24-hour change, quot",
+  "description": "Retrieves token price details including FDV, liquidity, and 24-hour change, quoted in any ERC20 or major blockchain token.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.slamai.dev/token/price/exotic"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.slamai.dev/token/price/exotic",
+    "x402_version": 1
+  }
+}

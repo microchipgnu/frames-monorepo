@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.agent-research-brief-api-production-up-railway-app-api-research-brief",
+  "title": "Generate a structured research brief with research questions, search queries, in",
+  "description": "Generate a structured research brief with research questions, search queries, interview targets, key risks, and next actions.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://agent-research-brief-api-production.up.railway.app/api/research-brief"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://agent-research-brief-api-production.up.railway.app/api/research-brief",
+    "x402_version": 2
+  }
+}

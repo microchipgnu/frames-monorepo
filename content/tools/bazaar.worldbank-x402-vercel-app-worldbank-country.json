@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.worldbank-x402-vercel-app-worldbank-country",
+  "title": "World Bank country profile. Returns name, capital, region, income level, and coo",
+  "description": "World Bank country profile. Returns name, capital, region, income level, and coordinates for any country.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://worldbank-x402.vercel.app/worldbank/country"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://worldbank-x402.vercel.app/worldbank/country",
+    "x402_version": 2
+  }
+}

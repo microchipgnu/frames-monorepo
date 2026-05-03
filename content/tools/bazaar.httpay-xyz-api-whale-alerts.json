@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.httpay-xyz-api-whale-alerts",
+  "title": "Real-time large transfer monitoring on Base — track whale movements for USDC, WE",
+  "description": "Real-time large transfer monitoring on Base — track whale movements for USDC, WETH, and cbBTC over the last N blocks. Params: ?minUsd=10000&token=USDC&limit=20",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://httpay.xyz/api/whale-alerts"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://httpay.xyz/api/whale-alerts",
+    "x402_version": 1
+  }
+}

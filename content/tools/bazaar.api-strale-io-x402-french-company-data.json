@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-french-company-data",
+  "title": "Look up French company data from the SIRENE registry. Accepts SIREN (9 digits), ",
+  "description": "Look up French company data from the SIRENE registry. Accepts SIREN (9 digits), SIRET (14 digits), or company name. Returns company name, SIREN, SIRET, address, activity code, directors, and derived VAT number. SQS: 82/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/french-company-data"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/french-company-data",
+    "x402_version": 1
+  }
+}

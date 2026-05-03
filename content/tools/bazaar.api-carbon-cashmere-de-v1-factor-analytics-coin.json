@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-factor-analytics-coin",
+  "title": "Factor decomposition across 4 dimensions: Momentum (30d return normalized by 90d",
+  "description": "Factor decomposition across 4 dimensions: Momentum (30d return normalized by 90d vol), Carry (annualized funding rate), Crowding (OI-delta vs. price-delta divergence with crowded_long/crowded_short/unwinding/neutral regime), and Volatility (realized 30d vol percentile over full lookback). Returns composite 0-1 score with label (bullish_bias_low_vol / bullish_bias / neutral / bearish_bias / bearish_bias_high_vol). Informational research data — not investment advice.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/factor-analytics/:coin"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.15"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/factor-analytics/:coin",
+    "x402_version": 2
+  }
+}

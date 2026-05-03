@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-yields",
+  "title": "Get DeFi yields across 200 pools and 85 protocols — Aave, Compound, Lido, Pendle",
+  "description": "Get DeFi yields across 200 pools and 85 protocols — Aave, Compound, Lido, Pendle, Uniswap, Curve on Ethereum, Arbitrum, Base, Polygon. Filter by chain, protocol, minimum APY. Returns APY and TVL per pool. AI agent API for yield farming optimization, DeFi portfolio allocation, and best yield discovery.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/yields"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/yields",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.marketing-402box-io-marketing-analytics-consultant",
+  "title": "Analyze marketing performance data, create dashboards, identify trends, and prov",
+  "description": "Analyze marketing performance data, create dashboards, identify trends, and provide actionable insights for optimization",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://marketing.402box.io/marketing_analytics_consultant"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://marketing.402box.io/marketing_analytics_consultant",
+    "x402_version": 1
+  }
+}

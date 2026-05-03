@@ -1,0 +1,35 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-twit-sh-tweets",
+  "title": "Bulk look up multiple Twitter/X tweets by their numeric tweet IDs in a single re",
+  "description": "Bulk look up multiple Twitter/X tweets by their numeric tweet IDs in a single request. Each tweet includes full text, author profile, and engagement metrics. Query param: ids (string, required) - comma-separated numeric tweet IDs, max 50, e.g. GET /tweets?ids=1110302988,1234567890. Returns X v2 API-compatible JSON.",
+  "capabilities": [
+    "twitter",
+    "x",
+    "social",
+    "tweets",
+    "posts",
+    "bulk",
+    "batch",
+    "ids",
+    "lookup",
+    "agent",
+    "x402"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.twit.sh/tweets"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402.twit.sh/tweets",
+    "x402_version": 2
+  }
+}

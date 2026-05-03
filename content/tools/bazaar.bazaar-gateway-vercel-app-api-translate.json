@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.bazaar-gateway-vercel-app-api-translate",
+  "title": "AI-powered text translation between any languages. Powered by Claude AI. Send te",
+  "description": "AI-powered text translation between any languages. Powered by Claude AI. Send text and target language, receive high-quality translation with context awareness.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://bazaar-gateway.vercel.app/api/translate"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://bazaar-gateway.vercel.app/api/translate",
+    "x402_version": 2
+  }
+}

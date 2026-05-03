@@ -1,0 +1,29 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.spyfu.get.apis-keyword-api-v2-related",
+  "title": "SpyFu — GET /apis/keyword_api/v2/related/*",
+  "description": "Keyword research",
+  "capabilities": [
+    "seo",
+    "ppc",
+    "keyword-research",
+    "competitor-analysis",
+    "ads",
+    "data",
+    "search"
+  ],
+  "invocation": {
+    "method": "GET",
+    "url": "https://spyfu.mpp.tempo.xyz/apis/keyword_api/v2/related/*"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "spyfu:GET:/apis/keyword_api/v2/related/*"
+  }
+}

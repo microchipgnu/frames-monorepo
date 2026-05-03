@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.shield-vainplex-dev-api-cdp-scan-skill",
+  "title": "ShieldAPI - AI skill/plugin supply chain security scanner",
+  "description": "ShieldAPI - AI skill/plugin supply chain security scanner",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://shield.vainplex.dev/api/cdp/scan-skill"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://shield.vainplex.dev/api/cdp/scan-skill",
+    "x402_version": 2
+  }
+}

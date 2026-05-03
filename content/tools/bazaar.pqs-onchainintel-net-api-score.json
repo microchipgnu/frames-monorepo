@@ -1,0 +1,29 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.pqs-onchainintel-net-api-score",
+  "title": "PQS score - 8-dimensional prompt quality breakdown with top fixes",
+  "description": "PQS score - 8-dimensional prompt quality breakdown with top fixes",
+  "capabilities": [
+    "prompt-quality",
+    "llm",
+    "scoring",
+    "x402",
+    "pqs"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://pqs.onchainintel.net/api/score"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.025"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://pqs.onchainintel.net/api/score",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.yolobster-creatormagic-ai-api-arena",
+  "title": "Get the Creator Magic AI agent competition leaderboard with balances and PnL.",
+  "description": "Get the Creator Magic AI agent competition leaderboard with balances and PnL.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://yolobster.creatormagic.ai/api/arena"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://yolobster.creatormagic.ai/api/arena",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.punksinapunk-0000402-xyz-mint",
+  "title": "Pay $10.00 USDC to mint a PunksinaPunk NFT for a subject address. The API verifi",
+  "description": "Pay $10.00 USDC to mint a PunksinaPunk NFT for a subject address. The API verifies the x402 payment, checks that the subject has not already been minted, then calls mint() on the ERC-721 contract on your behalf. One NFT per subject address — permanent, transferable, no royalties. Network: Base Mainnet. Each request mints one NFT and returns on-chain asset and transaction links.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://punksinapunk.0000402.xyz/mint"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "10"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://punksinapunk.0000402.xyz/mint",
+    "x402_version": 2
+  }
+}

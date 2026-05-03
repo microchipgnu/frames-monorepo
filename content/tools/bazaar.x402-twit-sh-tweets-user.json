@@ -1,0 +1,34 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-twit-sh-tweets-user",
+  "title": "Get the latest tweets (timeline) from a specific Twitter/X user by their usernam",
+  "description": "Get the latest tweets (timeline) from a specific Twitter/X user by their username. Returns up to 20 tweets per page sorted by most recent first, with pagination support. Query params: username (string, required) - Twitter screen name; next_token (string, optional) - pagination cursor, e.g. GET /tweets/user?username=elonmusk. Returns X v2 API-compatible JSON.",
+  "capabilities": [
+    "twitter",
+    "x",
+    "social",
+    "tweets",
+    "timeline",
+    "posts",
+    "user",
+    "paginated",
+    "agent",
+    "x402"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.twit.sh/tweets/user"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402.twit.sh/tweets/user",
+    "x402_version": 2
+  }
+}

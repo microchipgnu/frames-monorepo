@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-uuid-generator-api-954db6-validate",
+  "title": "Generate v4 UUIDs, NanoIDs, and validate existing UUIDs at scale.",
+  "description": "Generate v4 UUIDs, NanoIDs, and validate existing UUIDs at scale.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/uuid-generator-api-954db6/validate"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/uuid-generator-api-954db6/validate",
+    "x402_version": 2
+  }
+}

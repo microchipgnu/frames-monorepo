@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-sensitive-data-detector-api-a8f0e0-lookup",
+  "title": "Detect sensitive data: SSN, credit cards, API keys, emails, phones, medical term",
+  "description": "Detect sensitive data: SSN, credit cards, API keys, emails, phones, medical terms and dates of birth with severity ratin",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/sensitive-data-detector-api-a8f0e0/lookup"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/sensitive-data-detector-api-a8f0e0/lookup",
+    "x402_version": 2
+  }
+}

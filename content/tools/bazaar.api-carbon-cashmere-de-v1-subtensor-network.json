@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-subtensor-network",
+  "title": "Get Bittensor subtensor chain status from own lite node — block height, finalize",
+  "description": "Get Bittensor subtensor chain status from own lite node — block height, finalized block, peer count, sync state, total subnets, node version. AI agent API for Bittensor network monitoring and decentralized AI infrastructure analysis.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/subtensor/network"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/subtensor/network",
+    "x402_version": 2
+  }
+}

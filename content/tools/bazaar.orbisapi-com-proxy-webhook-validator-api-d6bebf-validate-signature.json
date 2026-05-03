@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-webhook-validator-api-d6bebf-validate-signature",
+  "title": "Openapis Webhook Validator data instantly — optimized for agents, LLMs, and MCP ",
+  "description": "Openapis Webhook Validator data instantly — optimized for agents, LLMs, and MCP workflows.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/webhook-validator-api-d6bebf/validate_signature"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/webhook-validator-api-d6bebf/validate_signature",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-northeastdealintel-com-v1-agent-sell-signal",
+  "title": "Sell probability score 0–100% based on aging ownership, DOM, distress, deal mome",
+  "description": "Sell probability score 0–100% based on aging ownership, DOM, distress, deal momentum",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.northeastdealintel.com/v1/agent/sell-signal"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.northeastdealintel.com/v1/agent/sell-signal",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x420-x420-dev-api-puff-5",
+  "title": "Buy 5 USDC worth of x420 tokens 0x68e284F21D04D4D62398C290EC3EF41C97F80b07",
+  "description": "Buy 5 USDC worth of x420 tokens 0x68e284F21D04D4D62398C290EC3EF41C97F80b07",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x420.x420.dev/api/puff-5"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x420.x420.dev/api/puff-5",
+    "x402_version": 1
+  }
+}

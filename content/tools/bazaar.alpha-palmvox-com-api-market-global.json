@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.alpha-palmvox-com-api-market-global",
+  "title": "Global crypto market overview — total market cap, BTC dominance, 24h volume, num",
+  "description": "Global crypto market overview — total market cap, BTC dominance, 24h volume, number of coins. Free CoinGecko data, packaged for agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://alpha.palmvox.com/api/market/global"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://alpha.palmvox.com/api/market/global",
+    "x402_version": 2
+  }
+}

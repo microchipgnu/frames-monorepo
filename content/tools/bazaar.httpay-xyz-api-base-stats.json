@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.httpay-xyz-api-base-stats",
+  "title": "Base network health dashboard — TPS, block time, gas price, TVL, daily transacti",
+  "description": "Base network health dashboard — TPS, block time, gas price, TVL, daily transactions, total addresses, and 24h/7d trend data. Aggregates data from L2Beat, DeFiLlama, and the Base RPC.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://httpay.xyz/api/base-stats"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://httpay.xyz/api/base-stats",
+    "x402_version": 1
+  }
+}

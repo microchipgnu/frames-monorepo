@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-onchain-fear-greed",
+  "title": "Proprietary on-chain Fear & Greed score (0-100) from own Bitcoin Core node. Aggr",
+  "description": "Proprietary on-chain Fear & Greed score (0-100) from own Bitcoin Core node. Aggregates 4 components: Coin Days Destroyed (smart-money flow), mempool pressure (sat/vB urgency), hashrate trend (miner sentiment), whale balance changes. Updated every 10min. AI agent API for on-chain sentiment regime — independent signal vs price-derived indicators. Informational research data only.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/onchain-fear-greed"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/onchain-fear-greed",
+    "x402_version": 2
+  }
+}

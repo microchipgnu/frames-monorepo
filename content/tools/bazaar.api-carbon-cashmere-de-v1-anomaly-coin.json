@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-anomaly-coin",
+  "title": "Multi-method anomaly detection combining z-score (returns/volume/funding), STL d",
+  "description": "Multi-method anomaly detection combining z-score (returns/volume/funding), STL decomposition residuals, and IsolationForest. Returns composite anomaly score (0-1), severity classification (calm/elevated/extreme), and top contributing features. Informational research data — not investment advice.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/anomaly/:coin"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.08"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/anomaly/:coin",
+    "x402_version": 2
+  }
+}

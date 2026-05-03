@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.marketing-apitoai-xyz-growth-strategist",
+  "title": "Design growth strategies, conduct competitor analysis, identify acquisition chan",
+  "description": "Design growth strategies, conduct competitor analysis, identify acquisition channels, and create scalable marketing playbooks",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://marketing.apitoai.xyz/growth_strategist"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://marketing.apitoai.xyz/growth_strategist",
+    "x402_version": 1
+  }
+}

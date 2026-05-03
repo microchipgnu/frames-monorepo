@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-crypto-scam-database-fraud-pattern-api-036fbd-leaderboard",
+  "title": "10 crypto scam types with fraud patterns, red flags and detection signals. Built",
+  "description": "10 crypto scam types with fraud patterns, red flags and detection signals. Built for AI agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/crypto-scam-database-fraud-pattern-api-036fbd/leaderboard"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/crypto-scam-database-fraud-pattern-api-036fbd/leaderboard",
+    "x402_version": 2
+  }
+}

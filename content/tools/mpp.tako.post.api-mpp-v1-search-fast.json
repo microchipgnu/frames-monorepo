@@ -1,0 +1,31 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.tako.post.api-mpp-v1-search-fast",
+  "title": "Tako — POST /api/mpp/v1/search/fast",
+  "description": "Fast data search across datasets",
+  "capabilities": [
+    "data",
+    "visualization",
+    "charts",
+    "research",
+    "search",
+    "reports",
+    "datasets",
+    "analytics",
+    "ai"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://tako.com/api/mpp/v1/search/fast"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "usd",
+    "price_hint": "0.04"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "tako:POST:/api/mpp/v1/search/fast"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-intel-snapshot-coin",
+  "title": "Single coin deep intelligence snapshot — ML signal, all features, derivatives, p",
+  "description": "Single coin deep intelligence snapshot — ML signal, all features, derivatives, plus chain-specific data (BTC mempool, ETH beacon, Kaspa/TAO network stats). Sub-50ms from Redis. AI agent API for deep single-asset analysis, on-chain intelligence, and trading decisions.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/intel/snapshot/:coin"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/intel/snapshot/:coin",
+    "x402_version": 2
+  }
+}

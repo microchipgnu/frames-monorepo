@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.marketing-apitoai-xyz-content-strategist",
+  "title": "Create comprehensive content strategies including blog ideas, editorial calendar",
+  "description": "Create comprehensive content strategies including blog ideas, editorial calendars, topic clusters, and content distribution plans",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://marketing.apitoai.xyz/content_strategist"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://marketing.apitoai.xyz/content_strategist",
+    "x402_version": 1
+  }
+}

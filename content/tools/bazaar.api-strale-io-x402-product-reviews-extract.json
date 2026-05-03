@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-product-reviews-extract",
+  "title": "Extract product reviews from Amazon, Trustpilot, or any review page. Returns rat",
+  "description": "Extract product reviews from Amazon, Trustpilot, or any review page. Returns rating distribution, pros/cons, sentiment. SQS: 49/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/product-reviews-extract"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/product-reviews-extract",
+    "x402_version": 1
+  }
+}

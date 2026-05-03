@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.undo-agentutil-net-v1-check",
+  "title": "Before deleting or modifying data on Gmail, Shopify, Stripe, and 17 other platfo",
+  "description": "Before deleting or modifying data on Gmail, Shopify, Stripe, and 17 other platforms -- check if the action can be undone, get recovery windows, and find safer alternatives",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://undo.agentutil.net/v1/check"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://undo.agentutil.net/v1/check",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.legal-apitoai-xyz-progressive-decentralization-roadmap",
+  "title": "Plan phased decentralization: initial control, governance transition, sufficient",
+  "description": "Plan phased decentralization: initial control, governance transition, sufficiently decentralized criteria, and regulatory off-ramp strategies",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://legal.apitoai.xyz/progressive_decentralization_roadmap"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://legal.apitoai.xyz/progressive_decentralization_roadmap",
+    "x402_version": 1
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-aurelianflo-com-api-ofac-sanctions-screening-sberbank",
+  "title": "OFAC sanctions and restricted-party screening for a person or entity name. Retur",
+  "description": "OFAC sanctions and restricted-party screening for a person or entity name. Returns grouped potential matches, aliases, denied-party and sanctions-list context, source lists, sanctions programs, and a manual-review recommendation for vendor onboarding, payout checks, and cross-border compliance. Optional query params: minScore, type, country, program, list, limit.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.aurelianflo.com/api/ofac-sanctions-screening/SBERBANK"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://x402.aurelianflo.com/api/ofac-sanctions-screening/SBERBANK",
+    "x402_version": 2
+  }
+}

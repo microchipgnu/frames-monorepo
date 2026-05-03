@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.pubmed-sekgen-xyz-api-v1-trending-subtopics",
+  "title": "Discover which biomedical sub-topics within a research field are growing fastest",
+  "description": "Discover which biomedical sub-topics within a research field are growing fastest — multi-year growth analysis for clinical, pharmaceutical, genomics, and scientific domains",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://pubmed.sekgen.xyz/api/v1/trending-subtopics"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://pubmed.sekgen.xyz/api/v1/trending-subtopics",
+    "x402_version": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-tech-stack-detect",
+  "title": "Detect technologies used by a website. Identifies CMS, frameworks, analytics, CD",
+  "description": "Detect technologies used by a website. Identifies CMS, frameworks, analytics, CDN, payment providers, marketing tools from HTTP headers and HTML patterns. No Browserless needed. SQS: 60/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/tech-stack-detect"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.strale.io/x402/tech-stack-detect",
+    "x402_version": 1
+  }
+}

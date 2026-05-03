@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.faker-x420-dev-api-puff-custom",
+  "title": "Buy custom USDC amount worth of FAKER tokens 0x3aD1Df7cb5cC6560437D0a1CEC235cB94",
+  "description": "Buy custom USDC amount worth of FAKER tokens 0x3aD1Df7cb5cC6560437D0a1CEC235cB942a8cb07",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://faker.x420.dev/api/puff-custom"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://faker.x420.dev/api/puff-custom",
+    "x402_version": 1
+  }
+}

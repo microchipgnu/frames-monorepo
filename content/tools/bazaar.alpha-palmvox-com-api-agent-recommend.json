@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.alpha-palmvox-com-api-agent-recommend",
+  "title": "Agent-to-agent recommendation — what should your trading agent do RIGHT NOW? Ret",
+  "description": "Agent-to-agent recommendation — what should your trading agent do RIGHT NOW? Returns specific buy/sell/hold actions with token, size, and reasoning based on live signals, sentiment, and our track record. Built for autonomous agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://alpha.palmvox.com/api/agent/recommend"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://alpha.palmvox.com/api/agent/recommend",
+    "x402_version": 2
+  }
+}

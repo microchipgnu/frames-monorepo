@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-domain-registrar-info-3f5ae9-validate",
+  "title": "Registrar details IANA ID and abuse contact for domains",
+  "description": "Registrar details IANA ID and abuse contact for domains",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/domain-registrar-info-3f5ae9/validate"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/domain-registrar-info-3f5ae9/validate",
+    "x402_version": 2
+  }
+}

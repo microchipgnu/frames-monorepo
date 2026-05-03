@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-carbon-cashmere-de-v1-decisions",
+  "title": "Get composite AI trading decisions for 34 crypto assets — aggregates ML ensemble",
+  "description": "Get composite AI trading decisions for 34 crypto assets — aggregates ML ensemble predictions, HMM market regime, conviction score, AI chart vision analysis, and multi-agent consensus into a single direction + confidence grade (A+ to F). AI agent API for autonomous trading decisions, portfolio rebalancing triggers, and multi-factor signal aggregation.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.carbon-cashmere.de/v1/decisions"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.08"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://api.carbon-cashmere.de/v1/decisions",
+    "x402_version": 2
+  }
+}

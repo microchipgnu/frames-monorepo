@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-multi-chain-wallet-api-15b080",
+  "title": "Multi-chain wallet guide — managing assets across Ethereum, Solana, Polygon, Arb",
+  "description": "Multi-chain wallet guide — managing assets across Ethereum, Solana, Polygon, Arbitrum and Base. Built for AI Web3 agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/multi-chain-wallet-api-15b080"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/multi-chain-wallet-api-15b080",
+    "x402_version": 2
+  }
+}

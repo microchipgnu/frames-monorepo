@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-web3-incident-response-runbook-api-bbac7e-openapi-20-20return",
+  "title": "Generate web3 incident response steps by severity, asset exposure, exploit type,",
+  "description": "Generate web3 incident response steps by severity, asset exposure, exploit type, and controls",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/web3-incident-response-runbook-api-bbac7e/openapi%20-%20Return%20the%20OpenAPI%203.0%20specification%20for%20this%20API"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/web3-incident-response-runbook-api-bbac7e/openapi%20-%20Return%20the%20OpenAPI%203.0%20specification%20for%20this%20API",
+    "x402_version": 2
+  }
+}

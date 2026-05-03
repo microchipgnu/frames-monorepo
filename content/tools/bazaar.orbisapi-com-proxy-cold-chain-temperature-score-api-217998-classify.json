@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-cold-chain-temperature-score-api-217998-classify",
+  "title": "Score cold chain temperature compliance from sensor data",
+  "description": "Score cold chain temperature compliance from sensor data",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/cold-chain-temperature-score-api-217998/classify"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://orbisapi.com/proxy/cold-chain-temperature-score-api-217998/classify",
+    "x402_version": 2
+  }
+}

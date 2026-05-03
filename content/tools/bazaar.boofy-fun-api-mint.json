@@ -1,0 +1,25 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.boofy-fun-api-mint",
+  "title": "Mint 5k $BOOFY. https://boofy.fun . Fulfilment may take a few minutes. Cap for t",
+  "description": "Mint 5k $BOOFY. https://boofy.fun . Fulfilment may take a few minutes. Cap for this endpoint is 100k $USDC. No team supply. $BOOFY is a pure meme token with no utility. No refunds, liquidity will only be provided on mint out. Use at your own risk. Follow https://x.com/BOOFYx402.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://boofy.fun/api/mint"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "upstream_id": "https://boofy.fun/api/mint",
+    "x402_version": 1
+  }
+}
