@@ -105,20 +105,15 @@ Configuration: `~/.frames/pay/config.json` for default catalog URL, default sign
 1. `pay init && pay add https://catalog.frames.ag/tools/search.exa --as search && pay install && pay run search --params '{"query":"…"}'` works in a fresh directory.
 2. The resulting `tools.lock` is committable and a fresh clone of the same directory runs `pay run search …` offline (no network for resolution).
 
-## Stage 3 — Hosted catalog server (2 days)
+## Stage 3 — Hosted catalog server
 
-Separate deploy. Cloudflare Worker, Hono. Just a publisher of descriptor JSONs at stable URLs — no opinion beyond that.
+Lives in **[microchipgnu/catalog](https://github.com/microchipgnu/catalog)**, not in this repo. Sibling pattern: pay is the local-first lib (like `frame`), catalog is the hosted server (like `frames-cloud`).
 
-- Three routes per SPEC: `GET /catalog`, `GET /catalog/:id`, `GET /catalog?capability=…`
-- A fourth read endpoint: `GET /tools/:id` returning the bare descriptor JSON (this is what `tools.yml` URLs point at). The `/catalog/:id` form wraps it in metadata; `/tools/:id` is the wire format manifests consume.
-- KV cache, ETag, SWR. Each descriptor's ETag is its `descriptor_id`.
-- Source: descriptors live as JSON files in a `catalog-content/` directory in this repo OR a separate `catalog-content` repo, served via raw.githubusercontent.com.
-- Webhook on the source repo invalidates KV.
-- One canonical deploy at `catalog.frames.ag` (or wherever).
+That repo ships a Hono server with platform-agnostic handler + Cloudflare-KV adapter + Vercel-KV adapter. Three hand-curated descriptors today; `none` and `byok` descriptors land when SPEC v0.0.2 ships those protocols. See `catalog/PLAN.md` for that repo's stages.
 
-**No federation logic.** Federation is a consumer-side concern: a manifest can mix URLs from many publishers. The server publishes, it does not federate.
+**Pay's only Stage 3 work:** point CLI's default catalog config at `https://catalog.frames.ag` once that DNS is bound (catalog C2). Trivial.
 
-**Exit:** `curl https://catalog.frames.ag/tools/search.exa` returns a descriptor whose `sha256(jcs(...))` matches the server's `ETag`. CLI's `pay add https://catalog.frames.ag/tools/search.exa` resolves and locks correctly.
+**Federation lives in pay's `tools.yml`.** A manifest can mix URLs from any number of catalog servers. The catalog server publishes; it does not federate.
 
 ## Stage 4 — MCP server (3 days)
 
