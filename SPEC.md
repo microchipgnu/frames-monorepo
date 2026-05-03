@@ -14,7 +14,7 @@ Semver. Implementations declare the version they target via a `pay_protocol` fie
 
 ## Tool descriptor
 
-The unit a catalog returns and a wallet consumes. JSON.
+The unit a catalog returns and a wallet consumes. JSON. **Content-addressed** by SHA-256 of its canonical encoding.
 
 ```json
 {
@@ -41,7 +41,7 @@ The unit a catalog returns and a wallet consumes. JSON.
 | field | required | description |
 |---|---|---|
 | `pay_protocol` | yes | semver of the spec this descriptor conforms to |
-| `id` | yes | stable, slug-shaped: `[a-z0-9][a-z0-9._-]*`. Globally unique within a catalog |
+| `id` | yes | stable, slug-shaped: `[a-z0-9][a-z0-9._-]*`. Globally unique within the publishing catalog |
 | `title` | yes | short human label |
 | `description` | yes | what the tool does, in prose. Fed to agents |
 | `capabilities` | yes | tags an agent matches against (`web-search`, `image-gen`, `scrape`, …). At least one |
@@ -50,6 +50,85 @@ The unit a catalog returns and a wallet consumes. JSON.
 | `schemas` | no | inline JSON Schema definitions referenced by `invocation.params_schema` |
 
 Unknown fields must be preserved when forwarded and ignored when not understood.
+
+### Descriptor identity
+
+The `descriptor_id` of a tool is the SHA-256 of its canonical JSON encoding (RFC 8785 / JCS). It is computed, never declared.
+
+```
+descriptor_id := "sha256-" + base64url(sha256(jcs(descriptor)))
+```
+
+The `descriptor_id` field is *never present* in the descriptor itself — it would create a circular dependency. It is computed at the moment of resolution and stored alongside the descriptor in lock files, receipts, and event logs.
+
+`id` is the publisher's name for the tool (`search.exa`). `descriptor_id` is the cryptographic identity of *this exact version of that tool*. The pair `(catalog_url, id)` is mutable; `descriptor_id` is immutable. Lock files and receipts MUST reference `descriptor_id`. Manifests MAY reference by URL alone — the lock file pins the SHA on first resolution.
+
+## Manifest and lock file
+
+A consumer (typically a frame dataset, but any project) declares its tool dependencies in a manifest, and pins them in a lock file. Same shape as `package.json` + `package-lock.json`.
+
+### `tools.yml` — the manifest
+
+```yaml
+pay_protocol: 0.0.1
+tools:
+  search:
+    url: https://catalog.frames.ag/tools/search.exa
+  enrich:
+    url: https://github.com/firecrawl/firecrawl/raw/main/tool.json
+    integrity: sha256-Def456...    # optional; if present, fails on mismatch
+  scrape:
+    path: ./tools/local-scrape.json   # local descriptors are first-class
+```
+
+| field | required | description |
+|---|---|---|
+| `pay_protocol` | yes | semver of the spec this manifest conforms to |
+| `tools` | yes | map of *local name* → tool reference. Local names are how the consumer calls tools (`pay run search`); they need not match the descriptor's `id` |
+| `tools.<name>.url` | one of | URL to fetch the descriptor from |
+| `tools.<name>.path` | one of | local filesystem path to a descriptor file |
+| `tools.<name>.integrity` | no | if set, resolution fails when the fetched descriptor's SHA doesn't match. Otherwise pinned on first install |
+
+The manifest is human-edited. The lock file is generated.
+
+### `tools.lock` — the lock file
+
+```json
+{
+  "pay_protocol": "0.0.1",
+  "lockfile_version": 1,
+  "resolved": {
+    "search": {
+      "source": { "url": "https://catalog.frames.ag/tools/search.exa" },
+      "descriptor_id": "sha256-Abc123...",
+      "fetched_at": "2026-05-03T10:00:00.000Z",
+      "descriptor": { "...inlined ToolDescriptor..." }
+    },
+    "enrich": {
+      "source": { "url": "https://github.com/firecrawl/firecrawl/raw/main/tool.json" },
+      "descriptor_id": "sha256-Def456...",
+      "fetched_at": "2026-05-03T10:00:00.000Z",
+      "descriptor": { "...inlined..." }
+    }
+  }
+}
+```
+
+The lock file inlines full descriptors. A fresh clone is offline-runnable: `pay run search --params …` resolves the local name from the lock, validates, and calls — no network needed for discovery.
+
+### Resolution algorithm
+
+When the wallet is asked to call a tool by *local name*:
+
+1. If `tools.lock` is present and contains the name: use the inlined descriptor. Verify `sha256(jcs(descriptor)) == descriptor_id`. Fail if not.
+2. If no lock entry exists and the manifest is present: fetch the URL/path, compute `descriptor_id`, verify against `integrity` if declared, write a lock entry, then proceed.
+3. If neither is present: fail. The wallet only resolves bare descriptor IDs or URLs in explicit-call modes (`pay tool <url> --params …`), never implicitly.
+
+This makes every paid call deterministic and replayable from a committed lock file.
+
+### Manifest scope
+
+The manifest lives at the root of any project that uses paid tools. For frame datasets, the conventional location is `tools.yml` next to `schema.yml`. The lock file is committed alongside it.
 
 ## Catalog HTTP shape
 
@@ -148,20 +227,53 @@ Append-only proof that a paid call happened. JSON object, content-addressed by S
   "pay_protocol": "0.0.1",
   "id": "01HK...",
   "ts": "2026-05-02T14:22:11.000Z",
+  "tool_local_name": "search",
   "tool_id": "search.exa",
+  "descriptor_id": "sha256-Abc123...",
   "protocol": "x402",
   "signer_id": "ows",
   "amount": "0.01",
   "currency": "USDC",
   "network": "base",
   "tx_hash": "0xabc...",
-  "request_hash": "sha256:...",
-  "response_hash": "sha256:...",
+  "request_hash": "sha256-...",
+  "response_hash": "sha256-...",
   "agent": "claude:opus-4.7"
 }
 ```
 
-`tx_hash` is protocol-specific and may be absent for off-chain settlement. `agent` follows the same `<kind>:<identifier>` convention as the frame protocol.
+| field | required | description |
+|---|---|---|
+| `descriptor_id` | yes | the SHA of the descriptor that was used. Pinned in `tools.lock`. Forensic anchor — replays the exact tool spec |
+| `tool_local_name` | no | the consumer's local name (`search`) when called via manifest |
+| `tool_id` | yes | the publisher's name (`search.exa`) for human readability |
+| `tx_hash` | no | protocol-specific; absent for off-chain settlement |
+| `agent` | yes | follows the `<kind>:<identifier>` convention from the frame protocol |
+
+## Frame integration
+
+When the consumer is a frame dataset, paid calls produce a first-class event in `events.ndjson`:
+
+```json
+{
+  "id": "uuid-v4",
+  "ts": "2026-05-03T...",
+  "type": "tool.invoked",
+  "agent": "claude:opus-4.7",
+  "payload": {
+    "tool_local_name": "search",
+    "descriptor_id": "sha256-Abc123...",
+    "params_hash": "sha256-...",
+    "receipt_id": "01HK...",
+    "amount": "0.01",
+    "currency": "USDC"
+  }
+}
+```
+
+This is opt-in: pay does not require the frame protocol. But when both are present, the dataset becomes forensically complete — every fact names a source, every paid call names a descriptor SHA pinned in the lock file. Re-running a tick from any point in history is deterministic given the lock and the source URLs.
+
+The `tool.invoked` event type is reserved by this spec; the frame protocol's "skip unknown event types" rule means frame implementations not aware of pay simply pass them through.
 
 ## WalletAdapter contract
 
@@ -170,9 +282,11 @@ The orchestrator. One method matters:
 ```ts
 interface WalletAdapter {
   payForTool(input: {
-    toolId: string;
+    name: string;                                // local name from tools.yml, OR descriptor URL, OR descriptor_id
     params: unknown;
-    catalog?: CatalogSource;                     // defaults to wallet's bound catalog
+    manifest?: Manifest;                         // defaults to discovered tools.yml
+    lock?: Lockfile;                             // defaults to discovered tools.lock
+    catalog?: CatalogSource;                     // fallback if name is not in manifest
   }): Promise<{
     body: unknown;
     receipt: Receipt;
@@ -182,14 +296,18 @@ interface WalletAdapter {
 
 Behavior, in order:
 
-1. Resolve `toolId` via the catalog → `ToolDescriptor`.
+1. **Resolve** the descriptor:
+   - If `name` matches a lock entry: use the inlined descriptor; verify `sha256(jcs(descriptor)) == descriptor_id` (fail on mismatch).
+   - Else if `name` matches a manifest entry: fetch the URL/path, compute SHA, verify against `integrity` if declared, write a lock entry, proceed.
+   - Else if `name` is a URL or `descriptor_id`: fetch and validate directly. No lock write — explicit-call mode.
+   - Else if a `catalog` is bound: look up by `id`. No lock write.
 2. Validate `params` against `descriptor.invocation.params_schema`.
 3. Check budget (per-call, per-run, per-month). Reject with `BudgetExceeded` if over cap.
 4. Pick the protocol from `descriptor.payment.protocol`.
 5. Pick the signer for `descriptor.payment.network`.
 6. Build the `ResolvedInvocation` from descriptor + params.
 7. Call `protocol.pay(...)`.
-8. Append the receipt to the audit log and ledger.
+8. Append the receipt to the audit log and ledger. If a frame dataset is the consumer, also append a `tool.invoked` event to its `events.ndjson`.
 9. Return `{ body, receipt }`.
 
 Failure between step 7 and 9 must be recovered by sync-flushing the receipt before the HTTP call returns to the caller. A receipt-without-call is recoverable; a call-without-receipt is not.
@@ -208,20 +326,26 @@ Two default implementations ship: `MemoryStore` (tests) and `FilesystemStore` (d
 
 Cloud implementations (Redis, Postgres, R2, KV) are out of scope for this spec — they implement the same interfaces.
 
+## Canonical encoding
+
+Wherever this spec says "SHA-256 of the canonical encoding," the encoding is **JSON Canonicalization Scheme (RFC 8785 / JCS)**: UTF-8, sorted object keys, no insignificant whitespace, normalized number representation. Two implementations of pay must compute the same `descriptor_id` and `request_hash` for the same input — JCS is the only normalization required to guarantee that.
+
 ## Conformance
 
 A conformant **buyer-side implementation** of `pay` v0.0.1:
 
 1. Reads and writes tool descriptors per the schema above.
-2. Speaks the catalog HTTP shape as a client.
-3. Implements the `WalletAdapter` lifecycle in the order specified.
-4. Produces receipts conforming to the receipt schema.
-5. Sync-flushes receipts before returning paid call results to callers.
+2. Computes `descriptor_id` via `sha256(jcs(descriptor))`.
+3. Reads `tools.yml` and `tools.lock` per the manifest format.
+4. Implements the `WalletAdapter` resolution algorithm in the order specified.
+5. Produces receipts conforming to the receipt schema, including `descriptor_id`.
+6. Sync-flushes receipts before returning paid call results to callers.
 
-A conformant **catalog server**:
+A conformant **catalog server** (publisher):
 
 1. Serves the three required HTTP routes.
 2. Returns `ListResponse` and `ToolDescriptor` JSON conforming to the schemas above.
-3. Honors `ETag` / `If-None-Match` and the `Cache-Control` directives specified.
+3. Serves descriptors with stable URLs — once a `(catalog_url, id)` pair has served a descriptor with a given `descriptor_id`, the URL must keep returning a descriptor with that ID until the publisher explicitly publishes a new version. Callers rely on URL stability to know whether to re-pin.
+4. Honors `ETag` / `If-None-Match` and the `Cache-Control` directives specified.
 
 A conformant **signer** or **protocol** plugin satisfies the respective interface and has a stable `id`.
