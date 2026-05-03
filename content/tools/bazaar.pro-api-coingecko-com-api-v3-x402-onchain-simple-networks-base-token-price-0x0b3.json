@@ -18,7 +18,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-03T16:19:55.233Z",
+    "fetched_at": "2026-05-03T16:25:24.834Z",
     "upstream_id": "https://pro-api.coingecko.com/api/v3/x402/onchain/simple/networks/base/token_price/0x0b3e328455c4059eeb9e3f84b5543f74e24e7e1b,0x4200000000000000000000000000000000000006",
     "x402_version": 2
   }

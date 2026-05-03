@@ -39,14 +39,13 @@ Initial mirror produced **5,748 descriptors** (5,099 Bazaar + 669 MPP, with ~20 
 
 Effort: ½ day.
 
-## C0.7 — Server pagination for `/catalog`
+## C0.7 — Server pagination + index for `/catalog`
 
-With ~6,000 descriptors, the current `/catalog` handler fetches each one to build the list response. That's too many subrequests per call. Two fixes needed before public deploy:
+`scripts/refresh.ts` writes a sorted `content/index.ndjson` (one full descriptor per line, 3.9 MB at 5,768 entries) alongside the per-file descriptors. The `/catalog` handler reads the index in one fetch (cached in KV), filters by capability, and paginates by cursor (last-id-seen). Full descriptors still resolve from `/tools/<id>.json` for direct lookup.
 
-1. Pre-build a `content/index.json` during refresh containing only `(id, title, capabilities, payment.network, payment.protocol)` per tool. Worker reads that one file for `/catalog` and `/catalog?capability=…`. Full descriptors are still fetched on-demand from `/tools/:id`.
-2. Cursor-based pagination for `/catalog` since 6,000 items shouldn't ship in one response.
+Default page size 100, max 500. Cursor-based: `?cursor=<last-id>&limit=N&capability=<tag>`.
 
-Effort: ½ day. Required before C2.
+**Status:** done.
 
 ## C1 — Local validation against pay (1 day)
 

@@ -1,8 +1,8 @@
 import { Hono } from "hono";
 import type { CatalogCache } from "./cache.js";
 import type { ContentSource } from "./content.js";
-import { fetchDescriptor, listDescriptorIds } from "./content.js";
-import type { ListResponse } from "./types.js";
+import { fetchDescriptor, fetchIndex } from "./content.js";
+import type { ListResponse, ToolDescriptor } from "./types.js";
 
 export interface HandlerDeps {
   cache: CatalogCache;
@@ -72,18 +72,51 @@ export function createHandler(deps: HandlerDeps) {
 
   app.get("/catalog", async (c) => {
     const capability = c.req.query("capability");
-    const ids = await listDescriptorIds(deps.content);
-    const tools = [] as ListResponse["tools"];
-    for (const id of ids) {
-      const f = await fetchDescriptor(deps.content, id);
-      if (!f) continue;
-      if (capability && !f.descriptor.capabilities.includes(capability)) continue;
-      tools.push(f.descriptor);
+    const cursor = c.req.query("cursor");
+    const limit = clamp(
+      parseInt(c.req.query("limit") ?? "100", 10) || 100,
+      1,
+      500,
+    );
+
+    // Read the index (one HTTP fetch, cached in KV).
+    const cacheKey = "index";
+    let cached = await deps.cache.get(cacheKey);
+    let index: ToolDescriptor[];
+    if (cached) {
+      index = JSON.parse(cached.body) as ToolDescriptor[];
+    } else {
+      index = await fetchIndex(deps.content);
+      await deps.cache.set(
+        cacheKey,
+        {
+          etag: `W/"index-${index.length}"`,
+          body: JSON.stringify(index),
+          contentType: "application/json",
+        },
+        60,
+      );
     }
+
+    let filtered = index;
+    if (capability) {
+      filtered = filtered.filter((t) => t.capabilities.includes(capability));
+    }
+
+    let startIdx = 0;
+    if (cursor) {
+      startIdx = filtered.findIndex((t) => t.id > cursor);
+      if (startIdx === -1) startIdx = filtered.length;
+    }
+
+    const page = filtered.slice(startIdx, startIdx + limit);
+    const hasMore = startIdx + limit < filtered.length;
+    const nextCursor = hasMore && page.length > 0 ? page[page.length - 1]!.id : null;
+
     const body: ListResponse = {
       pay_protocol: PAY_PROTOCOL,
-      tools,
-      cursor: null,
+      tools: page,
+      cursor: nextCursor,
     };
     c.header("Cache-Control", CACHE_CONTROL);
     return c.json(body);
@@ -101,4 +134,8 @@ export function createHandler(deps: HandlerDeps) {
   });
 
   return app;
+}
+
+function clamp(n: number, lo: number, hi: number): number {
+  return Math.max(lo, Math.min(hi, n));
 }

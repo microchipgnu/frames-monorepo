@@ -254,6 +254,14 @@ function writeDescriptor(d: ToolDescriptor) {
   writeFileSync(path, JSON.stringify(d, null, 2) + "\n");
 }
 
+function writeIndex(all: ToolDescriptor[]) {
+  // Sort by id for deterministic diffs
+  const sorted = [...all].sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
+  const lines = sorted.map((d) => JSON.stringify(d)).join("\n") + "\n";
+  const path = resolve(OUT_DIR, "..", "index.ndjson");
+  writeFileSync(path, lines);
+}
+
 async function main() {
   if (!Number.isFinite(limit)) {
     console.log("Full refresh — wiping content/tools/");
@@ -290,13 +298,16 @@ async function main() {
     console.log(`  ${mpp.length} paid endpoints kept`);
   }
 
-  for (const d of [...bazaar, ...mpp]) writeDescriptor(d);
+  const all = [...bazaar, ...mpp];
+  for (const d of all) writeDescriptor(d);
+  writeIndex(all);
 
   const finalCount = readdirSync(OUT_DIR).filter((f) => f.endsWith(".json")).length;
-  console.log(`\nWrote ${bazaar.length + mpp.length} new descriptors`);
+  console.log(`\nWrote ${all.length} new descriptors`);
   console.log(`  ${bazaar.length} from Bazaar`);
   console.log(`  ${mpp.length} from MPP`);
   console.log(`Total in content/tools/: ${finalCount}`);
+  console.log(`Index: content/index.ndjson (${all.length} lines)`);
 }
 
 main().catch((e) => {

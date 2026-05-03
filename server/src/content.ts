@@ -2,27 +2,27 @@ import type { ToolDescriptor } from "./types.js";
 import { descriptorId } from "./descriptor-id.js";
 
 const DEFAULT_BASE =
-  "https://raw.githubusercontent.com/microchipgnu/catalog/main/content/tools";
-const DEFAULT_INDEX =
-  "https://api.github.com/repos/microchipgnu/catalog/contents/content/tools?ref=main";
+  "https://raw.githubusercontent.com/microchipgnu/catalog/main/content";
 
 export interface ContentSource {
+  // Base URL pointing at the `content/` directory.
+  // Tools live at `${baseUrl}/tools/<id>.json`.
+  // Index lives at `${baseUrl}/index.ndjson`.
   baseUrl: string;
-  indexUrl: string;
-  // Optional GitHub token for higher rate limits when listing.
+  // Optional GitHub token for higher rate limits if any code path falls
+  // back to the GitHub API. Not required for raw.githubusercontent.com.
   githubToken?: string;
 }
 
 export const defaultContent: ContentSource = {
   baseUrl: DEFAULT_BASE,
-  indexUrl: DEFAULT_INDEX,
 };
 
 export async function fetchDescriptor(
   source: ContentSource,
   id: string,
 ): Promise<{ descriptor: ToolDescriptor; descriptor_id: string } | null> {
-  const url = `${source.baseUrl}/${id}.json`;
+  const url = `${source.baseUrl}/tools/${id}.json`;
   const res = await fetch(url);
   if (res.status === 404) return null;
   if (!res.ok) {
@@ -33,21 +33,15 @@ export async function fetchDescriptor(
   return { descriptor, descriptor_id: id_ };
 }
 
-export async function listDescriptorIds(
+export async function fetchIndex(
   source: ContentSource,
-): Promise<string[]> {
-  const headers: Record<string, string> = {
-    Accept: "application/vnd.github+json",
-  };
-  if (source.githubToken) {
-    headers.Authorization = `Bearer ${source.githubToken}`;
-  }
-  const res = await fetch(source.indexUrl, { headers });
+): Promise<ToolDescriptor[]> {
+  const url = `${source.baseUrl}/index.ndjson`;
+  const res = await fetch(url);
   if (!res.ok) {
-    throw new Error(`Failed to list content: ${res.status}`);
+    throw new Error(`Failed to fetch index ${url}: ${res.status}`);
   }
-  const items = (await res.json()) as Array<{ name: string; type: string }>;
-  return items
-    .filter((i) => i.type === "file" && i.name.endsWith(".json"))
-    .map((i) => i.name.slice(0, -".json".length));
+  const text = await res.text();
+  const lines = text.split("\n").filter((l) => l.length > 0);
+  return lines.map((l) => JSON.parse(l) as ToolDescriptor);
 }
