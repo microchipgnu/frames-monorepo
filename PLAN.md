@@ -39,9 +39,10 @@ Build the orchestrator on top of faremeter. The entire wire layer (signing, x402
 | `wallet/dispatch.ts` | new | `WalletAdapter.payForTool` orchestrator | ~150 |
 | `wallet/faremeter-bridge.ts` | new | `descriptor.payment` → faremeter handler factory | ~120 |
 | `wallet/wallet-registry.ts` | new | user's faremeter wallets keyed by network | ~80 |
-| `wallet/budget.ts` | `@websets/wallet` | per-call/run/month caps + faremeter pre-flight balance | ~120 |
-| `wallet/audit-log.ts` | `@websets/wallet` | Ed25519-signed receipts | ~150 |
-| `wallet/ledger.ts` | `@websets/wallet` | append-only ledger | ~234 |
+| `wallet/budget.ts` | `@websets/wallet` | per-call/run/month caps + faremeter pre-flight balance; reads cached projection | ~120 |
+| `wallet/receipt.ts` | new | build + Ed25519-sign a receipt | ~120 |
+| `wallet/audit-projection.ts` | new | regenerable projection from dataset events.ndjson files into `~/.frames/pay/audit.ndjson` cache | ~80 |
+| `wallet/budget-projection.ts` | new | regenerable monthly-spend cache from same source | ~60 |
 | `wallet/wallet-state.ts` | `@websets/wallet` | persistent state | ~140 |
 | `catalog/static.ts` | new | `StaticCatalog` from JSON | ~60 |
 | `catalog/http.ts` | adapted from `@websets/catalog/frames-registry-catalog.ts` | `HttpCatalog` | ~199 |
@@ -49,21 +50,22 @@ Build the orchestrator on top of faremeter. The entire wire layer (signing, x402
 | `manifest/load.ts` | new | parse `tools.yml`, validate against schema | ~120 |
 | `manifest/lock.ts` | new | read/write `tools.lock`, integrity check | ~140 |
 | `manifest/resolve.ts` | new | implements the SPEC resolution algorithm | ~140 |
-| `frame/event.ts` | new | append `tool.invoked` events to a frame's `events.ndjson` | ~80 |
+| `frame/event.ts` | new | append `tool.invoked` events (with full inlined receipt) to a frame's `events.ndjson`; fallback to `~/.frames/pay/events.ndjson` for explicit-call mode | ~100 |
 | `stores/memory.ts` | new | `MemoryStore` for tests | ~60 |
 | `stores/filesystem.ts` | new (extracted from gateway's FS store) | `FilesystemStore` default | ~120 |
 | `canonical.ts` + `descriptor-id.ts` | new (Stage 0) | JCS + descriptor SHA | ~120 |
 
-**Total: ~2,178 LOC.** Down from ~3,300 (custom wallet stack) and ~6,576 (full websets-impl extraction). Faremeter eats the difference.
+**Total: ~2,108 LOC.** Down from ~3,300 (custom wallet stack) and ~6,576 (full websets-impl extraction). Faremeter eats the difference; collapsing audit/ledger into a projection over events.ndjson trims another ~160 LOC.
 
 **Dropped entirely** (replaced by faremeter): `wallet/wallet.ts` orchestrator's protocol/signer machinery, `wallet/protocol-clients.ts`, `protocol-x402/*`, `signer-ows/*`, scoped tokens, MPP impl, gateway glue. We keep the *names* `wallet/dispatch.ts` etc. but the bodies are bridges, not implementations.
 
-**Exit:** `pnpm test` passes three smoke tests:
-1. Manifest path: `tools.yml` declares one tool, `pay install` writes the lock, `payForTool({ name })` resolves from lock and pays a real x402 endpoint with `@faremeter/wallet-ows`.
-2. Direct path: `payForTool({ name: <descriptor-url> })` works without a manifest.
+**Exit:** `pnpm test` passes four smoke tests:
+1. Manifest path: `tools.yml` declares one tool, `pay install` writes the lock, `payForTool({ name })` resolves from lock and pays a real x402 endpoint with `@faremeter/wallet-ows`. The receipt is inlined in a `tool.invoked` event in the frame's `events.ndjson`, signature verifies.
+2. Direct path: `payForTool({ name: <descriptor-url> })` works without a manifest; receipt is appended to `~/.frames/pay/events.ndjson` fallback log.
 3. Multi-network: a manifest with one Solana tool and one EVM tool resolves the right faremeter wallet per call from the wallet registry.
+4. Projection rebuild: deleting `~/.frames/pay/audit.ndjson` and `budgets/monthly.json`, then running `pay wallet status`, regenerates them from the configured datasets' `events.ndjson` files with no data loss.
 
-All three produce receipts with valid `descriptor_id`, `wallet_id`, and `facilitator_url`.
+All four produce receipts with valid `descriptor_id`, `wallet_id`, `facilitator_url`, and `signature`.
 
 ## Stage 2 — CLI (4 days)
 

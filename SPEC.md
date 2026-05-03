@@ -226,6 +226,7 @@ Append-only proof that a paid call happened. JSON object, content-addressed by S
   "tool_local_name": "search",
   "tool_id": "search.exa",
   "descriptor_id": "sha256-Abc123...",
+  "params_hash": "sha256-...",
   "protocol": "x402",
   "wallet_id": "ows:my-base-wallet",
   "wallet_address": "0xabc...",
@@ -236,13 +237,15 @@ Append-only proof that a paid call happened. JSON object, content-addressed by S
   "tx_hash": "0xabc...",
   "request_hash": "sha256-...",
   "response_hash": "sha256-...",
-  "agent": "claude:opus-4.7"
+  "agent": "claude:opus-4.7",
+  "signature": "ed25519:..."
 }
 ```
 
 | field | required | description |
 |---|---|---|
 | `descriptor_id` | yes | the SHA of the descriptor that was used. Pinned in `tools.lock`. Forensic anchor — replays the exact tool spec |
+| `params_hash` | yes | `sha256(jcs(params))` — links the receipt to the exact request body |
 | `tool_local_name` | no | the consumer's local name (`search`) when called via manifest |
 | `tool_id` | yes | the publisher's name (`search.exa`) for human readability |
 | `wallet_id` | yes | identifier of the faremeter wallet used: `<faremeter-package>:<user-label>`. E.g. `ows:my-base-wallet`, `crossmint:treasury` |
@@ -250,10 +253,11 @@ Append-only proof that a paid call happened. JSON object, content-addressed by S
 | `facilitator_url` | yes | which facilitator settled the payment. Recorded for forensics — different facilitators have different finality guarantees |
 | `tx_hash` | no | protocol-specific; absent for off-chain settlement |
 | `agent` | yes | follows the `<kind>:<identifier>` convention from the frame protocol |
+| `signature` | yes | Ed25519 signature over `jcs(receipt without signature field)` produced by a per-machine audit key. Anyone with the public key can verify the receipt offline, with no machine-local state |
 
 ## Frame integration
 
-When the consumer is a frame dataset, paid calls produce a first-class event in `events.ndjson`:
+When the consumer is a frame dataset, paid calls produce a first-class event in `events.ndjson`. **The full receipt is inlined in the event payload** — the dataset's `events.ndjson` is the canonical record of payments, not any per-machine file:
 
 ```json
 {
@@ -262,19 +266,53 @@ When the consumer is a frame dataset, paid calls produce a first-class event in 
   "type": "tool.invoked",
   "agent": "claude:opus-4.7",
   "payload": {
-    "tool_local_name": "search",
-    "descriptor_id": "sha256-Abc123...",
-    "params_hash": "sha256-...",
-    "receipt_id": "01HK...",
-    "amount": "0.01",
-    "currency": "USDC"
+    "receipt": {
+      "pay_protocol": "0.0.1",
+      "id": "01HK...",
+      "tool_local_name": "search",
+      "tool_id": "search.exa",
+      "descriptor_id": "sha256-Abc123...",
+      "params_hash": "sha256-...",
+      "protocol": "x402",
+      "wallet_id": "ows:my-base-wallet",
+      "wallet_address": "0xabc...",
+      "amount": "0.01",
+      "currency": "USDC",
+      "network": "base",
+      "facilitator_url": "https://facilitator.corbits.dev",
+      "tx_hash": "0xabc...",
+      "request_hash": "sha256-...",
+      "response_hash": "sha256-...",
+      "agent": "claude:opus-4.7",
+      "signature": "ed25519:..."
+    }
   }
 }
 ```
 
-This is opt-in: pay does not require the frame protocol. But when both are present, the dataset becomes forensically complete — every fact names a source, every paid call names a descriptor SHA pinned in the lock file. Re-running a tick from any point in history is deterministic given the lock and the source URLs.
+This is opt-in: pay does not require the frame protocol. But when both are present, the dataset becomes forensically complete:
+
+- Every fact names a source (frame).
+- Every paid call carries a verifiable receipt inline (pay).
+- Every receipt names a `descriptor_id` pinned in `tools.lock` (pay).
+- Source objects MAY include `receipt_id` linking each fact to the paid call that produced it (frame PROTOCOL change, optional).
+
+A fresh clone of the dataset has the full payment history, signed and verifiable, with **no machine-local state required**.
 
 The `tool.invoked` event type is reserved by this spec; the frame protocol's "skip unknown event types" rule means frame implementations not aware of pay simply pass them through.
+
+## Audit projections
+
+audit.ndjson and ledger.ndjson are **derived projections**, not canonical records.
+
+| Source of truth | Projection | Purpose |
+|---|---|---|
+| `<dataset>/events.ndjson` (committed) | `~/.frames/pay/audit.ndjson` (per-machine cache) | scrolling recent receipts, signature verification cache |
+| Sum of `amount` across configured datasets' `tool.invoked` events | `~/.frames/pay/budgets/monthly.json` (per-machine cache) | enforcing the monthly cap before signing |
+
+Both caches can be regenerated at any time by re-reading every dataset's `events.ndjson`. They MUST never be the only place a receipt exists — the canonical receipt is always the inlined `tool.invoked` event in the dataset's `events.ndjson`.
+
+For explicit-call mode (`pay tool <url>` with no manifest, no frame dataset), receipts are written to a fallback log at `~/.frames/pay/events.ndjson` so they aren't lost. Users running ad-hoc calls outside any project should keep this file in their backup strategy.
 
 ## WalletAdapter contract
 
