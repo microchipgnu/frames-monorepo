@@ -1,0 +1,26 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "extract.anthropic-opus",
+  "title": "Anthropic Claude Opus extraction",
+  "description": "Extract structured fields from unstructured text using Claude Opus. Caller provides a JSON Schema describing the desired output. Returns a JSON object conforming to that schema, or an error explaining what couldn't be extracted.",
+  "capabilities": ["llm-extract", "inference"],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.anthropic-facilitator.frames.ag/extract",
+    "params_schema": {
+      "type": "object",
+      "required": ["text", "schema"],
+      "properties": {
+        "text": { "type": "string", "description": "Source text to extract from" },
+        "schema": { "type": "object", "description": "JSON Schema describing fields to extract" },
+        "model": { "type": "string", "default": "claude-opus-4-7" }
+      }
+    }
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  }
+}

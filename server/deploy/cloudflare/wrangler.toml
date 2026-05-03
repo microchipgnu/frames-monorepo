@@ -1,0 +1,12 @@
+name = "catalog"
+main = "worker.ts"
+compatibility_date = "2026-05-01"
+
+# Replace this id with the KV namespace you create:
+#   wrangler kv:namespace create CATALOG_KV
+[[kv_namespaces]]
+binding = "CATALOG_KV"
+id = "REPLACE_ME_KV_ID"
+
+# Set with: wrangler secret put WEBHOOK_SECRET
+# Set with: wrangler secret put GITHUB_TOKEN

@@ -1,0 +1,29 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "scrape.firecrawl",
+  "title": "Firecrawl scrape",
+  "description": "Scrape a single URL through Firecrawl. Handles JavaScript-rendered pages, returns clean markdown by default. Use for any page where plain HTTP fetch returns an SPA shell instead of content.",
+  "capabilities": ["scrape", "fetch"],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.firecrawl.dev/v1/scrape",
+    "params_schema": {
+      "type": "object",
+      "required": ["url"],
+      "properties": {
+        "url": { "type": "string", "format": "uri" },
+        "formats": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["markdown", "html", "rawHtml"] },
+          "default": ["markdown"]
+        }
+      }
+    }
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  }
+}

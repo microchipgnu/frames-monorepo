@@ -1,0 +1,44 @@
+name: validate
+
+on:
+  pull_request:
+    paths:
+      - 'content/**'
+      - 'server/**'
+      - '.github/workflows/validate.yml'
+  push:
+    branches: [main]
+
+jobs:
+  descriptors:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate descriptor JSON shape
+        run: |
+          set -euo pipefail
+          for f in content/tools/*.json; do
+            echo "→ $f"
+            jq empty "$f"
+            jq -e '.pay_protocol == "0.0.1"' "$f" > /dev/null || { echo "missing pay_protocol"; exit 1; }
+            jq -e '.id and .title and .description and .capabilities and .invocation and .payment' "$f" > /dev/null || { echo "missing required field"; exit 1; }
+            jq -e '.invocation.method and .invocation.url' "$f" > /dev/null || { echo "missing invocation.method/url"; exit 1; }
+            jq -e '.payment.protocol' "$f" > /dev/null || { echo "missing payment.protocol"; exit 1; }
+            id=$(jq -r '.id' "$f")
+            base=$(basename "$f" .json)
+            [ "$id" = "$base" ] || { echo "filename $base does not match descriptor id $id"; exit 1; }
+          done
+
+  server:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install
+        working-directory: server
+        run: npm install
+      - name: Typecheck
+        working-directory: server
+        run: npm run typecheck
