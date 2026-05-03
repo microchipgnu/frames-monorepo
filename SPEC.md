@@ -180,43 +180,39 @@ Implementations ship in this repo:
 
 A `FederatedCatalog` aggregates multiple sources. Federation is opt-in; single-source consumers should use the source directly.
 
-## Signer interface
+## Wallets and protocols (faremeter)
 
-Signers are pure key-and-signature factories. They do not know about HTTP, retry, or audit.
+Pay does not define its own signer or protocol-client interfaces. It delegates the entire wire layer — wallet signing, x402/MPP negotiation, HTTP retry — to **[faremeter](https://docs.faremeter.xyz)**, the reference implementation of the x402 protocol family.
 
-```ts
-interface Signer {
-  id: string;                                    // "ows", "kms", "privy", ...
-  sign(payload: SigningRequest): Promise<SigningResult>;
-  address(network: string): Promise<string>;     // chain-aware address
-  capabilities(): SignerCapabilities;            // which networks/schemes supported
-}
-```
+A pay `Wallet` holds:
 
-Signers are registered with a wallet by string ID and selected per-call based on the tool descriptor's `payment.network`.
+- A **wallet registry**: faremeter wallet objects keyed by network. A user may configure multiple (e.g. an OWS-backed Solana wallet for `solana-mainnet`, an OWS-backed EVM wallet for `base`).
+- A **handler factory**: given a `descriptor.payment`, constructs the appropriate `@faremeter/payment-*` handler bound to the wallet for that network.
 
-## ProtocolClient interface
+### Protocol mapping
 
-Protocols are HTTP wire-format implementations. They consume signers and produce paid call results.
+`descriptor.payment.protocol` is a discriminator. Pay's bridge maps it to a faremeter handler family:
 
-```ts
-interface ProtocolClient {
-  id: string;                                    // "x402", "mpp", ...
-  pay(input: {
-    invocation: ResolvedInvocation;              // url, method, body, headers
-    descriptor: ToolDescriptor;
-    signer: Signer;
-  }): Promise<PaidCallResult>;
-}
+| `payment.protocol` | Faremeter handler | Wire spec |
+|---|---|---|
+| `x402` | `@faremeter/payment-{evm,solana}/exact` | x402 v1 |
+| `x402v2` | x402v2 handler (same factory shape, v2 headers: `PAYMENT-SIGNATURE`, `PAYMENT-REQUIRED`, `PAYMENT-RESPONSE`) | x402 v2 |
+| `mpp` | `MPPMethodHandler` chain via `@faremeter/fetch` | MPP (`Authorization: Payment` + `WWW-Authenticate`) |
 
-type PaidCallResult = {
-  status: number;
-  body: unknown;
-  receipt: Receipt;
-};
-```
+A pay v0.0.1 implementation MUST support `x402`. `x402v2` and `mpp` are optional in v0.0.1 and become required in v0.1.0 once faremeter's MPP handler ships full intent coverage.
 
-A protocol owns the full request lifecycle: build, send, handle the 402 challenge, sign, retry with proof, settle, return the body and a receipt.
+### Wallet contract
+
+Pay accepts any object satisfying the relevant faremeter wallet shape for its network. Today that means:
+
+- **EVM** (`@faremeter/wallet-evm`, `@faremeter/wallet-ows` EVM, `@faremeter/wallet-ledger` EVM, `@faremeter/wallet-crossmint`): an object with `chain`, `address`, and `account.signTypedData(...)`.
+- **Solana** (`@faremeter/wallet-solana`, `@faremeter/wallet-ows` Solana, `@faremeter/wallet-solana-squads`, `@faremeter/wallet-ledger` Solana): an object with `network`, `publicKey`, `partiallySignTransaction(...)`, `updateTransaction(...)`.
+
+Pay does not import or re-export these shapes. Callers construct wallets directly from faremeter and pass them to pay's wallet registry. New wallet types added to faremeter (Privy, Turnkey, future hardware) become usable by pay with no pay-side change.
+
+### Pre-flight balance checks
+
+Pay's budget enforcement may use faremeter's balance helpers (`getTokenBalance` for SPL on Solana, the EVM equivalent) to surface low-balance warnings before signing. These checks are advisory — the seller's 402 challenge remains authoritative on price.
 
 ## Receipt
 
@@ -231,10 +227,12 @@ Append-only proof that a paid call happened. JSON object, content-addressed by S
   "tool_id": "search.exa",
   "descriptor_id": "sha256-Abc123...",
   "protocol": "x402",
-  "signer_id": "ows",
+  "wallet_id": "ows:my-base-wallet",
+  "wallet_address": "0xabc...",
   "amount": "0.01",
   "currency": "USDC",
   "network": "base",
+  "facilitator_url": "https://facilitator.corbits.dev",
   "tx_hash": "0xabc...",
   "request_hash": "sha256-...",
   "response_hash": "sha256-...",
@@ -247,6 +245,9 @@ Append-only proof that a paid call happened. JSON object, content-addressed by S
 | `descriptor_id` | yes | the SHA of the descriptor that was used. Pinned in `tools.lock`. Forensic anchor — replays the exact tool spec |
 | `tool_local_name` | no | the consumer's local name (`search`) when called via manifest |
 | `tool_id` | yes | the publisher's name (`search.exa`) for human readability |
+| `wallet_id` | yes | identifier of the faremeter wallet used: `<faremeter-package>:<user-label>`. E.g. `ows:my-base-wallet`, `crossmint:treasury` |
+| `wallet_address` | yes | the on-chain address that signed |
+| `facilitator_url` | yes | which facilitator settled the payment. Recorded for forensics — different facilitators have different finality guarantees |
 | `tx_hash` | no | protocol-specific; absent for off-chain settlement |
 | `agent` | yes | follows the `<kind>:<identifier>` convention from the frame protocol |
 
@@ -302,11 +303,11 @@ Behavior, in order:
    - Else if `name` is a URL or `descriptor_id`: fetch and validate directly. No lock write — explicit-call mode.
    - Else if a `catalog` is bound: look up by `id`. No lock write.
 2. Validate `params` against `descriptor.invocation.params_schema`.
-3. Check budget (per-call, per-run, per-month). Reject with `BudgetExceeded` if over cap.
-4. Pick the protocol from `descriptor.payment.protocol`.
-5. Pick the signer for `descriptor.payment.network`.
-6. Build the `ResolvedInvocation` from descriptor + params.
-7. Call `protocol.pay(...)`.
+3. Check budget (per-call, per-run, per-month). Optionally pre-flight balance check via faremeter helpers. Reject with `BudgetExceeded` or `InsufficientBalance` before signing.
+4. Look up the faremeter wallet for `descriptor.payment.network` from the wallet registry. Fail with `NoWalletForNetwork` if none configured.
+5. Map `descriptor.payment.protocol` to the appropriate `@faremeter/payment-*` handler factory; instantiate the handler bound to the wallet.
+6. Build the `ResolvedInvocation` (URL, method, body, headers) from descriptor + params.
+7. Call `wrap(fetch, { handlers: [handler] })` and execute the invocation. Faremeter handles the 402 round-trip, signing, settlement, and `X-PAYMENT` / `Authorization: Payment` header attachment.
 8. Append the receipt to the audit log and ledger. If a frame dataset is the consumer, also append a `tool.invoked` event to its `events.ndjson`.
 9. Return `{ body, receipt }`.
 
@@ -338,8 +339,10 @@ A conformant **buyer-side implementation** of `pay` v0.0.1:
 2. Computes `descriptor_id` via `sha256(jcs(descriptor))`.
 3. Reads `tools.yml` and `tools.lock` per the manifest format.
 4. Implements the `WalletAdapter` resolution algorithm in the order specified.
-5. Produces receipts conforming to the receipt schema, including `descriptor_id`.
-6. Sync-flushes receipts before returning paid call results to callers.
+5. Delegates wire-level signing and 402 negotiation to faremeter (`@faremeter/fetch` + `@faremeter/payment-*` + `@faremeter/wallet-*`).
+6. Produces receipts conforming to the receipt schema, including `descriptor_id`, `wallet_id`, and `facilitator_url`.
+7. Sync-flushes receipts before returning paid call results to callers.
+8. Supports `descriptor.payment.protocol == "x402"`. MAY support `x402v2` and `mpp`.
 
 A conformant **catalog server** (publisher):
 
@@ -347,5 +350,3 @@ A conformant **catalog server** (publisher):
 2. Returns `ListResponse` and `ToolDescriptor` JSON conforming to the schemas above.
 3. Serves descriptors with stable URLs — once a `(catalog_url, id)` pair has served a descriptor with a given `descriptor_id`, the URL must keep returning a descriptor with that ID until the publisher explicitly publishes a new version. Callers rely on URL stability to know whether to re-pin.
 4. Honors `ETag` / `If-None-Match` and the `Cache-Control` directives specified.
-
-A conformant **signer** or **protocol** plugin satisfies the respective interface and has a stable `id`.

@@ -15,36 +15,55 @@ Write the load-bearing artifacts before any code.
 
 **Exit:** SPEC.md unchanged for 48h. Types compile. The three example descriptors hash to their expected `descriptor_id`s deterministically across two runs.
 
-## Stage 1 — Library: minimum viable wallet (1 week)
+## Stage 1 — Library: minimum viable wallet (4 days)
 
-Lift trimmed code from `websets-impl` per the module audit. ~3,300 LOC.
+Build the orchestrator on top of faremeter. The entire wire layer (signing, x402 negotiation, HTTP retry) comes from `@faremeter/*`. Pay owns catalog, manifest, budget, audit, and frame integration.
 
-| Module | Source | Purpose |
-|---|---|---|
-| `wallet/wallet.ts` | `@websets/wallet` | `WalletAdapter` orchestrator |
-| `wallet/budget.ts` | `@websets/wallet` | per-call/run/month caps |
-| `wallet/audit-log.ts` | `@websets/wallet` | Ed25519 receipts |
-| `wallet/ledger.ts` | `@websets/wallet` | append-only ledger |
-| `wallet/wallet-state.ts` | `@websets/wallet` | persistent state |
-| `wallet/protocol-clients.ts` | `@websets/wallet` | protocol registry |
-| `protocol-x402/*` | `@websets/wallet-x402` | x402 client |
-| `signer-ows/*` | `@websets/wallet-signer-ows` | OWS signer (evm + svm + viem + balances) |
-| `catalog/static.ts` | new | `StaticCatalog` from JSON |
-| `catalog/http.ts` | adapted from `@websets/catalog/frames-registry-catalog.ts` | `HttpCatalog` |
-| `catalog/build-invocation.ts` | `@websets/catalog/build-invocation.ts` | descriptor → ResolvedInvocation |
-| `manifest/load.ts` | new | parse `tools.yml`, validate against schema |
-| `manifest/lock.ts` | new | read/write `tools.lock`, integrity check on read |
-| `manifest/resolve.ts` | new | implements the resolution algorithm in SPEC |
-| `stores/memory.ts` | new | `MemoryStore` for tests |
-| `stores/filesystem.ts` | new (extracted from gateway's FS store) | `FilesystemStore` default |
+### Faremeter dependencies (no code; just install)
 
-**Dropped from the websets code:** scoped tokens, MPP, federation in client, MCP catalog, bazaar, all gateway-specific glue.
+| Package | Why |
+|---|---|
+| `@faremeter/fetch` | `wrap(fetch, { handlers })` — the 402 round-trip engine |
+| `@faremeter/payment-evm` | x402 EVM handler (USDC on Base, etc.) |
+| `@faremeter/payment-solana` | x402 Solana handler (SPL token) |
+| `@faremeter/wallet-ows` | OWS-backed signing (EVM + Solana) — the v0 default |
+| `@faremeter/wallet-evm` | local-keypair fallback for tests |
+| `@faremeter/wallet-solana` | local-keypair fallback for tests |
+| `@faremeter/types` | x402v2 + MPP type vocabulary |
+| `@faremeter/info` | known-token registries (USDC addresses per chain) |
 
-**Exit:** `pnpm test` passes two smoke tests:
-1. Manifest path: `tools.yml` declares one tool, `pay install` writes the lock, a follow-up `payForTool({ name })` call resolves from the lock and pays a real x402 endpoint with an OWS signer.
+### Pay-owned modules
+
+| Module | Source | Purpose | LOC est. |
+|---|---|---|---:|
+| `wallet/dispatch.ts` | new | `WalletAdapter.payForTool` orchestrator | ~150 |
+| `wallet/faremeter-bridge.ts` | new | `descriptor.payment` → faremeter handler factory | ~120 |
+| `wallet/wallet-registry.ts` | new | user's faremeter wallets keyed by network | ~80 |
+| `wallet/budget.ts` | `@websets/wallet` | per-call/run/month caps + faremeter pre-flight balance | ~120 |
+| `wallet/audit-log.ts` | `@websets/wallet` | Ed25519-signed receipts | ~150 |
+| `wallet/ledger.ts` | `@websets/wallet` | append-only ledger | ~234 |
+| `wallet/wallet-state.ts` | `@websets/wallet` | persistent state | ~140 |
+| `catalog/static.ts` | new | `StaticCatalog` from JSON | ~60 |
+| `catalog/http.ts` | adapted from `@websets/catalog/frames-registry-catalog.ts` | `HttpCatalog` | ~199 |
+| `catalog/build-invocation.ts` | `@websets/catalog/build-invocation.ts` | descriptor → ResolvedInvocation | ~145 |
+| `manifest/load.ts` | new | parse `tools.yml`, validate against schema | ~120 |
+| `manifest/lock.ts` | new | read/write `tools.lock`, integrity check | ~140 |
+| `manifest/resolve.ts` | new | implements the SPEC resolution algorithm | ~140 |
+| `frame/event.ts` | new | append `tool.invoked` events to a frame's `events.ndjson` | ~80 |
+| `stores/memory.ts` | new | `MemoryStore` for tests | ~60 |
+| `stores/filesystem.ts` | new (extracted from gateway's FS store) | `FilesystemStore` default | ~120 |
+| `canonical.ts` + `descriptor-id.ts` | new (Stage 0) | JCS + descriptor SHA | ~120 |
+
+**Total: ~2,178 LOC.** Down from ~3,300 (custom wallet stack) and ~6,576 (full websets-impl extraction). Faremeter eats the difference.
+
+**Dropped entirely** (replaced by faremeter): `wallet/wallet.ts` orchestrator's protocol/signer machinery, `wallet/protocol-clients.ts`, `protocol-x402/*`, `signer-ows/*`, scoped tokens, MPP impl, gateway glue. We keep the *names* `wallet/dispatch.ts` etc. but the bodies are bridges, not implementations.
+
+**Exit:** `pnpm test` passes three smoke tests:
+1. Manifest path: `tools.yml` declares one tool, `pay install` writes the lock, `payForTool({ name })` resolves from lock and pays a real x402 endpoint with `@faremeter/wallet-ows`.
 2. Direct path: `payForTool({ name: <descriptor-url> })` works without a manifest.
+3. Multi-network: a manifest with one Solana tool and one EVM tool resolves the right faremeter wallet per call from the wallet registry.
 
-Both produce receipts with valid `descriptor_id`s.
+All three produce receipts with valid `descriptor_id`, `wallet_id`, and `facilitator_url`.
 
 ## Stage 2 — CLI (4 days)
 
@@ -125,16 +144,29 @@ Symlink pattern: `ln -s ~/src/pay-repo/skill ~/.claude/skills/pay`. Same as `fra
 
 **Exit:** A Claude Code session in a fresh directory can install the skill, init MCP, and call a paid tool in under three turns.
 
-## Stage 6 — Second signer or second protocol (when a real consumer asks)
+## Stage 6 — Additional faremeter wallet types (when a real consumer asks)
 
-The plugin shape is designed for this. Examples that would slot in cleanly:
-- `signer-kms` — AWS KMS-backed signer for hosted deployments
-- `signer-privy` — Privy-backed signer for users coming from agentwallet
-- `protocol-mpp` — resurrected MPP for channel payments
+Faremeter ships these out of the box; pay just needs to expose them in CLI/config:
 
-Don't pre-build. Add when one external consumer needs it.
+| Wallet | Use case | Faremeter package |
+|---|---|---|
+| `crossmint` | custodial wallets (no key handling for users coming from agentwallet-style UX) | `@faremeter/wallet-crossmint` |
+| `solana-squads` | DAO / shared-treasury multisig | `@faremeter/wallet-solana-squads` |
+| `ledger` | hardware-secured signing | `@faremeter/wallet-ledger` |
+| `evm` local keypair | dev / CI | `@faremeter/wallet-evm` |
+| `solana` local keypair | dev / CI | `@faremeter/wallet-solana` |
 
-## Stage 7+ — Scale
+Adding a new wallet type = ~30 LOC in `wallet/wallet-registry.ts` (config schema + factory call) plus CLI plumbing. No SPEC changes.
+
+## Stage 6.5 — x402v2 + MPP (when faremeter ships full handler coverage)
+
+Pay's `descriptor.payment.protocol` already supports `x402v2` and `mpp` per SPEC. The bridge needs:
+- v2 handler factory wired in `wallet/faremeter-bridge.ts` (~20 LOC)
+- MPP `MPPMethodHandler` chain support (~50 LOC)
+
+Today: charge intent works on MPP buyer side. Session/streaming intents come when faremeter ships them.
+
+## Stage 7 — Scale
 
 Only after a real load problem surfaces:
 - Cloud `LedgerStore` / `WalletStateStore` / `AuditLogStore` (Postgres, R2, KV)
@@ -150,10 +182,11 @@ What this repo is responsible for:
 - The contracts in SPEC.md
 
 What this repo is **not** responsible for:
-- The seller side of x402 (that's `registry`)
-- The hosted custodial wallet (that's `agentwallet`)
-- The dataset format (that's `frame`)
-- Plugin packages for non-default signers — those ship as separate npm packages following the SPEC
+- The wire layer (signing, x402/MPP negotiation, HTTP retry) — that's faremeter
+- The seller side of x402 — that's `registry`
+- The hosted custodial wallet — that's `agentwallet`
+- The dataset format — that's `frame`
+- New wallet types or chains — those ship in faremeter and become available to pay automatically
 
 ## Distribution
 

@@ -2,7 +2,7 @@
 
 The buyer-side runtime for paid agent tool calls. Discover a tool, pay for it, get the result.
 
-A library, a CLI, and (later) an MCP server. Local-first. OWS-signed by default. Catalogs are pluggable; a hosted canonical catalog ships separately.
+A library, a CLI, and (later) an MCP server. Local-first. Built on **[faremeter](https://docs.faremeter.xyz)** for the wire layer (x402, MPP, multi-chain wallets). Pay owns the catalog, manifest, budget, and audit layers on top.
 
 ## Documents
 
@@ -13,12 +13,12 @@ These are versioned semver and are the contract another implementer would honor.
 
 ## Two halves
 
-| Half | What it does | Plugins |
+| Half | What it does | Implementation |
 |---|---|---|
-| **Catalog** | discovers what tools exist and how to invoke them | static, HTTP (registry-shaped), MCP server |
-| **Wallet** | pays for a tool call and returns the result | signers (OWS, future: KMS, Privy, Turnkey), protocols (x402, future: MPP) |
+| **Catalog** | discovers what tools exist and how to invoke them | descriptor JSON + manifest (`tools.yml`) + lockfile (`tools.lock`), npm-shaped |
+| **Wallet** | pays for a tool call and returns the result | thin bridge over faremeter — any `@faremeter/wallet-*` works (OWS, EVM, Solana, Squads, Ledger, Crossmint) |
 
-Same architectural shape on both sides: one facade, a registry of plugins keyed by string ID, pluggable storage interfaces.
+Same architectural shape on both sides: descriptors are content-addressed, locked on first install, replayable from disk. Wallet types come from faremeter; protocols (x402, x402v2, MPP) come from faremeter.
 
 ## Status
 
