@@ -1,0 +1,43 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "frames.agentmail.post.api-inbox-create",
+  "title": "POST /api/inbox/create",
+  "description": "**Paid endpoint** - $0.01 on Base (USDC, USDT), Solana (USDC, USDT, CASH)",
+  "capabilities": [
+    "email",
+    "inbox",
+    "messaging",
+    "agentmail",
+    "x402-passthrough"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://registry.frames.ag/api/service/agentmail/api/inbox/create",
+    "params_schema": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string"
+        },
+        "display_name": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "frames-registry",
+    "fetched_at": "2026-05-03T16:32:02.489Z",
+    "upstream_id": "agentmail:POST:/api/inbox/create",
+    "service_slug": "agentmail"
+  }
+}

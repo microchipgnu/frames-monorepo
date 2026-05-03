@@ -1,0 +1,48 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "frames.coingecko.post.api-markets",
+  "title": "POST /api/markets",
+  "description": "**Paid endpoint** - $0.005 on Base (USDC, USDT), Solana (USDC, USDT, CASH)",
+  "capabilities": [
+    "crypto",
+    "prices",
+    "market-data",
+    "tokens",
+    "coingecko"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://registry.frames.ag/api/service/coingecko/api/markets",
+    "params_schema": {
+      "type": "object",
+      "properties": {
+        "vs_currency": {},
+        "ids": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "order": {},
+        "per_page": {},
+        "page": {},
+        "sparkline": {},
+        "price_change_percentage": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "frames-registry",
+    "fetched_at": "2026-05-03T16:32:02.489Z",
+    "upstream_id": "coingecko:POST:/api/markets",
+    "service_slug": "coingecko"
+  }
+}

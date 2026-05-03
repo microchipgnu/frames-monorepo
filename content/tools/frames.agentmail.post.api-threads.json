@@ -1,0 +1,45 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "frames.agentmail.post.api-threads",
+  "title": "POST /api/threads",
+  "description": "**Paid endpoint** - $0.005 on Base (USDC, USDT), Solana (USDC, USDT, CASH)",
+  "capabilities": [
+    "email",
+    "inbox",
+    "messaging",
+    "agentmail",
+    "x402-passthrough"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://registry.frames.ag/api/service/agentmail/api/threads",
+    "params_schema": {
+      "type": "object",
+      "properties": {
+        "inbox_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "limit": {},
+        "page_token": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "inbox_id"
+      ]
+    }
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "frames-registry",
+    "fetched_at": "2026-05-03T16:32:02.489Z",
+    "upstream_id": "agentmail:POST:/api/threads",
+    "service_slug": "agentmail"
+  }
+}

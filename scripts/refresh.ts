@@ -17,6 +17,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const BAZAAR_URL =
   "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources";
 const MPP_URL = "https://mpp.dev/api/services";
+const FRAMES_REGISTRY_URL = "https://registry.frames.ag/api/services";
 const OUT_DIR = resolve(__dirname, "..", "content", "tools");
 
 const args = process.argv.slice(2);
@@ -67,6 +68,36 @@ interface MppService {
   }>;
 }
 
+interface FramesService {
+  slug: string;
+  title: string;
+  description: string;
+  version?: string;
+  tags?: string[];
+  endpoints: { base: string; openapi: string };
+}
+
+interface OpenApiPath {
+  [method: string]: {
+    summary?: string;
+    description?: string;
+    tags?: string[];
+    requestBody?: {
+      content?: {
+        "application/json"?: { schema?: unknown };
+      };
+    };
+    security?: Array<Record<string, unknown>>;
+  };
+}
+
+interface OpenApiSpec {
+  openapi: string;
+  info: { title: string; description?: string; version?: string };
+  servers?: Array<{ url: string }>;
+  paths?: Record<string, OpenApiPath>;
+}
+
 interface ToolDescriptor {
   pay_protocol: "0.0.1";
   id: string;
@@ -76,6 +107,7 @@ interface ToolDescriptor {
   invocation: {
     method: string;
     url: string;
+    params_schema?: unknown;
   };
   payment: {
     protocol: "x402" | "x402v2" | "mpp";
@@ -84,10 +116,11 @@ interface ToolDescriptor {
     price_hint?: string;
   };
   _meta?: {
-    catalog: "bazaar" | "mpp";
+    catalog: "bazaar" | "mpp" | "frames-registry";
     fetched_at: string;
     upstream_id?: string;
     x402_version?: number;
+    service_slug?: string;
   };
 }
 
@@ -149,6 +182,29 @@ async function fetchMpp(): Promise<MppService[]> {
   return data.services;
 }
 
+async function fetchFramesRegistry(): Promise<
+  Array<{ service: FramesService; spec: OpenApiSpec }>
+> {
+  const res = await fetch(FRAMES_REGISTRY_URL);
+  if (!res.ok) throw new Error(`Frames registry fetch failed: ${res.status}`);
+  const data = (await res.json()) as { services: FramesService[] };
+  const out: Array<{ service: FramesService; spec: OpenApiSpec }> = [];
+  for (const service of data.services) {
+    try {
+      const specRes = await fetch(service.endpoints.openapi);
+      if (!specRes.ok) {
+        console.warn(`  ! ${service.slug}: openapi ${specRes.status}, skipping`);
+        continue;
+      }
+      const spec = (await specRes.json()) as OpenApiSpec;
+      out.push({ service, spec });
+    } catch (e) {
+      console.warn(`  ! ${service.slug}: ${(e as Error).message}, skipping`);
+    }
+  }
+  return out;
+}
+
 function bazaarToDescriptor(
   item: BazaarItem,
   fetchedAt: string,
@@ -197,6 +253,76 @@ function bazaarToDescriptor(
       x402_version: item.x402Version,
     },
   };
+}
+
+// Parse "**Paid endpoint** - $0.005 on Base (USDC, USDT), Solana ..."
+// Returns { price, networks, currency } best-effort.
+function parseFramesPricing(desc: string | undefined): {
+  price?: string;
+  network?: string;
+  currency?: string;
+} {
+  if (!desc) return {};
+  const priceMatch = desc.match(/\$([0-9]+\.?[0-9]*)/);
+  const price = priceMatch ? priceMatch[1] : undefined;
+  // First chain mentioned wins
+  let network: string | undefined;
+  if (/base/i.test(desc) && !/base sepolia/i.test(desc)) network = "base";
+  else if (/base sepolia/i.test(desc)) network = "base-sepolia";
+  else if (/solana/i.test(desc)) network = "solana-mainnet";
+  // Currency: USDC default
+  const currency = /USDC/i.test(desc) ? "USDC" : undefined;
+  return { price, network, currency };
+}
+
+function framesToDescriptors(
+  service: FramesService,
+  spec: OpenApiSpec,
+  fetchedAt: string,
+): ToolDescriptor[] {
+  const out: ToolDescriptor[] = [];
+  const baseUrl = spec.servers?.[0]?.url ?? service.endpoints.base;
+  const paths = spec.paths ?? {};
+
+  for (const [path, methods] of Object.entries(paths)) {
+    for (const [method, op] of Object.entries(methods)) {
+      const m = method.toUpperCase();
+      // Only include operations that declare x402 security
+      const hasX402 = op.security?.some((s) => Object.keys(s).includes("x402"));
+      if (!hasX402) continue;
+
+      const id = `frames.${slugify(service.slug)}.${m.toLowerCase()}.${slugify(path)}`;
+      const pricing = parseFramesPricing(op.description);
+      const params_schema =
+        op.requestBody?.content?.["application/json"]?.schema;
+
+      out.push({
+        pay_protocol: "0.0.1",
+        id,
+        title: op.summary ?? `${service.title} — ${m} ${path}`,
+        description: op.description ?? service.description,
+        capabilities: service.tags?.length ? service.tags : ["unspecified"],
+        invocation: {
+          method: m,
+          url: `${baseUrl}${path}`,
+          ...(params_schema ? { params_schema } : {}),
+        },
+        payment: {
+          protocol: "x402v2",
+          network: pricing.network ?? "base",
+          currency: pricing.currency ?? "USDC",
+          ...(pricing.price ? { price_hint: pricing.price } : {}),
+        },
+        _meta: {
+          catalog: "frames-registry",
+          fetched_at: fetchedAt,
+          upstream_id: `${service.slug}:${m}:${path}`,
+          service_slug: service.slug,
+        },
+      });
+    }
+  }
+  return out;
 }
 
 function mppToDescriptors(
@@ -298,7 +424,21 @@ async function main() {
     console.log(`  ${mpp.length} paid endpoints kept`);
   }
 
-  const all = [...bazaar, ...mpp];
+  const frames: ToolDescriptor[] = [];
+  if (source === "all" || source === "frames") {
+    console.log("Fetching Frames Registry…");
+    const services = await fetchFramesRegistry();
+    console.log(`  ${services.length} services with OpenAPI specs`);
+    for (const { service, spec } of services) {
+      const ds = framesToDescriptors(service, spec, fetchedAt);
+      frames.push(...ds);
+      if (frames.length >= limit) break;
+    }
+    if (frames.length > limit) frames.length = limit;
+    console.log(`  ${frames.length} x402 endpoints kept`);
+  }
+
+  const all = [...bazaar, ...mpp, ...frames];
   for (const d of all) writeDescriptor(d);
   writeIndex(all);
 
@@ -306,6 +446,7 @@ async function main() {
   console.log(`\nWrote ${all.length} new descriptors`);
   console.log(`  ${bazaar.length} from Bazaar`);
   console.log(`  ${mpp.length} from MPP`);
+  console.log(`  ${frames.length} from Frames Registry`);
   console.log(`Total in content/tools/: ${finalCount}`);
   console.log(`Index: content/index.ndjson (${all.length} lines)`);
 }

@@ -1,0 +1,43 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "frames.twitter.post.api-batch-users",
+  "title": "POST /api/batch-users",
+  "description": "**Paid endpoint** - $0.02 on Base (USDC, USDT), Solana (USDC, USDT, CASH)",
+  "capabilities": [
+    "social",
+    "twitter",
+    "search",
+    "users",
+    "tweets",
+    "trends",
+    "communities",
+    "spaces"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://registry.frames.ag/api/service/twitter/api/batch-users",
+    "params_schema": {
+      "type": "object",
+      "properties": {
+        "userIds": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "userIds"
+      ]
+    }
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "frames-registry",
+    "fetched_at": "2026-05-03T16:32:02.489Z",
+    "upstream_id": "twitter:POST:/api/batch-users",
+    "service_slug": "twitter"
+  }
+}

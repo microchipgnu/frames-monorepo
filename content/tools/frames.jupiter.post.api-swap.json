@@ -1,0 +1,63 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "frames.jupiter.post.api-swap",
+  "title": "POST /api/swap",
+  "description": "**Paid endpoint** - $0.01 on Base (USDC, USDT), Solana (USDC, USDT, CASH)",
+  "capabilities": [
+    "solana",
+    "swap",
+    "defi",
+    "jupiter"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://registry.frames.ag/api/service/jupiter/api/swap",
+    "params_schema": {
+      "type": "object",
+      "properties": {
+        "inputMint": {
+          "type": "string",
+          "minLength": 1
+        },
+        "outputMint": {
+          "type": "string",
+          "minLength": 1
+        },
+        "amount": {
+          "type": "number",
+          "minimum": 0
+        },
+        "taker": {
+          "type": "string",
+          "minLength": 1
+        },
+        "slippageBps": {},
+        "referralAccount": {
+          "type": "string"
+        },
+        "referralFee": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "inputMint",
+        "outputMint",
+        "amount",
+        "taker"
+      ]
+    }
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "frames-registry",
+    "fetched_at": "2026-05-03T16:32:02.489Z",
+    "upstream_id": "jupiter:POST:/api/swap",
+    "service_slug": "jupiter"
+  }
+}

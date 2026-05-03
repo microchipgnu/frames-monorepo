@@ -1,0 +1,50 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "frames.ai-gen.post.api-invoke",
+  "title": "POST /api/invoke",
+  "description": "**Paid endpoint** - $0.01 on Base (USDC, USDT), Solana (USDC, USDT, CASH)",
+  "capabilities": [
+    "ai",
+    "image",
+    "video",
+    "audio",
+    "3d",
+    "generation",
+    "processing"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://registry.frames.ag/api/service/ai-gen/api/invoke",
+    "params_schema": {
+      "type": "object",
+      "properties": {
+        "prompt": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "image": {
+          "type": "string"
+        },
+        "duration": {},
+        "resolution": {},
+        "aspect_ratio": {}
+      },
+      "required": [
+        "prompt"
+      ]
+    }
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "frames-registry",
+    "fetched_at": "2026-05-03T16:32:02.489Z",
+    "upstream_id": "ai-gen:POST:/api/invoke",
+    "service_slug": "ai-gen"
+  }
+}

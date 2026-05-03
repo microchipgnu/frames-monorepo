@@ -1,0 +1,68 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "frames.exa.post.api-find-similar",
+  "title": "POST /api/find-similar",
+  "description": "**Paid endpoint** - $0.01 on Base (USDC, USDT), Solana (USDC, USDT, CASH)",
+  "capabilities": [
+    "search",
+    "semantic",
+    "ai",
+    "exa"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://registry.frames.ag/api/service/exa/api/find-similar",
+    "params_schema": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "numResults": {},
+        "includeDomains": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "excludeDomains": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "excludeSourceDomain": {},
+        "startPublishedDate": {
+          "type": "string"
+        },
+        "endPublishedDate": {
+          "type": "string"
+        },
+        "contents": {
+          "type": "object",
+          "properties": {
+            "text": {},
+            "highlights": {},
+            "summary": {}
+          }
+        }
+      },
+      "required": [
+        "url"
+      ]
+    }
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "frames-registry",
+    "fetched_at": "2026-05-03T16:32:02.489Z",
+    "upstream_id": "exa:POST:/api/find-similar",
+    "service_slug": "exa"
+  }
+}

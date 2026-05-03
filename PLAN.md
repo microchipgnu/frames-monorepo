@@ -11,22 +11,23 @@ Staged build for the canonical hosted tool catalog at `catalog.frames.ag`.
 
 **Status:** done.
 
-## C0.5 — Mirror Bazaar + MPP into content/tools/
+## C0.5 — Mirror live discovery sources into content/tools/
 
-The catalog's content is **mirrored** from the existing live discovery sources, not hand-curated:
+The catalog's content is **mirrored** from existing live discovery sources, not hand-curated:
 
 - **Coinbase x402 Bazaar** (`api.cdp.coinbase.com/platform/v2/x402/discovery/resources`) — paginated, paid HTTP resources across Base, Solana, others
-- **MPP directory** (`mpp.dev/api/services`) — services with paid endpoints (Anthropic, AgentMail, etc.)
+- **MPP directory** (`mpp.dev/api/services`) — services with paid endpoints (Anthropic, AgentMail, Wolfram)
+- **Frames Registry** (`registry.frames.ag/api/services`) — first-party gateway; each service's OpenAPI spec parsed for x402-secured routes (Twitter, Exa, OpenRouter, Jupiter, near-intents, agentmail, coingecko, ai-gen, wordspace, test)
 
-`scripts/refresh.ts` (Bun) fetches both, normalizes each entry into a pay v0.0.1 ToolDescriptor, and writes to `content/tools/<slugged-id>.json`. Run:
+`scripts/refresh.ts` (Bun) fetches all three, normalizes into pay v0.0.1 ToolDescriptors, writes per-tool JSONs and a sorted `content/index.ndjson`. Run:
 
 ```
-bun run scripts/refresh.ts                  # full refresh
+bun run scripts/refresh.ts                  # full refresh (all sources)
 bun run scripts/refresh.ts --limit 20       # sample
-bun run scripts/refresh.ts --source bazaar  # one source
+bun run scripts/refresh.ts --source frames  # bazaar | mpp | frames
 ```
 
-Initial mirror produced **5,748 descriptors** (5,099 Bazaar + 669 MPP, with ~20 slug collisions silently overwritten — known issue, fix in C0.6).
+Current mirror: **5,797 descriptors** (5,079 Bazaar + 669 MPP + 49 Frames Registry; ~20 Bazaar slug collisions silently overwritten — fix in C0.6).
 
 **Status:** done.
 

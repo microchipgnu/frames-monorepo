@@ -1,0 +1,45 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "frames.exa.post.api-contents",
+  "title": "POST /api/contents",
+  "description": "**Paid endpoint** - $0.002 on Base (USDC, USDT), Solana (USDC, USDT, CASH)",
+  "capabilities": [
+    "search",
+    "semantic",
+    "ai",
+    "exa"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://registry.frames.ag/api/service/exa/api/contents",
+    "params_schema": {
+      "type": "object",
+      "properties": {
+        "ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "text": {},
+        "highlights": {},
+        "summary": {}
+      },
+      "required": [
+        "ids"
+      ]
+    }
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "frames-registry",
+    "fetched_at": "2026-05-03T16:32:02.489Z",
+    "upstream_id": "exa:POST:/api/contents",
+    "service_slug": "exa"
+  }
+}

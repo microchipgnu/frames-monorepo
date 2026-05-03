@@ -18,7 +18,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-03T16:25:24.834Z",
+    "fetched_at": "2026-05-03T16:32:02.489Z",
     "upstream_id": "https://wallet-intel-api-production-3ec7.up.railway.app/api/v1/identity/:address",
     "x402_version": 2
   }

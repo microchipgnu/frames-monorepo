@@ -1,0 +1,47 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "frames.twitter.post.api-search",
+  "title": "POST /api/search",
+  "description": "**Paid endpoint** - $0.01 on Base (USDC, USDT), Solana (USDC, USDT, CASH)",
+  "capabilities": [
+    "social",
+    "twitter",
+    "search",
+    "users",
+    "tweets",
+    "trends",
+    "communities",
+    "spaces"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://registry.frames.ag/api/service/twitter/api/search",
+    "params_schema": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string"
+        },
+        "queryType": {},
+        "cursor": {}
+      },
+      "required": [
+        "query",
+        "queryType",
+        "cursor"
+      ]
+    }
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "frames-registry",
+    "fetched_at": "2026-05-03T16:32:02.489Z",
+    "upstream_id": "twitter:POST:/api/search",
+    "service_slug": "twitter"
+  }
+}

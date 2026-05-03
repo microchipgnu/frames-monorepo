@@ -1,0 +1,42 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "frames.exa.post.api-answer",
+  "title": "POST /api/answer",
+  "description": "**Paid endpoint** - $0.01 on Base (USDC, USDT), Solana (USDC, USDT, CASH)",
+  "capabilities": [
+    "search",
+    "semantic",
+    "ai",
+    "exa"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://registry.frames.ag/api/service/exa/api/answer",
+    "params_schema": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "text": {}
+      },
+      "required": [
+        "query"
+      ]
+    }
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "frames-registry",
+    "fetched_at": "2026-05-03T16:32:02.489Z",
+    "upstream_id": "exa:POST:/api/answer",
+    "service_slug": "exa"
+  }
+}
