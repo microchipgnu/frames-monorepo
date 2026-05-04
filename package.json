@@ -12,7 +12,9 @@
     "smoke:manifest": "bun run examples/smoke/manifest-roundtrip.ts",
     "smoke:dispatch": "bun run examples/smoke/dispatch.ts",
     "smoke:mcp": "bun run examples/smoke/mcp-stdio.ts",
-    "mcp": "bun run src/mcp/bin.ts"
+    "smoke:init": "bun run examples/smoke/wallet-init.ts",
+    "mcp": "bun run src/mcp/bin.ts",
+    "cli": "bun run src/cli/bin.ts"
   },
   "dependencies": {
     "@faremeter/fetch": "^0.21.0",
