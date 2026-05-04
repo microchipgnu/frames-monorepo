@@ -12,7 +12,7 @@
     "agentcash",
     "agentwallet"
   ],
-  "license": "UNLICENSED",
+  "license": "MIT",
   "author": "frames-ag",
   "homepage": "https://github.com/microchipgnu/pay",
   "repository": {
@@ -34,7 +34,7 @@
     "SPEC.md"
   ],
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   },
   "engines": {
     "bun": ">=1.0.0"
