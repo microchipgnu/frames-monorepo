@@ -1,8 +1,44 @@
 {
   "name": "@frames-ag/pay",
   "version": "0.0.1",
-  "private": true,
+  "description": "Buyer-side runtime for paid agent tool calls. Catalog + manifest + lock + signed receipts. MCP server for any harness, CLI for shells. Wallets via faremeter (EVM/Solana/OWS/Crossmint), agentcash, frames, or hosted agentwallet.",
+  "keywords": [
+    "x402",
+    "mpp",
+    "faremeter",
+    "agent-payments",
+    "mcp",
+    "frames",
+    "agentcash",
+    "agentwallet"
+  ],
+  "license": "UNLICENSED",
+  "author": "frames-ag",
+  "homepage": "https://github.com/microchipgnu/pay",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/microchipgnu/pay.git"
+  },
+  "bugs": {
+    "url": "https://github.com/microchipgnu/pay/issues"
+  },
   "type": "module",
+  "bin": {
+    "pay": "./src/cli/bin.ts",
+    "pay-mcp": "./src/mcp/bin.ts"
+  },
+  "main": "./src/index.ts",
+  "files": [
+    "src",
+    "README.md",
+    "SPEC.md"
+  ],
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "engines": {
+    "bun": ">=1.0.0"
+  },
   "scripts": {
     "typecheck": "tsc --noEmit",
     "smoke:dry": "bun run examples/smoke/dry-run.ts",
@@ -19,7 +55,8 @@
     "smoke:frames": "bun run examples/smoke/frames-wallet.ts",
     "smoke:agentwallet": "bun run examples/smoke/agentwallet-wallet.ts",
     "mcp": "bun run src/mcp/bin.ts",
-    "cli": "bun run src/cli/bin.ts"
+    "cli": "bun run src/cli/bin.ts",
+    "prepublishOnly": "bun typecheck"
   },
   "dependencies": {
     "@faremeter/fetch": "^0.21.0",
@@ -30,6 +67,14 @@
     "@modelcontextprotocol/sdk": "^1.29.0",
     "viem": "^2.48.8",
     "yaml": "^2.8.4"
+  },
+  "optionalDependencies": {
+    "@faremeter/wallet-crossmint": "^0.21.0",
+    "@faremeter/wallet-ows": "^0.21.0",
+    "@faremeter/wallet-solana": "^0.21.0",
+    "@open-wallet-standard/core": "^0.4.0",
+    "@solana/web3.js": "^1.98.0",
+    "bs58": "^6.0.0"
   },
   "devDependencies": {
     "@types/bun": "^1.3.13",
