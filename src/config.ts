@@ -228,6 +228,119 @@ const WALLET_FACTORIES: Record<string, WalletFactory> = {
     return { kind: "solana", wallet, label, source: "crossmint" };
   },
 
+  agentcash: async (cfg, label) => {
+    // agentcash (npx agentcash@latest) stores a plain private key at
+    // ~/.agentcash/wallet.json (EVM) or ~/.agentcash/solana-wallet.json
+    // (Solana). It's not a hosted wallet — just a local key file.
+    // Pay reads the same file and wraps it via faremeter's local wallet.
+    //
+    // Security note: pay sharing this wallet means agentcash CLI and pay
+    // sign with the same private key. Funds are co-mingled across both
+    // tools. That's intentional — most users want one wallet identity.
+    //
+    // Env vars X402_PRIVATE_KEY and X402_SOLANA_PRIVATE_KEY override the
+    // file (matches agentcash's own precedence).
+    // Resolve agentcash data dir: explicit dir > $AGENTCASH_DIR > $HOME/.agentcash > os.homedir()
+    // Reading process.env.HOME directly (rather than os.homedir()) avoids
+    // Bun's first-call cache so tests can set HOME in-process.
+    const explicitDir =
+      typeof cfg["dir"] === "string" ? (cfg["dir"] as string) : undefined;
+    const home = process.env["HOME"] ?? homedir();
+    const agentcashDir =
+      explicitDir ??
+      process.env["AGENTCASH_DIR"] ??
+      pathResolve(home, ".agentcash");
+
+    if (cfg["evm"]) {
+      const evmCfg = expectObject(cfg["evm"], "evm");
+      const chain = expectObject(evmCfg["chain"], "evm.chain");
+      const id = expectNumber(chain["id"], "evm.chain.id");
+      const name = expectString(chain["name"], "evm.chain.name");
+
+      let privateKey: `0x${string}`;
+      const envOverride = process.env["X402_PRIVATE_KEY"];
+      if (envOverride) {
+        if (!/^0x[0-9a-fA-F]{64}$/.test(envOverride)) {
+          throw new Error("X402_PRIVATE_KEY must be 0x + 64 hex chars");
+        }
+        privateKey = envOverride as `0x${string}`;
+      } else {
+        const walletPath = pathResolve(agentcashDir, "wallet.json");
+        if (!existsSync(walletPath)) {
+          throw new Error(
+            `agentcash EVM wallet not found at ${walletPath} — run \`npx agentcash@latest accounts\` first`,
+          );
+        }
+        const stored = JSON.parse(readFileSync(walletPath, "utf8")) as {
+          privateKey?: string;
+        };
+        if (!stored.privateKey || !/^0x[0-9a-fA-F]{64}$/.test(stored.privateKey)) {
+          throw new Error(
+            `${walletPath} does not contain a valid 0x-hex privateKey`,
+          );
+        }
+        privateKey = stored.privateKey as `0x${string}`;
+      }
+
+      const { createLocalWallet } = await loadOptionalPackage<{
+        createLocalWallet: (
+          chain: { id: number; name: string },
+          privateKey: string,
+        ) => Promise<import("@faremeter/wallet-evm").EvmWallet>;
+      }>("@faremeter/wallet-evm");
+      const wallet = await createLocalWallet({ id, name }, privateKey);
+      return { kind: "evm", wallet, label, source: "agentcash" };
+    }
+
+    if (cfg["solana"]) {
+      const solCfg = expectObject(cfg["solana"], "solana");
+      const network = expectString(solCfg["network"], "solana.network");
+
+      // Solana key is base58; faremeter/wallet-solana wants a Keypair.
+      const sol = (await loadOptionalPackage<{
+        createLocalWallet: (network: string, keypair: unknown) => Promise<unknown>;
+      }>("@faremeter/wallet-solana")) as {
+        createLocalWallet: (network: string, keypair: unknown) => Promise<unknown>;
+      };
+      const web3 = (await loadOptionalPackage<{
+        Keypair: { fromSecretKey: (bytes: Uint8Array) => unknown };
+      }>("@solana/web3.js")) as {
+        Keypair: { fromSecretKey: (bytes: Uint8Array) => unknown };
+      };
+      const bs58 = (await loadOptionalPackage<{
+        default: { decode: (s: string) => Uint8Array };
+      }>("bs58")) as { default: { decode: (s: string) => Uint8Array } };
+
+      let secretBytes: Uint8Array;
+      const envOverride = process.env["X402_SOLANA_PRIVATE_KEY"];
+      if (envOverride) {
+        secretBytes = bs58.default.decode(envOverride);
+      } else {
+        const walletPath = pathResolve(agentcashDir, "solana-wallet.json");
+        if (!existsSync(walletPath)) {
+          throw new Error(
+            `agentcash Solana wallet not found at ${walletPath} — run \`npx agentcash@latest accounts\` first`,
+          );
+        }
+        const stored = JSON.parse(readFileSync(walletPath, "utf8")) as {
+          privateKey?: string;
+        };
+        if (!stored.privateKey) {
+          throw new Error(`${walletPath} missing privateKey`);
+        }
+        secretBytes = bs58.default.decode(stored.privateKey);
+      }
+
+      const keypair = web3.Keypair.fromSecretKey(secretBytes);
+      const wallet = (await sol.createLocalWallet(network, keypair)) as import(
+        "./wallet/wallet-registry.ts"
+      ).SolanaWalletShape;
+      return { kind: "solana", wallet, label, source: "agentcash" };
+    }
+
+    throw new Error("agentcash wallet needs `evm:` or `solana:` block");
+  },
+
   ows: async (cfg, label) => {
     const ows = (await loadOptionalPackage<{
       createOWSEvmWallet: (chain: { id: number; name: string }, opts: unknown) => unknown;
@@ -352,5 +465,18 @@ async function loadOptionalPackage<T>(pkg: string): Promise<T> {
 //       label: dev
 //       network: solana                    # or solana-devnet
 //       keypair_path: ~/.config/solana/id.json    # OR secret_key_b58: ...
+//
+//     base-via-agentcash:
+//       kind: agentcash
+//       label: shared-with-agentcash
+//       evm: { chain: { id: 8453, name: Base } }
+//       # reads ~/.agentcash/wallet.json (or X402_PRIVATE_KEY env override)
+//       # SECURITY: pay and agentcash CLI both sign with the same key.
+//
+//     solana-via-agentcash:
+//       kind: agentcash
+//       label: shared-with-agentcash
+//       solana: { network: solana }
+//       # reads ~/.agentcash/solana-wallet.json (or X402_SOLANA_PRIVATE_KEY)
 //
 // ---------------------------------------------------------------------------

@@ -14,6 +14,8 @@
     "smoke:mcp": "bun run examples/smoke/mcp-stdio.ts",
     "smoke:init": "bun run examples/smoke/wallet-init.ts",
     "smoke:factories": "bun run examples/smoke/wallet-factories.ts",
+    "smoke:agentcash": "bun run examples/smoke/agentcash-wallet.ts",
+    "smoke:agentcash-real": "bun run examples/smoke/agentcash-real.ts",
     "mcp": "bun run src/mcp/bin.ts",
     "cli": "bun run src/cli/bin.ts"
   },
