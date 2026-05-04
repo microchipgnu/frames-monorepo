@@ -6,6 +6,10 @@
 
 import { createPaymentHandler as createX402EvmHandler } from "@faremeter/payment-evm/exact";
 import { createPaymentHandler as createX402SolanaHandler } from "@faremeter/payment-solana/exact";
+import {
+  createMPPSolanaChargeClient,
+  createMPPSolanaNativeChargeClient,
+} from "@faremeter/payment-solana/charge";
 import { lookupKnownSPLToken } from "@faremeter/info/solana";
 import type { PaymentHandler } from "@faremeter/types/client";
 import type { MPPPaymentHandler } from "@faremeter/types/mpp";
@@ -104,6 +108,37 @@ export function buildHandlers(
     };
   }
 
+  // MPP Solana charge — native SOL or SPL token, depending on currency.
+  if (proto === "mpp" && entry.kind === "solana") {
+    const isNativeSol = (descriptor.payment.currency ?? "").toUpperCase() === "SOL";
+    if (isNativeSol) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const handler = createMPPSolanaNativeChargeClient({ wallet: entry.wallet as any });
+      return {
+        handlers: [],
+        mppHandlers: [handler],
+        free: false,
+        walletEntry: entry,
+      };
+    }
+    const mint = pickSolanaMint(descriptor, network);
+    if (!mint) {
+      throw new BridgeError(
+        `MPP Solana descriptor ${descriptor.id} needs payment.asset (SPL mint) or ` +
+          `a payment.currency that resolves via @faremeter/info/solana. ` +
+          `If paying in native SOL, set payment.currency: "SOL".`,
+      );
+    }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const handler = createMPPSolanaChargeClient({ wallet: entry.wallet as any, mint: mint as any });
+    return {
+      handlers: [],
+      mppHandlers: [handler],
+      free: false,
+      walletEntry: entry,
+    };
+  }
+
   // MPP Tempo charge — uses sibling @frames-ag/payment-tempo package
   // when present. We dynamic-import to keep it optional.
   if (proto === "mpp" && entry.kind === "tempo") {
@@ -115,8 +150,8 @@ export function buildHandlers(
 
   throw new BridgeError(
     `no handler for protocol=${proto} on network=${network} ` +
-      `(wallet kind=${entry.kind}). Supported in v0.0.1: x402/x402v2 on EVM, ` +
-      `x402/x402v2 on Solana.`,
+      `(wallet kind=${entry.kind}). Supported in v0.0.1: x402/x402v2 on EVM + Solana, ` +
+      `mpp on Solana (charge intent), delegated wallets, "none" (free path).`,
   );
 }
 

@@ -142,6 +142,115 @@ const r4 = buildHandlers(
 );
 assert("free=true, no handlers", r4.free === true && r4.handlers.length === 0);
 
+console.log("\nMPP Solana — SPL token (CASH on mainnet, via faremeter registry):");
+const r5 = buildHandlers(
+  makeDescriptor({
+    payment: {
+      protocol: "mpp",
+      network: "solana-mainnet",
+      currency: "CASH",
+      price_hint: "0.01",
+      // no asset — should resolve via lookupKnownSPLToken("mainnet-beta", "CASH")
+    },
+  }),
+  new WalletRegistry({
+    byNetwork: {
+      "solana-mainnet": {
+        kind: "solana",
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        wallet: { ...mockSolanaWallet, network: "solana-mainnet" } as any,
+        label: "smoke",
+        source: "solana",
+      },
+    },
+  }),
+);
+assert("mppHandlers length=1", r5.mppHandlers.length === 1);
+assert("standard handlers empty", r5.handlers.length === 0);
+assert("not free", r5.free === false);
+
+console.log("\nMPP Solana — explicit asset (CASH mint):");
+const r6 = buildHandlers(
+  makeDescriptor({
+    payment: {
+      protocol: "mpp",
+      network: "solana-mainnet",
+      currency: "CASH",
+      price_hint: "0.01",
+      asset: "CASHx9KJUStyftLFWGvEVf59SGeG9sh5FfcnZMVPCASH",
+    },
+  }),
+  new WalletRegistry({
+    byNetwork: {
+      "solana-mainnet": {
+        kind: "solana",
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        wallet: { ...mockSolanaWallet, network: "solana-mainnet" } as any,
+        label: "smoke",
+        source: "solana",
+      },
+    },
+  }),
+);
+assert("mppHandlers length=1", r6.mppHandlers.length === 1);
+
+console.log("\nMPP Solana — native SOL:");
+const r7 = buildHandlers(
+  makeDescriptor({
+    payment: {
+      protocol: "mpp",
+      network: "solana-mainnet",
+      currency: "SOL",
+      price_hint: "0.001",
+    },
+  }),
+  new WalletRegistry({
+    byNetwork: {
+      "solana-mainnet": {
+        kind: "solana",
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        wallet: { ...mockSolanaWallet, network: "solana-mainnet" } as any,
+        label: "smoke",
+        source: "solana",
+      },
+    },
+  }),
+);
+assert("native MPP handler returned", r7.mppHandlers.length === 1);
+
+console.log("\nMPP Solana — unknown token, no asset, no fallback:");
+try {
+  buildHandlers(
+    makeDescriptor({
+      payment: {
+        protocol: "mpp",
+        network: "solana-mainnet",
+        currency: "MYSTERY-TOKEN",
+        price_hint: "0.01",
+      },
+    }),
+    new WalletRegistry({
+      byNetwork: {
+        "solana-mainnet": {
+          kind: "solana",
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          wallet: { ...mockSolanaWallet, network: "solana-mainnet" } as any,
+          label: "smoke",
+          source: "solana",
+        },
+      },
+    }),
+  );
+  assert("should have thrown", false);
+} catch (e) {
+  const msg = (e as Error).message;
+  if (e instanceof BridgeError && msg.includes("payment.asset")) {
+    assert("BridgeError mentions payment.asset (or SOL)", true);
+  } else {
+    assert("expected BridgeError", false, msg);
+  }
+}
+
 console.log();
-if (exitCode === 0) console.log("✓ Solana x402 bridge wiring works");
+if (exitCode === 0) console.log("✓ Solana x402 + MPP bridge wiring works");
 process.exit(exitCode);
