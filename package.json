@@ -10,7 +10,9 @@
     "smoke:settle": "bun run examples/smoke/settle.ts",
     "smoke:roundtrip": "bun run examples/smoke/types-roundtrip.ts",
     "smoke:manifest": "bun run examples/smoke/manifest-roundtrip.ts",
-    "smoke:dispatch": "bun run examples/smoke/dispatch.ts"
+    "smoke:dispatch": "bun run examples/smoke/dispatch.ts",
+    "smoke:mcp": "bun run examples/smoke/mcp-stdio.ts",
+    "mcp": "bun run src/mcp/bin.ts"
   },
   "dependencies": {
     "@faremeter/fetch": "^0.21.0",
@@ -18,6 +20,7 @@
     "@faremeter/payment-evm": "^0.21.0",
     "@faremeter/payment-solana": "^0.21.0",
     "@faremeter/wallet-evm": "^0.21.0",
+    "@modelcontextprotocol/sdk": "^1.29.0",
     "viem": "^2.48.8",
     "yaml": "^2.8.4"
   },
