@@ -72,6 +72,7 @@ export function createHandler(deps: HandlerDeps) {
 
   app.get("/catalog", async (c) => {
     const capability = c.req.query("capability");
+    const q = c.req.query("q")?.trim().toLowerCase();
     const cursor = c.req.query("cursor");
     const limit = clamp(
       parseInt(c.req.query("limit") ?? "100", 10) || 100,
@@ -101,6 +102,15 @@ export function createHandler(deps: HandlerDeps) {
     let filtered = index;
     if (capability) {
       filtered = filtered.filter((t) => t.capabilities.includes(capability));
+    }
+    if (q) {
+      // Substring match across id + title + description (case-insensitive).
+      filtered = filtered.filter(
+        (t) =>
+          t.id.toLowerCase().includes(q) ||
+          t.title.toLowerCase().includes(q) ||
+          t.description.toLowerCase().includes(q),
+      );
     }
 
     let startIdx = 0;
