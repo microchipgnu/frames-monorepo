@@ -39,17 +39,30 @@ export function createHandler(deps: HandlerDeps) {
       await deps.cache.set(cacheKey, entry, 60);
     }
 
-    if (ifNoneMatch === entry.etag) {
+    // Weak ETag — content-bound rather than byte-bound, so it survives
+    // server-side compression negotiation. Clients strip strong etags
+    // when they decompress, which would otherwise hide our descriptor_id.
+    const weakEtag = `W/"${entry.etag}"`;
+    // Also expose the raw SHA on a custom header for clients that can't
+    // (or won't) parse weak-etag syntax.
+    const xDescriptorId = entry.etag;
+
+    if (ifNoneMatch === weakEtag || ifNoneMatch === entry.etag) {
       return new Response(null, {
         status: 304,
-        headers: { ETag: entry.etag, "Cache-Control": CACHE_CONTROL },
+        headers: {
+          ETag: weakEtag,
+          "X-Descriptor-Id": xDescriptorId,
+          "Cache-Control": CACHE_CONTROL,
+        },
       });
     }
 
     return new Response(entry.body, {
       headers: {
         "Content-Type": entry.contentType,
-        ETag: entry.etag,
+        ETag: weakEtag,
+        "X-Descriptor-Id": xDescriptorId,
         "Cache-Control": CACHE_CONTROL,
       },
     });
