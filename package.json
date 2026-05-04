@@ -57,6 +57,7 @@
     "smoke:solana": "bun run examples/smoke/solana-bridge.ts",
     "smoke:balance": "bun run examples/smoke/balance.ts",
     "smoke:tempo": "bun run examples/smoke/tempo-bridge.ts",
+    "smoke:detect": "bun run examples/smoke/wallet-detect.ts",
     "mcp": "bun run src/mcp/bin.ts",
     "cli": "bun run src/cli/bin.ts",
     "prepublishOnly": "bun typecheck"

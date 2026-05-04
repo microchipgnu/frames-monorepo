@@ -13,6 +13,7 @@
 //   pay receipts list
 import { walletInitCommand } from "./commands/wallet-init.ts";
 import { walletStatusCommand } from "./commands/wallet-status.ts";
+import { walletDetectCommand } from "./commands/wallet-detect.ts";
 
 async function main(): Promise<void> {
   const argv = process.argv.slice(2);
@@ -28,6 +29,7 @@ async function main(): Promise<void> {
   if (cmd === "wallet") {
     if (sub === "init") return await walletInitCommand(rest);
     if (sub === "status") return await walletStatusCommand(rest);
+    if (sub === "detect") return await walletDetectCommand(rest);
     if (!sub || sub === "--help" || sub === "-h") {
       printWallet();
       return;
@@ -43,10 +45,11 @@ async function main(): Promise<void> {
 }
 
 function printRoot() {
-  console.log(`pay v0.0.1 — buyer-side runtime for paid agent tool calls
+  console.log(`pay v0.0.2 — buyer-side runtime for paid agent tool calls
 
 Usage:
-  pay wallet init [...]    — provision a wallet (first-time setup)
+  pay wallet detect        — find existing wallets in this environment
+  pay wallet init [...]    — provision a wallet (fresh, or from detected)
   pay wallet status        — show configured state
 
 For the agent harness side, run pay-mcp instead (the MCP server).
@@ -57,8 +60,12 @@ function printWallet() {
   console.log(`pay wallet — wallet management
 
 Subcommands:
-  pay wallet init [--network NAME] [--import 0xHEX] [--label S] [--agent ID] [--force]
-  pay wallet status
+  pay wallet detect                         — list existing wallets in this environment
+  pay wallet init                           — generate a fresh EVM wallet
+  pay wallet init --auto                    — add all detected existing wallets
+  pay wallet init --use <kind>              — add a specific detected wallet
+  pay wallet init --network <n> [--import]  — generate / import explicitly
+  pay wallet status                         — show configured state
 `);
 }
 
