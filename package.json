@@ -67,6 +67,7 @@
     "@faremeter/payment-evm": "^0.21.0",
     "@faremeter/payment-solana": "^0.21.0",
     "@faremeter/wallet-evm": "^0.21.0",
+    "@frames-ag/payment-tempo": "^0.0.1",
     "@modelcontextprotocol/sdk": "^1.29.0",
     "viem": "^2.48.8",
     "yaml": "^2.8.4"
