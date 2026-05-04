@@ -6,20 +6,21 @@
 
 import { createPaymentHandler as createX402EvmHandler } from "@faremeter/payment-evm/exact";
 import { createPaymentHandler as createX402SolanaHandler } from "@faremeter/payment-solana/exact";
+import { lookupKnownSPLToken } from "@faremeter/info/solana";
 import type { PaymentHandler } from "@faremeter/types/client";
 import type { MPPPaymentHandler } from "@faremeter/types/mpp";
 import type { ToolDescriptor } from "../types.ts";
 import type { WalletEntry, WalletRegistry } from "./wallet-registry.ts";
 
-// Known SPL mint fallbacks per network. Used when descriptor.payment.asset
-// is absent (older catalog descriptors that didn't preserve the mint during
-// refresh). Refresh script v2 should populate the asset field directly.
-const KNOWN_SPL_MINTS: Record<string, string> = {
-  // Solana mainnet USDC
-  "solana-mainnet": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
-  // Solana devnet USDC (used by registry.frames.ag's test endpoint)
-  "solana-devnet": "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU",
-};
+// Map pay's normalized network names → faremeter's Solana cluster names.
+function networkToSolanaCluster(
+  network: string,
+): "mainnet-beta" | "devnet" | "testnet" | undefined {
+  if (network === "solana-mainnet" || network === "solana") return "mainnet-beta";
+  if (network === "solana-devnet") return "devnet";
+  if (network === "solana-testnet") return "testnet";
+  return undefined;
+}
 
 export class BridgeError extends Error {
   constructor(message: string) {
@@ -88,7 +89,7 @@ export function buildHandlers(
     if (!mint) {
       throw new BridgeError(
         `descriptor ${descriptor.id} for Solana x402 needs payment.asset (SPL mint). ` +
-          `Known fallbacks: ${Object.keys(KNOWN_SPL_MINTS).join(", ")}`,
+          `Set descriptor.payment.asset (SPL mint), or ensure descriptor.payment.currency is a known token symbol on a recognized cluster.`,
       );
     }
     // The faremeter Solana wallet shape and our SolanaWalletShape are
@@ -123,9 +124,20 @@ function pickSolanaMint(
   descriptor: ToolDescriptor,
   network: string,
 ): string | undefined {
-  // Prefer descriptor.payment.asset (the authoritative field per SPEC).
+  // 1. Prefer descriptor.payment.asset (authoritative per SPEC; comes
+  //    straight from the seller's accepts[].asset on Bazaar entries).
   const asset = descriptor.payment.asset;
   if (typeof asset === "string" && asset.length > 0) return asset;
-  // Fall back to known mints per normalized network name.
-  return KNOWN_SPL_MINTS[network];
+
+  // 2. Fall back to faremeter's `@faremeter/info/solana` token registry,
+  //    keyed by (cluster, currency-symbol). Covers USDC, PYUSD, USDT,
+  //    USDG, USD1, USX, CASH, EURC, JupUSD, USDS, USDtb, USDu, USDGO, FDUSD.
+  const cluster = networkToSolanaCluster(network);
+  const symbol = descriptor.payment.currency;
+  if (cluster && symbol) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const known = lookupKnownSPLToken(cluster, symbol as any);
+    if (known) return known.address as string;
+  }
+  return undefined;
 }
