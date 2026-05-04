@@ -21,6 +21,7 @@ import { buildHandlers, BridgeError } from "./faremeter-bridge.ts";
 import { buildReceipt } from "./receipt.ts";
 import type { AuditKeyPair } from "./audit-key.ts";
 import { canonicalize } from "../canonical.ts";
+import { getBalanceForDescriptor, BalanceError } from "./balance.ts";
 
 export class DispatchError extends Error {
   constructor(message: string) {
@@ -34,6 +35,28 @@ export interface DispatchContext {
   auditKey: AuditKeyPair;
   /** Optional fetch override (test seam). */
   fetchImpl?: typeof fetch;
+  /**
+   * Pre-flight balance check policy:
+   *   "off"     — never check balance before signing (fastest)
+   *   "warn"    — log a warning if balance < price_hint, proceed anyway
+   *   "block"   — throw InsufficientBalance if balance < price_hint (default)
+   * Setting price_hint vs. actual settled cost: the seller's 402 challenge
+   * is authoritative on price; this is a hint check.
+   */
+  balancePolicy?: "off" | "warn" | "block";
+}
+
+export class InsufficientBalanceError extends Error {
+  constructor(
+    message: string,
+    public readonly balance: string,
+    public readonly required: string,
+    public readonly currency: string,
+    public readonly network: string,
+  ) {
+    super(message);
+    this.name = "InsufficientBalanceError";
+  }
 }
 
 export async function payForTool(
@@ -58,6 +81,50 @@ export async function payForTool(
       throw new DispatchError(`bridge: ${e.message}`);
     }
     throw e;
+  }
+
+  // 4.5. Pre-flight balance check (skipped for free / delegated paths).
+  const policy = ctx.balancePolicy ?? "block";
+  if (policy !== "off" && bridge.walletEntry && !bridge.free) {
+    const priceHint = descriptor.payment.price_hint;
+    if (priceHint && priceHint !== "dynamic") {
+      try {
+        const bal = await getBalanceForDescriptor(descriptor, bridge.walletEntry);
+        if (bal) {
+          const requiredAmount = parseFloat(priceHint);
+          const haveAmount = parseFloat(bal.formatted);
+          if (
+            !Number.isNaN(requiredAmount) &&
+            !Number.isNaN(haveAmount) &&
+            haveAmount < requiredAmount
+          ) {
+            const msg =
+              `insufficient balance: have ${bal.formatted} ${descriptor.payment.currency ?? ""} on ${bal.network}, ` +
+              `need at least ${priceHint} (per descriptor.payment.price_hint)`;
+            if (policy === "warn") {
+              console.warn(`[pay] ${msg} — proceeding (policy: warn)`);
+            } else {
+              throw new InsufficientBalanceError(
+                msg,
+                bal.formatted,
+                priceHint,
+                descriptor.payment.currency ?? "UNKNOWN",
+                bal.network,
+              );
+            }
+          }
+        }
+      } catch (e) {
+        if (e instanceof InsufficientBalanceError) throw e;
+        if (e instanceof BalanceError) {
+          // Balance lookup failed — log and proceed; seller's 402 is authoritative.
+          console.warn(`[pay] balance pre-flight failed (${e.message}) — proceeding`);
+        } else {
+          // Unexpected: surface to caller.
+          throw e;
+        }
+      }
+    }
   }
 
   // 5. Build invocation.

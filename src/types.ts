@@ -42,6 +42,15 @@ export interface ToolPayment {
   currency?: string;
   /** Hint for budget pre-flight; the seller's 402 challenge is authoritative. */
   price_hint?: string;
+  /**
+   * Token contract / mint address for the asset being paid.
+   *   - EVM: ERC-20 contract address (e.g. USDC mint)
+   *   - Solana: SPL token mint
+   * Required for Solana x402 settlement (the client builds the SPL transfer
+   * up-front, before the 402 round-trip). Optional for EVM where the
+   * payment-evm handler can derive from the 402 challenge.
+   */
+  asset?: string;
   /** Optional: faremeter facilitator URL. Defaults to faremeter's hosted facilitator. */
   facilitator?: string;
   /** byok: env var name to read for the Authorization header. */
