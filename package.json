@@ -4,15 +4,22 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "typecheck": "tsc --noEmit",
     "smoke:dry": "bun run examples/smoke/dry-run.ts",
     "smoke:gen-wallet": "bun run examples/smoke/gen-wallet.ts",
-    "smoke:settle": "bun run examples/smoke/settle.ts"
+    "smoke:settle": "bun run examples/smoke/settle.ts",
+    "smoke:roundtrip": "bun run examples/smoke/types-roundtrip.ts"
   },
   "dependencies": {
     "@faremeter/fetch": "^0.21.0",
     "@faremeter/info": "^0.21.0",
     "@faremeter/payment-evm": "^0.21.0",
+    "@faremeter/payment-solana": "^0.21.0",
     "@faremeter/wallet-evm": "^0.21.0",
     "viem": "^2.48.8"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.3.13",
+    "typescript": "^6.0.3"
   }
 }
