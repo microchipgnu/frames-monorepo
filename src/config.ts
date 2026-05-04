@@ -1,27 +1,21 @@
-// Read ~/.frames/pay/config.yaml and turn it into a runtime config:
-//   { walletRegistry, auditKey, defaultCatalog, manifestPath, lockPath, agent }
+// Read ~/.frames/pay/config.yaml and turn it into a runtime config.
 //
-// File shape:
+// Wallet kinds dispatched via the WALLET_FACTORIES table at the bottom.
+// New providers (agentcash, frames-agentwallet, sponge-wallet, …) slot in
+// by adding a row — pay's bridge / dispatch / MCP layer doesn't change.
 //
-//   agent: claude:opus-4.7
-//   catalog:
-//     default: https://catalog.frames.ag
-//   manifest_path: ./tools.yml          # default
-//   lock_path: ./tools.lock             # default
-//   wallets:
-//     base-sepolia:
-//       kind: evm
-//       label: smoke
-//       private_key: env:PAY_BASE_SEPOLIA_KEY     # or 0x-hex literal
-//       chain:
-//         id: 84532
-//         name: Base Sepolia
+// Today's supported `kind` values:
+//   evm        — local EVM private key (always available; no extra deps)
+//   solana     — local Solana keypair (needs @faremeter/wallet-solana + @solana/web3.js)
+//   crossmint  — Crossmint custodial Solana wallet (needs @faremeter/wallet-crossmint)
+//   ows        — Open Wallet Standard vault, EVM or Solana (needs @faremeter/wallet-ows + @open-wallet-standard/core)
+//
+// Config-shape examples for each are at the bottom of this file.
 
 import { existsSync, readFileSync } from "node:fs";
 import { resolve as pathResolve } from "node:path";
 import { homedir } from "node:os";
 import { parse as parseYaml } from "yaml";
-import { createLocalWallet } from "@faremeter/wallet-evm";
 import { WalletRegistry } from "./wallet/wallet-registry.ts";
 import type { WalletEntry } from "./wallet/wallet-registry.ts";
 import type { AuditKeyPair } from "./wallet/audit-key.ts";
@@ -92,35 +86,26 @@ export async function loadRuntimeConfig(
     if (typeof entryRaw !== "object" || entryRaw === null) {
       throw new ConfigError(`wallets.${network} must be an object`);
     }
-    const e = entryRaw as Record<string, unknown>;
-    const kind = e["kind"];
-    const label = typeof e["label"] === "string" ? e["label"] : "default";
-    if (kind === "evm") {
-      const chainObj = (e["chain"] ?? {}) as Record<string, unknown>;
-      const chainId = chainObj["id"];
-      const chainName = chainObj["name"];
-      if (typeof chainId !== "number" || typeof chainName !== "string") {
-        throw new ConfigError(
-          `wallets.${network}.chain must have numeric id + string name`,
-        );
-      }
-      const pkSpec = e["private_key"];
-      if (typeof pkSpec !== "string") {
-        throw new ConfigError(
-          `wallets.${network}.private_key must be a string (env:VAR or 0x...)`,
-        );
-      }
-      const privateKey = resolvePrivateKey(pkSpec, network);
-      const wallet = await createLocalWallet(
-        { id: chainId, name: chainName },
-        privateKey,
-      );
-      byNetwork[network] = { kind: "evm", wallet, label };
-      continue;
+    const cfg = entryRaw as Record<string, unknown>;
+    const kind = cfg["kind"];
+    if (typeof kind !== "string") {
+      throw new ConfigError(`wallets.${network}.kind must be a string`);
     }
-    throw new ConfigError(
-      `wallets.${network}.kind="${kind}" not supported in v0.0.1 (supported: evm)`,
-    );
+    const factory = WALLET_FACTORIES[kind];
+    if (!factory) {
+      throw new ConfigError(
+        `wallets.${network}.kind="${kind}" not supported. Available: ${Object.keys(WALLET_FACTORIES).join(", ")}`,
+      );
+    }
+    const label = typeof cfg["label"] === "string" ? cfg["label"] : "default";
+    try {
+      byNetwork[network] = await factory(cfg, label, network);
+    } catch (e) {
+      if (e instanceof ConfigError) throw e;
+      throw new ConfigError(
+        `wallets.${network} (${kind}): ${(e as Error).message}`,
+      );
+    }
   }
 
   const registry = new WalletRegistry({ byNetwork, agent });
@@ -137,24 +122,235 @@ export async function loadRuntimeConfig(
   };
 }
 
-function resolvePrivateKey(spec: string, network: string): `0x${string}` {
+// ---------------------------------------------------------------------------
+// Wallet factories — one row per supported `kind`.
+//
+// Each factory:
+//   - dynamically imports its faremeter package (so unused kinds don't bloat install)
+//   - validates the relevant config block
+//   - resolves env:VAR references for secrets
+//   - returns a WalletEntry that the bridge can use
+//
+// To add a new provider (agentcash, frames-agentwallet, sponge-wallet, …):
+//   1. The provider ships an `@<scope>/faremeter-wallet` npm package whose
+//      factory returns the EVM or Solana wallet shape.
+//   2. Add a row here with the dynamic import + validation.
+//   3. Document the config.yaml shape in the example block at the bottom.
+// ---------------------------------------------------------------------------
+
+type WalletFactory = (
+  cfg: Record<string, unknown>,
+  label: string,
+  network: string,
+) => Promise<WalletEntry>;
+
+const WALLET_FACTORIES: Record<string, WalletFactory> = {
+  evm: async (cfg, label) => {
+    const { createLocalWallet } = await loadOptionalPackage<{
+      createLocalWallet: (
+        chain: { id: number; name: string },
+        privateKey: string,
+      ) => Promise<import("@faremeter/wallet-evm").EvmWallet>;
+    }>("@faremeter/wallet-evm");
+    const chain = expectObject(cfg["chain"], "chain");
+    const id = expectNumber(chain["id"], "chain.id");
+    const name = expectString(chain["name"], "chain.name");
+    const pk = resolveSecret(expectString(cfg["private_key"], "private_key"), "private_key");
+    if (!/^0x[0-9a-fA-F]{64}$/.test(pk)) {
+      throw new Error("private_key must be 0x-prefixed 32-byte hex");
+    }
+    const wallet = await createLocalWallet({ id, name }, pk);
+    return { kind: "evm", wallet, label, source: "evm" };
+  },
+
+  solana: async (cfg, label) => {
+    // Dynamic-import shapes intentionally typed `any`: these packages are
+    // optional and may not be installed at typecheck time. Runtime
+    // validation via expectString/expectObject still applies.
+    const sol = (await loadOptionalPackage<{
+      createLocalWallet: (network: string, keypair: unknown) => Promise<unknown>;
+    }>("@faremeter/wallet-solana")) as {
+      createLocalWallet: (network: string, keypair: unknown) => Promise<unknown>;
+    };
+    const web3 = (await loadOptionalPackage<{
+      Keypair: { fromSecretKey: (bytes: Uint8Array) => unknown };
+    }>("@solana/web3.js")) as {
+      Keypair: { fromSecretKey: (bytes: Uint8Array) => unknown };
+    };
+    const network = expectString(cfg["network"], "network");
+    let keypair: unknown;
+    if (typeof cfg["keypair_path"] === "string") {
+      const arr = JSON.parse(
+        readFileSync(cfg["keypair_path"] as string, "utf8"),
+      ) as number[];
+      keypair = web3.Keypair.fromSecretKey(Uint8Array.from(arr));
+    } else if (typeof cfg["secret_key_b58"] === "string") {
+      const bs58 = (await loadOptionalPackage<{
+        default: { decode: (s: string) => Uint8Array };
+      }>("bs58")) as { default: { decode: (s: string) => Uint8Array } };
+      keypair = web3.Keypair.fromSecretKey(
+        bs58.default.decode(cfg["secret_key_b58"] as string),
+      );
+    } else {
+      throw new Error("solana wallet needs keypair_path or secret_key_b58");
+    }
+    const wallet = (await sol.createLocalWallet(network, keypair)) as import(
+      "./wallet/wallet-registry.ts"
+    ).SolanaWalletShape;
+    return { kind: "solana", wallet, label, source: "solana" };
+  },
+
+  crossmint: async (cfg, label) => {
+    const cm = (await loadOptionalPackage<{
+      createCrossmintWallet: (
+        network: string,
+        apiKey: string,
+        walletAddress: string,
+      ) => Promise<unknown>;
+    }>("@faremeter/wallet-crossmint")) as {
+      createCrossmintWallet: (
+        network: string,
+        apiKey: string,
+        walletAddress: string,
+      ) => Promise<unknown>;
+    };
+    const network = expectString(cfg["network"], "network");
+    const apiKey = resolveSecret(
+      expectString(cfg["api_key"], "api_key"),
+      "api_key",
+    );
+    const walletAddress = expectString(cfg["wallet_address"], "wallet_address");
+    const wallet = (await cm.createCrossmintWallet(
+      network,
+      apiKey,
+      walletAddress,
+    )) as import("./wallet/wallet-registry.ts").SolanaWalletShape;
+    return { kind: "solana", wallet, label, source: "crossmint" };
+  },
+
+  ows: async (cfg, label) => {
+    const ows = (await loadOptionalPackage<{
+      createOWSEvmWallet: (chain: { id: number; name: string }, opts: unknown) => unknown;
+      createOWSSolanaWallet: (network: string, opts: unknown) => unknown;
+    }>("@faremeter/wallet-ows")) as {
+      createOWSEvmWallet: (chain: { id: number; name: string }, opts: unknown) => unknown;
+      createOWSSolanaWallet: (network: string, opts: unknown) => unknown;
+    };
+    const walletNameOrId = expectString(cfg["wallet_name"], "wallet_name");
+    const passphrase = resolveSecret(
+      expectString(cfg["passphrase"], "passphrase"),
+      "passphrase",
+    );
+    const vaultPath =
+      typeof cfg["vault_path"] === "string"
+        ? (cfg["vault_path"] as string)
+        : undefined;
+    const opts = vaultPath
+      ? { walletNameOrId, passphrase, vaultPath }
+      : { walletNameOrId, passphrase };
+
+    if (cfg["evm"]) {
+      const evmCfg = expectObject(cfg["evm"], "evm");
+      const chain = expectObject(evmCfg["chain"], "evm.chain");
+      const id = expectNumber(chain["id"], "evm.chain.id");
+      const name = expectString(chain["name"], "evm.chain.name");
+      const wallet = ows.createOWSEvmWallet({ id, name }, opts) as import(
+        "@faremeter/wallet-evm"
+      ).EvmWallet;
+      return { kind: "evm", wallet, label, source: "ows" };
+    }
+    if (cfg["solana"]) {
+      const solCfg = expectObject(cfg["solana"], "solana");
+      const network = expectString(solCfg["network"], "solana.network");
+      const wallet = ows.createOWSSolanaWallet(network, opts) as import(
+        "./wallet/wallet-registry.ts"
+      ).SolanaWalletShape;
+      return { kind: "solana", wallet, label, source: "ows" };
+    }
+    throw new Error("ows wallet needs `evm:` or `solana:` block");
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Helpers
+// ---------------------------------------------------------------------------
+
+function expectObject(v: unknown, name: string): Record<string, unknown> {
+  if (typeof v !== "object" || v === null || Array.isArray(v)) {
+    throw new Error(`${name} must be an object`);
+  }
+  return v as Record<string, unknown>;
+}
+function expectString(v: unknown, name: string): string {
+  if (typeof v !== "string") throw new Error(`${name} must be a string`);
+  return v;
+}
+function expectNumber(v: unknown, name: string): number {
+  if (typeof v !== "number") throw new Error(`${name} must be a number`);
+  return v;
+}
+
+function resolveSecret(spec: string, fieldName: string): string {
   if (spec.startsWith("env:")) {
     const varName = spec.slice("env:".length);
     const v = process.env[varName];
     if (!v) {
-      throw new ConfigError(
-        `wallets.${network}.private_key references env var ${varName} which is not set`,
+      throw new Error(
+        `${fieldName} references env var ${varName} which is not set`,
       );
     }
-    return ensureHex(v, `${network}.private_key (from env ${varName})`);
+    return v;
   }
-  return ensureHex(spec, `${network}.private_key`);
+  return spec;
 }
 
-function ensureHex(s: string, ctx: string): `0x${string}` {
-  const trimmed = s.trim();
-  if (!/^0x[0-9a-fA-F]{64}$/.test(trimmed)) {
-    throw new ConfigError(`${ctx} must be 0x-prefixed 32-byte hex`);
+async function loadOptionalPackage<T>(pkg: string): Promise<T> {
+  try {
+    return (await import(pkg)) as T;
+  } catch (e) {
+    throw new Error(
+      `package "${pkg}" is not installed. Add it with: bun add ${pkg}`,
+    );
   }
-  return trimmed as `0x${string}`;
 }
+
+// ---------------------------------------------------------------------------
+// Config-shape reference for each wallet kind. The walletInitCommand writes
+// `evm`; users wanting other kinds hand-edit ~/.frames/pay/config.yaml.
+//
+//   wallets:
+//     base:
+//       kind: evm
+//       label: prod
+//       private_key: env:PAY_BASE_KEY      # or 0x-hex literal
+//       chain: { id: 8453, name: Base }
+//
+//     base-with-crossmint:
+//       kind: crossmint
+//       label: treasury
+//       network: solana                    # crossmint is Solana-only today
+//       api_key: env:CROSSMINT_API_KEY
+//       wallet_address: <crossmint-wallet-address>
+//
+//     base-with-ows:
+//       kind: ows
+//       label: prod
+//       wallet_name: my-evm-vault          # OWS wallet name or id
+//       passphrase: env:OWS_PASSPHRASE
+//       vault_path: ~/.ows                 # optional, defaults to OWS standard
+//       evm: { chain: { id: 8453, name: Base } }
+//
+//     solana:
+//       kind: ows
+//       label: prod
+//       wallet_name: my-solana-vault
+//       passphrase: env:OWS_PASSPHRASE
+//       solana: { network: solana }
+//
+//     solana-local:
+//       kind: solana
+//       label: dev
+//       network: solana                    # or solana-devnet
+//       keypair_path: ~/.config/solana/id.json    # OR secret_key_b58: ...
+//
+// ---------------------------------------------------------------------------

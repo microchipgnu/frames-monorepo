@@ -8,14 +8,37 @@
 import type { Account } from "viem";
 import type { EvmWallet } from "@faremeter/wallet-evm";
 
+/**
+ * Structural Solana wallet shape — matches what `@faremeter/wallet-solana`,
+ * `@faremeter/wallet-crossmint`, `@faremeter/wallet-ows` (Solana mode), and
+ * `@faremeter/wallet-solana-squads` all produce. Typed structurally so we
+ * don't have to depend on @solana/web3.js or @solana/kit at the registry
+ * level — payment-solana handles the actual signing semantics.
+ */
+export interface SolanaWalletShape {
+  network: string;
+  publicKey: { toBase58(): string };
+  partiallySignTransaction: (tx: unknown) => Promise<unknown>;
+  updateTransaction: (tx: unknown) => Promise<unknown>;
+}
+
 /** Discriminated union — different wallet shapes per chain family. */
 export type WalletEntry =
   | {
       kind: "evm";
       /** faremeter EVM wallet (works with payment-evm/exact). */
       wallet: EvmWallet;
-      /** User-friendly identifier, recorded in receipts as `wallet_id`. */
+      /** Loader-supplied identifier, recorded in receipts as `wallet_id`. */
       label: string;
+      /** Loader-supplied identifier of the source kind (e.g. "evm", "ows", "crossmint"). */
+      source: string;
+    }
+  | {
+      kind: "solana";
+      /** faremeter Solana wallet (works with payment-solana/exact + /charge). */
+      wallet: SolanaWalletShape;
+      label: string;
+      source: string;
     }
   | {
       kind: "tempo";
@@ -24,6 +47,7 @@ export type WalletEntry =
       label: string;
       /** Address in Tempo's hex format. */
       address: `0x${string}`;
+      source: string;
     };
 
 export interface WalletRegistryConfig {
@@ -59,6 +83,7 @@ export class WalletRegistry {
     if (!e) return undefined;
     if (e.kind === "evm") return e.wallet.address;
     if (e.kind === "tempo") return e.address;
+    if (e.kind === "solana") return e.wallet.publicKey.toBase58();
     return undefined;
   }
 
@@ -66,6 +91,8 @@ export class WalletRegistry {
   walletId(network: string): string | undefined {
     const e = this.forNetwork(network);
     if (!e) return undefined;
-    return `${e.kind}:${e.label}`;
+    // Format: <source>:<label> — source captures the loader (ows, crossmint, evm)
+    // so receipts say "ows:my-vault" rather than the chain-family kind.
+    return `${e.source}:${e.label}`;
   }
 }

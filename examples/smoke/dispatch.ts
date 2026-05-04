@@ -47,7 +47,7 @@ console.log(`Wallet:      ${account.address}`);
 const evmWallet = await createLocalWallet(BASE_SEPOLIA, privateKey);
 const registry = new WalletRegistry({
   byNetwork: {
-    "base-sepolia": { kind: "evm", wallet: evmWallet, label: "smoke" },
+    "base-sepolia": { kind: "evm", wallet: evmWallet, label: "smoke", source: "evm" },
   },
   agent: "claude:opus-4.7",
 });
