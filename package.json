@@ -9,7 +9,8 @@
     "smoke:gen-wallet": "bun run examples/smoke/gen-wallet.ts",
     "smoke:settle": "bun run examples/smoke/settle.ts",
     "smoke:roundtrip": "bun run examples/smoke/types-roundtrip.ts",
-    "smoke:manifest": "bun run examples/smoke/manifest-roundtrip.ts"
+    "smoke:manifest": "bun run examples/smoke/manifest-roundtrip.ts",
+    "smoke:dispatch": "bun run examples/smoke/dispatch.ts"
   },
   "dependencies": {
     "@faremeter/fetch": "^0.21.0",
