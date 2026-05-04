@@ -56,6 +56,7 @@
     "smoke:agentwallet": "bun run examples/smoke/agentwallet-wallet.ts",
     "smoke:solana": "bun run examples/smoke/solana-bridge.ts",
     "smoke:balance": "bun run examples/smoke/balance.ts",
+    "smoke:tempo": "bun run examples/smoke/tempo-bridge.ts",
     "mcp": "bun run src/mcp/bin.ts",
     "cli": "bun run src/cli/bin.ts",
     "prepublishOnly": "bun typecheck"

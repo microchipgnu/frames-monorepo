@@ -139,13 +139,17 @@ export function buildHandlers(
     };
   }
 
-  // MPP Tempo charge — uses sibling @frames-ag/payment-tempo package
-  // when present. We dynamic-import to keep it optional.
+  // MPP Tempo charge — sibling @frames-ag/payment-tempo (built standalone
+  // for upstream contribution to faremeter; ships its own MPPPaymentHandler
+  // wrapping mppx). Dynamic-imported so users without Tempo needs don't
+  // pull the package.
   if (proto === "mpp" && entry.kind === "tempo") {
-    throw new BridgeError(
-      `MPP Tempo handler requires @frames-ag/payment-tempo to be installed and ` +
-        `wired into bridge. Not yet integrated in v0.0.1.`,
-    );
+    return {
+      handlers: [],
+      mppHandlers: [createTempoMppHandler(entry)],
+      free: false,
+      walletEntry: entry,
+    };
   }
 
   throw new BridgeError(
@@ -153,6 +157,45 @@ export function buildHandlers(
       `(wallet kind=${entry.kind}). Supported in v0.0.1: x402/x402v2 on EVM + Solana, ` +
       `mpp on Solana (charge intent), delegated wallets, "none" (free path).`,
   );
+}
+
+/**
+ * Build an MPPPaymentHandler for the Tempo charge intent by lazy-loading
+ * @frames-ag/payment-tempo. Throws an actionable error if the package
+ * isn't installed (it's an optionalDependency).
+ *
+ * The returned handler is a Promise-yielding async (per MPPPaymentHandler
+ * contract). We wrap a load-then-delegate so the package import only
+ * happens on the first call, not at bridge construction time.
+ */
+function createTempoMppHandler(
+  entry: Extract<WalletEntry, { kind: "tempo" }>,
+): MPPPaymentHandler {
+  let cached: MPPPaymentHandler | null = null;
+  return async (challenge) => {
+    if (!cached) {
+      try {
+        // String literal hidden in a variable so tsc doesn't try to resolve
+        // types at compile time — package is an optionalDependency.
+        const pkg = "@frames-ag/payment-tempo";
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const mod = (await import(/* @vite-ignore */ pkg)) as {
+          createMPPTempoChargeClient: (args: {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            account: any;
+            mode?: "push" | "pull";
+            clientId?: string;
+          }) => MPPPaymentHandler;
+        };
+        cached = mod.createMPPTempoChargeClient({ account: entry.account });
+      } catch {
+        throw new BridgeError(
+          `MPP Tempo requires @frames-ag/payment-tempo. Install it: bun add @frames-ag/payment-tempo`,
+        );
+      }
+    }
+    return cached(challenge);
+  };
 }
 
 function pickSolanaMint(
