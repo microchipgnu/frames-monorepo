@@ -228,6 +228,56 @@ const WALLET_FACTORIES: Record<string, WalletFactory> = {
     return { kind: "solana", wallet, label, source: "crossmint" };
   },
 
+  agentwallet: async (cfg, label) => {
+    // The hosted agentwallet at frames.ag stores its CLI config at
+    // ~/.agentwallet/config.json:
+    //   { apiToken, baseUrl, username, evmAddress, solanaAddress, email }
+    //
+    // Pay reads that file and stores a "delegated" wallet entry. At dispatch
+    // time, instead of calling faremeter to sign locally, pay POSTs to:
+    //   {baseUrl}/api/wallets/{username}/actions/x402/fetch
+    // which does the entire 402 detection + signing + retry flow server-side,
+    // then returns the final response + settlement metadata. Pay just builds
+    // a receipt from that response.
+    //
+    // Keys never leave agentwallet's servers. Funds are custodied by frames.ag.
+    const home = process.env["HOME"] ?? homedir();
+    const configPath =
+      typeof cfg["config_path"] === "string"
+        ? (cfg["config_path"] as string)
+        : pathResolve(home, ".agentwallet", "config.json");
+
+    if (!existsSync(configPath)) {
+      throw new Error(
+        `agentwallet config not found at ${configPath} — run agentwallet onboarding (visit https://frames.ag) first`,
+      );
+    }
+    const stored = JSON.parse(readFileSync(configPath, "utf8")) as {
+      apiToken?: string;
+      baseUrl?: string;
+      username?: string;
+      evmAddress?: string;
+      solanaAddress?: string;
+    };
+    if (!stored.apiToken) throw new Error(`${configPath} missing apiToken`);
+    if (!stored.baseUrl) throw new Error(`${configPath} missing baseUrl`);
+    if (!stored.username) throw new Error(`${configPath} missing username`);
+
+    return {
+      kind: "delegated",
+      provider: "agentwallet",
+      baseUrl: stored.baseUrl,
+      apiToken: stored.apiToken,
+      username: stored.username,
+      addresses: {
+        ...(stored.evmAddress !== undefined && { evm: stored.evmAddress }),
+        ...(stored.solanaAddress !== undefined && { solana: stored.solanaAddress }),
+      },
+      label,
+      source: "agentwallet",
+    };
+  },
+
   frames: async (cfg, label) => {
     // The "frames agentwallet" is an OWS vault. Frames stores a pointer to it
     // at ~/.frames/secrets/<org>/<protocol>.json:

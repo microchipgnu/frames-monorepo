@@ -17,6 +17,7 @@
     "smoke:agentcash": "bun run examples/smoke/agentcash-wallet.ts",
     "smoke:agentcash-real": "bun run examples/smoke/agentcash-real.ts",
     "smoke:frames": "bun run examples/smoke/frames-wallet.ts",
+    "smoke:agentwallet": "bun run examples/smoke/agentwallet-wallet.ts",
     "mcp": "bun run src/mcp/bin.ts",
     "cli": "bun run src/cli/bin.ts"
   },

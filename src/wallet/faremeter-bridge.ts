@@ -37,7 +37,17 @@ export function buildHandlers(
     return { handlers: [], mppHandlers: [], free: true, walletEntry: null };
   }
 
+  // Delegated path — provider-side signing. Bridge returns no handlers; the
+  // dispatcher will detect the wallet kind and route to the provider's HTTP
+  // endpoint instead of using faremeter's wrap.
   const network = descriptor.payment.network;
+  if (network) {
+    const probe = registry.forNetwork(network);
+    if (probe?.kind === "delegated") {
+      return { handlers: [], mppHandlers: [], free: false, walletEntry: probe };
+    }
+  }
+
   if (!network) {
     throw new BridgeError(
       `descriptor ${descriptor.id} has no payment.network (required for protocol=${proto})`,

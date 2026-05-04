@@ -48,6 +48,26 @@ export type WalletEntry =
       /** Address in Tempo's hex format. */
       address: `0x${string}`;
       source: string;
+    }
+  | {
+      /**
+       * "Delegated" wallets: pay does NOT call faremeter for these. Instead,
+       * pay forwards the entire request to a remote provider's HTTP endpoint
+       * which handles 402 detection + signing + retry server-side, and pay
+       * just records the receipt from the response.
+       *
+       * Used for hosted wallets like agentwallet (frames.ag), where keys
+       * never leave the provider's side.
+       */
+      kind: "delegated";
+      provider: "agentwallet";
+      baseUrl: string;
+      apiToken: string;
+      username: string;
+      /** Provider-reported addresses (for receipts when settlement metadata is sparse). */
+      addresses: { evm?: string; solana?: string };
+      label: string;
+      source: string;
     };
 
 export interface WalletRegistryConfig {
@@ -84,6 +104,11 @@ export class WalletRegistry {
     if (e.kind === "evm") return e.wallet.address;
     if (e.kind === "tempo") return e.address;
     if (e.kind === "solana") return e.wallet.publicKey.toBase58();
+    if (e.kind === "delegated") {
+      // Pick the address matching the network family; the wallet has both.
+      if (network === "solana" || network.startsWith("solana")) return e.addresses.solana;
+      return e.addresses.evm;
+    }
     return undefined;
   }
 
