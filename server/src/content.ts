@@ -18,12 +18,18 @@ export const defaultContent: ContentSource = {
   baseUrl: DEFAULT_BASE,
 };
 
+function authHeaders(source: ContentSource): Record<string, string> {
+  return source.githubToken
+    ? { Authorization: `Bearer ${source.githubToken}` }
+    : {};
+}
+
 export async function fetchDescriptor(
   source: ContentSource,
   id: string,
 ): Promise<{ descriptor: ToolDescriptor; descriptor_id: string } | null> {
   const url = `${source.baseUrl}/tools/${id}.json`;
-  const res = await fetch(url);
+  const res = await fetch(url, { headers: authHeaders(source) });
   if (res.status === 404) return null;
   if (!res.ok) {
     throw new Error(`Failed to fetch ${url}: ${res.status}`);
@@ -37,7 +43,7 @@ export async function fetchIndex(
   source: ContentSource,
 ): Promise<ToolDescriptor[]> {
   const url = `${source.baseUrl}/index.ndjson`;
-  const res = await fetch(url);
+  const res = await fetch(url, { headers: authHeaders(source) });
   if (!res.ok) {
     throw new Error(`Failed to fetch index ${url}: ${res.status}`);
   }
