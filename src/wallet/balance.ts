@@ -63,7 +63,7 @@ async function getEvmBalance(
   descriptor: ToolDescriptor,
   entry: Extract<WalletEntry, { kind: "evm" }>,
 ): Promise<BalanceResult | null> {
-  const asset = descriptor.payment.asset ?? KNOWN_EVM_USDC[descriptor.payment.network ?? ""];
+  const asset = await resolveEvmAsset(descriptor, entry);
   if (!asset) return null;
 
   // Build a viem PublicClient targeting the wallet's chain. We import lazily
@@ -105,15 +105,26 @@ async function getEvmBalance(
   };
 }
 
-// USDC token addresses on common EVM networks (fallback when descriptor.payment.asset is absent).
-const KNOWN_EVM_USDC: Record<string, string> = {
-  ethereum: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-  base: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-  "base-sepolia": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
-  optimism: "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
-  arbitrum: "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
-  polygon: "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
-};
+// Resolve the ERC-20 contract for an EVM descriptor. Prefers descriptor.payment.asset
+// (authoritative per SPEC); falls back to faremeter's `@faremeter/info/evm`
+// known-asset registry keyed by (chain id, currency-symbol).
+async function resolveEvmAsset(
+  descriptor: ToolDescriptor,
+  entry: Extract<WalletEntry, { kind: "evm" }>,
+): Promise<string | undefined> {
+  const explicit = descriptor.payment.asset;
+  if (typeof explicit === "string" && explicit.length > 0) return explicit;
+  const symbol = descriptor.payment.currency;
+  if (!symbol) return undefined;
+  const info = (await import("@faremeter/info/evm")) as {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    lookupKnownAsset: (network: string | number, name: any) => { address: string } | undefined;
+  };
+  // Look up by chain id (numeric); faremeter handles the CAIP-2 normalization.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const known = info.lookupKnownAsset(entry.wallet.chain.id, symbol as any);
+  return known?.address;
+}
 
 function findViemChain(
   chains: Record<string, unknown>,
@@ -140,7 +151,7 @@ async function getSolanaBalance(
   descriptor: ToolDescriptor,
   entry: Extract<WalletEntry, { kind: "solana" }>,
 ): Promise<BalanceResult | null> {
-  const asset = descriptor.payment.asset;
+  const asset = await resolveSolanaAsset(descriptor);
   if (!asset) return null;
 
   // Lazy import to keep startup cheap.
@@ -185,6 +196,36 @@ const SOLANA_RPCS: Record<string, string> = {
   "solana-devnet": "https://api.devnet.solana.com",
   "solana-testnet": "https://api.testnet.solana.com",
 };
+
+// Mirror of faremeter-bridge's resolver — prefer descriptor.payment.asset,
+// then look up via @faremeter/info/solana's known-token registry.
+async function resolveSolanaAsset(
+  descriptor: ToolDescriptor,
+): Promise<string | undefined> {
+  const explicit = descriptor.payment.asset;
+  if (typeof explicit === "string" && explicit.length > 0) return explicit;
+  const network = descriptor.payment.network;
+  const symbol = descriptor.payment.currency;
+  if (!network || !symbol) return undefined;
+  const cluster = networkToSolanaCluster(network);
+  if (!cluster) return undefined;
+  const info = (await import("@faremeter/info/solana")) as {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    lookupKnownSPLToken: (cluster: string, name: any) => { address: string } | undefined;
+  };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const known = info.lookupKnownSPLToken(cluster, symbol as any);
+  return known?.address as string | undefined;
+}
+
+function networkToSolanaCluster(
+  network: string,
+): "mainnet-beta" | "devnet" | "testnet" | undefined {
+  if (network === "solana-mainnet" || network === "solana") return "mainnet-beta";
+  if (network === "solana-devnet") return "devnet";
+  if (network === "solana-testnet") return "testnet";
+  return undefined;
+}
 
 // ---------------------------------------------------------------------------
 // Helpers
