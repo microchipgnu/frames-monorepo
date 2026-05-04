@@ -228,6 +228,86 @@ const WALLET_FACTORIES: Record<string, WalletFactory> = {
     return { kind: "solana", wallet, label, source: "crossmint" };
   },
 
+  frames: async (cfg, label) => {
+    // The "frames agentwallet" is an OWS vault. Frames stores a pointer to it
+    // at ~/.frames/secrets/<org>/<protocol>.json:
+    //   { "provider_name": "open-wallet-standard", "credential": "<wallet-name>" }
+    // This factory reads that pointer and delegates to OWS.
+    //
+    // Same vault used by frames CLI, frames skill, and the websets-impl
+    // gateway. Pay shares spending authority with all of them.
+    const home = process.env["HOME"] ?? homedir();
+    const framesDir =
+      typeof cfg["dir"] === "string"
+        ? (cfg["dir"] as string)
+        : (process.env["FRAMES_HOME"] ?? pathResolve(home, ".frames"));
+    const org = typeof cfg["org"] === "string" ? (cfg["org"] as string) : "org_default";
+    // Either x402 or mpp — both typically point at the same wallet. Default x402.
+    const protocol =
+      typeof cfg["protocol"] === "string" ? (cfg["protocol"] as string) : "x402";
+    const secretsPath = pathResolve(framesDir, "secrets", org, `${protocol}.json`);
+
+    if (!existsSync(secretsPath)) {
+      throw new Error(
+        `frames secrets file not found at ${secretsPath} — has the frames wallet been provisioned?`,
+      );
+    }
+
+    const stored = JSON.parse(readFileSync(secretsPath, "utf8")) as {
+      provider_name?: string;
+      credential?: string;
+    };
+    if (stored.provider_name !== "open-wallet-standard") {
+      throw new Error(
+        `frames wallet provider "${stored.provider_name}" not yet supported (only open-wallet-standard)`,
+      );
+    }
+    if (typeof stored.credential !== "string" || !stored.credential) {
+      throw new Error(`frames secrets file ${secretsPath} missing credential`);
+    }
+    const walletName = stored.credential;
+
+    // Vault path: explicit > FRAMES_OWS_VAULT > $HOME/.ows
+    const vaultPath =
+      typeof cfg["vault_path"] === "string"
+        ? (cfg["vault_path"] as string)
+        : (process.env["FRAMES_OWS_VAULT"] ?? pathResolve(home, ".ows"));
+    // Passphrase MUST come from env (we never want it hand-typed in YAML)
+    const passphraseSpec =
+      typeof cfg["passphrase"] === "string" ? (cfg["passphrase"] as string) : "env:OWS_PASSPHRASE";
+    const passphrase = resolveSecret(passphraseSpec, "passphrase");
+
+    const ows = (await loadOptionalPackage<{
+      createOWSEvmWallet: (chain: { id: number; name: string }, opts: unknown) => unknown;
+      createOWSSolanaWallet: (network: string, opts: unknown) => unknown;
+    }>("@faremeter/wallet-ows")) as {
+      createOWSEvmWallet: (chain: { id: number; name: string }, opts: unknown) => unknown;
+      createOWSSolanaWallet: (network: string, opts: unknown) => unknown;
+    };
+
+    const opts = { walletNameOrId: walletName, passphrase, vaultPath };
+
+    if (cfg["evm"]) {
+      const evmCfg = expectObject(cfg["evm"], "evm");
+      const chain = expectObject(evmCfg["chain"], "evm.chain");
+      const id = expectNumber(chain["id"], "evm.chain.id");
+      const name = expectString(chain["name"], "evm.chain.name");
+      const wallet = ows.createOWSEvmWallet({ id, name }, opts) as import(
+        "@faremeter/wallet-evm"
+      ).EvmWallet;
+      return { kind: "evm", wallet, label, source: `frames:${walletName}` };
+    }
+    if (cfg["solana"]) {
+      const solCfg = expectObject(cfg["solana"], "solana");
+      const network = expectString(solCfg["network"], "solana.network");
+      const wallet = ows.createOWSSolanaWallet(network, opts) as import(
+        "./wallet/wallet-registry.ts"
+      ).SolanaWalletShape;
+      return { kind: "solana", wallet, label, source: `frames:${walletName}` };
+    }
+    throw new Error("frames wallet needs `evm:` or `solana:` block");
+  },
+
   agentcash: async (cfg, label) => {
     // agentcash (npx agentcash@latest) stores a plain private key at
     // ~/.agentcash/wallet.json (EVM) or ~/.agentcash/solana-wallet.json
@@ -465,6 +545,14 @@ async function loadOptionalPackage<T>(pkg: string): Promise<T> {
 //       label: dev
 //       network: solana                    # or solana-devnet
 //       keypair_path: ~/.config/solana/id.json    # OR secret_key_b58: ...
+//
+//     base-via-frames:
+//       kind: frames
+//       label: shared-with-frames
+//       evm: { chain: { id: 8453, name: Base } }
+//       # passphrase: env:OWS_PASSPHRASE   (default; override if your env var differs)
+//       # reads ~/.frames/secrets/org_default/x402.json → OWS wallet name
+//       # then loads via OWS with $HOME/.ows as the vault.
 //
 //     base-via-agentcash:
 //       kind: agentcash
