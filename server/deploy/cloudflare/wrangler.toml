@@ -6,7 +6,7 @@ compatibility_date = "2026-05-01"
 #   wrangler kv:namespace create CATALOG_KV
 [[kv_namespaces]]
 binding = "CATALOG_KV"
-id = "REPLACE_ME_KV_ID"
+id = "c46dbd843c834eabb842028b1bd700e1"
 
 # Set with: wrangler secret put WEBHOOK_SECRET
 # Set with: wrangler secret put GITHUB_TOKEN
