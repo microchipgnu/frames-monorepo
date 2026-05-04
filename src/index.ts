@@ -10,6 +10,7 @@ export type {
   ToolDescriptor,
   ToolInvocation,
   ToolPayment,
+  PaymentOption,
   CatalogListResponse,
   CatalogShowResponse,
   CatalogSource,

@@ -27,6 +27,26 @@ export interface ToolInvocation {
   params_schema?: unknown; // JSON Schema
 }
 
+/**
+ * One settlement option a seller advertises. A descriptor may carry
+ * multiple options (different chains / tokens) — pay picks the first one
+ * it can actually settle. Mirrors the seller's `accepts[]` in their 402.
+ */
+export interface PaymentOption {
+  protocol: string;
+  network: string;
+  currency?: string;
+  asset?: string;
+  /** Optional fixed amount (smallest-unit, raw). Hint for budget pre-flight. */
+  amount?: string;
+  /** Optional human-readable price (e.g. "0.001"). */
+  price_hint?: string;
+  /** Optional seller settlement address. */
+  pay_to?: string;
+  /** Forwarded extras (feePayer, decimals, etc.) — pay does not interpret. */
+  [k: string]: unknown;
+}
+
 export interface ToolPayment {
   /**
    * Wire-format protocol the seller speaks. v0.0.1 supports:
@@ -55,6 +75,14 @@ export interface ToolPayment {
   facilitator?: string;
   /** byok: env var name to read for the Authorization header. */
   byok_env?: string;
+  /**
+   * Alternate settlement options. When present, pay tries to find a
+   * configured wallet + sufficient balance across all options before
+   * settling, rather than only using the top-level (protocol, network,
+   * asset, …) trio. The top-level trio is treated as the canonical first
+   * option for backwards compatibility.
+   */
+  accepts?: PaymentOption[];
   [k: string]: unknown;
 }
 

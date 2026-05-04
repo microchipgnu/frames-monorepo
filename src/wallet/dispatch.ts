@@ -12,6 +12,7 @@ import { wrap } from "@faremeter/fetch";
 import type {
   PayForToolInput,
   PayForToolResult,
+  PaymentOption,
   Receipt,
   ToolDescriptor,
 } from "../types.ts";
@@ -72,64 +73,23 @@ export async function payForTool(
   });
   const descriptor = resolved.descriptor;
 
-  // 4. Pick handler(s) via the bridge.
-  let bridge;
-  try {
-    bridge = buildHandlers(descriptor, ctx.registry);
-  } catch (e) {
-    if (e instanceof BridgeError) {
-      throw new DispatchError(`bridge: ${e.message}`);
-    }
-    throw e;
-  }
-
-  // 4.5. Pre-flight balance check (skipped for free / delegated paths).
+  // 4. Select a viable payment option.
+  // Walks descriptor.payment (canonical) + descriptor.payment.accepts[]
+  // (alternates). For each, checks if a wallet is configured for that
+  // network and (under "block" policy) that the wallet has sufficient
+  // balance for the option's price_hint. Picks the first option that
+  // passes — falls through to throw if none do.
   const policy = ctx.balancePolicy ?? "block";
-  if (policy !== "off" && bridge.walletEntry && !bridge.free) {
-    const priceHint = descriptor.payment.price_hint;
-    if (priceHint && priceHint !== "dynamic") {
-      try {
-        const bal = await getBalanceForDescriptor(descriptor, bridge.walletEntry);
-        if (bal) {
-          const requiredAmount = parseFloat(priceHint);
-          const haveAmount = parseFloat(bal.formatted);
-          if (
-            !Number.isNaN(requiredAmount) &&
-            !Number.isNaN(haveAmount) &&
-            haveAmount < requiredAmount
-          ) {
-            const msg =
-              `insufficient balance: have ${bal.formatted} ${descriptor.payment.currency ?? ""} on ${bal.network}, ` +
-              `need at least ${priceHint} (per descriptor.payment.price_hint)`;
-            if (policy === "warn") {
-              console.warn(`[pay] ${msg} — proceeding (policy: warn)`);
-            } else {
-              throw new InsufficientBalanceError(
-                msg,
-                bal.formatted,
-                priceHint,
-                descriptor.payment.currency ?? "UNKNOWN",
-                bal.network,
-              );
-            }
-          }
-        }
-      } catch (e) {
-        if (e instanceof InsufficientBalanceError) throw e;
-        if (e instanceof BalanceError) {
-          // Balance lookup failed — log and proceed; seller's 402 is authoritative.
-          console.warn(`[pay] balance pre-flight failed (${e.message}) — proceeding`);
-        } else {
-          // Unexpected: surface to caller.
-          throw e;
-        }
-      }
-    }
-  }
+  const selection = await selectPaymentOption(descriptor, ctx.registry, policy);
+  const bridge = selection.bridge;
+  // The "effective" descriptor reflects which option was chosen — used
+  // for receipt fields (wallet_id, network, currency, …).
+  const effectiveDescriptor = selection.effectiveDescriptor;
 
-  // 5. Build invocation.
-  const invocationUrl = descriptor.invocation.url;
-  const method = descriptor.invocation.method.toUpperCase();
+  // 5. Build invocation. Use the effective descriptor (chosen accept) so
+  // receipt metadata reflects what was actually settled.
+  const invocationUrl = effectiveDescriptor.invocation.url;
+  const method = effectiveDescriptor.invocation.method.toUpperCase();
   const requestBody =
     method === "GET" || method === "HEAD" ? undefined : JSON.stringify(input.params);
   const requestHash = await sha256Of(requestBody ?? "");
@@ -143,7 +103,7 @@ export async function payForTool(
     const entry = bridge.walletEntry;
     if (entry.provider === "agentwallet") {
       return await dispatchViaAgentwallet({
-        descriptor,
+        descriptor: effectiveDescriptor,
         descriptor_id: resolved.descriptor_id,
         params: input.params,
         method,
@@ -192,20 +152,20 @@ export async function payForTool(
   // 6. Extract settled payment metadata.
   // The test endpoint at registry.frames.ag returns { ..., payment: { network, payer, txHash } }
   // Sniff that shape; otherwise fall back to descriptor hints.
-  const settled = sniffSettlement(body, descriptor);
+  const settled = sniffSettlement(body, effectiveDescriptor);
 
   // 7. Build receipt.
-  const network = descriptor.payment.network ?? "unknown";
+  const network = effectiveDescriptor.payment.network ?? "unknown";
   const wallet_id = ctx.registry.walletId(network) ?? "unknown:unknown";
   const wallet_address =
     ctx.registry.addressFor(network) ?? settled.payer ?? "unknown";
-  const amount = bridge.free ? "0" : settled.amount ?? descriptor.payment.price_hint ?? "0";
+  const amount = bridge.free ? "0" : settled.amount ?? effectiveDescriptor.payment.price_hint ?? "0";
   const currency = bridge.free
-    ? descriptor.payment.currency ?? "NONE"
-    : descriptor.payment.currency ?? "UNKNOWN";
+    ? effectiveDescriptor.payment.currency ?? "NONE"
+    : effectiveDescriptor.payment.currency ?? "UNKNOWN";
 
   const receiptInput = {
-    descriptor,
+    descriptor: effectiveDescriptor,
     descriptor_id: resolved.descriptor_id,
     ...(input.name !== descriptor.id && resolved.via !== "url"
       ? { tool_local_name: input.name }
@@ -216,7 +176,7 @@ export async function payForTool(
     amount,
     currency,
     network,
-    ...(descriptor.payment.facilitator !== undefined && {
+    ...(effectiveDescriptor.payment.facilitator !== undefined && {
       facilitator_url: descriptor.payment.facilitator,
     }),
     ...(settled.tx_hash !== undefined && { tx_hash: settled.tx_hash }),
@@ -270,6 +230,179 @@ async function sha256Of(text: string): Promise<string> {
 
 // Re-export canonicalize for any caller that wants it (params_hash etc.)
 export { canonicalize };
+
+// ---------------------------------------------------------------------------
+// Multi-option wallet selection
+// ---------------------------------------------------------------------------
+
+interface SelectionAttempt {
+  option: PaymentOption;
+  status:
+    | "selected"
+    | "no_handler"
+    | "no_wallet_for_network"
+    | "insufficient_balance"
+    | "balance_check_failed"
+    | "skipped";
+  detail?: string;
+}
+
+interface SelectionResult {
+  bridge: ReturnType<typeof buildHandlers>;
+  effectiveDescriptor: ToolDescriptor;
+  attempts: SelectionAttempt[];
+  chosen: PaymentOption;
+}
+
+/**
+ * Walk descriptor.payment (canonical option) + descriptor.payment.accepts[]
+ * (alternates). For each option, materialize an effective descriptor with that
+ * option's payment fields, ask the bridge if it can handle the resulting
+ * (protocol, network, kind) combination, run the pre-flight balance check,
+ * and pick the first option that passes.
+ *
+ * Throws DispatchError if no option resolves to a viable wallet+balance pair.
+ */
+async function selectPaymentOption(
+  descriptor: ToolDescriptor,
+  registry: import("./wallet-registry.ts").WalletRegistry,
+  policy: "off" | "warn" | "block",
+): Promise<SelectionResult> {
+  const options: PaymentOption[] = [];
+  // Canonical first.
+  options.push({
+    protocol: descriptor.payment.protocol,
+    ...(descriptor.payment.network !== undefined && { network: descriptor.payment.network }),
+    ...(descriptor.payment.currency !== undefined && { currency: descriptor.payment.currency }),
+    ...(descriptor.payment.asset !== undefined && { asset: descriptor.payment.asset }),
+    ...(descriptor.payment.price_hint !== undefined && { price_hint: descriptor.payment.price_hint }),
+  } as PaymentOption);
+  if (Array.isArray(descriptor.payment.accepts)) {
+    options.push(...descriptor.payment.accepts);
+  }
+
+  const attempts: SelectionAttempt[] = [];
+  for (const option of options) {
+    const effective = applyOption(descriptor, option);
+
+    // Ask the bridge if this option is handleable.
+    let bridge: ReturnType<typeof buildHandlers>;
+    try {
+      bridge = buildHandlers(effective, registry);
+    } catch (e) {
+      if (e instanceof BridgeError) {
+        attempts.push({ option, status: "no_handler", detail: e.message });
+        continue;
+      }
+      throw e;
+    }
+
+    // Free / delegated paths bypass balance check.
+    if (bridge.free || bridge.walletEntry?.kind === "delegated") {
+      attempts.push({ option, status: "selected" });
+      return { bridge, effectiveDescriptor: effective, attempts, chosen: option };
+    }
+
+    if (!bridge.walletEntry) {
+      attempts.push({ option, status: "no_wallet_for_network" });
+      continue;
+    }
+
+    // Pre-flight balance check.
+    if (policy === "off") {
+      attempts.push({ option, status: "selected", detail: "skipped balance check (policy: off)" });
+      return { bridge, effectiveDescriptor: effective, attempts, chosen: option };
+    }
+    const priceHint = effective.payment.price_hint;
+    if (!priceHint || priceHint === "dynamic") {
+      attempts.push({ option, status: "selected", detail: "no price_hint to check" });
+      return { bridge, effectiveDescriptor: effective, attempts, chosen: option };
+    }
+
+    let bal;
+    try {
+      bal = await getBalanceForDescriptor(effective, bridge.walletEntry);
+    } catch (e) {
+      if (e instanceof BalanceError) {
+        // Couldn't read balance — under "block" treat as a soft fail (try next);
+        // under "warn" proceed.
+        if (policy === "warn") {
+          attempts.push({
+            option,
+            status: "selected",
+            detail: `balance check failed (${e.message}) — proceeding (policy: warn)`,
+          });
+          return { bridge, effectiveDescriptor: effective, attempts, chosen: option };
+        }
+        attempts.push({
+          option,
+          status: "balance_check_failed",
+          detail: e.message,
+        });
+        continue;
+      }
+      throw e;
+    }
+    if (!bal) {
+      // No balance shape (delegated or kind without check). Already
+      // covered above for delegated; here we just proceed.
+      attempts.push({ option, status: "selected", detail: "no balance shape" });
+      return { bridge, effectiveDescriptor: effective, attempts, chosen: option };
+    }
+    const required = parseFloat(priceHint);
+    const have = parseFloat(bal.formatted);
+    if (Number.isNaN(required) || Number.isNaN(have) || have >= required) {
+      attempts.push({
+        option,
+        status: "selected",
+        detail: `balance ${bal.formatted} ≥ ${priceHint}`,
+      });
+      return { bridge, effectiveDescriptor: effective, attempts, chosen: option };
+    }
+    if (policy === "warn") {
+      console.warn(
+        `[pay] balance ${bal.formatted} < ${priceHint} on ${bal.network} — proceeding (policy: warn)`,
+      );
+      attempts.push({
+        option,
+        status: "selected",
+        detail: `insufficient balance (${bal.formatted} < ${priceHint}) — warned`,
+      });
+      return { bridge, effectiveDescriptor: effective, attempts, chosen: option };
+    }
+    attempts.push({
+      option,
+      status: "insufficient_balance",
+      detail: `have ${bal.formatted} ${effective.payment.currency ?? ""} on ${bal.network}, need ${priceHint}`,
+    });
+  }
+
+  // Exhausted all options.
+  const summary = attempts
+    .map((a) => `[${a.option.protocol}/${a.option.network}] ${a.status}${a.detail ? ` — ${a.detail}` : ""}`)
+    .join("; ");
+  throw new DispatchError(
+    `no viable wallet across ${options.length} payment option${options.length === 1 ? "" : "s"}: ${summary}`,
+  );
+}
+
+/** Returns a copy of the descriptor with payment fields swapped to `option`. */
+function applyOption(
+  descriptor: ToolDescriptor,
+  option: PaymentOption,
+): ToolDescriptor {
+  return {
+    ...descriptor,
+    payment: {
+      ...descriptor.payment,
+      protocol: option.protocol,
+      ...(option.network !== undefined && { network: option.network }),
+      ...(option.currency !== undefined && { currency: option.currency }),
+      ...(option.asset !== undefined && { asset: option.asset }),
+      ...(option.price_hint !== undefined && { price_hint: option.price_hint }),
+    },
+  };
+}
 
 // ---------------------------------------------------------------------------
 // Delegated dispatch — agentwallet at frames.ag
