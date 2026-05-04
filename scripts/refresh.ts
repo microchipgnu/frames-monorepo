@@ -98,6 +98,17 @@ interface OpenApiSpec {
   paths?: Record<string, OpenApiPath>;
 }
 
+interface PaymentOption {
+  protocol: "x402" | "x402v2" | "mpp";
+  network?: string;
+  currency?: string;
+  asset?: string;
+  price_hint?: string;
+  pay_to?: string;
+  scheme?: string;
+  extra?: Record<string, unknown>;
+}
+
 interface ToolDescriptor {
   pay_protocol: "0.0.1";
   id: string;
@@ -109,11 +120,12 @@ interface ToolDescriptor {
     url: string;
     params_schema?: unknown;
   };
-  payment: {
-    protocol: "x402" | "x402v2" | "mpp";
-    network?: string;
-    currency?: string;
-    price_hint?: string;
+  payment: PaymentOption & {
+    /**
+     * Alternate settlement options. Pay's dispatcher walks these to find a
+     * configured wallet + sufficient balance.
+     */
+    accepts?: PaymentOption[];
   };
   _meta?: {
     catalog: "bazaar" | "mpp" | "frames-registry";
@@ -121,6 +133,7 @@ interface ToolDescriptor {
     upstream_id?: string;
     x402_version?: number;
     service_slug?: string;
+    accept_count?: number;
   };
 }
 
@@ -205,22 +218,56 @@ async function fetchFramesRegistry(): Promise<
   return out;
 }
 
-function bazaarToDescriptor(
-  item: BazaarItem,
-  fetchedAt: string,
-): ToolDescriptor | null {
-  const accept = item.accepts[0];
-  if (!accept) return null;
+function acceptToOption(
+  accept: BazaarItem["accepts"][number],
+  protocol: "x402" | "x402v2",
+): {
+  protocol: "x402" | "x402v2";
+  network: string;
+  currency: string;
+  asset: string;
+  price_hint: string;
+  pay_to?: string;
+  scheme?: string;
+  extra?: Record<string, unknown>;
+} | null {
   if (accept.scheme !== "exact") return null;
-
   const network = normalizeNetwork(accept.network);
   const currency = knownAssetSymbol(accept.asset, network);
   const decimals = (accept.extra?.["decimals"] as number) ?? 6;
   const amount = parseInt(accept.amount, 10) / Math.pow(10, decimals);
+  return {
+    protocol,
+    network,
+    currency,
+    asset: accept.asset,
+    price_hint: amount.toString(),
+    pay_to: accept.payTo,
+    scheme: accept.scheme,
+    ...(accept.extra && { extra: accept.extra }),
+  };
+}
+
+function bazaarToDescriptor(
+  item: BazaarItem,
+  fetchedAt: string,
+): ToolDescriptor | null {
+  if (!item.accepts || item.accepts.length === 0) return null;
+
+  const protocol = item.x402Version === 2 ? "x402v2" : "x402";
+  // Convert every accept; drop ones we can't normalize.
+  const options = item.accepts
+    .map((a) => acceptToOption(a, protocol))
+    .filter((o): o is NonNullable<typeof o> => o !== null);
+  if (options.length === 0) return null;
+
+  // First option is canonical; the rest become accepts[] alternates so pay's
+  // dispatch can pick whichever the user has a wallet+balance for.
+  const [canonical, ...alternates] = options;
+  if (!canonical) return null;
 
   const urlSlug = slugify(item.resource.replace(/^https?:\/\//, ""));
   const id = `bazaar.${urlSlug}`;
-  const protocol = item.x402Version === 2 ? "x402v2" : "x402";
 
   const capabilities: string[] = [];
   const bazaarExt = item.extensions?.["bazaar"] as
@@ -241,16 +288,19 @@ function bazaarToDescriptor(
       url: item.resource,
     },
     payment: {
-      protocol,
-      network,
-      currency,
-      price_hint: amount.toString(),
+      protocol: canonical.protocol,
+      network: canonical.network,
+      currency: canonical.currency,
+      asset: canonical.asset,
+      price_hint: canonical.price_hint,
+      ...(alternates.length > 0 && { accepts: alternates }),
     },
     _meta: {
       catalog: "bazaar",
       fetched_at: fetchedAt,
       upstream_id: item.resource,
       x402_version: item.x402Version,
+      accept_count: item.accepts.length,
     },
   };
 }

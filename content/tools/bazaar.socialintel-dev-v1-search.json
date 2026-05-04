@@ -14,12 +14,54 @@
     "protocol": "x402v2",
     "network": "base",
     "currency": "USDC",
-    "price_hint": "0.5"
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.5",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.5",
+        "pay_to": "Fj2MVB43hefNzf2XtJp9wGYqS6zHyLzewZ2Vbo4EmBvV",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "GVJJ7rdGiXr5xaYbRwRbjfaJL7fmwRygFi1H6aGqDveb"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "polygon",
+        "currency": "USDC",
+        "asset": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "price_hint": "0.5",
+        "pay_to": "0xB1Acd9E0269023546074400A434e703B646AaBBa",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "arbitrum",
+        "currency": "UNKNOWN",
+        "asset": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+        "price_hint": "0.5",
+        "pay_to": "0xB1Acd9E0269023546074400A434e703B646AaBBa",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      }
+    ]
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-03T16:32:02.489Z",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
     "upstream_id": "https://socialintel.dev/v1/search",
-    "x402_version": 2
+    "x402_version": 2,
+    "accept_count": 4
   }
 }

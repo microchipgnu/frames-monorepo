@@ -14,12 +14,64 @@
     "protocol": "x402v2",
     "network": "base",
     "currency": "USDC",
-    "price_hint": "0.5"
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.5",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "base",
+        "currency": "USDC",
+        "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "price_hint": "0.5",
+        "pay_to": "0x0E84dDEdAaE6A779c462C22a59F301EC31B6b808",
+        "scheme": "exact",
+        "extra": {
+          "assetTransferMethod": "permit2",
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "polygon",
+        "currency": "USDC",
+        "asset": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "price_hint": "0.5",
+        "pay_to": "0x0E84dDEdAaE6A779c462C22a59F301EC31B6b808",
+        "scheme": "exact",
+        "extra": {}
+      },
+      {
+        "protocol": "x402v2",
+        "network": "polygon",
+        "currency": "USDC",
+        "asset": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "price_hint": "0.5",
+        "pay_to": "0x0E84dDEdAaE6A779c462C22a59F301EC31B6b808",
+        "scheme": "exact",
+        "extra": {
+          "assetTransferMethod": "permit2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.5",
+        "pay_to": "6XcSfqJHr9vNW2vbiRaMqUYVm7shDgLepca54wUTDPN5",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "D6ZhtNQ5nT9ZnTHUbqXZsTx5MH2rPFiBBggX4hY1WePM"
+        }
+      }
+    ]
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-03T16:32:02.489Z",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
     "upstream_id": "https://x402.ottoai.services/llm-research",
-    "x402_version": 2
+    "x402_version": 2,
+    "accept_count": 5
   }
 }

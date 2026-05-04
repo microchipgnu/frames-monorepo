@@ -14,12 +14,28 @@
     "protocol": "x402v2",
     "network": "base",
     "currency": "USDC",
-    "price_hint": "0.02"
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.02",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.02",
+        "pay_to": "7jw5Bfxo8muSQk9ZGXWvoYQ7newrT52zF8VPXV5ao6fS",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "Hc3sdEAsCGQcpgfivywog9uwtk8gUBUZgsxdME1EJy88"
+        }
+      }
+    ]
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-03T16:32:02.489Z",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
     "upstream_id": "https://convrgent.ai/api/kyh/micro",
-    "x402_version": 2
+    "x402_version": 2,
+    "accept_count": 2
   }
 }

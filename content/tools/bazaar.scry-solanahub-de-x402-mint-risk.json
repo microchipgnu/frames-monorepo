@@ -1,0 +1,41 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.scry-solanahub-de-x402-mint-risk",
+  "title": "[BETA] Solana memecoin holder concentration check via query parameter. Pass `min",
+  "description": "[BETA] Solana memecoin holder concentration check via query parameter. Pass `mint` to get holder-concentration proxy evidence, top-holder sell-pressure context, dev-wallet activity, token age, liquidity coverage, creator-wallet context, creator-network links, checked/unchecked sources, and missing fields before agents escalate to creator-wallet or holder analysis.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://scry.solanahub.de/x402/mint-risk"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.03",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.03",
+        "pay_to": "CTKigV78yuErumvqm7Qor8j1hMK2oxNxdhwpVrAKV85d",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "D6ZhtNQ5nT9ZnTHUbqXZsTx5MH2rPFiBBggX4hY1WePM"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://scry.solanahub.de/x402/mint-risk",
+    "x402_version": 2,
+    "accept_count": 2
+  }
+}

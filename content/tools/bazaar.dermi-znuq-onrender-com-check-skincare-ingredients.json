@@ -23,12 +23,54 @@
     "protocol": "x402v2",
     "network": "stellar:testnet",
     "currency": "UNKNOWN",
-    "price_hint": "0.1"
+    "asset": "CBIELTK6YBZJU5UP2WWQEUCYKLPU6AUNZ2BQ4WWFEIE3USCIHMXQDAMA",
+    "price_hint": "0.1",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "base-sepolia",
+        "currency": "USDC",
+        "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+        "price_hint": "0.01",
+        "pay_to": "0x210F77aC72B5b667a6Cf349a2ce9CaadC0A6C0e6",
+        "scheme": "exact",
+        "extra": {
+          "name": "USDC",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "base",
+        "currency": "USDC",
+        "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "price_hint": "0.01",
+        "pay_to": "0x210F77aC72B5b667a6Cf349a2ce9CaadC0A6C0e6",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "stellar:pubnet",
+        "currency": "UNKNOWN",
+        "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+        "price_hint": "0.1",
+        "pay_to": "GC5JZJYTRWUK2SJP46O54U7FQJXVOY5SRNCZFSCNDLZWZNANGKXTGDMY",
+        "scheme": "exact",
+        "extra": {
+          "areFeesSponsored": true
+        }
+      }
+    ]
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-03T16:32:02.489Z",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
     "upstream_id": "https://dermi-znuq.onrender.com/check-skincare-ingredients",
-    "x402_version": 2
+    "x402_version": 2,
+    "accept_count": 4
   }
 }

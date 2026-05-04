@@ -18,12 +18,55 @@
     "protocol": "x402v2",
     "network": "base",
     "currency": "USDC",
-    "price_hint": "0.03"
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.03",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.03",
+        "pay_to": "BACKWH4RoCFWALyGa7bf4F7w7G3d3q1B3T7G1ACox4o2",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "2wKupLR9q6wXYppw8Gr2NvWxKBUqm4PPJKkQfoxHDBg4"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "eip155:1187947933",
+        "currency": "UNKNOWN",
+        "asset": "0x85889c8c714505E0c94b30fcfcF64fE3Ac8FCb20",
+        "price_hint": "0.03",
+        "pay_to": "0x402c1246842f2CdbC8E0b98A67d7a59aae22b394",
+        "scheme": "exact",
+        "extra": {
+          "name": "Bridged USDC (SKALE Bridge)",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "base",
+        "currency": "UNKNOWN",
+        "asset": "0x558881c4959e9cf961a7E1815FCD6586906babd2",
+        "price_hint": "667888947092718.8",
+        "pay_to": "0x402c1246842f2CdbC8E0b98A67d7a59aae22b394",
+        "scheme": "exact",
+        "extra": {
+          "assetTransferMethod": "permit2",
+          "name": "Silverback",
+          "version": "1"
+        }
+      }
+    ]
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-03T16:32:02.489Z",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
     "upstream_id": "https://x402.silverbackdefi.app/api/v1/arbitrage-scanner",
-    "x402_version": 2
+    "x402_version": 2,
+    "accept_count": 5
   }
 }

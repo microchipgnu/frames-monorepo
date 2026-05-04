@@ -14,12 +14,82 @@
     "protocol": "x402v2",
     "network": "base",
     "currency": "USDC",
-    "price_hint": "0.01"
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "polygon",
+        "currency": "USDC",
+        "asset": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "price_hint": "0.01",
+        "pay_to": "0xf8b2dD46542175AD46e14e6133340E652665F2Ee",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "arbitrum",
+        "currency": "UNKNOWN",
+        "asset": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+        "price_hint": "0.01",
+        "pay_to": "0xf8b2dD46542175AD46e14e6133340E652665F2Ee",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.01",
+        "pay_to": "GgS891nMiEETjBEFw1QQxVcAqsRV34mDYpxh24TrpCiD",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "BENrLoUbndxoNMUS5JXApGMtNykLjFXXixMtpDwDR9SP"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "algorand:wGHE2Pwdvd7S12BL5FaOP20EGYesN73ktiC1qzkkit8=",
+        "currency": "UNKNOWN",
+        "asset": "31566704",
+        "price_hint": "0.01",
+        "pay_to": "5GRGZVUNRF2S4BY2TNRBCUCKUOT3H6BP56ACPCZVGR3ISTTRRSSB2RGJGI",
+        "scheme": "exact",
+        "extra": {
+          "decimals": 6,
+          "feePayer": "ZMFK2OI7ZBD2U27ISERZC4S6LKM6WMFJPZQ4MYNJDZ2VNBNMBA67RA22AA",
+          "genesisHash": "wGHE2Pwdvd7S12BL5FaOP20EGYesN73ktiC1qzkkit8=",
+          "genesisId": "mainnet-v1.0"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "stellar:pubnet",
+        "currency": "UNKNOWN",
+        "asset": "USDC:GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
+        "price_hint": "0.01",
+        "pay_to": "GDYFWCUFLG7MZAITOOVITYDNCLVJXWJ7OASYJAJPPOTONUQRNBCRO2VP",
+        "scheme": "exact",
+        "extra": {
+          "areFeesSponsored": true,
+          "decimals": 7
+        }
+      }
+    ]
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-03T16:32:02.489Z",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
     "upstream_id": "https://api.carbon-cashmere.de/v1/correlation",
-    "x402_version": 2
+    "x402_version": 2,
+    "accept_count": 6
   }
 }

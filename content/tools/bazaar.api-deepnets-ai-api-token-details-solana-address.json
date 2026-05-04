@@ -2,7 +2,7 @@
   "pay_protocol": "0.0.1",
   "id": "bazaar.api-deepnets-ai-api-token-details-solana-address",
   "title": "Full holder breakdown for a token: every detected wallet-funding network with me",
-  "description": "Full holder breakdown for a token: every detected wallet-funding network with member wallets + ownership %, top individual holders, exchange-funded distribution, rugger tags, and lock/stake flags.",
+  "description": "Full holder breakdown for a token: every detected wallet-funding network with member wallets + ownership %, top individual holders, exchange-funded distribution, rugger tags, and lock/stake flags. Pass `analysis` to fetch a historical snapshot.",
   "capabilities": [
     "unspecified"
   ],
@@ -14,12 +14,14 @@
     "protocol": "x402v2",
     "network": "solana-mainnet",
     "currency": "UNKNOWN",
+    "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
     "price_hint": "0.15"
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-03T16:32:02.489Z",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
     "upstream_id": "https://api.deepnets.ai/api/token-details/:solana_address",
-    "x402_version": 2
+    "x402_version": 2,
+    "accept_count": 1
   }
 }

@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-deepnets-ai-api-holder-analysis-solana-address",
+  "title": "Alias of /api/token-details. Full holder breakdown with networks, individual hol",
+  "description": "Alias of /api/token-details. Full holder breakdown with networks, individual holders, and exchange distribution. Pass `analysis` to fetch a historical snapshot.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.deepnets.ai/api/holder-analysis/:solana_address"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "solana-mainnet",
+    "currency": "UNKNOWN",
+    "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "price_hint": "0.15"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://api.deepnets.ai/api/holder-analysis/:solana_address",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

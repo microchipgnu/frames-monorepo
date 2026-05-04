@@ -14,12 +14,56 @@
     "protocol": "x402v2",
     "network": "base",
     "currency": "USDC",
-    "price_hint": "0.08"
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.08",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.08",
+        "pay_to": "GgS891nMiEETjBEFw1QQxVcAqsRV34mDYpxh24TrpCiD",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "BENrLoUbndxoNMUS5JXApGMtNykLjFXXixMtpDwDR9SP"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "algorand:SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI=",
+        "currency": "UNKNOWN",
+        "asset": "10458941",
+        "price_hint": "0.08",
+        "pay_to": "5GRGZVUNRF2S4BY2TNRBCUCKUOT3H6BP56ACPCZVGR3ISTTRRSSB2RGJGI",
+        "scheme": "exact",
+        "extra": {
+          "decimals": 6,
+          "feePayer": "ZMFK2OI7ZBD2U27ISERZC4S6LKM6WMFJPZQ4MYNJDZ2VNBNMBA67RA22AA",
+          "genesisHash": "SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI=",
+          "genesisId": "testnet-v1.0"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "stellar:pubnet",
+        "currency": "UNKNOWN",
+        "asset": "USDC:GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
+        "price_hint": "0.08",
+        "pay_to": "GDYFWCUFLG7MZAITOOVITYDNCLVJXWJ7OASYJAJPPOTONUQRNBCRO2VP",
+        "scheme": "exact",
+        "extra": {
+          "areFeesSponsored": true,
+          "decimals": 7
+        }
+      }
+    ]
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-03T16:32:02.489Z",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
     "upstream_id": "https://api.carbon-cashmere.de/v1/consensus",
-    "x402_version": 2
+    "x402_version": 2,
+    "accept_count": 4
   }
 }

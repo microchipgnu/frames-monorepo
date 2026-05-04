@@ -14,12 +14,34 @@
     "protocol": "x402v2",
     "network": "base",
     "currency": "USDC",
-    "price_hint": "0.02"
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.02",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.02",
+        "pay_to": "6x5ocVNEwuBpi2Gs7z8fo1ptd4TyTf578Aqr2FME99ND",
+        "scheme": "exact",
+        "extra": {
+          "decimals": 6,
+          "features": {
+            "xSettlementAccountSupported": true
+          },
+          "feePayer": "AepWpq3GQwL8CeKMtZyKtKPa7W91Coygh3ropAJapVdU",
+          "recentBlockhash": "8PQYQQjeaWGXwTcMLeo8nuFQTuBNa3P1vsBdehTBw6S5",
+          "tokenProgram": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      }
+    ]
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-03T16:32:02.489Z",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
     "upstream_id": "https://stabletravel.dev/api/google-flights/search",
-    "x402_version": 2
+    "x402_version": 2,
+    "accept_count": 2
   }
 }

@@ -14,12 +14,54 @@
     "protocol": "x402v2",
     "network": "base",
     "currency": "USDC",
-    "price_hint": "0.01"
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "polygon",
+        "currency": "USDC",
+        "asset": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "price_hint": "0.01",
+        "pay_to": "0xbc9FFC87e32BC848280ad4511c4a930AFc5946bD",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "arbitrum",
+        "currency": "UNKNOWN",
+        "asset": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+        "price_hint": "0.01",
+        "pay_to": "0xbc9FFC87e32BC848280ad4511c4a930AFc5946bD",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.01",
+        "pay_to": "DQSu8nx8o4QGoQXfV6cX7dE75ogSNkfNV36UvmAd3q7i",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "BENrLoUbndxoNMUS5JXApGMtNykLjFXXixMtpDwDR9SP"
+        }
+      }
+    ]
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-03T16:32:02.489Z",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
     "upstream_id": "https://ai.azursafe.com/agent/screen-id",
-    "x402_version": 2
+    "x402_version": 2,
+    "accept_count": 4
   }
 }

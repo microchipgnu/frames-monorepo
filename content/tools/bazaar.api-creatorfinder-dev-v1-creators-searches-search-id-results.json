@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-creatorfinder-dev-v1-creators-searches-search-id-results",
+  "title": "CreatorFinder finds creator profiles by segment. Create a free creator search, t",
+  "description": "CreatorFinder finds creator profiles by segment. Create a free creator search, then pay to retrieve accepted creator emails, social profiles, and timestamps.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.creatorfinder.dev/v1/creators/searches/:search_id/results"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://api.creatorfinder.dev/v1/creators/searches/:search_id/results",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

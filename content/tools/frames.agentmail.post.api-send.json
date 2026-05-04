@@ -100,7 +100,7 @@
   },
   "_meta": {
     "catalog": "frames-registry",
-    "fetched_at": "2026-05-03T16:32:02.489Z",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
     "upstream_id": "agentmail:POST:/api/send",
     "service_slug": "agentmail"
   }

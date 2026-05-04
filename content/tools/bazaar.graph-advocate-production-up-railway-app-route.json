@@ -14,12 +14,30 @@
     "protocol": "x402v2",
     "network": "base",
     "currency": "USDC",
-    "price_hint": "0.01"
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "base",
+        "currency": "USDC",
+        "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "price_hint": "0.01",
+        "pay_to": "0x0FF5A6ecef783BBA35463ec2F8403B9B5e9e7C86",
+        "scheme": "exact",
+        "extra": {
+          "assetTransferMethod": "permit2",
+          "name": "USD Coin",
+          "version": "2"
+        }
+      }
+    ]
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-03T16:32:02.489Z",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
     "upstream_id": "https://graph-advocate-production.up.railway.app/route",
-    "x402_version": 2
+    "x402_version": 2,
+    "accept_count": 2
   }
 }

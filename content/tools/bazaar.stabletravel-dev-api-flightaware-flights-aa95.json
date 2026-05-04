@@ -14,12 +14,34 @@
     "protocol": "x402v2",
     "network": "base",
     "currency": "USDC",
-    "price_hint": "0.01"
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.01",
+        "pay_to": "6x5ocVNEwuBpi2Gs7z8fo1ptd4TyTf578Aqr2FME99ND",
+        "scheme": "exact",
+        "extra": {
+          "decimals": 6,
+          "features": {
+            "xSettlementAccountSupported": true
+          },
+          "feePayer": "AepWpq3GQwL8CeKMtZyKtKPa7W91Coygh3ropAJapVdU",
+          "recentBlockhash": "GkzonTyNVp255xLZGvZBfUuKFbHsc9YwaNbc5yiCE8KJ",
+          "tokenProgram": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      }
+    ]
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-03T16:32:02.489Z",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
     "upstream_id": "https://stabletravel.dev/api/flightaware/flights/AA95",
-    "x402_version": 2
+    "x402_version": 2,
+    "accept_count": 2
   }
 }

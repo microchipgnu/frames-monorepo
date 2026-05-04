@@ -14,12 +14,14 @@
     "protocol": "x402v2",
     "network": "base",
     "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
     "price_hint": "0.02"
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-03T16:32:02.489Z",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
     "upstream_id": "https://orbisapi.com/proxy/ai-agent-memory-api-c5cab4/api/memory/clear",
-    "x402_version": 2
+    "x402_version": 2,
+    "accept_count": 1
   }
 }

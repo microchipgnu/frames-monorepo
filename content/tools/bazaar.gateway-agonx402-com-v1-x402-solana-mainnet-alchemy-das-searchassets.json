@@ -14,12 +14,14 @@
     "protocol": "x402v2",
     "network": "solana-mainnet",
     "currency": "UNKNOWN",
+    "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
     "price_hint": "0.01"
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-03T16:32:02.489Z",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
     "upstream_id": "https://gateway.agonx402.com/v1/x402/solana/mainnet/alchemy/das/searchAssets",
-    "x402_version": 2
+    "x402_version": 2,
+    "accept_count": 1
   }
 }

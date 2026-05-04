@@ -14,12 +14,29 @@
     "protocol": "x402v2",
     "network": "solana-mainnet",
     "currency": "UNKNOWN",
-    "price_hint": "0.5"
+    "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "price_hint": "0.5",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "base",
+        "currency": "USDC",
+        "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "price_hint": "0.5",
+        "pay_to": "0x5d6dF6b10C54617dac4Bf9993ad9fA384b7B36d3",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      }
+    ]
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-03T16:32:02.489Z",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
     "upstream_id": "https://api.oatp.cc/tools/token_risk_scan",
-    "x402_version": 2
+    "x402_version": 2,
+    "accept_count": 2
   }
 }

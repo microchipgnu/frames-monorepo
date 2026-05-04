@@ -14,12 +14,41 @@
     "protocol": "x402v2",
     "network": "solana-mainnet",
     "currency": "UNKNOWN",
-    "price_hint": "0.001"
+    "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "price_hint": "0.001",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "base",
+        "currency": "USDC",
+        "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "price_hint": "0.001",
+        "pay_to": "0xCF180e1542B3eD0Dd88F9dCD8dB346D2eeA5588E",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "outputSchema": {
+            "input": {
+              "method": "GET",
+              "queryParams": {
+                "ticker": {
+                  "description": "Stock ticker e.g. AAPL",
+                  "type": "string"
+                }
+              },
+              "type": "http"
+            }
+          },
+          "version": "2"
+        }
+      }
+    ]
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-03T16:32:02.489Z",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
     "upstream_id": "https://jeetscreener.io/api/market/float/AAPL",
-    "x402_version": 2
+    "x402_version": 2,
+    "accept_count": 2
   }
 }
