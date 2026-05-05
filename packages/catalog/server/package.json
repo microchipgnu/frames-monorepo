@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "dev:cloudflare": "wrangler dev --config deploy/cloudflare/wrangler.toml",
-    "deploy:cloudflare": "wrangler deploy --config deploy/cloudflare/wrangler.toml",
+    "dev:cloudflare": "bunx wrangler dev --config deploy/cloudflare/wrangler.toml",
+    "deploy:cloudflare": "bunx wrangler deploy --config deploy/cloudflare/wrangler.toml",
     "dev:vercel": "vercel dev --cwd deploy/vercel"
   },
   "dependencies": {
