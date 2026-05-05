@@ -7,6 +7,16 @@ import { WalletRegistry } from "../../src/wallet/wallet-registry.ts";
 import { buildHandlers, BridgeError } from "../../src/wallet/faremeter-bridge.ts";
 import type { ToolDescriptor } from "../../src/types.ts";
 
+// Convenience: looks up the (first) entry for the descriptor's network and
+// invokes the post-refactor buildHandlers signature. The bridge ignores the
+// entry on the free (proto=none) path, so passing any entry there works.
+function build(d: ToolDescriptor, r: WalletRegistry) {
+  const net = d.payment.network ?? r.networks()[0]!;
+  const e = r.forNetwork(net);
+  if (!e) throw new BridgeError(`no wallet for network "${net}"`);
+  return buildHandlers(d, e);
+}
+
 let exitCode = 0;
 function assert(name: string, ok: boolean, detail?: string) {
   console.log(`  ${ok ? "✓" : "✗"} ${name}${detail ? `  (${detail})` : ""}`);
@@ -65,13 +75,13 @@ const registry = new WalletRegistry({
 });
 
 console.log("Solana x402 (with payment.asset):");
-const r1 = buildHandlers(makeDescriptor(), registry);
+const r1 = build(makeDescriptor(), registry);
 assert("returns 1 handler", r1.handlers.length === 1);
 assert("not free", r1.free === false);
 assert("walletEntry kind=solana", r1.walletEntry?.kind === "solana");
 
 console.log("\nSolana x402 (no payment.asset, falls back to known mint):");
-const r2 = buildHandlers(
+const r2 = build(
   makeDescriptor({
     payment: {
       protocol: "x402",
@@ -87,7 +97,7 @@ assert("falls back to known mint, returns handler", r2.handlers.length === 1);
 
 console.log("\nSolana x402 on unknown network (no asset, no fallback):");
 try {
-  buildHandlers(
+  build(
     makeDescriptor({
       payment: {
         protocol: "x402",
@@ -119,7 +129,7 @@ try {
 }
 
 console.log("\nEVM x402 still works (regression check):");
-const r3 = buildHandlers(
+const r3 = build(
   makeDescriptor({
     payment: {
       protocol: "x402",
@@ -134,7 +144,7 @@ assert("returns 1 handler", r3.handlers.length === 1);
 assert("walletEntry kind=evm", r3.walletEntry?.kind === "evm");
 
 console.log("\nFree path still works:");
-const r4 = buildHandlers(
+const r4 = build(
   makeDescriptor({
     payment: { protocol: "none" },
   }),
@@ -143,7 +153,7 @@ const r4 = buildHandlers(
 assert("free=true, no handlers", r4.free === true && r4.handlers.length === 0);
 
 console.log("\nMPP Solana — SPL token (CASH on mainnet, via faremeter registry):");
-const r5 = buildHandlers(
+const r5 = build(
   makeDescriptor({
     payment: {
       protocol: "mpp",
@@ -170,7 +180,7 @@ assert("standard handlers empty", r5.handlers.length === 0);
 assert("not free", r5.free === false);
 
 console.log("\nMPP Solana — explicit asset (CASH mint):");
-const r6 = buildHandlers(
+const r6 = build(
   makeDescriptor({
     payment: {
       protocol: "mpp",
@@ -195,7 +205,7 @@ const r6 = buildHandlers(
 assert("mppHandlers length=1", r6.mppHandlers.length === 1);
 
 console.log("\nMPP Solana — native SOL:");
-const r7 = buildHandlers(
+const r7 = build(
   makeDescriptor({
     payment: {
       protocol: "mpp",
@@ -220,7 +230,7 @@ assert("native MPP handler returned", r7.mppHandlers.length === 1);
 
 console.log("\nMPP Solana — unknown token, no asset, no fallback:");
 try {
-  buildHandlers(
+  build(
     makeDescriptor({
       payment: {
         protocol: "mpp",

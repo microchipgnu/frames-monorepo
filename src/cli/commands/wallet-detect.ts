@@ -45,9 +45,9 @@ To wire one in: copy the YAML snippet under "Suggested config:" into
     }
     console.log();
   }
-  console.log("Suggested configs (only ONE wallet per network — pick which one is");
-  console.log("canonical for that chain, then copy that block into ~/.frames/pay/config.yaml");
-  console.log("under `wallets:`):");
+  console.log("Suggested configs (you can stack multiple wallets per network — pay");
+  console.log("tries them in declaration order and falls through on failure. Or copy a");
+  console.log("single block into ~/.frames/pay/config.yaml under `wallets:`):");
   console.log();
   for (const d of detections) {
     if (d.yamlSnippet) {

@@ -29,7 +29,7 @@ export const DEFAULT_CONFIG_PATH = pathResolve(
   "pay",
   "config.yaml",
 );
-export const DEFAULT_CATALOG_URL = "https://catalog.frames.ag";
+export const DEFAULT_CATALOG_URL = "https://catalog.microchipgnu.workers.dev";
 
 export interface RuntimeConfig {
   registry: WalletRegistry;
@@ -80,31 +80,77 @@ export async function loadRuntimeConfig(
       ? (obj["lock_path"] as string)
       : "./tools.lock";
 
+  // wallets:
+  //   <network>:                       # single (legacy)
+  //     kind: evm
+  //     ...
+  //   <network>:                       # list (multi-wallet, fallback order)
+  //     - kind: agentcash
+  //       ...
+  //     - kind: agentwallet
+  //       ...
   const wallets = (obj["wallets"] ?? {}) as Record<string, unknown>;
-  const byNetwork: Record<string, WalletEntry> = {};
+  const byNetwork: Record<string, WalletEntry[]> = {};
   for (const [network, entryRaw] of Object.entries(wallets)) {
-    if (typeof entryRaw !== "object" || entryRaw === null) {
-      throw new ConfigError(`wallets.${network} must be an object`);
+    const list: Record<string, unknown>[] = Array.isArray(entryRaw)
+      ? entryRaw.map((item, idx) => {
+          if (typeof item !== "object" || item === null || Array.isArray(item)) {
+            throw new ConfigError(`wallets.${network}[${idx}] must be an object`);
+          }
+          return item as Record<string, unknown>;
+        })
+      : (() => {
+          if (typeof entryRaw !== "object" || entryRaw === null) {
+            throw new ConfigError(`wallets.${network} must be an object or list of objects`);
+          }
+          return [entryRaw as Record<string, unknown>];
+        })();
+
+    const entries: WalletEntry[] = [];
+    for (let i = 0; i < list.length; i++) {
+      const cfg = list[i]!;
+      const kind = cfg["kind"];
+      if (typeof kind !== "string") {
+        // kind missing is a hard error — config is malformed.
+        throw new ConfigError(
+          list.length === 1
+            ? `wallets.${network}.kind must be a string`
+            : `wallets.${network}[${i}].kind must be a string`,
+        );
+      }
+      const factory = WALLET_FACTORIES[kind];
+      if (!factory) {
+        throw new ConfigError(
+          `wallets.${network}${list.length > 1 ? `[${i}]` : ""}.kind="${kind}" not supported. Available: ${Object.keys(WALLET_FACTORIES).join(", ")}`,
+        );
+      }
+      const label = typeof cfg["label"] === "string" ? cfg["label"] : "default";
+      try {
+        entries.push(await factory(cfg, label, network));
+      } catch (e) {
+        // Per-entry tolerance: if loading one wallet in a list fails (e.g.,
+        // a missing env var, a missing OWS vault file), skip it with a stderr
+        // warning rather than killing the whole config load. This lets
+        // `wallet status` still work and lets dispatch fall through to the
+        // next entry on the same network.
+        //
+        // Single-entry network is still fatal — there's nothing to fall
+        // back to — and a missing-package error indicates the user installed
+        // pay wrong, so we surface that.
+        if (e instanceof ConfigError) throw e;
+        if (list.length === 1) {
+          throw new ConfigError(
+            `wallets.${network} (${kind}): ${(e as Error).message}`,
+          );
+        }
+        const loc = `wallets.${network}[${i}]`;
+        process.stderr.write(
+          `pay: skipping ${loc} (${kind}): ${(e as Error).message}\n`,
+        );
+      }
     }
-    const cfg = entryRaw as Record<string, unknown>;
-    const kind = cfg["kind"];
-    if (typeof kind !== "string") {
-      throw new ConfigError(`wallets.${network}.kind must be a string`);
-    }
-    const factory = WALLET_FACTORIES[kind];
-    if (!factory) {
-      throw new ConfigError(
-        `wallets.${network}.kind="${kind}" not supported. Available: ${Object.keys(WALLET_FACTORIES).join(", ")}`,
-      );
-    }
-    const label = typeof cfg["label"] === "string" ? cfg["label"] : "default";
-    try {
-      byNetwork[network] = await factory(cfg, label, network);
-    } catch (e) {
-      if (e instanceof ConfigError) throw e;
-      throw new ConfigError(
-        `wallets.${network} (${kind}): ${(e as Error).message}`,
-      );
+    if (entries.length > 0) {
+      byNetwork[network] = entries;
     }
   }
 

@@ -11,9 +11,20 @@
 //   pay install / pay update / pay outdated
 //   pay catalog list/show
 //   pay receipts list
+import { readFileSync } from "node:fs";
+import { resolve as pathResolve } from "node:path";
 import { walletInitCommand } from "./commands/wallet-init.ts";
 import { walletStatusCommand } from "./commands/wallet-status.ts";
 import { walletDetectCommand } from "./commands/wallet-detect.ts";
+
+const PKG_VERSION = (() => {
+  try {
+    const pkgPath = pathResolve(import.meta.dir, "..", "..", "package.json");
+    return JSON.parse(readFileSync(pkgPath, "utf8")).version as string;
+  } catch {
+    return "unknown";
+  }
+})();
 
 async function main(): Promise<void> {
   const argv = process.argv.slice(2);
@@ -23,6 +34,11 @@ async function main(): Promise<void> {
 
   if (!cmd || cmd === "--help" || cmd === "-h" || cmd === "help") {
     printRoot();
+    return;
+  }
+
+  if (cmd === "--version" || cmd === "-v" || cmd === "version") {
+    console.log(PKG_VERSION);
     return;
   }
 
@@ -45,7 +61,7 @@ async function main(): Promise<void> {
 }
 
 function printRoot() {
-  console.log(`pay v0.0.2 — buyer-side runtime for paid agent tool calls
+  console.log(`pay v${PKG_VERSION} — buyer-side runtime for paid agent tool calls
 
 Usage:
   pay wallet detect        — find existing wallets in this environment

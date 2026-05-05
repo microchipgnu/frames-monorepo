@@ -14,7 +14,7 @@ import { lookupKnownSPLToken } from "@faremeter/info/solana";
 import type { PaymentHandler } from "@faremeter/types/client";
 import type { MPPPaymentHandler } from "@faremeter/types/mpp";
 import type { ToolDescriptor } from "../types.ts";
-import type { WalletEntry, WalletRegistry } from "./wallet-registry.ts";
+import type { WalletEntry } from "./wallet-registry.ts";
 
 // Map pay's normalized network names → faremeter's Solana cluster names.
 function networkToSolanaCluster(
@@ -42,13 +42,22 @@ export interface BridgeOutput {
   walletEntry: WalletEntry | null;
 }
 
+/**
+ * Build faremeter handlers for a (descriptor, entry) pair. The caller has
+ * already chosen which wallet entry to try — this just maps that choice
+ * onto the right faremeter handler factory based on protocol + entry kind.
+ *
+ * Pure function: same inputs → same output, no registry lookups, no
+ * balance checks. Selection logic lives in dispatch.selectPaymentOption.
+ */
 export function buildHandlers(
   descriptor: ToolDescriptor,
-  registry: WalletRegistry,
+  entry: WalletEntry,
 ): BridgeOutput {
   const proto = descriptor.payment.protocol;
 
-  // Free path — no payment, but pay still does dispatch + audit.
+  // Free path — no payment, but pay still does dispatch + audit. The entry
+  // arg is ignored on this path; selectPaymentOption passes a placeholder.
   if (proto === "none") {
     return { handlers: [], mppHandlers: [], free: true, walletEntry: null };
   }
@@ -56,24 +65,14 @@ export function buildHandlers(
   // Delegated path — provider-side signing. Bridge returns no handlers; the
   // dispatcher will detect the wallet kind and route to the provider's HTTP
   // endpoint instead of using faremeter's wrap.
-  const network = descriptor.payment.network;
-  if (network) {
-    const probe = registry.forNetwork(network);
-    if (probe?.kind === "delegated") {
-      return { handlers: [], mppHandlers: [], free: false, walletEntry: probe };
-    }
+  if (entry.kind === "delegated") {
+    return { handlers: [], mppHandlers: [], free: false, walletEntry: entry };
   }
 
+  const network = descriptor.payment.network;
   if (!network) {
     throw new BridgeError(
       `descriptor ${descriptor.id} has no payment.network (required for protocol=${proto})`,
-    );
-  }
-  const entry = registry.forNetwork(network);
-  if (!entry) {
-    throw new BridgeError(
-      `no wallet configured for network "${network}" (required by ${descriptor.id}). ` +
-        `Configured networks: [${registry.networks().join(", ")}]`,
     );
   }
 
@@ -154,7 +153,7 @@ export function buildHandlers(
 
   throw new BridgeError(
     `no handler for protocol=${proto} on network=${network} ` +
-      `(wallet kind=${entry.kind}). Supported in v0.0.1: x402/x402v2 on EVM + Solana, ` +
+      `(wallet kind=${entry.kind}). Supported: x402/x402v2 on EVM + Solana, ` +
       `mpp on Solana (charge intent), delegated wallets, "none" (free path).`,
   );
 }

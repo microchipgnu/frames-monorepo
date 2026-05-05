@@ -1,6 +1,7 @@
 // `pay wallet status` — print the same view the MCP wallet_status tool returns.
 
 import { loadRuntimeConfig } from "../../config.ts";
+import { addressOf, walletIdOf } from "../../wallet/wallet-registry.ts";
 
 export async function walletStatusCommand(args: string[]): Promise<void> {
   if (args.includes("--help") || args.includes("-h")) {
@@ -17,14 +18,28 @@ export async function walletStatusCommand(args: string[]): Promise<void> {
   console.log(`lock:         ${config.lockPath}`);
   console.log();
   const networks = config.registry.networks();
-  console.log(`wallets (${networks.length}):`);
-  if (networks.length === 0) {
+  // Total wallet count = sum of entries across networks.
+  const total = networks.reduce(
+    (sum, n) => sum + config.registry.entriesFor(n).length,
+    0,
+  );
+  console.log(`wallets (${total}):`);
+  if (total === 0) {
     console.log(`  (none — run \`pay wallet init\`)`);
   } else {
     for (const network of networks) {
-      console.log(
-        `  ${network}  ${config.registry.walletId(network)}  ${config.registry.addressFor(network)}`,
-      );
+      const entries = config.registry.entriesFor(network);
+      if (entries.length === 1) {
+        const e = entries[0]!;
+        console.log(`  ${network}  ${walletIdOf(e)}  ${addressOf(e, network) ?? ""}`);
+      } else {
+        console.log(`  ${network}  (${entries.length} wallets, fallback order):`);
+        for (let i = 0; i < entries.length; i++) {
+          const e = entries[i]!;
+          const marker = i === 0 ? "→" : " ";
+          console.log(`    ${marker} ${walletIdOf(e)}  ${addressOf(e, network) ?? ""}`);
+        }
+      }
     }
   }
   console.log();

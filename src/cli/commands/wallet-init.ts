@@ -161,7 +161,7 @@ export async function walletInitCommand(args: string[]): Promise<void> {
   // 3. Write config.yaml
   const config = {
     agent: parsed.agent,
-    catalog: { default: "https://catalog.frames.ag" },
+    catalog: { default: "https://catalog.microchipgnu.workers.dev" },
     manifest_path: "./tools.yml",
     lock_path: "./tools.lock",
     wallets: {
@@ -201,7 +201,7 @@ export async function walletInitCommand(args: string[]): Promise<void> {
   console.log(`      "command": "bun", "args": ["run", "<path-to-pay>/src/mcp/bin.ts"])`);
   console.log();
   console.log(`  3. In a project directory, add tools and start paying:`);
-  console.log(`       pay add https://catalog.frames.ag/tools/frames.test.post.api-echo --as test`);
+  console.log(`       pay add https://catalog.microchipgnu.workers.dev/tools/frames.test.post.api-echo --as test`);
   console.log(`       pay tool test --params '{"data":"hello"}'`);
   console.log();
   if (!preset.testnet) {
@@ -255,26 +255,17 @@ async function initFromDetected(parsed: ParsedArgs): Promise<void> {
 
   let chosen: Detection[];
   if (parsed.auto) {
-    // Only ONE wallet per network — first detection wins. Probe order
-    // (in detect.ts) is the implicit priority: agentwallet > agentcash >
-    // frames > ows > solana-cli > env vars.
-    const claimed = new Set<string>();
-    chosen = [];
-    for (const d of detections) {
-      const novel = d.networks.filter((n) => !claimed.has(n));
-      if (novel.length === 0) {
-        console.log(
-          `  ↷ skipping ${d.label} — networks (${d.networks.join(", ")}) already claimed`,
-        );
-        continue;
-      }
-      // If d covers networks that overlap with an earlier detection, only
-      // include the snippet portion for the novel networks. For simplicity
-      // we accept the full snippet when at least one network is novel; in
-      // practice this rarely matters since most detections are for one or two
-      // networks and the priority order picks a good default.
-      novel.forEach((n) => claimed.add(n));
-      chosen.push(d);
+    // Take EVERY detection that has structured entries. Multiple wallets
+    // per network are stacked into the list form — dispatch tries them
+    // in declaration order and falls through on failure. Probe order
+    // (in detect.ts) is the implicit priority for the first-tried wallet:
+    // agentwallet > agentcash > frames > ows > solana-cli > env vars.
+    chosen = detections.filter((d) => d.entries.length > 0);
+    const skipped = detections.filter((d) => d.entries.length === 0);
+    for (const d of skipped) {
+      console.log(
+        `  ↷ skipping ${d.label} — needs hand-config (no auto-emittable entries)`,
+      );
     }
   } else if (parsed.use) {
     const match = detections.filter((d) => d.kind === parsed.use);
@@ -301,28 +292,58 @@ async function initFromDetected(parsed: ParsedArgs): Promise<void> {
   const auditKey = await loadOrCreateAuditKey();
   console.log(`  audit key: ed25519 ${auditKey.publicKeyHex.slice(0, 16)}…`);
 
-  // Build YAML by concatenating snippets under wallets:
-  // (We don't try to parse the user's stanza — yamlSnippet is the source of truth.)
-  const head = `agent: ${parsed.agent}
-catalog:
-  default: https://catalog.frames.ag
-manifest_path: ./tools.yml
-lock_path: ./tools.lock
-wallets:
-`;
-  const body = chosen.map((d) => d.yamlSnippet).filter((s) => s.length > 0).join("\n");
-
-  // Preserve catalog override if present in existing config
-  let finalDoc = head + body + "\n";
-  if (existingDoc && typeof existingDoc["catalog"] === "object") {
-    // Re-emit with original catalog block — leave for now; merging YAML
-    // safely is tricky and out of scope for v0 detection UX.
+  // Group entries by network — multiple detections covering the same
+  // network become a list under that network, in detection order.
+  const grouped: Record<string, Record<string, unknown>[]> = {};
+  for (const d of chosen) {
+    for (const { network, config } of d.entries) {
+      if (!grouped[network]) grouped[network] = [];
+      grouped[network]!.push(config);
+    }
   }
+
+  // Preserve the catalog default from existing config if present, else use
+  // the package default. Same for agent and the path settings.
+  const existingCatalog =
+    existingDoc && typeof existingDoc["catalog"] === "object"
+      ? (existingDoc["catalog"] as Record<string, unknown>)
+      : { default: "https://catalog.microchipgnu.workers.dev" };
+
+  // Emit each network as a list when it has 2+ entries, else inline single
+  // (back-compat with hand-rolled configs and easier to read for the common case).
+  const walletsOut: Record<string, unknown> = {};
+  for (const network of Object.keys(grouped)) {
+    const list = grouped[network]!;
+    walletsOut[network] = list.length === 1 ? list[0] : list;
+  }
+
+  const finalDoc = yamlStringify({
+    agent: parsed.agent,
+    catalog: existingCatalog,
+    manifest_path: "./tools.yml",
+    lock_path: "./tools.lock",
+    wallets: walletsOut,
+  });
 
   mkdirSync(dirname(configPath), { recursive: true });
   writeFileSync(configPath, finalDoc);
   chmodSync(configPath, 0o600);
   console.log(`  wrote ${configPath} (mode 0600)`);
+
+  // Summarize what was written so the user knows fallback order at a glance.
+  console.log();
+  for (const network of Object.keys(grouped)) {
+    const list = grouped[network]!;
+    if (list.length === 1) {
+      console.log(`  ${network}: ${list[0]!["kind"]} (${list[0]!["label"]})`);
+    } else {
+      console.log(`  ${network}: ${list.length} wallets, fallback order:`);
+      for (let i = 0; i < list.length; i++) {
+        const marker = i === 0 ? "→" : " ";
+        console.log(`    ${marker} ${list[i]!["kind"]} (${list[i]!["label"]})`);
+      }
+    }
+  }
 
   // Reminders for kinds that need extra setup
   console.log();

@@ -49,7 +49,7 @@ const registry = new WalletRegistry({
 });
 
 console.log("Bridge construction (Tempo MPP):");
-const r = buildHandlers(descriptor, registry);
+const r = buildHandlers(descriptor, registry.forNetwork("tempo")!);
 assert("returns 1 mppHandler", r.mppHandlers.length === 1);
 assert("standard handlers empty", r.handlers.length === 0);
 assert("not free", r.free === false);

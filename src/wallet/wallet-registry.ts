@@ -4,6 +4,11 @@
 // faremeter-shaped wallet objects the user configured (OWS vault, local
 // EVM key, Crossmint, Squads, future remote-signer, etc.) keyed by the
 // network string we'll see in descriptor.payment.network.
+//
+// Multiple wallets per network are supported: dispatch tries them in
+// declaration order and falls through to the next on failure (no balance,
+// signing error, etc.). This mirrors the descriptor-side accepts[]
+// fallback walked by selectPaymentOption.
 
 import type { Account } from "viem";
 import type { EvmWallet } from "@faremeter/wallet-evm";
@@ -71,53 +76,92 @@ export type WalletEntry =
     };
 
 export interface WalletRegistryConfig {
-  /** Per-network wallet entries. Multiple networks can map to the same wallet object. */
-  byNetwork: Record<string, WalletEntry>;
+  /**
+   * Per-network wallet entries. Each network maps to an ordered list of
+   * candidates; dispatch tries them in order, falling through to the next
+   * on failure. A single-entry list is the common case.
+   *
+   * For backwards compatibility with the older single-wallet shape, callers
+   * may pass a single WalletEntry instead of a list — it's normalized to a
+   * one-item array in the constructor.
+   */
+  byNetwork: Record<string, WalletEntry | WalletEntry[]>;
   /** Default agent identifier baked into receipts (e.g. "claude:opus-4.7"). */
   agent?: string;
 }
 
-export class WalletRegistry {
-  constructor(private readonly config: WalletRegistryConfig) {}
+/**
+ * Format an entry's `wallet_id` for receipts: "<source>:<label>".
+ * source captures the loader (ows, crossmint, agentcash, …) so receipts
+ * say "ows:my-vault" rather than the chain-family kind.
+ */
+export function walletIdOf(entry: WalletEntry): string {
+  return `${entry.source}:${entry.label}`;
+}
 
+/**
+ * The on-chain address for an entry on the given network. Used for
+ * receipt fields and for `wallet status` output.
+ */
+export function addressOf(
+  entry: WalletEntry,
+  network: string,
+): string | undefined {
+  if (entry.kind === "evm") return entry.wallet.address;
+  if (entry.kind === "tempo") return entry.address;
+  if (entry.kind === "solana") return entry.wallet.publicKey.toBase58();
+  if (entry.kind === "delegated") {
+    if (network === "solana" || network.startsWith("solana")) return entry.addresses.solana;
+    return entry.addresses.evm;
+  }
+  return undefined;
+}
+
+export class WalletRegistry {
+  private readonly byNetwork: Record<string, WalletEntry[]>;
+  private readonly agentName: string;
+
+  constructor(config: WalletRegistryConfig) {
+    this.byNetwork = {};
+    for (const [network, entryOrList] of Object.entries(config.byNetwork)) {
+      this.byNetwork[network] = Array.isArray(entryOrList)
+        ? entryOrList
+        : [entryOrList];
+    }
+    this.agentName = config.agent ?? "system:cli";
+  }
+
+  /** All entries for a network, in declaration order. */
+  entriesFor(network: string): WalletEntry[] {
+    return this.byNetwork[network] ?? [];
+  }
+
+  /**
+   * Primary (first) entry for a network. Kept for back-compat callers that
+   * don't yet care about multi-wallet fallback (e.g., single-wallet display).
+   */
   forNetwork(network: string): WalletEntry | undefined {
-    return this.config.byNetwork[network];
+    return this.byNetwork[network]?.[0];
   }
 
   agent(): string {
-    return this.config.agent ?? "system:cli";
+    return this.agentName;
   }
 
   /** All configured network identifiers. */
   networks(): string[] {
-    return Object.keys(this.config.byNetwork);
+    return Object.keys(this.byNetwork);
   }
 
-  /**
-   * Return the faremeter wallet's on-chain address for receipts.
-   * For EVM wallets this is the 0x-prefixed checksummed address;
-   * for Tempo it's the account address.
-   */
+  /** Address of the primary entry for a network. */
   addressFor(network: string): string | undefined {
     const e = this.forNetwork(network);
-    if (!e) return undefined;
-    if (e.kind === "evm") return e.wallet.address;
-    if (e.kind === "tempo") return e.address;
-    if (e.kind === "solana") return e.wallet.publicKey.toBase58();
-    if (e.kind === "delegated") {
-      // Pick the address matching the network family; the wallet has both.
-      if (network === "solana" || network.startsWith("solana")) return e.addresses.solana;
-      return e.addresses.evm;
-    }
-    return undefined;
+    return e ? addressOf(e, network) : undefined;
   }
 
-  /** Human-readable label, used to construct wallet_id in receipts. */
+  /** wallet_id of the primary entry for a network. */
   walletId(network: string): string | undefined {
     const e = this.forNetwork(network);
-    if (!e) return undefined;
-    // Format: <source>:<label> — source captures the loader (ows, crossmint, evm)
-    // so receipts say "ows:my-vault" rather than the chain-family kind.
-    return `${e.source}:${e.label}`;
+    return e ? walletIdOf(e) : undefined;
   }
 }

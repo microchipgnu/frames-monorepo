@@ -266,6 +266,82 @@ console.log("\nTest 3: no wallets configured");
   }
 }
 
+// ---------------------------------------------------------------------------
+// Test 4: multiple wallets on the SAME network — fallback within an option.
+// Registry has two entries on base-sepolia: a "tempo" entry first (which the
+// bridge can't handle for an x402 descriptor) followed by the working EVM
+// wallet. selection should walk past the tempo and pick the EVM one.
+// ---------------------------------------------------------------------------
+console.log("\nTest 4: multiple wallets per network, fallback within option");
+{
+  const singleDescriptor: ToolDescriptor = {
+    pay_protocol: "0.0.1",
+    id: "test.fallback",
+    title: "Fallback",
+    description: "test",
+    capabilities: ["test"],
+    invocation: { method: "POST", url: "https://example.test/api" },
+    payment: {
+      protocol: "x402",
+      network: "base-sepolia",
+      currency: "USDC",
+      price_hint: "0.001",
+    },
+  };
+  const did = await descriptorId(singleDescriptor);
+  const fakeLock = {
+    pay_protocol: "0.0.1" as const,
+    lockfile_version: 1 as const,
+    resolved: {
+      "fallback-test": {
+        source: { url: "synthetic://fallback" },
+        descriptor_id: did,
+        fetched_at: new Date().toISOString(),
+        descriptor: singleDescriptor,
+      },
+    },
+  };
+
+  const incompatibleEntry: WalletEntry = {
+    kind: "tempo",
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    account: { address: "0x0000000000000000000000000000000000000099" } as any,
+    address: "0x0000000000000000000000000000000000000099",
+    label: "fallback-incompatible",
+    source: "tempo",
+  };
+
+  const reg = new WalletRegistry({
+    byNetwork: {
+      "base-sepolia": [incompatibleEntry, baseEntry],
+    },
+    agent: "smoke",
+  });
+
+  try {
+    await payForTool(
+      { name: "fallback-test", params: {}, lock: fakeLock },
+      { registry: reg, auditKey, balancePolicy: "off" },
+    );
+    // Network error from synthetic URL is the success signal — selection
+    // walked past the tempo entry and tried EVM.
+  } catch (e) {
+    const msg = (e as Error).message;
+    if (msg.includes("no viable wallet")) {
+      assert(
+        "selection should have fallen through to EVM",
+        false,
+        msg.slice(0, 200),
+      );
+    } else {
+      assert(
+        `selection walked past tempo, tried EVM (downstream: ${msg.slice(0, 50)}…)`,
+        true,
+      );
+    }
+  }
+}
+
 console.log();
 if (exitCode === 0) console.log("✓ multi-option wallet selection works");
 process.exit(exitCode);

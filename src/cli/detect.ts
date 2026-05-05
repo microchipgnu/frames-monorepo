@@ -30,6 +30,12 @@ export interface Detection {
   address?: string;
   /** Suggested YAML stanza to add to wallets:. Multiple networks possible. */
   yamlSnippet: string;
+  /**
+   * Structured per-network entries. Used by `wallet init --auto` to write
+   * config.yaml in the multi-wallet list form (one network → many entries).
+   * yamlSnippet is for human display only.
+   */
+  entries: Array<{ network: string; config: Record<string, unknown> }>;
   /** The network keys this entry would register under (for `--auto` to dedupe). */
   networks: string[];
 }
@@ -73,6 +79,7 @@ function detectAgentwallet(): Detection | null {
     if (!cfg.apiToken || !cfg.username) return null;
     const networks: string[] = [];
     const stanzas: string[] = [];
+    const entries: Detection["entries"] = [];
     if (cfg.evmAddress) {
       networks.push("base");
       stanzas.push(
@@ -80,6 +87,10 @@ function detectAgentwallet(): Detection | null {
     kind: agentwallet
     label: my-agentwallet`,
       );
+      entries.push({
+        network: "base",
+        config: { kind: "agentwallet", label: "my-agentwallet" },
+      });
     }
     if (cfg.solanaAddress) {
       networks.push("solana-mainnet");
@@ -88,6 +99,10 @@ function detectAgentwallet(): Detection | null {
     kind: agentwallet
     label: my-agentwallet`,
       );
+      entries.push({
+        network: "solana-mainnet",
+        config: { kind: "agentwallet", label: "my-agentwallet" },
+      });
     }
     return {
       kind: "agentwallet",
@@ -95,6 +110,7 @@ function detectAgentwallet(): Detection | null {
       source: path,
       address: cfg.evmAddress ?? cfg.solanaAddress,
       yamlSnippet: stanzas.join("\n"),
+      entries,
       networks,
     };
   } catch {
@@ -131,6 +147,7 @@ function detectAgentcash(): Detection | null {
 
   const networks: string[] = [];
   const stanzas: string[] = [];
+  const entries: Detection["entries"] = [];
   if (hasEvm && evmAddr) {
     networks.push("base");
     stanzas.push(
@@ -139,6 +156,14 @@ function detectAgentcash(): Detection | null {
     label: my-agentcash
     evm: { chain: { id: 8453, name: Base } }`,
     );
+    entries.push({
+      network: "base",
+      config: {
+        kind: "agentcash",
+        label: "my-agentcash",
+        evm: { chain: { id: 8453, name: "Base" } },
+      },
+    });
   }
   if (hasSol && solAddr) {
     networks.push("solana-mainnet");
@@ -148,6 +173,14 @@ function detectAgentcash(): Detection | null {
     label: my-agentcash
     solana: { network: solana }`,
     );
+    entries.push({
+      network: "solana-mainnet",
+      config: {
+        kind: "agentcash",
+        label: "my-agentcash",
+        solana: { network: "solana" },
+      },
+    });
   }
 
   return {
@@ -156,6 +189,7 @@ function detectAgentcash(): Detection | null {
     source: dir,
     address: evmAddr ?? solAddr,
     yamlSnippet: stanzas.join("\n"),
+    entries,
     networks,
   };
 }
@@ -186,6 +220,16 @@ function detectFrames(): Detection | null {
     label: frames-shared
     evm: { chain: { id: 8453, name: Base } }
     # passphrase: env:OWS_PASSPHRASE`,
+      entries: [
+        {
+          network: "base",
+          config: {
+            kind: "frames",
+            label: "frames-shared",
+            evm: { chain: { id: 8453, name: "Base" } },
+          },
+        },
+      ],
       networks: ["base"],
     };
   } catch {
@@ -214,6 +258,9 @@ function detectOws(): Detection | null {
     wallet_name: <the wallet name in your vault>
     passphrase: env:OWS_PASSPHRASE
     evm: { chain: { id: 8453, name: Base } }`,
+    // OWS detection is informational — we don't know the wallet name yet,
+    // so we can't write a valid config. --auto skips this kind.
+    entries: [],
     networks: [],
   };
 }
@@ -234,6 +281,17 @@ function detectSolanaCli(): Detection | null {
     label: solana-cli
     network: solana
     keypair_path: ${path}`,
+    entries: [
+      {
+        network: "solana-mainnet",
+        config: {
+          kind: "solana",
+          label: "solana-cli",
+          network: "solana",
+          keypair_path: path,
+        },
+      },
+    ],
     networks: ["solana-mainnet"],
   };
 }
@@ -255,6 +313,17 @@ function detectEvmEnv(): Detection | null {
     label: env-key
     private_key: env:X402_PRIVATE_KEY
     chain: { id: 8453, name: Base }`,
+    entries: [
+      {
+        network: "base",
+        config: {
+          kind: "evm",
+          label: "env-key",
+          private_key: "env:X402_PRIVATE_KEY",
+          chain: { id: 8453, name: "Base" },
+        },
+      },
+    ],
     networks: ["base"],
   };
 }
@@ -271,6 +340,17 @@ function detectSolanaEnv(): Detection | null {
     label: env-key
     network: solana
     secret_key_b58: env:X402_SOLANA_PRIVATE_KEY`,
+    entries: [
+      {
+        network: "solana-mainnet",
+        config: {
+          kind: "solana",
+          label: "env-key",
+          network: "solana",
+          secret_key_b58: "env:X402_SOLANA_PRIVATE_KEY",
+        },
+      },
+    ],
     networks: ["solana-mainnet"],
   };
 }
