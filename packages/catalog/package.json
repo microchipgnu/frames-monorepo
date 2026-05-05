@@ -1,1 +1,16 @@
-{}
+{
+  "name": "@frames-ag/catalog",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Hosted tool catalog publisher. Mirrors x402 Bazaar, MPP directory, and frames-registry into pay v0.0.1 ToolDescriptors. Deploys via Cloudflare Workers / Vercel.",
+  "type": "module",
+  "scripts": {
+    "refresh": "bun run scripts/refresh.ts",
+    "refresh:bazaar": "bun run scripts/refresh.ts --source bazaar",
+    "refresh:mpp": "bun run scripts/refresh.ts --source mpp",
+    "refresh:frames": "bun run scripts/refresh.ts --source frames",
+    "deploy:cloudflare": "cd server && bun run deploy:cloudflare",
+    "deploy:vercel": "cd server && bun run deploy:vercel",
+    "typecheck": "cd server && bun run typecheck"
+  }
+}

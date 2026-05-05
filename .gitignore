@@ -5,7 +5,6 @@ dist/
 .env.local
 
 # Bun
-bun.lock
 .bun/
 
 # Editor

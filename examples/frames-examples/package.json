@@ -1,0 +1,12 @@
+{
+  "name": "@frames-ag/frames-examples",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Reference monorepo example: 9 live datasets maintained by daily ticks via the frames + pay + catalog stack.",
+  "type": "module",
+  "scripts": {
+    "tick:layoffs": "bunx -y @frames-ag/frame tick datasets/layoffs-2026",
+    "tick:ai-models": "bunx -y @frames-ag/frame tick datasets/ai-models",
+    "query": "bunx -y @frames-ag/frame query"
+  }
+}
