@@ -190,6 +190,12 @@ export class Frame {
   // 2a. set_facts — bulk variant: multiple facts on one entity sharing a source.
   // The common pattern (one page → N fields) gets one MCP round-trip instead of N.
   // Atomic: either every fact lands, or none do.
+  //
+  // Per-fact `excerpt` overrides the batch source.excerpt for that field — so
+  // each field can carry the quote that actually substantiates *its* value
+  // rather than one stamped excerpt for the whole batch. Pass `excerpt: ""`
+  // to suppress the batch excerpt for fields it doesn't substantiate (e.g.
+  // timestamps).
   setFacts(input: {
     entity_id: string;
     source: Source;
@@ -198,6 +204,7 @@ export class Frame {
       value: unknown;
       confidence?: number;
       observed_at?: string;
+      excerpt?: string;
     }>;
   }): { fact_ids: string[] } {
     const release = this.acquireLock();
@@ -253,7 +260,7 @@ export class Frame {
             entity_id: input.entity_id,
             field: f.field,
             value: f.value,
-            source,
+            source: sourceForFact(source, f.excerpt),
             ...(f.confidence !== undefined ? { confidence: f.confidence } : {}),
             ...(f.observed_at ? { observed_at: f.observed_at } : {}),
           },
@@ -281,6 +288,7 @@ export class Frame {
       value: unknown;
       confidence?: number;
       observed_at?: string;
+      excerpt?: string;
     }>;
   }): { entity_id: string; fact_ids: string[] } {
     const release = this.acquireLock();
@@ -350,7 +358,7 @@ export class Frame {
             entity_id,
             field: f.field,
             value: f.value,
-            source,
+            source: sourceForFact(source, f.excerpt),
             ...(f.confidence !== undefined ? { confidence: f.confidence } : {}),
             ...(f.observed_at ? { observed_at: f.observed_at } : {}),
           },
@@ -753,6 +761,19 @@ export class Frame {
       this.schema(),
     );
   }
+}
+
+// Per-fact excerpt override for batch writes. `undefined` inherits the batch
+// source as-is; an explicit string (including "") replaces the excerpt for
+// just that fact. Empty string is meaningful — it lets a caller suppress the
+// batch excerpt on fields the quote doesn't substantiate (e.g. timestamps).
+function sourceForFact(batch: Source, excerpt: string | undefined): Source {
+  if (excerpt === undefined) return batch;
+  if (excerpt === "") {
+    const { excerpt: _drop, ...rest } = batch;
+    return rest;
+  }
+  return { ...batch, excerpt };
 }
 
 function rowFromDb(r: {

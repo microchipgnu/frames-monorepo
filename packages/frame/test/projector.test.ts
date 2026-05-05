@@ -270,6 +270,28 @@ describe("projector", () => {
     expect(row.sources?.founded_year?.url).toBe(SOURCE.url);
   });
 
+  // Regression: a single batch source.excerpt used to be stamped onto every
+  // fact, so all fields surfaced the same quote regardless of what it
+  // substantiated. Per-fact excerpt now overrides; empty string drops it.
+  test("per-fact excerpt overrides batch source.excerpt", () => {
+    const dir = fresh("perfact-excerpt");
+    const frame = new Frame(dir);
+    frame.addEntityWithFacts({
+      entity_id: "acme",
+      source: { ...SOURCE, excerpt: "default batch quote" },
+      facts: [
+        { field: "name", value: "Acme", excerpt: "called Acme on the about page" },
+        { field: "founded_year", value: 2024 }, // inherits batch excerpt
+        { field: "hq_country", value: "Portugal", excerpt: "" }, // suppress
+      ],
+    });
+    const r = frame.query({ mode: "all", include_sources: true });
+    const sources = r.rows[0]!.sources!;
+    expect(sources.name?.excerpt).toBe("called Acme on the about page");
+    expect(sources.founded_year?.excerpt).toBe("default batch quote");
+    expect(sources.hq_country?.excerpt).toBeUndefined();
+  });
+
   test("all_sources view returns primary + corroborating evidence in one query", () => {
     const dir = fresh("allsrc");
     const frame = new Frame(dir);

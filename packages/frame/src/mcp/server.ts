@@ -64,7 +64,7 @@ const TOOLS = [
   {
     name: "set_facts",
     description:
-      "Bulk-set multiple facts on one entity sharing a single source. Use when you've read a page and want to extract N fields from it — one call instead of N. Atomic: either every fact lands or none do.",
+      "Bulk-set multiple facts on one entity sharing a single source. Use when you've read a page and want to extract N fields from it — one call instead of N. Atomic: either every fact lands or none do. Per-fact `excerpt` overrides the batch source.excerpt for that field; pass an empty string to suppress the batch excerpt on fields the quote doesn't substantiate (e.g. timestamps).",
     inputSchema: {
       type: "object",
       properties: {
@@ -89,6 +89,11 @@ const TOOLS = [
               value: {},
               confidence: { type: "number", minimum: 0, maximum: 1 },
               observed_at: { type: "string" },
+              excerpt: {
+                type: "string",
+                description:
+                  "Optional. Overrides batch source.excerpt for this fact. Empty string suppresses the batch excerpt for fields it doesn't substantiate.",
+              },
             },
             required: ["field", "value"],
           },
@@ -101,7 +106,7 @@ const TOOLS = [
   {
     name: "add_entity_with_facts",
     description:
-      "Combine entity creation and bulk fact-set in one call. Highest-throughput for the common pattern: one page read → one entity with N fields. Returns entity_id and all fact_ids.",
+      "Combine entity creation and bulk fact-set in one call. Highest-throughput for the common pattern: one page read → one entity with N fields. Returns entity_id and all fact_ids. Per-fact `excerpt` overrides the batch source.excerpt for that field; pass an empty string to suppress the batch excerpt on fields the quote doesn't substantiate.",
     inputSchema: {
       type: "object",
       properties: {
@@ -129,6 +134,11 @@ const TOOLS = [
               value: {},
               confidence: { type: "number", minimum: 0, maximum: 1 },
               observed_at: { type: "string" },
+              excerpt: {
+                type: "string",
+                description:
+                  "Optional. Overrides batch source.excerpt for this fact. Empty string suppresses the batch excerpt for fields it doesn't substantiate.",
+              },
             },
             required: ["field", "value"],
           },
