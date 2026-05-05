@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orionkr-xyz-v1-token-risk",
+  "title": "Token risk API for autonomous trading agents. Use before swaps to detect Base to",
+  "description": "Token risk API for autonomous trading agents. Use before swaps to detect Base token risk, rug risk, liquidity risk, fake liquidity, and unsafe memecoin entries.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orionkr.xyz/v1/token-risk"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "upstream_id": "https://orionkr.xyz/v1/token-risk",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

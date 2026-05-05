@@ -2,7 +2,7 @@
   "pay_protocol": "0.0.1",
   "id": "bazaar.www-iris-ai-dev-api-v1-campaigns",
   "title": "Create a multi-channel outreach campaign that automatically discovers contacts, ",
-  "description": "Create a multi-channel outreach campaign that automatically discovers contacts, generates personalized messages with AI, and sends them across email, Twitter DM, Instagram DM, and LinkedIn. One credit (~$2.25) covers contact discovery, message drafting, and delivery for one campaign.",
+  "description": "Create a multi-channel outreach campaign that automatically discovers contacts, generates personalized messages with AI, and sends them across email, Twitter DM, and Instagram DM. One credit (~$2.25) covers contact discovery, message drafting, and delivery for one campaign.",
   "capabilities": [
     "unspecified"
   ],
@@ -19,7 +19,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "fetched_at": "2026-05-05T19:44:53.315Z",
     "upstream_id": "https://www.iris-ai.dev/api/v1/campaigns",
     "x402_version": 2,
     "accept_count": 1

@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orionkr-xyz-v1-base-sell-tax-check",
+  "title": "Ultra-low-cost sell tax check for Base memecoin agents. Detect high tax, abnorma",
+  "description": "Ultra-low-cost sell tax check for Base memecoin agents. Detect high tax, abnormal transfer restrictions, honeypot-style exits, and unsafe execution before swaps.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orionkr.xyz/v1/base/sell-tax-check"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "upstream_id": "https://orionkr.xyz/v1/base/sell-tax-check",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

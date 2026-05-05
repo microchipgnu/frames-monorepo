@@ -2,7 +2,7 @@
   "pay_protocol": "0.0.1",
   "id": "bazaar.api-strale-io-x402-prompt-optimize",
   "title": "Analyze and improve a prompt. Returns improved version with changes and reasonin",
-  "description": "Analyze and improve a prompt. Returns improved version with changes and reasoning, clarity score comparison, and techniques applied. SQS: 83/100.",
+  "description": "Analyze and improve a prompt. Returns improved version with changes and reasoning, clarity score comparison, and techniques applied.",
   "capabilities": [
     "unspecified"
   ],
@@ -19,7 +19,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "fetched_at": "2026-05-05T19:44:53.315Z",
     "upstream_id": "https://api.strale.io/x402/prompt-optimize",
     "x402_version": 1,
     "accept_count": 1

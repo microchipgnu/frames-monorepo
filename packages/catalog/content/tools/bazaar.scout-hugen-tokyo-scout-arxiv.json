@@ -1,0 +1,43 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.scout-hugen-tokyo-scout-arxiv",
+  "title": "Search ArXiv for academic papers and preprints in AI, machine learning, CS, and ",
+  "description": "Search ArXiv for academic papers and preprints in AI, machine learning, CS, and mathematics. AI agent API for scientific research. Accepts USDC payments on Base and Solana",
+  "capabilities": [
+    "multi-source",
+    "x402",
+    "structured-json"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://scout.hugen.tokyo/scout/arxiv"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.01",
+        "pay_to": "4du4AfkjJEwch2zk3shkPJVZfyJHNDnNjEWC6AboaS5Z",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "BENrLoUbndxoNMUS5JXApGMtNykLjFXXixMtpDwDR9SP"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "upstream_id": "https://scout.hugen.tokyo/scout/arxiv",
+    "x402_version": 2,
+    "accept_count": 2
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.infopunks-x402-adapter-cdp-staging-onrender-com-v1-resolve-trust",
+  "title": "Infopunks Trust Layer resolves real-time trust scores and routing decisions for ",
+  "description": "Infopunks Trust Layer resolves real-time trust scores and routing decisions for AI agents, executors, wallets, and services. It returns trust_score, policy status, route decision, evidence freshness, and machine-readable risk context.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://infopunks-x402-adapter-cdp-staging.onrender.com/v1/resolve-trust"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7c32D4f71b54bdA02913",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "upstream_id": "https://infopunks-x402-adapter-cdp-staging.onrender.com/v1/resolve-trust",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

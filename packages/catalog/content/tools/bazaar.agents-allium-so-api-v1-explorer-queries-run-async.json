@@ -23,13 +23,13 @@
         "currency": "UNKNOWN",
         "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
         "price_hint": "0.01",
-        "pay_to": "DHWSkdudBNAaXX3ySDzeR8zvoagy3PKVBuu3m2TEacxq",
+        "pay_to": "3zCRbvnaoYfJJNJ3tnofK8dgpWPmYN8Zr6JquFXDR4ge",
         "scheme": "exact",
         "extra": {
-          "feePayer": "D6ZhtNQ5nT9ZnTHUbqXZsTx5MH2rPFiBBggX4hY1WePM",
+          "feePayer": "Hc3sdEAsCGQcpgfivywog9uwtk8gUBUZgsxdME1EJy88",
           "name": "USDC",
           "stripe_mode": "custody",
-          "stripe_payment_intent_id": "pi_3TTFYJIfpVe57BNU12uhuGJ8",
+          "stripe_payment_intent_id": "pi_3TToqDIfpVe57BNU0sRLuEHX",
           "version": "2"
         }
       }
@@ -37,7 +37,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "fetched_at": "2026-05-05T19:44:53.315Z",
     "upstream_id": "https://agents.allium.so/api/v1/explorer/queries/run-async",
     "x402_version": 2,
     "accept_count": 2

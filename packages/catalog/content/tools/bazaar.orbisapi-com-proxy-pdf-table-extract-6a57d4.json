@@ -1,0 +1,41 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-pdf-table-extract-6a57d4",
+  "title": "Extract tabular data from PDF files as structured JSON",
+  "description": "Extract tabular data from PDF files as structured JSON",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/pdf-table-extract-6a57d4"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.005",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.005",
+        "pay_to": "GX6SKV6NahzGAocGs1uiAjFATUsdeEqT4dsEjwU6UrUE",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "GX6SKV6NahzGAocGs1uiAjFATUsdeEqT4dsEjwU6UrUE"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "upstream_id": "https://orbisapi.com/proxy/pdf-table-extract-6a57d4",
+    "x402_version": 2,
+    "accept_count": 2
+  }
+}

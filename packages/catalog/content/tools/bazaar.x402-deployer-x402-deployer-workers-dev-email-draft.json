@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-deployer-x402-deployer-workers-dev-email-draft",
+  "title": "AI email writer / cold outreach / follow-up generator. Subject + body + salutati",
+  "description": "AI email writer / cold outreach / follow-up generator. Subject + body + salutation + sign-off. 7 tones × 10 email types (cold_outreach, follow_up, decline, reply, internal_update, thank_you, intro, request, apology, general). Length controls.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402-deployer.x402-deployer.workers.dev/email-draft"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "upstream_id": "https://x402-deployer.x402-deployer.workers.dev/email-draft",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

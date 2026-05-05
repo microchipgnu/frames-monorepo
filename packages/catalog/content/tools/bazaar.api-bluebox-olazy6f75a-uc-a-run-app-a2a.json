@@ -1,8 +1,8 @@
 {
   "pay_protocol": "0.0.1",
   "id": "bazaar.api-bluebox-olazy6f75a-uc-a-run-app-a2a",
-  "title": "Send a prompt to a Bluebox agent and receive the reply.",
-  "description": "Send a prompt to a Bluebox agent and receive the reply.",
+  "title": "Read Bluebox agent metadata.",
+  "description": "Read Bluebox agent metadata.",
   "capabilities": [
     "unspecified"
   ],
@@ -15,15 +15,71 @@
     "network": "base",
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-    "price_hint": "0.02",
+    "price_hint": "0.01",
     "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.01",
+        "pay_to": "7uQNJoSTfsqJkwjrjJWmPXBaVGW3rfm4g1kB9pTjibhe",
+        "scheme": "exact",
+        "extra": {
+          "features": {
+            "xSettlementAccountSupported": true
+          },
+          "feePayer": "AepWpq3GQwL8CeKMtZyKtKPa7W91Coygh3ropAJapVdU",
+          "name": "USDC",
+          "version": "2"
+        }
+      },
       {
         "protocol": "x402v2",
         "network": "eip155:4217",
         "currency": "UNKNOWN",
         "asset": "0x20c000000000000000000000b9537d11c60e8b50",
-        "price_hint": "0.02",
+        "price_hint": "0.01",
         "pay_to": "0xFE970B585C609440Bb56667a9eff56c9D02C8A62",
+        "scheme": "exact",
+        "extra": {
+          "name": "USDC",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "stellar:pubnet",
+        "currency": "UNKNOWN",
+        "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+        "price_hint": "0.1",
+        "pay_to": "GBQ2I733U7RYSH6ZSADFP336ZGT56F453U3QUINWL5OFWPLT2YWZJOB7",
+        "scheme": "exact",
+        "extra": {
+          "name": "USDC",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "eip155:143",
+        "currency": "UNKNOWN",
+        "asset": "0x754704Bc059F8C67012fEd69BC8A327a5aafb603",
+        "price_hint": "0.01",
+        "pay_to": "0xC3Abe3674F3959A6c07d1a7ffFA27cBC57697F15",
+        "scheme": "exact",
+        "extra": {
+          "name": "USDC",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "eip155:480",
+        "currency": "UNKNOWN",
+        "asset": "0x79A02482A880bCE3F13e09Da970dC34db4CD24d1",
+        "price_hint": "0.01",
+        "pay_to": "0x5eA5F2423bDDe9BFfF71A55E77A80De0D86Da151",
         "scheme": "exact",
         "extra": {
           "name": "USDC",
@@ -34,9 +90,9 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "fetched_at": "2026-05-05T19:44:53.315Z",
     "upstream_id": "https://api-bluebox-olazy6f75a-uc.a.run.app/a2a",
     "x402_version": 2,
-    "accept_count": 2
+    "accept_count": 6
   }
 }

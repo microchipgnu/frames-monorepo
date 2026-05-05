@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orionkr-xyz-v1-base-holder-concentration",
+  "title": "Ultra-low-cost holder concentration risk check for Base tokens. Finds whale conc",
+  "description": "Ultra-low-cost holder concentration risk check for Base tokens. Finds whale concentration, top-holder sell pressure, supply centralization, and memecoin dump risk before buys.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orionkr.xyz/v1/base/holder-concentration"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "upstream_id": "https://orionkr.xyz/v1/base/holder-concentration",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

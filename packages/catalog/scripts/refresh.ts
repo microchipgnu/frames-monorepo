@@ -53,10 +53,25 @@ interface MppService {
   description: string;
   categories?: string[];
   tags?: string[];
+  /**
+   * Service-level declaration of accepted networks + assets.
+   * Shape (live as of 2026-05): { tempo: { intents: ["charge"], assets: ["0x..."] } }
+   * Each endpoint's payment.method picks which one applies.
+   */
+  methods?: Record<
+    string,
+    { intents?: string[]; assets?: string[] }
+  >;
   endpoints: Array<{
     method: string;
     path: string;
     description?: string;
+    /**
+     * Endpoint-level payment metadata. The `method` field names the network
+     * (e.g. "tempo") — pay's wallet-registry uses this to select the wallet
+     * for settlement. Earlier versions of this normalizer dropped `method`;
+     * see Gap 2 in the monorepo memory.
+     */
     payment?: {
       intent?: string;
       method?: string;
@@ -400,6 +415,16 @@ function mppToDescriptors(
         ? (parseInt(ep.payment.amount, 10) / Math.pow(10, decimals)).toString()
         : undefined;
 
+    // Network = the endpoint's payment.method (e.g. "tempo"). Without it,
+    // pay's dispatcher can't pick a wallet — Gap 2 fix.
+    const network = ep.payment.method;
+    // Asset = the currency address. Pull from service.methods[network].assets[0]
+    // if the endpoint's currency happens to match one of them, else fall back
+    // to the raw currency value.
+    const asset =
+      ep.payment.currency ??
+      service.methods?.[network ?? ""]?.assets?.[0];
+
     out.push({
       pay_protocol: "0.0.1",
       id,
@@ -412,7 +437,9 @@ function mppToDescriptors(
       },
       payment: {
         protocol: "mpp",
+        ...(network !== undefined && { network }),
         currency: ep.payment.currency,
+        ...(asset !== undefined && asset !== ep.payment.currency && { asset }),
         ...(priceHint !== undefined ? { price_hint: priceHint } : {}),
       },
       _meta: {

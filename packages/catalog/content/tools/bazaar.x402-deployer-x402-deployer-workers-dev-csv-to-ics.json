@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-deployer-x402-deployer-workers-dev-csv-to-ics",
+  "title": "CSV calendar to ICS / iCal file generator. RFC 5545 compliant. Auto-detects colu",
+  "description": "CSV calendar to ICS / iCal file generator. RFC 5545 compliant. Auto-detects column mapping (summary/date/time/location). All-day + timed events. Up to 1000 rows.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402-deployer.x402-deployer.workers.dev/csv-to-ics"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "upstream_id": "https://x402-deployer.x402-deployer.workers.dev/csv-to-ics",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

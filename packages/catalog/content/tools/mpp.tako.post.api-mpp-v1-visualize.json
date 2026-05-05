@@ -20,12 +20,13 @@
   },
   "payment": {
     "protocol": "mpp",
+    "network": "stripe",
     "currency": "usd",
     "price_hint": "0.04"
   },
   "_meta": {
     "catalog": "mpp",
-    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "fetched_at": "2026-05-05T19:44:53.315Z",
     "upstream_id": "tako:POST:/api/mpp/v1/visualize"
   }
 }

@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-deployer-x402-deployer-workers-dev-sec-filing",
+  "title": "SEC EDGAR filing fetcher + parser + summarizer. 10-K, 10-Q, 8-K, S-1, S-4, DEF 1",
+  "description": "SEC EDGAR filing fetcher + parser + summarizer. 10-K, 10-Q, 8-K, S-1, S-4, DEF 14A, 4, 13F-HR. Returns structured filing metadata, clean text, and optional Venice executive summary tuned to the form type. 100% public-domain SEC data.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402-deployer.x402-deployer.workers.dev/sec-filing"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "upstream_id": "https://x402-deployer.x402-deployer.workers.dev/sec-filing",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

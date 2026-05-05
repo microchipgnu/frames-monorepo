@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orionkr-xyz-v1-base-slippage-risk",
+  "title": "Ultra-low-cost slippage risk API for Base swap agents. Call before every memecoi",
+  "description": "Ultra-low-cost slippage risk API for Base swap agents. Call before every memecoin swap to check price impact, thin liquidity, route safety, and execution risk.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orionkr.xyz/v1/base/slippage-risk"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "upstream_id": "https://orionkr.xyz/v1/base/slippage-risk",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

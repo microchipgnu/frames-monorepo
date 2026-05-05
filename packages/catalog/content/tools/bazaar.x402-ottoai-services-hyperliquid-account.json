@@ -1,0 +1,65 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-ottoai-services-hyperliquid-account",
+  "title": "Hyperliquid perpetual trading account snapshot with open positions, margin, coll",
+  "description": "Hyperliquid perpetual trading account snapshot with open positions, margin, collateral, and active trigger orders (TP/SL/limit).",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.ottoai.services/hyperliquid-account"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.001",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "base",
+        "currency": "USDC",
+        "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "price_hint": "0.001",
+        "pay_to": "0x5bB4B0C766E0D5D791d9403Fc275c22064709F68",
+        "scheme": "exact",
+        "extra": {
+          "assetTransferMethod": "permit2",
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "polygon",
+        "currency": "USDC",
+        "asset": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "price_hint": "0.001",
+        "pay_to": "0x5bB4B0C766E0D5D791d9403Fc275c22064709F68",
+        "scheme": "exact",
+        "extra": {}
+      },
+      {
+        "protocol": "x402v2",
+        "network": "polygon",
+        "currency": "USDC",
+        "asset": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "price_hint": "0.001",
+        "pay_to": "0x5bB4B0C766E0D5D791d9403Fc275c22064709F68",
+        "scheme": "exact",
+        "extra": {
+          "assetTransferMethod": "permit2"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "upstream_id": "https://x402.ottoai.services/hyperliquid-account",
+    "x402_version": 2,
+    "accept_count": 4
+  }
+}

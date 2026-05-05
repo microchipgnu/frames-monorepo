@@ -15,11 +15,11 @@
     "network": "base",
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-    "price_hint": "0.001"
+    "price_hint": "0.005"
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "fetched_at": "2026-05-05T19:44:53.315Z",
     "upstream_id": "https://orbisapi.com/proxy/domain-driven-design-guide-api-2de224/validate",
     "x402_version": 2,
     "accept_count": 1

@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-deployer-x402-deployer-workers-dev-rss-from-anything",
+  "title": "Generate a valid RSS 2.0 feed from any HTML page. Auto-detects article items, or",
+  "description": "Generate a valid RSS 2.0 feed from any HTML page. Auto-detects article items, or accepts CSS selectors for tricky pages.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402-deployer.x402-deployer.workers.dev/rss-from-anything"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.04"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "upstream_id": "https://x402-deployer.x402-deployer.workers.dev/rss-from-anything",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

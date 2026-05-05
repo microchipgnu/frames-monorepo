@@ -2,7 +2,7 @@
   "pay_protocol": "0.0.1",
   "id": "bazaar.api-strale-io-x402-stock-quote",
   "title": "Get real-time stock quote data for any publicly traded company. Accepts ticker s",
-  "description": "Get real-time stock quote data for any publicly traded company. Accepts ticker symbols (e.g. AAPL, VOLV-B.ST). Returns price, change, volume, market state. SQS: 98/100.",
+  "description": "Get real-time stock quote data for any publicly traded company. Accepts ticker symbols (e.g. AAPL, VOLV-B.ST). Returns price, change, volume, market state.",
   "capabilities": [
     "unspecified"
   ],
@@ -19,7 +19,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "fetched_at": "2026-05-05T19:44:53.315Z",
     "upstream_id": "https://api.strale.io/x402/stock-quote",
     "x402_version": 1,
     "accept_count": 1

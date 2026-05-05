@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-deployer-x402-deployer-workers-dev-webpage-diff",
+  "title": "Webpage change detection / website monitor / content diff. Cleans HTML to text +",
+  "description": "Webpage change detection / website monitor / content diff. Cleans HTML to text + SHA-256 hash. Pass previous hash/text to get added/removed line lists. Price + policy + status-page monitoring.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402-deployer.x402-deployer.workers.dev/webpage-diff"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.04"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "upstream_id": "https://x402-deployer.x402-deployer.workers.dev/webpage-diff",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

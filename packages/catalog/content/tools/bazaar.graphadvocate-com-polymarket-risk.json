@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.graphadvocate-com-polymarket-risk",
+  "title": "Polymarket ghost-fill counterparty risk. POST {wallet}. Returns wallet_type (eoa",
+  "description": "Polymarket ghost-fill counterparty risk. POST {wallet}. Returns wallet_type (eoa | smart_account_erc1967 | legacy_smart_account), ghost_fill_risk (low/medium/high), 24h collateral outflow flag. Deposit wallets (POLY_1271, sig type 3) are ghost-fill-immune by design. For MM agents pricing adverse selection before quoting against a maker.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://graphadvocate.com/polymarket/risk"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "upstream_id": "https://graphadvocate.com/polymarket/risk",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

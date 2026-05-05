@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orionkr-xyz-v1-base-honeypot-check",
+  "title": "Ultra-low-cost honeypot check for Base tokens and memecoins. Use before every bu",
+  "description": "Ultra-low-cost honeypot check for Base tokens and memecoins. Use before every buy to detect sell-blocking risk, unsafe contract signs, and rug warnings.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orionkr.xyz/v1/base/honeypot-check"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "upstream_id": "https://orionkr.xyz/v1/base/honeypot-check",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-zuluworksai-com-api-discovery-verify",
+  "title": "Live probe of any x402 endpoint — confirms availability, current price, accepted",
+  "description": "Live probe of any x402 endpoint — confirms availability, current price, accepted networks, and payment scheme. Avoid paying broken agents. $0.007 per verification.",
+  "capabilities": [
+    "verification",
+    "status",
+    "pricing",
+    "x402",
+    "real-time",
+    "probe"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.zuluworksai.com/api/discovery/verify"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.0075"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "upstream_id": "https://api.zuluworksai.com/api/discovery/verify",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

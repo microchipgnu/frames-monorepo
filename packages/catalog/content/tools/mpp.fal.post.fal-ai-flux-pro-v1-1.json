@@ -19,12 +19,13 @@
   },
   "payment": {
     "protocol": "mpp",
+    "network": "tempo",
     "currency": "0x20c000000000000000000000b9537d11c60e8b50",
     "price_hint": "0.035"
   },
   "_meta": {
     "catalog": "mpp",
-    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "fetched_at": "2026-05-05T19:44:53.315Z",
     "upstream_id": "fal:POST:/fal-ai/flux-pro/v1.1"
   }
 }

@@ -2,7 +2,7 @@
   "pay_protocol": "0.0.1",
   "id": "bazaar.api-strale-io-x402-fear-greed-index",
   "title": "Get the Crypto Fear & Greed Index — a market sentiment indicator from 0 (Extreme",
-  "description": "Get the Crypto Fear & Greed Index — a market sentiment indicator from 0 (Extreme Fear) to 100 (Extreme Greed). Includes current value, classification, and optional historical data up to 30 days. Powered by Alternative.me. SQS: 98/100.",
+  "description": "Get the Crypto Fear & Greed Index — a market sentiment indicator from 0 (Extreme Fear) to 100 (Extreme Greed). Includes current value, classification, and optional historical data up to 30 days. Powered by Alternative.me. SQS: 96/100.",
   "capabilities": [
     "unspecified"
   ],
@@ -19,7 +19,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "fetched_at": "2026-05-05T19:44:53.315Z",
     "upstream_id": "https://api.strale.io/x402/fear-greed-index",
     "x402_version": 1,
     "accept_count": 1

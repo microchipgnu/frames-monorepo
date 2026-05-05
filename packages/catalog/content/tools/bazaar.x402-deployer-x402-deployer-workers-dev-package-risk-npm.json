@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-deployer-x402-deployer-workers-dev-package-risk-npm",
+  "title": "npm package risk score / supply-chain scanner / typosquat detector. Maintainer c",
+  "description": "npm package risk score / supply-chain scanner / typosquat detector. Maintainer count, weekly downloads, install scripts, dependency depth, deprecation, age, typosquat distance to popular packages. Plus LLM risk summary.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402-deployer.x402-deployer.workers.dev/package-risk-npm"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.03"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "upstream_id": "https://x402-deployer.x402-deployer.workers.dev/package-risk-npm",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

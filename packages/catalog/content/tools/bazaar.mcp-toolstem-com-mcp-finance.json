@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.mcp-toolstem-com-mcp-finance",
+  "title": "Toolstem Financial Intelligence MCP — stock quotes, fundamentals, peers, financi",
+  "description": "Toolstem Financial Intelligence MCP — stock quotes, fundamentals, peers, financial statements. One paid tool call.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://mcp.toolstem.com/mcp/finance"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "upstream_id": "https://mcp.toolstem.com/mcp/finance",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

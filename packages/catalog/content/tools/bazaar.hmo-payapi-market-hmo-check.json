@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.hmo-payapi-market-hmo-check",
+  "title": "UK HMO licence check by postcode and house number. Returns whether the property ",
+  "description": "UK HMO licence check by postcode and house number. Returns whether the property is a licensed House in Multiple Occupation.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://hmo.payapi.market/hmo-check"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "upstream_id": "https://hmo.payapi.market/hmo-check",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

@@ -38,7 +38,7 @@
   },
   "_meta": {
     "catalog": "frames-registry",
-    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "fetched_at": "2026-05-05T19:44:53.315Z",
     "upstream_id": "twitter:POST:/api/list-followers",
     "service_slug": "twitter"
   }

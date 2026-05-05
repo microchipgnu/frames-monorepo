@@ -2,7 +2,7 @@
   "pay_protocol": "0.0.1",
   "id": "bazaar.api-strale-io-x402-code-review",
   "title": "AI code review. Returns issues with severity, line numbers, fix suggestions. Foc",
-  "description": "AI code review. Returns issues with severity, line numbers, fix suggestions. Focus on security, performance, readability, or bugs. SQS: 83/100.",
+  "description": "AI code review. Returns issues with severity, line numbers, fix suggestions. Focus on security, performance, readability, or bugs.",
   "capabilities": [
     "unspecified"
   ],
@@ -19,7 +19,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "fetched_at": "2026-05-05T19:44:53.315Z",
     "upstream_id": "https://api.strale.io/x402/code-review",
     "x402_version": 1,
     "accept_count": 1
