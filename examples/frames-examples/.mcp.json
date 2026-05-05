@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "frame-ai-models": {
-      "command": "npx",
+      "command": "bunx",
       "args": [
         "-y",
         "@frames-ag/frame",
@@ -13,7 +13,7 @@
       }
     },
     "frame-ai-promises": {
-      "command": "npx",
+      "command": "bunx",
       "args": [
         "-y",
         "@frames-ag/frame",
@@ -25,7 +25,7 @@
       }
     },
     "frame-agent-networks": {
-      "command": "npx",
+      "command": "bunx",
       "args": [
         "-y",
         "@frames-ag/frame",
@@ -37,7 +37,7 @@
       }
     },
     "frame-agent-wallets": {
-      "command": "npx",
+      "command": "bunx",
       "args": [
         "-y",
         "@frames-ag/frame",
@@ -49,7 +49,7 @@
       }
     },
     "frame-blindspot-briefs": {
-      "command": "npx",
+      "command": "bunx",
       "args": [
         "-y",
         "@frames-ag/frame",
@@ -61,7 +61,7 @@
       }
     },
     "frame-blindspot-threads": {
-      "command": "npx",
+      "command": "bunx",
       "args": [
         "-y",
         "@frames-ag/frame",
@@ -73,7 +73,7 @@
       }
     },
     "frame-layoffs-2026": {
-      "command": "npx",
+      "command": "bunx",
       "args": [
         "-y",
         "@frames-ag/frame",
@@ -85,7 +85,7 @@
       }
     },
     "frame-elon-tweets": {
-      "command": "npx",
+      "command": "bunx",
       "args": [
         "-y",
         "@frames-ag/frame",
@@ -97,7 +97,7 @@
       }
     },
     "frame-mcp-servers": {
-      "command": "npx",
+      "command": "bunx",
       "args": [
         "-y",
         "@frames-ag/frame",
@@ -112,7 +112,9 @@
       "command": "bunx",
       "args": [
         "-y",
-        "@frames-ag/pay-mcp"
+        "-p",
+        "@frames-ag/pay",
+        "pay-mcp"
       ]
     }
   }
