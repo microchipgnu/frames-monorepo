@@ -6,7 +6,16 @@ import { decodeCursor, paginate, parseFilters } from "./pagination";
 import type { Dataset, Entity, RecentActivity, Source } from "./types";
 import { renderEntity, renderFrame, renderHome, renderRepoIndex } from "./views";
 
-const app = new Hono();
+// Worker bindings exposed via c.env in Hono. SHOWCASE_USER and SHOWCASE_REPO
+// override the home page's default repo (set in wrangler.toml [vars]); when
+// the repo is private, GITHUB_TOKEN must be set as a Worker secret.
+type Bindings = {
+  SHOWCASE_USER?: string;
+  SHOWCASE_REPO?: string;
+  GITHUB_TOKEN?: string;
+};
+
+const app = new Hono<{ Bindings: Bindings }>();
 app.use("*", cors());
 
 const RESOURCE_WORDS = new Set(["schema", "readme", "entities", "_frames"]);
@@ -16,15 +25,15 @@ const RESOURCE_WORDS = new Set(["schema", "readme", "entities", "_frames"]);
 // ---------------------------------------------------------------------------
 
 app.get("/", async (c) => {
-  const user = "microchipgnu";
-  const repo = "frames-examples";
+  const user = c.env?.SHOWCASE_USER ?? "microchipgnu";
+  const repo = c.env?.SHOWCASE_REPO ?? "frames-monorepo";
   let data: Parameters<typeof renderHome>[0] = null;
   try {
-    const { sha, frames } = await listFrames(user, repo, "HEAD");
+    const { sha, frames } = await listFrames(user, repo, "HEAD", c.env?.GITHUB_TOKEN);
     const summaries = await Promise.all(
       frames.map(async (f) => {
         try {
-          const ds = await loadDataset(user, repo, "HEAD", f.frame_path);
+          const ds = await loadDataset(user, repo, "HEAD", f.frame_path, c.env?.GITHUB_TOKEN);
           return {
             frame_path: f.frame_path,
             schema_name: ds.schema.name,
@@ -50,7 +59,7 @@ app.get("/healthz", (c) => c.json({ ok: true, cache: cacheStats() }));
 // 2. JSON API at /api/v1/* (registered BEFORE the HTML catch-all so it wins)
 // ---------------------------------------------------------------------------
 
-const v1 = new Hono();
+const v1 = new Hono<{ Bindings: Bindings }>();
 
 function withETag(c: any, sha: string, max_ts: string, suffix = "") {
   const etag = `W/"${sha.slice(0, 12)}-${max_ts}${suffix ? "-" + suffix : ""}"`;
@@ -147,12 +156,12 @@ function entityShape(ent: Entity, include: "first" | "all" | "history") {
 v1.get("/:user/:repo/_frames", async (c) => {
   const { user, repo } = c.req.param();
   const ref = c.req.query("ref") ?? "HEAD";
-  const { sha, frames } = await listFrames(user, repo, ref);
+  const { sha, frames } = await listFrames(user, repo, ref, c.env?.GITHUB_TOKEN);
   if (withETag(c, sha, "frames")) return c.body(null);
   const enriched = await Promise.all(
     frames.map(async (f) => {
       try {
-        const ds = await loadDataset(user, repo, ref, f.frame_path);
+        const ds = await loadDataset(user, repo, ref, f.frame_path, c.env?.GITHUB_TOKEN);
         return {
           slug: f.frame_path || ".",
           frame_path: f.frame_path,
@@ -179,7 +188,7 @@ v1.get("/:user/:repo", async (c) => {
   } catch (e) {
     // No root schema.yml → return the repo's frame index instead.
     if (e instanceof DatasetError && e.status === 422) {
-      const { sha, frames } = await listFrames(user, repo, ref);
+      const { sha, frames } = await listFrames(user, repo, ref, c.env?.GITHUB_TOKEN);
       if (frames.length === 0) throw e;
       return c.json({ user, repo, sha, frames: frames.map((f) => ({ frame_path: f.frame_path })) });
     }
@@ -217,7 +226,7 @@ v1.get("/:user/:repo/*", async (c) => {
 });
 
 async function respondMeta(c: any, user: string, repo: string, framePath: string, ref: string) {
-  const ds = await loadDataset(user, repo, ref, framePath);
+  const ds = await loadDataset(user, repo, ref, framePath, c.env?.GITHUB_TOKEN);
   const url = new URL(c.req.url);
   const recentParam = url.searchParams.get("recent");
   const recentLimit = recentParam !== null ? Math.max(1, Math.min(100, parseInt(recentParam, 10) || 10)) : 0;
@@ -238,20 +247,20 @@ async function respondMeta(c: any, user: string, repo: string, framePath: string
 }
 
 async function respondSchema(c: any, user: string, repo: string, framePath: string, ref: string) {
-  const ds = await loadDataset(user, repo, ref, framePath);
+  const ds = await loadDataset(user, repo, ref, framePath, c.env?.GITHUB_TOKEN);
   if (withETag(c, ds.sha, ds.max_ts, framePath)) return c.body(null);
   return c.json(ds.schema);
 }
 
 async function respondReadme(c: any, user: string, repo: string, framePath: string, ref: string) {
-  const ds = await loadDataset(user, repo, ref, framePath);
+  const ds = await loadDataset(user, repo, ref, framePath, c.env?.GITHUB_TOKEN);
   if (withETag(c, ds.sha, ds.max_ts, framePath)) return c.body(null);
   c.header("Content-Type", "text/markdown; charset=utf-8");
   return c.body(ds.readme);
 }
 
 async function respondEntities(c: any, user: string, repo: string, framePath: string, ref: string) {
-  const ds = await loadDataset(user, repo, ref, framePath);
+  const ds = await loadDataset(user, repo, ref, framePath, c.env?.GITHUB_TOKEN);
   if (withETag(c, ds.sha, ds.max_ts, framePath)) return c.body(null);
   const url = new URL(c.req.url);
   const limit = Math.max(
@@ -283,7 +292,7 @@ async function respondEntity(
   ref: string,
   id: string,
 ) {
-  const ds = await loadDataset(user, repo, ref, framePath);
+  const ds = await loadDataset(user, repo, ref, framePath, c.env?.GITHUB_TOKEN);
   if (withETag(c, ds.sha, ds.max_ts, framePath)) return c.body(null);
   const ent = ds.entities.get(id);
   if (!ent || ent.removed) {
@@ -317,7 +326,7 @@ async function htmlFrameOrEntity(c: any) {
   const tail = resourceIdx === -1 ? [] : segments.slice(resourceIdx + 1);
 
   if (resource === "entities" && tail.length === 1) {
-    const ds = await loadDataset(user, repo, ref, framePath);
+    const ds = await loadDataset(user, repo, ref, framePath, c.env?.GITHUB_TOKEN);
     const ent = ds.entities.get(tail[0]!);
     if (!ent || ent.removed) return c.html("<h1>not found</h1>", 404);
     return c.html(renderEntity(ds, ent));
@@ -325,16 +334,16 @@ async function htmlFrameOrEntity(c: any) {
 
   let ds;
   try {
-    ds = await loadDataset(user, repo, ref, framePath);
+    ds = await loadDataset(user, repo, ref, framePath, c.env?.GITHUB_TOKEN);
   } catch (e) {
     // Multi-frame repo with no schema.yml at the requested path: render index.
     if (e instanceof DatasetError && e.status === 422 && framePath === "") {
-      const { sha, frames } = await listFrames(user, repo, ref);
+      const { sha, frames } = await listFrames(user, repo, ref, c.env?.GITHUB_TOKEN);
       if (frames.length === 0) throw e;
       const summaries = await Promise.all(
         frames.map(async (f) => {
           try {
-            const fds = await loadDataset(user, repo, ref, f.frame_path);
+            const fds = await loadDataset(user, repo, ref, f.frame_path, c.env?.GITHUB_TOKEN);
             return {
               slug: f.frame_path || ".",
               frame_path: f.frame_path,

@@ -34,9 +34,15 @@ export async function fetchRaw(
   repo: string,
   sha: string,
   path: string,
+  token?: string,
 ): Promise<string | null> {
   const url = `${RAW}/${user}/${repo}/${sha}/${path}`;
-  const res = await fetch(url, { headers: { "User-Agent": "frames-cloud" } });
+  const headers: Record<string, string> = { "User-Agent": "frames-cloud" };
+  // raw.githubusercontent.com accepts Bearer tokens for private repos when
+  // the token has Contents:read scope. Public repos work without auth (token
+  // just raises the rate limit ceiling there).
+  if (token) headers["Authorization"] = `Bearer ${token}`;
+  const res = await fetch(url, { headers });
   if (res.status === 404) return null;
   if (!res.ok) throw new GitHubError(res.status, `raw fetch failed: ${path}`);
   return res.text();

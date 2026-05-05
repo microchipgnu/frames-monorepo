@@ -2,6 +2,14 @@ name = "frames-cloud"
 main = "worker.ts"
 compatibility_date = "2026-05-01"
 
-# Set with: wrangler secret put GITHUB_TOKEN
-# Optional — only needed once read volume is enough that the unauthenticated
-# rate limit (60 req/hr per IP) bites. With a token it's 5,000 req/hr.
+# Showcase repo for the home page. Defaults below; override per-environment
+# by re-running wrangler deploy with different --var SHOWCASE_USER=... etc.,
+# or by editing this block.
+[vars]
+SHOWCASE_USER = "microchipgnu"
+SHOWCASE_REPO = "frames-monorepo"
+
+# REQUIRED when SHOWCASE_REPO is private (frames-monorepo is). Set with:
+#   bunx wrangler secret put GITHUB_TOKEN --config deploy/cloudflare/wrangler.toml
+# Use a fine-grained PAT with Contents:read on the showcase repo.
+# Optional for public repos (raises rate limit ceiling from 60 → 5000 req/hr).

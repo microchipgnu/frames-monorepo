@@ -24,11 +24,16 @@ function joinPath(base: string, name: string): string {
   return base ? `${base}/${name}` : name;
 }
 
-export async function resolveCachedSha(user: string, repo: string, ref = "HEAD"): Promise<string> {
+export async function resolveCachedSha(
+  user: string,
+  repo: string,
+  ref = "HEAD",
+  token?: string,
+): Promise<string> {
   const key = shaKey(user, repo, ref);
   const cached = shaCache.get(key);
   if (cached && cached.expires > Date.now()) return cached.sha;
-  const sha = await resolveSha(user, repo, ref);
+  const sha = await resolveSha(user, repo, ref, token);
   shaCache.set(key, { sha, expires: Date.now() + SHA_TTL_MS });
   return sha;
 }
@@ -37,12 +42,13 @@ export async function listFrames(
   user: string,
   repo: string,
   ref = "HEAD",
+  token?: string,
 ): Promise<{ sha: string; frames: FrameTreeEntry[] }> {
-  const sha = await resolveCachedSha(user, repo, ref);
+  const sha = await resolveCachedSha(user, repo, ref, token);
   const key = repoKey(user, repo, sha);
   let frames = framesCache.get(key);
   if (!frames) {
-    frames = await discoverFrames(user, repo, sha);
+    frames = await discoverFrames(user, repo, sha, token);
     framesCache.set(key, frames);
   }
   return { sha, frames };
@@ -59,16 +65,17 @@ export async function loadDataset(
   repo: string,
   ref = "HEAD",
   framePath = "",
+  token?: string,
 ): Promise<Dataset> {
-  const sha = await resolveCachedSha(user, repo, ref);
+  const sha = await resolveCachedSha(user, repo, ref, token);
   const key = dsKey(user, repo, sha, framePath);
   const cached = datasetCache.get(key);
   if (cached) return cached;
 
   const [schemaText, eventsText, readmeText] = await Promise.all([
-    fetchRaw(user, repo, sha, joinPath(framePath, "schema.yml")),
-    fetchRaw(user, repo, sha, joinPath(framePath, "events.ndjson")),
-    fetchRaw(user, repo, sha, joinPath(framePath, "README.md")),
+    fetchRaw(user, repo, sha, joinPath(framePath, "schema.yml"), token),
+    fetchRaw(user, repo, sha, joinPath(framePath, "events.ndjson"), token),
+    fetchRaw(user, repo, sha, joinPath(framePath, "README.md"), token),
   ]);
 
   if (!schemaText) {
