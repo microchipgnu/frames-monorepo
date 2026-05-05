@@ -107,6 +107,13 @@
       "env": {
         "FRAME_AGENT": "claude:opus-4.7"
       }
+    },
+    "pay": {
+      "command": "bunx",
+      "args": [
+        "-y",
+        "@frames-ag/pay-mcp"
+      ]
     }
   }
 }

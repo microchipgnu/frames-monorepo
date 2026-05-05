@@ -1,0 +1,25 @@
+pay_protocol: 0.0.1
+
+# Bounded toolset for frames-examples loops.
+# Manifest is at the repo root because pay-mcp resolves manifest_path
+# relative to its launch cwd; per-dataset manifests would require either
+# multiple pay-mcp instances or a future --manifest flag in pay.
+#
+# Used by: layoffs-2026 (all 4), elon-tweets (twitter_search), and
+# any future frame whose loop needs web/news/reddit/scrape.
+
+tools:
+  exa_search:
+    url: https://catalog.microchipgnu.workers.dev/tools/frames.exa.post.api-search
+
+  serper_news:
+    url: https://catalog.microchipgnu.workers.dev/tools/mpp.stableenrich.post.api-serper-news
+
+  reddit_search:
+    url: https://catalog.microchipgnu.workers.dev/tools/mpp.stableenrich.post.api-reddit-search
+
+  firecrawl_scrape:
+    url: https://catalog.microchipgnu.workers.dev/tools/mpp.stableenrich.post.api-firecrawl-scrape
+
+  twitter_search:
+    url: https://catalog.microchipgnu.workers.dev/tools/frames.twitter.post.api-search-tweets
