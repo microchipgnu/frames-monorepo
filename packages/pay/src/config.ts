@@ -71,14 +71,33 @@ export async function loadRuntimeConfig(
       : DEFAULT_CATALOG_URL;
   const defaultCatalog = new HttpCatalog({ baseUrl: catalogUrl });
 
+  // Manifest + lock path resolution precedence (highest first):
+  //   1. PAY_MANIFEST_PATH / PAY_LOCK_PATH env vars
+  //      → set when launching pay-mcp via `--manifest <path>` from a per-dataset
+  //        cwd, or by a frame-aware harness that wants to scope tool access.
+  //   2. PAY_FRAME_DATASET env var → manifest defaults to <dataset>/tools.yml
+  //      so a single env unifies receipt destination + tool scoping.
+  //   3. config.yaml `manifest_path` / `lock_path` fields.
+  //   4. Built-in defaults: ./tools.yml + ./tools.lock (cwd-relative).
+  const envManifest = process.env["PAY_MANIFEST_PATH"];
+  const envLock = process.env["PAY_LOCK_PATH"];
+  const envDataset = process.env["PAY_FRAME_DATASET"];
   const manifestPath =
-    typeof obj["manifest_path"] === "string"
-      ? (obj["manifest_path"] as string)
-      : "./tools.yml";
+    typeof envManifest === "string" && envManifest.length > 0
+      ? envManifest
+      : typeof envDataset === "string" && envDataset.length > 0
+        ? `${envDataset.replace(/\/$/, "")}/tools.yml`
+        : typeof obj["manifest_path"] === "string"
+          ? (obj["manifest_path"] as string)
+          : "./tools.yml";
   const lockPath =
-    typeof obj["lock_path"] === "string"
-      ? (obj["lock_path"] as string)
-      : "./tools.lock";
+    typeof envLock === "string" && envLock.length > 0
+      ? envLock
+      : typeof envDataset === "string" && envDataset.length > 0
+        ? `${envDataset.replace(/\/$/, "")}/tools.lock`
+        : typeof obj["lock_path"] === "string"
+          ? (obj["lock_path"] as string)
+          : "./tools.lock";
 
   // wallets:
   //   <network>:                       # single (legacy)

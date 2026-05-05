@@ -1,0 +1,21 @@
+pay_protocol: 0.0.1
+
+# Per-dataset bounded toolset for the layoffs-2026 loop.
+# Resolved by pay-mcp when launched with --dataset (or PAY_FRAME_DATASET env).
+# Receipts for these calls land in events.ndjson alongside fact.set events.
+
+tools:
+  exa_search:
+    url: https://catalog.microchipgnu.workers.dev/tools/frames.exa.post.api-search
+
+  twitter_search:
+    url: https://catalog.microchipgnu.workers.dev/tools/frames.twitter.post.api-search-tweets
+
+  serper_news:
+    url: https://catalog.microchipgnu.workers.dev/tools/mpp.stableenrich.post.api-serper-news
+
+  reddit_search:
+    url: https://catalog.microchipgnu.workers.dev/tools/mpp.stableenrich.post.api-reddit-search
+
+  firecrawl_scrape:
+    url: https://catalog.microchipgnu.workers.dev/tools/mpp.stableenrich.post.api-firecrawl-scrape

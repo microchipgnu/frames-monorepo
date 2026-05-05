@@ -24,6 +24,15 @@ import { buildReceipt } from "./receipt.ts";
 import type { AuditKeyPair } from "./audit-key.ts";
 import { canonicalize } from "../canonical.ts";
 import { getBalanceForDescriptor, BalanceError } from "./balance.ts";
+import {
+  FilesystemStore,
+  defaultFallbackPath,
+  type ReceiptStore,
+} from "../stores/filesystem.ts";
+import {
+  detectFrameDataset,
+  appendToolInvokedEvent,
+} from "../frame/event.ts";
 
 export class DispatchError extends Error {
   constructor(message: string) {
@@ -46,6 +55,23 @@ export interface DispatchContext {
    * is authoritative on price; this is a hint check.
    */
   balancePolicy?: "off" | "warn" | "block";
+  /**
+   * Receipt persistence override. When omitted, dispatch uses a default
+   * resolver:
+   *   - If a frame dataset is detected (PAY_FRAME_DATASET env or cwd has
+   *     schema.yml + events.ndjson): append tool.invoked event to that
+   *     dataset's events.ndjson.
+   *   - Else: append to ~/.frames/pay/events.ndjson (explicit-call fallback).
+   *
+   * Pass `{ frameDatasetPath: null, store: customStore }` to fully override.
+   * Pass `{ skipPersistence: true }` to disable (used by smoke tests that
+   * want to avoid filesystem side effects).
+   */
+  persistence?: {
+    frameDatasetPath?: string | null;
+    store?: ReceiptStore;
+    skipPersistence?: boolean;
+  };
 }
 
 export class InsufficientBalanceError extends Error {
@@ -198,7 +224,42 @@ export async function payForTool(
   const receipt: Receipt = await buildReceipt(receiptInput);
   // elapsedMs is currently unused but kept locally for future timing receipts.
   void elapsedMs;
+  await persistReceipt(receipt, ctx);
   return { body, receipt };
+}
+
+/**
+ * Persist a receipt per the dispatcher's two-tier policy:
+ *   1. Frame dataset's events.ndjson — when frame context is detected
+ *      (canonical per SPEC §"Frame integration").
+ *   2. ~/.frames/pay/events.ndjson — fallback for explicit-call mode.
+ *
+ * Persistence failures are logged but do not fail the call: the in-memory
+ * receipt has already been built and is being returned to the caller, who
+ * can persist it themselves if they care. Sync-flush guarantee from SPEC
+ * applies to the IN-PROCESS receipt — disk writes are best-effort cache.
+ */
+async function persistReceipt(receipt: Receipt, ctx: DispatchContext): Promise<void> {
+  const policy = ctx.persistence ?? {};
+  if (policy.skipPersistence) return;
+
+  const datasetPath =
+    policy.frameDatasetPath !== undefined
+      ? policy.frameDatasetPath
+      : detectFrameDataset();
+
+  try {
+    if (datasetPath) {
+      await appendToolInvokedEvent(datasetPath, receipt);
+      return;
+    }
+    const store = policy.store ?? new FilesystemStore(defaultFallbackPath());
+    await store.append(receipt);
+  } catch (e) {
+    process.stderr.write(
+      `pay: receipt persistence failed (non-fatal): ${(e as Error).message}\n`,
+    );
+  }
 }
 
 interface SettledMetadata {
@@ -557,6 +618,11 @@ async function dispatchViaAgentwallet(
     agent: input.registry.agent(),
     auditKey: input.auditKey,
   });
+
+  // Same persistence policy as the regular path. The agentwallet-delegated
+  // path doesn't currently get a DispatchContext — fall through to the
+  // default detect-or-fallback behavior.
+  await persistReceipt(receipt, { registry: input.registry, auditKey: input.auditKey });
 
   return { body, receipt };
 }
