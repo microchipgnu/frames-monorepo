@@ -171,7 +171,7 @@ function createTempoMppHandler(
   entry: Extract<WalletEntry, { kind: "tempo" }>,
 ): MPPPaymentHandler {
   let cached: MPPPaymentHandler | null = null;
-  return async (challenge) => {
+  return async (challenge: Parameters<MPPPaymentHandler>[0]) => {
     if (!cached) {
       try {
         // String literal hidden in a variable so tsc doesn't try to resolve
