@@ -54,6 +54,7 @@ app.get("/", async (c) => {
   return c.html(renderHome(data));
 });
 app.get("/healthz", (c) => c.json({ ok: true, cache: cacheStats() }));
+app.get("/version", (c) => c.json({ ok: true }));
 
 // ---------------------------------------------------------------------------
 // 2. JSON API at /api/v1/* (registered BEFORE the HTML catch-all so it wins)
