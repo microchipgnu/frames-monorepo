@@ -1,0 +1,10 @@
+node_modules
+dist
+.DS_Store
+*.log
+.env
+.env.local
+
+# never commit private keys
+examples/smoke/.wallet
+examples/smoke/*.key

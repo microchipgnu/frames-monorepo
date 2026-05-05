@@ -1,0 +1,89 @@
+{
+  "name": "@frames-ag/pay",
+  "version": "0.0.7",
+  "description": "Buyer-side runtime for paid agent tool calls. Catalog + manifest + lock + signed receipts. MCP server for any harness, CLI for shells. Wallets via faremeter (EVM/Solana/OWS/Crossmint), agentcash, frames, or hosted agentwallet.",
+  "keywords": [
+    "x402",
+    "mpp",
+    "faremeter",
+    "agent-payments",
+    "mcp",
+    "frames",
+    "agentcash",
+    "agentwallet"
+  ],
+  "license": "MIT",
+  "author": "frames-ag",
+  "homepage": "https://github.com/microchipgnu/pay",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/microchipgnu/pay.git"
+  },
+  "bugs": {
+    "url": "https://github.com/microchipgnu/pay/issues"
+  },
+  "type": "module",
+  "bin": {
+    "pay": "./src/cli/bin.ts",
+    "pay-mcp": "./src/mcp/bin.ts"
+  },
+  "main": "./src/index.ts",
+  "files": [
+    "src",
+    "README.md",
+    "SPEC.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "bun": ">=1.0.0"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "smoke:dry": "bun run examples/smoke/dry-run.ts",
+    "smoke:gen-wallet": "bun run examples/smoke/gen-wallet.ts",
+    "smoke:settle": "bun run examples/smoke/settle.ts",
+    "smoke:roundtrip": "bun run examples/smoke/types-roundtrip.ts",
+    "smoke:manifest": "bun run examples/smoke/manifest-roundtrip.ts",
+    "smoke:dispatch": "bun run examples/smoke/dispatch.ts",
+    "smoke:mcp": "bun run examples/smoke/mcp-stdio.ts",
+    "smoke:init": "bun run examples/smoke/wallet-init.ts",
+    "smoke:factories": "bun run examples/smoke/wallet-factories.ts",
+    "smoke:agentcash": "bun run examples/smoke/agentcash-wallet.ts",
+    "smoke:agentcash-real": "bun run examples/smoke/agentcash-real.ts",
+    "smoke:frames": "bun run examples/smoke/frames-wallet.ts",
+    "smoke:agentwallet": "bun run examples/smoke/agentwallet-wallet.ts",
+    "smoke:solana": "bun run examples/smoke/solana-bridge.ts",
+    "smoke:balance": "bun run examples/smoke/balance.ts",
+    "smoke:tempo": "bun run examples/smoke/tempo-bridge.ts",
+    "smoke:detect": "bun run examples/smoke/wallet-detect.ts",
+    "smoke:multi": "bun run examples/smoke/multi-accept.ts",
+    "mcp": "bun run src/mcp/bin.ts",
+    "cli": "bun run src/cli/bin.ts",
+    "prepublishOnly": "bun typecheck"
+  },
+  "dependencies": {
+    "@faremeter/fetch": "^0.21.0",
+    "@faremeter/info": "^0.21.0",
+    "@faremeter/payment-evm": "^0.21.0",
+    "@faremeter/payment-solana": "^0.21.0",
+    "@faremeter/wallet-evm": "^0.21.0",
+    "@frames-ag/payment-tempo": "^0.0.1",
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "viem": "^2.48.8",
+    "yaml": "^2.8.4"
+  },
+  "optionalDependencies": {
+    "@faremeter/wallet-crossmint": "^0.21.0",
+    "@faremeter/wallet-ows": "^0.21.0",
+    "@faremeter/wallet-solana": "^0.21.0",
+    "@open-wallet-standard/core": "^0.4.0",
+    "@solana/web3.js": "^1.98.0",
+    "bs58": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.3.13",
+    "typescript": "^6.0.3"
+  }
+}
