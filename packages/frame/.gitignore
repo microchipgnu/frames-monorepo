@@ -1,0 +1,11 @@
+node_modules/
+dist/
+*.log
+.DS_Store
+
+# created in user frames, not in this repo
+.frame/
+
+# editor
+.vscode/
+.idea/
