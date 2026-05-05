@@ -536,6 +536,82 @@ const WALLET_FACTORIES: Record<string, WalletFactory> = {
     throw new Error("agentcash wallet needs `evm:` or `solana:` block");
   },
 
+  tempo: async (cfg, label) => {
+    // MPP Tempo charge — settles via @frames-ag/payment-tempo. The factory
+    // constructs a viem Account; the bridge lazy-loads payment-tempo at
+    // dispatch time.
+    //
+    // Two key sources:
+    //   private_key: env:TEMPO_KEY        — explicit key (env-resolvable)
+    //   share_with: agentcash             — reuse ~/.agentcash/wallet.json's EVM key
+    //
+    // Tempo settles using the same EVM key shape as Base, so re-using
+    // agentcash is the common path: same identity for x402-on-Base AND
+    // MPP-on-Tempo.
+    const viem = await loadOptionalPackage<{
+      privateKeyToAccount: (pk: `0x${string}`) => unknown;
+    }>("viem/accounts");
+
+    let privateKey: `0x${string}` | undefined;
+    let source = "tempo";
+
+    if (typeof cfg["private_key"] === "string") {
+      const pk = resolveSecret(cfg["private_key"], "private_key");
+      if (!/^0x[0-9a-fA-F]{64}$/.test(pk)) {
+        throw new Error("private_key must be 0x-prefixed 32-byte hex");
+      }
+      privateKey = pk as `0x${string}`;
+    } else if (cfg["share_with"] === "agentcash") {
+      const home = process.env["HOME"] ?? homedir();
+      const explicitDir =
+        typeof cfg["dir"] === "string" ? (cfg["dir"] as string) : undefined;
+      const agentcashDir =
+        explicitDir ??
+        process.env["AGENTCASH_DIR"] ??
+        pathResolve(home, ".agentcash");
+      const walletPath = pathResolve(agentcashDir, "wallet.json");
+      const envOverride = process.env["X402_PRIVATE_KEY"];
+      if (envOverride) {
+        if (!/^0x[0-9a-fA-F]{64}$/.test(envOverride)) {
+          throw new Error("X402_PRIVATE_KEY must be 0x + 64 hex chars");
+        }
+        privateKey = envOverride as `0x${string}`;
+      } else if (existsSync(walletPath)) {
+        const stored = JSON.parse(readFileSync(walletPath, "utf8")) as {
+          privateKey?: string;
+        };
+        if (stored.privateKey && /^0x[0-9a-fA-F]{64}$/.test(stored.privateKey)) {
+          privateKey = stored.privateKey as `0x${string}`;
+        } else {
+          throw new Error(
+            `${walletPath} does not contain a valid 0x-hex privateKey`,
+          );
+        }
+      } else {
+        throw new Error(
+          `agentcash wallet not found at ${walletPath} — run \`npx agentcash@latest accounts\` first`,
+        );
+      }
+      source = "agentcash";
+    } else {
+      throw new Error(
+        `tempo wallet needs either \`private_key:\` or \`share_with: agentcash\``,
+      );
+    }
+
+    const account = viem.privateKeyToAccount(privateKey) as {
+      address: `0x${string}`;
+    };
+
+    return {
+      kind: "tempo",
+      account: account as never,
+      label,
+      address: account.address,
+      source,
+    };
+  },
+
   ows: async (cfg, label) => {
     const ows = (await loadOptionalPackage<{
       createOWSEvmWallet: (chain: { id: number; name: string }, opts: unknown) => unknown;
