@@ -1,0 +1,21 @@
+node_modules/
+dist/
+.DS_Store
+.env
+.env.local
+
+# Bun
+bun.lock
+.bun/
+
+# Editor
+.vscode/
+.idea/
+
+# OS
+*.log
+
+# Frames-specific regenerable artifacts (per-dataset)
+**/.frame/dataset.db
+**/.frame/dataset.db-*
+**/.frame/rows.ndjson
