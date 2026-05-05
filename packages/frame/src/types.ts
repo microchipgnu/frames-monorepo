@@ -11,6 +11,52 @@ export type Source = {
   title?: string;
   archive_url?: string;
   excerpt?: string;
+  /**
+   * Optional ID of a `tool.invoked` receipt that produced the source URL.
+   * Lets a single fact link forward to the paid call that backed it,
+   * tying frame's evidence trail to pay's receipts. See pay/SPEC.md
+   * §"Frame integration". Forward-compatible: older readers ignore.
+   */
+  receipt_id?: string;
+};
+
+// ─── Pay-receipt shape (mirrors pay/SPEC.md §Receipt) ────────────────────────
+//
+// Frame doesn't validate receipts — it just stores and surfaces them. Pay is
+// the authoritative emitter; the signature anchors verification offline.
+
+export type ToolInvokedReceipt = {
+  pay_protocol: string;
+  id: string;
+  ts: string;
+  tool_local_name?: string;
+  tool_id: string;
+  descriptor_id: string;
+  params_hash: string;
+  protocol: string;
+  wallet_id: string;
+  wallet_address: string;
+  amount: string;
+  currency: string;
+  network: string;
+  facilitator_url?: string;
+  tx_hash?: string;
+  request_hash?: string;
+  response_hash?: string;
+  agent: string;
+  signature: string;
+};
+
+export type ToolInvokedToolPayload = {
+  params: unknown;
+  response_excerpt?: string;
+  response_size_bytes?: number;
+  response_truncated?: boolean;
+};
+
+export type ToolInvokedPayload = {
+  receipt: ToolInvokedReceipt;
+  tool?: ToolInvokedToolPayload;
 };
 
 // ─── Schema ──────────────────────────────────────────────────────────────────
@@ -53,7 +99,11 @@ export type EventType =
   | "fact.set"
   | "fact.deprecated"
   | "evidence.attached"
-  | "entity.removed";
+  | "entity.removed"
+  // Emitted by pay (or any future cost-bearing tool runner) when a paid
+  // tool call fires from inside a frame loop. Frame projector indexes
+  // these into a tool_invocations table for audit and cost rollups.
+  | "tool.invoked";
 
 export type AgentId = string; // "<kind>:<identifier>", e.g. "claude:opus-4.7"
 
@@ -99,7 +149,8 @@ export type FrameEvent =
   | EventEnvelope<FactSetPayload> & { type: "fact.set" }
   | EventEnvelope<FactDeprecatedPayload> & { type: "fact.deprecated" }
   | EventEnvelope<EvidenceAttachedPayload> & { type: "evidence.attached" }
-  | EventEnvelope<EntityRemovedPayload> & { type: "entity.removed" };
+  | EventEnvelope<EntityRemovedPayload> & { type: "entity.removed" }
+  | EventEnvelope<ToolInvokedPayload> & { type: "tool.invoked" };
 
 // ─── Projection ──────────────────────────────────────────────────────────────
 
@@ -118,6 +169,46 @@ export type ProjectionStats = {
   deprecated_count: number;
   invalid_row_count: number;
   duration_ms: number;
+};
+
+// ─── Tool-invocation query (paid-call audit trail) ───────────────────────────
+
+export type ToolInvocationsQuery = {
+  /** ISO 8601 lower-bound on `ts`. */
+  since?: string;
+  /** Match by tool_id OR tool_local_name. */
+  tool_id?: string;
+  /** Cap the result count. */
+  limit?: number;
+};
+
+export type ToolInvocationRow = {
+  // Outer envelope id of the tool.invoked event (deduped).
+  event_id: string;
+  // Pay's receipt.id — the value any fact's source.receipt_id can refer to.
+  receipt_id: string;
+  ts: string;
+  agent: string;
+  tool_id: string;
+  tool_local_name?: string;
+  descriptor_id: string;
+  params_hash: string;
+  protocol: string;
+  wallet_id: string;
+  wallet_address: string;
+  amount: string;
+  currency: string;
+  network: string;
+  facilitator_url?: string;
+  tx_hash?: string;
+  request_hash?: string;
+  response_hash?: string;
+  signature: string;
+  // Set when the source event included payload.tool (input/output excerpt).
+  params?: unknown;
+  response_excerpt?: string;
+  response_size_bytes?: number;
+  response_truncated?: boolean;
 };
 
 // ─── Errors ──────────────────────────────────────────────────────────────────

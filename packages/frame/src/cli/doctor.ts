@@ -28,11 +28,45 @@ export function doctor(args: string[]): void {
   try {
     const events = readEvents(join(dir, "events.ndjson"));
     const size = statSync(join(dir, "events.ndjson")).size;
+    // Per-type breakdown so paid calls (tool.invoked) are visible up front.
+    const counts: Record<string, number> = {};
+    for (const e of events) counts[e.type] = (counts[e.type] ?? 0) + 1;
+    const breakdown = Object.entries(counts)
+      .sort((a, b) => b[1] - a[1])
+      .map(([t, n]) => `${n} ${t}`)
+      .join(", ");
     checks.push({
       name: "events.ndjson",
       ok: true,
-      detail: `${events.length} events, ${size} bytes`,
+      detail: `${events.length} events, ${size} bytes  [${breakdown}]`,
     });
+
+    // Paid-call summary, when present. Best-effort — we don't validate the
+    // receipt signature here; the receipt is informational at audit time.
+    if (counts["tool.invoked"]) {
+      const acc: Record<string, number> = {};
+      for (const e of events) {
+        if (e.type !== "tool.invoked") continue;
+        const r = (e.payload as any)?.receipt;
+        if (!r) continue;
+        const n = parseFloat(String(r.amount));
+        if (!Number.isFinite(n)) continue;
+        const c = String(r.currency || "?");
+        acc[c] = (acc[c] ?? 0) + n;
+      }
+      const totals = Object.entries(acc)
+        .map(([c, n]) => {
+          let s = n.toFixed(6);
+          if (s.includes(".")) s = s.replace(/0+$/, "").replace(/\.$/, "");
+          return `${s} ${c}`;
+        })
+        .join(", ") || "—";
+      checks.push({
+        name: "paid calls",
+        ok: true,
+        detail: `${counts["tool.invoked"]} tool.invoked total; cost: ${totals}`,
+      });
+    }
   } catch (e: any) {
     checks.push({ name: "events.ndjson", ok: false, detail: e?.message ?? String(e) });
   }

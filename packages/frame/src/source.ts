@@ -37,5 +37,6 @@ export function validateSource(s: unknown): Source {
   if (typeof obj.title === "string") out.title = obj.title;
   if (typeof obj.archive_url === "string") out.archive_url = obj.archive_url;
   if (typeof obj.excerpt === "string") out.excerpt = obj.excerpt;
+  if (typeof obj.receipt_id === "string") out.receipt_id = obj.receipt_id;
   return out;
 }

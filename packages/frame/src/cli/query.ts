@@ -1,4 +1,4 @@
-// `frame query [<path>] [--all|--entity <id>|--field <f>=<v>|--sql <sql>] [--with-sources]`
+// `frame query [<path>] [--all|--entity <id>|--field <f>=<v>|--sql <sql>|--tool-invocations] [--with-sources] [--since <iso>] [--tool-id <id>] [--limit <n>]`
 
 import { Frame } from "../frame.js";
 import { resolveFrameDir, splitPathAndFlags } from "./util.js";
@@ -10,7 +10,35 @@ export function query(args: string[]): void {
 
   const include_sources = flags.includes("--with-sources");
   // Strip the flag so positional parsing below isn't affected.
-  const positional = flags.filter((a) => a !== "--with-sources");
+  let positional = flags.filter((a) => a !== "--with-sources");
+
+  // ── Tool-invocations mode (paid-call audit) ─────────────────────────────
+  if (positional[0] === "--tool-invocations") {
+    const opts: { since?: string; tool_id?: string; limit?: number } = {};
+    for (let i = 1; i < positional.length; i++) {
+      const a = positional[i];
+      const next = positional[i + 1];
+      if (a === "--since" && next) {
+        opts.since = next;
+        i++;
+      } else if (a === "--tool-id" && next) {
+        opts.tool_id = next;
+        i++;
+      } else if (a === "--limit" && next) {
+        opts.limit = parseInt(next, 10);
+        i++;
+      }
+    }
+    const r = frame.toolInvocations(opts);
+    for (const row of r.rows) process.stdout.write(JSON.stringify(row) + "\n");
+    const totalsStr = Object.entries(r.total_amount_by_currency)
+      .map(([c, n]) => `${n} ${c}`)
+      .join(", ") || "—";
+    process.stderr.write(
+      `◇ ${r.total} tool.invoked event${r.total === 1 ? "" : "s"}; total: ${totalsStr}\n`,
+    );
+    return;
+  }
 
   let result;
 

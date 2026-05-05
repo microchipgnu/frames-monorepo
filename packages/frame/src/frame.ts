@@ -13,6 +13,8 @@ import {
   type ProjectionStats,
   type Row,
   type Source,
+  type ToolInvocationRow,
+  type ToolInvocationsQuery,
 } from "./types.js";
 import { appendEvent, now, readEvents, readEventsWithLines, uuid } from "./events.js";
 import { loadSchema, validateValue } from "./schema.js";
@@ -549,7 +551,7 @@ export class Frame {
       if (rows.length === 0) return rows;
       const placeholders = rows.map(() => "?").join(",");
       const stmt = db.prepare(
-        `SELECT entity_id, field, source_url, source_retrieved_at, source_title, source_archive_url, source_excerpt
+        `SELECT entity_id, field, source_url, source_retrieved_at, source_title, source_archive_url, source_excerpt, source_receipt_id
            FROM facts
           WHERE deprecated = 0 AND entity_id IN (${placeholders})`,
       );
@@ -561,6 +563,7 @@ export class Frame {
         source_title: string | null;
         source_archive_url: string | null;
         source_excerpt: string | null;
+        source_receipt_id: string | null;
       }>(...rows.map((r) => r.entity_id));
       const byEntity: Record<string, Record<string, Source>> = {};
       for (const s of sources) {
@@ -569,6 +572,7 @@ export class Frame {
         if (s.source_title) src.title = s.source_title;
         if (s.source_archive_url) src.archive_url = s.source_archive_url;
         if (s.source_excerpt) src.excerpt = s.source_excerpt;
+        if (s.source_receipt_id) src.receipt_id = s.source_receipt_id;
         ent[s.field] = src;
         byEntity[s.entity_id] = ent;
       }
@@ -622,6 +626,118 @@ export class Frame {
           return { rows: rs as Row[], total: rs.length };
         }
       }
+    } finally {
+      db.close();
+    }
+  }
+
+  // 5b. toolInvocations — list paid-tool calls recorded in events.ndjson.
+  // One row per tool.invoked event (the receipt + optional tool payload).
+  // Use this for cost rollups, audit trails, or to find which tool produced
+  // a given fact (cross-reference fact.source.receipt_id → ti.receipt_id).
+  toolInvocations(opts: ToolInvocationsQuery = {}): {
+    rows: ToolInvocationRow[];
+    total: number;
+    total_amount_by_currency: Record<string, string>;
+  } {
+    if (!existsSync(this.dbPath)) this.project();
+    const db = new Database(this.dbPath, { readonly: true });
+    try {
+      const params: unknown[] = [];
+      const where: string[] = [];
+      if (opts.since) {
+        where.push("ts >= ?");
+        params.push(opts.since);
+      }
+      if (opts.tool_id) {
+        where.push("(tool_id = ? OR tool_local_name = ?)");
+        params.push(opts.tool_id, opts.tool_id);
+      }
+      const sql =
+        `SELECT * FROM tool_invocations` +
+        (where.length ? ` WHERE ${where.join(" AND ")}` : ``) +
+        ` ORDER BY ts DESC` +
+        (opts.limit ? ` LIMIT ${Number(opts.limit) | 0}` : ``);
+      type Raw = {
+        event_id: string;
+        receipt_id: string;
+        ts: string;
+        agent: string;
+        tool_id: string;
+        tool_local_name: string | null;
+        descriptor_id: string;
+        params_hash: string;
+        protocol: string;
+        wallet_id: string;
+        wallet_address: string;
+        amount: string;
+        currency: string;
+        network: string;
+        facilitator_url: string | null;
+        tx_hash: string | null;
+        request_hash: string | null;
+        response_hash: string | null;
+        signature: string;
+        params_json: string | null;
+        response_excerpt: string | null;
+        response_size_bytes: number | null;
+        response_truncated: number | null;
+      };
+      const stmt = db.prepare(sql);
+      const raws = stmt.all<Raw>(...params);
+      const rows: ToolInvocationRow[] = raws.map((r) => {
+        const out: ToolInvocationRow = {
+          event_id: r.event_id,
+          receipt_id: r.receipt_id,
+          ts: r.ts,
+          agent: r.agent,
+          tool_id: r.tool_id,
+          descriptor_id: r.descriptor_id,
+          params_hash: r.params_hash,
+          protocol: r.protocol,
+          wallet_id: r.wallet_id,
+          wallet_address: r.wallet_address,
+          amount: r.amount,
+          currency: r.currency,
+          network: r.network,
+          signature: r.signature,
+        };
+        if (r.tool_local_name) out.tool_local_name = r.tool_local_name;
+        if (r.facilitator_url) out.facilitator_url = r.facilitator_url;
+        if (r.tx_hash) out.tx_hash = r.tx_hash;
+        if (r.request_hash) out.request_hash = r.request_hash;
+        if (r.response_hash) out.response_hash = r.response_hash;
+        if (r.params_json) {
+          try {
+            out.params = JSON.parse(r.params_json);
+          } catch {
+            out.params = r.params_json;
+          }
+        }
+        if (r.response_excerpt) out.response_excerpt = r.response_excerpt;
+        if (r.response_size_bytes !== null) out.response_size_bytes = r.response_size_bytes;
+        if (r.response_truncated !== null) out.response_truncated = r.response_truncated === 1;
+        return out;
+      });
+
+      // Cost rollup. Treat amount as a string; sum per-currency without losing
+      // precision via JSON BigDecimal-ish rounding (these are typically <1 USDC,
+      // 6-decimal). Float math is fine for display; downstream auditors can
+      // re-sum from the rows themselves.
+      const totals: Record<string, string> = {};
+      const acc: Record<string, number> = {};
+      for (const r of rows) {
+        const n = parseFloat(r.amount);
+        if (!Number.isFinite(n)) continue;
+        acc[r.currency] = (acc[r.currency] ?? 0) + n;
+      }
+      for (const [c, n] of Object.entries(acc)) {
+        // Format to up to 6 decimals, trim trailing zeros, leave bare integer if whole.
+        let s = n.toFixed(6);
+        if (s.includes(".")) s = s.replace(/0+$/, "").replace(/\.$/, "");
+        totals[c] = s;
+      }
+      return { rows, total: rows.length, total_amount_by_currency: totals };
     } finally {
       db.close();
     }

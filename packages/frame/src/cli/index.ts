@@ -65,6 +65,8 @@ usage:
   frame query [<path>] --entity <id>      one row by id
   frame query [<path>] --field <f>=<v>    rows where field equals value
   frame query [<path>] --sql "<select…>"  read-only SQL against the index
+  frame query [<path>] --tool-invocations dump paid-tool calls (one row per receipt)
+       optional: --since <iso>  --tool-id <id>  --limit <n>
   frame query ... --with-sources          attach primary source per field
   frame doctor [<path>]                   health check
 

@@ -13,6 +13,7 @@ import {
   type ProjectionStats,
   type Row,
   type Source,
+  type ToolInvokedPayload,
 } from "./types.js";
 import { validateValue } from "./schema.js";
 
@@ -28,6 +29,19 @@ type ProjectionState = {
   deprecated: Map<string, { reason: string; ts: string }>;
   // chronological order for facts on (entity, field) for revert-on-deprecation
   history: Map<string, string[]>; // key = `${entity_id}::${field}` → fact_ids in order
+  // tool.invoked events keyed by the OUTER event id (the envelope id, not the
+  // receipt id). Lets the projector dedupe replays and lets queries link a
+  // fact's source.receipt_id to a row here via the stored receipt_id.
+  toolInvocations: Map<
+    string,
+    {
+      event_id: string;
+      ts: string;
+      agent: string;
+      receipt: ToolInvokedPayload["receipt"];
+      tool?: ToolInvokedPayload["tool"];
+    }
+  >;
 };
 
 function emptyState(): ProjectionState {
@@ -38,6 +52,7 @@ function emptyState(): ProjectionState {
     extraEvidence: new Map(),
     deprecated: new Map(),
     history: new Map(),
+    toolInvocations: new Map(),
   };
 }
 
@@ -130,6 +145,31 @@ export function fold(events: FrameEvent[] | EventWithLine[]): ProjectionState {
         }
         // Also clear current state — removed entity doesn't appear in rows.
         s.current.delete(p.entity_id);
+        break;
+      }
+      case "tool.invoked": {
+        // Pay-emitted receipt of a paid tool call. Frame doesn't validate the
+        // signature here — the receipt is authoritative as written; offline
+        // verification is a separate caller concern. We just index by the
+        // outer event id (which dedupes replays from `frame verify`).
+        const p = e.payload as ToolInvokedPayload;
+        if (
+          p &&
+          typeof p === "object" &&
+          p.receipt &&
+          typeof p.receipt === "object" &&
+          typeof p.receipt.id === "string"
+        ) {
+          if (!s.toolInvocations.has(e.id)) {
+            s.toolInvocations.set(e.id, {
+              event_id: e.id,
+              ts: e.ts,
+              agent: e.agent,
+              receipt: p.receipt,
+              ...(p.tool ? { tool: p.tool } : {}),
+            });
+          }
+        }
         break;
       }
       // Unknown event types are skipped (forward-compat).
@@ -242,6 +282,7 @@ export function writeProjection(
     db.exec("DROP TABLE IF EXISTS facts;");
     db.exec("DROP TABLE IF EXISTS evidence;");
     db.exec("DROP TABLE IF EXISTS entities;");
+    db.exec("DROP TABLE IF EXISTS tool_invocations;");
 
     db.exec(`
       CREATE TABLE entities (
@@ -260,6 +301,7 @@ export function writeProjection(
         source_title TEXT,
         source_archive_url TEXT,
         source_excerpt TEXT,
+        source_receipt_id TEXT,
         confidence REAL,
         observed_at TEXT,
         ts TEXT NOT NULL,
@@ -269,6 +311,7 @@ export function writeProjection(
         FOREIGN KEY (entity_id) REFERENCES entities(entity_id)
       );
       CREATE INDEX idx_facts_entity_field ON facts(entity_id, field);
+      CREATE INDEX idx_facts_receipt    ON facts(source_receipt_id);
       CREATE TABLE evidence (
         fact_id TEXT NOT NULL,
         source_url TEXT NOT NULL,
@@ -276,6 +319,7 @@ export function writeProjection(
         source_title TEXT,
         source_archive_url TEXT,
         source_excerpt TEXT,
+        source_receipt_id TEXT,
         FOREIGN KEY (fact_id) REFERENCES facts(fact_id)
       );
       CREATE TABLE rows (
@@ -283,6 +327,36 @@ export function writeProjection(
         fields_json TEXT NOT NULL,
         invalid_json TEXT
       );
+      -- One row per tool.invoked event. event_id is the OUTER envelope id
+      -- (deduped); receipt_id is pay's receipt.id (what facts link to via
+      -- source.receipt_id).
+      CREATE TABLE tool_invocations (
+        event_id              TEXT PRIMARY KEY,
+        receipt_id            TEXT NOT NULL,
+        ts                    TEXT NOT NULL,
+        agent                 TEXT NOT NULL,
+        tool_id               TEXT NOT NULL,
+        tool_local_name       TEXT,
+        descriptor_id         TEXT NOT NULL,
+        params_hash           TEXT NOT NULL,
+        protocol              TEXT NOT NULL,
+        wallet_id             TEXT NOT NULL,
+        wallet_address        TEXT NOT NULL,
+        amount                TEXT NOT NULL,
+        currency              TEXT NOT NULL,
+        network               TEXT NOT NULL,
+        facilitator_url       TEXT,
+        tx_hash               TEXT,
+        request_hash          TEXT,
+        response_hash         TEXT,
+        signature             TEXT NOT NULL,
+        params_json           TEXT,
+        response_excerpt      TEXT,
+        response_size_bytes   INTEGER,
+        response_truncated    INTEGER
+      );
+      CREATE INDEX idx_tool_invocations_receipt ON tool_invocations(receipt_id);
+      CREATE INDEX idx_tool_invocations_ts      ON tool_invocations(ts);
     `);
 
     const insertEntity = db.prepare(`
@@ -301,9 +375,9 @@ export function writeProjection(
     const insertFact = db.prepare(`
       INSERT INTO facts (
         fact_id, entity_id, field, value_json,
-        source_url, source_retrieved_at, source_title, source_archive_url, source_excerpt,
+        source_url, source_retrieved_at, source_title, source_archive_url, source_excerpt, source_receipt_id,
         confidence, observed_at, ts, agent, deprecated, deprecation_reason
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `);
     for (const [fact_id, fact] of state.facts) {
       const dep = state.deprecated.get(fact_id);
@@ -317,6 +391,7 @@ export function writeProjection(
         fact.source.title ?? null,
         fact.source.archive_url ?? null,
         fact.source.excerpt ?? null,
+        fact.source.receipt_id ?? null,
         fact.confidence ?? null,
         fact.observed_at ?? null,
         fact.ts,
@@ -328,8 +403,8 @@ export function writeProjection(
 
     const insertEvidence = db.prepare(`
       INSERT INTO evidence (
-        fact_id, source_url, source_retrieved_at, source_title, source_archive_url, source_excerpt
-      ) VALUES (?, ?, ?, ?, ?, ?)
+        fact_id, source_url, source_retrieved_at, source_title, source_archive_url, source_excerpt, source_receipt_id
+      ) VALUES (?, ?, ?, ?, ?, ?, ?)
     `);
     for (const [fact_id, sources] of state.extraEvidence) {
       for (const src of sources) {
@@ -340,8 +415,51 @@ export function writeProjection(
           src.title ?? null,
           src.archive_url ?? null,
           src.excerpt ?? null,
+          src.receipt_id ?? null,
         );
       }
+    }
+
+    const insertToolInvocation = db.prepare(`
+      INSERT INTO tool_invocations (
+        event_id, receipt_id, ts, agent,
+        tool_id, tool_local_name, descriptor_id, params_hash, protocol,
+        wallet_id, wallet_address, amount, currency, network,
+        facilitator_url, tx_hash, request_hash, response_hash, signature,
+        params_json, response_excerpt, response_size_bytes, response_truncated
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `);
+    for (const [, ti] of state.toolInvocations) {
+      const r = ti.receipt;
+      insertToolInvocation.run(
+        ti.event_id,
+        r.id,
+        ti.ts,
+        ti.agent,
+        r.tool_id,
+        r.tool_local_name ?? null,
+        r.descriptor_id,
+        r.params_hash,
+        r.protocol,
+        r.wallet_id,
+        r.wallet_address,
+        r.amount,
+        r.currency,
+        r.network,
+        r.facilitator_url ?? null,
+        r.tx_hash ?? null,
+        r.request_hash ?? null,
+        r.response_hash ?? null,
+        r.signature,
+        ti.tool?.params !== undefined ? JSON.stringify(ti.tool.params) : null,
+        ti.tool?.response_excerpt ?? null,
+        ti.tool?.response_size_bytes ?? null,
+        ti.tool?.response_truncated === undefined
+          ? null
+          : ti.tool.response_truncated
+            ? 1
+            : 0,
+      );
     }
 
     const insertRow = db.prepare(`
@@ -362,13 +480,13 @@ export function writeProjection(
       CREATE VIEW all_sources AS
         SELECT fact_id, entity_id, field,
                source_url, source_retrieved_at, source_title,
-               source_archive_url, source_excerpt,
+               source_archive_url, source_excerpt, source_receipt_id,
                1 AS is_primary
           FROM facts WHERE deprecated = 0
         UNION ALL
         SELECT e.fact_id, f.entity_id, f.field,
                e.source_url, e.source_retrieved_at, e.source_title,
-               e.source_archive_url, e.source_excerpt,
+               e.source_archive_url, e.source_excerpt, e.source_receipt_id,
                0 AS is_primary
           FROM evidence e JOIN facts f ON f.fact_id = e.fact_id
           WHERE f.deprecated = 0;
