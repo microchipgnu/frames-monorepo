@@ -18,7 +18,7 @@ jobs:
         # catalog/server intentionally excluded — it targets Cloudflare Workers
         # and needs @cloudflare/workers-types config that's only present at
         # deploy time. Add it back once that's wired in tsconfig.
-        package: [packages/pay]
+        package: [packages/pay, packages/frame]
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
@@ -39,3 +39,14 @@ jobs:
       - run: bun run --cwd packages/pay smoke:roundtrip
       - run: bun run --cwd packages/pay smoke:manifest
       - run: bun run --cwd packages/pay smoke:persistence
+
+  test-frame:
+    name: Frame tests (bun test)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - run: bun install --frozen-lockfile
+      - run: bun run --cwd packages/frame test
