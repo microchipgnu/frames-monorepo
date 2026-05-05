@@ -6,8 +6,8 @@
   "type": "module",
   "workspaces": [
     "packages/*",
-    "packages/catalog/server",
     "apps/*",
+    "apps/catalog/server",
     "examples/*"
   ],
   "scripts": {

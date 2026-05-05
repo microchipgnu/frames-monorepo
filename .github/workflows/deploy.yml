@@ -1,0 +1,99 @@
+name: Deploy
+
+# Deploys Cloudflare Workers when their source paths change on main.
+# Path-filtered so a pure-content change in a single descriptor only
+# triggers the catalog deploy, not frames-cloud (and vice versa).
+#
+# Requires repo secrets:
+#   CLOUDFLARE_API_TOKEN  — token with "Edit Workers" + "Read User Details"
+#                            (https://dash.cloudflare.com/profile/api-tokens)
+#   CLOUDFLARE_ACCOUNT_ID — account ID
+#                            (https://dash.cloudflare.com → Workers & Pages →
+#                             right column "Account ID")
+#
+# Manual trigger also supported via workflow_dispatch — useful for
+# rolling back / re-deploying without changing source.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'apps/catalog/**'
+      - 'apps/frames-cloud/**'
+      - '.github/workflows/deploy.yml'
+  workflow_dispatch:
+    inputs:
+      worker:
+        description: "Which worker to deploy"
+        required: true
+        type: choice
+        options: [all, catalog, frames-cloud]
+        default: all
+
+# A second push to main while a deploy is in flight should queue, not race.
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  # Detect which workers actually need deploying. We can't easily expose path
+  # filters per-job in `paths:` (those gate the WORKFLOW, not jobs), so we
+  # use dorny/paths-filter to compute per-job booleans from the diff.
+  changes:
+    name: Detect changed workers
+    runs-on: ubuntu-latest
+    outputs:
+      catalog: ${{ steps.filter.outputs.catalog }}
+      frames_cloud: ${{ steps.filter.outputs.frames_cloud }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: filter
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            catalog:
+              - 'apps/catalog/**'
+              - '.github/workflows/deploy.yml'
+            frames_cloud:
+              - 'apps/frames-cloud/**'
+              - '.github/workflows/deploy.yml'
+
+  deploy-catalog:
+    name: Deploy catalog Worker
+    needs: changes
+    if: |
+      github.event_name == 'workflow_dispatch' && (github.event.inputs.worker == 'all' || github.event.inputs.worker == 'catalog') ||
+      github.event_name == 'push' && needs.changes.outputs.catalog == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - run: bun install --frozen-lockfile
+      - name: Deploy catalog
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: apps/catalog/server
+          command: deploy --config deploy/cloudflare/wrangler.toml
+
+  deploy-frames-cloud:
+    name: Deploy frames-cloud Worker
+    needs: changes
+    if: |
+      github.event_name == 'workflow_dispatch' && (github.event.inputs.worker == 'all' || github.event.inputs.worker == 'frames-cloud') ||
+      github.event_name == 'push' && needs.changes.outputs.frames_cloud == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - run: bun install --frozen-lockfile
+      - name: Deploy frames-cloud
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: apps/frames-cloud
+          command: deploy --config deploy/cloudflare/wrangler.toml

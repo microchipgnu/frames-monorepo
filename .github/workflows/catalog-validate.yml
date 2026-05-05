@@ -1,18 +1,18 @@
 name: catalog-validate
 
-# Sanity-check every descriptor JSON in packages/catalog/content/tools/.
+# Sanity-check every descriptor JSON in apps/catalog/content/tools/.
 # Catches malformed entries before they hit the live catalog (which reads
 # from this repo's main branch via raw.githubusercontent.com).
 
 on:
   pull_request:
     paths:
-      - 'packages/catalog/content/**'
+      - 'apps/catalog/content/**'
       - '.github/workflows/catalog-validate.yml'
   push:
     branches: [main]
     paths:
-      - 'packages/catalog/content/**'
+      - 'apps/catalog/content/**'
 
 jobs:
   descriptors:
@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Validate every descriptor
-        working-directory: packages/catalog
+        working-directory: apps/catalog
         run: |
           set -euo pipefail
           for f in content/tools/*.json; do

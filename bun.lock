@@ -9,6 +9,25 @@
         "typescript": "^6.0.3",
       },
     },
+    "apps/catalog": {
+      "name": "@frames-ag/catalog",
+      "version": "0.0.1",
+    },
+    "apps/catalog/server": {
+      "name": "@frames-ag/catalog-server",
+      "version": "0.0.1",
+      "dependencies": {
+        "@vercel/kv": "^3.0.0",
+        "hono": "^4.6.0",
+      },
+      "devDependencies": {
+        "@cloudflare/workers-types": "^4.20240500.0",
+        "@types/node": "^22.0.0",
+        "typescript": "^5.5.0",
+        "vercel": "^39.0.0",
+        "wrangler": "^3.80.0",
+      },
+    },
     "apps/frames-cloud": {
       "name": "@frames-ag/frames-cloud",
       "dependencies": {
@@ -29,25 +48,6 @@
     "examples/frames-examples": {
       "name": "@frames-ag/frames-examples",
       "version": "0.0.1",
-    },
-    "packages/catalog": {
-      "name": "@frames-ag/catalog",
-      "version": "0.0.1",
-    },
-    "packages/catalog/server": {
-      "name": "@frames-ag/catalog-server",
-      "version": "0.0.1",
-      "dependencies": {
-        "@vercel/kv": "^3.0.0",
-        "hono": "^4.6.0",
-      },
-      "devDependencies": {
-        "@cloudflare/workers-types": "^4.20240500.0",
-        "@types/node": "^22.0.0",
-        "typescript": "^5.5.0",
-        "vercel": "^39.0.0",
-        "wrangler": "^3.80.0",
-      },
     },
     "packages/frame": {
       "name": "@frames-ag/frame",
@@ -276,9 +276,9 @@
 
     "@fastify/busboy": ["@fastify/busboy@2.1.1", "", {}, "sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA=="],
 
-    "@frames-ag/catalog": ["@frames-ag/catalog@workspace:packages/catalog"],
+    "@frames-ag/catalog": ["@frames-ag/catalog@workspace:apps/catalog"],
 
-    "@frames-ag/catalog-server": ["@frames-ag/catalog-server@workspace:packages/catalog/server"],
+    "@frames-ag/catalog-server": ["@frames-ag/catalog-server@workspace:apps/catalog/server"],
 
     "@frames-ag/frame": ["@frames-ag/frame@workspace:packages/frame"],
 

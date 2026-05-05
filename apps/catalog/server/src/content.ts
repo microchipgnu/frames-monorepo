@@ -1,7 +1,7 @@
 import type { ToolDescriptor } from "./types.js";
 import { descriptorId } from "./descriptor-id.js";
 
-// Reads catalog content from the monorepo's packages/catalog/content/ path on
+// Reads catalog content from the monorepo's apps/catalog/content/ path on
 // main. raw.githubusercontent.com accepts `Authorization: Bearer <token>` for
 // private repos when the PAT has Contents:read scope. Token is supplied via
 // the Worker secret GITHUB_TOKEN (`wrangler secret put GITHUB_TOKEN`).
@@ -9,7 +9,7 @@ import { descriptorId } from "./descriptor-id.js";
 // To switch to a public source (e.g. mirror repo) just rewrite this URL and
 // unset the secret.
 const DEFAULT_BASE =
-  "https://raw.githubusercontent.com/microchipgnu/frames-monorepo/main/packages/catalog/content";
+  "https://raw.githubusercontent.com/microchipgnu/frames-monorepo/main/apps/catalog/content";
 
 export interface ContentSource {
   // Base URL pointing at the `content/` directory.
