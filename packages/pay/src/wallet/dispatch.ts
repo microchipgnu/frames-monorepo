@@ -629,7 +629,13 @@ async function dispatchViaAgentwallet(
   // Same persistence policy as the regular path. The agentwallet-delegated
   // path doesn't currently get a DispatchContext — fall through to the
   // default detect-or-fallback behavior.
-  const toolPayload = buildToolPayload(input.params, responseText);
+  //
+  // IMPORTANT: pass the inner body, not responseText. Agentwallet wraps
+  // the seller's response in `{ success, response: { status, headers, body } }`
+  // — the wrapper is transport noise and would consume the excerpt budget.
+  // We capture only the actual seller body so the excerpt is meaningful.
+  const bodyText = body === undefined ? "" : JSON.stringify(body);
+  const toolPayload = buildToolPayload(input.params, bodyText);
   await persistReceipt(
     receipt,
     { registry: input.registry, auditKey: input.auditKey },
