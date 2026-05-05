@@ -1,0 +1,45 @@
+frame_protocol: 0.0.1
+name: agent-wallets
+description: |
+  Catalog of agent wallets, registries, and payment protocols, plus the
+  tool / service endpoints each one exposes for agents to call. One
+  entity per product. Captures both the payments side (chains, protocols,
+  auth) and the registry side (services and their API endpoints) in a
+  single row.
+entity_type: wallet
+fields:
+  name:
+    type: string
+    required: true
+  vendor:
+    type: string
+    required: true
+  category:
+    type: enum
+    values: [wallet, registry, payment-protocol, hybrid]
+  chains:
+    type: string
+  payment_protocols:
+    type: string
+  api_base_url:
+    type: url
+  registry_endpoint:
+    type: string
+  services:
+    type: string
+  auth_model:
+    type: string
+  sdk_languages:
+    type: string
+  pricing_model:
+    type: string
+  status:
+    type: enum
+    values: [active, beta, deprecated, dead]
+  docs_url:
+    type: url
+  announcement_url:
+    type: url
+  last_verified_at:
+    type: string
+tests: []

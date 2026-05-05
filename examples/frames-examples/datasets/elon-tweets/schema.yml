@@ -1,0 +1,33 @@
+frame_protocol: 0.0.1
+name: elon-tweets
+description: |
+  Recent posts from @elonmusk on X, each classified by topic.
+  One entity per tweet. Captures content, engagement, and topic taxonomy.
+entity_type: tweet
+fields:
+  tweet_id:
+    type: string
+    required: true
+  text:
+    type: string
+    required: true
+  posted_at:
+    type: string
+  url:
+    type: url
+  topic:
+    type: enum
+    values: [tesla, spacex, xai, x-platform, ai, politics, doge, neuralink, boring-co, personal, meme, reply, news-commentary, business, science, other]
+  is_reply:
+    type: bool
+  is_retweet:
+    type: bool
+  like_count:
+    type: int
+  retweet_count:
+    type: int
+  reply_count:
+    type: int
+  view_count:
+    type: int
+tests: []

@@ -1,0 +1,30 @@
+frame_protocol: 0.0.1
+name: ai-models
+description: |
+  Every notable AI model release. Closed and open weights, every modality.
+  Captures the wave of releases month by month with consistent metadata.
+entity_type: model
+fields:
+  name:
+    type: string
+    required: true
+  vendor:
+    type: string
+    required: true
+  released_at:
+    type: string
+  modality:
+    type: string
+  access:
+    type: string
+  context_window:
+    type: int
+  parameters:
+    type: string
+  benchmark_score:
+    type: float
+  benchmark_name:
+    type: string
+  announcement_url:
+    type: url
+tests: []

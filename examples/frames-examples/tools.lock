@@ -1,0 +1,136 @@
+{
+  "pay_protocol": "0.0.1",
+  "lockfile_version": 1,
+  "resolved": {
+    "serper_news": {
+      "source": {
+        "url": "https://catalog.microchipgnu.workers.dev/tools/mpp.stableenrich.post.api-serper-news"
+      },
+      "descriptor_id": "sha256-ECUWgC6N0Kokdwv1ycaooKtysNXuPEHKQnKdFHOE3qg",
+      "fetched_at": "2026-05-05T16:30:01.858Z",
+      "descriptor": {
+        "pay_protocol": "0.0.1",
+        "id": "mpp.stableenrich.post.api-serper-news",
+        "title": "StableEnrich — POST /api/serper/news",
+        "description": "Google News search",
+        "capabilities": [
+          "apollo",
+          "exa",
+          "firecrawl",
+          "google-maps",
+          "linkedin",
+          "reddit",
+          "enrichment",
+          "research",
+          "data",
+          "search",
+          "social"
+        ],
+        "invocation": {
+          "method": "POST",
+          "url": "https://stableenrich.dev/api/serper/news"
+        },
+        "payment": {
+          "protocol": "mpp",
+          "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+          "price_hint": "0.04"
+        },
+        "_meta": {
+          "catalog": "mpp",
+          "fetched_at": "2026-05-04T12:50:17.296Z",
+          "upstream_id": "stableenrich:POST:/api/serper/news"
+        }
+      }
+    },
+    "exa_search": {
+      "source": {
+        "url": "https://catalog.microchipgnu.workers.dev/tools/frames.exa.post.api-search"
+      },
+      "descriptor_id": "sha256-AfNbhs5yVYOEnZcLuVQLypo39vmAT0M5cA7_kLRMib8",
+      "fetched_at": "2026-05-05T16:31:38.061Z",
+      "descriptor": {
+        "pay_protocol": "0.0.1",
+        "id": "frames.exa.post.api-search",
+        "title": "POST /api/search",
+        "description": "**Paid endpoint** - $0.01 on Base (USDC, USDT), Solana (USDC, USDT, CASH)",
+        "capabilities": [
+          "search",
+          "semantic",
+          "ai",
+          "exa"
+        ],
+        "invocation": {
+          "method": "POST",
+          "url": "https://registry.frames.ag/api/service/exa/api/search",
+          "params_schema": {
+            "type": "object",
+            "properties": {
+              "query": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "useAutoprompt": {},
+              "type": {},
+              "category": {
+                "type": "string",
+                "enum": [
+                  "company",
+                  "research paper",
+                  "news",
+                  "pdf",
+                  "github",
+                  "tweet",
+                  "personal site",
+                  "linkedin profile"
+                ]
+              },
+              "numResults": {},
+              "includeDomains": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "excludeDomains": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "startPublishedDate": {
+                "type": "string"
+              },
+              "endPublishedDate": {
+                "type": "string"
+              },
+              "contents": {
+                "type": "object",
+                "properties": {
+                  "text": {},
+                  "highlights": {},
+                  "summary": {}
+                }
+              }
+            },
+            "required": [
+              "query"
+            ]
+          }
+        },
+        "payment": {
+          "protocol": "x402v2",
+          "network": "base",
+          "currency": "USDC",
+          "price_hint": "0.01"
+        },
+        "_meta": {
+          "catalog": "frames-registry",
+          "fetched_at": "2026-05-04T12:50:17.296Z",
+          "upstream_id": "exa:POST:/api/search",
+          "service_slug": "exa"
+        }
+      }
+    }
+  }
+}

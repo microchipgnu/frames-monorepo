@@ -1,0 +1,38 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "openrouter/anthropic/claude-sonnet-4.6",
+  "mcp": {
+    "frame-mcp-servers": {
+      "type": "local",
+      "command": ["npx", "-y", "@frames-ag/frame", "serve", "datasets/mcp-servers"]
+    },
+    "frame-ai-promises": {
+      "type": "local",
+      "command": ["npx", "-y", "@frames-ag/frame", "serve", "datasets/ai-promises"]
+    },
+    "frame-agent-networks": {
+      "type": "local",
+      "command": ["npx", "-y", "@frames-ag/frame", "serve", "datasets/agent-networks"]
+    },
+    "frame-agent-wallets": {
+      "type": "local",
+      "command": ["npx", "-y", "@frames-ag/frame", "serve", "datasets/agent-wallets"]
+    },
+    "frame-blindspot-briefs": {
+      "type": "local",
+      "command": ["npx", "-y", "@frames-ag/frame", "serve", "datasets/blindspot-briefs"]
+    },
+    "frame-blindspot-threads": {
+      "type": "local",
+      "command": ["npx", "-y", "@frames-ag/frame", "serve", "datasets/blindspot-threads"]
+    },
+    "frame-ai-models": {
+      "type": "local",
+      "command": ["npx", "-y", "@frames-ag/frame", "serve", "datasets/ai-models"]
+    },
+    "frame-elon-tweets": {
+      "type": "local",
+      "command": ["npx", "-y", "@frames-ag/frame", "serve", "datasets/elon-tweets"]
+    }
+  }
+}

@@ -1,0 +1,9 @@
+node_modules/
+.DS_Store
+.env
+.env.local
+
+# regenerable artifacts
+datasets/*/.frame/dataset.db
+datasets/*/.frame/dataset.db-*
+datasets/*/.frame/rows.ndjson

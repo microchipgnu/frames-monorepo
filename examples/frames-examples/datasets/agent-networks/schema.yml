@@ -1,0 +1,28 @@
+frame_protocol: 0.0.1
+name: agent-networks
+description: |
+  Open questions about the emerging agent / machine-network economy.
+  One entity per question. The questions are stable; the evidence,
+  named actors, and current synthesis evolve over time.
+entity_type: question
+fields:
+  question:
+    type: string
+    required: true
+  category:
+    type: enum
+    values: [discovery, identity, ownership, payments, reputation, network-effects, economics, web3-comparison, governance, other]
+  status:
+    type: enum
+    values: [open, narrowing, resolved, moot]
+  current_thinking:
+    type: string
+  tension:
+    type: string
+  key_actors:
+    type: string
+  recent_signals:
+    type: string
+  last_reviewed_at:
+    type: string
+tests: []

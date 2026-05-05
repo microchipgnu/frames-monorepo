@@ -1,0 +1,28 @@
+frame_protocol: 0.0.1
+name: mcp-servers
+description: |
+  Every notable Model Context Protocol (MCP) server published on GitHub.
+  A living catalog: discover new ones, refresh stars/activity, deprecate dead repos.
+entity_type: server
+fields:
+  name:
+    type: string
+    required: true
+  repo_url:
+    type: url
+    required: true
+  description:
+    type: string
+  stars:
+    type: int
+  language:
+    type: string
+  category:
+    type: string
+  transport:
+    type: string
+  last_commit_at:
+    type: string
+  protocol_version:
+    type: string
+tests: []

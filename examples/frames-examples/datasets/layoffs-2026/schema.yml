@@ -1,0 +1,52 @@
+frame_protocol: 0.0.1
+name: layoffs-2026
+description: |
+  Live tracker of notable workforce reductions announced in 2026.
+  One entity per layoff event (company × announcement date). Captures
+  company, headcount impact, sector, geography, stated reason, and the
+  primary news + filing sources. Cross-source: news (Serper/Google News),
+  semantic web (Exa), Reddit discussion (stableenrich), official posts
+  on X (twit.sh), and SEC/WARN filings when available.
+entity_type: layoff
+fields:
+  company:
+    type: string
+    required: true
+  company_domain:
+    type: url
+  date_announced:
+    type: string
+    required: true
+  layoff_count:
+    type: int
+  layoff_percentage:
+    type: float
+  total_workforce_before:
+    type: int
+  sector:
+    type: enum
+    values: [tech, ai, retail, finance, media, healthcare, manufacturing, automotive, telecom, energy, gaming, hospitality, transport, government, other]
+  region:
+    type: enum
+    values: [us, eu, uk, latam, apac, mena, africa, global, other]
+  reason_stated:
+    type: enum
+    values: [ai-restructuring, cost-cutting, post-merger, business-pivot, market-downturn, automation, end-of-product-line, regulatory, bankruptcy, performance-management, other]
+  reason_excerpt:
+    type: string
+  ceo_name:
+    type: string
+  affected_teams:
+    type: string
+  warn_filing_url:
+    type: url
+  sec_filing_url:
+    type: url
+  official_statement_url:
+    type: url
+  status:
+    type: enum
+    values: [announced, executed, partially-executed, rescinded, disputed]
+  social_signal:
+    type: string
+tests: []

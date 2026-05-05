@@ -1,0 +1,45 @@
+frame_protocol: 0.0.1
+name: blindspot-briefs
+description: |
+  Daily analytical briefs on the previous day's news. Each entity is one
+  story, structured into the eight blindspot sections. The briefs are the
+  raw material; the blindspot-threads dataset connects them.
+entity_type: brief
+fields:
+  story_id:
+    type: string
+    required: true
+  date:
+    type: string
+    required: true
+  headline:
+    type: string
+    required: true
+  topic:
+    type: enum
+    values: [tech, politics, geopolitics, economy, society]
+  what_happened:
+    type: string
+    required: true
+  bottom_line:
+    type: string
+    required: true
+  hidden_bet:
+    type: string
+  real_disagreement:
+    type: string
+  what_no_one_is_saying:
+    type: string
+  who_pays:
+    type: string
+  scenarios:
+    type: string
+  what_would_change_this:
+    type: string
+  cover_image_url:
+    type: url
+  source_urls:
+    type: string
+  polymarket_urls:
+    type: string
+tests: []

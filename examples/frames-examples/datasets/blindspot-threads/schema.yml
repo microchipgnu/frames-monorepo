@@ -1,0 +1,30 @@
+frame_protocol: 0.0.1
+name: blindspot-threads
+description: |
+  Non-obvious connections across a single day's blindspot-briefs.
+  Each entity is one thread: a cause-effect chain, hidden dependency web,
+  or tension cluster that only becomes visible when you read the day's
+  briefs together.
+entity_type: thread
+fields:
+  thread_id:
+    type: string
+    required: true
+  date:
+    type: string
+    required: true
+  kind:
+    type: enum
+    values: [cause-effect, dependency-web, tension-cluster]
+  headline:
+    type: string
+    required: true
+  narrative:
+    type: string
+    required: true
+  brief_ids:
+    type: string
+    required: true
+  signal_to_watch:
+    type: string
+tests: []

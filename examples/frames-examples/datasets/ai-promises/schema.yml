@@ -1,0 +1,26 @@
+frame_protocol: 0.0.1
+name: ai-promises
+description: |
+  Public commitments by AI labs and their leaders, with a "shipped?" column.
+  Did they deliver? When did they say it? What was the gap?
+entity_type: promise
+fields:
+  statement:
+    type: string
+    required: true
+  actor:
+    type: string
+    required: true
+  topic:
+    type: string
+  promised_at:
+    type: string
+  target_date:
+    type: string
+  shipped:
+    type: bool
+  shipped_at:
+    type: string
+  evidence_url:
+    type: url
+tests: []
