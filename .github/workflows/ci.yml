@@ -18,7 +18,7 @@ jobs:
         # catalog/server intentionally excluded — it targets Cloudflare Workers
         # and needs @cloudflare/workers-types config that's only present at
         # deploy time. Add it back once that's wired in tsconfig.
-        package: [packages/pay, packages/frame]
+        package: [packages/pay, packages/frame, apps/frames-cloud]
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2

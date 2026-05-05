@@ -7,6 +7,7 @@
   "workspaces": [
     "packages/*",
     "packages/catalog/server",
+    "apps/*",
     "examples/*"
   ],
   "scripts": {

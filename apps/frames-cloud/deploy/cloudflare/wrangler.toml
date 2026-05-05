@@ -1,0 +1,7 @@
+name = "frames-cloud"
+main = "worker.ts"
+compatibility_date = "2026-05-01"
+
+# Set with: wrangler secret put GITHUB_TOKEN
+# Optional — only needed once read volume is enough that the unauthenticated
+# rate limit (60 req/hr per IP) bites. With a token it's 5,000 req/hr.

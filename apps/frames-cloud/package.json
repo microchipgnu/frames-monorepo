@@ -1,15 +1,23 @@
 {
-  "name": "frames-cloud",
+  "name": "@frames-ag/frames-cloud",
   "module": "src/index.ts",
   "type": "module",
   "private": true,
+  "description": "Read-only HTTP API + minimal debug UI for frame datasets resolved from any GitHub repo. Hono runtime; deployable to Vercel (edge) or Cloudflare Workers.",
   "scripts": {
     "dev": "bun --hot src/index.ts",
+    "dev:cloudflare": "bunx wrangler dev --config deploy/cloudflare/wrangler.toml",
     "start": "bun src/index.ts",
-    "smoke": "bun scripts/smoketest.ts"
+    "smoke": "bun scripts/smoketest.ts",
+    "typecheck": "tsc --noEmit",
+    "deploy:cloudflare": "bunx wrangler deploy --config deploy/cloudflare/wrangler.toml"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@cloudflare/workers-types": "^4.20240500.0",
+    "@types/bun": "latest",
+    "@types/node": "^22.0.0",
+    "typescript": "^5",
+    "wrangler": "^4.0.0"
   },
   "peerDependencies": {
     "typescript": "^5"
