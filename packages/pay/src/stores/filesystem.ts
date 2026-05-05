@@ -15,23 +15,27 @@ import { mkdirSync, appendFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { homedir } from "node:os";
 import { randomUUID } from "node:crypto";
-import type { Receipt, ToolInvokedEvent } from "../types.ts";
+import type {
+  Receipt,
+  ToolInvokedEvent,
+  ToolInvocationPayload,
+} from "../types.ts";
 
 export interface ReceiptStore {
   /** Append a single tool.invoked event built from the receipt. */
-  append(receipt: Receipt): Promise<void>;
+  append(receipt: Receipt, tool?: ToolInvocationPayload): Promise<void>;
 }
 
 export class FilesystemStore implements ReceiptStore {
   constructor(public readonly path: string) {}
 
-  async append(receipt: Receipt): Promise<void> {
+  async append(receipt: Receipt, tool?: ToolInvocationPayload): Promise<void> {
     const event: ToolInvokedEvent = {
       id: randomUUID(),
       ts: new Date().toISOString(),
       type: "tool.invoked",
       agent: receipt.agent,
-      payload: { receipt },
+      payload: { receipt, ...(tool !== undefined && { tool }) },
     };
     mkdirSync(dirname(this.path), { recursive: true });
     appendFileSync(this.path, JSON.stringify(event) + "\n");

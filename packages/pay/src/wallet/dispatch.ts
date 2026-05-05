@@ -32,7 +32,9 @@ import {
 import {
   detectFrameDataset,
   appendToolInvokedEvent,
+  buildToolPayload,
 } from "../frame/event.ts";
+import type { ToolInvocationPayload } from "../types.ts";
 
 export class DispatchError extends Error {
   constructor(message: string) {
@@ -224,7 +226,8 @@ export async function payForTool(
   const receipt: Receipt = await buildReceipt(receiptInput);
   // elapsedMs is currently unused but kept locally for future timing receipts.
   void elapsedMs;
-  await persistReceipt(receipt, ctx);
+  const toolPayload = buildToolPayload(input.params, responseText);
+  await persistReceipt(receipt, ctx, toolPayload);
   return { body, receipt };
 }
 
@@ -239,7 +242,11 @@ export async function payForTool(
  * can persist it themselves if they care. Sync-flush guarantee from SPEC
  * applies to the IN-PROCESS receipt — disk writes are best-effort cache.
  */
-async function persistReceipt(receipt: Receipt, ctx: DispatchContext): Promise<void> {
+async function persistReceipt(
+  receipt: Receipt,
+  ctx: DispatchContext,
+  toolPayload?: ToolInvocationPayload,
+): Promise<void> {
   const policy = ctx.persistence ?? {};
   if (policy.skipPersistence) return;
 
@@ -250,11 +257,11 @@ async function persistReceipt(receipt: Receipt, ctx: DispatchContext): Promise<v
 
   try {
     if (datasetPath) {
-      await appendToolInvokedEvent(datasetPath, receipt);
+      await appendToolInvokedEvent(datasetPath, receipt, toolPayload);
       return;
     }
     const store = policy.store ?? new FilesystemStore(defaultFallbackPath());
-    await store.append(receipt);
+    await store.append(receipt, toolPayload);
   } catch (e) {
     process.stderr.write(
       `pay: receipt persistence failed (non-fatal): ${(e as Error).message}\n`,
@@ -622,7 +629,12 @@ async function dispatchViaAgentwallet(
   // Same persistence policy as the regular path. The agentwallet-delegated
   // path doesn't currently get a DispatchContext — fall through to the
   // default detect-or-fallback behavior.
-  await persistReceipt(receipt, { registry: input.registry, auditKey: input.auditKey });
+  const toolPayload = buildToolPayload(input.params, responseText);
+  await persistReceipt(
+    receipt,
+    { registry: input.registry, auditKey: input.auditKey },
+    toolPayload,
+  );
 
   return { body, receipt };
 }

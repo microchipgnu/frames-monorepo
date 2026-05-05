@@ -161,12 +161,45 @@ export interface Receipt {
 // Frame integration — events.ndjson event type
 // ---------------------------------------------------------------------------
 
+/**
+ * Optional sidecar in tool.invoked events that surfaces the actual params
+ * and a response excerpt for human auditing.
+ *
+ * Asymmetric by design:
+ *   - `params` are stored verbatim (almost always small; a half-truncated
+ *     query is meaningless for replay/verification).
+ *   - `response_excerpt` is capped (often 10–80KB; the receipt's
+ *     `response_hash` anchors the full body for cryptographic verification).
+ *
+ * Defaults: cap = 2048 bytes, params not redacted.
+ * Knobs: PAY_TOOL_BODY_MAX_BYTES (cap), PAY_REDACT_PARAMS (privacy mode).
+ */
+export interface ToolInvocationPayload {
+  /** params object as passed to pay_tool. "[redacted]" if PAY_REDACT_PARAMS=true. */
+  params: unknown;
+  /** First N bytes of the response body (JSON-stringified). */
+  response_excerpt?: string;
+  /** Total size of the full response in bytes. */
+  response_size_bytes?: number;
+  /** True when response_excerpt was truncated. */
+  response_truncated?: boolean;
+}
+
 export interface ToolInvokedEvent {
   id: string;
   ts: string;
   type: "tool.invoked";
   agent: string;
-  payload: { receipt: Receipt };
+  payload: {
+    receipt: Receipt;
+    /**
+     * When present, surfaces input + output excerpt for human auditing.
+     * Does NOT replace the receipt's hashes — those remain the canonical
+     * forensic anchor. Older readers ignore unknown payload keys per
+     * the frame protocol forward-compat rule.
+     */
+    tool?: ToolInvocationPayload;
+  };
 }
 
 // ---------------------------------------------------------------------------
