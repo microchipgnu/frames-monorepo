@@ -1,0 +1,21 @@
+{
+  "name": "frames-cloud",
+  "module": "src/index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun --hot src/index.ts",
+    "start": "bun src/index.ts",
+    "smoke": "bun scripts/smoketest.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "hono": "^4.12.16",
+    "yaml": "^2.8.3"
+  }
+}
