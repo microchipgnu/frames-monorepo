@@ -1,20 +1,28 @@
-name: validate
+name: catalog-validate
+
+# Sanity-check every descriptor JSON in packages/catalog/content/tools/.
+# Catches malformed entries before they hit the live catalog (which reads
+# from this repo's main branch via raw.githubusercontent.com).
 
 on:
   pull_request:
     paths:
-      - 'content/**'
-      - 'server/**'
-      - '.github/workflows/validate.yml'
+      - 'packages/catalog/content/**'
+      - '.github/workflows/catalog-validate.yml'
   push:
     branches: [main]
+    paths:
+      - 'packages/catalog/content/**'
 
 jobs:
   descriptors:
+    name: Descriptor JSON shape
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Validate descriptor JSON shape
+
+      - name: Validate every descriptor
+        working-directory: packages/catalog
         run: |
           set -euo pipefail
           for f in content/tools/*.json; do
@@ -28,17 +36,3 @@ jobs:
             base=$(basename "$f" .json)
             [ "$id" = "$base" ] || { echo "filename $base does not match descriptor id $id"; exit 1; }
           done
-
-  server:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - name: Install
-        working-directory: server
-        run: npm install
-      - name: Typecheck
-        working-directory: server
-        run: npm run typecheck

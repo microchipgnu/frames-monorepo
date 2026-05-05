@@ -1,5 +1,17 @@
 name: tick
 
+# Daily refresh of every live dataset under examples/frames-examples/datasets/.
+# Each dataset's loop is owned by its own prompt.md; this workflow is just the
+# scheduler + per-dataset fan-out + commit-back machinery.
+#
+# Required repo secrets (Settings → Secrets and variables → Actions):
+#   AGENTWALLET_USERNAME    — username for hosted agentwallet at frames.ag
+#   AGENTWALLET_API_TOKEN   — token for hosted agentwallet
+#   OPENROUTER_API_KEY      — model access for opencode
+#
+# Manual trigger: gh workflow run tick.yml -R microchipgnu/frames-monorepo
+#                 (optionally pass `dataset=<name>` or `dataset=all`)
+
 on:
   schedule:
     # daily at 06:00 UTC
@@ -18,10 +30,21 @@ jobs:
   tick:
     runs-on: ubuntu-latest
     timeout-minutes: 60
+    defaults:
+      run:
+        working-directory: examples/frames-examples
     strategy:
       fail-fast: false
       matrix:
-        dataset: [mcp-servers, ai-promises, ai-models, elon-tweets, blindspot-briefs, agent-networks, agent-wallets]
+        dataset:
+          - mcp-servers
+          - ai-promises
+          - ai-models
+          - elon-tweets
+          - blindspot-briefs
+          - agent-networks
+          - agent-wallets
+          - layoffs-2026
     steps:
       - uses: actions/checkout@v4
         with:
@@ -32,20 +55,24 @@ jobs:
           node-version: "22"
 
       - name: Install OpenCode
+        working-directory: ${{ github.workspace }}
         run: curl -fsSL https://opencode.ai/install | bash
 
       - name: Install frame CLI
         # install once globally so better-sqlite3 native binding builds reliably
         # (npx -y can skip postinstall and leave the binding missing)
+        working-directory: ${{ github.workspace }}
         run: npm i -g @frames-ag/frame@latest
 
       - name: Install skills
+        working-directory: ${{ github.workspace }}
         run: |
           npx skills add https://github.com/frames-engineering/skills --skill agentwallet -y
           npx skills add https://github.com/frames-engineering/skills --skill registry -y
           npx skills add https://github.com/microchipgnu/blindspot.news --skill analysis -y
 
       - name: Setup credentials
+        working-directory: ${{ github.workspace }}
         env:
           AGENTWALLET_USERNAME: ${{ secrets.AGENTWALLET_USERNAME }}
           AGENTWALLET_API_TOKEN: ${{ secrets.AGENTWALLET_API_TOKEN }}
@@ -69,6 +96,7 @@ jobs:
           echo "::add-mask::$FRAMES_API_KEY"
 
       - name: Configure git
+        working-directory: ${{ github.workspace }}
         run: |
           git config user.name "frames-bot"
           git config user.email "frames-bot@users.noreply.github.com"
@@ -84,21 +112,17 @@ jobs:
         run: |
           opencode run --dangerously-skip-permissions --print-logs "$(cat datasets/${{ matrix.dataset }}/prompt.md)"
 
-      # Verify the events log is referentially sound before projecting.
-      # continue-on-error: a bad log must not skip the events.ndjson commit below
-      # (preserving work is the whole point — a corrupt log is debuggable later).
       - name: Verify events
         id: verify
         if: steps.tick.outcome == 'success'
         continue-on-error: true
         run: frame verify datasets/${{ matrix.dataset }}
 
-      # events.ndjson is the protocol-declared source of truth. Commit it before
-      # attempting projection so a downstream failure cannot lose the agent's work.
       - name: Commit events.ndjson
         if: steps.tick.outcome == 'success'
+        working-directory: ${{ github.workspace }}
         run: |
-          git add datasets/${{ matrix.dataset }}/events.ndjson || true
+          git add examples/frames-examples/datasets/${{ matrix.dataset }}/events.ndjson || true
           if ! git diff --cached --quiet; then
             git commit -m "tick(${{ matrix.dataset }}): events $(date -u +%Y-%m-%dT%H:%MZ)"
             git pull --rebase || true
@@ -112,27 +136,23 @@ jobs:
 
       - name: Commit projection
         if: steps.project.outcome == 'success'
+        working-directory: ${{ github.workspace }}
         run: |
-          git add datasets/${{ matrix.dataset }}/.frame || true
+          git add examples/frames-examples/datasets/${{ matrix.dataset }}/.frame || true
           if ! git diff --cached --quiet; then
             git commit -m "tick(${{ matrix.dataset }}): projection $(date -u +%Y-%m-%dT%H:%MZ)"
             git pull --rebase || true
             git push
           fi
 
-      # On verify or project failure, save the runner's events.ndjson as an
-      # artifact so the next failure is debuggable (the May 2 incident vanished
-      # because the runner's working copy was wiped before anything was uploaded).
       - name: Upload events.ndjson on failure
         if: ${{ steps.tick.outcome == 'success' && (steps.verify.outcome == 'failure' || steps.project.outcome == 'failure') }}
         uses: actions/upload-artifact@v4
         with:
           name: events-${{ matrix.dataset }}-${{ github.run_id }}
-          path: datasets/${{ matrix.dataset }}/events.ndjson
+          path: examples/frames-examples/datasets/${{ matrix.dataset }}/events.ndjson
           if-no-files-found: warn
 
-      # Surface verify/project failures as job failures so they're visible in the
-      # UI. The events commit above already ran, so work is preserved either way.
       - name: Report failure
         if: ${{ steps.tick.outcome == 'success' && (steps.verify.outcome == 'failure' || steps.project.outcome == 'failure') }}
         run: |
@@ -146,6 +166,9 @@ jobs:
     needs: tick
     runs-on: ubuntu-latest
     timeout-minutes: 60
+    defaults:
+      run:
+        working-directory: examples/frames-examples
     strategy:
       fail-fast: false
       matrix:
@@ -160,18 +183,22 @@ jobs:
           node-version: "22"
 
       - name: Install OpenCode
+        working-directory: ${{ github.workspace }}
         run: curl -fsSL https://opencode.ai/install | bash
 
       - name: Install frame CLI
+        working-directory: ${{ github.workspace }}
         run: npm i -g @frames-ag/frame@latest
 
       - name: Install skills
+        working-directory: ${{ github.workspace }}
         run: |
           npx skills add https://github.com/frames-engineering/skills --skill agentwallet -y
           npx skills add https://github.com/frames-engineering/skills --skill registry -y
           npx skills add https://github.com/microchipgnu/blindspot.news --skill analysis -y
 
       - name: Setup credentials
+        working-directory: ${{ github.workspace }}
         env:
           AGENTWALLET_USERNAME: ${{ secrets.AGENTWALLET_USERNAME }}
           AGENTWALLET_API_TOKEN: ${{ secrets.AGENTWALLET_API_TOKEN }}
@@ -195,6 +222,7 @@ jobs:
           echo "::add-mask::$FRAMES_API_KEY"
 
       - name: Configure git
+        working-directory: ${{ github.workspace }}
         run: |
           git config user.name "frames-bot"
           git config user.email "frames-bot@users.noreply.github.com"
@@ -218,8 +246,9 @@ jobs:
 
       - name: Commit events.ndjson
         if: steps.tick.outcome == 'success'
+        working-directory: ${{ github.workspace }}
         run: |
-          git add datasets/${{ matrix.dataset }}/events.ndjson || true
+          git add examples/frames-examples/datasets/${{ matrix.dataset }}/events.ndjson || true
           if ! git diff --cached --quiet; then
             git commit -m "tick(${{ matrix.dataset }}): events $(date -u +%Y-%m-%dT%H:%MZ)"
             git pull --rebase || true
@@ -233,8 +262,9 @@ jobs:
 
       - name: Commit projection
         if: steps.project.outcome == 'success'
+        working-directory: ${{ github.workspace }}
         run: |
-          git add datasets/${{ matrix.dataset }}/.frame || true
+          git add examples/frames-examples/datasets/${{ matrix.dataset }}/.frame || true
           if ! git diff --cached --quiet; then
             git commit -m "tick(${{ matrix.dataset }}): projection $(date -u +%Y-%m-%dT%H:%MZ)"
             git pull --rebase || true
@@ -246,7 +276,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: events-${{ matrix.dataset }}-${{ github.run_id }}
-          path: datasets/${{ matrix.dataset }}/events.ndjson
+          path: examples/frames-examples/datasets/${{ matrix.dataset }}/events.ndjson
           if-no-files-found: warn
 
       - name: Report failure
