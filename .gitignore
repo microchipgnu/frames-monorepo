@@ -18,3 +18,6 @@ dist/
 **/.frame/dataset.db
 **/.frame/dataset.db-*
 **/.frame/rows.ndjson
+
+# wrangler local state (miniflare KV/cache)
+.wrangler/
