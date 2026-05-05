@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.dream-x420-dev-api-puff",
+  "title": "Buy 1 USDC worth of DREAM tokens 0xD7dA53A5d367CB31447FF74E3F9EEBd0e6932b07",
+  "description": "Buy 1 USDC worth of DREAM tokens 0xD7dA53A5d367CB31447FF74E3F9EEBd0e6932b07",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://dream.x420.dev/api/puff"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://dream.x420.dev/api/puff",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

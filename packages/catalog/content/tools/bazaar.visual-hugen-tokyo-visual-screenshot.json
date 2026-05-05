@@ -1,0 +1,43 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.visual-hugen-tokyo-visual-screenshot",
+  "title": "Screenshot any public URL — returns base64 JPEG/PNG with metadata (page title, f",
+  "description": "Screenshot any public URL — returns base64 JPEG/PNG with metadata (page title, file size, render time). Full-page scroll capture, CSS selector targeting, device emulation (iPhone 15 Pro, Pixel 7, iPad Pro 12.9), dark mode, ad/cookie banner auto-removal. No browser infrastructure needed, no server costs. Pay per capture. Accepts USDC payments on Base and Solana",
+  "capabilities": [
+    "screenshot",
+    "pdf",
+    "rendering"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://visual.hugen.tokyo/visual/screenshot"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.02",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.02",
+        "pay_to": "4du4AfkjJEwch2zk3shkPJVZfyJHNDnNjEWC6AboaS5Z",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "GVJJ7rdGiXr5xaYbRwRbjfaJL7fmwRygFi1H6aGqDveb"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://visual.hugen.tokyo/visual/screenshot",
+    "x402_version": 2,
+    "accept_count": 2
+  }
+}

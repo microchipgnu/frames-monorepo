@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-questflow-ai-x402-swarm-qrn-swarm-68e934eea242833cf38e8098",
+  "title": "Make a tweet, make a meme, generate a picture, analyze market trends and more | ",
+  "description": "Make a tweet, make a meme, generate a picture, analyze market trends and more | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.questflow.ai/x402/swarm/qrn:swarm:68e934eea242833cf38e8098"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "UNKNOWN",
+    "asset": "0xf33CAC2bB6B26e7615B1873c84e4174Ae193A9aa",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://api.questflow.ai/x402/swarm/qrn:swarm:68e934eea242833cf38e8098",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

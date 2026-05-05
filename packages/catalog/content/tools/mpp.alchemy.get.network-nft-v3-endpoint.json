@@ -1,0 +1,29 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.alchemy.get.network-nft-v3-endpoint",
+  "title": "Alchemy — GET /:network/nft/v3/:endpoint",
+  "description": "NFT API v3",
+  "capabilities": [
+    "rpc",
+    "json-rpc",
+    "nft",
+    "evm",
+    "multichain",
+    "blockchain",
+    "data"
+  ],
+  "invocation": {
+    "method": "GET",
+    "url": "https://mpp.alchemy.com/:network/nft/v3/:endpoint"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.0005"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "alchemy:GET:/:network/nft/v3/:endpoint"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.kg-dyor-network-api-timeseries",
+  "title": "Query historical crypto time-series data: token prices, market caps, TVL, protoc",
+  "description": "Query historical crypto time-series data: token prices, market caps, TVL, protocol revenue, fees, DeFi pool APY, lending rates, stablecoin supply, and treasury balances. Data from CoinGecko, DefiLlama, TokenTerminal, and CryptoRank updated daily. Free schema at GET /api/schema lists all tables and columns | ZWING Intelligence (https://zwing.bot) — contact: v@zwing.bot, Telegram: @valery_zzz",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://kg.dyor.network/api/timeseries"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://kg.dyor.network/api/timeseries",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

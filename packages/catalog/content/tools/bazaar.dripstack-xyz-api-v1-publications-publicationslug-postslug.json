@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.dripstack-xyz-api-v1-publications-publicationslug-postslug",
+  "title": "Paid JSON for one Substack-backed post: HTML body (`contentHtml`), metadata, and",
+  "description": "Paid JSON for one Substack-backed post: HTML body (`contentHtml`), metadata, and identifiers. Path params are `publicationSlug` and `postSlug`. USDC `exact` x402 on Base; USD amount is per-post when set on the post, otherwise the server default.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://dripstack.xyz/api/v1/publications/:publicationSlug/:postSlug"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://dripstack.xyz/api/v1/publications/:publicationSlug/:postSlug",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.wayback-x402-vercel-app-wayback-summary",
+  "title": "Wayback Machine archive summary for a URL. Returns first archived date, last arc",
+  "description": "Wayback Machine archive summary for a URL. Returns first archived date, last archived date, and direct links to oldest and newest snapshots. Quick overview of a URL's archive history.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://wayback-x402.vercel.app/wayback/summary"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://wayback-x402.vercel.app/wayback/summary",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

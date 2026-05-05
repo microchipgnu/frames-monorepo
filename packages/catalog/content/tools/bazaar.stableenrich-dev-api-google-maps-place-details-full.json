@@ -1,0 +1,47 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.stableenrich-dev-api-google-maps-place-details-full",
+  "title": "Google Maps Place Details (Full)",
+  "description": "Google Maps Place Details (Full)",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://stableenrich.dev/api/google-maps/place-details/full"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.05",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.05",
+        "pay_to": "6cvgmdrsVxyiuPzqMCSBnS7fAmA5Mk2VG4BcfVhC8jdC",
+        "scheme": "exact",
+        "extra": {
+          "decimals": 6,
+          "features": {
+            "xSettlementAccountSupported": true
+          },
+          "feePayer": "AepWpq3GQwL8CeKMtZyKtKPa7W91Coygh3ropAJapVdU",
+          "recentBlockhash": "3ACnqCwidG19EXoHqzAvkdYAuspY5ThUb65Jm5AoXzFu",
+          "tokenProgram": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://stableenrich.dev/api/google-maps/place-details/full",
+    "x402_version": 2,
+    "accept_count": 2
+  }
+}

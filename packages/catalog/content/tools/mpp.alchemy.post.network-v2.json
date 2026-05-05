@@ -1,0 +1,29 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.alchemy.post.network-v2",
+  "title": "Alchemy — POST /:network/v2",
+  "description": "JSON-RPC call (eth_*, alchemy_*)",
+  "capabilities": [
+    "rpc",
+    "json-rpc",
+    "nft",
+    "evm",
+    "multichain",
+    "blockchain",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://mpp.alchemy.com/:network/v2"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.0001"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "alchemy:POST:/:network/v2"
+  }
+}

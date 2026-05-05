@@ -1,0 +1,29 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.pinata.post.v1-pin-public",
+  "title": "Pinata IPFS — POST /v1/pin/public",
+  "description": "Upload file to IPFS — dynamic pricing based on file size ($0.10/GB/month, min $0.01)",
+  "capabilities": [
+    "ipfs",
+    "pinata",
+    "storage",
+    "files",
+    "upload",
+    "download",
+    "cid"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://mpp.pinata.cloud/v1/pin/public"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "dynamic"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "pinata:POST:/v1/pin/public"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-twit-sh-tweets-retweeted-by",
+  "title": "Get the list of Twitter/X users who reposted a specific tweet. Returns paginated",
+  "description": "Get the list of Twitter/X users who reposted a specific tweet. Returns paginated user profiles for a given tweet ID. Query params: id (string, required) - numeric tweet ID; next_token (string, optional) - pagination cursor, e.g. GET /tweets/retweeted_by?id=1110302988. Returns X v2 API-compatible JSON.",
+  "capabilities": [
+    "twitter",
+    "x",
+    "social",
+    "tweets",
+    "retweets",
+    "retweeters",
+    "reposts",
+    "users",
+    "paginated",
+    "agent",
+    "x402"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.twit.sh/tweets/retweeted_by"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://x402.twit.sh/tweets/retweeted_by",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

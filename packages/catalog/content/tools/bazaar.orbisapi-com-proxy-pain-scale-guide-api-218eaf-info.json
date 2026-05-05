@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-pain-scale-guide-api-218eaf-info",
+  "title": "5 pain assessment scales — NRS, Wong-Baker FACES, FLACC, McGill, DVPRS — with ho",
+  "description": "5 pain assessment scales — NRS, Wong-Baker FACES, FLACC, McGill, DVPRS — with how and when each is used.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/pain-scale-guide-api-218eaf/info"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://orbisapi.com/proxy/pain-scale-guide-api-218eaf/info",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

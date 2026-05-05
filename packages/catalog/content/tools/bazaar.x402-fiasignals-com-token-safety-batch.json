@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-fiasignals-com-token-safety-batch",
+  "title": "Fia Signals x402 Base USDC token safety and smart contract risk batch API for bu",
+  "description": "Fia Signals x402 Base USDC token safety and smart contract risk batch API for buyer agents, trading bots, swap routers, and A2A commerce. Screen up to 5 Base/EVM contracts before a swap for contract risk, rugpull, honeypot, liquidity, and market risk. Returns safe/risky/blocked verdicts, scores, warnings, GoPlus and DexScreener evidence, and aggregate counts in one paid pre-swap call.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.fiasignals.com/token-safety/batch"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://x402.fiasignals.com/token-safety/batch",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

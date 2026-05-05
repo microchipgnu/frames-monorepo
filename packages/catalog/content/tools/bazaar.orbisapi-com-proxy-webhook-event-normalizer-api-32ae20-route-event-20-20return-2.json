@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-webhook-event-normalizer-api-32ae20-route-event-20-20return-2",
+  "title": "Normalize webhook events into stable types, retry rules, idempotency keys, and r",
+  "description": "Normalize webhook events into stable types, retry rules, idempotency keys, and routing hints",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/webhook-event-normalizer-api-32ae20/route-event%20-%20Return%20focused%20secondary%20analysis%20for%20this%20workflow"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://orbisapi.com/proxy/webhook-event-normalizer-api-32ae20/route-event%20-%20Return%20focused%20secondary%20analysis%20for%20this%20workflow",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

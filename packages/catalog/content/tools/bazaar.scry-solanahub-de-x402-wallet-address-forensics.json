@@ -1,0 +1,41 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.scry-solanahub-de-x402-wallet-address-forensics",
+  "title": "Scry Wallet Intelligence for Solana memecoin due diligence: trading profile, bun",
+  "description": "Scry Wallet Intelligence for Solana memecoin due diligence: trading profile, bundler pattern, clusters, funding edges, and red flags. Sanitized output only.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://scry.solanahub.de/x402/wallet/:address/forensics"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.05",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.05",
+        "pay_to": "CTKigV78yuErumvqm7Qor8j1hMK2oxNxdhwpVrAKV85d",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "BFK9TLC3edb13K6v4YyH3DwPb5DSUpkWvb7XnqCL9b4F"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://scry.solanahub.de/x402/wallet/:address/forensics",
+    "x402_version": 2,
+    "accept_count": 2
+  }
+}

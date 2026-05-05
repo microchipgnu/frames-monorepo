@@ -1,0 +1,30 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.govlaws.get.api-mpp-resolve",
+  "title": "GovLaws — GET /api/mpp/resolve",
+  "description": "Resolve a CFR citation to current text, provenance, freshness, and recent changes",
+  "capabilities": [
+    "legal",
+    "regulatory",
+    "government",
+    "citations",
+    "compliance",
+    "federal",
+    "data",
+    "search"
+  ],
+  "invocation": {
+    "method": "GET",
+    "url": "https://govlaws.ai/api/mpp/resolve"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "govlaws:GET:/api/mpp/resolve"
+  }
+}

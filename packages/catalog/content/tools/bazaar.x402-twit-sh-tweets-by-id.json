@@ -1,0 +1,38 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-twit-sh-tweets-by-id",
+  "title": "Look up a single Twitter/X tweet by its numeric tweet ID. Returns full tweet dat",
+  "description": "Look up a single Twitter/X tweet by its numeric tweet ID. Returns full tweet data including text, author profile, creation date, engagement metrics (likes, retweets, replies, quotes, bookmarks), and referenced tweets. Query param: id (string, required) - numeric tweet ID, e.g. GET /tweets/by/id?id=1110302988. Returns X v2 API-compatible JSON.",
+  "capabilities": [
+    "twitter",
+    "x",
+    "social",
+    "tweet",
+    "post",
+    "lookup",
+    "id",
+    "metrics",
+    "likes",
+    "retweets",
+    "agent",
+    "x402"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.twit.sh/tweets/by/id"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.0025"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://x402.twit.sh/tweets/by/id",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

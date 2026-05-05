@@ -1,0 +1,26 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.modal.post.sandbox-create",
+  "title": "Modal — POST /sandbox/create",
+  "description": "Create a sandbox for code execution",
+  "capabilities": [
+    "gpu",
+    "serverless",
+    "sandbox",
+    "compute"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://modal.mpp.tempo.xyz/sandbox/create"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "dynamic"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "modal:POST:/sandbox/create"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.kicksdb.get.v3-stockx-products-id-sales-daily",
+  "title": "KicksDB — GET /v3/stockx/products/:id/sales/daily",
+  "description": "StockX daily sales data",
+  "capabilities": [
+    "sneakers",
+    "streetwear",
+    "prices",
+    "stockx",
+    "goat",
+    "data"
+  ],
+  "invocation": {
+    "method": "GET",
+    "url": "https://kicksdb.mpp.tempo.xyz/v3/stockx/products/:id/sales/daily"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.0005"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "kicksdb:GET:/v3/stockx/products/:id/sales/daily"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.brapi-dev-api-x402-stock-quotes",
+  "title": "Get current and historical data for Brazilian stocks, indexes, or ETFs including",
+  "description": "Get current and historical data for Brazilian stocks, indexes, or ETFs including price quotes, financial statements, and dividends. Returns real-time quotes, historical prices, financial statements, and dividends for B3 (Brazilian Stock Exchange) tickers.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://brapi.dev/api/x402/stock-quotes"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://brapi.dev/api/x402/stock-quotes",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

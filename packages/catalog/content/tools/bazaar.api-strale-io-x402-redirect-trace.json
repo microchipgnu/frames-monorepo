@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-redirect-trace",
+  "title": "Trace the full HTTP redirect chain for a URL. Shows each hop with status code, l",
+  "description": "Trace the full HTTP redirect chain for a URL. Shows each hop with status code, location header, server, and latency. SQS: 96/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/redirect-trace"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://api.strale.io/x402/redirect-trace",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

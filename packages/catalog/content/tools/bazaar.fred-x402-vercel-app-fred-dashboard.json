@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.fred-x402-vercel-app-fred-dashboard",
+  "title": "Curated macro dashboard: latest values for the 10 most important US economic ind",
+  "description": "Curated macro dashboard: latest values for the 10 most important US economic indicators — CPI inflation, unemployment, Fed funds rate, GDP, 10Y Treasury yield, yield curve spread, S&P 500, M2 money supply, housing starts, oil price.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://fred-x402.vercel.app/fred/dashboard"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://fred-x402.vercel.app/fred/dashboard",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

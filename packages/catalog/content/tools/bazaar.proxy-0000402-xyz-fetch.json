@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.proxy-0000402-xyz-fetch",
+  "title": "Pay $0.01 USDC to make an outbound HTTP request through the proxy. Supports all ",
+  "description": "Pay $0.01 USDC to make an outbound HTTP request through the proxy. Supports all standard HTTP methods, custom headers (including auth), and JSON or raw bodies. Responses are returned as text or base64-encoded binary. Max response size 10 MB, timeout 30s. Each request performs one upstream fetch and returns the final URL plus response metadata.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://proxy.0000402.xyz/fetch"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://proxy.0000402.xyz/fetch",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

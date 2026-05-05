@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.signal-quickai-build-signal",
+  "title": "Quick Signal TA v3.0.0 – One Query, Ten Indicators with Assessment | Professiona",
+  "description": "Quick Signal TA v3.0.0 – One Query, Ten Indicators with Assessment | Professional crypto technical analysis",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://signal.quickai.build/signal"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.2"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://signal.quickai.build/signal",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

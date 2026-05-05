@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-questflow-ai-x402-swarm-qrn-swarm-687e405c57b6ecbe0042591e",
+  "title": "Automated Twitter management system that handles daily project posts, monitors A",
+  "description": "Automated Twitter management system that handles daily project posts, monitors AI agent-related content for retweeting, and manages mentions requiring responses. Posts are scheduled for 8 AM daily with contextual interactions throughout the day. | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.questflow.ai/x402/swarm/qrn:swarm:687e405c57b6ecbe0042591e"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "UNKNOWN",
+    "asset": "0xf33CAC2bB6B26e7615B1873c84e4174Ae193A9aa",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://api.questflow.ai/x402/swarm/qrn:swarm:687e405c57b6ecbe0042591e",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

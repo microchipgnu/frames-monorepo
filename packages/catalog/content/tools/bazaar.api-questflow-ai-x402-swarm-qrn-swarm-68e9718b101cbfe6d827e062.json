@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-questflow-ai-x402-swarm-qrn-swarm-68e9718b101cbfe6d827e062",
+  "title": "AI-powered creative studio that transforms ideas into viral social content. Gene",
+  "description": "AI-powered creative studio that transforms ideas into viral social content. Generates scripts, designs visuals, and produces platform-optimized videos that capture your brand's voice and engage audiences. | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.questflow.ai/x402/swarm/qrn:swarm:68e9718b101cbfe6d827e062"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "UNKNOWN",
+    "asset": "0xf33CAC2bB6B26e7615B1873c84e4174Ae193A9aa",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://api.questflow.ai/x402/swarm/qrn:swarm:68e9718b101cbfe6d827e062",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

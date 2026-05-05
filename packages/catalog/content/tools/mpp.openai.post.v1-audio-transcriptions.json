@@ -1,0 +1,31 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.openai.post.v1-audio-transcriptions",
+  "title": "OpenAI — POST /v1/audio/transcriptions",
+  "description": "Transcribe audio with Whisper",
+  "capabilities": [
+    "llm",
+    "gpt-4o",
+    "dall-e",
+    "whisper",
+    "tts",
+    "embeddings",
+    "chat",
+    "ai",
+    "media"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://openai.mpp.tempo.xyz/v1/audio/transcriptions"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "openai:POST:/v1/audio/transcriptions"
+  }
+}

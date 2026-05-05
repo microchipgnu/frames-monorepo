@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-emergency-fund-calculator-api-fb28e4-finance-emergency-fund",
+  "title": "Calculate emergency fund target based on expenses and job stability. Tracks fund",
+  "description": "Calculate emergency fund target based on expenses and job stability. Tracks funding gap and time to reach goal. Built for AI agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/emergency-fund-calculator-api-fb28e4/finance/emergency-fund"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://orbisapi.com/proxy/emergency-fund-calculator-api-fb28e4/finance/emergency-fund",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

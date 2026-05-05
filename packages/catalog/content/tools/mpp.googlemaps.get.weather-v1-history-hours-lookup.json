@@ -1,0 +1,38 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.googlemaps.get.weather-v1-history-hours-lookup",
+  "title": "Google Maps — GET /weather/v1/history/hours:lookup",
+  "description": "Get hourly weather history",
+  "capabilities": [
+    "maps",
+    "google",
+    "geocoding",
+    "directions",
+    "places",
+    "routes",
+    "tiles",
+    "weather",
+    "air-quality",
+    "solar",
+    "roads",
+    "pollen",
+    "geolocation",
+    "aerial",
+    "validation",
+    "data"
+  ],
+  "invocation": {
+    "method": "GET",
+    "url": "https://googlemaps.mpp.tempo.xyz/weather/v1/history/hours:lookup"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.00015"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "googlemaps:GET:/weather/v1/history/hours:lookup"
+  }
+}

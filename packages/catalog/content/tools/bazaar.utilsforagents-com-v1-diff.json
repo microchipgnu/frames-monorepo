@@ -1,0 +1,41 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.utilsforagents-com-v1-diff",
+  "title": "Compare two JSON objects or arrays and get a structured list of differences. Ret",
+  "description": "Compare two JSON objects or arrays and get a structured list of differences. Returns RFC 6902-style patch operations (add, remove, replace) with JSON Pointer paths (RFC 6901). Useful for change detection, audit logging, config comparison, and finding what changed between two API responses. Send {\"left\": <original>, \"right\": <modified>}. Optional: includeUnchanged (bool) includes unchanged paths; maxDepth (int 1–256, default 64) limits traversal depth.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://utilsforagents.com/v1/diff"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.003",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.003",
+        "pay_to": "GXTcDuC5mPnmbWSza92FcX9zSmp8QuPpFh6n1ad9c9zM",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "BFK9TLC3edb13K6v4YyH3DwPb5DSUpkWvb7XnqCL9b4F"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://utilsforagents.com/v1/diff",
+    "x402_version": 2,
+    "accept_count": 2
+  }
+}

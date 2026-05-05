@@ -1,0 +1,44 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.domain-hugen-tokyo-domain-whois",
+  "title": "WHOIS registration lookup — registrar, creation/expiry/updated dates, domain age",
+  "description": "WHOIS registration lookup — registrar, creation/expiry/updated dates, domain age in days, name servers, DNSSEC, registrant country/org, EPP status codes. All TLDs (.com .net .org .io .dev .ai ccTLDs gTLDs). Per-field error resilience for TLD-specific parsing quirks. No WHOIS library setup or TLD-specific parsing needed. Accepts USDC payments on Base and Solana",
+  "capabilities": [
+    "whois",
+    "dns",
+    "ssl",
+    "domain"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://domain.hugen.tokyo/domain/whois"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.01",
+        "pay_to": "4du4AfkjJEwch2zk3shkPJVZfyJHNDnNjEWC6AboaS5Z",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "GVJJ7rdGiXr5xaYbRwRbjfaJL7fmwRygFi1H6aGqDveb"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://domain.hugen.tokyo/domain/whois",
+    "x402_version": 2,
+    "accept_count": 2
+  }
+}

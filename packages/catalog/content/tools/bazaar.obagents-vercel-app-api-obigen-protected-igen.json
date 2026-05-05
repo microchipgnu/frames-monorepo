@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.obagents-vercel-app-api-obigen-protected-igen",
+  "title": "\n        x402 OB Image Generator · Price $0.01 per generated image\n\n        http",
+  "description": "\n        x402 OB Image Generator · Price $0.01 per generated image\n\n        https://obagents.vercel.app/api/obigen/protected/igen\n\n        GET\n\n        Query Params \n          // The primary text description of the image to generate.\n          prompt: string;\n          \n        Example:\n          https://obagents.vercel.app/api/obigen/protected/igen?prompt=yourprompt\n\n        · x402 OB Image Generator · Price $0.01 per generated image\n      ",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://obagents.vercel.app/api/obigen/protected/igen"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://obagents.vercel.app/api/obigen/protected/igen",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

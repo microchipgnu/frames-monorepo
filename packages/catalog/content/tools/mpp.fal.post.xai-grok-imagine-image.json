@@ -1,0 +1,30 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.fal.post.xai-grok-imagine-image",
+  "title": "fal.ai — POST /xai/grok-imagine-image",
+  "description": "Grok Imagine - xAI image generation",
+  "capabilities": [
+    "image",
+    "video",
+    "flux",
+    "stable-diffusion",
+    "grok",
+    "generation",
+    "ai",
+    "media"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://fal.mpp.tempo.xyz/xai/grok-imagine-image"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.04"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "fal:POST:/xai/grok-imagine-image"
+  }
+}

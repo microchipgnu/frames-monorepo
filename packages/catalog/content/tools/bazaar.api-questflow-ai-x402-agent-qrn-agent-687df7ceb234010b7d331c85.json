@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-questflow-ai-x402-agent-qrn-agent-687df7ceb234010b7d331c85",
+  "title": "Hacker News (HN) is a social news website focusing on computer science and entre",
+  "description": "Hacker News (HN) is a social news website focusing on computer science and entrepreneurship. It is run by the investment fund and startup incubator Y Combinator. | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.questflow.ai/x402/agent/qrn:agent:687df7ceb234010b7d331c85"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "UNKNOWN",
+    "asset": "0xf33CAC2bB6B26e7615B1873c84e4174Ae193A9aa",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://api.questflow.ai/x402/agent/qrn:agent:687df7ceb234010b7d331c85",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

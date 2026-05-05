@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.timecapsule-0000402-xyz-seal",
+  "title": "Pay $0.05 USDC to seal up to 100 KB of text until a future date. Content is inac",
+  "description": "Pay $0.05 USDC to seal up to 100 KB of text until a future date. Content is inaccessible via GET /open/{token} until unlock_at passes. An optional label is visible before unlock via GET /status/{token}. Max unlock date: 10 years from now. Network: Base Mainnet. Each request stores one sealed text capsule and returns a token for later retrieval.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://timecapsule.0000402.xyz/seal"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://timecapsule.0000402.xyz/seal",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

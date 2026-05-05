@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-timezone-lookup",
+  "title": "Get timezone information for a country code, city name, or coordinates. Returns ",
+  "description": "Get timezone information for a country code, city name, or coordinates. Returns IANA timezone, current UTC offset, DST status, and current local time. SQS: 96/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/timezone-lookup"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://api.strale.io/x402/timezone-lookup",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

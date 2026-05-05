@@ -1,0 +1,26 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.codestorage.post.repos",
+  "title": "Code Storage — POST /repos",
+  "description": "Create a Git repository",
+  "capabilities": [
+    "git",
+    "repos",
+    "code",
+    "storage"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://codestorage.mpp.tempo.xyz/repos"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "1"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "codestorage:POST:/repos"
+  }
+}

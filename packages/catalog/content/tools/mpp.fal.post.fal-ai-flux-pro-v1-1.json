@@ -1,0 +1,30 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.fal.post.fal-ai-flux-pro-v1-1",
+  "title": "fal.ai — POST /fal-ai/flux-pro/v1.1",
+  "description": "FLUX1.1 [pro] - Professional-grade image generation",
+  "capabilities": [
+    "image",
+    "video",
+    "flux",
+    "stable-diffusion",
+    "grok",
+    "generation",
+    "ai",
+    "media"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://fal.mpp.tempo.xyz/fal-ai/flux-pro/v1.1"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.035"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "fal:POST:/fal-ai/flux-pro/v1.1"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.utilsforagents-com-v1-utilities-count-tokens",
+  "title": "Count the number of tokens in a text string using the specified tokenizer encodi",
+  "description": "Count the number of tokens in a text string using the specified tokenizer encoding. Supports cl100k_base (GPT-4/GPT-3.5, exact BPE), o200k_base (GPT-4o, exact BPE), claude (Claude models, estimated), and gemini (Gemini models, estimated). Use before sending text to an LLM to estimate cost, check context window fit, or enforce token budgets. For base64-encoded images, set content_type='image' for tile-based token estimation. Send {\"text\": \"...\", \"encoding\": \"cl100k_base\"}. Max 50 MB text.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://utilsforagents.com/v1/utilities/count-tokens"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.003",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.003",
+        "pay_to": "GXTcDuC5mPnmbWSza92FcX9zSmp8QuPpFh6n1ad9c9zM",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "BFK9TLC3edb13K6v4YyH3DwPb5DSUpkWvb7XnqCL9b4F"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://utilsforagents.com/v1/utilities/count-tokens",
+    "x402_version": 2,
+    "accept_count": 2
+  }
+}

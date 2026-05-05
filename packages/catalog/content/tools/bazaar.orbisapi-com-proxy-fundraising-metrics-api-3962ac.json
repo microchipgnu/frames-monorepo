@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-fundraising-metrics-api-3962ac",
+  "title": "Calculate fundraising readiness — Rule of 40, burn multiple, ARR multiple and va",
+  "description": "Calculate fundraising readiness — Rule of 40, burn multiple, ARR multiple and valuation estimates. Built for AI startup agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/fundraising-metrics-api-3962ac"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://orbisapi.com/proxy/fundraising-metrics-api-3962ac",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

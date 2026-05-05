@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-ai-data-residency-router-api-48d938-well-known-x402-json-20-2",
+  "title": "Route AI workloads by data residency, sensitivity, user region, retention policy",
+  "description": "Route AI workloads by data residency, sensitivity, user region, retention policy, and allowed processors",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/ai-data-residency-router-api-48d938/.well-known/x402.json%20-%20Return%20x402%20payment%20discovery%20metadata%20as%20JSON"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://orbisapi.com/proxy/ai-data-residency-router-api-48d938/.well-known/x402.json%20-%20Return%20x402%20payment%20discovery%20metadata%20as%20JSON",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.legal-apitoai-xyz-regulatory-classification-analyzer",
+  "title": "Analyze whether your token is a security, utility, or commodity under US (Howey ",
+  "description": "Analyze whether your token is a security, utility, or commodity under US (Howey Test), EU (MiCA), and Asian regulatory frameworks",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://legal.apitoai.xyz/regulatory_classification_analyzer"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://legal.apitoai.xyz/regulatory_classification_analyzer",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

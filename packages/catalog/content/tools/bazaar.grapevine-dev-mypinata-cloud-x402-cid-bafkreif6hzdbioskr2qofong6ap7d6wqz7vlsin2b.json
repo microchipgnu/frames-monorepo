@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.grapevine-dev-mypinata-cloud-x402-cid-bafkreif6hzdbioskr2qofong6ap7d6wqz7vlsin2b",
+  "title": "0.1 USDC on base-sepolia",
+  "description": "0.1 USDC on base-sepolia",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://grapevine.dev-mypinata.cloud/x402/cid/bafkreif6hzdbioskr2qofong6ap7d6wqz7vlsin2bw2l3niofdyjclfk6i"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base-sepolia",
+    "currency": "USDC",
+    "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://grapevine.dev-mypinata.cloud/x402/cid/bafkreif6hzdbioskr2qofong6ap7d6wqz7vlsin2bw2l3niofdyjclfk6i",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

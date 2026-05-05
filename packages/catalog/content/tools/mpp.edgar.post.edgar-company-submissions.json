@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.edgar.post.edgar-company-submissions",
+  "title": "EDGAR (SEC) — POST /edgar/company-submissions",
+  "description": "Company Submissions",
+  "capabilities": [
+    "sec",
+    "filings",
+    "company-data",
+    "financials",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://edgar.mpp.paywithlocus.com/edgar/company-submissions"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.008"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "edgar:POST:/edgar/company-submissions"
+  }
+}

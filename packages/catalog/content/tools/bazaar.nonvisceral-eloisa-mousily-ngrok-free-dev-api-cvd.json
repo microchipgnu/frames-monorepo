@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.nonvisceral-eloisa-mousily-ngrok-free-dev-api-cvd",
+  "title": "Cumulative Volume Delta CVD API: real-time taker buy vs sell volume divergence f",
+  "description": "Cumulative Volume Delta CVD API: real-time taker buy vs sell volume divergence for Bitcoin BTC and Ethereum ETH. Detects bullish accumulation (price down + CVD up) and bearish exhaustion (price up + CVD down). 1h and 4h divergence signals from Hyperliquid DEX trade flow.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://nonvisceral-eloisa-mousily.ngrok-free.dev/api/cvd"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://nonvisceral-eloisa-mousily.ngrok-free.dev/api/cvd",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

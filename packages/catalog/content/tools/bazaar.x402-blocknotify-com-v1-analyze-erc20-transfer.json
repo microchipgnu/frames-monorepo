@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-blocknotify-com-v1-analyze-erc20-transfer",
+  "title": "ERC-20 transfer safety analysis for wallets and AI agents. Evaluates token trans",
+  "description": "ERC-20 transfer safety analysis for wallets and AI agents. Evaluates token transfers for suspicious recipients, unusual transfer patterns, and scam risk, then returns a recommended action before funds move.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.blocknotify.com/v1/analyze-erc20-transfer"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://x402.blocknotify.com/v1/analyze-erc20-transfer",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

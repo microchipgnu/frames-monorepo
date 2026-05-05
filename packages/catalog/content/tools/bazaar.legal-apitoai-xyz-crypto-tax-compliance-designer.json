@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.legal-apitoai-xyz-crypto-tax-compliance-designer",
+  "title": "Design tax reporting frameworks for token sales, staking rewards, airdrops, and ",
+  "description": "Design tax reporting frameworks for token sales, staking rewards, airdrops, and DAO payments across US, EU, and Asian jurisdictions",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://legal.apitoai.xyz/crypto_tax_compliance_designer"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://legal.apitoai.xyz/crypto_tax_compliance_designer",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

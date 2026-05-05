@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.rentcast.post.rentcast-rental-listings",
+  "title": "RentCast — POST /rentcast/rental-listings",
+  "description": "Rental Listings",
+  "capabilities": [
+    "real-estate",
+    "property",
+    "valuations",
+    "rent-estimates",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://rentcast.mpp.paywithlocus.com/rentcast/rental-listings"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.033"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "rentcast:POST:/rentcast/rental-listings"
+  }
+}

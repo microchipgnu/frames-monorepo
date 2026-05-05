@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.gateway-sanfoundation-com-x402-v1-agents-noah-events",
+  "title": "Recent canonical events for a SAN agent. Each event collapses matching source ar",
+  "description": "Recent canonical events for a SAN agent. Each event collapses matching source articles into a single record with sourceCount and a sources[] array.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://gateway.sanfoundation.com/x402/v1/agents/Noah/events"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.03"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://gateway.sanfoundation.com/x402/v1/agents/Noah/events",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

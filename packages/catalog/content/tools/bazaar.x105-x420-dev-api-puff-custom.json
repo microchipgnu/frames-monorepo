@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x105-x420-dev-api-puff-custom",
+  "title": "Buy custom USDC amount worth of x105 tokens 0x51793E001bc1f58E5da3680bD1102EEE0b",
+  "description": "Buy custom USDC amount worth of x105 tokens 0x51793E001bc1f58E5da3680bD1102EEE0b713B07",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x105.x420.dev/api/puff-custom"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://x105.x420.dev/api/puff-custom",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

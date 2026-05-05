@@ -1,0 +1,31 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.openai.post.v1-audio-speech",
+  "title": "OpenAI — POST /v1/audio/speech",
+  "description": "Text-to-speech",
+  "capabilities": [
+    "llm",
+    "gpt-4o",
+    "dall-e",
+    "whisper",
+    "tts",
+    "embeddings",
+    "chat",
+    "ai",
+    "media"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://openai.mpp.tempo.xyz/v1/audio/speech"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "openai:POST:/v1/audio/speech"
+  }
+}

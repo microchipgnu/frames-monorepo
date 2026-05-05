@@ -1,0 +1,29 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.pinata.get.v1-pin-public-cid",
+  "title": "Pinata IPFS — GET /v1/pin/public/:cid",
+  "description": "Download file from IPFS — $0.01 per request",
+  "capabilities": [
+    "ipfs",
+    "pinata",
+    "storage",
+    "files",
+    "upload",
+    "download",
+    "cid"
+  ],
+  "invocation": {
+    "method": "GET",
+    "url": "https://mpp.pinata.cloud/v1/pin/public/:cid"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "pinata:GET:/v1/pin/public/:cid"
+  }
+}

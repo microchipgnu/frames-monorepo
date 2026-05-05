@@ -1,0 +1,47 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.stablevoice-dev-api-recording-tokens",
+  "title": "Mint a one-hour recording URL the recordee opens in a browser. They speak the op",
+  "description": "Mint a one-hour recording URL the recordee opens in a browser. They speak the optional suggestedText, we transcode their audio to MP3 and PUT it into the StableUpload slot you reserved. The slot's publicUrl is what you'll plug into /api/speech as referenceAudioUrl. Advanced callers may pass requestedExpiresAt only when they also reserved a matching longer StableUpload upload URL and pass its uploadUrlExpiresAt as expiresAt.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://stablevoice.dev/api/recording-tokens"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.01",
+        "pay_to": "Aumu4PtPdksDWWUPr7LcfVK6HdcpGAm31E1CefZQghJt",
+        "scheme": "exact",
+        "extra": {
+          "decimals": 6,
+          "features": {
+            "xSettlementAccountSupported": true
+          },
+          "feePayer": "AepWpq3GQwL8CeKMtZyKtKPa7W91Coygh3ropAJapVdU",
+          "recentBlockhash": "AJxcMoFrmpJmS2cpzZRGUZ4sYZEA39dSTtRBRggNb6ax",
+          "tokenProgram": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://stablevoice.dev/api/recording-tokens",
+    "x402_version": 2,
+    "accept_count": 2
+  }
+}

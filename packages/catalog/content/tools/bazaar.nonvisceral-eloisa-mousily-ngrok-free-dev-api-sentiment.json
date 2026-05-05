@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.nonvisceral-eloisa-mousily-ngrok-free-dev-api-sentiment",
+  "title": "Cryptocurrency market sentiment analysis API: bullish or bearish signal with str",
+  "description": "Cryptocurrency market sentiment analysis API: bullish or bearish signal with strength score, short-term and long-term market direction, contrarian indicator from a weighted multi-analyst panel (KOL signals + on-chain whale stance + contrarian noise sources). Bitcoin and crypto sentiment data for trading agents. Returns composite direction with per-source weighting — a pre-computed consensus view rather than raw feeds.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://nonvisceral-eloisa-mousily.ngrok-free.dev/api/sentiment"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.05"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://nonvisceral-eloisa-mousily.ngrok-free.dev/api/sentiment",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

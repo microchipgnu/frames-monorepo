@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.legal-apitoai-xyz-exchange-listing-compliance-package",
+  "title": "Prepare CEX listing requirements: legal opinions, token analysis, compliance doc",
+  "description": "Prepare CEX listing requirements: legal opinions, token analysis, compliance documentation, market maker agreements, and listing applications",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://legal.apitoai.xyz/exchange_listing_compliance_package"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://legal.apitoai.xyz/exchange_listing_compliance_package",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.netintel-production-440c-up-railway-app-whois-rdap-lookup",
+  "title": "Look up domain registration metadata via RDAP — returns registrar, creation/expi",
+  "description": "Look up domain registration metadata via RDAP — returns registrar, creation/expiry dates, nameservers, status flags, and an actionability score so agents can assess domain trustworthiness or availability risk.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://netintel-production-440c.up.railway.app/whois-rdap/lookup"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://netintel-production-440c.up.railway.app/whois-rdap/lookup",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

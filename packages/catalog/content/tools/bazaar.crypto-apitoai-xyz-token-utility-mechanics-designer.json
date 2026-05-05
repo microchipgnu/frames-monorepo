@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.crypto-apitoai-xyz-token-utility-mechanics-designer",
+  "title": "Define token use cases, governance rights, staking utility, payment mechanics, a",
+  "description": "Define token use cases, governance rights, staking utility, payment mechanics, and economic sinks to create sustainable demand",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://crypto.apitoai.xyz/token_utility_mechanics_designer"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://crypto.apitoai.xyz/token_utility_mechanics_designer",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

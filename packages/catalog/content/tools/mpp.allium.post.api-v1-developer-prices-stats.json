@@ -1,0 +1,35 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.allium.post.api-v1-developer-prices-stats",
+  "title": "Allium — POST /api/v1/developer/prices/stats",
+  "description": "Get token price statistics",
+  "capabilities": [
+    "blockchain",
+    "prices",
+    "tokens",
+    "wallet",
+    "balances",
+    "transactions",
+    "pnl",
+    "sql",
+    "explorer",
+    "solana",
+    "base",
+    "defi",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://agents.allium.so/api/v1/developer/prices/stats"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "allium:POST:/api/v1/developer/prices/stats"
+  }
+}

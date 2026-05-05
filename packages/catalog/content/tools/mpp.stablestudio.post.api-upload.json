@@ -1,0 +1,35 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.stablestudio.post.api-upload",
+  "title": "StableStudio — POST /api/upload",
+  "description": "Upload image for editing or image-to-video",
+  "capabilities": [
+    "image",
+    "video",
+    "generation",
+    "nano-banana",
+    "gpt-image",
+    "grok",
+    "flux",
+    "sora",
+    "veo",
+    "seedance",
+    "wan",
+    "ai",
+    "media"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://stablestudio.dev/api/upload"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "stablestudio:POST:/api/upload"
+  }
+}

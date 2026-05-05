@@ -1,0 +1,44 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.weather-hugen-tokyo-weather-current",
+  "title": "Instant weather by city name — temperature, feels-like, humidity, wind speed, pr",
+  "description": "Instant weather by city name — temperature, feels-like, humidity, wind speed, precipitation, and condition. Just pass a city name; geocoding, data fetching, and response structuring are handled in one call. Global coverage updated every 15 minutes. No API keys, no geocoding setup, no rate limits. Accepts USDC payments on Base and Solana",
+  "capabilities": [
+    "weather",
+    "forecast",
+    "real-time",
+    "geocoding"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://weather.hugen.tokyo/weather/current"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.01",
+        "pay_to": "4du4AfkjJEwch2zk3shkPJVZfyJHNDnNjEWC6AboaS5Z",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "Hc3sdEAsCGQcpgfivywog9uwtk8gUBUZgsxdME1EJy88"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://weather.hugen.tokyo/weather/current",
+    "x402_version": 2,
+    "accept_count": 2
+  }
+}

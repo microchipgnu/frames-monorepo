@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-node4all-com-v1-x402-test",
+  "title": "Node4All Fortune — deterministic fortune reading derived from the x402 payment a",
+  "description": "Node4All Fortune — deterministic fortune reading derived from the x402 payment authorization nonce. Flagship demo of the Node4All x402 v2 payment flow. Operator: Node4All (https://node4all.com). Currency: USDC on Base.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.node4all.com/v1/x402-test"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://api.node4all.com/v1/x402-test",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

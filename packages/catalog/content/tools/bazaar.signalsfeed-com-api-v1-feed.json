@@ -1,0 +1,33 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.signalsfeed-com-api-v1-feed",
+  "title": "SignalsFeed feed intelligence API -- paid, agent-ready feed of AI / semiconducto",
+  "description": "SignalsFeed feed intelligence API -- paid, agent-ready feed of AI / semiconductor / macro signals with credibility, sentiment, and impact scoring. $0.01/call (USDC on Base) for up to 20 full records by ID. Free discovery: GET /api/v1/feed?since=<ISO-8601> returns recent IDs to fetch. Full agent guide is provided in the bazaar extension's instructions block.",
+  "capabilities": [
+    "finance",
+    "macro",
+    "ai",
+    "semiconductor",
+    "news",
+    "agents",
+    "x402"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://signalsfeed.com/api/v1/feed"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://signalsfeed.com/api/v1/feed",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

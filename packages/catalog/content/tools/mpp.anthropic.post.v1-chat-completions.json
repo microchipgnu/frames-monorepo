@@ -1,0 +1,29 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.anthropic.post.v1-chat-completions",
+  "title": "Anthropic — POST /v1/chat/completions",
+  "description": "OpenAI-compatible chat completions (auto-converted to Anthropic format)",
+  "capabilities": [
+    "llm",
+    "claude",
+    "sonnet",
+    "opus",
+    "haiku",
+    "chat",
+    "ai"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://anthropic.mpp.tempo.xyz/v1/chat/completions"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "dynamic"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "anthropic:POST:/v1/chat/completions"
+  }
+}

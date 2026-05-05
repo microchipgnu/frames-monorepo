@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-questflow-ai-x402-agent-qrn-agent-687df68fb234010b7d33175c",
+  "title": "CoinGecko is a comprehensive cryptocurrency data aggregator that provides users ",
+  "description": "CoinGecko is a comprehensive cryptocurrency data aggregator that provides users with real-time information on over 17,000 crypto assets across more than 1,000 exchanges, enabling informed trading and investment decisions. It offers a variety of tools, including price tracking, portfolio management, and educational resources, making it an essential platform for both novice and experienced crypto enthusiasts. | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.questflow.ai/x402/agent/qrn:agent:687df68fb234010b7d33175c"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "UNKNOWN",
+    "asset": "0xf33CAC2bB6B26e7615B1873c84e4174Ae193A9aa",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://api.questflow.ai/x402/agent/qrn:agent:687df68fb234010b7d33175c",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

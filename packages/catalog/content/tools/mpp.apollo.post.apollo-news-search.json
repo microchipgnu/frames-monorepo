@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.apollo.post.apollo-news-search",
+  "title": "Apollo — POST /apollo/news-search",
+  "description": "News Articles Search",
+  "capabilities": [
+    "leads",
+    "enrichment",
+    "contacts",
+    "sales-intelligence",
+    "b2b",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://apollo.mpp.paywithlocus.com/apollo/news-search"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "apollo:POST:/apollo/news-search"
+  }
+}

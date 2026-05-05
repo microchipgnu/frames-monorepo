@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.ecosystem-intelligence-onrender-com-v2-paid-stories",
+  "title": "Recent AI-generated ecosystem stories (headline, narrative, protocols, significa",
+  "description": "Recent AI-generated ecosystem stories (headline, narrative, protocols, significance, category) for a blockchain. Returns up to 100 stories (vs 50 on the free tier). Ideal for agents needing rich narrative context without invoking the LLM directly.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://ecosystem-intelligence.onrender.com/v2/paid/stories"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://ecosystem-intelligence.onrender.com/v2/paid/stories",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

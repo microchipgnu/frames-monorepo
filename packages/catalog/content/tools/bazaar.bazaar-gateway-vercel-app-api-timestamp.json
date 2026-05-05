@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.bazaar-gateway-vercel-app-api-timestamp",
+  "title": "Current date, time, and timestamp for any timezone worldwide. Returns UTC and lo",
+  "description": "Current date, time, and timestamp for any timezone worldwide. Returns UTC and local timestamps, unix epoch, day of week. Useful for scheduling, logging, and time-aware operations.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://bazaar-gateway.vercel.app/api/timestamp"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://bazaar-gateway.vercel.app/api/timestamp",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.stability-ai.post.stability-ai-generate-ultra",
+  "title": "Stability AI — POST /stability-ai/generate-ultra",
+  "description": "Generate Ultra",
+  "capabilities": [
+    "image-generation",
+    "stable-diffusion",
+    "upscaling",
+    "3d",
+    "ai",
+    "media"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://stability-ai.mpp.paywithlocus.com/stability-ai/generate-ultra"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.092"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "stability-ai:POST:/stability-ai/generate-ultra"
+  }
+}

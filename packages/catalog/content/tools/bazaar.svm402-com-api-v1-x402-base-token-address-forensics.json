@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.svm402-com-api-v1-x402-base-token-address-forensics",
+  "title": "On-chain forensics for a Base ERC-20 sourced from Blockscout: token metadata (na",
+  "description": "On-chain forensics for a Base ERC-20 sourced from Blockscout: token metadata (name, symbol, decimals, total supply, verified status), deployer profile, holder count, top-10 holder concentration, deployer holdings, and an LP-lock heuristic. Address is supplied via the `:address` path parameter. Pay-per-call via x402 / USDC on Base.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://svm402.com/api/v1/x402/base/token/:address/forensics"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://svm402.com/api/v1/x402/base/token/:address/forensics",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.prospect-butcher.get.buy-slug",
+  "title": "Prospect Butcher — GET /buy/:slug",
+  "description": "Purchase a sandwich",
+  "capabilities": [
+    "food",
+    "ordering",
+    "sandwiches",
+    "physical",
+    "restaurant",
+    "web"
+  ],
+  "invocation": {
+    "method": "GET",
+    "url": "https://agents.prospectbutcher.shop/buy/:slug"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "usd",
+    "price_hint": "dynamic"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "prospect-butcher:GET:/buy/:slug"
+  }
+}

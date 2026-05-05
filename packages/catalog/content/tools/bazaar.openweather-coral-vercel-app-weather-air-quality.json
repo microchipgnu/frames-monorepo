@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.openweather-coral-vercel-app-weather-air-quality",
+  "title": "Air quality index (AQI) with PM2.5, PM10, NO2, O3, CO, SO2 for any location",
+  "description": "Air quality index (AQI) with PM2.5, PM10, NO2, O3, CO, SO2 for any location",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://openweather-coral.vercel.app/weather/air-quality"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://openweather-coral.vercel.app/weather/air-quality",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

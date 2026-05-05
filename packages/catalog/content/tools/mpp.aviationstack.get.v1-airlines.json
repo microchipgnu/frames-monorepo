@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.aviationstack.get.v1-airlines",
+  "title": "AviationStack — GET /v1/airlines",
+  "description": "Airlines lookup",
+  "capabilities": [
+    "flights",
+    "aviation",
+    "tracking",
+    "airports",
+    "airlines",
+    "data"
+  ],
+  "invocation": {
+    "method": "GET",
+    "url": "https://aviationstack.mpp.tempo.xyz/v1/airlines"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "aviationstack:GET:/v1/airlines"
+  }
+}

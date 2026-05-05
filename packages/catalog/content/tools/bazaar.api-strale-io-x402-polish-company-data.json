@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-polish-company-data",
+  "title": "Look up Polish company data from KRS (Krajowy Rejestr Sadowy). Accepts KRS numbe",
+  "description": "Look up Polish company data from KRS (Krajowy Rejestr Sadowy). Accepts KRS number (10 digits) or company name. Returns company name, KRS, NIP (tax ID), VAT number, legal form, address, status, and share capital. Indicates whether the entity is from the commercial or associations register. SQS: 74/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/polish-company-data"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://api.strale.io/x402/polish-company-data",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

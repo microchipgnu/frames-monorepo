@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.flightapi.get.roundtrip-rest",
+  "title": "FlightAPI — GET /roundtrip/:rest*",
+  "description": "Round-trip flight price search",
+  "capabilities": [
+    "flights",
+    "prices",
+    "tracking",
+    "airports",
+    "airlines",
+    "data"
+  ],
+  "invocation": {
+    "method": "GET",
+    "url": "https://flightapi.mpp.tempo.xyz/roundtrip/:rest*"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "flightapi:GET:/roundtrip/:rest*"
+  }
+}

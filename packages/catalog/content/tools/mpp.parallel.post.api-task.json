@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.parallel.post.api-task",
+  "title": "Parallel — POST /api/task",
+  "description": "Multi-hop web research task - price varies by processor",
+  "capabilities": [
+    "search",
+    "web",
+    "extraction",
+    "research",
+    "ai"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://parallelmpp.dev/api/task"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "dynamic"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "parallel:POST:/api/task"
+  }
+}

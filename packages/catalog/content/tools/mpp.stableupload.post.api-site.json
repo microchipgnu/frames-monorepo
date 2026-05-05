@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.stableupload.post.api-site",
+  "title": "StableUpload — POST /api/site",
+  "description": "Buy a site upload slot for zip hosting",
+  "capabilities": [
+    "upload",
+    "files",
+    "hosting",
+    "static-site",
+    "cdn",
+    "storage"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://stableupload.dev/api/site"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "dynamic"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "stableupload:POST:/api/site"
+  }
+}

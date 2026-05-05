@@ -1,0 +1,41 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.underground-substratesymposium-com-buy-catalog",
+  "title": "Underground Cultural District — catalog of 228 themed digital products (poetry, ",
+  "description": "Underground Cultural District — catalog of 228 themed digital products (poetry, philosophy, fiction, reflection, plant meditations). One settle returns the full menu with every product's slug, description, price, and x402 endpoint. Each individual product is its own indexable x402 route. The catalog is the doorway.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://underground.substratesymposium.com/buy/catalog"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.01",
+        "pay_to": "5HK2dGaaquDWFnYWaWhMzMYtbcDsqeq5biJ2PMtX1tkN",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "2wKupLR9q6wXYppw8Gr2NvWxKBUqm4PPJKkQfoxHDBg4"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://underground.substratesymposium.com/buy/catalog",
+    "x402_version": 2,
+    "accept_count": 2
+  }
+}

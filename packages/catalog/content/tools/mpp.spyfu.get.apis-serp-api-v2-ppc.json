@@ -1,0 +1,29 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.spyfu.get.apis-serp-api-v2-ppc",
+  "title": "SpyFu — GET /apis/serp_api/v2/ppc/*",
+  "description": "PPC keyword research",
+  "capabilities": [
+    "seo",
+    "ppc",
+    "keyword-research",
+    "competitor-analysis",
+    "ads",
+    "data",
+    "search"
+  ],
+  "invocation": {
+    "method": "GET",
+    "url": "https://spyfu.mpp.tempo.xyz/apis/serp_api/v2/ppc/*"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "spyfu:GET:/apis/serp_api/v2/ppc/*"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.tempfile-0000402-xyz-upload",
+  "title": "Pay $0.02 USDC to store a file for 7 days. Send filename, optional content_type,",
+  "description": "Pay $0.02 USDC to store a file for 7 days. Send filename, optional content_type, and base64-encoded file bytes as JSON. Max file size: 10 MB. Returns a token and a stable GET URL. Network: Base Mainnet. Each request stores one file and returns a retrieval token plus expiry timestamp.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://tempfile.0000402.xyz/upload"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://tempfile.0000402.xyz/upload",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

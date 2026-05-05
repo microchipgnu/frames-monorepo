@@ -1,0 +1,30 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "frames.near-intents.post.api-quote",
+  "title": "POST /api/quote",
+  "description": "**Paid endpoint** - $0.01 on Base (USDC, USDT), Solana (USDC, USDT, CASH)",
+  "capabilities": [
+    "cross-chain",
+    "swap",
+    "bridge",
+    "near",
+    "intents"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://registry.frames.ag/api/service/near-intents/api/quote",
+    "params_schema": {}
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "frames-registry",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "near-intents:POST:/api/quote",
+    "service_slug": "near-intents"
+  }
+}

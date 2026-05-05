@@ -1,0 +1,35 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.allium.post.api-v1-developer-wallet-pnl",
+  "title": "Allium — POST /api/v1/developer/wallet/pnl",
+  "description": "Get wallet profit and loss",
+  "capabilities": [
+    "blockchain",
+    "prices",
+    "tokens",
+    "wallet",
+    "balances",
+    "transactions",
+    "pnl",
+    "sql",
+    "explorer",
+    "solana",
+    "base",
+    "defi",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://agents.allium.so/api/v1/developer/wallet/pnl"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.03"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "allium:POST:/api/v1/developer/wallet/pnl"
+  }
+}

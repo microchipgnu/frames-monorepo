@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.test-x402labs-sh-v1-scraping-scrape",
+  "title": "Scraping endpoint",
+  "description": "Scraping endpoint",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://test.x402labs.sh/v1/scraping/scrape"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base-sepolia",
+    "currency": "USDC",
+    "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://test.x402labs.sh/v1/scraping/scrape",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402factory-ai-base-llm-gpt",
+  "title": "Base GPT wrapper API using x402 payments. Default direct call: model gpt-5-mini,",
+  "description": "Base GPT wrapper API using x402 payments. Default direct call: model gpt-5-mini, max_output_tokens=2000, fixed price 0.01 USDC for up to 1000 input tokens. For all other settings the price is computed per model as (input_tokens * input_price_per_million + max_output_tokens * output_price_per_million) / 1,000,000, with a minimum of 0.001 USDC and always rounded up to 6 decimals. Optional max_input_tokens lets you cap the input tokens used for pricing; if the message is longer than this cap the server returns an error instead of under-pricing. Optional action=message (or omitting action) performs a direct GPT call with the given message. Optional action=create creates a custom agent with the given message as preprompt for 0.001 USDC (no OpenAI call), stores a base_price_usdc using (max_input_tokens_for_agent or 1000) + preprompt + max_output_tokens, and returns a custom_id. Optional action=list lists up to 100 recent custom agents for the paying wallet for 0.001 USDC without calling OpenAI. Custom agents can be called via POST /base/llm/gpt with custom_id, or POST /base/llm/gpt/{custom_id}. Each custom agent has a fixed price per call based on its stored preprompt, model, max_output_tokens and max_input_tokens; if the runtime message is longer than max_input_tokens the server returns an error. This specific request uses model gpt-5-mini with max_output_tokens=2000. Pricing mode: default. Prepaid price (x402) for this request: 0.010000 USDC.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402factory.ai/base/llm/gpt"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://x402factory.ai/base/llm/gpt",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.kg-dyor-network-api-insights-entity-ethereum",
+  "title": "Comprehensive risk and opportunity analysis for any crypto entity. Returns all a",
+  "description": "Comprehensive risk and opportunity analysis for any crypto entity. Returns all active signals with full evidence across 28 signal types: smart money flows, DeFi risk, governance, token unlocks, yield anomalies, and cross-domain convergence alerts. Includes AI-synthesized narratives with actionability ratings. Free signal browsing at GET /api/insights/signals, full catalog at GET /api/signals/catalog | ZWING Intelligence (https://zwing.bot) — contact: v@zwing.bot, Telegram: @valery_zzz",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://kg.dyor.network/api/insights/entity/Ethereum"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "20"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://kg.dyor.network/api/insights/entity/Ethereum",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

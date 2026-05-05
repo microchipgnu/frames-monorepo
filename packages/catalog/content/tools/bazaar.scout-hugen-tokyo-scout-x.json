@@ -1,0 +1,43 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.scout-hugen-tokyo-scout-x",
+  "title": "Search X (Twitter) for real-time posts, trends, and discussions via xAI Grok. AI",
+  "description": "Search X (Twitter) for real-time posts, trends, and discussions via xAI Grok. AI agent API for social media intelligence and sentiment analysis. Accepts USDC payments on Base and Solana",
+  "capabilities": [
+    "multi-source",
+    "x402",
+    "structured-json"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://scout.hugen.tokyo/scout/x"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.2",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.2",
+        "pay_to": "4du4AfkjJEwch2zk3shkPJVZfyJHNDnNjEWC6AboaS5Z",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "BENrLoUbndxoNMUS5JXApGMtNykLjFXXixMtpDwDR9SP"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://scout.hugen.tokyo/scout/x",
+    "x402_version": 2,
+    "accept_count": 2
+  }
+}

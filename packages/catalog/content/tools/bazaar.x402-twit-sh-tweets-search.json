@@ -1,0 +1,39 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-twit-sh-tweets-search",
+  "title": "Search Twitter/X tweets with advanced filters. Returns up to 20 tweets per page,",
+  "description": "Search Twitter/X tweets with advanced filters. Returns up to 20 tweets per page, most recent first, with pagination. At least one filter required. Params: words, phrase, anyWords, noneWords, hashtags, from, to, mentioning, minReplies, minLikes, minReposts, since (YYYY-MM-DD), until, next_token. e.g. GET /tweets/search?words=bitcoin&from=elonmusk&minLikes=100. Returns X v2 API-compatible JSON.",
+  "capabilities": [
+    "twitter",
+    "x",
+    "social",
+    "tweets",
+    "search",
+    "posts",
+    "filter",
+    "hashtag",
+    "keyword",
+    "paginated",
+    "mentions",
+    "agent",
+    "x402"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.twit.sh/tweets/search"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://x402.twit.sh/tweets/search",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

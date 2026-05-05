@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-questflow-ai-x402-swarm-qrn-swarm-687e204d44b4aaba02eddd5f",
+  "title": "Stay up-to-date with the latest Web3 developments. I'll research and summarize r",
+  "description": "Stay up-to-date with the latest Web3 developments. I'll research and summarize recent news, trends, and innovations in blockchain, cryptocurrency, DeFi, NFTs, DAOs, and the metaverse from trusted sources. Get concise insights on important events shaping the decentralized internet. | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.questflow.ai/x402/swarm/qrn:swarm:687e204d44b4aaba02eddd5f"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "UNKNOWN",
+    "asset": "0xf33CAC2bB6B26e7615B1873c84e4174Ae193A9aa",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://api.questflow.ai/x402/swarm/qrn:swarm:687e204d44b4aaba02eddd5f",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

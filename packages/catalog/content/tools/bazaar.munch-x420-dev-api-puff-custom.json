@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.munch-x420-dev-api-puff-custom",
+  "title": "Buy custom USDC amount worth of MUNCH tokens 0x70B1dC3d736F164befCb23388608DD822",
+  "description": "Buy custom USDC amount worth of MUNCH tokens 0x70B1dC3d736F164befCb23388608DD822b253B07",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://munch.x420.dev/api/puff-custom"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://munch.x420.dev/api/puff-custom",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

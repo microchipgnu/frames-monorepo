@@ -1,0 +1,41 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.utilsforagents-com-v1-url-metadata",
+  "title": "Fetch a URL and extract structured metadata from its HTML: title, description, c",
+  "description": "Fetch a URL and extract structured metadata from its HTML: title, description, canonical URL, language, favicon URL, RSS/Atom feed links, Open Graph tags (og:title, og:image, og:type, og:description, og:url), Twitter Card tags, and other meta tags (author, keywords, robots). Use this to get Open Graph data, preview cards, or site information without parsing HTML yourself. Send {\"url\": \"https://...\"}. Remote fetch timeout: 5s, max download size: 2 MB.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://utilsforagents.com/v1/url/metadata"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.003",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.003",
+        "pay_to": "GXTcDuC5mPnmbWSza92FcX9zSmp8QuPpFh6n1ad9c9zM",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "GVJJ7rdGiXr5xaYbRwRbjfaJL7fmwRygFi1H6aGqDveb"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://utilsforagents.com/v1/url/metadata",
+    "x402_version": 2,
+    "accept_count": 2
+  }
+}

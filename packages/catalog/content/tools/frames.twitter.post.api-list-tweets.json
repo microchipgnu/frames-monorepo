@@ -1,0 +1,53 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "frames.twitter.post.api-list-tweets",
+  "title": "POST /api/list-tweets",
+  "description": "**Paid endpoint** - $0.01 on Base (USDC, USDT), Solana (USDC, USDT, CASH)",
+  "capabilities": [
+    "social",
+    "twitter",
+    "search",
+    "users",
+    "tweets",
+    "trends",
+    "communities",
+    "spaces"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://registry.frames.ag/api/service/twitter/api/list-tweets",
+    "params_schema": {
+      "type": "object",
+      "properties": {
+        "listId": {
+          "type": "string"
+        },
+        "cursor": {},
+        "includeReplies": {},
+        "sinceTime": {
+          "type": "number"
+        },
+        "untilTime": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "listId",
+        "cursor",
+        "includeReplies"
+      ]
+    }
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "frames-registry",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "twitter:POST:/api/list-tweets",
+    "service_slug": "twitter"
+  }
+}

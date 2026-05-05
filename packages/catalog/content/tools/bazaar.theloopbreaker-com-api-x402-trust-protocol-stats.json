@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.theloopbreaker-com-api-x402-trust-protocol-stats",
+  "title": "Protocol-wide statistics — total registered agents (22), bonds created (36), per",
+  "description": "Protocol-wide statistics — total registered agents (22), bonds created (36), per-chain breakdown across Base, Avalanche, Arbitrum, and Polygon, and locked value. Live snapshot from on-chain queries.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://theloopbreaker.com/api/x402/trust/protocol-stats"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://theloopbreaker.com/api/x402/trust/protocol-stats",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

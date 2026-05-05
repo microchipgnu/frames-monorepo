@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.pubmed-sekgen-xyz-api-v1-compare",
+  "title": "Compare biomedical publication trends across multiple PubMed search terms — side",
+  "description": "Compare biomedical publication trends across multiple PubMed search terms — side-by-side growth, CAGR ranking, and crossover detection for medical and scientific research",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://pubmed.sekgen.xyz/api/v1/compare"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://pubmed.sekgen.xyz/api/v1/compare",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

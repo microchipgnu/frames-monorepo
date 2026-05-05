@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.bazaar-gateway-vercel-app-api-url-preview",
+  "title": "Fast link preview extractor — returns OpenGraph/Twitter Card metadata (title, de",
+  "description": "Fast link preview extractor — returns OpenGraph/Twitter Card metadata (title, description, image, favicon, site name, canonical URL, language) for any public URL. Perfect for agents that need to scan many links quickly before deciding which ones deserve deep analysis via /api/web-intelligence ($0.005). 5x cheaper than full AI analysis. Latency ~300-800ms.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://bazaar-gateway.vercel.app/api/url-preview"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://bazaar-gateway.vercel.app/api/url-preview",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

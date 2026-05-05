@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-deepnets-ai-api-social-research-solana-address",
+  "title": "AI-generated social research: Twitter/X activity, Telegram presence, website ana",
+  "description": "AI-generated social research: Twitter/X activity, Telegram presence, website analysis, mentions, sentiment, and entity verification.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.deepnets.ai/api/social_research/:solana_address"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "solana-mainnet",
+    "currency": "UNKNOWN",
+    "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://api.deepnets.ai/api/social_research/:solana_address",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

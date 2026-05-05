@@ -1,0 +1,31 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.agentmail.post.v0-inboxes-inbox-id-messages-message-id-reply-all",
+  "title": "AgentMail — POST /v0/inboxes/:inbox_id/messages/:message_id/reply-all",
+  "description": "Reply all message",
+  "capabilities": [
+    "email",
+    "inboxes",
+    "domains",
+    "drafts",
+    "threads",
+    "webhooks",
+    "messaging",
+    "ai",
+    "social"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://mpp.api.agentmail.to/v0/inboxes/:inbox_id/messages/:message_id/reply-all"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "agentmail:POST:/v0/inboxes/:inbox_id/messages/:message_id/reply-all"
+  }
+}

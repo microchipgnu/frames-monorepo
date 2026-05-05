@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.goflightlabs.get.future-flights",
+  "title": "GoFlightLabs — GET /future-flights",
+  "description": "Future flight predictions",
+  "capabilities": [
+    "flights",
+    "tracking",
+    "prices",
+    "airlines",
+    "airports",
+    "data"
+  ],
+  "invocation": {
+    "method": "GET",
+    "url": "https://goflightlabs.mpp.tempo.xyz/future-flights"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "goflightlabs:GET:/future-flights"
+  }
+}

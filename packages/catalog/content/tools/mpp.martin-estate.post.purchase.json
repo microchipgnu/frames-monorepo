@@ -1,0 +1,29 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.martin-estate.post.purchase",
+  "title": "Martin Estate Winery — POST /purchase",
+  "description": "Purchase wine with identity verification via AgentScore and MPP payment",
+  "capabilities": [
+    "wine",
+    "commerce",
+    "alcohol",
+    "age-restricted",
+    "physical-goods",
+    "napa-valley",
+    "web"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://agents.martinestate.com/purchase"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "dynamic"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "martin-estate:POST:/purchase"
+  }
+}

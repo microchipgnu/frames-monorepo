@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.gold-facts-pick-loca-lt-base-edge",
+  "title": "Research-driven Base watchlist for agent wallets, x402 payments, and blocked-gat",
+  "description": "Research-driven Base watchlist for agent wallets, x402 payments, and blocked-gate paper collection.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://gold-facts-pick.loca.lt/base-edge"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://gold-facts-pick.loca.lt/base-edge",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

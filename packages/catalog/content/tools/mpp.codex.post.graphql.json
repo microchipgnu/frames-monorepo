@@ -1,0 +1,29 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.codex.post.graphql",
+  "title": "Codex — POST /graphql",
+  "description": "GraphQL query (token data, trades, liquidity, NFTs, wallets)",
+  "capabilities": [
+    "graphql",
+    "defi",
+    "tokens",
+    "trades",
+    "nft",
+    "blockchain",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://graph.codex.io/graphql"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "codex:POST:/graphql"
+  }
+}

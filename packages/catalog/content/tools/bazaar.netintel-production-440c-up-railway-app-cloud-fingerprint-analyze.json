@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.netintel-production-440c-up-railway-app-cloud-fingerprint-analyze",
+  "title": "Fingerprints a domain's cloud infrastructure by probing DNS records, HTTP header",
+  "description": "Fingerprints a domain's cloud infrastructure by probing DNS records, HTTP headers, and PTR lookups to detect CDN, WAF, hosting, DNS provider, and email provider with confidence scores and an infrastructure security grade (A–F).",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://netintel-production-440c.up.railway.app/cloud-fingerprint/analyze"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://netintel-production-440c.up.railway.app/cloud-fingerprint/analyze",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.oxylabs.post.v1-proxy",
+  "title": "Oxylabs — POST /v1/proxy",
+  "description": "Scrape a public URL with optional geo-targeting and JS rendering",
+  "capabilities": [
+    "scraping",
+    "web-scraping",
+    "geo-targeting",
+    "data-extraction",
+    "web",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://oxylabs.mpp.tempo.xyz/v1/proxy"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "dynamic"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "oxylabs:POST:/v1/proxy"
+  }
+}

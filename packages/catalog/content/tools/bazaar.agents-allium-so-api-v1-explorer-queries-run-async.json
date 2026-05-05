@@ -1,0 +1,45 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.agents-allium-so-api-v1-explorer-queries-run-async",
+  "title": "API request: /api/v1/explorer/queries/run-async",
+  "description": "API request: /api/v1/explorer/queries/run-async",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://agents.allium.so/api/v1/explorer/queries/run-async"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.01",
+        "pay_to": "DHWSkdudBNAaXX3ySDzeR8zvoagy3PKVBuu3m2TEacxq",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "D6ZhtNQ5nT9ZnTHUbqXZsTx5MH2rPFiBBggX4hY1WePM",
+          "name": "USDC",
+          "stripe_mode": "custody",
+          "stripe_payment_intent_id": "pi_3TTFYJIfpVe57BNU12uhuGJ8",
+          "version": "2"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://agents.allium.so/api/v1/explorer/queries/run-async",
+    "x402_version": 2,
+    "accept_count": 2
+  }
+}

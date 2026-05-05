@@ -1,0 +1,316 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-quiknode-cf-pro-base-mainnet",
+  "title": "Payment for Quicknode RPC access. Options: per-request ($0.001/request), nanopay",
+  "description": "Payment for Quicknode RPC access. Options: per-request ($0.001/request), nanopayment ($0.0001/request via Circle Gateway), or credit drawdown with SIWX authentication.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.quiknode-cf.pro/base-mainnet"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base-sepolia",
+    "currency": "USDC",
+    "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "price_hint": "1",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "base-sepolia",
+        "currency": "USDC",
+        "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+        "price_hint": "0.001",
+        "pay_to": "0xF46394adDdA95A3d5bCC1124605E3d15D204623C",
+        "scheme": "exact",
+        "extra": {
+          "name": "USDC",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "base-sepolia",
+        "currency": "USDC",
+        "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+        "price_hint": "0.0001",
+        "pay_to": "0xF46394adDdA95A3d5bCC1124605E3d15D204623C",
+        "scheme": "exact",
+        "extra": {
+          "name": "GatewayWalletBatched",
+          "verifyingContract": "0x0077777d7EBA4688BDeF3E311b846F25870A19B9",
+          "version": "1"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "base",
+        "currency": "USDC",
+        "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "price_hint": "10",
+        "pay_to": "0xF46394adDdA95A3d5bCC1124605E3d15D204623C",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "base",
+        "currency": "USDC",
+        "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "price_hint": "0.001",
+        "pay_to": "0xF46394adDdA95A3d5bCC1124605E3d15D204623C",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "base",
+        "currency": "USDC",
+        "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "price_hint": "0.0001",
+        "pay_to": "0xF46394adDdA95A3d5bCC1124605E3d15D204623C",
+        "scheme": "exact",
+        "extra": {
+          "name": "GatewayWalletBatched",
+          "verifyingContract": "0x77777777Dcc4d5A8B6E418Fd04D8997ef11000eE",
+          "version": "1"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "eip155:80002",
+        "currency": "UNKNOWN",
+        "asset": "0x41E94Eb019C0762f9Bfcf9Fb1E58725BfB0e7582",
+        "price_hint": "1",
+        "pay_to": "0xF46394adDdA95A3d5bCC1124605E3d15D204623C",
+        "scheme": "exact",
+        "extra": {
+          "name": "USDC",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "eip155:80002",
+        "currency": "UNKNOWN",
+        "asset": "0x41E94Eb019C0762f9Bfcf9Fb1E58725BfB0e7582",
+        "price_hint": "0.001",
+        "pay_to": "0xF46394adDdA95A3d5bCC1124605E3d15D204623C",
+        "scheme": "exact",
+        "extra": {
+          "name": "USDC",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "eip155:80002",
+        "currency": "UNKNOWN",
+        "asset": "0x41E94Eb019C0762f9Bfcf9Fb1E58725BfB0e7582",
+        "price_hint": "0.0001",
+        "pay_to": "0xF46394adDdA95A3d5bCC1124605E3d15D204623C",
+        "scheme": "exact",
+        "extra": {
+          "name": "GatewayWalletBatched",
+          "verifyingContract": "0x0077777d7EBA4688BDeF3E311b846F25870A19B9",
+          "version": "1"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "polygon",
+        "currency": "USDC",
+        "asset": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "price_hint": "10",
+        "pay_to": "0xF46394adDdA95A3d5bCC1124605E3d15D204623C",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "polygon",
+        "currency": "USDC",
+        "asset": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "price_hint": "0.001",
+        "pay_to": "0xF46394adDdA95A3d5bCC1124605E3d15D204623C",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "polygon",
+        "currency": "USDC",
+        "asset": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "price_hint": "0.0001",
+        "pay_to": "0xF46394adDdA95A3d5bCC1124605E3d15D204623C",
+        "scheme": "exact",
+        "extra": {
+          "name": "GatewayWalletBatched",
+          "verifyingContract": "0x77777777Dcc4d5A8B6E418Fd04D8997ef11000eE",
+          "version": "1"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "eip155:196",
+        "currency": "UNKNOWN",
+        "asset": "0x4ae46a509F6b1D9056937BA4500cb143933D2dc8",
+        "price_hint": "10",
+        "pay_to": "0xF46394adDdA95A3d5bCC1124605E3d15D204623C",
+        "scheme": "exact",
+        "extra": {
+          "name": "Global Dollar",
+          "version": "1"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "eip155:196",
+        "currency": "UNKNOWN",
+        "asset": "0x4ae46a509F6b1D9056937BA4500cb143933D2dc8",
+        "price_hint": "0.001",
+        "pay_to": "0xF46394adDdA95A3d5bCC1124605E3d15D204623C",
+        "scheme": "exact",
+        "extra": {
+          "name": "Global Dollar",
+          "version": "1"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "eip155:1952",
+        "currency": "UNKNOWN",
+        "asset": "0xF0863D7A29a55d0c4263c11bFac754312ff078DF",
+        "price_hint": "1",
+        "pay_to": "0xF46394adDdA95A3d5bCC1124605E3d15D204623C",
+        "scheme": "exact",
+        "extra": {
+          "name": "Global Dollar",
+          "version": "1"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "eip155:1952",
+        "currency": "UNKNOWN",
+        "asset": "0xF0863D7A29a55d0c4263c11bFac754312ff078DF",
+        "price_hint": "0.001",
+        "pay_to": "0xF46394adDdA95A3d5bCC1124605E3d15D204623C",
+        "scheme": "exact",
+        "extra": {
+          "name": "Global Dollar",
+          "version": "1"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "eip155:5042002",
+        "currency": "UNKNOWN",
+        "asset": "0x3600000000000000000000000000000000000000",
+        "price_hint": "1",
+        "pay_to": "0xF46394adDdA95A3d5bCC1124605E3d15D204623C",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "eip155:5042002",
+        "currency": "UNKNOWN",
+        "asset": "0x3600000000000000000000000000000000000000",
+        "price_hint": "0.001",
+        "pay_to": "0xF46394adDdA95A3d5bCC1124605E3d15D204623C",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "eip155:5042002",
+        "currency": "UNKNOWN",
+        "asset": "0x3600000000000000000000000000000000000000",
+        "price_hint": "0.0001",
+        "pay_to": "0xF46394adDdA95A3d5bCC1124605E3d15D204623C",
+        "scheme": "exact",
+        "extra": {
+          "name": "GatewayWalletBatched",
+          "verifyingContract": "0x0077777d7EBA4688BDeF3E311b846F25870A19B9",
+          "version": "1"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU",
+        "price_hint": "1",
+        "pay_to": "2LWbc9Mi6dRUrdEHBttoNS4udDtH1A4xwBdm1EKqcT57",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "CKPKJWNdJEqa81x7CkZ14BVPiY6y16Sxs7owznqtWYp5"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU",
+        "price_hint": "0.001",
+        "pay_to": "2LWbc9Mi6dRUrdEHBttoNS4udDtH1A4xwBdm1EKqcT57",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "CKPKJWNdJEqa81x7CkZ14BVPiY6y16Sxs7owznqtWYp5"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "10",
+        "pay_to": "2LWbc9Mi6dRUrdEHBttoNS4udDtH1A4xwBdm1EKqcT57",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "GVJJ7rdGiXr5xaYbRwRbjfaJL7fmwRygFi1H6aGqDveb"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.001",
+        "pay_to": "2LWbc9Mi6dRUrdEHBttoNS4udDtH1A4xwBdm1EKqcT57",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "GVJJ7rdGiXr5xaYbRwRbjfaJL7fmwRygFi1H6aGqDveb"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://x402.quiknode-cf.pro/base-mainnet",
+    "x402_version": 2,
+    "accept_count": 23
+  }
+}

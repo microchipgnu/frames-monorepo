@@ -1,0 +1,36 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-twit-sh-communities-by-id",
+  "title": "Retrieve full details of a specific X Community by its numeric ID. Returns name,",
+  "description": "Retrieve full details of a specific X Community by its numeric ID. Returns name, description, member count, moderator count, join policy, topic, rules, banner image, and admin/creator profiles. Query param: id (string, required) - numeric community ID, e.g. GET /communities/by/id?id=1693573582226665701. Returns X v2 API-compatible JSON with additional fields.",
+  "capabilities": [
+    "twitter",
+    "x",
+    "social",
+    "community",
+    "communities",
+    "lookup",
+    "details",
+    "metadata",
+    "agent",
+    "x402"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.twit.sh/communities/by/id"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.0025"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://x402.twit.sh/communities/by/id",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-paid-api-preflight",
+  "title": "Verify any paid API endpoint before your agent spends money. Checks reachability",
+  "description": "Verify any paid API endpoint before your agent spends money. Checks reachability, SSL, response time, and validates the payment protocol handshake (L402, x402, MPP). Returns a proceed/caution/avoid recommendation with parsed payment details. Use this befo…",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/paid-api-preflight"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://api.strale.io/x402/paid-api-preflight",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

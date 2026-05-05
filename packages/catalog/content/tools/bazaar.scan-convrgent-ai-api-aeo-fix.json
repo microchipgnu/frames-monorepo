@@ -1,0 +1,41 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.scan-convrgent-ai-api-aeo-fix",
+  "title": "Scanner + fix generator for AI search visibility (AEO, GEO) and agent readiness ",
+  "description": "Scanner + fix generator for AI search visibility (AEO, GEO) and agent readiness — audits JSON-LD Schema.org structured data, meta tags, robots.txt, llms.txt, sitemap, then outputs site-specific copy-paste code to improve discoverability in ChatGPT, Perplexity, Google AI Overviews, and Bing Copilot. Includes SKILL.md for Claude Code, PDF report, and score projection.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://scan.convrgent.ai/api/aeo/fix"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "5",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "5",
+        "pay_to": "7jw5Bfxo8muSQk9ZGXWvoYQ7newrT52zF8VPXV5ao6fS",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "Hc3sdEAsCGQcpgfivywog9uwtk8gUBUZgsxdME1EJy88"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://scan.convrgent.ai/api/aeo/fix",
+    "x402_version": 2,
+    "accept_count": 2
+  }
+}

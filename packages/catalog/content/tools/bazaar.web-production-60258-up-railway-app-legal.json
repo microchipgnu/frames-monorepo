@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.web-production-60258-up-railway-app-legal",
+  "title": "Legal and regulatory data on demand — federal court case filings (PACER), USPTO ",
+  "description": "Legal and regulatory data on demand — federal court case filings (PACER), USPTO patents, SEC EDGAR filings, agency enforcement actions, court dockets, and entity compliance checks. Pass ?type= to specify: case_filings, patents, sec_filings, regulatory_actions, court_docket, compliance_check.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://web-production-60258.up.railway.app/legal"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://web-production-60258.up.railway.app/legal",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

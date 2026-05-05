@@ -1,0 +1,29 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.stablesocial.post.api-facebook-following",
+  "title": "StableSocial — POST /api/facebook/following",
+  "description": "Get Facebook following",
+  "capabilities": [
+    "tiktok",
+    "instagram",
+    "facebook",
+    "reddit",
+    "scraping",
+    "social",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://stablesocial.dev/api/facebook/following"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.06"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "stablesocial:POST:/api/facebook/following"
+  }
+}

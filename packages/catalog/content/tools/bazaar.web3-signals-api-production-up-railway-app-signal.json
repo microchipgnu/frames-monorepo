@@ -1,0 +1,36 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.web3-signals-api-production-up-railway-app-signal",
+  "title": "Full crypto signal fusion: 20 assets scored 0-100 with whale, derivatives, techn",
+  "description": "Full crypto signal fusion: 20 assets scored 0-100 with whale, derivatives, technical, narrative, and market dimensions. Portfolio summary + LLM insights.",
+  "capabilities": [
+    "crypto",
+    "signal",
+    "market",
+    "trading",
+    "whale",
+    "ai",
+    "agent",
+    "x402",
+    "defi",
+    "web3"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://web3-signals-api-production.up.railway.app/signal"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://web3-signals-api-production.up.railway.app/signal",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

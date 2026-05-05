@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-staging-intra-tls2-dctx-link-x402-swarm-qrn-swarm-68245d50639b9d8f54d50eda",
+  "title": "Questflow’s SANTA is graduating from a holiday mascot to a full-fledged Secure A",
+  "description": "Questflow’s SANTA is graduating from a holiday mascot to a full-fledged Secure Agent Network for Trustless Action—letting every crypto team hire a bespoke on-chain chief-of-staff, pre-loaded with workflows that handle rewards, analytics, community comms, and feedback loops while founders build the future. | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api-staging.intra-tls2.dctx.link/x402/swarm/qrn:swarm:68245d50639b9d8f54d50eda"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base-sepolia",
+    "currency": "USDC",
+    "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://api-staging.intra-tls2.dctx.link/x402/swarm/qrn:swarm:68245d50639b9d8f54d50eda",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

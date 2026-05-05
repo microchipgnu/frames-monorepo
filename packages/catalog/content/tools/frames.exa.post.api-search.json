@@ -1,0 +1,83 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "frames.exa.post.api-search",
+  "title": "POST /api/search",
+  "description": "**Paid endpoint** - $0.01 on Base (USDC, USDT), Solana (USDC, USDT, CASH)",
+  "capabilities": [
+    "search",
+    "semantic",
+    "ai",
+    "exa"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://registry.frames.ag/api/service/exa/api/search",
+    "params_schema": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "useAutoprompt": {},
+        "type": {},
+        "category": {
+          "type": "string",
+          "enum": [
+            "company",
+            "research paper",
+            "news",
+            "pdf",
+            "github",
+            "tweet",
+            "personal site",
+            "linkedin profile"
+          ]
+        },
+        "numResults": {},
+        "includeDomains": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "excludeDomains": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "startPublishedDate": {
+          "type": "string"
+        },
+        "endPublishedDate": {
+          "type": "string"
+        },
+        "contents": {
+          "type": "object",
+          "properties": {
+            "text": {},
+            "highlights": {},
+            "summary": {}
+          }
+        }
+      },
+      "required": [
+        "query"
+      ]
+    }
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "frames-registry",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "exa:POST:/api/search",
+    "service_slug": "exa"
+  }
+}

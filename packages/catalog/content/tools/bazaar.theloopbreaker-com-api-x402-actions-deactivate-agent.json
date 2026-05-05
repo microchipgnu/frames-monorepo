@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.theloopbreaker-com-api-x402-actions-deactivate-agent",
+  "title": "Deactivate your ERC-8004 agent registration on Vaultfire. Pay $0.10 USDC, sign i",
+  "description": "Deactivate your ERC-8004 agent registration on Vaultfire. Pay $0.10 USDC, sign in your wallet — only the agent itself (msg.sender) can deactivate. Reversible by re-registering.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://theloopbreaker.com/api/x402/actions/deactivate-agent"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://theloopbreaker.com/api/x402/actions/deactivate-agent",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

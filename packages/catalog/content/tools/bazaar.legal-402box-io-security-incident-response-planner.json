@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.legal-402box-io-security-incident-response-planner",
+  "title": "Create exploit response playbooks: detection, pause mechanisms, communication pr",
+  "description": "Create exploit response playbooks: detection, pause mechanisms, communication protocols, white-hat coordination, and post-mortem processes",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://legal.402box.io/security_incident_response_planner"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://legal.402box.io/security_incident_response_planner",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-deepnets-ai-api-network-details-wallets",
+  "title": "All wallets belonging to a funding network (by topFundingSource), with exchange ",
+  "description": "All wallets belonging to a funding network (by topFundingSource), with exchange labels and tags.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.deepnets.ai/api/network-details/wallets"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "solana-mainnet",
+    "currency": "UNKNOWN",
+    "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://api.deepnets.ai/api/network-details/wallets",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

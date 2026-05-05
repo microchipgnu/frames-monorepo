@@ -1,0 +1,36 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-twit-sh-lists-tweets",
+  "title": "Get the latest tweets from a Twitter/X List by its numeric List ID. Returns ~100",
+  "description": "Get the latest tweets from a Twitter/X List by its numeric List ID. Returns ~100 tweets per page with pagination support. Query params: id (string, required) - numeric List ID; next_token (string, optional) - pagination cursor, e.g. GET /lists/tweets?id=84839422. Returns X v2 API-compatible JSON.",
+  "capabilities": [
+    "twitter",
+    "x",
+    "social",
+    "list",
+    "lists",
+    "tweets",
+    "timeline",
+    "paginated",
+    "agent",
+    "x402"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.twit.sh/lists/tweets"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://x402.twit.sh/lists/tweets",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

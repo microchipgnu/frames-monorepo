@@ -1,0 +1,35 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.allium.post.api-v1-explorer-queries-query-id-run-async",
+  "title": "Allium — POST /api/v1/explorer/queries/:query_id/run-async",
+  "description": "Run a saved query asynchronously",
+  "capabilities": [
+    "blockchain",
+    "prices",
+    "tokens",
+    "wallet",
+    "balances",
+    "transactions",
+    "pnl",
+    "sql",
+    "explorer",
+    "solana",
+    "base",
+    "defi",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://agents.allium.so/api/v1/explorer/queries/:query_id/run-async"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "allium:POST:/api/v1/explorer/queries/:query_id/run-async"
+  }
+}

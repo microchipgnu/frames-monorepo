@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.theloopbreaker-com-api-x402-trust-safety-status",
+  "title": "Look up an agent's on-chain safety status via AgentSafetyManager.getAgentStatus(",
+  "description": "Look up an agent's on-chain safety status via AgentSafetyManager.getAgentStatus() — status enum (Active/Frozen/SafeMode/Terminated), when it last changed, who changed it, and the human-readable reason.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://theloopbreaker.com/api/x402/trust/safety-status"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://theloopbreaker.com/api/x402/trust/safety-status",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

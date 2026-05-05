@@ -1,0 +1,63 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.trustscore-dev-api-batch-score",
+  "title": "Bulk trust scoring: check up to 25 phone numbers, crypto tokens, or property add",
+  "description": "Bulk trust scoring: check up to 25 phone numbers, crypto tokens, or property addresses in one call. Returns a 0-100 trust score, risk flags, and summary for each item. Built for fraud screening pipelines, compliance workflows, and agent batch checks covering phone spam, crypto rugpulls, and property fraud.",
+  "capabilities": [
+    "trust-score",
+    "batch",
+    "batch-validation",
+    "bulk",
+    "pipeline",
+    "compliance",
+    "phone",
+    "phone-number",
+    "phone-validation",
+    "phone-verification",
+    "fraud",
+    "fraud-detection",
+    "scam",
+    "spam",
+    "robocall",
+    "voip",
+    "voip-detection",
+    "fake-number-detection",
+    "line-type",
+    "mobile-detection",
+    "e164",
+    "crypto",
+    "token",
+    "rugpull",
+    "honeypot",
+    "scam-token",
+    "property",
+    "address",
+    "real-estate",
+    "deed-fraud",
+    "risk",
+    "risk-scoring",
+    "verification",
+    "reputation",
+    "identity",
+    "api",
+    "x402"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://trustscore.dev/api/batch-score"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.3"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://trustscore.dev/api/batch-score",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

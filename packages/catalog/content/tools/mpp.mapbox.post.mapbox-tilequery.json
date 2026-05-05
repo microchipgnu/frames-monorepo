@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.mapbox.post.mapbox-tilequery",
+  "title": "Mapbox — POST /mapbox/tilequery",
+  "description": "Tilequery",
+  "capabilities": [
+    "maps",
+    "geocoding",
+    "directions",
+    "routing",
+    "geospatial",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://mapbox.mpp.paywithlocus.com/mapbox/tilequery"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "mapbox:POST:/mapbox/tilequery"
+  }
+}

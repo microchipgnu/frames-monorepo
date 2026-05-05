@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-blocknotify-com-v1-token-price",
+  "title": "Get real-time token price, market cap and more. Pass an EVM chain plus ERC-20 co",
+  "description": "Get real-time token price, market cap and more. Pass an EVM chain plus ERC-20 contract address; returns current price (USD or any quote currency), 24h/7d/30d percentage changes, market cap, fully diluted valuation, 24h volume, all-time high/low, total / circulating / max supply, and basic community stats. Cached server-side for ~7 minutes for low-cost agent lookups.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.blocknotify.com/v1/token-price"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.0011"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://x402.blocknotify.com/v1/token-price",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

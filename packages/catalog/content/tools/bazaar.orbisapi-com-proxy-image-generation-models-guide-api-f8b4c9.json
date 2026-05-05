@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-image-generation-models-guide-api-f8b4c9",
+  "title": "Reference for AI image generation models: DALL-E 3, Midjourney, Stable Diffusion",
+  "description": "Reference for AI image generation models: DALL-E 3, Midjourney, Stable Diffusion.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/image-generation-models-guide-api-f8b4c9"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://orbisapi.com/proxy/image-generation-models-guide-api-f8b4c9",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

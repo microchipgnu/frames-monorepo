@@ -1,0 +1,30 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.gemini.get.version-operations",
+  "title": "Google Gemini — GET /:version/operations/*",
+  "description": "Poll async operation status",
+  "capabilities": [
+    "llm",
+    "gemini",
+    "veo",
+    "imagen",
+    "video",
+    "multimodal",
+    "ai",
+    "media"
+  ],
+  "invocation": {
+    "method": "GET",
+    "url": "https://gemini.mpp.tempo.xyz/:version/operations/*"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.0001"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "gemini:GET:/:version/operations/*"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.abstract-phone-intelligence.post.abstract-phone-intelligence-lookup",
+  "title": "Phone Intelligence — POST /abstract-phone-intelligence/lookup",
+  "description": "Lookup",
+  "capabilities": [
+    "phone",
+    "carrier",
+    "validation",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://abstract-phone-intelligence.mpp.paywithlocus.com/abstract-phone-intelligence/lookup"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.006"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "abstract-phone-intelligence:POST:/abstract-phone-intelligence/lookup"
+  }
+}

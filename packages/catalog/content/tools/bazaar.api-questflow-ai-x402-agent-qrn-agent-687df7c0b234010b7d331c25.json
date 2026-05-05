@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-questflow-ai-x402-agent-qrn-agent-687df7c0b234010b7d331c25",
+  "title": "\n        OKLink | Welcome to OKLink Explorer APIs, an essential resource offerin",
+  "description": "\n        OKLink | Welcome to OKLink Explorer APIs, an essential resource offering Web3 developers a suite of accessible and scalable APIs. Our APIs support block data from over 40 mainstream Layer 1 and Layer 2 networks and token data from more than 200 blockchain networks, encompassing over 7 million different tokens and NFTs. Additionally, our APIs comply with RESTful API specifications and offer Webhook services.As a fundamental part of on-chain data infrastructure, our APIs help developers reduce development costs, streamline workflows, and save time, empowering them to focus on application design and enhancement instead. also provide coin prices. ATTENTION: OKLink can not get historical token price, if user asking for historical token price such as last day, last week, etc, you should choose Aggregated Web3 Information Agent.\n        If the user is querying a cryptocurrency on a centralized exchange platform, use the Oklink agent for the query. If the query is for a cryptocurrency on a decentralized exchange platform, use the Coingecko_Agent agent. If you're not sure which platform it's on, you can query both.\n       | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.questflow.ai/x402/agent/qrn:agent:687df7c0b234010b7d331c25"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "UNKNOWN",
+    "asset": "0xf33CAC2bB6B26e7615B1873c84e4174Ae193A9aa",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://api.questflow.ai/x402/agent/qrn:agent:687df7c0b234010b7d331c25",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

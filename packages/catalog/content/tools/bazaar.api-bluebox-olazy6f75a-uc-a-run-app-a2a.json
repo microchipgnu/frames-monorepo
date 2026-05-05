@@ -1,0 +1,42 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-bluebox-olazy6f75a-uc-a-run-app-a2a",
+  "title": "Send a prompt to a Bluebox agent and receive the reply.",
+  "description": "Send a prompt to a Bluebox agent and receive the reply.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api-bluebox-olazy6f75a-uc.a.run.app/a2a"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.02",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "eip155:4217",
+        "currency": "UNKNOWN",
+        "asset": "0x20c000000000000000000000b9537d11c60e8b50",
+        "price_hint": "0.02",
+        "pay_to": "0xFE970B585C609440Bb56667a9eff56c9D02C8A62",
+        "scheme": "exact",
+        "extra": {
+          "name": "USDC",
+          "version": "2"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://api-bluebox-olazy6f75a-uc.a.run.app/a2a",
+    "x402_version": 2,
+    "accept_count": 2
+  }
+}

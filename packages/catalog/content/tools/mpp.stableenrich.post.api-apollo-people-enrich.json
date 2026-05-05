@@ -1,0 +1,33 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.stableenrich.post.api-apollo-people-enrich",
+  "title": "StableEnrich — POST /api/apollo/people-enrich",
+  "description": "Enrich single person by email/name/domain",
+  "capabilities": [
+    "apollo",
+    "exa",
+    "firecrawl",
+    "google-maps",
+    "linkedin",
+    "reddit",
+    "enrichment",
+    "research",
+    "data",
+    "search",
+    "social"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://stableenrich.dev/api/apollo/people-enrich"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.0495"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "stableenrich:POST:/api/apollo/people-enrich"
+  }
+}

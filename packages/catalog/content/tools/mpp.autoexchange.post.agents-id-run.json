@@ -1,0 +1,30 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.autoexchange.post.agents-id-run",
+  "title": "Auto.exchange — POST /agents/:id/run",
+  "description": "Execute an agent — price varies by agent and token usage",
+  "capabilities": [
+    "agents",
+    "marketplace",
+    "exchange",
+    "coding",
+    "design",
+    "writing",
+    "ai-agents",
+    "ai"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.auto.exchange/agents/:id/run"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "dynamic"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "autoexchange:POST:/agents/:id/run"
+  }
+}

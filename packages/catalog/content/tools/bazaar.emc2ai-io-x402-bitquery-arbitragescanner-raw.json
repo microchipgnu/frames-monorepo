@@ -1,0 +1,56 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.emc2ai-io-x402-bitquery-arbitragescanner-raw",
+  "title": "Cross-chain price discrepancies and profitable arbitrage routes.",
+  "description": "Cross-chain price discrepancies and profitable arbitrage routes.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://emc2ai.io/x402/bitquery/arbitragescanner/raw"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN",
+    "accepts": [
+      {
+        "protocol": "x402",
+        "network": "solana",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "NaN",
+        "pay_to": "3H8oRdbRf18b2aaMVBfgJVDhnjhiXjCVTP5ZnNmPuikb",
+        "scheme": "exact",
+        "extra": {
+          "chain": "solana",
+          "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+        }
+      },
+      {
+        "protocol": "x402",
+        "network": "lightning:mainnet",
+        "currency": "UNKNOWN",
+        "asset": "sat",
+        "price_hint": "NaN",
+        "pay_to": "520ca7be-8ffe-4b50-ba8a-c1d8d6c2141a",
+        "scheme": "exact",
+        "extra": {
+          "chain": "lightning",
+          "merchantId": "520ca7be-8ffe-4b50-ba8a-c1d8d6c2141a",
+          "usdEquivalent": "1.00"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://emc2ai.io/x402/bitquery/arbitragescanner/raw",
+    "x402_version": 1,
+    "accept_count": 3
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-x402-printmoneylab-com-api-v1-services-service-id-wash-detail",
+  "title": "Top 50 buyers per service with full label classification, confidence scores, and",
+  "description": "Top 50 buyers per service with full label classification, confidence scores, and signal-by-signal breakdown.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.x402.printmoneylab.com/api/v1/services/:service_id/wash-detail"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://api.x402.printmoneylab.com/api/v1/services/:service_id/wash-detail",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

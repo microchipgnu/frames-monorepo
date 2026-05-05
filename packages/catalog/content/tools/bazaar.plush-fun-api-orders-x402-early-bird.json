@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.plush-fun-api-orders-x402-early-bird",
+  "title": "Create order for AI Plushie - Early Bird ($159) without promo code, eval, chr st",
+  "description": "Create order for AI Plushie - Early Bird ($159) without promo code, eval, chr staker - Limited 1000 units",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://plush.fun/api/orders/x402/early-bird"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://plush.fun/api/orders/x402/early-bird",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

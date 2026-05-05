@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.kicksdb.get.v3-realtime-goat-products-id-offers",
+  "title": "KicksDB — GET /v3/realtime/goat/products/:id/offers",
+  "description": "GOAT real-time offers",
+  "capabilities": [
+    "sneakers",
+    "streetwear",
+    "prices",
+    "stockx",
+    "goat",
+    "data"
+  ],
+  "invocation": {
+    "method": "GET",
+    "url": "https://kicksdb.mpp.tempo.xyz/v3/realtime/goat/products/:id/offers"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "kicksdb:GET:/v3/realtime/goat/products/:id/offers"
+  }
+}

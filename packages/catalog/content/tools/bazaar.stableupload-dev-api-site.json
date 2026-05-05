@@ -1,0 +1,47 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.stableupload-dev-api-site",
+  "title": "Buy a site upload slot. Upload a zip file, then activate to extract and serve as",
+  "description": "Buy a site upload slot. Upload a zip file, then activate to extract and serve as a static site.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://stableupload.dev/api/site"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.005",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.005",
+        "pay_to": "BNzfpqtDWcvfQ2ArpcbtaRfFEs4okBUm8xBAHSMBK56y",
+        "scheme": "exact",
+        "extra": {
+          "decimals": 6,
+          "features": {
+            "xSettlementAccountSupported": true
+          },
+          "feePayer": "AepWpq3GQwL8CeKMtZyKtKPa7W91Coygh3ropAJapVdU",
+          "recentBlockhash": "ALMUrwX745bxmqrvuuEdzDbMmPZvgQ89KvriZZrjmo5G",
+          "tokenProgram": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://stableupload.dev/api/site",
+    "x402_version": 2,
+    "accept_count": 2
+  }
+}

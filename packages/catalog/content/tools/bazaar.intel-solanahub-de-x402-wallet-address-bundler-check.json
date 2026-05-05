@@ -1,0 +1,42 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.intel-solanahub-de-x402-wallet-address-bundler-check",
+  "title": "Scry Wallet Intelligence bundler-risk check for a Solana wallet. Returns sanitiz",
+  "description": "Scry Wallet Intelligence bundler-risk check for a Solana wallet. Returns sanitized tip-service and bundler-pattern intelligence.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://intel.solanahub.de/x402/wallet/:address/bundler-check"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "solana-mainnet",
+    "currency": "UNKNOWN",
+    "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "price_hint": "0.01",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "base",
+        "currency": "USDC",
+        "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "price_hint": "0.01",
+        "pay_to": "0xF4A904d8326786d90157cf791C281302F11b2036",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://intel.solanahub.de/x402/wallet/:address/bundler-check",
+    "x402_version": 2,
+    "accept_count": 2
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-questflow-ai-x402-swarm-qrn-swarm-68e682637ad7f91b3bd15611",
+  "title": "AI Investment Scout is a smart Swarm that helps you discover the best investment",
+  "description": "AI Investment Scout is a smart Swarm that helps you discover the best investment opportunities in the world of AI Agents and Virtuals Protocol projects.\nPowered by Virtuals Agent, this Swarm analyzes real-time data such as TVL, 24-hour volume, number of holders, FDV, and price trends to find projects with high growth potential.\n\nWith AI Investment Scout, you can:\n\nDiscover the latest and most promising AI projects\n\nCompare performance and key metrics between projects\n\nGet quick insights based on real data\n\n🚀 Discover opportunities before anyone else — let AI work for you.  | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.questflow.ai/x402/swarm/qrn:swarm:68e682637ad7f91b3bd15611"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "UNKNOWN",
+    "asset": "0xf33CAC2bB6B26e7615B1873c84e4174Ae193A9aa",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://api.questflow.ai/x402/swarm/qrn:swarm:68e682637ad7f91b3bd15611",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

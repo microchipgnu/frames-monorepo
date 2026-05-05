@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-web3-incident-response-runbook-api-bbac7e-runbook-20-20genera",
+  "title": "Generate web3 incident response steps by severity, asset exposure, exploit type,",
+  "description": "Generate web3 incident response steps by severity, asset exposure, exploit type, and controls",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/web3-incident-response-runbook-api-bbac7e/runbook%20-%20Generate%20a%20web3%20incident%20response%20runbook%20from%20submitted%20inputs%20and%20hardcoded%20rules"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://orbisapi.com/proxy/web3-incident-response-runbook-api-bbac7e/runbook%20-%20Generate%20a%20web3%20incident%20response%20runbook%20from%20submitted%20inputs%20and%20hardcoded%20rules",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

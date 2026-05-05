@@ -1,0 +1,98 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-molty-cash-web3idan-a2a",
+  "title": "Tip or hire @web3idan - send USDC payments",
+  "description": "Tip or hire @web3idan - send USDC payments",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.molty.cash/web3idan/a2a"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.11",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.11",
+        "pay_to": "FWoD65bNMnYuvA4sjSokrJvTV61nUbPfAuxgjiGZtNT9",
+        "scheme": "exact",
+        "extra": {
+          "features": {
+            "xSettlementAccountSupported": true
+          },
+          "feePayer": "AepWpq3GQwL8CeKMtZyKtKPa7W91Coygh3ropAJapVdU",
+          "name": "USDC",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "eip155:4217",
+        "currency": "UNKNOWN",
+        "asset": "0x20c000000000000000000000b9537d11c60e8b50",
+        "price_hint": "0.11",
+        "pay_to": "0x7ad9d5Bc20a096a686595fCaAE2d177484514608",
+        "scheme": "exact",
+        "extra": {
+          "name": "USDC",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "stellar:pubnet",
+        "currency": "UNKNOWN",
+        "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+        "price_hint": "1.1",
+        "pay_to": "GB6QDRW5UL42MGAGG6ELQ43YMEMKNBXYDQJ72HVFHEPB23ROWPKDPR7I",
+        "scheme": "exact",
+        "extra": {
+          "name": "USDC",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "eip155:143",
+        "currency": "UNKNOWN",
+        "asset": "0x754704Bc059F8C67012fEd69BC8A327a5aafb603",
+        "price_hint": "0.11",
+        "pay_to": "0x42e0E75E5835059e7eC3b299F9cB5d7f0E84Ac6c",
+        "scheme": "exact",
+        "extra": {
+          "name": "USDC",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "eip155:480",
+        "currency": "UNKNOWN",
+        "asset": "0x79A02482A880bCE3F13e09Da970dC34db4CD24d1",
+        "price_hint": "0.11",
+        "pay_to": "0x180785ecc3E9256b3F09181C0a368D53167aa75e",
+        "scheme": "exact",
+        "extra": {
+          "name": "USDC",
+          "version": "2"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://api.molty.cash/web3idan/a2a",
+    "x402_version": 2,
+    "accept_count": 6
+  }
+}

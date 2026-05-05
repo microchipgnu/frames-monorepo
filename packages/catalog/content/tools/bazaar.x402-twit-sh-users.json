@@ -1,0 +1,37 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-twit-sh-users",
+  "title": "Bulk look up multiple Twitter/X user profiles by their numeric user IDs in a sin",
+  "description": "Bulk look up multiple Twitter/X user profiles by their numeric user IDs in a single request. Returns an array of full user profiles. Query param: ids (string, required) - comma-separated numeric Twitter user IDs, max 50, e.g. GET /users?ids=44196397,12,783214. Returns X v2 API-compatible JSON.",
+  "capabilities": [
+    "twitter",
+    "x",
+    "social",
+    "user",
+    "bulk",
+    "lookup",
+    "batch",
+    "ids",
+    "profile",
+    "agent",
+    "x402"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.twit.sh/users"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://x402.twit.sh/users",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-deepnets-ai-api-trending",
+  "title": "Paginated trending Solana tokens enriched with deepnets safety overlay (risk lev",
+  "description": "Paginated trending Solana tokens enriched with deepnets safety overlay (risk level, holder count, lockup %, charity tag). Sortable across multiple views (trending, volume, market_cap, gainers, losers, new_tokens, price, txns, liquidity, holders) over 5m / 1h / 4h / 24h windows, with optional filters for liquidity, market cap, holders, volume, age, and lockup.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.deepnets.ai/api/trending"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "solana-mainnet",
+    "currency": "UNKNOWN",
+    "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://api.deepnets.ai/api/trending",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

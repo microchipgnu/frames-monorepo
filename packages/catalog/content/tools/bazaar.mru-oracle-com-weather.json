@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.mru-oracle-com-weather",
+  "title": "Current weather from all Mauritius Meteorological Services stations (35+ station",
+  "description": "Current weather from all Mauritius Meteorological Services stations (35+ stations)",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://mru-oracle.com/weather"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://mru-oracle.com/weather",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

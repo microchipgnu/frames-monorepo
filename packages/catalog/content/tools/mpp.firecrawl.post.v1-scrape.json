@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.firecrawl.post.v1-scrape",
+  "title": "Firecrawl — POST /v1/scrape",
+  "description": "Scrape a URL",
+  "capabilities": [
+    "scraping",
+    "crawling",
+    "extraction",
+    "llm",
+    "web",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://firecrawl.mpp.tempo.xyz/v1/scrape"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "firecrawl:POST:/v1/scrape"
+  }
+}

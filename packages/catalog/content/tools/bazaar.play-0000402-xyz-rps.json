@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.play-0000402-xyz-rps",
+  "title": "Pay $1.00 USDC to play Rock Paper Scissors against the server. Win pays 2.0 USDC",
+  "description": "Pay $1.00 USDC to play Rock Paper Scissors against the server. Win pays 2.0 USDC, tie pays 0.5 USDC, loss pays nothing. Network: Base Mainnet. Each request plays one complete turn-based round against a server-selected move and returns both moves plus the final outcome, making it useful for agent gameplay, competitive game APIs, and simple strategy-game interactions.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://play.0000402.xyz/rps"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://play.0000402.xyz/rps",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

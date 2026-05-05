@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.hunter.post.hunter-email-count",
+  "title": "Hunter — POST /hunter/email-count",
+  "description": "Email Count",
+  "capabilities": [
+    "email",
+    "verification",
+    "enrichment",
+    "outreach",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://hunter.mpp.paywithlocus.com/hunter/email-count"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "hunter:POST:/hunter/email-count"
+  }
+}

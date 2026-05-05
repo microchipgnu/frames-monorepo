@@ -1,0 +1,26 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.edgar-search.post.edgar-search-search",
+  "title": "EDGAR Full-Text Search — POST /edgar-search/search",
+  "description": "Search Filings",
+  "capabilities": [
+    "sec",
+    "filings",
+    "full-text-search",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://edgar-search.mpp.paywithlocus.com/edgar-search/search"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.008"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "edgar-search:POST:/edgar-search/search"
+  }
+}

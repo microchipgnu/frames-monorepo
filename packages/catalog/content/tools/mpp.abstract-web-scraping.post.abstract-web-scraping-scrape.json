@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.abstract-web-scraping.post.abstract-web-scraping-scrape",
+  "title": "Web Scraping — POST /abstract-web-scraping/scrape",
+  "description": "Scrape",
+  "capabilities": [
+    "scraping",
+    "web-pages",
+    "javascript-rendering",
+    "web",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://abstract-web-scraping.mpp.paywithlocus.com/abstract-web-scraping/scrape"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.006"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "abstract-web-scraping:POST:/abstract-web-scraping/scrape"
+  }
+}

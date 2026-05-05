@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.netintel-production-440c-up-railway-app-username-check-lookup",
+  "title": "Check username availability across 20+ social platforms and developer sites simu",
+  "description": "Check username availability across 20+ social platforms and developer sites simultaneously — returns which platforms have a profile registered under that handle so agents can find people, verify identities, scout brand handles, or check name availability before registration.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://netintel-production-440c.up.railway.app/username-check/lookup"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.003"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://netintel-production-440c.up.railway.app/username-check/lookup",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-api-aubr-ai-api-literature",
+  "title": "Search and synthesize scientific literature on longevity and aging. Submit a res",
+  "description": "Search and synthesize scientific literature on longevity and aging. Submit a research question; returns cited answer with references from PubMed and other sources.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402-api.aubr.ai/api/literature"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.03"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://x402-api.aubr.ai/api/literature",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

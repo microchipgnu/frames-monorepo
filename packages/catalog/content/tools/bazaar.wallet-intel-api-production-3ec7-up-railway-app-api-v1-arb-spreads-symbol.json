@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.wallet-intel-api-production-3ec7-up-railway-app-api-v1-arb-spreads-symbol",
+  "title": "Cross-exchange arbitrage spread finder. Compares spot prices across Kraken, KuCo",
+  "description": "Cross-exchange arbitrage spread finder. Compares spot prices across Kraken, KuCoin, OKX, Binance, Bybit. Returns spread %, fees, net profit.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://wallet-intel-api-production-3ec7.up.railway.app/api/v1/arb-spreads/:symbol"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://wallet-intel-api-production-3ec7.up.railway.app/api/v1/arb-spreads/:symbol",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

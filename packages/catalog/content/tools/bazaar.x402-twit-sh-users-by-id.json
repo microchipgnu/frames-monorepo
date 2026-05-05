@@ -1,0 +1,37 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-twit-sh-users-by-id",
+  "title": "Look up a single Twitter/X user profile by their numeric user ID. Returns full p",
+  "description": "Look up a single Twitter/X user profile by their numeric user ID. Returns full profile data including id, name, username, bio, follower count, following count, tweet count, and verification status. Query param: id (string, required) - numeric Twitter user ID, e.g. GET /users/by/id?id=44196397. Returns X v2 API-compatible JSON.",
+  "capabilities": [
+    "twitter",
+    "x",
+    "social",
+    "user",
+    "profile",
+    "lookup",
+    "id",
+    "bio",
+    "verification",
+    "agent",
+    "x402"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.twit.sh/users/by/id"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://x402.twit.sh/users/by/id",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

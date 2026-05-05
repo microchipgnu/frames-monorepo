@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.clado.post.clado-post-reactions",
+  "title": "Clado — POST /clado/post-reactions",
+  "description": "Post Reactions",
+  "capabilities": [
+    "linkedin",
+    "enrichment",
+    "leads",
+    "deep-research",
+    "people-search",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://clado.mpp.paywithlocus.com/clado/post-reactions"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.013"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "clado:POST:/clado/post-reactions"
+  }
+}

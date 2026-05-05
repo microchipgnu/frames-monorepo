@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-world-religions-data-api-7b34bf-parse",
+  "title": "6 major world religions with adherents, beliefs, practices, branches, and holy s",
+  "description": "6 major world religions with adherents, beliefs, practices, branches, and holy sites.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/world-religions-data-api-7b34bf/parse"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://orbisapi.com/proxy/world-religions-data-api-7b34bf/parse",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

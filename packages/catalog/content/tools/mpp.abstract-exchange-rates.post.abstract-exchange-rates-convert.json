@@ -1,0 +1,26 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.abstract-exchange-rates.post.abstract-exchange-rates-convert",
+  "title": "Exchange Rates — POST /abstract-exchange-rates/convert",
+  "description": "Convert",
+  "capabilities": [
+    "forex",
+    "exchange-rates",
+    "currency-conversion",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://abstract-exchange-rates.mpp.paywithlocus.com/abstract-exchange-rates/convert"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.006"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "abstract-exchange-rates:POST:/abstract-exchange-rates/convert"
+  }
+}

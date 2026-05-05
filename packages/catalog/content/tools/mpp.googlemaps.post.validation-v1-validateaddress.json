@@ -1,0 +1,38 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.googlemaps.post.validation-v1-validateaddress",
+  "title": "Google Maps — POST /validation/v1:validateAddress",
+  "description": "Validate a postal address",
+  "capabilities": [
+    "maps",
+    "google",
+    "geocoding",
+    "directions",
+    "places",
+    "routes",
+    "tiles",
+    "weather",
+    "air-quality",
+    "solar",
+    "roads",
+    "pollen",
+    "geolocation",
+    "aerial",
+    "validation",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://googlemaps.mpp.tempo.xyz/validation/v1:validateAddress"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.017"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "googlemaps:POST:/validation/v1:validateAddress"
+  }
+}

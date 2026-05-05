@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.groq.post.groq-models",
+  "title": "Groq — POST /groq/models",
+  "description": "List Models",
+  "capabilities": [
+    "llm",
+    "fast-inference",
+    "llama",
+    "gemma",
+    "deepseek",
+    "ai"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://groq.mpp.paywithlocus.com/groq/models"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "groq:POST:/groq/models"
+  }
+}

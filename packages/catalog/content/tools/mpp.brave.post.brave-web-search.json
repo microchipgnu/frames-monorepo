@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.brave.post.brave-web-search",
+  "title": "Brave Search — POST /brave/web-search",
+  "description": "Web Search",
+  "capabilities": [
+    "search",
+    "web-search",
+    "privacy",
+    "news",
+    "images"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://brave.mpp.paywithlocus.com/brave/web-search"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.035"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "brave:POST:/brave/web-search"
+  }
+}

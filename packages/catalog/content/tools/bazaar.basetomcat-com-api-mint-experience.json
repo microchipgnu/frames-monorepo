@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.basetomcat-com-api-mint-experience",
+  "title": "Buy 50 TOM (experience tier) for 0.01 USDC on Base.",
+  "description": "Buy 50 TOM (experience tier) for 0.01 USDC on Base.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://basetomcat.com/api/mint-experience"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://basetomcat.com/api/mint-experience",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.mru-oracle-com-compliance-mauritius",
+  "title": "Sentinel AML Intelligence: Mauritius FSC licensees, ICIJ offshore leaks, PEPs, a",
+  "description": "Sentinel AML Intelligence: Mauritius FSC licensees, ICIJ offshore leaks, PEPs, adverse media (5 743 records)",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://mru-oracle.com/compliance/mauritius"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://mru-oracle.com/compliance/mauritius",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

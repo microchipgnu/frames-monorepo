@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.deepseek.post.deepseek-fim",
+  "title": "DeepSeek — POST /deepseek/fim",
+  "description": "Fill-In-the-Middle (FIM)",
+  "capabilities": [
+    "llm",
+    "reasoning",
+    "code",
+    "chat",
+    "chain-of-thought",
+    "ai"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://deepseek.mpp.paywithlocus.com/deepseek/fim"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "dynamic"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "deepseek:POST:/deepseek/fim"
+  }
+}

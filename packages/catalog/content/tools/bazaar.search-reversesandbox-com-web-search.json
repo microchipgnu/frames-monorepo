@@ -1,0 +1,67 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.search-reversesandbox-com-web-search",
+  "title": "Private web search for AI agents — zero logging, no tracking, no human signup re",
+  "description": "Private web search for AI agents — zero logging, no tracking, no human signup required. Pay-per-query with USDC, no API keys or accounts. Multi-engine JSON results. Pass q=query, optional count (1-20), offset.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://search.reversesandbox.com/web/search"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.002",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "polygon",
+        "currency": "USDC",
+        "asset": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "price_hint": "0.002",
+        "pay_to": "0x5770E66181984aa8510777790016B64AeDA4f8b2",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "arbitrum",
+        "currency": "UNKNOWN",
+        "asset": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+        "price_hint": "0.002",
+        "pay_to": "0x5770E66181984aa8510777790016B64AeDA4f8b2",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.002",
+        "pay_to": "fpsaoRu3UYL8zf5or24iRhDZiTzBrGNT2FRLu8sqpmN",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "BFK9TLC3edb13K6v4YyH3DwPb5DSUpkWvb7XnqCL9b4F"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://search.reversesandbox.com/web/search",
+    "x402_version": 2,
+    "accept_count": 4
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.aiagentoracle-ai-api-v1-tokens",
+  "title": "AgentOracle: list real-time on-chain crypto tokens sorted by market cap, with ch",
+  "description": "AgentOracle: list real-time on-chain crypto tokens sorted by market cap, with chain / min-liquidity / min-24h-volume / min-market-cap filters and limit+offset pagination. Each row includes price, 24h volume, market cap, liquidity, 24h price change, and confidence score.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://aiagentoracle.ai/api/v1/tokens"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://aiagentoracle.ai/api/v1/tokens",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

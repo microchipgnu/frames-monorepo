@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.sandbox-node4all-com-v1-md2pdf",
+  "title": "Node4All md2pdf — Markdown → PDF (md2pdf) conversion for AI agents and document ",
+  "description": "Node4All md2pdf — Markdown → PDF (md2pdf) conversion for AI agents and document automation workflows. Accepts UTF-8 markdown either as a multipart \"file\" upload (.md, ≤10MB) or as a JSON body { \"markdown\": \"...\" }, and returns application/pdf. Operator: Node4All (https://node4all.com). Currency: USDC on Base.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://sandbox.node4all.com/v1/md2pdf"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base-sepolia",
+    "currency": "USDC",
+    "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://sandbox.node4all.com/v1/md2pdf",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

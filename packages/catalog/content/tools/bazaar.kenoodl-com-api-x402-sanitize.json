@@ -1,0 +1,33 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.kenoodl-com-api-x402-sanitize",
+  "title": "Pre-flight integrity check for any text your agent processes or publishes. Catch",
+  "description": "Pre-flight integrity check for any text your agent processes or publishes. Catches prompt injection, invisible Unicode, homoglyphs, and LLM watermarks — the silent failures most pipelines ship past. POST text → clean text + flags + risk score. Sub-50ms. Deterministic. Cacheable.",
+  "capabilities": [
+    "integrity",
+    "sanitize",
+    "pre-flight",
+    "unicode",
+    "homoglyph",
+    "prompt-injection",
+    "watermark"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://kenoodl.com/api/x402/sanitize"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://kenoodl.com/api/x402/sanitize",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

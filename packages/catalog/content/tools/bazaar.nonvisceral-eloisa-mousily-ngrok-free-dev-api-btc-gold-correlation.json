@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.nonvisceral-eloisa-mousily-ngrok-free-dev-api-btc-gold-correlation",
+  "title": "Bitcoin Gold correlation API: 14-day rolling Pearson correlation between BTC and",
+  "description": "Bitcoin Gold correlation API: 14-day rolling Pearson correlation between BTC and gold spot. Returns rho, regime (LIQUIDITY_STRONG, LIQUIDITY_MILD, DECOUPLED, HEDGE_MILD, HEDGE_STRONG), interpretation. Cross-asset macro signal for risk-on/risk-off rotation strategies and AI agents tracking BTC's behavior as digital gold versus risk asset.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://nonvisceral-eloisa-mousily.ngrok-free.dev/api/btc-gold-correlation"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.02"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://nonvisceral-eloisa-mousily.ngrok-free.dev/api/btc-gold-correlation",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

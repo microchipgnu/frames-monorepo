@@ -1,0 +1,29 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.quicknode.post.session-network",
+  "title": "Quicknode — POST /session/:network",
+  "description": "JSON-RPC calls - $0.00001 per call",
+  "capabilities": [
+    "rpc",
+    "json-rpc",
+    "evm",
+    "solana",
+    "tempo",
+    "node",
+    "blockchain"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://mpp.quicknode.com/session/:network"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.00001"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "quicknode:POST:/session/:network"
+  }
+}

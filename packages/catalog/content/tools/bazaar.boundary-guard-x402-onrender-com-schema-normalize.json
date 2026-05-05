@@ -1,0 +1,31 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.boundary-guard-x402-onrender-com-schema-normalize",
+  "title": "Normalize untrusted data to a declared JSON Schema before persistence, chaining,",
+  "description": "Normalize untrusted data to a declared JSON Schema before persistence, chaining, or execution.",
+  "capabilities": [
+    "agents",
+    "schema",
+    "json-schema",
+    "validation",
+    "normalization"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://boundary-guard-x402.onrender.com/schema-normalize"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://boundary-guard-x402.onrender.com/schema-normalize",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

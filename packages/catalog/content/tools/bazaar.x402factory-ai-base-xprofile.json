@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402factory-ai-base-xprofile",
+  "title": "Base X profile mini-endpoint. Fetches a full X profile and the 10 most recent tw",
+  "description": "Base X profile mini-endpoint. Fetches a full X profile and the 10 most recent tweets for a given handle, returning the raw profile data plus a trimmed tweet list with key engagement metrics and media. Cost: 0.001 USDC per request.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402factory.ai/base/xprofile"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://x402factory.ai/base/xprofile",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

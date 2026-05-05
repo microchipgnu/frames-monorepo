@@ -1,0 +1,54 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-nansen-ai-api-v1-profiler-address-current-balance",
+  "title": "Get Address Current Balance Data",
+  "description": "Get Address Current Balance Data",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.nansen.ai/api/v1/profiler/address/current-balance"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "eip155:196",
+        "currency": "UNKNOWN",
+        "asset": "0x779Ded0c9e1022225f8E0630b35a9b54bE713736",
+        "price_hint": "0.01",
+        "pay_to": "0x93053f1e7A5eFEDa532Fe69CbbE43cBEc3A0F13f",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD₮0",
+          "version": "1"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.01",
+        "pay_to": "J7ZvJEspvwP1oRxQZ7mYmNmT22NTm3GWq3t7HEbvPZYx",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "2wKupLR9q6wXYppw8Gr2NvWxKBUqm4PPJKkQfoxHDBg4"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://api.nansen.ai/api/v1/profiler/address/current-balance",
+    "x402_version": 2,
+    "accept_count": 3
+  }
+}

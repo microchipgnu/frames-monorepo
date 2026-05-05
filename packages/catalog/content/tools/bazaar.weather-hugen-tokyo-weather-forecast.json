@@ -1,0 +1,44 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.weather-hugen-tokyo-weather-forecast",
+  "title": "Daily weather forecast (1-7 days) by city name — max/min temperature, precipitat",
+  "description": "Daily weather forecast (1-7 days) by city name — max/min temperature, precipitation amount and probability, peak wind speed per day. Automatic geocoding from city name to coordinates. Structured JSON ready for immediate use in agent workflows. No API keys, no coordinate lookups, no setup needed. Accepts USDC payments on Base and Solana",
+  "capabilities": [
+    "weather",
+    "forecast",
+    "7-day",
+    "daily"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://weather.hugen.tokyo/weather/forecast"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.01",
+        "pay_to": "4du4AfkjJEwch2zk3shkPJVZfyJHNDnNjEWC6AboaS5Z",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "Hc3sdEAsCGQcpgfivywog9uwtk8gUBUZgsxdME1EJy88"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://weather.hugen.tokyo/weather/forecast",
+    "x402_version": 2,
+    "accept_count": 2
+  }
+}

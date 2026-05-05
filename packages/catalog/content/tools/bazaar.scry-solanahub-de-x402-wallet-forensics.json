@@ -1,0 +1,41 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.scry-solanahub-de-x402-wallet-forensics",
+  "title": "Wallet-to-KOL X-handle reverse lookup plus Solana wallet evidence via query para",
+  "description": "Wallet-to-KOL X-handle reverse lookup plus Solana wallet evidence via query parameter. Pass `address` to get Helius-verified X-handle context when available, service/router/exchange quarantine, funding lineage, SOL-flow graph, coordination peers, clusters, red flags, current activity, holdings snapshot when covered, coverage confidence, and source freshness.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://scry.solanahub.de/x402/wallet-forensics"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.05",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.05",
+        "pay_to": "CTKigV78yuErumvqm7Qor8j1hMK2oxNxdhwpVrAKV85d",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "Hc3sdEAsCGQcpgfivywog9uwtk8gUBUZgsxdME1EJy88"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://scry.solanahub.de/x402/wallet-forensics",
+    "x402_version": 2,
+    "accept_count": 2
+  }
+}

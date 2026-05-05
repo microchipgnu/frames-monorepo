@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-blockchain-bootcamps-api-6fe67d",
+  "title": "Top blockchain and Web3 bootcamps — Alchemy University, Encode Club, ETHGlobal a",
+  "description": "Top blockchain and Web3 bootcamps — Alchemy University, Encode Club, ETHGlobal and more. Built for AI education agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/blockchain-bootcamps-api-6fe67d"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://orbisapi.com/proxy/blockchain-bootcamps-api-6fe67d",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

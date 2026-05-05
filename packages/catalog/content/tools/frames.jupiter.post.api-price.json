@@ -1,0 +1,37 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "frames.jupiter.post.api-price",
+  "title": "POST /api/price",
+  "description": "**Paid endpoint** - $0.002 on Base (USDC, USDT), Solana (USDC, USDT, CASH)",
+  "capabilities": [
+    "solana",
+    "swap",
+    "defi",
+    "jupiter"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://registry.frames.ag/api/service/jupiter/api/price",
+    "params_schema": {
+      "type": "object",
+      "properties": {
+        "ids": {}
+      },
+      "required": [
+        "ids"
+      ]
+    }
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "frames-registry",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "jupiter:POST:/api/price",
+    "service_slug": "jupiter"
+  }
+}

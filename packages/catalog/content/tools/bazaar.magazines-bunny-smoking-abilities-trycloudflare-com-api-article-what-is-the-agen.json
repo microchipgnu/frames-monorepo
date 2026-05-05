@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.magazines-bunny-smoking-abilities-trycloudflare-com-api-article-what-is-the-agen",
+  "title": "A Senso Pay article from the Agentic Provisioning Protocol (APP) catalog. $0.001",
+  "description": "A Senso Pay article from the Agentic Provisioning Protocol (APP) catalog. $0.001 USDC per fetch.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://magazines-bunny-smoking-abilities.trycloudflare.com/api/article/what-is-the-agentic-provisioning-protocol-app"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base-sepolia",
+    "currency": "USDC",
+    "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://magazines-bunny-smoking-abilities.trycloudflare.com/api/article/what-is-the-agentic-provisioning-protocol-app",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

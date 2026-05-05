@@ -1,0 +1,26 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.abstract-iban-validation.post.abstract-iban-validation-validate",
+  "title": "IBAN Validation — POST /abstract-iban-validation/validate",
+  "description": "Validate",
+  "capabilities": [
+    "iban",
+    "banking",
+    "validation",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://abstract-iban-validation.mpp.paywithlocus.com/abstract-iban-validation/validate"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.006"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "abstract-iban-validation:POST:/abstract-iban-validation/validate"
+  }
+}

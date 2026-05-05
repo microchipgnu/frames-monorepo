@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.cdp-bitcoinsapi-com-api-v1-fees-observatory-scoreboard",
+  "title": "Satoshi API fee estimator scoreboard: accuracy analytics for choosing which Bitc",
+  "description": "Satoshi API fee estimator scoreboard: accuracy analytics for choosing which Bitcoin fee source to trust.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://cdp.bitcoinsapi.com/api/v1/fees/observatory/scoreboard"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://cdp.bitcoinsapi.com/api/v1/fees/observatory/scoreboard",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

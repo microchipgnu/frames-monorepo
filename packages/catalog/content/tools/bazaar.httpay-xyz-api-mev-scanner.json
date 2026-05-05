@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.httpay-xyz-api-mev-scanner",
+  "title": "MEV Scanner — detects MEV activity (sandwich attacks, arbitrage) in recent block",
+  "description": "MEV Scanner — detects MEV activity (sandwich attacks, arbitrage) in recent blocks by analyzing swap density and transaction patterns. Params: ?chain=base&blocks=10. Demo: ?demo=true.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://httpay.xyz/api/mev-scanner"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://httpay.xyz/api/mev-scanner",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

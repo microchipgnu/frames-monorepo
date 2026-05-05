@@ -1,0 +1,31 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-zuluworksai-com-api-workers-ai",
+  "title": "LLM inference on Cloudflare Workers AI — Llama 3.1 8B Instruct. Pass ?prompt= fo",
+  "description": "LLM inference on Cloudflare Workers AI — Llama 3.1 8B Instruct. Pass ?prompt= for completion. Pay-per-call alternative to OpenAI / Anthropic for lightweight tasks. $0.01 per inference.",
+  "capabilities": [
+    "ai",
+    "inference",
+    "llm",
+    "llama",
+    "workers-ai"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.zuluworksai.com/api/workers-ai"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://api.zuluworksai.com/api/workers-ai",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

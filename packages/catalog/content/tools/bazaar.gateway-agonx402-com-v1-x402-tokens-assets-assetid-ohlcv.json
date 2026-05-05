@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.gateway-agonx402-com-v1-x402-tokens-assets-assetid-ohlcv",
+  "title": "Return OHLCV candles for a specific mint variant.",
+  "description": "Return OHLCV candles for a specific mint variant.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://gateway.agonx402.com/v1/x402/tokens/assets/:assetId/ohlcv"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "solana-mainnet",
+    "currency": "UNKNOWN",
+    "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://gateway.agonx402.com/v1/x402/tokens/assets/:assetId/ohlcv",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

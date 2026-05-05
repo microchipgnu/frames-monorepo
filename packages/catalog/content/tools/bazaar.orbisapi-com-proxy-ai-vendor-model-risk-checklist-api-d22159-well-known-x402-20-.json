@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-ai-vendor-model-risk-checklist-api-d22159-well-known-x402-20-",
+  "title": "Check AI vendor model risk across data use, controls, transparency, uptime, secu",
+  "description": "Check AI vendor model risk across data use, controls, transparency, uptime, security, and exit options",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/ai-vendor-model-risk-checklist-api-d22159/.well-known/x402%20-%20Return%20x402%20payment%20discovery%20metadata"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://orbisapi.com/proxy/ai-vendor-model-risk-checklist-api-d22159/.well-known/x402%20-%20Return%20x402%20payment%20discovery%20metadata",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

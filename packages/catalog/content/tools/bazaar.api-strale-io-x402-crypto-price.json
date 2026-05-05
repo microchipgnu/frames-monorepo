@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-crypto-price",
+  "title": "Get current cryptocurrency price, market cap, and trends via CoinGecko API. Supp",
+  "description": "Get current cryptocurrency price, market cap, and trends via CoinGecko API. Supports 10,000+ coins. Multiple fiat currencies. SQS: 88/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/crypto-price"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://api.strale.io/x402/crypto-price",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

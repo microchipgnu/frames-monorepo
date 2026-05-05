@@ -1,0 +1,48 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "frames.wordspace.post.api-invoke",
+  "title": "POST /api/invoke",
+  "description": "**Paid endpoint** - $2 on Base (USDC, USDT), Solana (USDC, USDT, CASH)",
+  "capabilities": [
+    "ai",
+    "agent",
+    "prose",
+    "sandbox",
+    "wordspace"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://registry.frames.ag/api/service/wordspace/api/invoke",
+    "params_schema": {
+      "type": "object",
+      "properties": {
+        "prompt": {
+          "type": "string",
+          "minLength": 1
+        },
+        "model": {},
+        "provider": {},
+        "maxSteps": {},
+        "files": {},
+        "systemPrompt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "prompt"
+      ]
+    }
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "price_hint": "2"
+  },
+  "_meta": {
+    "catalog": "frames-registry",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "wordspace:POST:/api/invoke",
+    "service_slug": "wordspace"
+  }
+}

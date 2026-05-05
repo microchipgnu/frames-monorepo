@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.suno.post.suno-get-music-status",
+  "title": "Suno — POST /suno/get-music-status",
+  "description": "Get Music Status",
+  "capabilities": [
+    "music-generation",
+    "ai-music",
+    "lyrics",
+    "songs",
+    "ai",
+    "media"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://suno.mpp.paywithlocus.com/suno/get-music-status"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.005"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "suno:POST:/suno/get-music-status"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-contract-verify-check",
+  "title": "Check if a smart contract's source code is verified on Etherscan. Returns compil",
+  "description": "Check if a smart contract's source code is verified on Etherscan. Returns compiler version, license type, proxy status, and contract name. Unverified contracts are a red flag for token safety. Supports 60+ EVM chains. SQS: 96/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/contract-verify-check"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://api.strale.io/x402/contract-verify-check",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

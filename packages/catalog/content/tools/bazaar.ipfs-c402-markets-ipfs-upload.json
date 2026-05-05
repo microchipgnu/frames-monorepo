@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.ipfs-c402-markets-ipfs-upload",
+  "title": "Pay 2¢ USDC to stage an image plus metadata payload before it is pinned to IPFS.",
+  "description": "Pay 2¢ USDC to stage an image plus metadata payload before it is pinned to IPFS.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://ipfs.c402.markets/ipfs-upload"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://ipfs.c402.markets/ipfs-upload",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

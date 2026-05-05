@@ -1,0 +1,32 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-zuluworksai-com-api-quantum-shield",
+  "title": "Post-quantum encrypted tunnel and credential issuance — ML-KEM-768 (NIST FIPS 20",
+  "description": "Post-quantum encrypted tunnel and credential issuance — ML-KEM-768 (NIST FIPS 203) hybrid encryption. GET issues a one-time encrypted envelope; POST /relay proxies any URL through a PQC tunnel. Drop-in quantum-safe replacement for TLS-only fetches. USDC on Base.",
+  "capabilities": [
+    "pqc",
+    "post-quantum",
+    "ml-kem-768",
+    "encryption",
+    "tunnel",
+    "nist-fips-203"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.zuluworksai.com/api/quantum-shield"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://api.zuluworksai.com/api/quantum-shield",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

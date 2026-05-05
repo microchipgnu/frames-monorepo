@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.solopreneur-402box-io-it-support-manager",
+  "title": "IT systems setup, troubleshooting, help desk design, user support, and technolog",
+  "description": "IT systems setup, troubleshooting, help desk design, user support, and technology infrastructure for business operations",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://solopreneur.402box.io/it_support_manager"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://solopreneur.402box.io/it_support_manager",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

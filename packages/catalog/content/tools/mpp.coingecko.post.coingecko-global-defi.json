@@ -1,0 +1,28 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.coingecko.post.coingecko-global-defi",
+  "title": "CoinGecko — POST /coingecko/global-defi",
+  "description": "Global DeFi",
+  "capabilities": [
+    "crypto",
+    "prices",
+    "market-cap",
+    "exchanges",
+    "trending",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://coingecko.mpp.paywithlocus.com/coingecko/global-defi"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.06"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "coingecko:POST:/coingecko/global-defi"
+  }
+}

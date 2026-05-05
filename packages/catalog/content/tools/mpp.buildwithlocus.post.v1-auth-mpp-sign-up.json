@@ -1,0 +1,32 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.buildwithlocus.post.v1-auth-mpp-sign-up",
+  "title": "Build With Locus — POST /v1/auth/mpp-sign-up",
+  "description": "Bootstrap workspace — returns JWT and workspace ID (free)",
+  "capabilities": [
+    "deploy",
+    "containers",
+    "paas",
+    "hosting",
+    "postgres",
+    "redis",
+    "domains",
+    "monorepo",
+    "github",
+    "compute"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://mpp.buildwithlocus.com/v1/auth/mpp-sign-up"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "buildwithlocus:POST:/v1/auth/mpp-sign-up"
+  }
+}

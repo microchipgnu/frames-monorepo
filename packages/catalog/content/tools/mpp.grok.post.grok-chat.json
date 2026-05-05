@@ -1,0 +1,29 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.grok.post.grok-chat",
+  "title": "Grok — POST /grok/chat",
+  "description": "Chat Completions",
+  "capabilities": [
+    "llm",
+    "chat",
+    "x-search",
+    "web-search",
+    "image-generation",
+    "tts",
+    "ai"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://grok.mpp.paywithlocus.com/grok/chat"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "dynamic"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "grok:POST:/grok/chat"
+  }
+}

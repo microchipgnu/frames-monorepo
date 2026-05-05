@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.nonvisceral-eloisa-mousily-ngrok-free-dev-api-whale-alerts",
+  "title": "Crypto whale wallet tracking API: on-chain smart money capital flows, DeFi whale",
+  "description": "Crypto whale wallet tracking API: on-chain smart money capital flows, DeFi whale bridge activity, directional stance detection. Track large wallet movements across Ethereum, Base, and Arbitrum chains for trading signals.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://nonvisceral-eloisa-mousily.ngrok-free.dev/api/whale-alerts"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://nonvisceral-eloisa-mousily.ngrok-free.dev/api/whale-alerts",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.expansion-apitoai-xyz-multilingual-community-growth-strategist",
+  "title": "Design region-specific community strategies: local platforms, language channels,",
+  "description": "Design region-specific community strategies: local platforms, language channels, moderator hiring, and timezone coverage",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://expansion.apitoai.xyz/multilingual_community_growth_strategist"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://expansion.apitoai.xyz/multilingual_community_growth_strategist",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

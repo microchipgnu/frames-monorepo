@@ -1,0 +1,41 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-tcgapi-dev-v1-cards-5846",
+  "title": "Single card details (name, set, image, rarity, TCGPlayer ID) for Pokemon, Magic:",
+  "description": "Single card details (name, set, image, rarity, TCGPlayer ID) for Pokemon, Magic: The Gathering, Yu-Gi-Oh, Lorcana, and 85+ other trading card games.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.tcgapi.dev/v1/cards/5846"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN",
+    "accepts": [
+      {
+        "protocol": "x402",
+        "network": "solana",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "NaN",
+        "pay_to": "AHk5DFmmdvPMjf6tZFrMPbHGhEBUDhUmcqmWkYANYthg",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "BENrLoUbndxoNMUS5JXApGMtNykLjFXXixMtpDwDR9SP"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://api.tcgapi.dev/v1/cards/5846",
+    "x402_version": 1,
+    "accept_count": 2
+  }
+}

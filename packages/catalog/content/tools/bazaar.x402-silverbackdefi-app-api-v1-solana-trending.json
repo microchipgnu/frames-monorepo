@@ -1,0 +1,58 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-silverbackdefi-app-api-v1-solana-trending",
+  "title": "Trending tokens and pools on Solana. Returns top trading pairs by volume and act",
+  "description": "Trending tokens and pools on Solana. Returns top trading pairs by volume and activity.",
+  "capabilities": [
+    "solana",
+    "trending",
+    "tokens",
+    "defi",
+    "momentum"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.silverbackdefi.app/api/v1/solana-trending"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.005",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.005",
+        "pay_to": "4HVvnhyXTkMnPbMBo9r3kfvYhzW4JSbLGdXg9SkUcVSe",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "8wLKe8H59eni5DmERU27GiRHGnN9fogRoq9yNqyKKNJA"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "eip155:1187947933",
+        "currency": "UNKNOWN",
+        "asset": "0x85889c8c714505E0c94b30fcfcF64fE3Ac8FCb20",
+        "price_hint": "0.005",
+        "pay_to": "0xD34411a70EffbDd000c529bbF572082ffDcF1794",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "1"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://x402.silverbackdefi.app/api/v1/solana-trending",
+    "x402_version": 2,
+    "accept_count": 4
+  }
+}

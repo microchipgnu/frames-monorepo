@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-qr-code-data-encoding-api-c03ef8-decode-base64",
+  "title": "Generate QR codes and encode/decode data in 8 formats. Base64, URL, HTML, hex, b",
+  "description": "Generate QR codes and encode/decode data in 8 formats. Base64, URL, HTML, hex, binary, hashing and more.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/qr-code-data-encoding-api-c03ef8/decode/base64"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://orbisapi.com/proxy/qr-code-data-encoding-api-c03ef8/decode/base64",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

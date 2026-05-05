@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.pizza-api-coinbase-production-up-railway-app-api-pizza-otp",
+  "title": "POST-only JSON endpoint for pizza delivery OTP lookup. Send orderId, pizza, and ",
+  "description": "POST-only JSON endpoint for pizza delivery OTP lookup. Send orderId, pizza, and deliveryArea in the request body; customerName is optional. Do not use GET.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://pizza-api-coinbase-production.up.railway.app/api/pizza/otp"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base-sepolia",
+    "currency": "USDC",
+    "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://pizza-api-coinbase-production.up.railway.app/api/pizza/otp",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

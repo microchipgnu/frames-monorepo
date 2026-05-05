@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.netintel-production-440c-up-railway-app-jwt-inspector-decode",
+  "title": "Decode and inspect any JWT token — extracts header algorithm, payload claims, ex",
+  "description": "Decode and inspect any JWT token — extracts header algorithm, payload claims, expiry status, issued-at time, audience, issuer, and subject without requiring the secret — so agents can debug auth issues, check token expiry, and extract identity claims from tokens in pipelines.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://netintel-production-440c.up.railway.app/jwt-inspector/decode"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://netintel-production-440c.up.railway.app/jwt-inspector/decode",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

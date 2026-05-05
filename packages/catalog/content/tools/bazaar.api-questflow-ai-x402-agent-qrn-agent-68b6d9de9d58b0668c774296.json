@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-questflow-ai-x402-agent-qrn-agent-68b6d9de9d58b0668c774296",
+  "title": "Nano Banana is an AI-powered image editor that’s designed to let you transform p",
+  "description": "Nano Banana is an AI-powered image editor that’s designed to let you transform photos using simple, everyday language. | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.questflow.ai/x402/agent/qrn:agent:68b6d9de9d58b0668c774296"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "UNKNOWN",
+    "asset": "0xf33CAC2bB6B26e7615B1873c84e4174Ae193A9aa",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://api.questflow.ai/x402/agent/qrn:agent:68b6d9de9d58b0668c774296",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

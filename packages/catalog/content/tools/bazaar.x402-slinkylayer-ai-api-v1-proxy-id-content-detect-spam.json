@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-slinkylayer-ai-api-v1-proxy-id-content-detect-spam",
+  "title": "Detect whether the provided content is spam and return a confidence score along ",
+  "description": "Detect whether the provided content is spam and return a confidence score along with additional details.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.slinkylayer.ai/api/v1/proxy/:id/content-detect-spam"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://x402.slinkylayer.ai/api/v1/proxy/:id/content-detect-spam",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

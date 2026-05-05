@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.donate-0000402-xyz-donate",
+  "title": "Pay $0.01 USDC as a small donation or a simple live x402 integration test. Optio",
+  "description": "Pay $0.01 USDC as a small donation or a simple live x402 integration test. Optional name and message are stored publicly and shown on GET /donations. Network: Base Mainnet. Each request records one donation and returns public feed links.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://donate.0000402.xyz/donate"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://donate.0000402.xyz/donate",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

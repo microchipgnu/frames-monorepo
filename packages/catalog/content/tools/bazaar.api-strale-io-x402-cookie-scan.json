@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-strale-io-x402-cookie-scan",
+  "title": "Scan a website for cookies, tracking scripts, and consent banners. Categorizes c",
+  "description": "Scan a website for cookies, tracking scripts, and consent banners. Categorizes cookies as necessary/analytics/marketing. SQS: 84/100.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.strale.io/x402/cookie-scan"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://api.strale.io/x402/cookie-scan",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

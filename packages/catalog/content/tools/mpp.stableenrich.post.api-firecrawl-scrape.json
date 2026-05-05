@@ -1,0 +1,33 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.stableenrich.post.api-firecrawl-scrape",
+  "title": "StableEnrich — POST /api/firecrawl/scrape",
+  "description": "Scrape a URL with full JavaScript rendering",
+  "capabilities": [
+    "apollo",
+    "exa",
+    "firecrawl",
+    "google-maps",
+    "linkedin",
+    "reddit",
+    "enrichment",
+    "research",
+    "data",
+    "search",
+    "social"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://stableenrich.dev/api/firecrawl/scrape"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.0126"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "stableenrich:POST:/api/firecrawl/scrape"
+  }
+}

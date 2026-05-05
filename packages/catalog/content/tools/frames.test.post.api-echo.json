@@ -1,0 +1,33 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "frames.test.post.api-echo",
+  "title": "POST /api/echo",
+  "description": "**Paid endpoint** - $0.001 on Base Sepolia (USDC), Solana Devnet (USDC)",
+  "capabilities": [
+    "testing",
+    "x402",
+    "testnet"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://registry.frames.ag/api/service/test/api/echo",
+    "params_schema": {
+      "type": "object",
+      "properties": {
+        "data": {}
+      }
+    }
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base-sepolia",
+    "currency": "USDC",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "frames-registry",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "test:POST:/api/echo",
+    "service_slug": "test"
+  }
+}

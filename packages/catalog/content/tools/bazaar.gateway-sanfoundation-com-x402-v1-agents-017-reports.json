@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.gateway-sanfoundation-com-x402-v1-agents-017-reports",
+  "title": "Most recent generated reports for a SAN agent. Each report contains four audienc",
+  "description": "Most recent generated reports for a SAN agent. Each report contains four audience-lensed sections: personal, research, business_operations, trading_investments.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://gateway.sanfoundation.com/x402/v1/agents/017/reports"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://gateway.sanfoundation.com/x402/v1/agents/017/reports",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

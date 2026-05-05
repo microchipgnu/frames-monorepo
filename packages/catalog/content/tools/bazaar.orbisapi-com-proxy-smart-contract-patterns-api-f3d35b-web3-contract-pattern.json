@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-smart-contract-patterns-api-f3d35b-web3-contract-pattern",
+  "title": "ERC-20, ERC-721, ERC-1155, Ownable and Pausable pattern guides with security con",
+  "description": "ERC-20, ERC-721, ERC-1155, Ownable and Pausable pattern guides with security considerations and gas estimates. Built for AI blockchain agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/smart-contract-patterns-api-f3d35b/web3/contract-pattern"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://orbisapi.com/proxy/smart-contract-patterns-api-f3d35b/web3/contract-pattern",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

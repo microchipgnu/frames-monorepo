@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.theloopbreaker-com-api-x402-actions-dispute-task",
+  "title": "Open a dispute on a Vaultfire task escrow. Pay $0.25 USDC, sign in your wallet —",
+  "description": "Open a dispute on a Vaultfire task escrow. Pay $0.25 USDC, sign in your wallet — freezes the escrow pending governance resolution. Either party may dispute.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://theloopbreaker.com/api/x402/actions/dispute-task"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://theloopbreaker.com/api/x402/actions/dispute-task",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

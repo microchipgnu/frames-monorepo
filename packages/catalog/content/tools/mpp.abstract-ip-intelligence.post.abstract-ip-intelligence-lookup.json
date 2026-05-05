@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.abstract-ip-intelligence.post.abstract-ip-intelligence-lookup",
+  "title": "IP Intelligence — POST /abstract-ip-intelligence/lookup",
+  "description": "Lookup",
+  "capabilities": [
+    "ip",
+    "vpn-detection",
+    "proxy",
+    "bot-detection",
+    "data"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://abstract-ip-intelligence.mpp.paywithlocus.com/abstract-ip-intelligence/lookup"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "0.006"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "abstract-ip-intelligence:POST:/abstract-ip-intelligence/lookup"
+  }
+}

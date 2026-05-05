@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.staging-plush-fun-api-orders-x402-super-early-bird",
+  "title": "Create order for AI Plushie - Super Early Bird ($129) with promo code, eval, chr",
+  "description": "Create order for AI Plushie - Super Early Bird ($129) with promo code, eval, chr staker - Limited 1000 units",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://staging.plush.fun/api/orders/x402/super-early-bird"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base-sepolia",
+    "currency": "USDC",
+    "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://staging.plush.fun/api/orders/x402/super-early-bird",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

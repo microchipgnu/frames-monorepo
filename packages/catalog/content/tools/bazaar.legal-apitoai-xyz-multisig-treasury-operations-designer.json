@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.legal-apitoai-xyz-multisig-treasury-operations-designer",
+  "title": "Design Gnosis Safe configurations, signer policies, transaction approval workflo",
+  "description": "Design Gnosis Safe configurations, signer policies, transaction approval workflows, and operational security procedures for on-chain treasuries",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://legal.apitoai.xyz/multisig_treasury_operations_designer"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://legal.apitoai.xyz/multisig_treasury_operations_designer",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.nacian-finance-api-x402-pools-top-pools-by-tvl",
+  "title": "Access top liquidity pools by TVL across multiple chains (Arbitrum, Base, Ethere",
+  "description": "Access top liquidity pools by TVL across multiple chains (Arbitrum, Base, Ethereum). Tokens do not necessarily need to be token0 and token1 respectively in the pool, they are reordered automatically.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://nacian.finance/api/x402/pools/top-pools-by-tvl"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://nacian.finance/api/x402/pools/top-pools-by-tvl",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

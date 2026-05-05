@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.netintel-production-440c-up-railway-app-ip-geo-locate",
+  "title": "Geolocate any IPv4 or IPv6 address to city, region, country, latitude/longitude,",
+  "description": "Geolocate any IPv4 or IPv6 address to city, region, country, latitude/longitude, timezone, and ISP — returns structured location data so agents can localize content, detect VPNs, enforce geo-restrictions, and enrich user records without a paid geolocation subscription.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://netintel-production-440c.up.railway.app/ip-geo/locate"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.001"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://netintel-production-440c.up.railway.app/ip-geo/locate",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

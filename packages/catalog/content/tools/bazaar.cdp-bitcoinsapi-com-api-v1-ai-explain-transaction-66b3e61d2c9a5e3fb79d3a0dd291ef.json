@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.cdp-bitcoinsapi-com-api-v1-ai-explain-transaction-66b3e61d2c9a5e3fb79d3a0dd291ef",
+  "title": "Satoshi API transaction explainer: human-readable txid fee, confirmation, and fl",
+  "description": "Satoshi API transaction explainer: human-readable txid fee, confirmation, and flow context for AI agents.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://cdp.bitcoinsapi.com/api/v1/ai/explain/transaction/66b3e61d2c9a5e3fb79d3a0dd291efc1864cb7cc4b09c951f6b3d8927c734b59"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://cdp.bitcoinsapi.com/api/v1/ai/explain/transaction/66b3e61d2c9a5e3fb79d3a0dd291efc1864cb7cc4b09c951f6b3d8927c734b59",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-structured-data-validator-api-087bdd-lookup",
+  "title": "Validate JSON-LD structured data for required fields and Google Rich Results eli",
+  "description": "Validate JSON-LD structured data for required fields and Google Rich Results eligibility.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/structured-data-validator-api-087bdd/lookup"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.004"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://orbisapi.com/proxy/structured-data-validator-api-087bdd/lookup",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

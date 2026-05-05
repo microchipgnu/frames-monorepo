@@ -1,0 +1,22 @@
+{
+  "name": "@frames-ag/catalog-server",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "dev:cloudflare": "wrangler dev --config deploy/cloudflare/wrangler.toml",
+    "dev:vercel": "vercel dev --cwd deploy/vercel"
+  },
+  "dependencies": {
+    "hono": "^4.6.0",
+    "@vercel/kv": "^3.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "@cloudflare/workers-types": "^4.20240500.0",
+    "@types/node": "^22.0.0",
+    "wrangler": "^3.80.0",
+    "vercel": "^39.0.0"
+  }
+}

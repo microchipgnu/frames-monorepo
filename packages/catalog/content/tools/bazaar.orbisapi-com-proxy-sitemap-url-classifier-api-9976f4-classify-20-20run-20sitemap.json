@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-sitemap-url-classifier-api-9976f4-classify-20-20run-20sitemap",
+  "title": "Classify scraped sitemap URLs into product, blog, docs, pricing, support, and le",
+  "description": "Classify scraped sitemap URLs into product, blog, docs, pricing, support, and legal pages",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/sitemap-url-classifier-api-9976f4/classify%20-%20Run%20sitemap%20URL%20classification%20against%20supplied%20HTML,%20text,%20or%20URL%20lines"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.002"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://orbisapi.com/proxy/sitemap-url-classifier-api-9976f4/classify%20-%20Run%20sitemap%20URL%20classification%20against%20supplied%20HTML,%20text,%20or%20URL%20lines",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.pay-codenut-ai-x402-address-0-1",
+  "title": "x402 Payment of $0.1 to 0xfFDCD428845F2bFb2F07E6b4aF5A04F9a8e6D9A0",
+  "description": "x402 Payment of $0.1 to 0xfFDCD428845F2bFb2F07E6b4aF5A04F9a8e6D9A0",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://pay.codenut.ai/x402/:address/0.1"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://pay.codenut.ai/x402/:address/0.1",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

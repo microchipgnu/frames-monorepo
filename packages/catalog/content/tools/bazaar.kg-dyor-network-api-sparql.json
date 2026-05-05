@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.kg-dyor-network-api-sparql",
+  "title": "Query the DYOR crypto knowledge graph using SPARQL. Covers 586K+ entities across",
+  "description": "Query the DYOR crypto knowledge graph using SPARQL. Covers 586K+ entities across 8,200+ protocols, tokens, chains, investors, governance, and DeFi data from DefiLlama, CryptoRank, CoinGecko, TokenTerminal, Snapshot, and Tally. Ontology: https://kg.dyor.network/ontology/core/dyor.ttl — free schema at GET /api/schema | ZWING Intelligence (https://zwing.bot) — contact: v@zwing.bot, Telegram: @valery_zzz",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://kg.dyor.network/api/sparql"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://kg.dyor.network/api/sparql",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

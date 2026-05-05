@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.play-0000402-xyz-play",
+  "title": "Pay $0.10 USDC to play the game of chance. 8% chance to win 1.0 USDC. Network: B",
+  "description": "Pay $0.10 USDC to play the game of chance. 8% chance to win 1.0 USDC. Network: Base Mainnet. Send one EVM wallet address for prize delivery; each request runs one immediate server-side random round and returns a win-or-lose result, making it useful as a lottery-style, raffle-style, or random reward API.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://play.0000402.xyz/play"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://play.0000402.xyz/play",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

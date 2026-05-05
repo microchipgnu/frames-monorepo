@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.kg-dyor-network-api-explore",
+  "title": "Explore a crypto entity's relationships across investors, team members, ecosyste",
+  "description": "Explore a crypto entity's relationships across investors, team members, ecosystem chains, DeFi pools, GitHub repositories, governance, and financial metrics. Cross-references data from multiple sources to reveal hidden connections between protocols, tokens, and organizations | ZWING Intelligence (https://zwing.bot) — contact: v@zwing.bot, Telegram: @valery_zzz",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://kg.dyor.network/api/explore"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "1"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://kg.dyor.network/api/explore",
+    "x402_version": 2,
+    "accept_count": 1
+  }
+}

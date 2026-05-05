@@ -1,0 +1,27 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.theloopbreaker-com-api-x402-actions-submit-work",
+  "title": "Submit completed work for a Vaultfire task escrow. Pay $0.20 USDC, sign in your ",
+  "description": "Submit completed work for a Vaultfire task escrow. Pay $0.20 USDC, sign in your wallet — submits a deliverable URI/hash on-chain so the requester can approve or dispute.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://theloopbreaker.com/api/x402/actions/submit-work"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "NaN"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "https://theloopbreaker.com/api/x402/actions/submit-work",
+    "x402_version": 1,
+    "accept_count": 1
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.tako.post.api-mpp-v1-threads-deep",
+  "title": "Tako — POST /api/mpp/v1/threads/deep",
+  "description": "Deep async knowledge search with full pipeline",
+  "capabilities": [
+    "data",
+    "visualization",
+    "charts",
+    "research",
+    "search",
+    "reports",
+    "datasets",
+    "analytics",
+    "ai"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://tako.com/api/mpp/v1/threads/deep"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "currency": "usd",
+    "price_hint": "0.55"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-05-04T12:50:17.296Z",
+    "upstream_id": "tako:POST:/api/mpp/v1/threads/deep"
+  }
+}
