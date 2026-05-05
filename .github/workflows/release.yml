@@ -1,0 +1,57 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+# Prevent overlapping releases — if a second push comes in while we're publishing,
+# the in-flight job continues and the new commit waits its turn.
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write       # tags + version PR commits
+      pull-requests: write  # open the Version Packages PR
+      id-token: write       # npm provenance (optional, free attestation)
+    steps:
+      - name: Checkout (full history for changesets)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      # Two outcomes:
+      # (a) Pending changesets in .changeset/*.md → opens/updates a "Version Packages" PR
+      #     that runs `bun run version` to bump versions + write CHANGELOGs.
+      # (b) No pending changesets but a package's local version > what's on npm →
+      #     runs `bun run release` (which calls `bunx changeset publish` →
+      #     `bun publish` per package) and creates git tags.
+      - name: Create Release Pull Request or Publish
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          version: bun run version
+          publish: bun run release
+          commit: 'chore(release): version packages'
+          title: 'chore(release): version packages'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      # Notify on successful publish for visibility (optional, can be removed).
+      - name: Log published packages
+        if: steps.changesets.outputs.published == 'true'
+        run: |
+          echo "Published:"
+          echo '${{ steps.changesets.outputs.publishedPackages }}'

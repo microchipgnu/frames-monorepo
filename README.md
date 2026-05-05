@@ -34,22 +34,33 @@ bun run --cwd packages/pay mcp      # spawn pay-mcp from the workspace
 
 ## Releasing
 
-Independent versions per package. Changesets drives the flow:
+Independent versions per package. **Automated via `.github/workflows/release.yml`**: every push to `main` runs the [Changesets action](https://github.com/changesets/action), which either opens a "Version Packages" PR (when `.changeset/*.md` files exist) or publishes (when a package's local version is ahead of npm).
+
+The flow:
+
+1. Make code changes on a feature branch.
+2. `bun run changeset` — describe the change once per affected package; commit the resulting `.changeset/<name>.md` alongside your code.
+3. Open a PR to `main`. The PR's diff includes the changeset files.
+4. On merge → the release action runs:
+   - **If pending changesets**: opens or updates a single "Version Packages" PR that runs `bun run version` (bumps all changed packages' versions, generates `CHANGELOG.md` entries, deletes the consumed changeset files).
+   - **If no pending changesets but versions moved**: runs `bun run release` (`bunx changeset publish` → `bun publish` per package), creates git tags, surfaces published packages in the run summary.
+5. Merging the "Version Packages" PR triggers another action run that ships to npm.
+
+Manual fallback (when bypassing CI):
 
 ```bash
-bun run changeset                   # interactively pick changed packages, semver bump, write a markdown changeset
-bun run version                     # apply pending changesets: bump versions in package.jsons, generate CHANGELOG entries
-bun run release                     # publish each package whose version moved (uses bun publish under the hood)
+bun run changeset    # write a changeset
+bun run version      # apply pending changesets
+bun run release      # publish (requires `npm login` or NPM_TOKEN)
 ```
 
-A typical workflow:
+`catalog` and `frames-examples` are private (`"private": true` + in changesets `ignore` list), so the action skips publishing them. Catalog ships content updates by being mirrored to https://catalog.microchipgnu.workers.dev (the Worker reads from the GitHub repo's main branch).
 
-1. Make changes across one or more packages.
-2. `bun run changeset` — describe the change once per affected package.
-3. Commit changesets alongside your PR.
-4. On main after merge: `bun run version && git commit -am "chore: release"` then `bun run release`.
+### One-time GitHub setup
 
-`catalog` is a deployable, not a library — it has its own Cloudflare/Vercel deploy workflow and doesn't `bun publish`. Its changesets drive its CHANGELOG and version tagging only.
+1. Create npm automation token: https://www.npmjs.com/settings/<user>/tokens → "Generate New Token" → **Granular** → "Publish" + 30+ day expiry → set as **automation** (bypasses 2FA).
+2. Add as GitHub Actions secret: repo → Settings → Secrets and variables → Actions → New repository secret → name `NPM_TOKEN`.
+3. The `GITHUB_TOKEN` is automatically provided by Actions; make sure repo settings allow Actions to "Read and write" + "Create and approve pull requests" (Settings → Actions → General → Workflow permissions).
 
 ## Source history
 
