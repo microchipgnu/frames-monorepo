@@ -45,6 +45,7 @@ jobs:
           - agent-networks
           - agent-wallets
           - layoffs-2026
+          - crypto-ai-jobs
     steps:
       - uses: actions/checkout@v4
         with:

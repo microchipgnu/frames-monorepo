@@ -33,6 +33,10 @@
     "frame-elon-tweets": {
       "type": "local",
       "command": ["npx", "-y", "@frames-ag/frame", "serve", "datasets/elon-tweets"]
+    },
+    "frame-crypto-ai-jobs": {
+      "type": "local",
+      "command": ["npx", "-y", "@frames-ag/frame", "serve", "datasets/crypto-ai-jobs"]
     }
   }
 }

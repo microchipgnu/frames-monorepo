@@ -108,6 +108,18 @@
         "FRAME_AGENT": "claude:opus-4.7"
       }
     },
+    "frame-crypto-ai-jobs": {
+      "command": "bunx",
+      "args": [
+        "-y",
+        "@frames-ag/frame",
+        "serve",
+        "datasets/crypto-ai-jobs"
+      ],
+      "env": {
+        "FRAME_AGENT": "claude:opus-4.7"
+      }
+    },
     "pay": {
       "command": "bunx",
       "args": [

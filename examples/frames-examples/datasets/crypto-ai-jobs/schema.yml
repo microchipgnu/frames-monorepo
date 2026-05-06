@@ -1,0 +1,50 @@
+frame_protocol: 0.0.1
+name: crypto-ai-jobs
+description: |
+  Live catalog of companies actively hiring at the intersection of crypto
+  and AI. One entity per company. A company qualifies if it has at least
+  one open role posted within the last 90 days AND its product or research
+  spans both crypto/web3 and AI/ML. Captures hiring signal (careers URL,
+  open roles, most recent posting date, hiring platform), what the company
+  does on each side (crypto_focus, ai_focus), and standard company metadata.
+entity_type: company
+fields:
+  name:
+    type: string
+    required: true
+  website:
+    type: url
+    required: true
+  hq_country:
+    type: string
+  founded_year:
+    type: int
+  description:
+    type: string
+  crypto_focus:
+    type: string
+  ai_focus:
+    type: string
+  category:
+    type: enum
+    values: [infra, agents, defi-ai, data-intelligence, wallets-payments, model-training, security, tooling, other]
+  funding_stage:
+    type: enum
+    values: [pre-seed, seed, series-a, series-b, series-c-plus, public, acquired, bootstrapped, unknown]
+  careers_url:
+    type: url
+  hiring_platform:
+    type: enum
+    values: [greenhouse, ashby, lever, workable, workday, custom, other]
+  last_job_posted_at:
+    type: string
+  open_roles_count:
+    type: int
+  open_roles_sample:
+    type: string
+  status:
+    type: enum
+    values: [hiring, paused, closed-round, acquired, unknown]
+  social_signal:
+    type: string
+tests: []
