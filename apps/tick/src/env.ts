@@ -25,6 +25,15 @@ export type Bindings = {
   /** D1 receipts store (runs, tool_calls, events). See migrations/0001_initial.sql. */
   DB: D1Database;
 
+  /**
+   * Service binding to the sibling `frames-cloud` Worker. When present, the
+   * FrameClient routes through `env.FRAMES_CLOUD.fetch(...)` instead of the
+   * public `*.workers.dev` URL. Required for Worker→Worker calls because
+   * Cloudflare returns 404+1042 on direct workers.dev → workers.dev fetches.
+   * Falls back to `FRAMES_CLOUD_BASE` when this binding is missing (local dev).
+   */
+  FRAMES_CLOUD?: Fetcher;
+
   // ---------------------------------------------------------------------
   // Outbound wallet secrets (set via `wrangler secret put`)
   //

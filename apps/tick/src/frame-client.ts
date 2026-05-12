@@ -122,17 +122,33 @@ export interface FrameClientOptions {
   github_token?: string;
   /** ETag cache provided by the caller. Lets repeated reads short-circuit on 304. */
   etag_cache?: Map<string, { etag: string; body: string }>;
+  /**
+   * Optional fetch implementation. When the tick Worker calls frames-cloud
+   * inside CF, raw `fetch(<workers.dev URL>)` returns 404+1042 (Workers-to-
+   * Workers via public hostnames is blocked). The Worker passes its service
+   * binding's `fetch` here so requests route through CF's internal edge.
+   * Defaults to `globalThis.fetch` for local dev / Node.
+   *
+   * Types as `Fetcher['fetch']` (the CF service-binding shape) which is
+   * structurally compatible with `globalThis.fetch` minus `.preconnect`.
+   */
+  fetch?: FetcherFetch;
 }
+
+/** Minimal fetch signature that both globalThis.fetch and Fetcher['fetch'] satisfy. */
+type FetcherFetch = (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>;
 
 export class FrameClient {
   private base: string;
   private github_token?: string;
   private etag_cache?: Map<string, { etag: string; body: string }>;
+  private fetchImpl: FetcherFetch;
 
   constructor(opts: FrameClientOptions = {}) {
     this.base = opts.base ?? FRAMES_CLOUD_BASE;
     this.github_token = opts.github_token;
     this.etag_cache = opts.etag_cache;
+    this.fetchImpl = opts.fetch ?? (globalThis.fetch.bind(globalThis) as FetcherFetch);
   }
 
   /** Frame metadata: schema name, entity count, max_ts, fields. */
@@ -154,7 +170,7 @@ export class FrameClient {
     const { user, repo, frame_path, ref } = parseFrameUrl(frame_url);
     const prefix = frame_path ? `${user}/${repo}/${frame_path}` : `${user}/${repo}`;
     const url = `${this.base}/api/v1/${prefix}/readme${ref !== "HEAD" ? `?ref=${ref}` : ""}`;
-    const res = await fetch(url, { headers: this.headers() });
+    const res = await this.fetchImpl(url, { headers: this.headers() });
     if (!res.ok) throw new FrameClientError("http_error", `readme: ${res.status}`, res.status);
     return await res.text();
   }
@@ -235,7 +251,7 @@ export class FrameClient {
       const headers = this.headers();
       const cached = this.etag_cache?.get(url);
       if (cached) headers.set("If-None-Match", cached.etag);
-      const res = await fetch(url, { headers });
+      const res = await this.fetchImpl(url, { headers });
       if (res.status === 304 && cached) {
         return JSON.parse(cached.body) as T;
       }

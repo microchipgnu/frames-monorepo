@@ -410,7 +410,13 @@ async function executeOpDispatch(args: DispatchArgs): Promise<DispatchOutcome> {
         run_id,
         agent,
         refetcher,
-        client: new FrameClient({ base: env?.FRAMES_CLOUD_BASE }),
+        client: new FrameClient({
+          base: env?.FRAMES_CLOUD_BASE,
+          // Service binding when running on CF (workers-to-workers via public
+          // URLs is blocked with 404+1042). Falls back to global fetch for
+          // local dev / smoketest.
+          fetch: env?.FRAMES_CLOUD ? env.FRAMES_CLOUD.fetch.bind(env.FRAMES_CLOUD) : undefined,
+        }),
         catalog: new CatalogClient({ base: env?.CATALOG_BASE }),
         llm,
         env,
@@ -482,7 +488,13 @@ async function executeOpDispatch(args: DispatchArgs): Promise<DispatchOutcome> {
         run_id,
         agent,
         refetcher,
-        client: new FrameClient({ base: env?.FRAMES_CLOUD_BASE }),
+        client: new FrameClient({
+          base: env?.FRAMES_CLOUD_BASE,
+          // Service binding when running on CF (workers-to-workers via public
+          // URLs is blocked with 404+1042). Falls back to global fetch for
+          // local dev / smoketest.
+          fetch: env?.FRAMES_CLOUD ? env.FRAMES_CLOUD.fetch.bind(env.FRAMES_CLOUD) : undefined,
+        }),
         onEvent: args.onEvent,
       };
       const outcome: OpOutcome = body.op === "verify" ? await verifyOp(sharedOpts) : await refreshOp(sharedOpts);

@@ -27,6 +27,16 @@ database_id = "1c044e5e-2639-4f0e-b162-82c4ca4eb43a"
 migrations_dir = "migrations"
 
 # ---------------------------------------------------------------------------
+# Service binding → frames-cloud Worker.
+# Required because Workers can't reach each other's *.workers.dev URLs via
+# raw fetch — Cloudflare returns 404+1042. The binding routes the request
+# directly inside CF's edge.
+# ---------------------------------------------------------------------------
+[[services]]
+binding = "FRAMES_CLOUD"
+service = "frames-cloud"
+
+# ---------------------------------------------------------------------------
 # Week 2 — Durable Objects
 # ---------------------------------------------------------------------------
 # [[durable_objects.bindings]]
