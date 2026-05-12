@@ -20,6 +20,8 @@ on:
     paths:
       - 'apps/catalog/**'
       - 'apps/frames-cloud/**'
+      - 'apps/tick/**'
+      - 'apps/tick-facilitator/**'
       - '.github/workflows/deploy.yml'
   workflow_dispatch:
     inputs:
@@ -27,7 +29,7 @@ on:
         description: "Which worker to deploy"
         required: true
         type: choice
-        options: [all, catalog, frames-cloud]
+        options: [all, catalog, frames-cloud, tick, tick-facilitator]
         default: all
 
 # A second push to main while a deploy is in flight should queue, not race.
@@ -43,6 +45,8 @@ jobs:
     outputs:
       catalog: ${{ steps.filter.outputs.catalog }}
       frames_cloud: ${{ steps.filter.outputs.frames_cloud }}
+      tick: ${{ steps.filter.outputs.tick }}
+      tick_facilitator: ${{ steps.filter.outputs.tick_facilitator }}
     steps:
       - uses: actions/checkout@v4
       - id: filter
@@ -54,6 +58,14 @@ jobs:
               - '.github/workflows/deploy.yml'
             frames_cloud:
               - 'apps/frames-cloud/**'
+              - '.github/workflows/deploy.yml'
+            tick:
+              - 'apps/tick/**'
+              - 'packages/tick-types/**'
+              - 'packages/payment-tempo/**'
+              - '.github/workflows/deploy.yml'
+            tick_facilitator:
+              - 'apps/tick-facilitator/**'
               - '.github/workflows/deploy.yml'
 
   deploy-catalog:
@@ -97,3 +109,47 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: apps/frames-cloud
           command: deploy --config deploy/cloudflare/wrangler.toml
+
+  deploy-tick:
+    name: Deploy tick Worker
+    needs: changes
+    if: |
+      github.event_name == 'workflow_dispatch' && (github.event.inputs.worker == 'all' || github.event.inputs.worker == 'tick') ||
+      github.event_name == 'push' && needs.changes.outputs.tick == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - run: bun install --frozen-lockfile
+      - name: Deploy tick
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: apps/tick
+          command: deploy
+
+  deploy-tick-facilitator:
+    name: Deploy tick-facilitator Worker (+ Container)
+    needs: changes
+    # Builds the Faremeter Docker image and pushes it as part of `wrangler deploy`.
+    # ubuntu-latest has Docker preinstalled; image build is the slow step (~2–3 min).
+    if: |
+      github.event_name == 'workflow_dispatch' && (github.event.inputs.worker == 'all' || github.event.inputs.worker == 'tick-facilitator') ||
+      github.event_name == 'push' && needs.changes.outputs.tick_facilitator == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - run: bun install --frozen-lockfile
+      - name: Deploy tick-facilitator
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: apps/tick-facilitator
+          command: deploy

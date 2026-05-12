@@ -18,7 +18,14 @@ jobs:
         # catalog/server intentionally excluded — it targets Cloudflare Workers
         # and needs @cloudflare/workers-types config that's only present at
         # deploy time. Add it back once that's wired in tsconfig.
-        package: [packages/pay, packages/frame, apps/frames-cloud]
+        package:
+          - packages/pay
+          - packages/frame
+          - packages/payment-tempo
+          - packages/tick-types
+          - apps/frames-cloud
+          - apps/tick
+          - apps/tick-facilitator
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
@@ -50,3 +57,26 @@ jobs:
           bun-version: latest
       - run: bun install --frozen-lockfile
       - run: bun run --cwd packages/frame test
+
+  test-tick:
+    name: Tick tests (bun test)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - run: bun install --frozen-lockfile
+      - run: bun run --cwd apps/tick test
+      - run: bun run --cwd apps/tick smoke
+
+  test-payment-tempo:
+    name: payment-tempo smoke (Phase A — structural routing)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - run: bun install --frozen-lockfile
+      - run: bun run --cwd packages/payment-tempo smoke

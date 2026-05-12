@@ -131,6 +131,47 @@
           "service_slug": "exa"
         }
       }
+    },
+    "firecrawl_scrape": {
+      "source": {
+        "url": "https://catalog.microchipgnu.workers.dev/tools/mpp.stableenrich.post.api-firecrawl-scrape"
+      },
+      "descriptor_id": "sha256-TGpqs0IokvuKL6F0_DLzu_3os5BdIRnw-9_xsu_OUYo",
+      "fetched_at": "2026-05-05T23:39:21.010Z",
+      "descriptor": {
+        "pay_protocol": "0.0.1",
+        "id": "mpp.stableenrich.post.api-firecrawl-scrape",
+        "title": "StableEnrich — POST /api/firecrawl/scrape",
+        "description": "Scrape a URL with full JavaScript rendering",
+        "capabilities": [
+          "apollo",
+          "exa",
+          "firecrawl",
+          "google-maps",
+          "linkedin",
+          "reddit",
+          "enrichment",
+          "research",
+          "data",
+          "search",
+          "social"
+        ],
+        "invocation": {
+          "method": "POST",
+          "url": "https://stableenrich.dev/api/firecrawl/scrape"
+        },
+        "payment": {
+          "protocol": "mpp",
+          "network": "tempo",
+          "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+          "price_hint": "0.0126"
+        },
+        "_meta": {
+          "catalog": "mpp",
+          "fetched_at": "2026-05-05T19:44:53.315Z",
+          "upstream_id": "stableenrich:POST:/api/firecrawl/scrape"
+        }
+      }
     }
   }
 }
