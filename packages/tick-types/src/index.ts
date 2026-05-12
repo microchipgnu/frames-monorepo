@@ -116,6 +116,18 @@ export interface IterationLogEntry {
   cost: string;
   /** Anthropic-style stop reason: end_turn / tool_use / max_tokens / budget_exhausted / ... */
   stop_reason: string;
+  /**
+   * Tokens written to the prompt cache on this call (Anthropic ephemeral cache).
+   * Set on the first iter of a sub-loop or parent; zero/undefined thereafter.
+   * Cost is 1.25× input rate for these tokens.
+   */
+  cache_creation_input_tokens?: number;
+  /**
+   * Tokens read from the prompt cache. Zero on first iter, then ~size of
+   * the cached system+tools prefix on subsequent iters. Cost is 0.10× input
+   * rate for these — the savings live here.
+   */
+  cache_read_input_tokens?: number;
 }
 
 /**

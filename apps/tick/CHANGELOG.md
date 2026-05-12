@@ -1,5 +1,75 @@
 # @frames-ag/tick
 
+## 0.1.2 — 2026-05-13 (Phase D — Anthropic prompt caching on system+tools prefix)
+
+Adds `cache_control: { type: "ephemeral" }` to the system prompt on every
+Anthropic call. Cache prefix order is `tools → system`, so flagging the
+system block also caches the (much larger) tools array immediately before
+it. The cache lives 5 minutes per Anthropic's ephemeral semantics —
+plenty for a 5-iter sub-loop or a multi-turn curate.
+
+### What's new
+
+- **`src/llm/client.ts`** — `callAnthropic` now wraps `system` as a
+  cache-flagged content block. Cache-creation tokens billed at 1.25× the
+  input rate; cache-read tokens at 0.10×. Cost calc updated. Same change
+  mirrored in `callAiBinding`'s anthropic branch for consistency (dead
+  code today but worth keeping in sync).
+- **`LlmUsage`** — adds optional `cache_creation_input_tokens` and
+  `cache_read_input_tokens` so callers can attribute the cache hit/miss
+  per iter.
+- **`IterationLogEntry`** in `@frames-ag/tick-types` — same two fields,
+  surfaced through the public `RunResult.iteration_log`. Customers can
+  now see exactly which iters paid cache-write vs. cache-read rates.
+- **All four `iteration_log.push` call sites** (curate, discover,
+  refresh-entity ×1 each, curate ×2) forward the cache fields.
+
+### Why this matters
+
+Phase B bounded the per-entity context but every sub-loop iter still
+re-paid the input rate for the (constant) system prompt + the (constant)
+tools array. With caching:
+
+- **Iter 1**: pays 1.25× input rate on the cached prefix (one-time).
+- **Iters 2-5**: pay 0.10× input rate on the same prefix.
+
+For a 5-iter sub-loop with ~3K tokens of system+tools, that's a
+**~60% cut to input-side spend** on the prefix portion of each
+follow-up iter. On a 13-entity curate, this compounds across every
+sub-loop run in parallel.
+
+### What's NOT in this version
+
+Recursive context compaction (mid-loop conversation summarization) was
+on the Phase D plan but is **deferred to v0.1.3**. Honest assessment:
+Phase B already capped sub-loop iters at 5 and tool-output size at
+~500-2K tokens via Haiku summarization. The realistic per-sub-loop
+context tops out around 8-15K tokens, well below any compaction
+threshold worth the engineering. Compaction earns its keep on the
+parent curate loop (which can run 30+ iters across dozens of tools);
+that's where v0.1.3 will target it.
+
+### Migration
+
+None. The cache fields on `IterationLogEntry` are optional. Pre-0.1.2
+clients that read `RunResult.iteration_log` will silently ignore them.
+
+### Verify (after deploy, once gateway balance is back)
+
+Run any curate against a real frame and inspect the `iteration_log` in
+the response:
+```json
+{
+  "iter": 2,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 2987
+}
+```
+Iter 1 should show `cache_creation > 0, cache_read = 0`; iters 2+ should
+flip to `cache_read > 0, cache_creation = 0` on the same prefix.
+
+---
+
 ## 0.1.1 — 2026-05-13 (Phase C — EntityAgent Durable Objects + parallelism)
 
 Promotes the refresh-entity sub-loop to a Durable Object so concurrent

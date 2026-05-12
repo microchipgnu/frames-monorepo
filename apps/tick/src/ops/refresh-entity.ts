@@ -257,6 +257,8 @@ export async function refreshEntity(opts: RefreshEntityOptions): Promise<Refresh
       output_tokens: llmRes.usage.output_tokens,
       cost: llmRes.usage.estimated_cost,
       stop_reason: llmRes.stop_reason,
+      cache_creation_input_tokens: llmRes.usage.cache_creation_input_tokens,
+      cache_read_input_tokens: llmRes.usage.cache_read_input_tokens,
     });
 
     messages.push({ role: "assistant", content: llmRes.content });

@@ -51,6 +51,17 @@ export interface LlmUsage {
   output_tokens: number;
   /** USDC, computed by the client from the model's published per-token price. */
   estimated_cost: string;
+  /**
+   * Tokens written to the prompt cache on this call (charged at ~1.25× input
+   * rate for ephemeral 5-min cache). Anthropic-only; 0 when the provider
+   * doesn't support caching.
+   */
+  cache_creation_input_tokens?: number;
+  /**
+   * Tokens read from the prompt cache on this call (charged at ~0.10× input
+   * rate). Anthropic-only.
+   */
+  cache_read_input_tokens?: number;
 }
 
 export interface LlmResponse {
@@ -221,7 +232,10 @@ export class LlmClient {
       // We can pass the exact body shape our callAnthropic() builds.
       const body: Record<string, unknown> = {
         max_tokens: opts.max_tokens ?? 4096,
-        system: opts.system,
+        // Prompt caching — same logic as the HTTP path in callAnthropic.
+        system: opts.system
+          ? [{ type: "text", text: opts.system, cache_control: { type: "ephemeral" } }]
+          : undefined,
         messages: opts.messages.map((m) => ({ role: m.role, content: m.content })),
       };
       if (opts.tools && opts.tools.length > 0) {
@@ -235,7 +249,12 @@ export class LlmClient {
       const j = json as {
         stop_reason: string;
         content: Array<Record<string, unknown>>;
-        usage: { input_tokens: number; output_tokens: number };
+        usage: {
+          input_tokens: number;
+          output_tokens: number;
+          cache_creation_input_tokens?: number;
+          cache_read_input_tokens?: number;
+        };
       };
       // Normalize content blocks to ONLY Anthropic-standard fields. CF's
       // marketplace binding adds a non-standard `caller: { type: "direct" }`
@@ -259,8 +278,12 @@ export class LlmClient {
         return block;
       }) as LlmContent[];
       const price = PRICES[model] ?? PRICES[model.replace("anthropic/", "")] ?? { in: 3.0, out: 15.0 };
+      const cacheCreate = j.usage.cache_creation_input_tokens ?? 0;
+      const cacheRead = j.usage.cache_read_input_tokens ?? 0;
       const cost =
         (j.usage.input_tokens / 1_000_000) * price.in +
+        (cacheCreate / 1_000_000) * price.in * 1.25 +
+        (cacheRead / 1_000_000) * price.in * 0.1 +
         (j.usage.output_tokens / 1_000_000) * price.out;
       return {
         stop_reason: j.stop_reason,
@@ -269,6 +292,8 @@ export class LlmClient {
           input_tokens: j.usage.input_tokens,
           output_tokens: j.usage.output_tokens,
           estimated_cost: cost.toFixed(6),
+          cache_creation_input_tokens: cacheCreate || undefined,
+          cache_read_input_tokens: cacheRead || undefined,
         },
         model,
       };
@@ -346,10 +371,20 @@ export class LlmClient {
     }
 
     const url = this.anthropicUrl();
+    // Prompt caching: mark the system prompt as cacheable so subsequent
+    // iterations of the same agent loop hit the 5-min ephemeral cache.
+    // Per Anthropic, the cache prefix order is `tools → system → messages`,
+    // so cache_control on system extends the cached prefix to include
+    // tools + system. Messages stay fresh per call. Expected savings on a
+    // sub-loop with 3-5 iters: ~60% reduction in input token cost (cache
+    // reads are ~10% of full input rate; cache writes pay a 25% premium
+    // once at the start).
     const body = {
       model: modelId,
       max_tokens: opts.max_tokens ?? 4096,
-      system: opts.system,
+      system: opts.system
+        ? [{ type: "text", text: opts.system, cache_control: { type: "ephemeral" } }]
+        : undefined,
       messages: opts.messages.map((m) => ({ role: m.role, content: m.content })),
       ...(opts.tools && opts.tools.length > 0
         ? {
@@ -398,13 +433,29 @@ export class LlmClient {
       return (await res.json()) as {
         stop_reason: string;
         content: LlmContent[];
-        usage: { input_tokens: number; output_tokens: number };
+        usage: {
+          input_tokens: number;
+          output_tokens: number;
+          cache_creation_input_tokens?: number;
+          cache_read_input_tokens?: number;
+        };
       };
     }, { retries: 3, initial_delay_ms: 1000 });
 
     const price = PRICES[fullModelString] ?? PRICES[modelId] ?? { in: 3.0, out: 15.0 };
+    // Anthropic pricing rules (per docs):
+    //   - input_tokens (non-cached)            → 1.0× input rate
+    //   - cache_creation_input_tokens (write)  → 1.25× input rate (5m TTL)
+    //   - cache_read_input_tokens (read)       → 0.10× input rate
+    //   - output_tokens                        → 1.0× output rate
+    // We sum each bucket separately so the reported estimated_cost reflects
+    // the real bill, not the bare-input-tokens approximation.
+    const cacheCreate = json.usage.cache_creation_input_tokens ?? 0;
+    const cacheRead = json.usage.cache_read_input_tokens ?? 0;
     const cost =
       (json.usage.input_tokens / 1_000_000) * price.in +
+      (cacheCreate / 1_000_000) * price.in * 1.25 +
+      (cacheRead / 1_000_000) * price.in * 0.1 +
       (json.usage.output_tokens / 1_000_000) * price.out;
 
     return {
@@ -414,6 +465,8 @@ export class LlmClient {
         input_tokens: json.usage.input_tokens,
         output_tokens: json.usage.output_tokens,
         estimated_cost: cost.toFixed(6),
+        cache_creation_input_tokens: cacheCreate || undefined,
+        cache_read_input_tokens: cacheRead || undefined,
       },
       model: fullModelString,
     };
