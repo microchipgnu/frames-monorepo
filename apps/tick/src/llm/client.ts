@@ -138,13 +138,17 @@ export interface LlmClientConfig {
 // Per-token prices (USDC per 1M tokens) for cost estimation.
 // Source: PLAN.md §4 — frame pricing research, May 2026.
 const PRICES: Record<string, { in: number; out: number }> = {
+  "anthropic/claude-haiku-4.5": { in: 1.0, out: 5.0 },
+  "anthropic/claude-sonnet-4.6": { in: 3.0, out: 15.0 },
+  "anthropic/claude-opus-4.7": { in: 5.0, out: 25.0 },
+  // Dash-form aliases (legacy convention; some CF/Anthropic surfaces use these).
   "anthropic/claude-haiku-4-5": { in: 1.0, out: 5.0 },
   "anthropic/claude-sonnet-4-6": { in: 3.0, out: 15.0 },
   "anthropic/claude-opus-4-7": { in: 5.0, out: 25.0 },
   // Aliases without provider prefix (back-compat with raw model ids):
-  "claude-haiku-4-5": { in: 1.0, out: 5.0 },
-  "claude-sonnet-4-6": { in: 3.0, out: 15.0 },
-  "claude-opus-4-7": { in: 5.0, out: 25.0 },
+  "claude-haiku-4.5": { in: 1.0, out: 5.0 },
+  "claude-sonnet-4.6": { in: 3.0, out: 15.0 },
+  "claude-opus-4.7": { in: 5.0, out: 25.0 },
   // Workers AI — Cloudflare's hosted models. Prices in USDC per 1M tokens
   // per https://developers.cloudflare.com/workers-ai/platform/pricing/
   "@cf/meta/llama-3.3-70b-instruct-fp8-fast": { in: 0.293, out: 2.253 },
@@ -159,9 +163,9 @@ export class LlmClient {
 
   constructor(cfg: LlmClientConfig) {
     this.cfg = {
-      buildModel: "anthropic/claude-sonnet-4-6",
-      titleModel: "anthropic/claude-haiku-4-5",
-      exploreModel: "anthropic/claude-sonnet-4-6",
+      buildModel: "anthropic/claude-sonnet-4.6",
+      titleModel: "anthropic/claude-haiku-4.5",
+      exploreModel: "anthropic/claude-sonnet-4.6",
       anthropicBaseUrl: "https://api.anthropic.com",
       ...cfg,
     };
