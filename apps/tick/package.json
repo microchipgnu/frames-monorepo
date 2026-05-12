@@ -1,6 +1,6 @@
 {
   "name": "@frames-ag/tick",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "module": "src/index.ts",
   "type": "module",
   "private": false,

@@ -1,5 +1,42 @@
 # @frames-ag/tick
 
+## 0.0.9 — 2026-05-12 (live end-to-end via CF marketplace + cleanup)
+
+First fully-live `curate` run against Claude Sonnet 4.6 via Cloudflare
+marketplace billing — no Anthropic account, CF pays Anthropic from the
+gateway's prepaid balance.
+
+### Required gateway path: native Anthropic Messages API
+Both `env.AI.run("anthropic/...")` AND `/compat/chat/completions` have
+server-side bugs translating tool_use blocks for Anthropic models —
+they strip or mis-map `tool_use.id` on the way to Anthropic's parser.
+**The native `/anthropic/v1/messages` path works correctly** with marketplace
+billing when called with `Authorization: Bearer <gateway-token>` (no
+`x-api-key`, no BYOK alias).
+
+### `callAnthropic` auth ladder (v0.0.9)
+1. `byokAlias` set       → `cf-aig-byok-alias` header (gateway holds key)
+2. `anthropicApiKey` set → `x-api-key` header (passthrough; your Anthropic bills)
+3. `gatewayToken` only   → `Authorization: Bearer` (**marketplace; CF bills**)
+4. else                  → error
+
+The third case is the v1 happy path: set `AI_GATEWAY_URL` +
+`AI_GATEWAY_TOKEN` + fund the gateway in the dashboard. Tick handles
+the rest.
+
+### Removed
+- `callGatewayCompat` (broken for Anthropic — never landed as a customer path)
+- The Anthropic branch of `callAiBinding` (same bug as compat)
+- Debug logging from the binding path
+
+### Live validation
+```
+curate · ai_agent_wallets_eu@e4f9cef · 5 iter · 1 events · 8 tool calls
+```
+End-to-end through tick.microchipgnu.workers.dev with bearer-token auth,
+allowlist gate, service binding to frames-cloud, and Anthropic via
+marketplace.
+
 ## 0.0.8 — 2026-05-12 (AI binding — CF bills for Anthropic via marketplace)
 
 Adds support for CF's **Workers AI binding marketplace routing**:

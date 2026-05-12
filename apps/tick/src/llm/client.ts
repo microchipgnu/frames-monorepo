@@ -227,11 +227,6 @@ export class LlmClient {
           input_schema: t.input_schema,
         }));
       }
-      // Diagnostic — full body so we can see exactly what Anthropic gets.
-      console.log("DBG_AI_BODY_FULL", JSON.stringify({
-        model,
-        messages: body.messages,
-      }, null, 2));
       const json = await this.cfg.ai!.run(model, body as never, gatewayOpts);
       const j = json as {
         stop_reason: string;
