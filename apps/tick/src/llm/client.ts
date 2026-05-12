@@ -163,9 +163,9 @@ export class LlmClient {
 
   constructor(cfg: LlmClientConfig) {
     this.cfg = {
-      buildModel: "anthropic/claude-sonnet-4.6",
-      titleModel: "anthropic/claude-haiku-4.5",
-      exploreModel: "anthropic/claude-sonnet-4.6",
+      buildModel: "anthropic/claude-sonnet-4-6",
+      titleModel: "anthropic/claude-haiku-4-5",
+      exploreModel: "anthropic/claude-sonnet-4-6",
       anthropicBaseUrl: "https://api.anthropic.com",
       ...cfg,
     };
@@ -174,10 +174,17 @@ export class LlmClient {
   async call(opts: CallOptions): Promise<LlmResponse> {
     const model = opts.model ?? this.pickModel(opts.agent ?? "build");
 
-    // Preferred path inside a CF Worker: env.AI.run() binding. Routes both
-    // CF-hosted (@cf/*) and partnered third-party (anthropic/*, openai/*)
-    // models with CF billing. No external HTTP, no provider account needed.
-    if (this.cfg.ai && (model.startsWith("@cf/") || model.startsWith("anthropic/"))) {
+    // CF AI Gateway compat endpoint — handles marketplace-billed third-party
+    // models (anthropic/*, openai/*, google-ai-studio/*) with CF billing.
+    // Uses OpenAI-compat HTTP shape; bypasses the env.AI.run binding which
+    // has a known bug stripping tool_use.id on Anthropic round-trips.
+    if (this.cfg.gatewayUrl && /^(anthropic|openai|google-ai-studio|mistral|meta)\//.test(model)) {
+      return await this.callGatewayCompat(model, opts);
+    }
+
+    // env.AI.run() binding — preferred for @cf/* (Workers AI catalog) when
+    // the binding is available. CF bills directly.
+    if (this.cfg.ai && model.startsWith("@cf/")) {
       return await this.callAiBinding(model, opts);
     }
 
@@ -198,6 +205,76 @@ export class LlmClient {
       );
     }
     return await this.callAnthropic(modelId, model, opts);
+  }
+
+  // -----------------------------------------------------------------------
+  // CF AI Gateway compat endpoint — marketplace billing for partnered
+  // third-party models (anthropic, openai, google, etc.). OpenAI-compat shape.
+  // -----------------------------------------------------------------------
+
+  private async callGatewayCompat(model: string, opts: CallOptions): Promise<LlmResponse> {
+    const url = `${this.cfg.gatewayUrl!.replace(/\/$/, "")}/compat/chat/completions`;
+    const body: Record<string, unknown> = {
+      model,
+      max_tokens: opts.max_tokens ?? 4096,
+      messages: anthropicToOpenAiMessages(opts.system, opts.messages),
+    };
+    if (opts.tools && opts.tools.length > 0) {
+      body.tools = opts.tools.map((t) => ({
+        type: "function",
+        function: { name: t.name, description: t.description, parameters: t.input_schema },
+      }));
+      body.tool_choice = "auto";
+    }
+    const headers: Record<string, string> = {
+      "content-type": "application/json",
+    };
+    if (this.cfg.gatewayToken) headers["authorization"] = `Bearer ${this.cfg.gatewayToken}`;
+
+    const res = await fetch(url, { method: "POST", headers, body: JSON.stringify(body) });
+    if (!res.ok) {
+      const text = await res.text().catch(() => "");
+      throw new LlmError(`Gateway compat ${res.status}: ${text.slice(0, 500)}`, res.status);
+    }
+    const json = (await res.json()) as {
+      choices: Array<{
+        message: {
+          content: string | null;
+          tool_calls?: Array<{ id: string; type: "function"; function: { name: string; arguments: string } }>;
+        };
+        finish_reason: string;
+      }>;
+      usage: { prompt_tokens: number; completion_tokens: number };
+    };
+
+    const choice = json.choices[0];
+    if (!choice) throw new LlmError("Gateway compat returned empty choices");
+    const content: LlmContent[] = [];
+    if (choice.message.content) content.push({ type: "text", text: choice.message.content });
+    for (const tc of choice.message.tool_calls ?? []) {
+      let input: Record<string, unknown> = {};
+      try {
+        input = JSON.parse(tc.function.arguments) as Record<string, unknown>;
+      } catch {
+        input = { _raw: tc.function.arguments };
+      }
+      content.push({ type: "tool_use", id: tc.id, name: tc.function.name, input });
+    }
+    const stopReason = openAiFinishToAnthropicStop(choice.finish_reason);
+    // Price lookup falls back to a sensible Anthropic baseline for unknown models.
+    const price = PRICES[model] ?? PRICES[model.replace(/^[^/]+\//, "")] ?? { in: 3.0, out: 15.0 };
+    const cost =
+      (json.usage.prompt_tokens / 1_000_000) * price.in +
+      (json.usage.completion_tokens / 1_000_000) * price.out;
+    return {
+      stop_reason: stopReason,
+      content,
+      usage: {
+        input_tokens: json.usage.prompt_tokens,
+        output_tokens: json.usage.completion_tokens,
+        estimated_cost: cost.toFixed(6),
+      },
+    };
   }
 
   // -----------------------------------------------------------------------
