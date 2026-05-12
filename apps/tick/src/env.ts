@@ -35,6 +35,16 @@ export type Bindings = {
   FRAMES_CLOUD?: Fetcher;
 
   /**
+   * Durable Object namespace for EntityAgent — runs each refresh_entity
+   * sub-loop in an isolated DO instance. Concurrent across entities via
+   * `Promise.all`, each with its own 30s CPU budget. Falls back to the
+   * direct function call when this binding is missing (local Bun dev).
+   *
+   * Phase C of the cost-architecture redesign.
+   */
+  ENTITY_AGENT?: DurableObjectNamespace<import("./agents/entity-agent").EntityAgent>;
+
+  /**
    * Workers AI binding. Hosts CF's own catalog (`@cf/...`) AND routes to
    * partnered third-party models with CF billing — including
    * `anthropic/claude-sonnet-4-6`, `openai/gpt-5-flash`, etc. The Worker

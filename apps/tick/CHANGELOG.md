@@ -1,5 +1,66 @@
 # @frames-ag/tick
 
+## 0.1.1 — 2026-05-13 (Phase C — EntityAgent Durable Objects + parallelism)
+
+Promotes the refresh-entity sub-loop to a Durable Object so concurrent
+entity refreshes run in **isolated DO instances** rather than serially
+inside the parent Worker. Three-line win: bounded context (Phase B) +
+parallel execution (Phase C) means a 13-entity frame refresh now runs in
+roughly **N/P wall-clock time** where P is how many entities the agent
+batches in one tool-use turn.
+
+### What's new
+
+- **`src/agents/entity-agent.ts`** — `EntityAgent` Durable Object class.
+  Each instance hosts one `refreshEntity()` sub-loop with its own LlmClient
+  + refetcher constructed from the DO's env. Named by `${run_id}:${entity_id}`
+  for idempotency on retries.
+- **`worker.ts`** exports `EntityAgent` (required by `wrangler.toml`'s DO
+  binding).
+- **`wrangler.toml`** — new `[[durable_objects.bindings]]` for `ENTITY_AGENT`
+  + `[[migrations]]` with `new_sqlite_classes = ["EntityAgent"]`. First
+  deploy after this version adds the DO class to the live Worker.
+- **`env.ts`** — `ENTITY_AGENT?: DurableObjectNamespace<EntityAgent>` typing.
+- **`dispatchRefreshEntity`** routes through the DO when the binding is
+  present (production CF Worker); falls back to the in-process function
+  for local Bun dev / smoketest.
+- **Parallel dispatch in curate.ts** — when the LLM emits >1 tool_use
+  block in a single turn AND every block is `refresh_entity`, we run
+  them concurrently via `Promise.all`. Mixed-tool turns stay sequential
+  (preserves write ordering when tools have side effects).
+
+### Why this matters
+
+Phase B (v0.1.0) capped each entity's work to its own ~$0.10 sub-loop.
+But every sub-loop ran INSIDE the parent Worker's 30s CPU budget. A
+13-entity frame doing sequential 10s sub-loops would blow the wall.
+
+Phase C gives each entity its own DO isolate = its own 30s budget +
+true parallelism. The agent can now `refresh_entity` 13 things at once
+in a single tool-use turn and have them complete in ~10s wall-clock
+instead of 130s.
+
+### Cost story unchanged from Phase B
+
+The DO doesn't change LLM cost — same sub-loop logic, same Haiku
+summarization, same Anthropic flagship for write decisions. What changes
+is **wall-clock** + the ceiling on a single run's work.
+
+### Migration note
+
+First deploy of v0.1.1 adds a Durable Object class to the live Worker.
+That's a one-time wrangler migration with `tag = "v1"`. No data
+migration needed (no persisted state in the DO yet — Phase D might add
+some).
+
+### What's still NOT in this release
+
+- **Phase D** (v0.1.2) — Anthropic prompt-cache integration + recursive
+  context compaction for long parent loops.
+- **Persisted sub-loop state** — DOs could survive a 529 retry without
+  losing iteration progress. Currently the DO just runs the sub-loop
+  end-to-end in one invocation.
+
 ## 0.1.0 — 2026-05-12 (Phase B — sub-agents per entity)
 
 The architectural piece. Parent curate loop can now delegate per-entity

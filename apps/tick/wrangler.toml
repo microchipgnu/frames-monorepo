@@ -46,19 +46,19 @@ service = "frames-cloud"
 binding = "AI"
 
 # ---------------------------------------------------------------------------
-# Week 2 — Durable Objects
+# Durable Objects
 # ---------------------------------------------------------------------------
-# [[durable_objects.bindings]]
-# name = "RUN_SESSION"
-# class_name = "RunSession"
-#
-# [[durable_objects.bindings]]
-# name = "WALLET"
-# class_name = "WalletDO"
-#
-# [[migrations]]
-# tag = "v1"
-# new_sqlite_classes = ["RunSession", "WalletDO"]
+# EntityAgent: one DO instance per (run_id, entity_id). Hosts the bounded
+# refresh-entity sub-loop. Parent invokes 1-N concurrently via Promise.all;
+# each DO instance has its own CPU budget — true parallelism beyond the
+# parent Worker's 30s ceiling. Phase C of the cost architecture.
+[[durable_objects.bindings]]
+name = "ENTITY_AGENT"
+class_name = "EntityAgent"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["EntityAgent"]
 
 # ---------------------------------------------------------------------------
 # Week 4 — Sandboxes + R2

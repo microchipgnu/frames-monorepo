@@ -185,21 +185,44 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
     }
 
     // Dispatch every tool_use in the response.
+    //
+    // Optimization: when every tool_use in the turn is a `refresh_entity`,
+    // dispatch them concurrently via Promise.all so EntityAgent DOs run in
+    // parallel isolates. Mixed-tool turns (refresh_entity + set_facts, etc.)
+    // stay sequential because write ordering matters when tools mutate
+    // shared parent state.
+    const toolUseBlocks = llmRes.content.filter(
+      (b): b is Extract<LlmContent, { type: "tool_use" }> => b.type === "tool_use",
+    );
+    const allRefresh = toolUseBlocks.length > 1 && toolUseBlocks.every((b) => b.name === "refresh_entity");
+
+    const buildCtx = () => ({
+      run_id: opts.run_id,
+      agent: opts.agent,
+      frame_client: client,
+      frame_url: opts.frame_url,
+      refetcher: opts.refetcher,
+      catalog,
+      remaining_budget: remaining.toFixed(6),
+      env: opts.env,
+      llm: opts.llm,
+      schema,
+    });
+
+    const dispatches: ToolDispatchResult[] = allRefresh
+      ? await Promise.all(toolUseBlocks.map((b) => dispatchTool(b.name, b.input, buildCtx())))
+      : await (async () => {
+          const out: ToolDispatchResult[] = [];
+          for (const b of toolUseBlocks) {
+            out.push(await dispatchTool(b.name, b.input, buildCtx()));
+          }
+          return out;
+        })();
+
     const toolResults: LlmContent[] = [];
-    for (const block of llmRes.content) {
-      if (block.type !== "tool_use") continue;
-      const dispatch = await dispatchTool(block.name, block.input, {
-        run_id: opts.run_id,
-        agent: opts.agent,
-        frame_client: client,
-        frame_url: opts.frame_url,
-        refetcher: opts.refetcher,
-        catalog,
-        remaining_budget: remaining.toFixed(6),
-        env: opts.env,
-        llm: opts.llm,
-        schema,
-      });
+    for (let i = 0; i < toolUseBlocks.length; i++) {
+      const block = toolUseBlocks[i]!;
+      const dispatch = dispatches[i]!;
       remaining -= Number(dispatch.cost);
       for (const ev of dispatch.events) {
         events.push(ev);
@@ -208,8 +231,6 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
       if (dispatch.tool_call) tool_log.push(dispatch.tool_call);
       if (dispatch.sub_run) {
         sub_runs.push(dispatch.sub_run);
-        // Merge sub-loop's own tool_log into the parent's so the receipt is
-        // complete. iteration_log stays nested per-sub-run.
         for (const tc of dispatch.sub_run.tool_log) tool_log.push(tc);
       }
       toolResults.push({
@@ -250,7 +271,11 @@ interface DispatchContext {
   refetcher: Refetcher;
   catalog: CatalogClient;
   remaining_budget: string;
-  env?: { AUDIT_PRIVATE_KEY?: string };
+  env?: {
+    AUDIT_PRIVATE_KEY?: string;
+    /** When present, refresh_entity dispatches to this DO for isolated CPU. */
+    ENTITY_AGENT?: DurableObjectNamespace<import("../agents/entity-agent").EntityAgent>;
+  };
   /** LLM + schema needed for cheap-model summarization of fetched pages. */
   llm: LlmClient;
   schema: FrameSchema;
@@ -476,18 +501,36 @@ async function dispatchRefreshEntity(
     return errorResult(`entity_id ${entity_id} not found in dataset`);
   }
 
-  const sub = await refreshEntity({
-    entity_id,
-    entity_state,
-    schema: ctx.schema,
-    focus,
-    llm: ctx.llm,
-    refetcher: ctx.refetcher,
-    budget: "0.30",
-    max_iters: 5,
-    run_id: ctx.run_id,
-    agent: ctx.agent,
-  });
+  // Route to the EntityAgent Durable Object when available (production CF
+  // Workers). The DO runs in its own isolate with its own CPU budget, so
+  // concurrent refresh_entity calls (within a single agent turn that emits
+  // multiple tool_use blocks) actually parallelize. Falls back to the pure
+  // function for local Bun dev / smoketest where no DO binding exists.
+  const sub = ctx.env?.ENTITY_AGENT
+    ? await ctx.env.ENTITY_AGENT.get(
+        ctx.env.ENTITY_AGENT.idFromName(`${ctx.run_id}:${entity_id}`),
+      ).refresh({
+        entity_id,
+        entity_state,
+        schema: ctx.schema,
+        focus,
+        budget: "0.30",
+        max_iters: 5,
+        run_id: ctx.run_id,
+        agent: ctx.agent,
+      })
+    : await refreshEntity({
+        entity_id,
+        entity_state,
+        schema: ctx.schema,
+        focus,
+        llm: ctx.llm,
+        refetcher: ctx.refetcher,
+        budget: "0.30",
+        max_iters: 5,
+        run_id: ctx.run_id,
+        agent: ctx.agent,
+      });
 
   // Emit the sub-loop's writes as real frame events.
   const events: FrameEvent[] = [];
