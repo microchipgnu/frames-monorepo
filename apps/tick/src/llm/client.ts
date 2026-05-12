@@ -228,16 +228,30 @@ export class LlmClient {
       const json = await this.cfg.ai!.run(model, body as never, gatewayOpts);
       const j = json as {
         stop_reason: string;
-        content: LlmContent[];
+        content: Array<Record<string, unknown>>;
         usage: { input_tokens: number; output_tokens: number };
       };
+      // Diagnostic: log the raw content shape on first response so we can see
+      // exactly what the CF binding sends back. Anthropic via marketplace
+      // may rename or omit fields — `tool_use.id` is required downstream
+      // because the next iter echoes the block back to the model.
+      console.log("[ai-binding-anthropic] raw content:", JSON.stringify(j.content).slice(0, 800));
+      // Normalize: ensure every tool_use block has an `id`. CF's binding
+      // sometimes returns these without ids, which breaks Anthropic on the
+      // next iter when we echo the assistant turn back into messages.
+      const normalized = (j.content ?? []).map((block) => {
+        if (block.type === "tool_use" && !block.id) {
+          return { ...block, id: `tu_${Math.random().toString(36).slice(2, 14)}` };
+        }
+        return block;
+      }) as LlmContent[];
       const price = PRICES[model] ?? PRICES[model.replace("anthropic/", "")] ?? { in: 3.0, out: 15.0 };
       const cost =
         (j.usage.input_tokens / 1_000_000) * price.in +
         (j.usage.output_tokens / 1_000_000) * price.out;
       return {
         stop_reason: j.stop_reason,
-        content: j.content,
+        content: normalized,
         usage: {
           input_tokens: j.usage.input_tokens,
           output_tokens: j.usage.output_tokens,
