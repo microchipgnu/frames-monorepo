@@ -1,0 +1,18 @@
+{
+  "name": "@frames-ag/tick-types",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Shared TypeScript types for tick (frame runtime) and frames-cloud. RunInput, RunReceipt, Op enum, event shapes.",
+  "module": "src/index.ts",
+  "main": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5"
+  }
+}
