@@ -1,5 +1,38 @@
 # @frames-ag/tick
 
+## 0.0.7 — 2026-05-12 (Workers AI mode — CF-hosted models, CF-billed)
+
+Adds a third LLM auth path: **Workers AI**. Routes `@cf/*` models to
+Cloudflare's hosted catalog (Llama 3.3 70B, Qwen QwQ-32B, Gemma, etc.).
+Cloudflare bills you directly per-token — no Anthropic / OpenAI / Google
+account required.
+
+### Why
+Customers who want to skip the provider-account dance can pay CF for
+tokens. Tradeoff: Workers AI's catalog is open-weight only (no Claude /
+GPT-4 / Gemini Pro). For agent loops with tool use, `llama-3.3-70b-
+instruct-fp8-fast` is the recommended default — decent at function
+calling, fast inference, low cost (~$0.29 / $2.25 per 1M tokens).
+
+### Config (per `apps/tick/DEPLOY.md`)
+```bash
+wrangler secret put CF_ACCOUNT_ID         # 97c691...
+wrangler secret put WORKERS_AI_TOKEN      # CF API token w/ Workers AI:Run scope
+wrangler secret put WORKERS_AI_MODEL      # @cf/meta/llama-3.3-70b-instruct-fp8-fast
+```
+
+When all three are set, `LlmClient.call()` prefers Workers AI over the
+Anthropic / BYOK paths regardless of per-agent model defaults.
+
+### Implementation
+- `LlmClient.callWorkersAi()` — POSTs to `api.cloudflare.com/.../ai/v1/chat/completions` (OpenAI-compat shape).
+- **Shape translators** (`anthropicToOpenAiMessages`, `openAiFinishToAnthropicStop`) — translate Anthropic-style messages + tool_use blocks ↔ OpenAI-style messages + tool_calls. The ops (curate/discover) keep returning Anthropic-shape `LlmResponse` so they don't need to change.
+- Per-token pricing for the common `@cf/*` models added to the `PRICES` table.
+- `/health.llm.workers_ai_configured` surfaces config state.
+- `missing_llm_auth` error message updated to include the new path.
+
+110 tests still passing — the Workers AI path doesn't affect any existing test (Anthropic-shape goes through the same code paths it always did).
+
 ## 0.0.6 — 2026-05-12 (fix: rewrite workspace:* deps for npm install)
 
 v0.0.5 published cleanly to npm but with `workspace:*` left in the

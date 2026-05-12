@@ -87,6 +87,25 @@ export type Bindings = {
   AUDIT_PRIVATE_KEY?: string;
 
   // ---------------------------------------------------------------------
+  // Workers AI mode — Cloudflare-hosted models, CF bills directly.
+  // No external provider account needed. Use this when you'd rather pay
+  // Cloudflare for tokens than wire BYOK or passthrough to Anthropic.
+  // ---------------------------------------------------------------------
+  /** CF account ID for Workers AI. Required for Workers AI mode. */
+  CF_ACCOUNT_ID?: string;
+  /** API token with Workers AI:Run scope. Same scope as gateway tokens usually. */
+  WORKERS_AI_TOKEN?: string;
+  /**
+   * Default Workers AI model. Must start with `@cf/`. Example:
+   *   `@cf/meta/llama-3.3-70b-instruct-fp8-fast` (recommended for agent loops)
+   *   `@cf/qwen/qwq-32b`
+   *   `@cf/google/gemma-3-12b-it`
+   * When set, all `LlmClient.call()` invocations use this regardless of
+   * the per-agent buildModel/titleModel defaults.
+   */
+  WORKERS_AI_MODEL?: string;
+
+  // ---------------------------------------------------------------------
   // x402 v2 PaymentRequirements config — only needed when adding inbound
   // billing in Phase B. Until `TICK_PAY_TO_ADDRESS` is set, the server
   // can't quote prices, so it never emits 402 challenges (verify falls back

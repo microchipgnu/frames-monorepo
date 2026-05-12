@@ -105,6 +105,20 @@ export interface LlmClientConfig {
   exploreModel?: string;
   /** Optional metadata attached to gateway requests for attribution + cost tracking. */
   gatewayMetadata?: Record<string, string>;
+
+  // ---------------------------------------------------------------------
+  // Workers AI mode — Cloudflare-hosted models, CF bills directly.
+  // When `workersAiAccountId` is set AND no provider key is configured,
+  // the client routes to `api.cloudflare.com/.../ai/v1/chat/completions`
+  // (OpenAI-compat shape) and translates to/from the Anthropic-style
+  // LlmResponse our ops expect.
+  // ---------------------------------------------------------------------
+  /** CF account ID. Required for Workers AI mode. */
+  workersAiAccountId?: string;
+  /** API token with Workers AI:Run scope. */
+  workersAiToken?: string;
+  /** Default model when workersAi mode is on. e.g. `@cf/meta/llama-3.3-70b-instruct-fp8-fast`. */
+  workersAiModel?: string;
 }
 
 // Per-token prices (USDC per 1M tokens) for cost estimation.
@@ -117,6 +131,13 @@ const PRICES: Record<string, { in: number; out: number }> = {
   "claude-haiku-4-5": { in: 1.0, out: 5.0 },
   "claude-sonnet-4-6": { in: 3.0, out: 15.0 },
   "claude-opus-4-7": { in: 5.0, out: 25.0 },
+  // Workers AI — Cloudflare's hosted models. Prices in USDC per 1M tokens
+  // per https://developers.cloudflare.com/workers-ai/platform/pricing/
+  "@cf/meta/llama-3.3-70b-instruct-fp8-fast": { in: 0.293, out: 2.253 },
+  "@cf/meta/llama-3.1-70b-instruct": { in: 0.293, out: 2.253 },
+  "@cf/meta/llama-3.1-8b-instruct": { in: 0.282, out: 0.827 },
+  "@cf/qwen/qwq-32b": { in: 0.66, out: 1.0 },
+  "@cf/google/gemma-3-12b-it": { in: 0.345, out: 0.556 },
 };
 
 export class LlmClient {
@@ -134,14 +155,23 @@ export class LlmClient {
 
   async call(opts: CallOptions): Promise<LlmResponse> {
     const model = opts.model ?? this.pickModel(opts.agent ?? "build");
-    const { provider, modelId } = splitModelId(model);
 
-    if (provider !== "anthropic") {
-      throw new LlmError(
-        `Provider "${provider}" is not implemented yet. Supported: anthropic. Coming: openai, google-ai-studio.`,
-      );
+    // Workers AI: model starts with `@cf/` — bills via Cloudflare, no third-party provider.
+    if (model.startsWith("@cf/")) {
+      if (!this.cfg.workersAiAccountId || !this.cfg.workersAiToken) {
+        throw new LlmError(
+          `workersAiAccountId + workersAiToken required for ${model}. Set CF_ACCOUNT_ID + WORKERS_AI_TOKEN on the Worker.`,
+        );
+      }
+      return await this.callWorkersAi(model, opts);
     }
 
+    const { provider, modelId } = splitModelId(model);
+    if (provider !== "anthropic") {
+      throw new LlmError(
+        `Provider "${provider}" is not implemented yet. Supported: anthropic, @cf/* (Workers AI).`,
+      );
+    }
     return await this.callAnthropic(modelId, model, opts);
   }
 
@@ -231,9 +261,190 @@ export class LlmClient {
   }
 
   private pickModel(agent: "title" | "build" | "explore"): string {
+    // If workersAi is configured, prefer the workersAiModel default for all agents.
+    if (this.cfg.workersAiAccountId && this.cfg.workersAiModel) {
+      return this.cfg.workersAiModel;
+    }
     if (agent === "title") return this.cfg.titleModel!;
     if (agent === "explore") return this.cfg.exploreModel!;
     return this.cfg.buildModel!;
+  }
+
+  // -----------------------------------------------------------------------
+  // Workers AI (OpenAI-compat over Cloudflare's catalog)
+  // -----------------------------------------------------------------------
+
+  private async callWorkersAi(model: string, opts: CallOptions): Promise<LlmResponse> {
+    // Optionally route through the customer's AI Gateway for logging + cost
+    // tracking. CF supports `gateway/workers-ai/v1/chat/completions` for this,
+    // but it has to be explicitly enabled on the gateway. Fall back to the
+    // account API endpoint, which always works.
+    const url = `https://api.cloudflare.com/client/v4/accounts/${this.cfg.workersAiAccountId}/ai/v1/chat/completions`;
+
+    const body: Record<string, unknown> = {
+      model,
+      max_tokens: opts.max_tokens ?? 4096,
+      messages: anthropicToOpenAiMessages(opts.system, opts.messages),
+    };
+    if (opts.tools && opts.tools.length > 0) {
+      body.tools = opts.tools.map((t) => ({
+        type: "function",
+        function: { name: t.name, description: t.description, parameters: t.input_schema },
+      }));
+      body.tool_choice = "auto";
+    }
+
+    const headers: Record<string, string> = {
+      "content-type": "application/json",
+      authorization: `Bearer ${this.cfg.workersAiToken}`,
+    };
+
+    const res = await fetch(url, { method: "POST", headers, body: JSON.stringify(body) });
+    if (!res.ok) {
+      const text = await res.text().catch(() => "");
+      throw new LlmError(`Workers AI ${res.status}: ${text.slice(0, 500)}`, res.status);
+    }
+    const json = (await res.json()) as {
+      choices: Array<{
+        message: {
+          role: string;
+          content: string | null;
+          tool_calls?: Array<{ id: string; type: "function"; function: { name: string; arguments: string } }>;
+        };
+        finish_reason: string;
+      }>;
+      usage: { prompt_tokens: number; completion_tokens: number };
+    };
+
+    const choice = json.choices[0];
+    if (!choice) throw new LlmError("Workers AI returned empty choices array");
+
+    const content: LlmContent[] = [];
+    if (choice.message.content) {
+      content.push({ type: "text", text: choice.message.content });
+    }
+    for (const tc of choice.message.tool_calls ?? []) {
+      let input: Record<string, unknown> = {};
+      try {
+        input = JSON.parse(tc.function.arguments) as Record<string, unknown>;
+      } catch {
+        // Some models return malformed JSON. Pass through as string under `_raw`
+        // so the tool dispatcher can decide how to handle.
+        input = { _raw: tc.function.arguments };
+      }
+      content.push({ type: "tool_use", id: tc.id, name: tc.function.name, input });
+    }
+
+    const stopReason = openAiFinishToAnthropicStop(choice.finish_reason);
+
+    const price = PRICES[model] ?? { in: 0.5, out: 1.0 };
+    const cost =
+      (json.usage.prompt_tokens / 1_000_000) * price.in +
+      (json.usage.completion_tokens / 1_000_000) * price.out;
+
+    return {
+      stop_reason: stopReason,
+      content,
+      usage: {
+        input_tokens: json.usage.prompt_tokens,
+        output_tokens: json.usage.completion_tokens,
+        estimated_cost: cost.toFixed(6),
+      },
+    };
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Anthropic ↔ OpenAI message-shape translators
+// ---------------------------------------------------------------------------
+
+/**
+ * Convert our Anthropic-style messages (with tool_use / tool_result content
+ * blocks) into OpenAI-compat chat completion messages.
+ *
+ * Rules:
+ *   - `system` → leading `{ role: "system", content: "..." }`
+ *   - assistant turn with `tool_use` block(s) → `{ role: "assistant",
+ *     content: "<text>", tool_calls: [{ id, type:"function", function:{...} }] }`
+ *   - user turn whose content is all `tool_result` blocks → one
+ *     `{ role: "tool", tool_call_id, content }` per block
+ *   - everything else: flatten text blocks to a single string
+ */
+function anthropicToOpenAiMessages(
+  system: string,
+  messages: LlmMessage[],
+): Array<{ role: string; content?: string; tool_calls?: unknown[]; tool_call_id?: string }> {
+  const out: Array<{ role: string; content?: string; tool_calls?: unknown[]; tool_call_id?: string }> = [];
+  if (system) out.push({ role: "system", content: system });
+
+  for (const m of messages) {
+    if (m.role === "assistant") {
+      const text = m.content
+        .filter((c): c is { type: "text"; text: string } => c.type === "text")
+        .map((c) => c.text)
+        .join("");
+      const toolUses = m.content.filter((c): c is Extract<LlmContent, { type: "tool_use" }> => c.type === "tool_use");
+      const msg: { role: string; content: string; tool_calls?: unknown[] } = { role: "assistant", content: text };
+      if (toolUses.length > 0) {
+        msg.tool_calls = toolUses.map((t) => ({
+          id: t.id,
+          type: "function",
+          function: { name: t.name, arguments: JSON.stringify(t.input) },
+        }));
+      }
+      out.push(msg);
+      continue;
+    }
+
+    // user turn: may contain tool_result blocks (one or more) and/or text blocks.
+    const toolResults = m.content.filter((c): c is Extract<LlmContent, { type: "tool_result" }> => c.type === "tool_result");
+    if (toolResults.length > 0) {
+      // OpenAI's chat-completion API requires one `{role:"tool",tool_call_id,content}` message per tool_result.
+      for (const tr of toolResults) {
+        out.push({ role: "tool", tool_call_id: tr.tool_use_id, content: tr.content });
+      }
+      const textOnly = m.content
+        .filter((c): c is { type: "text"; text: string } => c.type === "text")
+        .map((c) => c.text)
+        .join("");
+      if (textOnly) out.push({ role: "user", content: textOnly });
+      continue;
+    }
+
+    // Plain user turn
+    const text = m.content
+      .filter((c): c is { type: "text"; text: string } => c.type === "text")
+      .map((c) => c.text)
+      .join("");
+    out.push({ role: "user", content: text });
+  }
+
+  return out;
+}
+
+/**
+ * Map OpenAI's `finish_reason` to Anthropic's `stop_reason`.
+ *
+ *   stop          → end_turn       (model wrapped up cleanly)
+ *   tool_calls    → tool_use       (model wants a tool call)
+ *   length        → max_tokens     (cut off by max_tokens)
+ *   content_filter → end_turn      (treat as cleanly stopped — content was filtered)
+ *
+ * Anything else flows through verbatim; the agent loop has a fallback branch
+ * for unrecognized stop reasons.
+ */
+function openAiFinishToAnthropicStop(finish: string): string {
+  switch (finish) {
+    case "stop":
+      return "end_turn";
+    case "tool_calls":
+      return "tool_use";
+    case "length":
+      return "max_tokens";
+    case "content_filter":
+      return "end_turn";
+    default:
+      return finish;
   }
 }
 
