@@ -22,6 +22,8 @@
 // direct (`https://api.anthropic.com`), useful for local dev without a
 // gateway provisioned.
 
+import { retry } from "../util/retry";
+
 export type LlmRole = "user" | "assistant";
 
 export type LlmContent =
@@ -376,22 +378,25 @@ export class LlmClient {
     }
     if (this.cfg.gatewayMetadata) headers["cf-aig-metadata"] = JSON.stringify(this.cfg.gatewayMetadata);
 
-    const res = await fetch(url, {
-      method: "POST",
-      headers,
-      body: JSON.stringify(body),
-    });
-
-    if (!res.ok) {
-      const text = await res.text().catch(() => "");
-      throw new LlmError(`Anthropic ${res.status} (via ${this.cfg.gatewayUrl ? "AI Gateway" : "direct"}): ${text.slice(0, 500)}`, res.status);
-    }
-
-    const json = (await res.json()) as {
-      stop_reason: string;
-      content: LlmContent[];
-      usage: { input_tokens: number; output_tokens: number };
-    };
+    // Retry on transient upstream failures. Anthropic returns 529 Overloaded
+    // periodically — the retry helper's default policy catches that (status
+    // >= 500) and also network errors. 4xx errors fail-fast.
+    const json = await retry(async () => {
+      const res = await fetch(url, {
+        method: "POST",
+        headers,
+        body: JSON.stringify(body),
+      });
+      if (!res.ok) {
+        const text = await res.text().catch(() => "");
+        throw new LlmError(`Anthropic ${res.status} (via ${this.cfg.gatewayUrl ? "AI Gateway" : "direct"}): ${text.slice(0, 500)}`, res.status);
+      }
+      return (await res.json()) as {
+        stop_reason: string;
+        content: LlmContent[];
+        usage: { input_tokens: number; output_tokens: number };
+      };
+    }, { retries: 3, initial_delay_ms: 1000 });
 
     const price = PRICES[fullModelString] ?? PRICES[modelId] ?? { in: 3.0, out: 15.0 };
     const cost =
