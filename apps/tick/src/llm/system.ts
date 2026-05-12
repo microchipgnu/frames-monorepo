@@ -35,7 +35,12 @@ export function buildCurateSystem(args: CurateSystemArgs): string {
   // ---- Tools contract ----------------------------------------------------
   lines.push("## Tool contract");
   lines.push("");
-  lines.push("Write tools (mutations — emit frame events):");
+  lines.push("**Preferred path** — delegate to a sub-agent per entity (bounded context, cheaper):");
+  lines.push(
+    "- `refresh_entity(entity_id, focus?)` — spawn a bounded sub-loop that researches ONE entity and writes facts directly. Has its own ~$0.30 budget, ~5 iter cap, isolated context (~15K tokens). Returns a structured summary. Use this for the bulk of your work — it's dramatically cheaper than doing the research in this parent loop because your context doesn't compound. Pass `focus` (array of schema fields) when you only care about specific fields.",
+  );
+  lines.push("");
+  lines.push("Direct write tools (use only when refresh_entity declines or for cross-entity work):");
   lines.push(
     "- `add_entity_with_facts(entity_id, facts[])` — create a new entity and atomically set N fields with sources. Preferred over per-field writes.",
   );
@@ -56,8 +61,15 @@ export function buildCurateSystem(args: CurateSystemArgs): string {
   lines.push("");
   lines.push("External tools (paid; cost decremented from your budget):");
   lines.push(
-    "- `web_fetch(url)` — fetch a URL. Returns body text. Used to verify facts or pull source pages. Cost varies by URL (free for public APIs, paid for x402-protected endpoints).",
+    "- `web_fetch(url)` — fetch a URL. Page auto-summarized against the schema (~500-2000 tokens of per-field excerpts). Use for cross-entity research or when refresh_entity isn't the right shape.",
   );
+  lines.push("");
+  lines.push("### Loop strategy (read this first)");
+  lines.push("");
+  lines.push("1. Call `query(mode=all)` once to see existing entities + missing fields.");
+  lines.push("2. For each entity that needs updating, call `refresh_entity(entity_id)`. The sub-loop handles the fetch/verify/write cycle internally with bounded cost.");
+  lines.push("3. Use direct `web_fetch` + `set_facts` only for cross-entity reasoning or when a sub-loop returned `no_change` but you disagree.");
+  lines.push("4. Stop when you've covered all entities or your budget would force-halt.");
   lines.push("");
 
   // ---- Invariants --------------------------------------------------------

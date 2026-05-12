@@ -76,9 +76,33 @@ export interface RunResult {
    * (verify, refresh).
    */
   iteration_log?: IterationLogEntry[];
+  /**
+   * Sub-agent runs spawned during this run (one per `refresh_entity` tool
+   * call). Each is its own bounded loop with its own iteration_log. Empty
+   * for ops that don't invoke sub-agents (verify, refresh, discover).
+   */
+  sub_runs?: SubRunSummary[];
   /** ISO 8601 wall-clock duration boundaries. */
   started_at: string;
   ended_at: string;
+}
+
+/**
+ * Surface shape of a sub-agent run in the parent's RunResult. Mirrors
+ * `apps/tick/src/ops/types.ts:SubRun` but lives here so downstream
+ * consumers can read it via `@frames-ag/tick-types` without depending on
+ * the runtime's internal types.
+ */
+export interface SubRunSummary {
+  entity_id: string;
+  action: "facts_set" | "deprecated" | "no_change" | "no_op";
+  stop_reason: string;
+  facts_set: number;
+  deprecations: number;
+  iterations: number;
+  iteration_log: IterationLogEntry[];
+  llm_cost: string;
+  narrative: string;
 }
 
 export interface IterationLogEntry {

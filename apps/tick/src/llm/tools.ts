@@ -180,4 +180,21 @@ export const CURATE_TOOLS: LlmToolSpec[] = [
       required: ["url"],
     },
   },
+  {
+    name: "refresh_entity",
+    description:
+      "**Preferred** over manual web_fetch + set_facts when you want to update a specific entity. Spawns a bounded sub-agent with its own context (~15K tokens) and budget (~$0.30) that researches just this entity and writes facts directly on success. Cheaper than doing the research in this parent loop because the sub-agent's context doesn't compound across your other entities. You get back a structured summary of what was written. Use this for the bulk of refresh work; reach for web_fetch + set_facts manually only for cross-entity reasoning or when the sub-agent declines.",
+    input_schema: {
+      type: "object",
+      properties: {
+        entity_id: { type: "string", description: "entity to refresh; must already exist in the dataset" },
+        focus: {
+          type: "array",
+          items: { type: "string" },
+          description: "Optional: schema fields to prioritize. Empty means 'check everything'.",
+        },
+      },
+      required: ["entity_id"],
+    },
+  },
 ];

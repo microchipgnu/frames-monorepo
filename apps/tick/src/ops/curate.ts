@@ -21,6 +21,7 @@ import { LlmClient, type LlmContent, type LlmMessage } from "../llm/client";
 import { summarizeForContext } from "../llm/summarize";
 import { buildCurateSystem } from "../llm/system";
 import { CURATE_TOOLS } from "../llm/tools";
+import { refreshEntity } from "./refresh-entity";
 import {
   dispatchCatalogGet,
   dispatchCatalogSearch,
@@ -94,6 +95,10 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
   const tool_log: ToolCall[] = [];
   // Per-iter LLM-call log so customers can see where their budget went.
   const iteration_log: import("@frames-ag/tick-types").IterationLogEntry[] = [];
+  // Sub-agent runs (one per refresh_entity tool call). Each is its own
+  // bounded loop with its own iteration_log + tool_log. Surfaced on the
+  // run record so the customer can see what each entity sub-loop did.
+  const sub_runs: import("./types").SubRun[] = [];
 
   let iter = 0;
   let stopReason: string = "max_iters";
@@ -201,6 +206,12 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
         opts.onEvent?.(ev);
       }
       if (dispatch.tool_call) tool_log.push(dispatch.tool_call);
+      if (dispatch.sub_run) {
+        sub_runs.push(dispatch.sub_run);
+        // Merge sub-loop's own tool_log into the parent's so the receipt is
+        // complete. iteration_log stays nested per-sub-run.
+        for (const tc of dispatch.sub_run.tool_log) tool_log.push(tc);
+      }
       toolResults.push({
         type: "tool_result",
         tool_use_id: block.id,
@@ -214,8 +225,9 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
   return {
     events,
     tool_log,
-    summary: `curate · ${schema.name}@${meta.sha.slice(0, 7)} · ${iter} iter · ${events.length} events · ${tool_log.length} tool calls · stop=${stopReason} · $${remaining.toFixed(6)} remaining`,
+    summary: `curate · ${schema.name}@${meta.sha.slice(0, 7)} · ${iter} iter · ${sub_runs.length} sub-agents · ${events.length} events · ${tool_log.length} tool calls · stop=${stopReason} · $${remaining.toFixed(6)} remaining`,
     iteration_log,
+    sub_runs,
     report: {
       schema_name: schema.name,
       sha: meta.sha,
@@ -223,6 +235,7 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
       stop_reason: stopReason,
       events_written: events.length,
       tool_calls: tool_log.length,
+      sub_runs: sub_runs.length,
       budget_remaining: remaining.toFixed(6),
       llm_summary: summary,
     },
@@ -261,6 +274,8 @@ async function dispatchTool(
       return dispatchAttachEvidence(input, ctx);
     case "web_fetch":
       return await dispatchWebFetch(input, ctx);
+    case "refresh_entity":
+      return await dispatchRefreshEntity(input, ctx);
     case "catalog_search":
       return await dispatchCatalogSearch(input, ctx);
     case "catalog_get":
@@ -438,6 +453,120 @@ function dispatchAttachEvidence(
         payload: { fact_id, source },
       },
     ],
+  };
+}
+
+async function dispatchRefreshEntity(
+  input: Record<string, unknown>,
+  ctx: DispatchContext,
+): Promise<ToolDispatchResult> {
+  const entity_id = String(input.entity_id ?? "");
+  if (!entity_id) return errorResult("entity_id required");
+  const focus = Array.isArray(input.focus) ? (input.focus as unknown[]).map(String) : undefined;
+
+  // Load the entity's current state via frames-cloud so the sub-loop sees
+  // facts + evidence + fact_ids in one shot. The sub-loop won't re-fetch this.
+  let entity_state: Record<string, unknown> | null = null;
+  try {
+    entity_state = (await ctx.frame_client.getEntity(ctx.frame_url, entity_id, "all")) as Record<string, unknown> | null;
+  } catch (e) {
+    return errorResult(`failed to load entity_state for ${entity_id}: ${(e as Error).message}`);
+  }
+  if (!entity_state) {
+    return errorResult(`entity_id ${entity_id} not found in dataset`);
+  }
+
+  const sub = await refreshEntity({
+    entity_id,
+    entity_state,
+    schema: ctx.schema,
+    focus,
+    llm: ctx.llm,
+    refetcher: ctx.refetcher,
+    budget: "0.30",
+    max_iters: 5,
+    run_id: ctx.run_id,
+    agent: ctx.agent,
+  });
+
+  // Emit the sub-loop's writes as real frame events.
+  const events: FrameEvent[] = [];
+  const ts = new Date().toISOString();
+  if (sub.facts_to_set.length > 0) {
+    events.push({
+      id: randomUUID(),
+      ts,
+      type: "facts.set_many",
+      agent: ctx.agent,
+      run_id: ctx.run_id,
+      payload: {
+        entity_id,
+        facts: sub.facts_to_set.map((f) => ({
+          fact_id: randomUUID(),
+          field: f.field,
+          value: f.value,
+          source: f.source,
+        })),
+      },
+    });
+  }
+  for (const dep of sub.facts_to_deprecate) {
+    events.push({
+      id: randomUUID(),
+      ts,
+      type: "fact.deprecated",
+      agent: ctx.agent,
+      run_id: ctx.run_id,
+      payload: {
+        fact_id: dep.fact_id,
+        reason: dep.reason,
+      },
+    });
+  }
+
+  // Pass through the sub-loop's tool calls into the parent's tool_log via
+  // the dispatch return. The parent's loop appends `tool_call` to tool_log;
+  // we only get one slot, so use the first (sub_runs holds the rest in the
+  // final RunResult.report).
+  // The textual `result_text` returned to the LLM is a compact summary so
+  // the parent's context stays small — full sub-loop details are persisted
+  // separately on the run record.
+  const action =
+    sub.facts_to_set.length > 0 ? "facts_set" :
+    sub.facts_to_deprecate.length > 0 ? "deprecated" :
+    sub.stop_reason === "no_change" ? "no_change" : "no_op";
+
+  const result_text = [
+    `refresh_entity(${entity_id}) → ${action}`,
+    `  stop_reason:   ${sub.stop_reason}`,
+    `  facts set:     ${sub.facts_to_set.length}${sub.facts_to_set.length > 0 ? ` (${sub.facts_to_set.map((f) => f.field).join(", ")})` : ""}`,
+    `  deprecations:  ${sub.facts_to_deprecate.length}`,
+    `  llm_cost:      $${sub.llm_cost}`,
+    `  iterations:    ${sub.iteration_log.length}`,
+    "",
+    `narrative: ${sub.narrative}`,
+  ].join("\n");
+
+  return {
+    result_text,
+    is_error: sub.stop_reason === "error",
+    cost: sub.llm_cost,
+    events,
+    // Surface sub_run details on the return so curate.ts can append to a
+    // top-level sub_runs array. The tool_call slot is used by paid catalog
+    // tools (this is a sub-agent call, not a paid tool, so leave undefined).
+    sub_run: {
+      entity_id,
+      action,
+      stop_reason: sub.stop_reason,
+      facts_set: sub.facts_to_set.length,
+      deprecations: sub.facts_to_deprecate.length,
+      iterations: sub.iteration_log.length,
+      iteration_log: sub.iteration_log,
+      tool_log: sub.tool_log,
+      llm_cost: sub.llm_cost,
+      narrative: sub.narrative,
+    },
   };
 }
 

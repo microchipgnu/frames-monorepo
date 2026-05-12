@@ -66,6 +66,8 @@ export interface OpOutcome {
   summary: string;
   /** Per-LLM-call entries from the agent loop. Empty for non-LLM ops. */
   iteration_log?: import("@frames-ag/tick-types").IterationLogEntry[];
+  /** Sub-agent runs (one per `refresh_entity` call). Each is a bounded loop with its own iteration_log. */
+  sub_runs?: SubRun[];
   /** Op-specific structured payload (e.g., verify returns Drift[]). */
   report?: Record<string, unknown>;
 }
@@ -84,4 +86,20 @@ export interface ToolDispatchResult {
   cost: string;
   events: FrameEvent[];
   tool_call?: ToolCall;
+  /** Sub-agent run summary when the tool spawned a bounded sub-loop. */
+  sub_run?: SubRun;
+}
+
+/** Per-entity sub-agent run, emitted by `refresh_entity`. */
+export interface SubRun {
+  entity_id: string;
+  action: "facts_set" | "deprecated" | "no_change" | "no_op";
+  stop_reason: string;
+  facts_set: number;
+  deprecations: number;
+  iterations: number;
+  iteration_log: import("@frames-ag/tick-types").IterationLogEntry[];
+  tool_log: ToolCall[];
+  llm_cost: string;
+  narrative: string;
 }

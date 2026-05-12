@@ -490,6 +490,7 @@ async function executeOpDispatch(args: DispatchArgs): Promise<DispatchOutcome> {
           // any run and customers shouldn't have to dig for it.
           narrative: (outcome.report?.llm_summary as string | undefined) ?? null,
           iteration_log: outcome.iteration_log ?? [],
+          sub_runs: outcome.sub_runs ?? [],
           started_at,
           ended_at,
           report: outcome.report,
@@ -569,6 +570,7 @@ async function executeOpDispatch(args: DispatchArgs): Promise<DispatchOutcome> {
           // any run and customers shouldn't have to dig for it.
           narrative: (outcome.report?.llm_summary as string | undefined) ?? null,
           iteration_log: outcome.iteration_log ?? [],
+          sub_runs: outcome.sub_runs ?? [],
           started_at,
           ended_at,
           report: outcome.report,

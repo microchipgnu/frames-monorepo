@@ -1,5 +1,65 @@
 # @frames-ag/tick
 
+## 0.1.0 — 2026-05-12 (Phase B — sub-agents per entity)
+
+The architectural piece. Parent curate loop can now delegate per-entity
+research to bounded sub-loops via the new `refresh_entity` tool.
+
+### The shape
+
+Old curate (v0.0.13 and prior):
+- ONE long conversation
+- 13 entities × N fetches × M iters compounded in one context
+- Agent over-explored when each call was cheap (30 iters, 4 events at $1.88)
+
+New curate (v0.1.0):
+- Parent reads schema + state (1-2 iters, ~$0.05)
+- Parent dispatches `refresh_entity(id)` per target entity
+- Each sub-agent has:
+  - Bounded context (~15K tokens — schema + that entity's state)
+  - Bounded iters (5 max)
+  - Bounded budget ($0.30)
+  - Stripped tool palette (`web_fetch` + 3 terminal write tools)
+  - Hard "I'm done" state via terminal tool call
+- Parent aggregates results, emits final `facts.set_many` events
+
+Expected cost on the same 5-fetch / 4-write workload:
+- v0.0.12: $3.13
+- v0.0.13: $1.88
+- v0.1.0: ~$0.40-$0.60 projected (parent ~$0.10 + 4 sub-agents × ~$0.10 each)
+
+### What's in this release
+
+- **`src/ops/refresh-entity.ts`** — `refreshEntity()` sub-loop with its
+  own bounded LLM loop, 4 tool palette (`web_fetch`, `propose_facts`,
+  `propose_deprecations`, `no_change`), terminal-stop semantics, and
+  per-sub-run iteration_log.
+- **New `refresh_entity` tool** added to `CURATE_TOOLS` — documented as the
+  **preferred path** in the system prompt.
+- **`dispatchRefreshEntity`** in `curate.ts` loads the entity's current
+  state from frames-cloud, runs the sub-loop, and emits `facts.set_many`
+  / `fact.deprecated` events directly on success.
+- **`SubRun` / `SubRunSummary` types** — surfaced on `OpOutcome.sub_runs`
+  and `RunResult.sub_runs`. Each sub-agent's iteration_log nests inside;
+  customers can drill into individual entity research without losing the
+  parent-level view.
+- **System prompt rewritten** — agent is now instructed: "Use
+  `refresh_entity` for the bulk of work. Reach for direct `web_fetch` +
+  `set_facts` only for cross-entity reasoning."
+
+### What's NOT in this release (queued)
+
+- **Phase C** (v0.1.1) — promote sub-loops to `@cloudflare/agents` Durable
+  Objects for true parallelism (concurrent entity refresh) + cross-request
+  persistence
+- **Phase D** (v0.1.2) — Anthropic prompt-cache integration + recursive
+  compaction for long parent loops
+- Auto-fan-out — currently the parent must explicitly call
+  `refresh_entity(X)` per entity. Auto-batching from a single `query(all)`
+  result lands with Phase C.
+
+@frames-ag/tick-types bumped to v0.0.3 (`SubRunSummary` + `RunResult.sub_runs`).
+
 ## 0.0.13 — 2026-05-12 (Phase A — Haiku-summarized web fetches)
 
 The biggest cost lever from the post-launch review. Web-fetch results
