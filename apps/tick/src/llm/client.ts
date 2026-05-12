@@ -174,14 +174,6 @@ export class LlmClient {
   async call(opts: CallOptions): Promise<LlmResponse> {
     const model = opts.model ?? this.pickModel(opts.agent ?? "build");
 
-    // CF AI Gateway compat endpoint — handles marketplace-billed third-party
-    // models (anthropic/*, openai/*, google-ai-studio/*) with CF billing.
-    // Uses OpenAI-compat HTTP shape; bypasses the env.AI.run binding which
-    // has a known bug stripping tool_use.id on Anthropic round-trips.
-    if (this.cfg.gatewayUrl && /^(anthropic|openai|google-ai-studio|mistral|meta)\//.test(model)) {
-      return await this.callGatewayCompat(model, opts);
-    }
-
     // env.AI.run() binding — preferred for @cf/* (Workers AI catalog) when
     // the binding is available. CF bills directly.
     if (this.cfg.ai && model.startsWith("@cf/")) {
@@ -198,6 +190,8 @@ export class LlmClient {
       return await this.callWorkersAi(model, opts);
     }
 
+    // Anthropic via Messages API. callAnthropic handles three auth modes:
+    //   marketplace (gateway token, CF bills) | BYOK (alias) | passthrough (key)
     const { provider, modelId } = splitModelId(model);
     if (provider !== "anthropic") {
       throw new LlmError(
@@ -207,75 +201,6 @@ export class LlmClient {
     return await this.callAnthropic(modelId, model, opts);
   }
 
-  // -----------------------------------------------------------------------
-  // CF AI Gateway compat endpoint — marketplace billing for partnered
-  // third-party models (anthropic, openai, google, etc.). OpenAI-compat shape.
-  // -----------------------------------------------------------------------
-
-  private async callGatewayCompat(model: string, opts: CallOptions): Promise<LlmResponse> {
-    const url = `${this.cfg.gatewayUrl!.replace(/\/$/, "")}/compat/chat/completions`;
-    const body: Record<string, unknown> = {
-      model,
-      max_tokens: opts.max_tokens ?? 4096,
-      messages: anthropicToOpenAiMessages(opts.system, opts.messages),
-    };
-    if (opts.tools && opts.tools.length > 0) {
-      body.tools = opts.tools.map((t) => ({
-        type: "function",
-        function: { name: t.name, description: t.description, parameters: t.input_schema },
-      }));
-      body.tool_choice = "auto";
-    }
-    const headers: Record<string, string> = {
-      "content-type": "application/json",
-    };
-    if (this.cfg.gatewayToken) headers["authorization"] = `Bearer ${this.cfg.gatewayToken}`;
-
-    const res = await fetch(url, { method: "POST", headers, body: JSON.stringify(body) });
-    if (!res.ok) {
-      const text = await res.text().catch(() => "");
-      throw new LlmError(`Gateway compat ${res.status}: ${text.slice(0, 500)}`, res.status);
-    }
-    const json = (await res.json()) as {
-      choices: Array<{
-        message: {
-          content: string | null;
-          tool_calls?: Array<{ id: string; type: "function"; function: { name: string; arguments: string } }>;
-        };
-        finish_reason: string;
-      }>;
-      usage: { prompt_tokens: number; completion_tokens: number };
-    };
-
-    const choice = json.choices[0];
-    if (!choice) throw new LlmError("Gateway compat returned empty choices");
-    const content: LlmContent[] = [];
-    if (choice.message.content) content.push({ type: "text", text: choice.message.content });
-    for (const tc of choice.message.tool_calls ?? []) {
-      let input: Record<string, unknown> = {};
-      try {
-        input = JSON.parse(tc.function.arguments) as Record<string, unknown>;
-      } catch {
-        input = { _raw: tc.function.arguments };
-      }
-      content.push({ type: "tool_use", id: tc.id, name: tc.function.name, input });
-    }
-    const stopReason = openAiFinishToAnthropicStop(choice.finish_reason);
-    // Price lookup falls back to a sensible Anthropic baseline for unknown models.
-    const price = PRICES[model] ?? PRICES[model.replace(/^[^/]+\//, "")] ?? { in: 3.0, out: 15.0 };
-    const cost =
-      (json.usage.prompt_tokens / 1_000_000) * price.in +
-      (json.usage.completion_tokens / 1_000_000) * price.out;
-    return {
-      stop_reason: stopReason,
-      content,
-      usage: {
-        input_tokens: json.usage.prompt_tokens,
-        output_tokens: json.usage.completion_tokens,
-        estimated_cost: cost.toFixed(6),
-      },
-    };
-  }
 
   // -----------------------------------------------------------------------
   // CF Workers AI binding — preferred when running inside a Worker.
@@ -409,9 +334,13 @@ export class LlmClient {
 
   private async callAnthropic(modelId: string, fullModelString: string, opts: CallOptions): Promise<LlmResponse> {
     const useByok = !!(this.cfg.gatewayUrl && this.cfg.byokAlias);
-    if (!useByok && !this.cfg.anthropicApiKey) {
+    // Marketplace mode: gateway is configured, no BYOK, no passthrough key —
+    // CF gateway pays Anthropic from prepaid balance. Auth via gateway token.
+    const useMarketplace =
+      !!this.cfg.gatewayUrl && !useByok && !this.cfg.anthropicApiKey && !!this.cfg.gatewayToken;
+    if (!useByok && !this.cfg.anthropicApiKey && !useMarketplace) {
       throw new LlmError(
-        "Either byokAlias (BYOK mode) or anthropicApiKey (passthrough mode) is required for anthropic/* models",
+        "Anthropic auth required: marketplace (gatewayUrl + gatewayToken with balance), BYOK (byokAlias), or passthrough (anthropicApiKey).",
       );
     }
 
@@ -437,14 +366,19 @@ export class LlmClient {
       "anthropic-version": "2023-06-01",
     };
     if (useByok) {
-      // BYOK: gateway injects the real Anthropic key based on this alias.
-      // Our Worker never sees the raw provider secret.
       headers["cf-aig-byok-alias"] = this.cfg.byokAlias!;
+    } else if (useMarketplace) {
+      // CF marketplace pays Anthropic from prepaid gateway balance.
+      headers["authorization"] = `Bearer ${this.cfg.gatewayToken!}`;
     } else {
       // Passthrough: app supplies the provider key directly.
       headers["x-api-key"] = this.cfg.anthropicApiKey!;
     }
-    if (this.cfg.gatewayToken) headers["cf-aig-authorization"] = `Bearer ${this.cfg.gatewayToken}`;
+    // cf-aig-authorization auths the gateway WRAPPER (separate from upstream
+    // provider auth). When gateway is unauthenticated, this is a no-op.
+    if (this.cfg.gatewayToken && !useMarketplace) {
+      headers["cf-aig-authorization"] = `Bearer ${this.cfg.gatewayToken}`;
+    }
     if (this.cfg.gatewayMetadata) headers["cf-aig-metadata"] = JSON.stringify(this.cfg.gatewayMetadata);
 
     const res = await fetch(url, {
