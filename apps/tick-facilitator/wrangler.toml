@@ -1,0 +1,33 @@
+name = "tick-facilitator"
+main = "src/index.ts"
+compatibility_date = "2026-05-11"
+
+# routes = [{ pattern = "facilitator.tick.frames.ag/*", custom_domain = true }]
+
+# ---------------------------------------------------------------------------
+# Containers binding — Faremeter runs as a Node container alongside this Worker.
+# Region-pinned for colo-local verify hops.
+# ---------------------------------------------------------------------------
+[[containers]]
+class_name = "FaremeterFacilitator"
+image = "./Dockerfile"
+instance_type = "basic"   # 1 vCPU, 2 GiB — thousands of req/sec headroom
+max_instances = 3
+
+# Durable Object that owns the container instance.
+[[durable_objects.bindings]]
+name = "FACILITATOR"
+class_name = "FaremeterFacilitator"
+
+[[migrations]]
+tag = "v1"
+new_classes = ["FaremeterFacilitator"]
+
+# ---------------------------------------------------------------------------
+# Secrets (set via `wrangler secret put`)
+# ---------------------------------------------------------------------------
+# SOLANA_ADMIN_KEYPAIR_JSON  — admin keypair (env, not file-mounted)
+# SOLANA_RPC_URL             — Helius / Triton / QuickNode mainnet
+# EVM_FACILITATOR_PRIVATE_KEY — EIP-3009 gas-paying key
+# EVM_RPC_URLS               — JSON map: { "base": "...", "polygon": "..." }
+# LOG_LEVEL                  — info / debug

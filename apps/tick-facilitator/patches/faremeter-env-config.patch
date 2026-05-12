@@ -1,0 +1,22 @@
+diff --git a/apps/facilitator/src/solana.ts b/apps/facilitator/src/solana.ts
+index 383b193..b3ef8dc 100644
+--- a/apps/facilitator/src/solana.ts
++++ b/apps/facilitator/src/solana.ts
+@@ -24,9 +24,14 @@ export async function createHandlers(network: string, keypairPath: string) {
+   }
+ 
+   const handlers: FacilitatorHandler[] = [];
+-  const secretKey = Uint8Array.from(
+-    JSON.parse(fs.readFileSync(keypairPath, "utf-8")),
+-  );
++  // Accept either a filesystem path OR a literal JSON array of bytes.
++  // Container deploys (Cloudflare Containers, etc.) pass the keypair as
++  // the env var's literal value rather than a mounted file. Detected by
++  // the first non-whitespace character.
++  const raw = keypairPath.trim().startsWith("[")
++    ? keypairPath
++    : fs.readFileSync(keypairPath, "utf-8");
++  const secretKey = Uint8Array.from(JSON.parse(raw));
+   const adminSigner = await createKeyPairSignerFromBytes(secretKey);
+   const apiUrl = clusterRpcUrls[network];
+   if (!apiUrl) {

@@ -1,0 +1,31 @@
+{
+  "name": "@frames-ag/tick-facilitator",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Self-hosted Faremeter facilitator on Cloudflare Containers. x402 + MPP verify+settle for tick. Wraps upstream faremeter/faremeter apps/facilitator (Hono + @hono/node-server) in a Node container.",
+  "module": "src/index.ts",
+  "scripts": {
+    "dev": "bunx wrangler dev",
+    "typecheck": "tsc --noEmit",
+    "build:image": "docker build -t tick-facilitator:local .",
+    "deploy": "bunx wrangler deploy",
+    "gen:solana": "bun scripts/gen-solana-keypair.ts",
+    "gen:evm": "bun scripts/gen-evm-keypair.ts",
+    "gen:cdp": "bun scripts/provision-cdp-wallet.ts"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240500.0",
+    "@types/bun": "latest",
+    "typescript": "^5",
+    "viem": "^2.21.0",
+    "wrangler": "^4.0.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@cloudflare/containers": "^0.0.27",
+    "hono": "^4.12.16"
+  }
+}
