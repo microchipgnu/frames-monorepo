@@ -231,18 +231,25 @@ export class LlmClient {
         content: Array<Record<string, unknown>>;
         usage: { input_tokens: number; output_tokens: number };
       };
-      // Diagnostic: log the raw content shape on first response so we can see
-      // exactly what the CF binding sends back. Anthropic via marketplace
-      // may rename or omit fields — `tool_use.id` is required downstream
-      // because the next iter echoes the block back to the model.
-      console.log("[ai-binding-anthropic] raw content:", JSON.stringify(j.content).slice(0, 800));
-      // Normalize: ensure every tool_use block has an `id`. CF's binding
-      // sometimes returns these without ids, which breaks Anthropic on the
-      // next iter when we echo the assistant turn back into messages.
+      // Normalize content blocks to ONLY Anthropic-standard fields. CF's
+      // marketplace binding adds a non-standard `caller: { type: "direct" }`
+      // entry on tool_use blocks; Anthropic 400s on the next iter when we
+      // echo the assistant turn back ("tool_use.id: Field required" — the
+      // validator chokes on the extra field, not on a missing id).
       const normalized = (j.content ?? []).map((block) => {
-        if (block.type === "tool_use" && !block.id) {
-          return { ...block, id: `tu_${Math.random().toString(36).slice(2, 14)}` };
+        const type = block.type as string;
+        if (type === "text") {
+          return { type: "text", text: String(block.text ?? "") };
         }
+        if (type === "tool_use") {
+          return {
+            type: "tool_use",
+            id: typeof block.id === "string" && block.id ? block.id : `tu_${Math.random().toString(36).slice(2, 14)}`,
+            name: String(block.name ?? ""),
+            input: (block.input as Record<string, unknown>) ?? {},
+          };
+        }
+        // Unknown block type — pass through with minimal shape
         return block;
       }) as LlmContent[];
       const price = PRICES[model] ?? PRICES[model.replace("anthropic/", "")] ?? { in: 3.0, out: 15.0 };
