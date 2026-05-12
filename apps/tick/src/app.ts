@@ -94,6 +94,13 @@ app.get("/health", (c) => {
       closed_by_default: allowlistEntries.length === 0,
       api_key_count: apiKeyEntries.length,
     },
+    sub_agents: {
+      // EntityAgent DO binding presence — when true, refresh_entity calls
+      // dispatch to isolated Durable Object instances (Phase C). When
+      // false, they fall back to in-process function calls (local dev,
+      // older deploys before the v0.1.1 migration).
+      entity_agent_bound: !!c.env?.ENTITY_AGENT,
+    },
   });
 });
 
