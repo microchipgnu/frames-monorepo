@@ -119,6 +119,20 @@ export interface LlmClientConfig {
   workersAiToken?: string;
   /** Default model when workersAi mode is on. e.g. `@cf/meta/llama-3.3-70b-instruct-fp8-fast`. */
   workersAiModel?: string;
+
+  /**
+   * Cloudflare Workers AI binding. When present, `anthropic/*` and `@cf/*`
+   * models go through `env.AI.run()` and Cloudflare bills directly — no
+   * Anthropic / OpenAI account needed. Strictly preferred over HTTP-mode
+   * Workers AI when available (it runs inside the CF edge with no network
+   * hop). Local dev (Bun) doesn't get this binding; it falls back to HTTP.
+   */
+  ai?: Ai;
+  /**
+   * Slug of the AI Gateway to route env.AI.run() calls through (for logging).
+   * When set, every AI binding call gets `{ gateway: { id } }`.
+   */
+  aiGatewaySlug?: string;
 }
 
 // Per-token prices (USDC per 1M tokens) for cost estimation.
@@ -156,7 +170,14 @@ export class LlmClient {
   async call(opts: CallOptions): Promise<LlmResponse> {
     const model = opts.model ?? this.pickModel(opts.agent ?? "build");
 
-    // Workers AI: model starts with `@cf/` — bills via Cloudflare, no third-party provider.
+    // Preferred path inside a CF Worker: env.AI.run() binding. Routes both
+    // CF-hosted (@cf/*) and partnered third-party (anthropic/*, openai/*)
+    // models with CF billing. No external HTTP, no provider account needed.
+    if (this.cfg.ai && (model.startsWith("@cf/") || model.startsWith("anthropic/"))) {
+      return await this.callAiBinding(model, opts);
+    }
+
+    // Workers AI via HTTP (used when running outside a Worker, e.g. Bun dev).
     if (model.startsWith("@cf/")) {
       if (!this.cfg.workersAiAccountId || !this.cfg.workersAiToken) {
         throw new LlmError(
@@ -173,6 +194,106 @@ export class LlmClient {
       );
     }
     return await this.callAnthropic(modelId, model, opts);
+  }
+
+  // -----------------------------------------------------------------------
+  // CF Workers AI binding — preferred when running inside a Worker.
+  // Handles both @cf/* (CF-hosted) and anthropic/* (partnered third-party
+  // with CF billing) models. The binding speaks each provider's native shape
+  // (Anthropic Messages API for anthropic/*, OpenAI-compat for @cf/*).
+  // -----------------------------------------------------------------------
+
+  private async callAiBinding(model: string, opts: CallOptions): Promise<LlmResponse> {
+    const gatewayOpts = this.cfg.aiGatewaySlug ? { gateway: { id: this.cfg.aiGatewaySlug } } : undefined;
+
+    if (model.startsWith("anthropic/")) {
+      // Anthropic models speak the Messages API natively through the binding.
+      // We can pass the exact body shape our callAnthropic() builds.
+      const body: Record<string, unknown> = {
+        max_tokens: opts.max_tokens ?? 4096,
+        system: opts.system,
+        messages: opts.messages.map((m) => ({ role: m.role, content: m.content })),
+      };
+      if (opts.tools && opts.tools.length > 0) {
+        body.tools = opts.tools.map((t) => ({
+          name: t.name,
+          description: t.description,
+          input_schema: t.input_schema,
+        }));
+      }
+      const json = await this.cfg.ai!.run(model, body as never, gatewayOpts);
+      const j = json as {
+        stop_reason: string;
+        content: LlmContent[];
+        usage: { input_tokens: number; output_tokens: number };
+      };
+      const price = PRICES[model] ?? PRICES[model.replace("anthropic/", "")] ?? { in: 3.0, out: 15.0 };
+      const cost =
+        (j.usage.input_tokens / 1_000_000) * price.in +
+        (j.usage.output_tokens / 1_000_000) * price.out;
+      return {
+        stop_reason: j.stop_reason,
+        content: j.content,
+        usage: {
+          input_tokens: j.usage.input_tokens,
+          output_tokens: j.usage.output_tokens,
+          estimated_cost: cost.toFixed(6),
+        },
+      };
+    }
+
+    // @cf/* models — OpenAI-compat shape through the binding (same shape as
+    // the HTTP path in callWorkersAi). Translate Anthropic-style messages
+    // and tool blocks, then translate the response back to Anthropic shape.
+    const body: Record<string, unknown> = {
+      messages: anthropicToOpenAiMessages(opts.system, opts.messages),
+      max_tokens: opts.max_tokens ?? 4096,
+    };
+    if (opts.tools && opts.tools.length > 0) {
+      body.tools = opts.tools.map((t) => ({
+        type: "function",
+        function: { name: t.name, description: t.description, parameters: t.input_schema },
+      }));
+      body.tool_choice = "auto";
+    }
+    const json = (await this.cfg.ai!.run(model, body as never, gatewayOpts)) as {
+      choices: Array<{
+        message: {
+          content: string | null;
+          tool_calls?: Array<{ id: string; type: "function"; function: { name: string; arguments: string } }>;
+        };
+        finish_reason: string;
+      }>;
+      usage: { prompt_tokens: number; completion_tokens: number };
+    };
+
+    const choice = json.choices[0];
+    if (!choice) throw new LlmError("env.AI.run returned empty choices");
+    const content: LlmContent[] = [];
+    if (choice.message.content) content.push({ type: "text", text: choice.message.content });
+    for (const tc of choice.message.tool_calls ?? []) {
+      let input: Record<string, unknown> = {};
+      try {
+        input = JSON.parse(tc.function.arguments) as Record<string, unknown>;
+      } catch {
+        input = { _raw: tc.function.arguments };
+      }
+      content.push({ type: "tool_use", id: tc.id, name: tc.function.name, input });
+    }
+    const stopReason = openAiFinishToAnthropicStop(choice.finish_reason);
+    const price = PRICES[model] ?? { in: 0.5, out: 1.0 };
+    const cost =
+      (json.usage.prompt_tokens / 1_000_000) * price.in +
+      (json.usage.completion_tokens / 1_000_000) * price.out;
+    return {
+      stop_reason: stopReason,
+      content,
+      usage: {
+        input_tokens: json.usage.prompt_tokens,
+        output_tokens: json.usage.completion_tokens,
+        estimated_cost: cost.toFixed(6),
+      },
+    };
   }
 
   // -----------------------------------------------------------------------
@@ -261,10 +382,17 @@ export class LlmClient {
   }
 
   private pickModel(agent: "title" | "build" | "explore"): string {
-    // If workersAi is configured, prefer the workersAiModel default for all agents.
-    if (this.cfg.workersAiAccountId && this.cfg.workersAiModel) {
-      return this.cfg.workersAiModel;
+    // AI binding present + no explicit WORKERS_AI_MODEL override → prefer
+    // Anthropic flagship via CF's marketplace billing. Per-agent defaults
+    // (buildModel etc.) already point at anthropic/* models, so we just
+    // fall through to them.
+    if (this.cfg.ai && !this.cfg.workersAiModel) {
+      if (agent === "title") return this.cfg.titleModel!;
+      if (agent === "explore") return this.cfg.exploreModel!;
+      return this.cfg.buildModel!;
     }
+    // WORKERS_AI_MODEL override forces Workers AI catalog (cheap fallback).
+    if (this.cfg.workersAiModel) return this.cfg.workersAiModel;
     if (agent === "title") return this.cfg.titleModel!;
     if (agent === "explore") return this.cfg.exploreModel!;
     return this.cfg.buildModel!;

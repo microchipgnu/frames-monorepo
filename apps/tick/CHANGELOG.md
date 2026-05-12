@@ -1,5 +1,51 @@
 # @frames-ag/tick
 
+## 0.0.8 — 2026-05-12 (AI binding — CF bills for Anthropic via marketplace)
+
+Adds support for CF's **Workers AI binding marketplace routing**:
+`env.AI.run("anthropic/claude-sonnet-4-6", ...)` calls Anthropic's flagship
+through Cloudflare's edge, with **Cloudflare billing you directly** — no
+Anthropic account or API key needed.
+
+This was the missing path: previous releases assumed Anthropic models
+always required an external Anthropic account (BYOK or passthrough). CF's
+marketplace handles billing for partnered third-party providers (Anthropic,
+OpenAI, Google, etc.) when called through `env.AI.run`.
+
+### Config
+```toml
+# wrangler.toml
+[ai]
+binding = "AI"
+```
+
+```bash
+# Optional: route AI binding calls through your gateway for logging.
+wrangler secret put AI_GATEWAY_SLUG    # → e.g. "frames-ai-gateway"
+```
+
+When the binding is present, `LlmClient` automatically routes
+`anthropic/*` and `@cf/*` models through `env.AI.run()` — preferred over
+HTTP paths because it stays inside CF's edge with no extra hop.
+
+### Implementation
+- `LlmClient.callAiBinding()` handles both shapes:
+  - `anthropic/*` → Anthropic Messages API body, native response shape
+  - `@cf/*` → OpenAI-compat body, translated back to Anthropic-shape via the existing helpers
+- Optional `{ gateway: { id } }` routing for the gateway logging dashboard
+- `/health.llm.ai_binding_present` + `ai_binding_gateway_slug` surface state
+
+### Priority order in `LlmClient.call()`
+1. **AI binding** (env.AI) — for `@cf/*` AND `anthropic/*` models. CF billing.
+2. **Workers AI HTTP** — for `@cf/*` when no binding (e.g. Bun dev). CF billing.
+3. **AI Gateway BYOK** — for `anthropic/*` when binding absent. Anthropic billing via your stored key.
+4. **Direct Anthropic** — for `anthropic/*` with `ANTHROPIC_API_KEY` set. Anthropic billing.
+
+The right default for v1 hosted is path 1 — flagship quality, CF billing,
+no operator-side Anthropic account to manage.
+
+110 tests still passing.
+
 ## 0.0.7 — 2026-05-12 (Workers AI mode — CF-hosted models, CF-billed)
 
 Adds a third LLM auth path: **Workers AI**. Routes `@cf/*` models to

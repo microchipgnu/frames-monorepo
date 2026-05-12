@@ -80,9 +80,11 @@ app.get("/health", (c) => {
       pay_to_configured: !!c.env?.TICK_PAY_TO_ADDRESS,
     },
     llm: {
+      ai_binding_present: !!c.env?.AI,
+      ai_binding_gateway_slug: c.env?.AI_GATEWAY_SLUG ?? null,
       ai_gateway_configured: !!(c.env?.AI_GATEWAY_URL && c.env?.AI_GATEWAY_BYOK_ALIAS),
       anthropic_passthrough_configured: !!c.env?.ANTHROPIC_API_KEY,
-      workers_ai_configured: !!(c.env?.CF_ACCOUNT_ID && c.env?.WORKERS_AI_TOKEN && c.env?.WORKERS_AI_MODEL),
+      workers_ai_http_configured: !!(c.env?.CF_ACCOUNT_ID && c.env?.WORKERS_AI_TOKEN && c.env?.WORKERS_AI_MODEL),
     },
     hosted: {
       allowlist_entries: allowlistEntries.length,
@@ -361,13 +363,14 @@ async function executeOpDispatch(args: DispatchArgs): Promise<DispatchOutcome> {
   if (body.op === "curate" || body.op === "discover") {
     const hasByok = !!(env?.AI_GATEWAY_URL && env?.AI_GATEWAY_BYOK_ALIAS);
     const hasPassthroughKey = !!env?.ANTHROPIC_API_KEY;
-    const hasWorkersAi = !!(env?.CF_ACCOUNT_ID && env?.WORKERS_AI_TOKEN && env?.WORKERS_AI_MODEL);
-    if (!hasByok && !hasPassthroughKey && !hasWorkersAi) {
+    const hasWorkersAiHttp = !!(env?.CF_ACCOUNT_ID && env?.WORKERS_AI_TOKEN && env?.WORKERS_AI_MODEL);
+    const hasAiBinding = !!env?.AI;
+    if (!hasByok && !hasPassthroughKey && !hasWorkersAiHttp && !hasAiBinding) {
       return {
         kind: "err",
         status: 400,
         code: "missing_llm_auth",
-        message: `${body.op} requires LLM auth: (a) BYOK AI Gateway (AI_GATEWAY_URL + AI_GATEWAY_BYOK_ALIAS), (b) passthrough (ANTHROPIC_API_KEY), or (c) Workers AI (CF_ACCOUNT_ID + WORKERS_AI_TOKEN + WORKERS_AI_MODEL). verify/refresh don't need one.`,
+        message: `${body.op} requires LLM auth: AI binding (preferred, CF-billed), BYOK gateway, passthrough Anthropic, or Workers AI HTTP. verify/refresh don't need one.`,
         details: { run_id, op: body.op, frame: body.frame, started_at, ended_at: new Date().toISOString() },
       };
     }
@@ -393,12 +396,16 @@ async function executeOpDispatch(args: DispatchArgs): Promise<DispatchOutcome> {
         anthropicApiKey: env!.ANTHROPIC_API_KEY,
         anthropicBaseUrl: env!.ANTHROPIC_BASE_URL,
         gatewayMetadata: { runId: run_id, op: body.op, wallet: agent },
-        // Workers AI fallback: when CF_ACCOUNT_ID + WORKERS_AI_TOKEN are set,
-        // LlmClient routes `@cf/*` models to Cloudflare's hosted models
-        // (CF bills you directly, no external provider account needed).
+        // Workers AI HTTP fallback (Bun dev). Inside the deployed Worker
+        // the AI binding below is preferred — same provider, no HTTP hop.
         workersAiAccountId: env!.CF_ACCOUNT_ID,
         workersAiToken: env!.WORKERS_AI_TOKEN,
         workersAiModel: env!.WORKERS_AI_MODEL,
+        // CF Workers AI binding — preferred. Routes both @cf/* and
+        // anthropic/* models with CF billing. No external provider account
+        // needed; CF's marketplace bills directly for partnered providers.
+        ai: env!.AI,
+        aiGatewaySlug: env!.AI_GATEWAY_SLUG,
       });
       // Extract optional customer prompt from body.params. Hard-cap the size
       // so a malformed/oversized prompt can't blow the LLM context budget or

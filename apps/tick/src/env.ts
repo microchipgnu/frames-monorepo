@@ -34,6 +34,26 @@ export type Bindings = {
    */
   FRAMES_CLOUD?: Fetcher;
 
+  /**
+   * Workers AI binding. Hosts CF's own catalog (`@cf/...`) AND routes to
+   * partnered third-party models with CF billing — including
+   * `anthropic/claude-sonnet-4-6`, `openai/gpt-5-flash`, etc. The Worker
+   * pays CF directly for tokens; no external provider account needed.
+   *
+   * Usage from LlmClient:
+   *   await env.AI.run(model, body, { gateway: { id: AI_GATEWAY_SLUG } })
+   *
+   * Only available inside a deployed CF Worker — local Bun dev falls back
+   * to the HTTP paths (anthropic API or Workers AI REST API).
+   */
+  AI?: Ai;
+  /**
+   * Slug of the AI Gateway to route Workers AI calls through (for logging
+   * + cost dashboard). Optional — if unset, env.AI.run() bypasses the
+   * gateway and CF tracks usage at the account level only.
+   */
+  AI_GATEWAY_SLUG?: string;
+
   // ---------------------------------------------------------------------
   // Outbound wallet secrets (set via `wrangler secret put`)
   //

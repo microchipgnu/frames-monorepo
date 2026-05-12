@@ -37,6 +37,15 @@ binding = "FRAMES_CLOUD"
 service = "frames-cloud"
 
 # ---------------------------------------------------------------------------
+# Workers AI binding — used both for CF-hosted models (@cf/...) and partnered
+# third-party models (anthropic/*, openai/*, etc.). Cloudflare bills directly
+# for both. Optionally routes through the AI Gateway for logging by passing
+# `{ gateway: { id: 'frames-ai-gateway' } }` in the run() options.
+# ---------------------------------------------------------------------------
+[ai]
+binding = "AI"
+
+# ---------------------------------------------------------------------------
 # Week 2 — Durable Objects
 # ---------------------------------------------------------------------------
 # [[durable_objects.bindings]]
