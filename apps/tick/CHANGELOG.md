@@ -1,5 +1,49 @@
 # @frames-ag/tick
 
+## 0.0.10 — 2026-05-12 (budget guard + narrative surfacing)
+
+Three small changes from real-run learnings. Live `curate` against
+`ai-agent-wallets-eu` (Claude Sonnet 4.6 via CF marketplace) blew $1.40
+of LLM tokens against the prior $1.50 default ceiling and produced 0
+events because the safety_floor guard only tracked tool spend.
+
+### Default budgets bumped (`packages/tick-types`)
+- `curate`:   $1.50 → **$3.00**
+- `discover`: $0.50 → **$1.50**
+- `refresh`:  $0.30 → **$0.50**
+- `verify`:   $0.15 (unchanged — no LLM)
+
+Flagship LLM tokens dominate the budget; the old numbers were
+calibrated for cheaper models + tool-spend-only guards.
+
+### LLM-cost-aware budget guard (`curate.ts` + `discover.ts`)
+- Track `maxLlmCostSeen` across iterations.
+- Before each new iter, project next LLM call as `1.2 × maxLlmCostSeen`.
+- Halt early when `remaining < projected + safety_floor`.
+
+Previously the agent could run a full iteration into a budget shortfall,
+post-hoc detect it, then spend ANOTHER call asking for a wrap-up —
+overrunning by 2×. The new projection halts BEFORE the overrun.
+
+### `RunResult.narrative` (top-level)
+The model's one-paragraph wrap-up (previously buried in
+`report.llm_summary`) now also lives at `result.narrative`. It's the
+single most human-readable output of any run and customers shouldn't
+have to dig for it.
+
+Example from a real run:
+> *"This curate tick read the full current state of the
+> ai_agent_wallets_eu dataset (13 entities) and performed live
+> verification... Budget constraints prevented completing set_facts
+> writes for Ovra's founded_year (2025, confirmed from structured
+> data) and last_news_url/last_news_date updates for Wirex and other
+> entities... Recommended follow-up actions for the next tick:..."*
+
+That narrative is high-quality customer-facing output; promoting it
+surfaces it in the response shape directly.
+
+@frames-ag/tick-types bumped to v0.0.1 (RunResult.narrative addition).
+
 ## 0.0.9 — 2026-05-12 (live end-to-end via CF marketplace + cleanup)
 
 First fully-live `curate` run against Claude Sonnet 4.6 via Cloudflare

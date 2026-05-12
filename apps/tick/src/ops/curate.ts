@@ -95,18 +95,28 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
   let iter = 0;
   let stopReason: string = "max_iters";
   let summary = "(no summary)";
+  // Track LLM cost separately so the next-iter projection is honest. A run
+  // that explores cheaply via free tool calls can still blow its budget on
+  // Claude tokens — those compound iteration-over-iteration as the context
+  // grows. Project the next iter as 1.2× the most expensive prior LLM call.
+  let maxLlmCostSeen = 0;
 
   while (iter < maxIters) {
     iter++;
 
-    if (remaining < safetyFloor) {
+    // Project the next iter's likely LLM cost and halt early when it would
+    // push remaining below the floor. Without this, the agent can run a full
+    // iteration into a budget shortfall, post-hoc detect "remaining < floor",
+    // then spend ANOTHER call asking for a summary — overrunning by 2×.
+    const projectedLlmCost = maxLlmCostSeen > 0 ? maxLlmCostSeen * 1.2 : 0;
+    if (remaining < safetyFloor || (projectedLlmCost > 0 && remaining < projectedLlmCost + safetyFloor)) {
       // Force-finalize: ask the model for a one-paragraph wrap-up, no more tools.
       messages.push({
         role: "user",
         content: [
           {
             type: "text",
-            text: `Budget remaining is $${remaining.toFixed(4)} (below safety floor $${safetyFloor}). Wrap up: emit a one-paragraph summary of what was accomplished. Do not call any more tools.`,
+            text: `Budget remaining is $${remaining.toFixed(4)} (next LLM call projects ~$${projectedLlmCost.toFixed(4)}, safety floor $${safetyFloor}). Wrap up: emit a one-paragraph summary of what was accomplished. Do not call any more tools.`,
           },
         ],
       });
@@ -123,7 +133,9 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
       tools: CURATE_TOOLS,
       agent: "build",
     });
-    remaining -= Number(llmRes.usage.estimated_cost);
+    const llmCost = Number(llmRes.usage.estimated_cost);
+    remaining -= llmCost;
+    if (llmCost > maxLlmCostSeen) maxLlmCostSeen = llmCost;
 
     // Append the assistant's full content (text + tool_use) to messages so the
     // model sees its own prior turns.

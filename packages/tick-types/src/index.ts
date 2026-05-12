@@ -62,6 +62,13 @@ export interface RunResult {
   tool_log: ToolCall[];
   /** Free-form summary the agent produced. */
   summary: string;
+  /**
+   * The model's own one-paragraph wrap-up of what it did, what it found,
+   * and what it recommends next. The single most human-readable output of
+   * any run. Null when no LLM was involved (verify / refresh) or no LLM
+   * call completed. Customers should display this prominently.
+   */
+  narrative?: string | null;
   /** ISO 8601 wall-clock duration boundaries. */
   started_at: string;
   ended_at: string;
@@ -140,9 +147,16 @@ export interface RunReceipt {
  *   verify: P50 $0.05, P95 $0.12   → default ceiling $0.15
  *   discover: P50 $0.15, P95 $0.45 → default ceiling $0.50
  */
+/**
+ * Defaults bumped 2026-05-12 after a real curate run blew $1.40 of LLM tokens
+ * against the prior $1.50 ceiling and produced 0 events. With Claude Sonnet 4.6
+ * via CF marketplace at $3/$15 per 1M tokens, a 5-iter curate over a 13-entity
+ * frame floors at ~$1.20 in LLM cost alone — leaving zero room for paid tool
+ * calls. New defaults assume LLM tokens + a modest paid-tool buffer.
+ */
 export const DEFAULT_BUDGETS: Record<Op, string> = {
-  curate: "1.50",
-  refresh: "0.30",
+  curate: "3.00",
+  refresh: "0.50",
   verify: "0.15",
-  discover: "0.50",
+  discover: "1.50",
 };

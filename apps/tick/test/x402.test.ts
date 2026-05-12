@@ -67,8 +67,8 @@ describe("buildPaymentRequirements()", () => {
       "curate",
       undefined,
     );
-    // DEFAULT_BUDGETS.curate is 1.50 → 1_500_000 smallest unit
-    expect(r!.amount).toBe("1500000");
+    // DEFAULT_BUDGETS.curate is 3.00 → 3_000_000 smallest unit (bumped 2026-05-12)
+    expect(r!.amount).toBe("3000000");
   });
 
   test("custom max timeout via env", () => {

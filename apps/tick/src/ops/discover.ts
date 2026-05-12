@@ -197,11 +197,15 @@ export async function discover(opts: DiscoverOptions): Promise<OpOutcome> {
   let iter = 0;
   let stopReason = "max_iters";
   let summary = "(no summary)";
+  // See curate.ts for the rationale — project next iter's LLM cost so we
+  // halt before a budget overrun, not after.
+  let maxLlmCostSeen = 0;
 
   while (iter < maxIters) {
     iter++;
 
-    if (remaining < safetyFloor) {
+    const projectedLlmCost = maxLlmCostSeen > 0 ? maxLlmCostSeen * 1.2 : 0;
+    if (remaining < safetyFloor || (projectedLlmCost > 0 && remaining < projectedLlmCost + safetyFloor)) {
       stopReason = "budget_exhausted";
       summary = `(budget exhausted at iter ${iter}; ${candidates.length} candidates proposed before halt)`;
       break;
@@ -213,7 +217,9 @@ export async function discover(opts: DiscoverOptions): Promise<OpOutcome> {
       tools: DISCOVER_TOOLS,
       agent: "build",
     });
-    remaining -= Number(llmRes.usage.estimated_cost);
+    const llmCost = Number(llmRes.usage.estimated_cost);
+    remaining -= llmCost;
+    if (llmCost > maxLlmCostSeen) maxLlmCostSeen = llmCost;
     messages.push({ role: "assistant", content: llmRes.content });
 
     if (llmRes.stop_reason === "end_turn") {

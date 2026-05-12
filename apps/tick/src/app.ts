@@ -462,6 +462,11 @@ async function executeOpDispatch(args: DispatchArgs): Promise<DispatchOutcome> {
           events: outcome.events,
           tool_log: outcome.tool_log,
           summary: outcome.summary,
+          // Narrative: top-level alias for the model's own one-paragraph
+          // wrap-up. Lives in report.llm_summary too (for back-compat) but
+          // promoted here because it's the most human-readable output of
+          // any run and customers shouldn't have to dig for it.
+          narrative: (outcome.report?.llm_summary as string | undefined) ?? null,
           started_at,
           ended_at,
           report: outcome.report,
@@ -535,6 +540,11 @@ async function executeOpDispatch(args: DispatchArgs): Promise<DispatchOutcome> {
           events: outcome.events,
           tool_log: outcome.tool_log,
           summary: outcome.summary,
+          // Narrative: top-level alias for the model's own one-paragraph
+          // wrap-up. Lives in report.llm_summary too (for back-compat) but
+          // promoted here because it's the most human-readable output of
+          // any run and customers shouldn't have to dig for it.
+          narrative: (outcome.report?.llm_summary as string | undefined) ?? null,
           started_at,
           ended_at,
           report: outcome.report,
