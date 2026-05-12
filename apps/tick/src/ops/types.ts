@@ -64,6 +64,8 @@ export interface OpOutcome {
   events: FrameEvent[];
   tool_log: ToolCall[];
   summary: string;
+  /** Per-LLM-call entries from the agent loop. Empty for non-LLM ops. */
+  iteration_log?: import("@frames-ag/tick-types").IterationLogEntry[];
   /** Op-specific structured payload (e.g., verify returns Drift[]). */
   report?: Record<string, unknown>;
 }

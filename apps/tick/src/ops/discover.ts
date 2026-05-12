@@ -200,6 +200,7 @@ export async function discover(opts: DiscoverOptions): Promise<OpOutcome> {
   // See curate.ts for the rationale — project next iter's LLM cost so we
   // halt before a budget overrun, not after.
   let maxLlmCostSeen = 0;
+  const iteration_log: import("@frames-ag/tick-types").IterationLogEntry[] = [];
 
   while (iter < maxIters) {
     iter++;
@@ -220,6 +221,14 @@ export async function discover(opts: DiscoverOptions): Promise<OpOutcome> {
     const llmCost = Number(llmRes.usage.estimated_cost);
     remaining -= llmCost;
     if (llmCost > maxLlmCostSeen) maxLlmCostSeen = llmCost;
+    iteration_log.push({
+      iter,
+      model: llmRes.model,
+      input_tokens: llmRes.usage.input_tokens,
+      output_tokens: llmRes.usage.output_tokens,
+      cost: llmRes.usage.estimated_cost,
+      stop_reason: llmRes.stop_reason,
+    });
     messages.push({ role: "assistant", content: llmRes.content });
 
     if (llmRes.stop_reason === "end_turn") {
@@ -340,6 +349,7 @@ export async function discover(opts: DiscoverOptions): Promise<OpOutcome> {
     events,
     tool_log,
     summary: `discover · ${schema.name}@${meta.sha.slice(0, 7)} · ${iter} iter · ${candidates.length} candidates proposed · ${events.length} receipts · stop=${stopReason} · $${remaining.toFixed(6)} remaining`,
+    iteration_log,
     report: {
       schema_name: schema.name,
       sha: meta.sha,

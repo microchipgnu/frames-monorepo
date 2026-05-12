@@ -59,6 +59,8 @@ export interface LlmResponse {
   /** Content blocks emitted by the model, in order. May include text + tool_use. */
   content: LlmContent[];
   usage: LlmUsage;
+  /** Model string that actually served the call (provider/model-id form). */
+  model: string;
 }
 
 export interface CallOptions {
@@ -268,6 +270,7 @@ export class LlmClient {
           output_tokens: j.usage.output_tokens,
           estimated_cost: cost.toFixed(6),
         },
+        model,
       };
     }
 
@@ -322,6 +325,7 @@ export class LlmClient {
         output_tokens: json.usage.completion_tokens,
         estimated_cost: cost.toFixed(6),
       },
+      model,
     };
   }
 
@@ -411,6 +415,7 @@ export class LlmClient {
         output_tokens: json.usage.output_tokens,
         estimated_cost: cost.toFixed(6),
       },
+      model: fullModelString,
     };
   }
 
@@ -519,6 +524,7 @@ export class LlmClient {
         output_tokens: json.usage.completion_tokens,
         estimated_cost: cost.toFixed(6),
       },
+      model,
     };
   }
 }

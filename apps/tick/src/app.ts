@@ -374,6 +374,28 @@ async function executeOpDispatch(args: DispatchArgs): Promise<DispatchOutcome> {
         details: { run_id, op: body.op, frame: body.frame, started_at, ended_at: new Date().toISOString() },
       };
     }
+
+    // Pre-flight budget sanity check: warn customers passing explicit
+    // budgets that are well under the calibrated defaults. Flagship LLM
+    // tokens dominate cost — a $0.50 curate run on a 13-entity frame burns
+    // ~$1.40 in tokens alone (confirmed live 2026-05-12).
+    if (body.budget !== undefined) {
+      const explicit = Number(body.budget);
+      const recommended = Number(DEFAULT_BUDGETS[body.op]);
+      if (Number.isFinite(explicit) && explicit > 0 && explicit < recommended * 0.5) {
+        return {
+          kind: "err",
+          status: 400,
+          code: "invalid_body",
+          message: `Budget $${explicit.toFixed(2)} is below the calibrated default for ${body.op} ($${recommended.toFixed(2)}). Flagship LLM tokens alone usually exceed this. Pass at least $${(recommended * 0.5).toFixed(2)} or omit budget to use the default.`,
+          details: {
+            recommended_budget: DEFAULT_BUDGETS[body.op],
+            passed_budget: body.budget,
+            note: "verify/refresh have lower defaults — this only fires for curate/discover.",
+          },
+        };
+      }
+    }
     const db = env?.DB;
     await persistOpen(db, {
       run_id,
@@ -467,6 +489,7 @@ async function executeOpDispatch(args: DispatchArgs): Promise<DispatchOutcome> {
           // promoted here because it's the most human-readable output of
           // any run and customers shouldn't have to dig for it.
           narrative: (outcome.report?.llm_summary as string | undefined) ?? null,
+          iteration_log: outcome.iteration_log ?? [],
           started_at,
           ended_at,
           report: outcome.report,
@@ -545,6 +568,7 @@ async function executeOpDispatch(args: DispatchArgs): Promise<DispatchOutcome> {
           // promoted here because it's the most human-readable output of
           // any run and customers shouldn't have to dig for it.
           narrative: (outcome.report?.llm_summary as string | undefined) ?? null,
+          iteration_log: outcome.iteration_log ?? [],
           started_at,
           ended_at,
           report: outcome.report,
@@ -910,15 +934,48 @@ function extractEntityId(ev: import("@frames-ag/tick-types").FrameEvent): string
 // ---------------------------------------------------------------------------
 // Read endpoints
 //
-// `/runs/:id`  — receipt for a specific run. Public by `run_id` possession
-//                (run_ids are opaque UUIDs). Anyone holding the id can audit.
-// `/history`   — runs by wallet address. Requires SIWX signature gating;
-//                week-5 ships a real CAIP-122 verifier. For now, requires
-//                an explicit `?address=` and returns 401 without one.
-// `/balance`   — wallet outbound balance summary. For now, returns the
-//                configured outbound chain status from env; on-chain balance
-//                lookup ships when we wire RPC clients for read-side.
+// `/runs/:id`  — receipt for a run. **Auth required** — caller's Bearer
+//                token (via TICK_API_KEYS) must map to the same agent that
+//                created the run. Earlier design was "public by run_id
+//                possession" but receipts leak frame URL + agent identity +
+//                source URLs + narrative reasoning, so gating is the right
+//                default. 403 on mismatch, 401 on no auth.
+// `/history`   — runs by wallet address. Same gating: caller agent must
+//                match the queried address. Post-SIWX adds CAIP-122
+//                signature verification on top.
+// `/balance`   — wallet outbound balance summary. Today: env-config state
+//                only. On-chain balance lookups ship when RPC client lands.
 // ---------------------------------------------------------------------------
+
+/**
+ * Identity helper for read endpoints. Resolves the caller's agent via the
+ * same bearer-token path as `/run` (TICK_API_KEYS). Returns null when no
+ * Bearer was sent OR the Bearer doesn't match any configured key — callers
+ * should 401/403 accordingly. Falls back to "no gate" when TICK_API_KEYS is
+ * unset (dev mode).
+ */
+function resolveCallerAgent(c: import("hono").Context<{ Bindings: Bindings }>): {
+  ok: boolean;
+  agent?: string;
+  reason?: string;
+  status: 200 | 401 | 403;
+} {
+  // Dev mode: no API keys configured → ungated. Aligns with /run's
+  // closed-by-default behavior (when no keys, hosted is meant to be
+  // closed at the allowlist anyway, so this path is reached only via
+  // local Bun smoketest).
+  if (!c.env?.TICK_API_KEYS) {
+    return { ok: true, status: 200 };
+  }
+  const lookup = lookupApiKey(c.req.raw, c.env.TICK_API_KEYS);
+  if (lookup.unauthorized) {
+    return { ok: false, reason: lookup.reason ?? "invalid Bearer token", status: 401 };
+  }
+  if (!lookup.matched) {
+    return { ok: false, reason: "Bearer token required to read receipts", status: 401 };
+  }
+  return { ok: true, agent: lookup.agent!, status: 200 };
+}
 
 // DELETE /runs/:id — mark a run as aborted. Doesn't settle. Best-effort: the
 // in-flight op may have already started spending; this just stops new tool
@@ -946,6 +1003,20 @@ app.get("/runs/:id", async (c) => {
   const run_id = c.req.param("id");
   const run = await getRun(c.env.DB, run_id);
   if (!run) return errorResponse(c, 404, "not_found", `run not found: ${run_id}`, { run_id });
+
+  // Privacy gate: caller's bearer-mapped agent must match the run's agent.
+  // Bypassed only in dev mode when TICK_API_KEYS is unconfigured.
+  const caller = resolveCallerAgent(c);
+  if (!caller.ok) {
+    return errorResponse(c, caller.status as 401 | 403, "invalid_api_key", caller.reason ?? "auth required");
+  }
+  if (caller.agent && caller.agent !== run.agent) {
+    log.warn("receipt_access_denied", { run_id, caller_agent: caller.agent, run_agent: run.agent });
+    return errorResponse(c, 403, "agent_not_allowlisted", "Bearer agent does not match the run's owner", {
+      run_id,
+    });
+  }
+
   const events = await getRunEvents(c.env.DB, run_id);
   const tool_calls = await getRunToolCalls(c.env.DB, run_id);
   return c.json({
@@ -994,10 +1065,6 @@ app.get("/runs/:id", async (c) => {
 app.get("/history", async (c) => {
   if (!c.env?.DB) return errorResponse(c, 503, "no_db_binding", "D1 binding not configured on this Worker");
   const address = c.req.query("address");
-  // TODO: replace ?address= with real SIWX/CAIP-122 signature verification.
-  // For now, we accept an explicit address but never publish private metadata.
-  // A spoofed address returns runs that match — they're already visible via /runs/:id
-  // to anyone with the run_id, so this is not a leak vector, just an unauth'd index.
   if (!address) {
     return errorResponse(
       c,
@@ -1007,9 +1074,24 @@ app.get("/history", async (c) => {
     );
   }
   const limit = Math.min(100, parseInt(c.req.query("limit") ?? "20", 10) || 20);
-  // The agent column stores `frames-runtime:<address>`; accept either the bare
-  // address or the prefixed form. Normalize to the prefixed form for the query.
+  // Normalize to the prefixed agent form for the query.
   const agent = address.startsWith("frames-runtime:") ? address : `frames-runtime:${address}`;
+
+  // Privacy gate: caller's bearer must map to the queried agent. Prevents
+  // a third party with knowledge of someone's address from reading their
+  // run index. Bypassed in dev mode when TICK_API_KEYS is unconfigured.
+  const caller = resolveCallerAgent(c);
+  if (!caller.ok) {
+    return errorResponse(c, caller.status as 401 | 403, "invalid_api_key", caller.reason ?? "auth required");
+  }
+  if (caller.agent && caller.agent !== agent) {
+    log.warn("history_access_denied", { caller_agent: caller.agent, queried_agent: agent });
+    return errorResponse(c, 403, "agent_not_allowlisted", "Bearer agent does not match ?address=", {
+      caller_agent: caller.agent,
+      queried_agent: agent,
+    });
+  }
+
   const runs = await listRunsByAgent(c.env.DB, agent, limit);
   return c.json({
     address,
@@ -1048,6 +1130,26 @@ app.delete("/history", async (c) => {
     return errorResponse(c, 401, "address_required", "Provide ?address=<wallet> to purge runs. Real SIWX gating ships later.");
   }
 
+  const queriedAgent = address.startsWith("frames-runtime:") ? address : `frames-runtime:${address}`;
+
+  // Bearer-token gate (preferred in v1). Caller agent must match the queried
+  // address. x402 path below is the alternative when no API key is configured
+  // but facilitator is set (Phase B).
+  const caller = resolveCallerAgent(c);
+  if (caller.ok && caller.agent) {
+    if (caller.agent !== queriedAgent) {
+      log.warn("history_delete_denied_bearer", { caller_agent: caller.agent, queried_agent: queriedAgent });
+      return errorResponse(c, 403, "agent_not_allowlisted", "Bearer agent does not match ?address=. You may only purge your own runs.");
+    }
+    // Authenticated via bearer; skip x402 check below.
+    const { deleted } = await purgeRunsByAgent(c.env.DB, queriedAgent);
+    log.info("history_purged", { agent: queriedAgent, deleted, auth: "bearer" });
+    return c.json({ address, agent: queriedAgent, deleted });
+  } else if (!caller.ok && c.env.TICK_API_KEYS) {
+    // API keys ARE configured but the Bearer didn't match → 401, don't fall through
+    return errorResponse(c, caller.status as 401 | 403, "invalid_api_key", caller.reason ?? "auth required");
+  }
+
   // Strict mode: when FACILITATOR_URL is set, verify the payment header and
   // require the payer to match the address being purged. We use a tiny
   // zero-cost PaymentRequirements as the proof-of-identity vehicle — the
@@ -1075,10 +1177,9 @@ app.delete("/history", async (c) => {
     }
   }
 
-  const agent = address.startsWith("frames-runtime:") ? address : `frames-runtime:${address}`;
-  const { deleted } = await purgeRunsByAgent(c.env.DB, agent);
-  log.info("history_purged", { agent, deleted });
-  return c.json({ address, agent, deleted });
+  const { deleted } = await purgeRunsByAgent(c.env.DB, queriedAgent);
+  log.info("history_purged", { agent: queriedAgent, deleted, auth: "x402" });
+  return c.json({ address, agent: queriedAgent, deleted });
 });
 
 app.get("/balance", (c) => {

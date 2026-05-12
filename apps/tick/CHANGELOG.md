@@ -1,5 +1,52 @@
 # @frames-ag/tick
 
+## 0.0.12 — 2026-05-12 (privacy gates + iteration_log + budget pre-flight)
+
+Three improvements from the post-launch review:
+
+### Privacy gates on read endpoints
+- **`GET /runs/:id`** now requires the caller's `Authorization: Bearer
+  <key>` (via `TICK_API_KEYS`) to map to the same agent that created the
+  run. Earlier "public by run_id possession" leaked frame URL, agent
+  identity, source URLs, and the agent's narrative reasoning. 403 on
+  mismatch.
+- **`GET /history?address=`** same: caller agent must match the queried
+  address.
+- **`DELETE /history?address=`** adds bearer-token path alongside the
+  existing x402-verify path. Either works (whichever is configured), and
+  both require identity match.
+- New helper `resolveCallerAgent(c)` centralizes the bearer lookup for
+  read endpoints. Dev mode (no `TICK_API_KEYS` configured) bypasses the
+  gate, consistent with closed-by-default on `/run`.
+
+### `iteration_log` in `RunResult`
+Top-level `result.iteration_log: IterationLogEntry[]` exposes one entry
+per LLM call across the agent loop:
+```ts
+{ iter, model, input_tokens, output_tokens, cost, stop_reason }
+```
+Customers can see exactly where their budget went — which iter, which
+model served the call (anthropic vs @cf), and what stopped each call.
+Curate and discover both populate it. `LlmResponse.model` is now part of
+the LlmClient surface; `IterationLogEntry` is exported from
+`@frames-ag/tick-types@0.0.2`.
+
+### Budget pre-flight check
+When a caller passes an explicit `budget` to curate/discover that's
+less than 50% of the calibrated default, `/run` returns 400 with a
+`recommended_budget` hint instead of dispatching. Prevents the
+"0 events" failure mode we hit live with a $0.50 curate that burned
+$1.40 of Claude tokens.
+
+@frames-ag/tick-types bumped to v0.0.2.
+
+## 0.0.11 — 2026-05-12 (retry transient upstream errors)
+
+Wraps `callAnthropic` in the existing `retry` helper. Real run hit
+"Anthropic 529 (via AI Gateway): Overloaded" — upstream transient.
+3 retries, 1s initial delay, exponential backoff. Default predicate
+catches status >= 500 + network errors; 4xx fails-fast.
+
 ## 0.0.10 — 2026-05-12 (budget guard + narrative surfacing)
 
 Three small changes from real-run learnings. Live `curate` against

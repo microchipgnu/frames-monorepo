@@ -69,9 +69,29 @@ export interface RunResult {
    * call completed. Customers should display this prominently.
    */
   narrative?: string | null;
+  /**
+   * One entry per LLM call across the agent loop. Lets customers see exactly
+   * where their budget went — which iter, which model, how many tokens, how
+   * much each call cost, what stopped the call. Empty array for non-LLM ops
+   * (verify, refresh).
+   */
+  iteration_log?: IterationLogEntry[];
   /** ISO 8601 wall-clock duration boundaries. */
   started_at: string;
   ended_at: string;
+}
+
+export interface IterationLogEntry {
+  /** 1-indexed agent-loop iteration. */
+  iter: number;
+  /** Model string the call was routed to (e.g. `anthropic/claude-sonnet-4-6`). */
+  model: string;
+  input_tokens: number;
+  output_tokens: number;
+  /** USDC cost of this single call. */
+  cost: string;
+  /** Anthropic-style stop reason: end_turn / tool_use / max_tokens / budget_exhausted / ... */
+  stop_reason: string;
 }
 
 /**

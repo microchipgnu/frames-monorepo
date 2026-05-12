@@ -91,6 +91,8 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
 
   const events: FrameEvent[] = [];
   const tool_log: ToolCall[] = [];
+  // Per-iter LLM-call log so customers can see where their budget went.
+  const iteration_log: import("@frames-ag/tick-types").IterationLogEntry[] = [];
 
   let iter = 0;
   let stopReason: string = "max_iters";
@@ -124,6 +126,14 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
       remaining -= Number(finalRes.usage.estimated_cost);
       summary = extractText(finalRes.content) || "(budget exhausted; no final summary)";
       stopReason = "budget_exhausted";
+      iteration_log.push({
+        iter,
+        model: finalRes.model,
+        input_tokens: finalRes.usage.input_tokens,
+        output_tokens: finalRes.usage.output_tokens,
+        cost: finalRes.usage.estimated_cost,
+        stop_reason: "budget_exhausted",
+      });
       break;
     }
 
@@ -136,6 +146,14 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
     const llmCost = Number(llmRes.usage.estimated_cost);
     remaining -= llmCost;
     if (llmCost > maxLlmCostSeen) maxLlmCostSeen = llmCost;
+    iteration_log.push({
+      iter,
+      model: llmRes.model,
+      input_tokens: llmRes.usage.input_tokens,
+      output_tokens: llmRes.usage.output_tokens,
+      cost: llmRes.usage.estimated_cost,
+      stop_reason: llmRes.stop_reason,
+    });
 
     // Append the assistant's full content (text + tool_use) to messages so the
     // model sees its own prior turns.
@@ -194,6 +212,7 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
     events,
     tool_log,
     summary: `curate · ${schema.name}@${meta.sha.slice(0, 7)} · ${iter} iter · ${events.length} events · ${tool_log.length} tool calls · stop=${stopReason} · $${remaining.toFixed(6)} remaining`,
+    iteration_log,
     report: {
       schema_name: schema.name,
       sha: meta.sha,
