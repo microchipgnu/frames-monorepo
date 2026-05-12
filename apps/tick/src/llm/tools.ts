@@ -167,10 +167,16 @@ export const CURATE_TOOLS: LlmToolSpec[] = [
   {
     name: "web_fetch",
     description:
-      "Direct fetch of a URL via paidFetch. Use as a fallback when the catalog doesn't have a matching descriptor, or when you need to fetch a specific URL the catalog doesn't index (raw GitHub README, vendor docs page, etc.). Returns body text up to 64 KB.",
+      "Direct fetch of a URL via paidFetch. Use as a fallback when the catalog doesn't have a matching descriptor, or when you need to fetch a specific URL the catalog doesn't index (raw GitHub README, vendor docs page, etc.). The page is auto-summarized by a cheap LLM against the dataset schema before you see it — you get ~500-2000 tokens of structured per-field excerpts, not raw HTML. Pass `entity_hint` when you know which existing entity (or candidate) the page is about — it focuses the summarizer.",
     input_schema: {
       type: "object",
-      properties: { url: { type: "string" } },
+      properties: {
+        url: { type: "string" },
+        entity_hint: {
+          type: "string",
+          description: "Optional. Entity id or name the page is about; helps the summarizer focus.",
+        },
+      },
       required: ["url"],
     },
   },

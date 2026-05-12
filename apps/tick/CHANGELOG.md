@@ -1,5 +1,47 @@
 # @frames-ag/tick
 
+## 0.0.13 — 2026-05-12 (Phase A — Haiku-summarized web fetches)
+
+The biggest cost lever from the post-launch review. Web-fetch results
+used to dump up to 64 KB of raw HTML into the agent's context, which
+compounded across the loop — iter 4 of a real curate jumped from 13K
+to 97K tokens in one shot, every subsequent call cost $0.40-$0.60 just
+to feed the same HTML over and over.
+
+### Change
+- New `src/llm/summarize.ts` — `summarizeForContext()` runs a Haiku-tier
+  call (via `agent: "title"` model routing) against the raw fetched body
+  with the dataset schema as the extraction template. Output: ~500-2000
+  tokens of structured per-field excerpts. The agent never sees raw HTML.
+- `dispatchWebFetch` in both `curate.ts` and `discover.ts` now calls
+  `summarizeForContext` and returns the summary as the `tool_result`.
+  Total cost = fetch cost + summarizer LLM cost; reported in `tool_log`.
+- `web_fetch` tool definitions updated with `entity_hint` param so the
+  agent can tell the summarizer which entity the page is about — focuses
+  the extraction.
+- Falls back to a stripped-HTML excerpt when Haiku times out so the agent
+  always gets something useful.
+
+### Cost impact (projected)
+On the same 5-fetch curate run we measured at v0.0.12:
+- v0.0.12: ~$3.13 (9 iters × $0.30-$0.60 each due to compounding context)
+- v0.0.13: ~$0.30-$0.50 expected (Haiku summarization is ~$0.005 per fetch;
+  parent context stays under ~30K tokens through the loop)
+
+Real numbers from the next live curate run will land in the CHANGELOG
+note for v0.0.14.
+
+### Model routing — already wired
+`agent: "title"` was plumbed since v0.0.0 but never invoked at a real
+call site. The summarizer is the first production caller. Title model
+default: `anthropic/claude-haiku-4-5` (~$1/$5 per 1M tok, ~3x cheaper
+than Sonnet 4.6 input / ~3x cheaper output).
+
+### What's NOT in this release
+- Phase B (per-entity sub-loops) — separate v0.1.0 release
+- Phase C (sub-loops promoted to @cloudflare/agents DOs) — v0.1.1
+- Phase D (prompt-cache + recursive compaction) — v0.1.2
+
 ## 0.0.12 — 2026-05-12 (privacy gates + iteration_log + budget pre-flight)
 
 Three improvements from the post-launch review:

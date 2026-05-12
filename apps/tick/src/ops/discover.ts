@@ -14,6 +14,7 @@ import type { ToolCall } from "@frames-ag/tick-types";
 import { CatalogClient } from "../catalog/client";
 import { FrameClient, type FrameMeta, type FrameSchema } from "../frame-client";
 import { LlmClient, type LlmContent, type LlmMessage, type LlmToolSpec } from "../llm/client";
+import { summarizeForContext } from "../llm/summarize";
 import {
   dispatchCatalogGet,
   dispatchCatalogSearch,
@@ -115,10 +116,13 @@ const DISCOVER_TOOLS: LlmToolSpec[] = [
   {
     name: "web_fetch",
     description:
-      "Fallback: direct fetch of a URL. Use when the catalog has no matching descriptor (raw GitHub READMEs, vendor docs pages). Returns body up to 64 KB.",
+      "Fallback: direct fetch of a URL. Use when the catalog has no matching descriptor (raw GitHub READMEs, vendor docs pages). The page is auto-summarized by a cheap LLM against the schema before you see it — you get ~500-2000 tokens of structured per-field excerpts, not raw HTML. Pass `entity_hint` if the page is about a specific candidate.",
     input_schema: {
       type: "object",
-      properties: { url: { type: "string" } },
+      properties: {
+        url: { type: "string" },
+        entity_hint: { type: "string", description: "Optional. Candidate entity_id this page is about." },
+      },
       required: ["url"],
     },
   },
@@ -282,8 +286,18 @@ export async function discover(opts: DiscoverOptions): Promise<OpOutcome> {
           resultText = `Fetch failed: ${r.error}`;
           isError = true;
         } else {
-          const body = (r.body ?? "").slice(0, 64 * 1024);
-          resultText = `Fetched ${r.final_url} (${body.length} bytes, $${r.tool_call?.cost ?? "0"}):\n\n${body}`;
+          // Cheap-model summarization — same lever as curate.ts. Avoid
+          // dumping 64KB of raw HTML into the discover loop's context.
+          const summary = await summarizeForContext({
+            body: r.body ?? "",
+            schema,
+            entity_hint: typeof block.input.entity_hint === "string" ? block.input.entity_hint : undefined,
+            source_url: url,
+            final_url: r.final_url,
+            llm: opts.llm,
+          });
+          remaining -= Number(summary.cost);
+          resultText = summary.summary;
         }
       } else if (
         block.name === "catalog_search" ||

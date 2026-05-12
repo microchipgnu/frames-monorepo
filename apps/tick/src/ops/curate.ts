@@ -18,6 +18,7 @@ import type { FrameEvent, ToolCall } from "@frames-ag/tick-types";
 import { CatalogClient } from "../catalog/client";
 import { FrameClient, type FrameMeta, type FrameSchema } from "../frame-client";
 import { LlmClient, type LlmContent, type LlmMessage } from "../llm/client";
+import { summarizeForContext } from "../llm/summarize";
 import { buildCurateSystem } from "../llm/system";
 import { CURATE_TOOLS } from "../llm/tools";
 import {
@@ -191,6 +192,8 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
         catalog,
         remaining_budget: remaining.toFixed(6),
         env: opts.env,
+        llm: opts.llm,
+        schema,
       });
       remaining -= Number(dispatch.cost);
       for (const ev of dispatch.events) {
@@ -235,6 +238,9 @@ interface DispatchContext {
   catalog: CatalogClient;
   remaining_budget: string;
   env?: { AUDIT_PRIVATE_KEY?: string };
+  /** LLM + schema needed for cheap-model summarization of fetched pages. */
+  llm: LlmClient;
+  schema: FrameSchema;
 }
 
 async function dispatchTool(
@@ -441,21 +447,45 @@ async function dispatchWebFetch(
 ): Promise<ToolDispatchResult> {
   const url = String(input.url);
   if (!url || !/^https?:\/\//.test(url)) return errorResult("valid http(s) url required");
+
   const result = await ctx.refetcher({
     url,
     remaining_budget: ctx.remaining_budget,
     run_id: ctx.run_id,
   });
-  const cost = result.tool_call?.cost ?? "0";
-  // Cap body to 64 KB in the tool_result to keep LLM context bounded.
-  const body = (result.body ?? "").slice(0, 64 * 1024);
-  const result_text = result.ok
-    ? `Fetched ${result.final_url} (${result.body_bytes ?? body.length} bytes, $${cost}):\n\n${body}`
-    : `Fetch failed: ${result.error}`;
+  const fetchCost = result.tool_call?.cost ?? "0";
+
+  if (!result.ok) {
+    return {
+      result_text: `Fetch failed: ${result.error}`,
+      is_error: true,
+      cost: fetchCost,
+      events: result.event ? [result.event] : [],
+      tool_call: result.tool_call,
+    };
+  }
+
+  // Summarize the fetched body via a cheap-model call BEFORE it lands in
+  // the parent agent's context. This is the single biggest cost lever in
+  // tick — see src/llm/summarize.ts header for the rationale. Raw HTML
+  // would compound the parent's context by 30-80 KB per fetch; the summary
+  // is ~500-2000 tokens of structured per-field excerpts.
+  const summary = await summarizeForContext({
+    body: result.body ?? "",
+    schema: ctx.schema,
+    entity_hint: typeof input.entity_hint === "string" ? input.entity_hint : undefined,
+    source_url: url,
+    final_url: result.final_url,
+    llm: ctx.llm,
+  });
+
+  // Total cost = fetch cost (typically $0) + summarizer LLM cost.
+  const totalCost = (Number(fetchCost) + Number(summary.cost)).toFixed(6);
+
   return {
-    result_text,
-    is_error: !result.ok,
-    cost,
+    result_text: summary.summary,
+    is_error: false,
+    cost: totalCost,
     events: result.event ? [result.event] : [],
     tool_call: result.tool_call,
   };
