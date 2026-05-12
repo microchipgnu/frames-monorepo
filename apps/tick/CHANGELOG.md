@@ -1,5 +1,21 @@
 # @frames-ag/tick
 
+## 0.0.6 — 2026-05-12 (fix: rewrite workspace:* deps for npm install)
+
+v0.0.5 published cleanly to npm but with `workspace:*` left in the
+`dependencies` field for `@frames-ag/payment-tempo` and
+`@frames-ag/tick-types`. `npm install`/`npx` can't resolve that protocol
+(it's a bun/pnpm-only specifier), so `npx -y @frames-ag/tick@0.0.5` fails
+with `EUNSUPPORTEDPROTOCOL`. `bun publish` (which the CI Release workflow
+ended up using through `bunx changeset publish`) doesn't rewrite workspace
+specifiers the way `npm publish` does.
+
+Fix: replace `workspace:*` with the actual semver in tick's package.json.
+Bun's local install still resolves the workspace members by name + version,
+so `bun install` at the monorepo root is unaffected.
+
+No code changes; just the install path for downstream consumers.
+
 ## 0.0.5 — 2026-05-12 (customer prompt auto-discovery)
 
 Closes the `frames-examples` migration gap: customers keep their existing
