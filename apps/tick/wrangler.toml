@@ -1,0 +1,55 @@
+name = "tick"
+main = "src/worker.ts"
+compatibility_date = "2026-05-11"
+compatibility_flags = ["nodejs_compat"]
+
+# Custom domain — points at tick.frames.ag.
+# routes = [{ pattern = "tick.frames.ag/*", custom_domain = true }]
+
+[vars]
+# Sibling CF Container app that wraps Faremeter for x402/MPP verify+settle.
+# Wired in week 1; overridden per-environment for staging/preview.
+FACILITATOR_URL = "https://tick-facilitator.frames.ag"
+
+# Cloudflare Coinbase Developer Platform fallback for x402 verify+settle
+# when our Faremeter instance is unavailable. Disabled until week 5 hardening.
+# CDP_FALLBACK_URL = "https://api.cdp.coinbase.com/x402"
+
+# ---------------------------------------------------------------------------
+# D1 — receipts store
+# Apply migrations: `bunx wrangler d1 migrations apply tick-receipts --local|--remote`
+# Create database one-time: `bunx wrangler d1 create tick-receipts` → paste id below
+# ---------------------------------------------------------------------------
+[[d1_databases]]
+binding = "DB"
+database_name = "tick-receipts"
+database_id = "1c044e5e-2639-4f0e-b162-82c4ca4eb43a"
+migrations_dir = "migrations"
+
+# ---------------------------------------------------------------------------
+# Week 2 — Durable Objects
+# ---------------------------------------------------------------------------
+# [[durable_objects.bindings]]
+# name = "RUN_SESSION"
+# class_name = "RunSession"
+#
+# [[durable_objects.bindings]]
+# name = "WALLET"
+# class_name = "WalletDO"
+#
+# [[migrations]]
+# tag = "v1"
+# new_sqlite_classes = ["RunSession", "WalletDO"]
+
+# ---------------------------------------------------------------------------
+# Week 4 — Sandboxes + R2
+# ---------------------------------------------------------------------------
+# [[r2_buckets]]
+# binding = "R2_ARTIFACTS"
+# bucket_name = "tick-artifacts"
+
+# ---------------------------------------------------------------------------
+# Secrets (set via `wrangler secret put`)
+# ---------------------------------------------------------------------------
+# AI_GATEWAY_TOKEN     — AI Gateway BYOK auth
+# WALLET_SIGNER_KEY    — Coinbase Agentic Wallet API key for outbound x402 signing

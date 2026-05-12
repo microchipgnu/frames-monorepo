@@ -1,0 +1,46 @@
+{
+  "name": "tick",
+  "version": "0.0.0",
+  "description": "Hosted runtime for frame datasets. Four ops — curate, refresh, verify, discover — billed via x402/MPP in USDC. Wallet IS the identity.",
+  "author": "frames-engineering",
+  "license": "MIT",
+  "homepage": "https://tick.frames.ag",
+  "keywords": [
+    "tick",
+    "frame",
+    "frames",
+    "agent",
+    "runtime",
+    "curation",
+    "dataset",
+    "evidence",
+    "x402",
+    "mpp",
+    "agentic-payments",
+    "cloudflare-workers",
+    "wallet-native"
+  ],
+  "moltbot": {
+    "emoji": "⏱",
+    "category": "agent-runtime",
+    "api_base": "https://tick.frames.ag",
+    "files": {
+      "SKILL.md": "https://raw.githubusercontent.com/frames-engineering/frames-monorepo/main/apps/tick/skill/SKILL.md"
+    },
+    "requires": {
+      "bins": ["curl"]
+    },
+    "triggers": [
+      "tick",
+      "frame runtime",
+      "curate frame",
+      "refresh frame",
+      "verify frame",
+      "discover frame entities",
+      "x402 curate",
+      "mpp curate",
+      "frame dataset tick",
+      "agentic curation"
+    ]
+  }
+}

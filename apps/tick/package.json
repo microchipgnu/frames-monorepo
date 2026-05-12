@@ -1,0 +1,84 @@
+{
+  "name": "@frames-ag/tick",
+  "version": "0.0.5",
+  "module": "src/index.ts",
+  "type": "module",
+  "private": true,
+  "description": "Hosted runtime for frame datasets. Managed wallet + tool catalog injection. Billed via x402 / MPP. Implements frames-cloud Tier 3 #15.",
+  "license": "MIT",
+  "author": "frames.ag",
+  "homepage": "https://github.com/frames-engineering/frames-monorepo/tree/main/apps/tick",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frames-engineering/frames-monorepo.git",
+    "directory": "apps/tick"
+  },
+  "bugs": "https://github.com/frames-engineering/frames-monorepo/issues",
+  "keywords": [
+    "frames",
+    "x402",
+    "agents",
+    "cloudflare-workers",
+    "dataset-curation",
+    "mcp"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "bun --hot src/index.ts",
+    "dev:cloudflare": "bunx wrangler dev",
+    "start": "bun src/index.ts",
+    "smoke": "bun scripts/smoketest.ts",
+    "test": "bun test test/",
+    "typecheck": "tsc --noEmit",
+    "build": "bun scripts/build.ts",
+    "prepublishOnly": "bun run typecheck && bun run build",
+    "deploy:cloudflare": "bunx wrangler deploy"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240500.0",
+    "@types/bun": "latest",
+    "typescript": "^5",
+    "wrangler": "^4.0.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@faremeter/fetch": "^0.21.0",
+    "@faremeter/payment-evm": "^0.21.0",
+    "@faremeter/payment-solana": "^0.21.0",
+    "@faremeter/types": "^0.21.0",
+    "@faremeter/wallet-evm": "^0.21.0",
+    "@faremeter/wallet-solana": "^0.21.0",
+    "@frames-ag/payment-tempo": "workspace:*",
+    "@frames-ag/tick-types": "workspace:*",
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "@solana/kit": "^6.9.0",
+    "agents": "^0.12.3",
+    "hono": "^4.12.16",
+    "viem": "^2.48.8"
+  },
+  "bin": {
+    "tick": "./dist/cli.js"
+  },
+  "main": "./dist/cli.js",
+  "types": "./dist/types/lib.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/lib.d.ts",
+      "import": "./dist/cli.js"
+    }
+  },
+  "files": [
+    "dist/cli.js",
+    "dist/types/",
+    "skill/",
+    "README.md",
+    "CHANGELOG.md",
+    "DEPLOY.md",
+    "MIGRATION.md",
+    "LICENSE"
+  ]
+}
