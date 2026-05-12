@@ -226,13 +226,17 @@ export class LlmClient {
         }));
       }
       // Diagnostic — see exactly what we're sending so we can spot
-      // whether messages.1.content has the id Anthropic expects.
-      console.log(
-        "[ai-binding-anthropic] request messages.1:",
-        body.messages && Array.isArray(body.messages) && body.messages[1]
-          ? JSON.stringify(body.messages[1]).slice(0, 800)
-          : "<none>",
-      );
+      // whether messages.N.content has the id Anthropic expects.
+      const { log } = await import("../util/log");
+      const lastMsg = Array.isArray(body.messages) && body.messages.length > 0
+        ? body.messages[body.messages.length - 1]
+        : null;
+      log.info("ai_binding_request", {
+        model,
+        message_count: Array.isArray(body.messages) ? body.messages.length : 0,
+        last_message_role: (lastMsg as { role?: string } | null)?.role,
+        last_message_sample: lastMsg ? JSON.stringify(lastMsg).slice(0, 500) : null,
+      });
       const json = await this.cfg.ai!.run(model, body as never, gatewayOpts);
       const j = json as {
         stop_reason: string;
