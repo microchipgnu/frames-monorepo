@@ -225,6 +225,14 @@ export class LlmClient {
           input_schema: t.input_schema,
         }));
       }
+      // Diagnostic — see exactly what we're sending so we can spot
+      // whether messages.1.content has the id Anthropic expects.
+      console.log(
+        "[ai-binding-anthropic] request messages.1:",
+        body.messages && Array.isArray(body.messages) && body.messages[1]
+          ? JSON.stringify(body.messages[1]).slice(0, 800)
+          : "<none>",
+      );
       const json = await this.cfg.ai!.run(model, body as never, gatewayOpts);
       const j = json as {
         stop_reason: string;
