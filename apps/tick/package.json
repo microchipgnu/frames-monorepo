@@ -3,7 +3,7 @@
   "version": "0.0.5",
   "module": "src/index.ts",
   "type": "module",
-  "private": true,
+  "private": false,
   "description": "Hosted runtime for frame datasets. Managed wallet + tool catalog injection. Billed via x402 / MPP. Implements frames-cloud Tier 3 #15.",
   "license": "MIT",
   "author": "frames.ag",
