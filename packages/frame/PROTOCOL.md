@@ -46,19 +46,23 @@ Every line in `events.ndjson` is a JSON object with five required fields:
   "ts": "2026-04-30T14:22:11.000Z",
   "type": "fact.set",
   "agent": "claude:opus-4.7",
+  "run_id": "run_a1b2c3",
   "payload": { "...": "type-specific" }
 }
 ```
 
-| field | type | description |
-|---|---|---|
-| `id` | UUID v4 | unique event ID |
-| `ts` | ISO 8601 | when the event was recorded (UTC, millisecond precision) |
-| `type` | string | event type (see below) |
-| `agent` | string | who made this change. Format: `<kind>:<identifier>` (e.g. `claude:opus-4.7`, `human:luis@frames.ag`, `system:projector`) |
-| `payload` | object | type-specific fields |
+| field | type | required | description |
+|---|---|---|---|
+| `id` | UUID v4 | yes | unique event ID |
+| `ts` | ISO 8601 | yes | when the event was recorded (UTC, millisecond precision) |
+| `type` | string | yes | event type (see below) |
+| `agent` | string | yes | who made this change. Format: `<kind>:<identifier>` (e.g. `claude:opus-4.7`, `human:luis@frames.ag`, `system:projector`, `frames-runtime:0xa1b2…`) |
+| `run_id` | string | no (v0.2.0+) | optional correlation ID grouping events written during a single curation tick. Lets external runtimes join their tool log to the frame's events. Forward-compatible: older readers ignore. |
+| `payload` | object | yes | type-specific fields |
 
 Unknown event types must be skipped by the projector (forward compatibility).
+
+Unknown top-level fields must be preserved when forwarded and ignored when not understood. `run_id` was added in v0.2.0.
 
 ## Event types
 
@@ -87,6 +91,36 @@ Establishes that an entity exists. `entity_id` is a stable, slug-shaped string (
 ```
 
 Sets the value of a field on an entity. Last-write-wins by `ts` for `(entity_id, field)`. `fact_id` is a fresh UUID v4 used to reference this fact later. `confidence` (0–1) and `observed_at` are optional.
+
+### `facts.set_many` (v0.2.0+)
+
+```json
+{
+  "payload": {
+    "entity_id": "acme-fi",
+    "facts": [
+      {
+        "fact_id": "uuid-v4",
+        "field": "founded_year",
+        "value": 2024,
+        "source": { "url": "...", "retrieved_at": "...", "excerpt": "..." }
+      },
+      {
+        "fact_id": "uuid-v4",
+        "field": "hq_country",
+        "value": "DE",
+        "source": { "url": "...", "retrieved_at": "..." }
+      }
+    ]
+  }
+}
+```
+
+Atomic bulk-write of multiple facts to a single entity in one event. Equivalent semantically to N `fact.set` events with the same `entity_id` and outer `ts`, but committed as a single envelope so partial failures aren't possible. Each item in `facts` carries the same fields as a `fact.set` payload (minus `entity_id`, which is hoisted to the outer payload). Last-write-wins by `(envelope.ts, array-order)` for `(entity_id, field)`.
+
+Use cases: tick services that compute many fields from a single source page should emit one `facts.set_many` instead of N `fact.set` — keeps the audit log tidy, reduces I/O, and aligns the events with what was conceptually a single observation.
+
+Forward-compatible: older readers see `type: "facts.set_many"` and skip it (the spec mandates skipping unknown types). For full backward compatibility during the v0.2.x window, writers MAY emit N `fact.set` events instead.
 
 ### `fact.deprecated`
 

@@ -1,5 +1,25 @@
 # @frames-ag/frame
 
+## 0.2.0
+
+### Minor Changes
+
+- **`run_id` on the event envelope (optional).** New top-level field on every event that lets external runtimes correlate events written during a single curation tick. Older readers ignore it; the projector treats it as opaque metadata for now. Tick (the hosted frame runtime) uses it to join its tool log to the events it writes. Spec change documented in [PROTOCOL.md § Event envelope](./PROTOCOL.md#event-envelope).
+
+- **`facts.set_many` event type (new).** Atomic bulk-write of multiple facts to a single entity in one envelope. Semantically equivalent to N `fact.set` events with the same outer `ts`, but committed atomically — no partial failures. Use case: tick services that compute many fields from one source page emit one `facts.set_many` instead of N `fact.set`. Projector handles it identically to N `fact.set` events, sharing the outer envelope's `ts` and `agent`. Spec at [PROTOCOL.md § Event types](./PROTOCOL.md#event-types).
+
+- **`PROTOCOL_VERSION` bumped to `0.2.0`** in `src/types.ts`. Schema files SHOULD declare `frame_protocol: 0.2.0` once they rely on either new feature.
+
+### Forward-compatibility
+
+Both additions are forward-compatible: existing events.ndjson files remain valid; older readers skip the new event type per the spec's "unknown event types must be skipped" rule and ignore the optional `run_id` field. Writers MAY continue emitting N `fact.set` events instead of `facts.set_many` during the v0.2.x window.
+
+### Follow-up work (queued for v0.2.1)
+
+- MCP write tools accept optional `run_id` input parameter, threaded through to the emitted event envelope.
+- MCP tool `set_facts_atomic` emits one `facts.set_many` event instead of N `fact.set` events when called with multiple facts on one entity.
+- Test coverage for both new behaviors.
+
 ## 0.1.1
 
 ### Patch Changes

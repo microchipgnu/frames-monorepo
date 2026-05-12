@@ -101,6 +101,54 @@ export function fold(events: FrameEvent[] | EventWithLine[]): ProjectionState {
         s.current.set(p.entity_id, currentForEntity);
         break;
       }
+      case "facts.set_many": {
+        // v0.2.0+ — atomic bulk-write of multiple facts to one entity.
+        // Semantically equivalent to N fact.set events with the same outer ts,
+        // applied in array order. Last-write-wins by (envelope.ts, array-order).
+        const p = e.payload as {
+          entity_id: string;
+          facts: Array<{
+            fact_id: string;
+            field: string;
+            value: unknown;
+            source: Source;
+            confidence?: number;
+            observed_at?: string;
+          }>;
+        };
+        if (!s.entities.has(p.entity_id)) {
+          throw orphan(e, line, "facts.set_many", "entity_id", p.entity_id, {
+            entity_id: p.entity_id,
+          });
+        }
+        if (!Array.isArray(p.facts)) {
+          throw orphan(e, line, "facts.set_many", "facts", "not-an-array");
+        }
+        const currentForEntity = s.current.get(p.entity_id) ?? new Map();
+        for (const f of p.facts) {
+          // Each fact in the bundle becomes a first-class fact in the index
+          // (same shape as fact.set produces). Share the outer envelope's
+          // ts and agent — the bundle IS one observation.
+          s.facts.set(f.fact_id, {
+            fact_id: f.fact_id,
+            entity_id: p.entity_id,
+            field: f.field,
+            value: f.value,
+            source: f.source,
+            confidence: f.confidence,
+            observed_at: f.observed_at,
+            ts: e.ts,
+            agent: e.agent,
+          });
+          const histKey = `${p.entity_id}::${f.field}`;
+          const hist = s.history.get(histKey) ?? [];
+          hist.push(f.fact_id);
+          s.history.set(histKey, hist);
+          currentForEntity.set(f.field, f.fact_id);
+        }
+        s.current.set(p.entity_id, currentForEntity);
+        break;
+      }
       case "fact.deprecated": {
         const p = e.payload as { fact_id: string; reason: string };
         if (!s.facts.has(p.fact_id)) {

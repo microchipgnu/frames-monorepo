@@ -1,7 +1,7 @@
-// Core types for the frame protocol v0.1.0.
+// Core types for the frame protocol v0.2.0.
 // See PROTOCOL.md for the canonical spec.
 
-export const PROTOCOL_VERSION = "0.0.1";
+export const PROTOCOL_VERSION = "0.2.0";
 
 // ─── Sources ─────────────────────────────────────────────────────────────────
 
@@ -97,6 +97,7 @@ export type FrameSchema = {
 export type EventType =
   | "entity.created"
   | "fact.set"
+  | "facts.set_many" // v0.2.0+ — atomic bulk-write of multiple facts to one entity
   | "fact.deprecated"
   | "evidence.attached"
   | "entity.removed"
@@ -107,11 +108,20 @@ export type EventType =
 
 export type AgentId = string; // "<kind>:<identifier>", e.g. "claude:opus-4.7"
 
+/**
+ * Optional correlation ID grouping events written during a single curation tick.
+ * Added in v0.2.0. External runtimes (e.g. tick) use this to join their tool
+ * log to the frame's events. Forward-compatible: older readers ignore.
+ */
+export type RunId = string;
+
 export type EventEnvelope<P = unknown> = {
   id: string;
   ts: string;
   type: EventType | string; // string allows forward-compat unknown types
   agent: AgentId;
+  /** v0.2.0+ optional run correlation. See PROTOCOL.md § Event envelope. */
+  run_id?: RunId;
   payload: P;
 };
 
@@ -127,6 +137,25 @@ export type FactSetPayload = {
   source: Source;
   confidence?: number;
   observed_at?: string;
+};
+
+/**
+ * v0.2.0+ — atomic bulk-write of multiple facts to a single entity.
+ *
+ * One envelope, one ts, N facts. Semantically equivalent to N `fact.set`
+ * events with the same outer ts, but committed atomically (no partial failures).
+ * Last-write-wins by `(envelope.ts, array-order)` for `(entity_id, field)`.
+ */
+export type FactsSetManyPayload = {
+  entity_id: string;
+  facts: Array<{
+    fact_id: string;
+    field: string;
+    value: unknown;
+    source: Source;
+    confidence?: number;
+    observed_at?: string;
+  }>;
 };
 
 export type FactDeprecatedPayload = {
@@ -147,6 +176,7 @@ export type EntityRemovedPayload = {
 export type FrameEvent =
   | EventEnvelope<EntityCreatedPayload> & { type: "entity.created" }
   | EventEnvelope<FactSetPayload> & { type: "fact.set" }
+  | EventEnvelope<FactsSetManyPayload> & { type: "facts.set_many" }
   | EventEnvelope<FactDeprecatedPayload> & { type: "fact.deprecated" }
   | EventEnvelope<EvidenceAttachedPayload> & { type: "evidence.attached" }
   | EventEnvelope<EntityRemovedPayload> & { type: "entity.removed" }
