@@ -151,7 +151,15 @@ function entityShape(ent: Entity, include: "first" | "all" | "history") {
       evidence[field] = [fact.source, ...fact.evidence];
     }
   }
-  return { entity_id: ent.entity_id, fields: ent.fields, evidence };
+  // Surface current fact_ids per field so external runtimes (tick) can emit
+  // fact.deprecated / evidence.attached events without needing to reproject
+  // events.ndjson locally. Always present for non-history modes; older clients
+  // ignore unknown keys per the spec.
+  const fact_ids: Record<string, string> = {};
+  for (const [field, fact] of Object.entries(ent.facts)) {
+    fact_ids[field] = fact.fact_id;
+  }
+  return { entity_id: ent.entity_id, fields: ent.fields, fact_ids, evidence };
 }
 
 v1.get("/:user/:repo/_frames", async (c) => {
