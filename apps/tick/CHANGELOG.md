@@ -1,5 +1,56 @@
 # @frames-ag/tick
 
+## 0.3.3 — 2026-05-13 (discover prompt tuning — make "commit decisively" explicit)
+
+Live curate runs of 2026-05-13 showed discover sub-loops reach iter 3
+but still don't propose. After v0.3.1 unblocked the iter-3 mechanical
+path, the *behavioral* gap is now the model being over-conservative:
+"Stop AS SOON as you have a decision" is too permissive — the model
+reads "I want more corroboration" as "I don't have a decision yet."
+
+### Fix
+
+Rewrote the discover sub-agent's system prompt in
+`src/ops/discover-entity.ts:buildDiscoverSystem`. Replaced the soft
+"don't over-explore" line with:
+
+- An explicit "Commit by iter 3" instruction in the Loop shape
+- A new "When to propose vs reject" section enumerating the concrete
+  thresholds — one confirming source + citable value for required
+  fields = propose
+- A direct "Do NOT fetch a third source just to feel more confident"
+  hard rule
+
+The new framing names the failure mode (over-corroboration) and gives
+the model a concrete trigger ("first fetch produced clean field values
+that fit the schema → propose") instead of a vague stop signal.
+
+### What this doesn't fix
+
+If the Haiku summarizer is dropping discover-relevant content
+(returning schema-relevant fields but losing entity-existence signals),
+no amount of prompt tuning will help. That's the next investigation
+if the next live curate still shows low convergence. But the cheaper
+lever moves first.
+
+### Verify
+
+Re-run the same `mcp-servers` curate at the same `$1.50` budget:
+
+```sh
+curl -X POST https://tick.microchipgnu.workers.dev/run \
+  -H "authorization: Bearer $TICK_API_KEY" \
+  -d '{"op":"curate","frame":"https://github.com/microchipgnu/frames-examples/datasets/mcp-servers","budget":"1.50"}' \
+  | jq '.sub_runs | group_by(.action) | map({(.[0].action): length}) | add'
+```
+
+Target: `entity_added` count should rise meaningfully (v0.3.1 was 2/17;
+target 6-10/17 with this prompt). If not, summarizer is next.
+
+bumps: `@frames-ag/tick` 0.3.2 → 0.3.3
+
+---
+
 ## 0.3.2 — 2026-05-13 (three small fixes from live-curate observations)
 
 Three issues surfaced by the live curate runs of 2026-05-13 against
