@@ -5,32 +5,29 @@
 //   SOLANA_OUTBOUND_KEYPAIR_JSON → Solana x402 + Solana MPP charge
 //   EVM_OUTBOUND_PRIVATE_KEY     → Base x402 + Tempo MPP charge (same key, two chains)
 //
-// `wrap()` from @faremeter/fetch auto-negotiates v1/v2 x402 and MPP based on
-// the seller's 402 response. The agent loop just calls paidFetch(url); the
-// protocol math is invisible above this module.
+// **v0.4.0 — pay consolidation.** Tick used to wire faremeter handlers
+// directly here (parallel to what `@frames-ag/pay`'s `wallet/` module
+// already does). That was an architectural smell: 117 lines of tick code
+// duplicated 1,565 lines of buyer-side payment infrastructure already
+// shipped in pay. Now tick builds a `WalletRegistry` and hands it to
+// pay's `createPaidFetch` — pay owns the faremeter integration.
+//
+// Practical benefits:
+//   - One faremeter integration point in the monorepo (pay, not tick + pay)
+//   - Future faremeter upgrades (e.g., adopting `@faremeter/rides`) happen
+//     once in pay, not separately here
+//   - Tempo MPP loads via pay's existing dynamic-import path
+//   - Tick gets pay's wallet-registry diagnostics (label, source, address)
+//     surfaced through receipts when we wire them later
 //
 // Per PLAN.md §6 — no agentwallet proxy, no Coinbase Agentic, no Stripe.
 
-import { wrap } from "@faremeter/fetch";
-import type { PaymentHandler } from "@faremeter/types/client";
-import type { MPPPaymentHandler } from "@faremeter/types/mpp";
-import { createPaymentHandler as createEvmPaymentHandler } from "@faremeter/payment-evm/exact";
-import { createPaymentHandler as createSolanaPaymentHandler } from "@faremeter/payment-solana/exact";
-import { createMPPSolanaChargeClient } from "@faremeter/payment-solana/charge";
+import { WalletRegistry, createPaidFetch, type WalletEntry } from "@frames-ag/pay/wallet";
 import { createLocalWallet as createSolanaWallet } from "@faremeter/wallet-solana";
 import { createLocalWallet as createEvmWallet } from "@faremeter/wallet-evm";
-import { createMPPTempoChargeClient } from "@frames-ag/payment-tempo";
-import { address } from "@solana/kit";
 import { privateKeyToAccount } from "viem/accounts";
 import { base } from "viem/chains";
 import type { Bindings } from "./env";
-
-/**
- * USDC mint address on Solana mainnet. The canonical token tick pays with on
- * the Solana side. (Tempo / Base use USDC too, configured per-chain inside
- * the payment handlers themselves.)
- */
-const SOLANA_USDC_MINT = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v";
 
 export interface BootedWallets {
   /** Drop-in replacement for global fetch that auto-pays 402s. */
@@ -47,16 +44,12 @@ export interface BootedWallets {
 
 /**
  * Boot the outbound wallet stack from Worker env. Missing secrets degrade
- * gracefully: each chain is independent, and tick falls back to the free
- * httpRefetcher for refetches that don't match any registered chain.
- *
- * Returns paidFetch even when no wallets are configured (it's a thin pass-
- * through to global fetch in that case — paid 402 calls just fail loudly).
+ * gracefully: each chain is independent. Returns paidFetch even when no
+ * wallets are configured (it's a thin pass-through to global fetch in
+ * that case — paid 402 calls just fail loudly).
  */
 export async function bootWallets(env: Bindings): Promise<BootedWallets> {
-  const handlers: PaymentHandler[] = [];
-  const mppHandlers: MPPPaymentHandler[] = [];
-
+  const byNetwork: Record<string, WalletEntry[]> = {};
   let solanaConfigured = false;
   let evmConfigured = false;
   let tempoConfigured = false;
@@ -72,42 +65,59 @@ export async function bootWallets(env: Bindings): Promise<BootedWallets> {
       );
     }
     const solanaWallet = await createSolanaWallet("solana:mainnet", secretKey);
-    const usdcMint = address(SOLANA_USDC_MINT);
-
-    handlers.push(
-      createSolanaPaymentHandler(solanaWallet, usdcMint, env.SOLANA_RPC_URL),
-    );
-    mppHandlers.push(
-      createMPPSolanaChargeClient({
-        wallet: solanaWallet,
-        mint: usdcMint,
-        rpc: env.SOLANA_RPC_URL,
-        broadcast: true,
-      }),
-    );
+    byNetwork["solana-mainnet"] = [{
+      kind: "solana",
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      wallet: solanaWallet as any,
+      label: "tick-outbound",
+      source: "env",
+    }];
     solanaConfigured = true;
   }
 
   // ----- Base x402 + Tempo MPP charge (same EVM key) ---------------------
   if (env.EVM_OUTBOUND_PRIVATE_KEY) {
     const evmKey = env.EVM_OUTBOUND_PRIVATE_KEY as `0x${string}`;
-
     const evmWallet = await createEvmWallet(base, evmKey);
-    handlers.push(createEvmPaymentHandler(evmWallet, { asset: "USDC" }));
+    byNetwork["base-mainnet"] = [{
+      kind: "evm",
+      wallet: evmWallet,
+      label: "tick-outbound",
+      source: "env",
+    }];
     evmConfigured = true;
 
     // Tempo MPP uses the same private key, exposed as a viem Account.
+    // pay's createPaidFetch lazy-imports `@frames-ag/payment-tempo` for us.
+    //
+    // The `as any` on `account` is a workaround for bun's monorepo
+    // resolution producing two viem instances when pay and tick have
+    // independent dep trees. Runtime shape is identical; TS sees two
+    // distinct Account types. Resolves cleanly once we dedupe viem at
+    // the root workspace level.
     const tempoAccount = privateKeyToAccount(evmKey);
-    mppHandlers.push(createMPPTempoChargeClient({ account: tempoAccount }));
+    byNetwork["tempo"] = [{
+      kind: "tempo",
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      account: tempoAccount as any,
+      label: "tick-outbound",
+      address: tempoAccount.address,
+      source: "env",
+    }];
     tempoConfigured = true;
   }
 
-  const paidFetch = wrap(fetch as typeof fetch, {
-    handlers,
-    mppHandlers,
+  const registry = new WalletRegistry({
+    byNetwork,
+    agent: "tick",
+  });
+
+  const { paidFetch } = await createPaidFetch({
+    registry,
+    solanaRpcUrl: env.SOLANA_RPC_URL,
     retryCount: 2,
     initialRetryDelay: 100,
-  }) as typeof fetch;
+  });
 
   return {
     paidFetch,

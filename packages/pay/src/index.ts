@@ -56,6 +56,11 @@ export {
   type BridgeOutput,
 } from "./wallet/faremeter-bridge.ts";
 export {
+  createPaidFetch,
+  type CreatePaidFetchOptions,
+  type CreatePaidFetchResult,
+} from "./wallet/paid-fetch.ts";
+export {
   buildReceipt,
   verifyReceipt,
 } from "./wallet/receipt.ts";

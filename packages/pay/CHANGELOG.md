@@ -1,5 +1,50 @@
 # @frames-ag/pay
 
+## 0.2.0 — 2026-05-14 (createPaidFetch + subpath exports)
+
+### Minor Changes
+
+**New API: `createPaidFetch(opts)` for un-descriptored 402 negotiation.**
+
+Pay's existing `buildHandlers(descriptor, entry)` is descriptor-driven
+— right for catalog tool invocations. Some consumers (notably tick's
+`web_fetch` tool) need 402 negotiation on arbitrary URLs without a
+descriptor. For those, `createPaidFetch` takes a `WalletRegistry` and
+returns a paidFetch wired up with default-mode handlers across all
+registered wallet kinds.
+
+Per-kind defaults:
+- `evm` entries → x402 EVM handler accepting USDC (configurable)
+- `solana` entries → x402 Solana + MPP Solana charge on USDC mainnet
+  (configurable mint; solanaRpcUrl required)
+- `tempo` entries → MPP Tempo charge via `@frames-ag/payment-tempo`
+  (dynamic import; reuses pattern from faremeter-bridge)
+- `delegated` entries → skipped (use `dispatch()` for those)
+
+### New: subpath export `@frames-ag/pay/wallet`
+
+Pay's root barrel export pulls the full catalog/manifest/MCP type
+graph, which can trigger consumer-side tsc issues when the consumer's
+tsconfig differs from pay's (e.g., tick on Cloudflare Workers vs pay
+on Node).
+
+Added `@frames-ag/pay/wallet` subpath export that re-exports only
+wallet-registry + paid-fetch surface. Consumers who just need
+wallet/payment can import from the subpath and avoid pulling
+catalog/manifest/MCP types through their TS context.
+
+### Why this exists
+
+Tick (a sibling app) had 117 lines of buyer-side payment code that
+duplicated pay's 1,565 lines of wallet/dispatch infrastructure. Both
+imported `@faremeter/*` packages independently. This release lets tick
+import pay's wallet surface directly — one faremeter integration point
+in the monorepo. Future faremeter upgrades (e.g., switching to
+`@faremeter/rides`) happen once in pay, not separately in each
+consumer.
+
+---
+
 ## 0.1.0
 
 ### Minor Changes

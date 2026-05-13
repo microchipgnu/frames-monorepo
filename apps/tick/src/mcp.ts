@@ -74,7 +74,7 @@ const TOOLS = [
 // Manual sync with package.json `version`. Bump both together when releasing.
 // (Dynamic read at runtime would couple the bundle to package.json layout
 // which Bun's bundler doesn't ship by default.)
-const TICK_VERSION = "0.3.14";
+const TICK_VERSION = "0.4.0";
 
 export async function startMcpServer(): Promise<void> {
   const server = new Server(

@@ -1,5 +1,58 @@
 # @frames-ag/tick
 
+## 0.4.0 — 2026-05-14 (consume `@frames-ag/pay` for buyer-side payments)
+
+Architectural cleanup. Tick was running 117 lines of buyer-side
+payment wiring in `src/wallet.ts` — directly importing faremeter
+handlers, building `wrap()` itself. Pay (`@frames-ag/pay`) had the
+*same code* and more, but tick didn't depend on pay. Two parallel
+faremeter integrations in the monorepo.
+
+### What changed
+
+- Added `@frames-ag/pay` as a workspace dependency
+- `src/wallet.ts` now builds a `WalletRegistry` and calls pay's new
+  `createPaidFetch()` (shipped in `@frames-ag/pay@0.2.0`)
+- Dropped direct imports of `@faremeter/payment-evm/exact`,
+  `@faremeter/payment-solana/exact`, `@faremeter/payment-solana/charge`,
+  `@frames-ag/payment-tempo`, and `@faremeter/fetch.wrap`
+- Tick still keeps `@faremeter/wallet-evm` and `@faremeter/wallet-solana`
+  for the env-var → wallet-object loading step (these are just key
+  loaders; pay accepts the produced wallets via the registry)
+- Imports from `@frames-ag/pay/wallet` subpath (avoids pay's full
+  catalog/manifest type graph leaking into tick's CF Workers tsconfig
+  context)
+
+### Surface compatibility
+
+`BootedWallets` shape unchanged. Callers in `app.ts` and downstream
+(`paid-refetcher.ts`, etc.) are completely unaffected. `paidFetch` is
+still produced the same way under the hood (faremeter's `wrap()`),
+just constructed inside pay now.
+
+### Why this matters
+
+1. **One faremeter integration point** in the monorepo. Was two.
+2. **Future faremeter upgrades** (e.g., adopting `@faremeter/rides`,
+   responding to API changes) happen once in pay, not separately here.
+3. **Pay's wallet diagnostics** (label, source, addresses) become
+   available to tick's receipts when we wire them in.
+4. **Tempo MPP** loads via pay's existing dynamic-import path; same
+   runtime behavior, fewer direct deps for tick.
+
+### Risk
+
+This is a real refactor on the paid-call path. 140 tests still pass,
+but unit tests don't exercise real 402 negotiation. Live testing
+against a real paid catalog tool is the actual validation — operator
+work.
+
+bumps:
+- `@frames-ag/tick` 0.3.14 → 0.4.0
+- depends on `@frames-ag/pay` 0.2.0 (new dep)
+
+---
+
 ## 0.3.14 — 2026-05-13 (loop-shape fixes — refresh threshold + parent max_tokens)
 
 Two small fixes surfaced by v0.3.13's validation run. Both are loop-shape
