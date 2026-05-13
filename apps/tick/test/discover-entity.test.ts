@@ -190,9 +190,12 @@ describe("discoverEntity", () => {
     expect(result.iteration_log).toHaveLength(2);
   });
 
-  test("evidence-aware early stop: two consecutive non-decisive iters → stop with no_progress", async () => {
-    // The sub-loop runs web_fetch twice without ever calling a terminal tool.
-    // Phase E.2's nonTerminalStreak should fire after the second one.
+  test("evidence-aware early stop: 3 consecutive non-decisive iters → stop with no_progress (v0.3.1+)", async () => {
+    // The sub-loop runs web_fetch three times without ever calling a
+    // terminal tool. nonTerminalStreak fires on iter 4's top-of-iter check.
+    // Threshold raised from 2 to 3 in v0.3.1 after a live curate showed
+    // 13/17 discover sub-loops were getting killed before they could
+    // propose — the typical pattern is fetch → fetch → propose (3 iters).
     const fetchOnly = (id: string): LlmResponse => ({
       stop_reason: "tool_use",
       content: [
@@ -205,7 +208,6 @@ describe("discoverEntity", () => {
       ],
       usage: { input_tokens: 10, output_tokens: 10, estimated_cost: "0.001" },
     });
-    // Summarizer call piggybacks on the same mockLlm — add Haiku-shape responses for it.
     const summarizerResponse: LlmResponse = {
       stop_reason: "end_turn",
       content: [text("(schema summary)")],
@@ -217,12 +219,14 @@ describe("discoverEntity", () => {
       known_entity_ids: [],
       llm: mockLlm([
         fetchOnly("a"),
-        summarizerResponse, // for the summarizeForContext call after fetch a
+        summarizerResponse,
         fetchOnly("b"),
-        summarizerResponse, // for the summarizeForContext call after fetch b
+        summarizerResponse,
+        fetchOnly("c"),
+        summarizerResponse,
       ]),
     } as any);
-    // After 2 non-terminal iters, top-of-iter check on iter 3 fires.
     expect(result.stop_reason).toBe("no_progress");
+    expect(result.iteration_log).toHaveLength(3);
   });
 });

@@ -1,5 +1,66 @@
 # @frames-ag/tick
 
+## 0.3.1 — 2026-05-13 (hotfix — raise discover-entity non-terminal streak threshold 2 → 3)
+
+Live curate against `microchipgnu/frames-examples/datasets/mcp-servers`
+(2026-05-13, $1.50 budget) surfaced that **13 of 17 `discover_entity`
+sub-loops aborted before reaching their propose iter.** Every single
+one stopped at iter 2 with `stop_reason: "no_progress"`.
+
+### Root cause
+
+`discover-entity.ts` borrowed its `nonTerminalStreak >= 2` early-stop
+threshold from `refresh-entity.ts`. That threshold makes sense for
+refresh — the sub-loop receives `entity_state` pre-loaded from the
+parent, so one verifying fetch is usually enough before a terminal
+`propose_facts` call.
+
+Discover starts from a hypothesis with no pre-loaded state. The
+typical convergence pattern is **fetch-seed → fetch-corroborator →
+propose** — exactly 3 iters. With the threshold at 2, the early-stop
+check at top-of-iter-3 fires before the model gets to propose.
+
+### Fix
+
+Bumped the discover sub-loop threshold from 2 to 3
+(`src/ops/discover-entity.ts:202-205`). Refresh stays at 2 — its
+pattern is different and that threshold is working as designed.
+
+Sub-loop max_iters is still 5; with the threshold at 3 a model that
+needs 4 fetches before deciding is now genuinely spinning and gets
+caught. Threshold-of-3 + max_iters-of-5 leaves only 2 wasted iters
+worst-case before the hard cap.
+
+### Why this was missed pre-ship
+
+The discover sub-loop tests in `test/discover-entity.test.ts` exercised
+the happy paths (propose_new_entity / propose_match_existing / no_match)
+with iter 1 directly emitting the terminal tool — no `web_fetch`
+exploration. The one test that did fetch-then-stop matched the (wrong)
+threshold of 2, so it passed without catching the conceptual mismatch.
+
+Updated `test/discover-entity.test.ts` to assert the new (3) threshold
+and rephrase the test description.
+
+### Expected impact
+
+On the same `mcp-servers` curate that triggered this finding:
+- v0.3.0: 4 entity_added / 13 no_op-discover / 7 facts_set = 11 useful sub-runs
+- v0.3.1: expected ~12-14 entity_added (the 8-10 that needed iter 3
+  to converge) + 7 facts_set + small residual no_op = ~20 useful
+
+Test it the same way:
+```sh
+curl -X POST https://tick.microchipgnu.workers.dev/run \
+  -H "authorization: Bearer $TICK_API_KEY" \
+  -d '{"op":"curate","frame":"https://github.com/microchipgnu/frames-examples/datasets/mcp-servers","budget":"1.50"}' \
+  | jq '.sub_runs | group_by(.action) | map({(.[0].action): length}) | add'
+```
+
+bumps: `@frames-ag/tick` 0.3.0 → 0.3.1
+
+---
+
 ## 0.3.0 — 2026-05-13 (Phase F — discover_entity sub-agent + EXPAND/REFRESH framing)
 
 Tick's curate op was *refresh-coded*. The system prompt told the agent

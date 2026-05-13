@@ -203,6 +203,13 @@ export async function discoverEntity(opts: DiscoverEntityOptions): Promise<Disco
   // Phase E.1 — fetch dedup, same shape as refresh-entity.
   const fetchCache = new Map<string, { result_text: string }>();
   // Phase E.2 — evidence-aware early stop on non-terminal iters.
+  // Threshold is HIGHER for discover than for refresh (refresh uses 2):
+  // refresh has pre-loaded entity_state, so one fetch usually suffices
+  // before a propose. Discover starts with only a hypothesis, so the
+  // typical convergence pattern is fetch-seed → fetch-corroborator →
+  // propose (3 iters). The original v0.3.0 threshold of 2 killed every
+  // discover that needed two fetches before deciding — live measurement
+  // 2026-05-13 showed 13/17 discover sub-loops aborted before iter 3.
   let nonTerminalStreak = 0;
 
   let proposed_entity: DiscoverEntityResult["proposed_entity"];
@@ -236,9 +243,9 @@ export async function discoverEntity(opts: DiscoverEntityOptions): Promise<Disco
       break;
     }
 
-    if (nonTerminalStreak >= 2) {
+    if (nonTerminalStreak >= 3) {
       stop_reason = "no_progress";
-      narrative = `(discover sub-loop stopped at iter ${iter} after 2 consecutive non-decisive iters)`;
+      narrative = `(discover sub-loop stopped at iter ${iter} after 3 consecutive non-decisive iters)`;
       break;
     }
 
