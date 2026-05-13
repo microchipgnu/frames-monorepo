@@ -1,5 +1,74 @@
 # @frames-ag/tick
 
+## 0.4.2 — 2026-05-14 (CitationAgent batches multiple facts into one Haiku call)
+
+Today's first manual hosted curate exposed a real issue: with 15
+sub-agents firing ~30 Haiku summarizer calls in parallel AND the
+verifier firing N more sequential Haiku calls (one per fact), we hit
+**Anthropic 429 "Type 2b rate limited"** on the CF AI Gateway.
+
+The verifier degraded gracefully (caught the exception, set `error`
+on `report.verify_citations`) but checked **zero facts** that run.
+Our trust-signal mechanism silently no-op'd.
+
+### Fix
+
+Rewrote `verify-citations.ts` to send N facts in ONE Haiku call per
+batch (`BATCH_SIZE = 30`). Output is a JSON array keyed by `fact_id`.
+Same trust signal, ~1/15th the call count, no rate-limit pressure.
+
+```json
+{
+  "judgements": [
+    { "fact_id": "fact_abc", "supported": true,  "reason": "Match." },
+    { "fact_id": "fact_xyz", "supported": false, "reason": "Excerpt names Bob, not Alice." }
+  ]
+}
+```
+
+### Why batching is the right shape (not retry)
+
+429 from rate-limiting is **structural**, not transient. With the
+sequential per-fact pattern, retrying just queues more calls into the
+same overloaded quota. Batching addresses the root cause: fewer total
+calls, period.
+
+It's also strictly cheaper:
+- One prompt cache hit (cached system block) instead of N
+- Less HTTP overhead
+- Less wall-clock time (~5s for 30 facts in one call vs ~15s for 30
+  sequential calls)
+
+### Robustness
+
+- Code-fence wrapping (` ```json ... ``` `) is tolerated.
+- Extra prose before/after the JSON is recovered via brace-matching.
+- Unknown `fact_id`s in the response are ignored.
+- **Missing `fact_id`s in the response are conservatively counted as
+  supported** — graceful degradation. Better to false-negative on a
+  verifier miss than emit a spurious deprecation.
+- Reasons truncated to 200 chars.
+
+### Tests
+
+9 new tests covering: single-batch all-supported, single-batch mixed
+verdicts, one-call-per-batch invariant, no-excerpt skip path,
+multi-batch (35 facts → 2 calls), missing-judgement graceful path,
+mixed event types (`facts.set_many` + `fact.set`), zero-facts no-op,
+and 6 `parseBatchJudgements` unit tests.
+
+**149 tests total (was 140).**
+
+### Validation pending
+
+Live re-run after deploy. Expected: `verify_citations.error` field
+absent, `facts_checked` matches `events`'s fact count, supported +
+unsupported counts populated.
+
+bumps: `@frames-ag/tick` 0.4.1 → 0.4.2
+
+---
+
 ## 0.4.1 — 2026-05-14 (hotfix via pay@0.2.1 — Solana RPC URL restored to x402 handler)
 
 Picks up `@frames-ag/pay@0.2.1`, which restores the `solanaRpcUrl`
