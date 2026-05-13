@@ -1,5 +1,114 @@
 # @frames-ag/tick
 
+## 0.3.13 — 2026-05-13 (structured-output summarizer — Haiku emits per-field JSON, not prose)
+
+v0.3.12's validation run revealed the actual blocker behind discover/refresh
+`no_op` outcomes. The diagnostic assistant_text traces showed:
+
+  iter 1: "I'll fetch the GitHub repository to verify and fill all fields."
+  iter 2: "The summarizer didn't capture stars/language/commit details.
+           Let me fetch the GitHub API to get those fields reliably."
+  iter 3: KILLED.
+
+The model wasn't being over-cautious — it had a real informational gap.
+The Haiku-tier summarizer was producing prose like "FastMCP is a Python
+framework, widely used" which throws away the literal `7212` star count,
+the literal `"Python"` language string, the literal `2026-05-12T...`
+timestamp. The agent's facts need those literal values to cite.
+
+### Fix
+
+Rewrote `summarize.ts` to ask Haiku for **structured per-field JSON**
+instead of prose. New contract:
+
+```json
+{
+  "fields": {
+    "stars":          { "value": 7212, "excerpt": "7,212 stars" },
+    "language":       { "value": "Python", "excerpt": "Python · 95.3%" },
+    "last_commit_at": { "value": "2026-05-12", "excerpt": "last commit 2 days ago" },
+    "category":       null
+  },
+  "notes": "GitHub repo page; redirected from old URL"
+}
+```
+
+Haiku does the per-field mapping itself. The agent reads literal typed
+values it can paste directly into `facts.set_many` — no re-extraction
+of numbers from prose, no second fetches to recover dropped fields.
+
+### Why this is the generalized fix, not the patch
+
+The earlier-considered alternative — "skip the summarizer when the URL
+is `api.github.com/*`" — would have unblocked GitHub-shaped data only.
+This release works for ANY source type:
+
+- HTML pages → Haiku reads the structured DOM, emits per-field JSON
+- JSON API responses → Haiku reads the JSON, emits per-field JSON
+- PDF excerpts, plaintext, RSS — same shape, same contract
+
+Same Haiku tier, same cost (~$0.005 per call), strictly more useful
+output.
+
+### Surface compatibility
+
+Public `SummarizeResult.summary` (the string callers splice into LLM
+messages) preserved. Renderer now emits a markdown-style table:
+
+```
+[Source: https://github.com/jlowin/fastmcp]
+[Entity: jlowin-fastmcp]
+
+Fields extracted:
+  - name: "FastMCP" ← "Repository name: FastMCP"
+  - stars: 7212 ← "7,212 stars"
+  - language: "Python" ← "Python · 95.3%"
+  - category: (not found in source)
+
+Notes: GitHub repo page
+```
+
+Roughly equivalent density to v0.0.13's prose output, but now the
+values are typed literals the agent doesn't have to re-parse.
+
+New `SummarizeResult.extracted` field gives callers programmatic access
+to `{ fields, notes }` when they want structured data directly — e.g.,
+a future refresh sub-loop could auto-stage facts from the extraction
+without needing the agent to construct them.
+
+### Fallback behavior
+
+When Haiku returns malformed JSON: render the raw text into `summary`
+with a "structured parse failed" header, mark `ok: false`. Agent still
+gets something to work with; caller can detect the degradation.
+
+When Haiku throws (network, 529, etc.): same HTML-strip fallback as
+before. Unchanged.
+
+### Tests
+
+11 new tests in `test/summarize.test.ts`: happy path, code-fenced JSON
+tolerance, missing-key → null filling, numeric value preservation,
+malformed JSON fallback, LLM exception fallback, defensive missing-value
+handling, and 3 `tryParseExtraction` unit tests. **140 tests total
+(was 129).**
+
+### Expected impact
+
+Of today's hosted-runtime curates on `mcp-servers`:
+- Refresh sub-loops that timed out fetching API as second source: **most should now
+  commit at iter 1** with the structured extraction
+- Discover sub-loops failing on schema fields: same
+- Per-fetch cost unchanged (~$0.005 Haiku call)
+- Per-curate cost should drop materially (fewer redundant fetches)
+- `no_op` rate target: drop from 50-60% toward 20-30%
+
+Validation tomorrow via the scheduled `tick-hosted.yml` 06:13 UTC run.
+
+bumps: `@frames-ag/tick` 0.3.12 → 0.3.13
+
+---
+
 ## 0.3.12 — 2026-05-13 (apply the "commit decisively" prompt fix to the refresh sub-agent too)
 
 v0.3.11's first validation run revealed a different failure mode than
