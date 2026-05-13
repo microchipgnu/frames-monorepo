@@ -1,5 +1,62 @@
 # @frames-ag/tick
 
+## 0.3.11 — 2026-05-13 (sharper no_match trigger in discover sub-agent)
+
+First diagnostic data from v0.3.9 (the `assistant_text` capture) on a
+live hosted-runtime curate validated the suspected failure mode: when
+seed URLs return 404, the model says **"both seed URLs either 404 or
+don't describe an MCP server"** then tries to keep searching elsewhere
+instead of calling `no_match`. The model has the diagnosis; the prompt
+didn't translate "I can't find it via these URLs" into "→ no_match".
+
+### Fix
+
+Rewrote the `When to reject (no_match)` section in
+`buildDiscoverSystem`:
+
+- **First trigger now reads:** "All seed URLs returned 404 / off-topic
+  → call `no_match` THIS iter. Do not pivot to a different entity or
+  search elsewhere — that's the parent agent's job, not yours."
+- Added a **diagnostic check before each fetch**: "Am I about to fetch
+  something to verify my current hypothesis, or am I trying to find a
+  different entity from scratch?"
+- Made the role boundary explicit: the sub-loop is for *verification*,
+  not exploration. Exploration belongs in the parent loop.
+
+### Why this is the right shape
+
+The model behaves correctly given its current understanding of the
+role. It thinks the sub-loop's job is "investigate this hypothesis,
+broadly." It needs to know: "investigate the SPECIFIC sources passed
+in; if they fail, return — don't re-plan."
+
+The earlier v0.3.3 prompt added "commit by iter 3" — that fixed
+over-corroboration cases. v0.3.11 fixes the orthogonal failure mode of
+"seed sources failed but I keep pivoting." Different problem, different
+prompt knob.
+
+### Expected impact
+
+Of the 9 `no_op` discover sub-loops in today's hosted-runtime run,
+roughly half showed the "seeds 404'd, pivoting" pattern. If the new
+prompt converts those to fast `no_match`:
+
+- 4-5 fewer wasted sub-loops per curate
+- Lower total run cost (~$0.20-$0.30 saved on failed-pivot fetches)
+- Parent gets a cleaner signal ("this hypothesis didn't pan out") and
+  can re-plan with a different hypothesis instead of having the
+  sub-loop guess
+
+### Validating
+
+Tomorrow's automated `tick-hosted.yml` run will be the empirical
+check. Compare `entity_added` count, `no_op` rate, and the
+`assistant_text` traces. Tracked in next-iteration notes.
+
+bumps: `@frames-ag/tick` 0.3.10 → 0.3.11
+
+---
+
 ## 0.3.10 — 2026-05-13 (Haiku for wrap-up summary — eliminates the $0.02 budget overrun)
 
 Live curate runs of 2026-05-13 settled $0.02-$0.05 over the $1.50

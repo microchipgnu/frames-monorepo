@@ -475,10 +475,12 @@ function buildDiscoverSystem(opts: DiscoverEntityOptions): string {
   lines.push("");
   lines.push("That's enough. Confidence ≠ certainty. A second fetch is for *resolving contradictions*, not for *building confidence in something already corroborated*. If your first fetch produced clean field values that fit the schema, propose — don't fetch a third source to feel more sure.");
   lines.push("");
-  lines.push("**Reject (no_match) only when:**");
-  lines.push("- You've fetched ≥1 source and it contradicts the hypothesis, OR");
-  lines.push("- The entity is genuinely out of scope for the schema, OR");
-  lines.push("- After 2 fetches you cannot find a primary source — fabricating is worse than `no_match`");
+  lines.push("**Reject (no_match) immediately when:**");
+  lines.push("- All seed URLs returned 404 / off-topic → call `no_match` THIS iter. Do not pivot to a different entity or search elsewhere — that's the parent agent's job, not yours. Your job is to investigate THIS hypothesis. If its seed URLs failed, the hypothesis is unverified, call no_match.");
+  lines.push("- A fetched source explicitly contradicts the hypothesis (wrong author, wrong domain, repository deleted).");
+  lines.push("- The entity is genuinely out of scope for the schema.");
+  lines.push("");
+  lines.push("Diagnostic check before each fetch: \"Am I about to fetch something to verify my current hypothesis, or am I trying to find a different entity from scratch?\" If the latter, stop — call `no_match` and let the parent re-plan with a new hypothesis. The sub-loop is for verification, not exploration.");
   lines.push("");
   lines.push("## Hard rules");
   lines.push("");
