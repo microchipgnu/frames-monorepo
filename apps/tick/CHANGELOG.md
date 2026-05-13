@@ -1,5 +1,35 @@
 # @frames-ag/tick
 
+## 0.3.5 — 2026-05-13 (README catches up with v0.1-v0.3)
+
+Documentation-only release. The README was last meaningfully updated
+around v0.0.x and still described tick as a single-loop runtime with
+43 tests. Two months and 7 minor/patch releases later, the surface is
+substantially different.
+
+### Changes to README.md
+
+- New "What's inside the agent loop" section near the top, naming the
+  sub-agent / cache / verifier architecture honestly (EXPAND vs REFRESH
+  sub-agents, Haiku summarizer, CitationAgent, prompt cache, dedup +
+  early-stop)
+- New "Quick start (GitHub Action)" section pointing at the v0.3.4
+  template as the easiest first-touch path
+- Status line updated — v0.3.x is live, the runtime is deployed +
+  published, outstanding tuning items tracked in CHANGELOG
+- Dropped the stale "43 tests" claim (current: 128). No specific count
+  in the new copy — let `bun test` be authoritative.
+
+### What did NOT change
+
+The HTTP API, MCP server, CLI, and `Required secrets` sections still
+describe the surfaces correctly. Stack table is accurate. Sibling-apps
+list still maps. No code changes in this release.
+
+bumps: `@frames-ag/tick` 0.3.4 → 0.3.5
+
+---
+
 ## 0.3.4 — 2026-05-13 (drop-in GitHub Action template for hosted curate)
 
 Adds `examples/github-action.yml` + `examples/README.md` to the

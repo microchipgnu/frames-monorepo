@@ -4,6 +4,30 @@ Hosted runtime for [frame](../../packages/frame) datasets. Managed wallet + tool
 
 Implements [frames-cloud](../frames-cloud) Tier 3 item 15 — the "heartbeat / refresh runtime" that re-fetches sources, attaches fresh evidence, deprecates stale facts, and posts events back to the customer's frame.
 
+## What's inside the agent loop
+
+`curate` isn't a single LLM call. It's a parent loop that fans out to bounded sub-agents per entity, then verifies what they wrote:
+
+- **EXPAND-mode sub-agents** (`discover_entity`) investigate hypothesized new entities. Bounded ~$0.30 budget, 5 iters, runs in its own Durable Object isolate so the parent can fire N of them in parallel.
+- **REFRESH-mode sub-agents** (`refresh_entity`) verify and update one existing entity at a time. Same shape, same parallelism.
+- **Cheap-model summarization** pipes raw HTML through Haiku against the schema before it reaches the parent context. ~30-80 KB pages become ~500-2K tokens of per-field excerpts.
+- **CitationAgent post-pass** runs a Haiku-tier judge over every newly-written fact: does the cited `source.excerpt` directly support the value? Unsupported claims get `fact.deprecated` events appended with the verifier's reasoning. ~$0.0003 per fact; defends against synthesizer citation hallucination.
+- **Prompt caching** on the `tools + system` prefix cuts input cost ~60% on iters 2+. Per-iter cache hit/miss is visible in `report.iteration_log[]`.
+- **Evidence-aware early stop + fetch dedup** bound runaway exploration and duplicate URL pulls within a sub-loop.
+
+Full architecture decisions are in [CHANGELOG.md](./CHANGELOG.md) — each phase explains why it shipped.
+
+## Quick start (GitHub Action)
+
+The fastest way to wire tick into an existing frame is the drop-in workflow at [`examples/github-action.yml`](./examples/github-action.yml):
+
+1. Copy to `.github/workflows/tick-curate.yml` in the repo that contains your frame
+2. Add `TICK_API_KEY` as a repo secret
+3. Edit `FRAME_PATH` to point at your frame directory
+4. Commit
+
+Fires weekly + on-demand via `workflow_dispatch`. Job summary shows the per-sub-agent breakdown and citation verifier counts. See [`examples/README.md`](./examples/README.md).
+
 ## Operations
 
 | Op | What it does | Frame events | Default budget (USDC) |
@@ -99,7 +123,7 @@ bun install
 # Type-check
 bun run typecheck
 
-# Unit tests (43 tests, ~20ms)
+# Unit tests
 bun run test
 
 # Smoke test the local Bun dev server
@@ -191,7 +215,7 @@ Wallet keygen scripts at [`../tick-facilitator/scripts/`](../tick-facilitator/sc
 
 ## Status
 
-Code-only work is functionally complete (2026-05-11). External-auth items (facilitator deploy, wallet funding, real-money validation, npm publish) are next-step operator work — see [DEPLOY.md](./DEPLOY.md).
+v0.3.x is live — deployed at [tick.frames.ag](https://tick.frames.ag), published to npm as `@frames-ag/tick`. The agent loop with sub-agents + CitationAgent + prompt caching + GitHub Action template is the current shape. Outstanding tuning items (discover convergence rate, summarizer behavior for non-extraction tasks) tracked in CHANGELOG.
 
 ## Sibling apps + packages
 
