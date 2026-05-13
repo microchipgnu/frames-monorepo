@@ -14,7 +14,10 @@ import {
 } from "@modelcontextprotocol/sdk/types.js";
 import { DEFAULT_BUDGETS } from "@frames-ag/tick-types";
 
-const TICK_API_URL = process.env.TICK_API_URL ?? "https://tick.frames.ag";
+// Default points at the current production deployment. The intended
+// long-term vanity domain is `tick.frames.ag` — switch the default
+// here once that DNS is wired. Customers can override via TICK_API_URL.
+const TICK_API_URL = process.env.TICK_API_URL ?? "https://tick.microchipgnu.workers.dev";
 const TICK_API_KEY = process.env.TICK_API_KEY;
 
 // Common input schema across all four ops. Each tool refines `description`
@@ -71,7 +74,7 @@ const TOOLS = [
 // Manual sync with package.json `version`. Bump both together when releasing.
 // (Dynamic read at runtime would couple the bundle to package.json layout
 // which Bun's bundler doesn't ship by default.)
-const TICK_VERSION = "0.3.5";
+const TICK_VERSION = "0.3.6";
 
 export async function startMcpServer(): Promise<void> {
   const server = new Server(

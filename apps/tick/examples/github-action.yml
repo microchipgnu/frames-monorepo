@@ -3,17 +3,18 @@
 # runtime to refresh the dataset and committing new events back.
 #
 # Setup (one-time):
-#   1. Sign up at tick.frames.ag and copy your API key.
+#   1. Get a TICK_API_KEY (closed alpha — operator-issued; ask via GitHub).
 #   2. In this repo: Settings → Secrets and variables → Actions → New secret
 #      Name:  TICK_API_KEY
 #      Value: <your key>
+#      Optional: TICK_API_URL — override runtime URL (defaults below)
 #   3. Edit FRAME_PATH below to point at your frame's directory in this repo
 #      (the directory that contains schema.yml + events.ndjson).
 #   4. Commit + push. Action will fire weekly; trigger manually via
 #      Actions tab → tick-curate → "Run workflow".
 #
 # What it does on each run:
-#   - POSTs to https://tick.frames.ag/run with op=curate
+#   - POSTs to the tick runtime with op=curate
 #   - tick reads your frame, expands + refreshes facts via sub-agents,
 #     verifies citations via Haiku, returns new events
 #   - This workflow appends the new events to events.ndjson and commits
@@ -39,6 +40,10 @@ env:
   FRAME_PATH: datasets/my-frame
   # Default budget per run when triggered by schedule.
   DEFAULT_BUDGET: "1.50"
+  # Tick runtime URL. Override via the TICK_API_URL repo secret if you're
+  # running tick on your own domain (or pointing at a staging Worker).
+  # Default points at the current production endpoint.
+  TICK_API_URL_DEFAULT: "https://tick.microchipgnu.workers.dev"
 
 permissions:
   contents: write
@@ -67,12 +72,13 @@ jobs:
         id: curate
         env:
           TICK_API_KEY: ${{ secrets.TICK_API_KEY }}
+          TICK_API_URL: ${{ secrets.TICK_API_URL || env.TICK_API_URL_DEFAULT }}
           BUDGET: ${{ github.event.inputs.budget || env.DEFAULT_BUDGET }}
         run: |
           FRAME_URL="https://github.com/${GITHUB_REPOSITORY}/${FRAME_PATH}"
-          echo "Curating ${FRAME_URL} with budget \$${BUDGET}"
+          echo "Curating ${FRAME_URL} with budget \$${BUDGET} via ${TICK_API_URL}"
 
-          RESPONSE=$(curl -fsS -X POST https://tick.frames.ag/run \
+          RESPONSE=$(curl -fsS -X POST "${TICK_API_URL}/run" \
             -H "authorization: Bearer ${TICK_API_KEY}" \
             -H "content-type: application/json" \
             -d "$(jq -nc \

@@ -1,5 +1,33 @@
 # @frames-ag/tick
 
+## 0.3.6 — 2026-05-13 (hotfix — point at the production URL that actually responds)
+
+Multiple surfaces in the codebase point at `tick.frames.ag`. That
+vanity domain is intended but **not currently wired** — it 404s. The
+live deployment is at `tick.microchipgnu.workers.dev`. As-shipped, the
+v0.3.4 customer GitHub Action template would fail on first run because
+the URL didn't resolve.
+
+### Fixes
+
+- **`examples/github-action.yml`** — added `TICK_API_URL` env (with
+  a `TICK_API_URL_DEFAULT` fallback) and switched the curl to use it.
+  Customers can override via repo secret; the default now points at
+  the working production endpoint.
+- **`examples/README.md`** — rewrote the "sign up at tick.frames.ag"
+  step that referenced a domain that doesn't resolve. Honest framing:
+  closed alpha, operator-issued keys.
+- **`src/mcp.ts`** — `TICK_API_URL` default switched from the
+  unrouted vanity to the working endpoint. Code comment notes the
+  intent to flip back when DNS is wired.
+
+When the vanity domain is wired, two defaults flip back — `mcp.ts`
+and `examples/github-action.yml`. Add to operator runbook.
+
+bumps: `@frames-ag/tick` 0.3.5 → 0.3.6
+
+---
+
 ## 0.3.5 — 2026-05-13 (README catches up with v0.1-v0.3)
 
 Documentation-only release. The README was last meaningfully updated

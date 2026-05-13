@@ -4,19 +4,23 @@ Drop-in templates for using the hosted tick runtime.
 
 ## `github-action.yml` — scheduled curate via GitHub Actions
 
-The fastest way to keep a frame fresh. Calls `tick.frames.ag/run` on a
-weekly schedule and commits new events back to your repo.
+The fastest way to keep a frame fresh. Calls the hosted tick runtime on
+a weekly schedule and commits new events back to your repo.
 
 ### Setup
 
-1. Copy `github-action.yml` to `.github/workflows/tick-curate.yml` in
+1. Get a `TICK_API_KEY` — currently this is operator-issued (closed
+   alpha; no public signup yet). Reach out via the GitHub repo or
+   email to get one. If you're operating your own tick deployment,
+   set `TICK_API_KEYS` on your Worker (see
+   [DEPLOY.md](../DEPLOY.md)).
+2. Copy `github-action.yml` to `.github/workflows/tick-curate.yml` in
    the repo that contains your frame.
-2. Sign up at [tick.frames.ag](https://tick.frames.ag) and copy your
-   API key.
-3. In your repo, add the key as a secret:
-   - Settings → Secrets and variables → Actions → New repository secret
-   - Name: `TICK_API_KEY`
-   - Value: your key
+3. In your repo, add two secrets:
+   - **Settings → Secrets and variables → Actions → New repository secret**
+   - `TICK_API_KEY` = the key you got
+   - `TICK_API_URL` *(optional)* = override the runtime URL; defaults
+     to the current production endpoint
 4. Edit the `FRAME_PATH` env var in the workflow file to point at your
    frame's directory (the one containing `schema.yml` and
    `events.ndjson`).
@@ -26,7 +30,7 @@ weekly schedule and commits new events back to your repo.
 
 On each fire, the action:
 
-1. POSTs your frame URL + budget to `tick.frames.ag/run` with `op: curate`
+1. POSTs your frame URL + budget to `tick.microchipgnu.workers.dev/run` with `op: curate`
 2. tick reads your existing frame, runs the curate agent loop (EXPAND
    for missing entities, REFRESH for stale facts), verifies every new
    citation via a Haiku-tier judge
