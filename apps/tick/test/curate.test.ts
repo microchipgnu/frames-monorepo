@@ -103,12 +103,10 @@ describe("curate loop control", () => {
     expect(result.report?.iterations).toBe(1);
   });
 
-  test("no_progress early-stop catches the loop before max_iters when no events are emitted", async () => {
-    // Build a script of responses that each request a (fake) tool call the
-    // loop will fail to dispatch — no events emitted. Phase E (v0.2.0) adds
-    // an evidence-aware early stop: 3 consecutive iters with no events
-    // triggers a force-summary call. So even with max_iters=5, this run
-    // stops at iter 4 with stop_reason=no_progress.
+  test("sharp spin detector stops the loop on identical no-event iters (v0.3.0)", async () => {
+    // Two consecutive iters with the same tool-call signature AND zero events
+    // → sharp-spin trigger fires, no need to wait for the generous 5-streak.
+    // Same nonexistent tool, same input, same outcome (error) — textbook spin.
     const toolUse: LlmContent = {
       type: "tool_use",
       id: "t_1",
@@ -133,7 +131,61 @@ describe("curate loop control", () => {
       llm: mockLlm(script),
       max_iters: 5,
     });
-    expect(result.report?.iterations).toBe(4);
+    // iter 1: call LLM, 0 events, streak=1, sig recorded.
+    // iter 2: same sig → sharp-spin bumps streak to 5.
+    // iter 3: top-of-iter sees streak>=5, force-summary, break.
+    expect(result.report?.iterations).toBe(3);
+    expect(result.report?.stop_reason).toBe("no_progress");
+  });
+
+  test("varied exploration is NOT punished by the sharp spin detector — only the generous 5-streak fires", async () => {
+    // Five iters with DIFFERENT tool calls, all read-only (no events). The
+    // sharp-spin detector never trips because signatures vary; the generous
+    // 5-streak does — but only on iter 6.
+    const script: LlmResponse[] = [
+      // Five varied no-event iters
+      {
+        stop_reason: "tool_use",
+        content: [{ type: "tool_use", id: "t_1", name: "catalog_search", input: { capability: "search" } }],
+        usage: { input_tokens: 1, output_tokens: 1, estimated_cost: "0.001" },
+      },
+      {
+        stop_reason: "tool_use",
+        content: [{ type: "tool_use", id: "t_2", name: "catalog_search", input: { capability: "scrape" } }],
+        usage: { input_tokens: 1, output_tokens: 1, estimated_cost: "0.001" },
+      },
+      {
+        stop_reason: "tool_use",
+        content: [{ type: "tool_use", id: "t_3", name: "catalog_search", input: { capability: "enrich" } }],
+        usage: { input_tokens: 1, output_tokens: 1, estimated_cost: "0.001" },
+      },
+      {
+        stop_reason: "tool_use",
+        content: [{ type: "tool_use", id: "t_4", name: "query", input: { mode: "all" } }],
+        usage: { input_tokens: 1, output_tokens: 1, estimated_cost: "0.001" },
+      },
+      {
+        stop_reason: "tool_use",
+        content: [{ type: "tool_use", id: "t_5", name: "query", input: { mode: "entity", entity_id: "e1" } }],
+        usage: { input_tokens: 1, output_tokens: 1, estimated_cost: "0.001" },
+      },
+      // The forced wrap-up after the 5-streak trips.
+      {
+        stop_reason: "end_turn",
+        content: [text("OK, wrapping up.")],
+        usage: { input_tokens: 1, output_tokens: 1, estimated_cost: "0.001" },
+      },
+    ];
+    const result = await curate({
+      ...baseArgs,
+      client: mockClient(),
+      catalog: mockCatalog(),
+      llm: mockLlm(script),
+      max_iters: 10,
+    });
+    // Five iters with varied no-event tool calls = streak hits 5 at end of iter 5.
+    // Iter 6 fires the force-summary on top-of-iter check.
+    expect(result.report?.iterations).toBe(6);
     expect(result.report?.stop_reason).toBe("no_progress");
   });
 

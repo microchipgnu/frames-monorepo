@@ -1,5 +1,100 @@
 # @frames-ag/tick
 
+## 0.3.0 — 2026-05-13 (Phase F — discover_entity sub-agent + EXPAND/REFRESH framing)
+
+Tick's curate op was *refresh-coded*. The system prompt told the agent
+to operate on existing entities; the only sub-agent (`refresh_entity`)
+took an existing `entity_id`; the Phase E (v0.2.0) early-stop heuristic
+punished exploration. A curator that only verifies what it already knows
+isn't a curator — it's a verifier. Phase F closes that gap.
+
+### What's new
+
+**`discover_entity` sub-agent tool.** Symmetric counterpart to
+`refresh_entity` for EXPAND-mode work. The agent emits a hypothesis
+("A biotech called Genomique, Paris, 2024") plus optional `seed_urls`
+and `fields_to_find`. A bounded sub-loop (5 iters, ~$0.30 budget) runs
+in its own Durable Object isolate and returns one of:
+
+- `entity_proposed` — runtime auto-emits the `entity.created` +
+  `facts.set_many` events. No follow-up tool call needed from the
+  parent.
+- `matched_existing` — investigation revealed the hypothesis was a dupe
+  of a known entity_id. Nothing written. Parent skips.
+- `no_match` — hypothesis can't be verified or is out of scope. Nothing
+  written.
+
+Sub-loop receives `known_entity_ids` (capped at 500) so it can detect
+duplicates. The dispatcher fetches this list once per call from the
+parent's frame_client. The sub-loop's `propose_new_entity` is hard-
+guarded: proposing a known id returns a tool-error and the model is
+forced to retry as `propose_match_existing`.
+
+**Parallel dispatch extended.** Phase C's "all-`refresh_entity` turn →
+`Promise.all`" optimization now triggers on any turn that's all-sub-
+agents (mix of `refresh_entity` + `discover_entity` is fine — both
+route to EntityAgent DOs with no shared state). A 13-entity curate
+that mixes 8 refreshes + 5 discoveries in one turn now runs all 13 in
+parallel isolates.
+
+**System prompt rewrite (`src/llm/system.ts`).** Replaced the refresh-
+coded "Loop strategy" stanza with two co-equal modes:
+
+- **EXPAND** — find entities the dataset is missing. Use
+  `discover_entity` per candidate. Fan out.
+- **REFRESH** — verify and update entities already in the dataset. Use
+  `refresh_entity` per existing entity. Fan out.
+
+The agent picks per dataset state: empty-or-near-empty → mostly EXPAND;
+mature → mostly REFRESH; typical → both. The `refresh_entity` tool
+description no longer carries the "**Preferred path**" framing.
+
+**Phase E early-stop dial-back.** The parent loop's 3-streak no-event
+threshold (introduced in v0.2.0) punished legitimate EXPAND-mode
+exploration that runs 3-4 catalog/search iters before its first write.
+Two replacement triggers:
+
+1. **Generous threshold** — bumped from 3 to **5 consecutive no-event
+   iters** before forcing a wrap-up.
+2. **Sharp spin detector** — if an iter's exact tool-call signature
+   (sorted `(name, input)` pairs) matches the previous iter's AND
+   both produced zero events, stop immediately. Catches tight loops
+   on the same calls without waiting for the 5-streak. Varied
+   exploration never trips this — different signatures each iter.
+
+### Public API changes
+
+- **New tool** in `CURATE_TOOLS`: `discover_entity(hypothesis,
+  seed_urls?, fields_to_find?)`. Hosted runtimes expose it through the
+  same Anthropic tool-spec surface as the other curate tools.
+- **`SubRunSummary.action`** in `@frames-ag/tick-types` grew two
+  variants: `entity_added`, `entity_matched_existing`. Existing
+  variants unchanged. Consumers using exhaustive switches need to
+  handle the new cases (or fall through to default).
+
+### Migration
+
+For a typical curate run the upgrade is silent — the model picks
+EXPAND vs REFRESH and acts. To explicitly nudge:
+
+```sh
+# Frame whose prompt.md says "find every UK Series-A biotech of 2025"
+# now genuinely expands instead of just refreshing what exists.
+tick curate <frame-url> --budget 2.0
+```
+
+If your downstream tooling exhaustively switches on `sub_runs[].action`,
+extend the switch with `entity_added` (proposed entity → runtime wrote
+`entity.created` + `facts.set_many`) and `entity_matched_existing`
+(dupe → no writes).
+
+### bumps
+
+- `@frames-ag/tick` 0.2.0 → 0.3.0
+- `@frames-ag/tick-types` 0.0.4 → 0.0.5
+
+---
+
 ## 0.2.0 — 2026-05-13 (Phase E — fetch dedup, evidence-aware early stop, CitationAgent)
 
 Three quality + cost defenses landing together. Together they close the

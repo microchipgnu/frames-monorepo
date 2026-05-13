@@ -183,7 +183,7 @@ export const CURATE_TOOLS: LlmToolSpec[] = [
   {
     name: "refresh_entity",
     description:
-      "**Preferred** over manual web_fetch + set_facts when you want to update a specific entity. Spawns a bounded sub-agent with its own context (~15K tokens) and budget (~$0.30) that researches just this entity and writes facts directly on success. Cheaper than doing the research in this parent loop because the sub-agent's context doesn't compound across your other entities. You get back a structured summary of what was written. Use this for the bulk of refresh work; reach for web_fetch + set_facts manually only for cross-entity reasoning or when the sub-agent declines.",
+      "Spawn a bounded sub-agent that researches ONE existing entity and writes facts directly. Sub-agent has its own context (~15K tokens), budget (~$0.30), and 5-iter cap; runs in parallel with other sub-agents in its own Durable Object isolate. Use this for REFRESH-mode work — updating / verifying / deprecating facts on entities that are already in the dataset. Pass `focus` (schema fields) to narrow scope.",
     input_schema: {
       type: "object",
       properties: {
@@ -195,6 +195,34 @@ export const CURATE_TOOLS: LlmToolSpec[] = [
         },
       },
       required: ["entity_id"],
+    },
+  },
+  {
+    name: "discover_entity",
+    description:
+      "Spawn a bounded sub-agent that investigates ONE candidate NEW entity. Sub-agent verifies the candidate against sources and either (a) proposes the entity with researched facts — the runtime emits the `entity.created` + `facts.set_many` events for you, no follow-up tool call needed, (b) reports it already exists in the dataset under a known entity_id, or (c) rejects it as unverifiable / out-of-scope. Use this for EXPAND-mode work — adding entities the dataset is missing. Pass `seed_urls` when you already know where to start looking; pass `fields_to_find` to focus the sub-agent on specific schema fields. Same context/budget/parallelism profile as refresh_entity.",
+    input_schema: {
+      type: "object",
+      properties: {
+        hypothesis: {
+          type: "string",
+          description:
+            "Natural-language description of the candidate entity — e.g. 'A biotech company called Genomique, founded 2024 in Paris, focused on cancer diagnostics'. The more specific, the cheaper the sub-loop runs.",
+        },
+        seed_urls: {
+          type: "array",
+          items: { type: "string" },
+          description:
+            "Optional: URLs you've already identified as relevant. The sub-loop fetches these first, saving an exploration iter.",
+        },
+        fields_to_find: {
+          type: "array",
+          items: { type: "string" },
+          description:
+            "Optional: schema fields to gather if the entity turns out to be real. Empty means 'gather everything the sources support'.",
+        },
+      },
+      required: ["hypothesis"],
     },
   },
 ];

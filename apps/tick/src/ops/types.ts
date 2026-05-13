@@ -90,10 +90,30 @@ export interface ToolDispatchResult {
   sub_run?: SubRun;
 }
 
-/** Per-entity sub-agent run, emitted by `refresh_entity`. */
+/** Per-entity sub-agent run, emitted by `refresh_entity` or `discover_entity`. */
 export interface SubRun {
+  /**
+   * For refresh sub-runs: the existing entity_id.
+   * For discover sub-runs: the proposed/matched entity_id when known,
+   * otherwise a `discover:<hypothesis_hash>` placeholder so the row remains
+   * keyable in the iteration_log.
+   */
   entity_id: string;
-  action: "facts_set" | "deprecated" | "no_change" | "no_op";
+  /**
+   *   facts_set                 — refresh proposed setting facts
+   *   deprecated                — refresh proposed deprecations
+   *   no_change                 — refresh found nothing to update OR discover returned no_match
+   *   no_op                     — sub-loop hit an error / unexpected stop
+   *   entity_added              — discover proposed a new entity; parent emitted entity.created + facts.set_many
+   *   entity_matched_existing   — discover decided the hypothesis was a dupe of a known entity; nothing written
+   */
+  action:
+    | "facts_set"
+    | "deprecated"
+    | "no_change"
+    | "no_op"
+    | "entity_added"
+    | "entity_matched_existing";
   stop_reason: string;
   facts_set: number;
   deprecations: number;

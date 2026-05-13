@@ -94,8 +94,28 @@ export interface RunResult {
  * the runtime's internal types.
  */
 export interface SubRunSummary {
+  /**
+   * For `refresh_entity` sub-runs: the existing entity_id.
+   * For `discover_entity` sub-runs: the proposed entity_id (action=entity_added)
+   * or the matched entity_id (action=entity_matched_existing), or a
+   * `discover:<hypothesis_hash>` placeholder when no entity_id was decided.
+   */
   entity_id: string;
-  action: "facts_set" | "deprecated" | "no_change" | "no_op";
+  /**
+   *   facts_set                 — refresh proposed setting facts
+   *   deprecated                — refresh proposed deprecations
+   *   no_change                 — refresh found nothing OR discover returned no_match
+   *   no_op                     — sub-loop hit an error / unexpected stop
+   *   entity_added              — discover proposed a new entity (v0.3.0+); runtime emitted entity.created + facts.set_many
+   *   entity_matched_existing   — discover decided the hypothesis was a dupe; nothing written (v0.3.0+)
+   */
+  action:
+    | "facts_set"
+    | "deprecated"
+    | "no_change"
+    | "no_op"
+    | "entity_added"
+    | "entity_matched_existing";
   stop_reason: string;
   facts_set: number;
   deprecations: number;

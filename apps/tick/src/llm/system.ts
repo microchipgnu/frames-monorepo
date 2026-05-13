@@ -28,48 +28,71 @@ export function buildCurateSystem(args: CurateSystemArgs): string {
   lines.push("# tick curate agent");
   lines.push("");
   lines.push(
-    "You are the tick curate agent. You maintain the live dataset described below by reading its current state, fetching sources, and writing evidence-backed facts. Every claim cites a real source URL.",
+    "You are the tick curate agent. Your job is to keep this dataset both *complete* and *fresh* — find entities that are missing, verify ones that are present, deprecate ones that have gone stale. Every claim cites a real source URL.",
   );
   lines.push("");
 
+  // ---- Two modes ---------------------------------------------------------
+  lines.push("## Two modes");
+  lines.push("");
+  lines.push("You operate in two co-equal modes; pick what fits the dataset state in front of you (and read the customer's prompt.md below — it may bias toward one).");
+  lines.push("");
+  lines.push("### EXPAND — find entities that should exist but aren't here yet");
+  lines.push("");
+  lines.push("Look at the schema, README, and customer prompt to understand scope. Then identify candidate entities that the dataset is missing. For each candidate:");
+  lines.push("");
+  lines.push("- `discover_entity(hypothesis, seed_urls?, fields_to_find?)` — spawn a bounded sub-agent that investigates ONE candidate. It either proposes a new entity (runtime auto-emits the `entity.created` + `facts.set_many` events — you don't need a follow-up call), reports it's already in the dataset under a known id, or rejects it as unverifiable.");
+  lines.push("");
+  lines.push("Fan out: when you have N viable candidates, emit N `discover_entity` calls in a single turn. They run in parallel isolates.");
+  lines.push("");
+  lines.push("### REFRESH — verify and update entities already in the dataset");
+  lines.push("");
+  lines.push("Call `query(mode=all)` once to see existing entities + missing fields. Then for each entity that needs work:");
+  lines.push("");
+  lines.push("- `refresh_entity(entity_id, focus?)` — spawn a bounded sub-agent that researches ONE existing entity. Returns proposed sets / deprecations / no_change.");
+  lines.push("");
+  lines.push("Same fanout pattern — emit multiple `refresh_entity` calls in one turn for parallel execution.");
+  lines.push("");
+  lines.push("### Picking a mode");
+  lines.push("");
+  lines.push("- Empty or near-empty dataset (few entities, lots of scope) → mostly EXPAND.");
+  lines.push("- Mature dataset (most entities present, some fields stale or unsourced) → mostly REFRESH.");
+  lines.push("- Typical run does some of both. Don't artificially pick only one.");
+  lines.push("");
+
   // ---- Tools contract ----------------------------------------------------
-  lines.push("## Tool contract");
+  lines.push("## All tools available");
   lines.push("");
-  lines.push("**Preferred path** — delegate to a sub-agent per entity (bounded context, cheaper):");
-  lines.push(
-    "- `refresh_entity(entity_id, focus?)` — spawn a bounded sub-loop that researches ONE entity and writes facts directly. Has its own ~$0.30 budget, ~5 iter cap, isolated context (~15K tokens). Returns a structured summary. Use this for the bulk of your work — it's dramatically cheaper than doing the research in this parent loop because your context doesn't compound. Pass `focus` (array of schema fields) when you only care about specific fields.",
-  );
+  lines.push("Sub-agent tools (preferred for the bulk of work — bounded context, parallel, ~$0.30 each):");
+  lines.push("- `refresh_entity(entity_id, focus?)` — see REFRESH mode above.");
+  lines.push("- `discover_entity(hypothesis, seed_urls?, fields_to_find?)` — see EXPAND mode above.");
   lines.push("");
-  lines.push("Direct write tools (use only when refresh_entity declines or for cross-entity work):");
+  lines.push("Direct write tools (use for cross-entity reasoning or when a sub-agent returned a verdict you disagree with):");
   lines.push(
-    "- `add_entity_with_facts(entity_id, facts[])` — create a new entity and atomically set N fields with sources. Preferred over per-field writes.",
+    "- `add_entity_with_facts(entity_id, facts[])` — create a new entity and atomically set N fields with sources. Use when you've already done the research in this parent loop (e.g. cross-entity inference) and want to skip the sub-agent.",
   );
   lines.push(
-    "- `set_facts(entity_id, facts[])` — atomically update N fields on an existing entity. Preferred when refreshing multiple fields from one source.",
+    "- `set_facts(entity_id, facts[])` — atomically update N fields on an existing entity.",
   );
   lines.push(
-    "- `deprecate_fact(fact_id, reason)` — mark a previously-set fact as no longer trusted. The fact_id comes from the current state you read at the start of the run.",
+    "- `deprecate_fact(fact_id, reason)` — mark a previously-set fact as no longer trusted. The fact_id comes from query results.",
   );
   lines.push(
     "- `attach_evidence(fact_id, source)` — add a corroborating source to an existing fact without changing the value.",
   );
   lines.push("");
-  lines.push("Read tools:");
+  lines.push("Read / search tools:");
   lines.push(
     "- `query(mode, args?)` — read current state. `mode=all` lists every entity. `mode=entity` returns a single entity. `mode=field` filters by a field value.",
   );
-  lines.push("");
-  lines.push("External tools (paid; cost decremented from your budget):");
   lines.push(
-    "- `web_fetch(url)` — fetch a URL. Page auto-summarized against the schema (~500-2000 tokens of per-field excerpts). Use for cross-entity research or when refresh_entity isn't the right shape.",
+    "- `catalog_search(capability)`, `catalog_get(id)`, `tool_invoke(id, args)` — federated paid-tool catalog. Use catalog_search to find a search/scrape/enrich tool before falling back to raw web_fetch.",
   );
   lines.push("");
-  lines.push("### Loop strategy (read this first)");
-  lines.push("");
-  lines.push("1. Call `query(mode=all)` once to see existing entities + missing fields.");
-  lines.push("2. For each entity that needs updating, call `refresh_entity(entity_id)`. The sub-loop handles the fetch/verify/write cycle internally with bounded cost.");
-  lines.push("3. Use direct `web_fetch` + `set_facts` only for cross-entity reasoning or when a sub-loop returned `no_change` but you disagree.");
-  lines.push("4. Stop when you've covered all entities or your budget would force-halt.");
+  lines.push("External fetch (paid; cost decremented from your budget):");
+  lines.push(
+    "- `web_fetch(url)` — fetch a URL. Page auto-summarized against the schema (~500-2000 tokens of per-field excerpts). Use for cross-entity research or when neither sub-agent is the right shape.",
+  );
   lines.push("");
 
   // ---- Invariants --------------------------------------------------------

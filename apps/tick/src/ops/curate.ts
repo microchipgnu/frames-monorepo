@@ -13,7 +13,7 @@
 // customer's CI can append them to events.ndjson. `tool.invoked` events for
 // paid web_fetch calls are also included for the audit trail.
 
-import { randomUUID } from "node:crypto";
+import { createHash, randomUUID } from "node:crypto";
 import type { FrameEvent, ToolCall } from "@frames-ag/tick-types";
 import { CatalogClient } from "../catalog/client";
 import { FrameClient, type FrameMeta, type FrameSchema } from "../frame-client";
@@ -22,13 +22,14 @@ import { summarizeForContext } from "../llm/summarize";
 import { buildCurateSystem } from "../llm/system";
 import { CURATE_TOOLS } from "../llm/tools";
 import { refreshEntity } from "./refresh-entity";
+import { discoverEntity } from "./discover-entity";
 import { verifyCitations } from "./verify-citations";
 import {
   dispatchCatalogGet,
   dispatchCatalogSearch,
   dispatchToolInvoke,
 } from "./catalog-dispatch";
-import type { OpOutcome, Refetcher, ToolDispatchResult } from "./types";
+import type { OpOutcome, Refetcher, SubRun, ToolDispatchResult } from "./types";
 
 export interface CurateOptions {
   frame_url: string;
@@ -117,12 +118,19 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
   // Claude tokens — those compound iteration-over-iteration as the context
   // grows. Project the next iter as 1.2× the most expensive prior LLM call.
   let maxLlmCostSeen = 0;
-  // Phase E.2 — evidence-aware early stop. Track consecutive iters that
-  // dispatched only read-only tools (query, web_fetch, catalog_*) with no
-  // events emitted. Stop after 3 in a row. Parent loop's max_iters is 30
-  // so this is a much bigger win than in sub-loops (~10+ iters saved on
-  // models that get stuck searching without writing).
+  // Phase E.2 + Phase F (Layer 1) — evidence-aware early stop.
+  // Two independent triggers:
+  //   (a) **Generous threshold** — 5 consecutive iters with no events
+  //       emitted. Bumped from 3 in v0.2.0 because legitimate EXPAND-mode
+  //       exploration can run 3-4 catalog/search iters before writing.
+  //   (b) **Sharp spin detector** — if an iter's exact tool-call signature
+  //       (sorted (name, input) hashes) matches the previous iter's AND
+  //       both produced zero events, stop immediately. Repeating the
+  //       SAME calls without progress is spinning regardless of streak.
+  // (a) trips on slow exploration that never converges; (b) trips on
+  // tight loops the moment they appear. Both are necessary.
   let parentNoProgressStreak = 0;
+  let lastIterSignature = "";
 
   while (iter < maxIters) {
     iter++;
@@ -162,15 +170,14 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
 
     // Evidence-aware early stop. Different signal from the budget guard:
     // we have plenty of money left, but the model is searching without
-    // writing. Three consecutive iters that emit no events → halt and
-    // force-summarize. Cheap defense against fetch-in-circles.
-    if (parentNoProgressStreak >= 3) {
+    // writing. Either trigger fires → halt and force-summarize.
+    if (parentNoProgressStreak >= 5) {
       messages.push({
         role: "user",
         content: [
           {
             type: "text",
-            text: "Three consecutive iterations produced no events (no facts written, no deprecations). Either you have enough data and should call your write tools now, or you should wrap up. Write a one-paragraph summary of what was accomplished and stop calling tools.",
+            text: "Several consecutive iterations produced no events (no facts written, no entities added). You're either spinning on the same calls or exploring without converging. Either commit to writes via your sub-agents / direct write tools, or wrap up. Write a one-paragraph summary of what was accomplished and stop calling tools.",
           },
         ],
       });
@@ -236,15 +243,18 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
 
     // Dispatch every tool_use in the response.
     //
-    // Optimization: when every tool_use in the turn is a `refresh_entity`,
-    // dispatch them concurrently via Promise.all so EntityAgent DOs run in
-    // parallel isolates. Mixed-tool turns (refresh_entity + set_facts, etc.)
-    // stay sequential because write ordering matters when tools mutate
-    // shared parent state.
+    // Optimization: when every tool_use in the turn is a sub-agent call
+    // (`refresh_entity` or `discover_entity` — both route through the
+    // EntityAgent DO with no shared state), dispatch them concurrently via
+    // Promise.all so DO isolates run truly in parallel. Mixed-tool turns
+    // (refresh_entity + set_facts, etc.) stay sequential because write
+    // ordering matters when tools mutate shared parent state.
     const toolUseBlocks = llmRes.content.filter(
       (b): b is Extract<LlmContent, { type: "tool_use" }> => b.type === "tool_use",
     );
-    const allRefresh = toolUseBlocks.length > 1 && toolUseBlocks.every((b) => b.name === "refresh_entity");
+    const allSubAgents =
+      toolUseBlocks.length > 1 &&
+      toolUseBlocks.every((b) => b.name === "refresh_entity" || b.name === "discover_entity");
 
     const buildCtx = () => ({
       run_id: opts.run_id,
@@ -259,7 +269,7 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
       schema,
     });
 
-    const dispatches: ToolDispatchResult[] = allRefresh
+    const dispatches: ToolDispatchResult[] = allSubAgents
       ? await Promise.all(toolUseBlocks.map((b) => dispatchTool(b.name, b.input, buildCtx())))
       : await (async () => {
           const out: ToolDispatchResult[] = [];
@@ -292,11 +302,25 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
         is_error: dispatch.is_error,
       });
     }
+    // Compute this iter's tool-call signature: sorted JSON of
+    // (name, input). Used for the sharp spin detector below.
+    const iterSignature = JSON.stringify(
+      toolUseBlocks
+        .map((b) => [b.name, b.input])
+        .sort((a, b) => String(a[0]).localeCompare(String(b[0]))),
+    );
+
     if (eventsEmittedThisIter === 0) {
       parentNoProgressStreak++;
+      // Sharp spin detector: identical tool calls two iters in a row, no
+      // events from either. Don't wait for the generous threshold — bail.
+      if (iterSignature !== "" && iterSignature === lastIterSignature) {
+        parentNoProgressStreak = Math.max(parentNoProgressStreak, 5);
+      }
     } else {
       parentNoProgressStreak = 0;
     }
+    lastIterSignature = iterSignature;
     messages.push({ role: "user", content: toolResults });
   }
 
@@ -418,6 +442,8 @@ async function dispatchTool(
       return await dispatchWebFetch(input, ctx);
     case "refresh_entity":
       return await dispatchRefreshEntity(input, ctx);
+    case "discover_entity":
+      return await dispatchDiscoverEntity(input, ctx);
     case "catalog_search":
       return await dispatchCatalogSearch(input, ctx);
     case "catalog_get":
@@ -721,6 +747,148 @@ async function dispatchRefreshEntity(
       stop_reason: sub.stop_reason,
       facts_set: sub.facts_to_set.length,
       deprecations: sub.facts_to_deprecate.length,
+      iterations: sub.iteration_log.length,
+      iteration_log: sub.iteration_log,
+      tool_log: sub.tool_log,
+      llm_cost: sub.llm_cost,
+      narrative: sub.narrative,
+    },
+  };
+}
+
+async function dispatchDiscoverEntity(
+  input: Record<string, unknown>,
+  ctx: DispatchContext,
+): Promise<ToolDispatchResult> {
+  const hypothesis = String(input.hypothesis ?? "").trim();
+  if (!hypothesis) return errorResult("hypothesis required (non-empty string)");
+  const seed_urls = Array.isArray(input.seed_urls)
+    ? (input.seed_urls as unknown[]).map(String).filter((u) => /^https?:\/\//.test(u))
+    : undefined;
+  const fields_to_find = Array.isArray(input.fields_to_find)
+    ? (input.fields_to_find as unknown[]).map(String)
+    : undefined;
+
+  // Collect known entity_ids so the sub-loop can detect duplicates. Cheap
+  // (frames-cloud iteration uses NDJSON, no per-entity overhead beyond
+  // listing) but capped — beyond 500 entity_ids the model can't reasonably
+  // scan the list anyway, so we pass the first 500 and trust the sub-loop
+  // to investigate before proposing.
+  const knownIds: string[] = [];
+  try {
+    for await (const ent of ctx.frame_client.iterateEntities(ctx.frame_url, { include: "first" })) {
+      knownIds.push(ent.entity_id);
+      if (knownIds.length >= 500) break;
+    }
+  } catch (e) {
+    return errorResult(`failed to enumerate known entities: ${(e as Error).message}`);
+  }
+
+  // Stable DO name: ${run_id}:discover:${sha256(hypothesis).slice(0, 16)}.
+  // Idempotent on retries; distinct hypotheses → distinct isolates → parallel.
+  const hypoHash = createHash("sha256").update(hypothesis).digest("hex").slice(0, 16);
+
+  const sub = ctx.env?.ENTITY_AGENT
+    ? await ctx.env.ENTITY_AGENT.get(
+        ctx.env.ENTITY_AGENT.idFromName(`${ctx.run_id}:discover:${hypoHash}`),
+      ).discover({
+        hypothesis,
+        seed_urls,
+        schema: ctx.schema,
+        known_entity_ids: knownIds,
+        fields_to_find,
+        budget: "0.30",
+        max_iters: 5,
+        run_id: ctx.run_id,
+        agent: ctx.agent,
+      })
+    : await discoverEntity({
+        hypothesis,
+        seed_urls,
+        schema: ctx.schema,
+        known_entity_ids: knownIds,
+        fields_to_find,
+        llm: ctx.llm,
+        refetcher: ctx.refetcher,
+        budget: "0.30",
+        max_iters: 5,
+        run_id: ctx.run_id,
+        agent: ctx.agent,
+      });
+
+  // Emit events when the sub-loop proposed a new entity. Match
+  // add_entity_with_facts shape: one entity.created + one facts.set_many.
+  const events: FrameEvent[] = [];
+  if (sub.proposed_entity) {
+    const ts = new Date().toISOString();
+    events.push({
+      id: randomUUID(),
+      ts,
+      type: "entity.created",
+      agent: ctx.agent,
+      run_id: ctx.run_id,
+      payload: { entity_id: sub.proposed_entity.entity_id },
+    });
+    if (sub.proposed_entity.facts.length > 0) {
+      events.push({
+        id: randomUUID(),
+        ts,
+        type: "facts.set_many",
+        agent: ctx.agent,
+        run_id: ctx.run_id,
+        payload: {
+          entity_id: sub.proposed_entity.entity_id,
+          facts: sub.proposed_entity.facts.map((f) => ({
+            fact_id: randomUUID(),
+            field: f.field,
+            value: f.value,
+            source: f.source,
+          })),
+        },
+      });
+    }
+  }
+
+  const action: SubRun["action"] =
+    sub.stop_reason === "entity_proposed" ? "entity_added" :
+    sub.stop_reason === "matched_existing" ? "entity_matched_existing" :
+    sub.stop_reason === "no_match" ? "no_change" :
+    "no_op";
+
+  const factsCount = sub.proposed_entity?.facts.length ?? 0;
+  const entityNote = sub.proposed_entity
+    ? `proposed new entity \`${sub.proposed_entity.entity_id}\` with ${factsCount} fact(s)`
+    : sub.matched_existing_entity_id
+      ? `matched existing entity \`${sub.matched_existing_entity_id}\` — not adding`
+      : "no match";
+
+  const result_text = [
+    `discover_entity(hypothesis="${hypothesis.slice(0, 80)}${hypothesis.length > 80 ? "…" : ""}") → ${action}`,
+    `  stop_reason:   ${sub.stop_reason}`,
+    `  outcome:       ${entityNote}`,
+    `  llm_cost:      $${sub.llm_cost}`,
+    `  iterations:    ${sub.iteration_log.length}`,
+    "",
+    `narrative: ${sub.narrative}`,
+  ].join("\n");
+
+  return {
+    result_text,
+    is_error: sub.stop_reason === "error",
+    cost: sub.llm_cost,
+    events,
+    sub_run: {
+      // SubRun.entity_id is the proposed/matched id when known, otherwise a
+      // stable placeholder derived from the hypothesis hash so customers can
+      // correlate the sub-run with the originating call in the iteration_log.
+      entity_id:
+        sub.proposed_entity?.entity_id ??
+        sub.matched_existing_entity_id ??
+        `discover:${hypoHash}`,
+      action,
+      stop_reason: sub.stop_reason,
+      facts_set: factsCount,
+      deprecations: 0,
       iterations: sub.iteration_log.length,
       iteration_log: sub.iteration_log,
       tool_log: sub.tool_log,

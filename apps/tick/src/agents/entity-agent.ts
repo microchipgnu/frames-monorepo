@@ -31,6 +31,7 @@ import { FrameClient } from "../frame-client";
 import { LlmClient } from "../llm/client";
 import { createHttpRefetcher } from "../ops/refetcher";
 import { refreshEntity, type RefreshEntityResult } from "../ops/refresh-entity";
+import { discoverEntity, type DiscoverEntityResult } from "../ops/discover-entity";
 
 /** Serializable input to the DO. Excludes class instances (LlmClient / Refetcher
  *  are constructed inside the DO from env). */
@@ -40,6 +41,18 @@ export interface RefreshEntityRequest {
   /** Full FrameSchema — small JSON, serializes fine. */
   schema: Parameters<typeof refreshEntity>[0]["schema"];
   focus?: string[];
+  budget?: string;
+  max_iters?: number;
+  run_id: string;
+  agent: string;
+}
+
+export interface DiscoverEntityRequest {
+  hypothesis: string;
+  seed_urls?: string[];
+  schema: Parameters<typeof discoverEntity>[0]["schema"];
+  known_entity_ids: string[];
+  fields_to_find?: string[];
   budget?: string;
   max_iters?: number;
   run_id: string;
@@ -86,6 +99,44 @@ export class EntityAgent extends DurableObject<Bindings> {
       entity_state: req.entity_state,
       schema: req.schema,
       focus: req.focus,
+      llm,
+      refetcher,
+      budget: req.budget,
+      max_iters: req.max_iters,
+      run_id: req.run_id,
+      agent: req.agent,
+    });
+  }
+
+  /**
+   * Run one bounded discover-entity sub-loop inside this DO's isolate.
+   * Symmetric to `refresh` for dataset EXPAND mode. Keyed in curate.ts by
+   * `${run_id}:discover:${hash(hypothesis)}` so concurrent discovery calls
+   * for different hypotheses run in parallel isolates.
+   */
+  async discover(req: DiscoverEntityRequest): Promise<DiscoverEntityResult> {
+    const llm = new LlmClient({
+      gatewayUrl: this.env.AI_GATEWAY_URL,
+      gatewayToken: this.env.AI_GATEWAY_TOKEN,
+      byokAlias: this.env.AI_GATEWAY_BYOK_ALIAS,
+      anthropicApiKey: this.env.ANTHROPIC_API_KEY,
+      anthropicBaseUrl: this.env.ANTHROPIC_BASE_URL,
+      gatewayMetadata: { runId: req.run_id, wallet: req.agent, source: "EntityAgent/discover" },
+      workersAiAccountId: this.env.CF_ACCOUNT_ID,
+      workersAiToken: this.env.WORKERS_AI_TOKEN,
+      workersAiModel: this.env.WORKERS_AI_MODEL,
+      ai: this.env.AI,
+      aiGatewaySlug: this.env.AI_GATEWAY_SLUG,
+    });
+    const refetcher = createHttpRefetcher();
+    void FrameClient;
+
+    return await discoverEntity({
+      hypothesis: req.hypothesis,
+      seed_urls: req.seed_urls,
+      schema: req.schema,
+      known_entity_ids: req.known_entity_ids,
+      fields_to_find: req.fields_to_find,
       llm,
       refetcher,
       budget: req.budget,
