@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.tooloracle-io-v2-uvo-citation-check",
+  "title": "Legal citation verification + phantom detection — catches fabricated EU/US statu",
+  "description": "Legal citation verification + phantom detection — catches fabricated EU/US statute references, hallucinated case law, fake academic papers, made-up section numbers in AI-generated regulatory text. EU MiCA, GDPR, DORA, AMLR, NIS2, BaFin German codes (BGB, KWG) + US FINRA, SEC, FinCEN citations supported. For legal research, compliance audit, regulatory drafting, AI hallucination defense. Sub-200ms.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://tooloracle.io/v2/uvo_citation_check"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01",
+    "pay_to": "0x11f591C3496C0632e7B173184f5Bc71dC941125D",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://tooloracle.io/v2/uvo_citation_check",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "tooloracle.io",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 48,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

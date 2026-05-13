@@ -25,6 +25,11 @@
     "currency": "UNKNOWN",
     "asset": "CBIELTK6YBZJU5UP2WWQEUCYKLPU6AUNZ2BQ4WWFEIE3USCIHMXQDAMA",
     "price_hint": "0.1",
+    "pay_to": "GC5JZJYTRWUK2SJP46O54U7FQJXVOY5SRNCZFSCNDLZWZNANGKXTGDMY",
+    "scheme": "exact",
+    "extra": {
+      "areFeesSponsored": true
+    },
     "accepts": [
       {
         "protocol": "x402v2",
@@ -68,9 +73,25 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://dermi-znuq.onrender.com/check-skincare-ingredients",
     "x402_version": 2,
     "accept_count": 4
+  },
+  "_signals": {
+    "host": "dermi-znuq.onrender.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 2,
+    "network_names": "Base, Stellar",
+    "listed_on_count": 2,
+    "total_calls_30d": 4,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Dermi checks skincare and makeup ingredients for pore-clogging (comedogenic) compounds. Send a JSON body with an 'ingredients' array of up to 20 ingredient names. Returns flagged ingredients with comedogenic ratings (0-5), confidence levels, and sources. Safe ingredients are omitted from the response. Costs $0.01 USDC per request via x402.",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
   }
 }

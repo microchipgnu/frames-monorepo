@@ -1,8 +1,8 @@
 {
   "pay_protocol": "0.0.1",
   "id": "bazaar.x402-deployer-x402-deployer-workers-dev-visa-requirements",
-  "title": "Visa requirements lookup. Passport country + destination → visa-free / e-visa / ",
-  "description": "Visa requirements lookup. Passport country + destination → visa-free / e-visa / visa-on-arrival / visa-required + duration. Public CC-BY dataset.",
+  "title": "Visa requirements / passport visa lookup / visa-free travel checker / e-visa + v",
+  "description": "Visa requirements / passport visa lookup / visa-free travel checker / e-visa + visa-on-arrival lookup / passport-index / travel eligibility / Schengen + ESTA-style entry rules. Given a passport country and destination, returns whether entry is visa-free, e-visa, visa-on-arrival, or visa-required, plus permitted stay in days and a human-readable status string. Pass full_matrix to get the entire 200x200 visa matrix for the passport. Backed by the public CC-BY passport-index-dataset.",
   "capabilities": [
     "unspecified"
   ],
@@ -15,13 +15,35 @@
     "network": "base",
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-    "price_hint": "0.02"
+    "price_hint": "0.005",
+    "pay_to": "0x6c0752c09e7F6fA6526fCDf40e456a159ebB5621",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://x402-deployer.x402-deployer.workers.dev/visa-requirements",
     "x402_version": 2,
     "accept_count": 1
+  },
+  "_signals": {
+    "host": "x402-deployer.x402-deployer.workers.dev",
+    "is_active_14d": true,
+    "is_infra": true,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 2141,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
   }
 }

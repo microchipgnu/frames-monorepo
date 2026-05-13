@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-ai-starter-vercel-app-api-add",
+  "title": "Access to protected content",
+  "description": "Access to protected content",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402-ai-starter.vercel.app/api/add"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base-sepolia",
+    "currency": "USDC",
+    "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "price_hint": "0",
+    "pay_to": "0x78397B97E4CC96Ddb46FDeAE391b05546316A218",
+    "scheme": "exact",
+    "extra": {
+      "name": "USDC",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://x402-ai-starter.vercel.app/api/add",
+    "x402_version": 1,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "x402-ai-starter.vercel.app",
+    "is_active_14d": true,
+    "is_infra": true,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 0,
+    "network_names": "",
+    "listed_on_count": 1,
+    "total_calls_30d": 4,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

@@ -15,13 +15,35 @@
     "network": "base-sepolia",
     "currency": "USDC",
     "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
-    "price_hint": "0.003"
+    "price_hint": "0.003",
+    "pay_to": "0x2eDbF699657ae1A09D9C3833FD162A6b59344364",
+    "scheme": "exact",
+    "extra": {
+      "name": "USDC",
+      "version": "2"
+    }
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://x402.bitcoinsapi.com/merchant-payout-plan",
     "x402_version": 2,
     "accept_count": 1
+  },
+  "_signals": {
+    "host": "x402.bitcoinsapi.com",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 0,
+    "network_names": "",
+    "listed_on_count": 1,
+    "total_calls_30d": 6,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Call a paid route without payment to receive PAYMENT-REQUIRED, then retry with x402 payment. Start with /merchant-payout-plan for the strongest Bitcoin merchant use case.",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
   }
 }

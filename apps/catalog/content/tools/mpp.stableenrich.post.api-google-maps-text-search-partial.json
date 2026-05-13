@@ -28,7 +28,23 @@
   },
   "_meta": {
     "catalog": "mpp",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "stableenrich:POST:/api/google-maps/text-search/partial"
+  },
+  "_signals": {
+    "host": "stableenrich.dev",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": true,
+    "is_mass_lister": false,
+    "category": "data",
+    "network_count": 3,
+    "network_names": "Base, Solana, Tempo",
+    "listed_on_count": 4,
+    "total_calls_30d": 337,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "curated"
   }
 }

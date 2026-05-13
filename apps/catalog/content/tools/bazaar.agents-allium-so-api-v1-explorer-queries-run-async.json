@@ -16,6 +16,14 @@
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
     "price_hint": "0.01",
+    "pay_to": "0xb75d464ff47f71fce2ef4aa4dca0b8e9374e5840",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "stripe_mode": "custody",
+      "stripe_payment_intent_id": "pi_3TU86yIfpVe57BNU2rcskvGT",
+      "version": "2"
+    },
     "accepts": [
       {
         "protocol": "x402v2",
@@ -23,13 +31,13 @@
         "currency": "UNKNOWN",
         "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
         "price_hint": "0.01",
-        "pay_to": "3zCRbvnaoYfJJNJ3tnofK8dgpWPmYN8Zr6JquFXDR4ge",
+        "pay_to": "2qH44bnQVHEaA4F2gqZBjnRRzLCFfNgXDoSxyjpSwMut",
         "scheme": "exact",
         "extra": {
           "feePayer": "Hc3sdEAsCGQcpgfivywog9uwtk8gUBUZgsxdME1EJy88",
           "name": "USDC",
           "stripe_mode": "custody",
-          "stripe_payment_intent_id": "pi_3TToqDIfpVe57BNU0sRLuEHX",
+          "stripe_payment_intent_id": "pi_3TU86yIfpVe57BNU2rcskvGT",
           "version": "2"
         }
       }
@@ -37,9 +45,25 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://agents.allium.so/api/v1/explorer/queries/run-async",
     "x402_version": 2,
     "accept_count": 2
+  },
+  "_signals": {
+    "host": "agents.allium.so",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": true,
+    "is_mass_lister": false,
+    "category": "data",
+    "network_count": 3,
+    "network_names": "Base, Solana, Tempo",
+    "listed_on_count": 3,
+    "total_calls_30d": 97,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "## Allium API\n\nBlockchain data APIs for token prices, wallet balances, and SQL queries.\n\n- **Docs:** https://docs.allium.so\n- **Support:** support@allium.so",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "curated"
   }
 }

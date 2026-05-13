@@ -1,0 +1,64 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.meryol-agenticmarket-x402-hf-space-explain-chain-address",
+  "title": "Returns a structured explanation of any EVM smart contract on Ethereum, Base, Ar",
+  "description": "Returns a structured explanation of any EVM smart contract on Ethereum, Base, Arbitrum, or Optimism. Output: type label (ERC20/ERC721/proxy/router), name, 3-bullet summary, risk warnings (unverified, upgradeable_via_proxy, mintable_by_owner, pausable), and top 5 selectors called in 24h with live call counts. Rugcheck, ABI decoding, proxy detection, \"what is 0x...\" lookups before an agent signs a tx. Works on unverified contracts via 4byte fallback.",
+  "capabilities": [
+    "evm",
+    "contract",
+    "rugcheck",
+    "abi",
+    "erc20",
+    "proxy",
+    "verified",
+    "unverified",
+    "base",
+    "ethereum",
+    "arbitrum",
+    "optimism",
+    "explain",
+    "summary",
+    "agent",
+    "x402"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://meryol-agenticmarket-x402.hf.space/explain/:chain/:address"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01",
+    "pay_to": "0x8eeF0E8b6a65911f848976388C26b3CcDA4Ab601",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://meryol-agenticmarket-x402.hf.space/explain/:chain/:address",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "meryol-agenticmarket-x402.hf.space",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 5,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

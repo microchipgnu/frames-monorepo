@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.www-surplusintelligence-ai-x402-api-twitter-v2-tweets-tweetid-quote-tweets",
+  "title": "X/Twitter API v2 via Surplus Intelligence: Quote tweets (10 units)",
+  "description": "X/Twitter API v2 via Surplus Intelligence: Quote tweets (10 units)",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://www.surplusintelligence.ai/x402/api/twitter/v2/tweets/:tweetId/quote_tweets"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.052",
+    "pay_to": "0x8581784D3E598cCa3482375CFF2409Ac9DD8c402",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://www.surplusintelligence.ai/x402/api/twitter/v2/tweets/:tweetId/quote_tweets",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "www.surplusintelligence.ai",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 223,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "For x402 pay-per-request inference, POST to /x402/api/inference/v1/chat/completions without Authorization. Prefer accepts[].find(a => a.scheme === \"upto\") and use exact only as fallback. Sign the chosen payment requirement, include base64(JSON.stringify(paymentPayload)) in PAYMENT-SIGNATURE, and resend the same body. Successful paid responses return HTTP 200, PAYMENT-RESPONSE, and an OpenAI-compatible completion body. When using @x402/evm with viem, pass a signer object with explicit address; do not rely on walletClient.address if undefined.",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

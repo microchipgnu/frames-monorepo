@@ -15,13 +15,35 @@
     "network": "base",
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-    "price_hint": "0.01"
+    "price_hint": "0.01",
+    "pay_to": "0x45ac00db8bdd4b837abbbf75888cbdfe6b6d8943",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://x402.creative-tim.com/api/shadcn-block",
     "x402_version": 2,
     "accept_count": 1
+  },
+  "_signals": {
+    "host": "x402.creative-tim.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 2,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "# Creative Tim x402 Resources\n\nPay-per-request API and content protected by the [x402 Protocol](https://www.x402.org/).\n\n## Resources\n\n- **Message** (`/api/message`) – Simple paid message API\n- **UI/UX Book** (`/api/ui-ux-book`) – Access to Roots of UI/UX Design Book and resources\n- **ShadCN Block** (`/api/shadcn-block`) – ShadCN UI component blocks (query param: `block_name`, e.g. `testimonials-02`)\n\n## Discovery\n\nFull X402 v2 discovery (accepts, resource, extensions): `GET https://x402.creative-tim.com/api`\n",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
   }
 }

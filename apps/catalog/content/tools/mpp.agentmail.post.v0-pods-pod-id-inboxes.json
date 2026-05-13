@@ -26,7 +26,23 @@
   },
   "_meta": {
     "catalog": "mpp",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "agentmail:POST:/v0/pods/:pod_id/inboxes"
+  },
+  "_signals": {
+    "host": "api.agentmail.to",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": true,
+    "is_mass_lister": false,
+    "category": "messaging",
+    "network_count": 2,
+    "network_names": "Base, Tempo",
+    "listed_on_count": 3,
+    "total_calls_30d": 0,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "curated"
   }
 }

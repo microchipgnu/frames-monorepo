@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402hackathon-mypinata-cloud-x402-cid-bafybeibpxcpq74uhen4tkeu4jw4bwimqsnpvjidog",
+  "title": "https://x402hackathon.mypinata.cloud/x402/cid/bafybeibpxcpq74uhen4tkeu4jw4bwimqs",
+  "description": "HTTP resource at https://x402hackathon.mypinata.cloud/x402/cid/bafybeibpxcpq74uhen4tkeu4jw4bwimqsnpvjidogea4yuvelvhlfbkmyu",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402hackathon.mypinata.cloud/x402/cid/bafybeibpxcpq74uhen4tkeu4jw4bwimqsnpvjidogea4yuvelvhlfbkmyu"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base-sepolia",
+    "currency": "USDC",
+    "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "price_hint": "0",
+    "pay_to": "0x941f29fddA2CB16649b70D1C28aA5933DBba6295",
+    "scheme": "exact",
+    "extra": {
+      "name": "USDC",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://x402hackathon.mypinata.cloud/x402/cid/bafybeibpxcpq74uhen4tkeu4jw4bwimqsnpvjidogea4yuvelvhlfbkmyu",
+    "x402_version": 1,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "x402hackathon.mypinata.cloud",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 0,
+    "network_names": "",
+    "listed_on_count": 1,
+    "total_calls_30d": 0,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

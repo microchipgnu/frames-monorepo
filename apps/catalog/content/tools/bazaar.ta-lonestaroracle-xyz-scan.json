@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.ta-lonestaroracle-xyz-scan",
+  "title": "Multi-timeframe analysis — all 4 timeframes (15m, 1h, 4h, 1d) with confluence sc",
+  "description": "Multi-timeframe analysis — all 4 timeframes (15m, 1h, 4h, 1d) with confluence score and AI summary",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://ta.lonestaroracle.xyz/scan"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.05",
+    "pay_to": "0x52Ab53912D37759B2ad364f22dD06B16714b6C06",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://ta.lonestaroracle.xyz/scan",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "ta.lonestaroracle.xyz",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 2,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "TechAnalysis — full technical analysis for any ticker. GET /analyze?symbol=BTC-USD&timeframe=1d. Returns 18 indicators + AI signal summary. $0.05/query via x402 USDC on Base. | Full catalog: lonestaroracle.xyz",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

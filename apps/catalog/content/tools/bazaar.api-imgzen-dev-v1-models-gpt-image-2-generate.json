@@ -15,13 +15,64 @@
     "network": "base",
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-    "price_hint": "0.1"
+    "price_hint": "0.1",
+    "pay_to": "0xe6B84a6f9d6fDD7a5acA168Aaad8FCe7f1918971",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "polygon",
+        "currency": "USDC",
+        "asset": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "price_hint": "0.1",
+        "pay_to": "0xe6B84a6f9d6fDD7a5acA168Aaad8FCe7f1918971",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.1",
+        "pay_to": "HhhYXAycXd2hNgMDSVMNGrLvaCGmYGwsabSaVk2UZBbn",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "D6ZhtNQ5nT9ZnTHUbqXZsTx5MH2rPFiBBggX4hY1WePM",
+          "name": "USD Coin",
+          "version": "1"
+        }
+      }
+    ]
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://api.imgzen.dev/v1/models/gpt-image-2/generate",
     "x402_version": 2,
-    "accept_count": 1
+    "accept_count": 3
+  },
+  "_signals": {
+    "host": "api.imgzen.dev",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 3,
+    "network_names": "Base, Polygon, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 65,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
   }
 }

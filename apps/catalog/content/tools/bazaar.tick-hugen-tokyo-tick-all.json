@@ -1,0 +1,63 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.tick-hugen-tokyo-tick-all",
+  "title": "Get real-time Best Bid/Ask for ALL available FX pairs in a single call. Multi-so",
+  "description": "Get real-time Best Bid/Ask for ALL available FX pairs in a single call. Multi-source aggregated from multiple institutional LPs with 62-88% spread improvement. Returns 14 FX pairs including majors, crosses, and XAUUSD gold. Each pair includes quality metadata and spread improvement vs single source. AI agent API for portfolio dashboards, multi-pair monitoring, and FX market overview. Accepts USDC payments on Base and Solana",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://tick.hugen.tokyo/tick/all"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.005",
+    "pay_to": "0x29322Ea7EcB34aA6164cb2ddeB9CE650902E4f60",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.005",
+        "pay_to": "4du4AfkxFvtqEWaoRWrifoSXCknuMpAGh3BXrFPFvXFh",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "D6ZhtNQ5nT9ZnTHUbqXZsTx5MH2rPFiBBggX4hY1WePM"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://tick.hugen.tokyo/tick/all",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "tick.hugen.tokyo",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 2,
+    "network_names": "Base, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 60,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

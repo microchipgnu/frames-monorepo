@@ -16,6 +16,12 @@
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
     "price_hint": "0.44",
+    "pay_to": "0x325bdF6F7efAB24a2210c48c1b64cAb2eAe1d430",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
     "accepts": [
       {
         "protocol": "x402v2",
@@ -31,7 +37,7 @@
             "xSettlementAccountSupported": true
           },
           "feePayer": "AepWpq3GQwL8CeKMtZyKtKPa7W91Coygh3ropAJapVdU",
-          "recentBlockhash": "FAqJ6kK196MWta31P7G4HS5aN7H8prd5gsAN5SXgCGEn",
+          "recentBlockhash": "AvdbDrop7hXD618V56ya62LydJYt4bdhCWoHPonofVaN",
           "tokenProgram": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         }
       }
@@ -39,9 +45,25 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://stableenrich.dev/api/whitepages/person-search",
     "x402_version": 2,
     "accept_count": 2
+  },
+  "_signals": {
+    "host": "stableenrich.dev",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": true,
+    "is_mass_lister": false,
+    "category": "data",
+    "network_count": 3,
+    "network_names": "Base, Solana, Tempo",
+    "listed_on_count": 4,
+    "total_calls_30d": 337,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "curated"
   }
 }

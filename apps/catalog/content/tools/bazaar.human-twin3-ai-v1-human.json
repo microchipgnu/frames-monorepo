@@ -1,0 +1,65 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.human-twin3-ai-v1-human",
+  "title": "Human verification for AI agents — proof of humanity, sybil resistance, and 'is ",
+  "description": "Human verification for AI agents — proof of humanity, sybil resistance, and 'is this wallet a real person' answers in one paid call. Returns two ZK-style outputs about any EVM wallet: (1) total humanity score 0-255 (15 = baseline reCAPTCHA, 45 = + Google OAuth, 70 = + Apple ID, 105 = + 2FA, 255 = full stack), with optional `min_score=N` for a yes/no `passes` verdict; (2) per-method verification check via `check=telegram,apple,g2fa,...` — buyer must NAME the methods to ask about, we never enumerate the full set. Backed by 141,871 Twin Matrix Soulbound Tokens on BNB Chain plus the canonical humanity registry off-chain. The underlying verification list never leaves Twin3 — only verdicts.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://human.twin3.ai/v1/human"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.001",
+    "pay_to": "0xcD3273893d1c8DF15A4D6bc411aA3D25A60Fdc60",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "eip155:196",
+        "currency": "UNKNOWN",
+        "asset": "0x779ded0c9e1022225f8e0630b35a9b54be713736",
+        "price_hint": "0.001",
+        "pay_to": "0x0FFE96d5123dc144753034F6F388aceD830e5A5f",
+        "scheme": "exact",
+        "extra": {
+          "decimals": 6,
+          "name": "USD₮0",
+          "version": "1"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://human.twin3.ai/v1/human",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "human.twin3.ai",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 2,
+    "network_names": "Base, X Layer",
+    "listed_on_count": 2,
+    "total_calls_30d": 875,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

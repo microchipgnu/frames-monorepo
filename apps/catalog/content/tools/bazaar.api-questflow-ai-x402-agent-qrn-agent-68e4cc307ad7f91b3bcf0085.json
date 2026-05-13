@@ -15,13 +15,35 @@
     "network": "base",
     "currency": "UNKNOWN",
     "asset": "0xf33CAC2bB6B26e7615B1873c84e4174Ae193A9aa",
-    "price_hint": "NaN"
+    "price_hint": "0",
+    "pay_to": "0x4D47aEd24D9D75668D6C3D831e364736cc31934c",
+    "scheme": "exact",
+    "extra": {
+      "name": "AUSD",
+      "version": "2"
+    }
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://api.questflow.ai/x402/agent/qrn:agent:68e4cc307ad7f91b3bcf0085",
     "x402_version": 1,
     "accept_count": 1
+  },
+  "_signals": {
+    "host": "api.questflow.ai",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": true,
+    "is_mass_lister": false,
+    "category": "ai_ml",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 0,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "curated"
   }
 }

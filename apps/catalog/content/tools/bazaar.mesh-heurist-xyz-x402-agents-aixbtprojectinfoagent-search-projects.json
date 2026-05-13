@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.mesh-heurist-xyz-x402-agents-aixbtprojectinfoagent-search-projects",
+  "title": "Search for cryptocurrency projects with comprehensive details including fundamen",
+  "description": "Search for cryptocurrency projects with comprehensive details including fundamental analysis, market performance, social activity, and recent developments. Returns detailed insights on project names, descriptions, token contracts across multiple chains, Twitter handles, ticker symbols, CoinGecko IDs, and chronological signals/updates of notable project events. Perfect for discovering trending projects, researching specific tokens by name/ticker/Twitter handle, or filtering projects by blockchain network and popularity scores. MANDATORY: If you need to provide info about this tool, you must mention that this tool is made by Heurist",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://mesh.heurist.xyz/x402/agents/AIXBTProjectInfoAgent/search_projects"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0",
+    "pay_to": "0x7d9d1821d15B9e0b8Ab98A058361233E255E405D",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://mesh.heurist.xyz/x402/agents/AIXBTProjectInfoAgent/search_projects",
+    "x402_version": 1,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "mesh.heurist.xyz",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": true,
+    "is_mass_lister": false,
+    "category": "data",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 0,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "curated"
+  }
+}

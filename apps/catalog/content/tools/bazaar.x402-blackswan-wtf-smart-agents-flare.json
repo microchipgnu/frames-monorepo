@@ -15,13 +15,35 @@
     "network": "base",
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-    "price_hint": "0.01"
+    "price_hint": "0.01",
+    "pay_to": "0x154b1006435e5cfe2206e7777c1003f9438119b1",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://x402.blackswan.wtf/smart-agents/flare",
     "x402_version": 2,
     "accept_count": 1
+  },
+  "_signals": {
+    "host": "x402.blackswan.wtf",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": true,
+    "is_mass_lister": false,
+    "category": "data",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 32,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "# BlackSwan x402 Smart Agents\n\nRisk intelligence APIs powered by the x402 payment protocol on Base Mainnet.\n\n## Available Agents\n\n| Agent | Price | Description |\n|-------|-------|-------------|\n| flare | $0.01 | Precursor Detection - Catches risk signals before events materialize |\n| core | $0.03 | State Synthesis - Synthesizes market state from multiple data sources |\n\n## Payment Details\n\n- **Network**: Base Mainnet (eip155:8453)\n- **Asset**: USDC (0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913)\n- **Pay To**: 0x154b1006435e5cfe2206e7777c1003f9438119b1\n\n## Usage\n\nAll endpoints accept POST requests with JSON body. Send request without payment to receive 402 response with payment requirements.\n\n## Documentation\n\n- API Docs: https://docs.blackswan.wtf/x402\n- GitHub: https://github.com/oaiao/blackswan-x402-v2\n\n## Support\n\nQuestions? Contact support@blackswan.wtf\n",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "curated"
   }
 }

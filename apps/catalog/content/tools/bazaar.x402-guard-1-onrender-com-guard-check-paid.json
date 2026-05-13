@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-guard-1-onrender-com-guard-check-paid",
+  "title": "x402 Guard — AI agent payment safety, x402 spending guardrail, PII detection, bu",
+  "description": "x402 Guard — AI agent payment safety, x402 spending guardrail, PII detection, budget checker, replay protection, suspicious URL detection, and risk scoring before an agent pays an x402 service.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402-guard-1.onrender.com/guard/check-paid"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base-sepolia",
+    "currency": "USDC",
+    "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "price_hint": "0.001",
+    "pay_to": "0xF98d3b1A33c3A63f33702529B860460B4c990fb4",
+    "scheme": "exact",
+    "extra": {
+      "name": "USDC",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://x402-guard-1.onrender.com/guard/check-paid",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "x402-guard-1.onrender.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 0,
+    "network_names": "",
+    "listed_on_count": 1,
+    "total_calls_30d": 7,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

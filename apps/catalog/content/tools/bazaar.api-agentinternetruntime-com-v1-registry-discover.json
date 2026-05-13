@@ -15,13 +15,35 @@
     "network": "base",
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-    "price_hint": "0.01"
+    "price_hint": "0.01",
+    "pay_to": "0x17cf15D61026b4CDD26cff6042f8e7D2e0Ca5e8D",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://api.agentinternetruntime.com/v1/registry/discover",
     "x402_version": 2,
     "accept_count": 1
+  },
+  "_signals": {
+    "host": "api.agentinternetruntime.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 4,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Call POST /v1/air with a natural language query to get structured data, execution plans, or capability matches. Direct callers must authenticate with an API key, session ticket, or x402 payment; anonymous browser usage continues through AIR’s first-party server-side proxy. For SDK browser automation, use /v1/sdk/capabilities to discover actions. Curated seller routes are published for Bazaar-compatible discovery, while legacy /v1/extract and /v1/capabilities stay live for SDK/x402 compatibility.",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
   }
 }

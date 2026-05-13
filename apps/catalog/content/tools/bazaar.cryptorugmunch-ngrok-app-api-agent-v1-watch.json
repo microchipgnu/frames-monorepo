@@ -1,0 +1,67 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.cryptorugmunch-ngrok-app-api-agent-v1-watch",
+  "title": "UNIQUE: Real-time token monitoring with webhook alerts. No other agent API offer",
+  "description": "UNIQUE: Real-time token monitoring with webhook alerts. No other agent API offers proactive rug detection. Watch a token for risk changes, rug pulls, or price crashes. When conditions trigger, we POST to your webhook URL within 5 minutes. $0.05 covers 7 days of monitoring. Your agent sleeps; we don't.",
+  "capabilities": [
+    "token-watch",
+    "webhook",
+    "real-time",
+    "rug-alert",
+    "proactive-monitoring"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://cryptorugmunch.ngrok.app/api/agent/v1/watch"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.2",
+    "pay_to": "0xeac89E62a29494dC1ddCBaaEDA98E0BDAE3446e1",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.2",
+        "pay_to": "E3AcD4DosA9oDVzpssyd5mn1Ci6ressc1rp42hPEzsmU",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "Hc3sdEAsCGQcpgfivywog9uwtk8gUBUZgsxdME1EJy88"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://cryptorugmunch.ngrok.app/api/agent/v1/watch",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "cryptorugmunch.ngrok.app",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 2,
+    "network_names": "Base, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 0,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

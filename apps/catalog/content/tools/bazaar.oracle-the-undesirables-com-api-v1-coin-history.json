@@ -15,13 +15,35 @@
     "network": "base",
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-    "price_hint": "0.05"
+    "price_hint": "0.05",
+    "pay_to": "0x642e8a7C289381f24f0395e0539f0bA41c74Cc1B",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://oracle.the-undesirables.com/api/v1/coin-history",
     "x402_version": 2,
     "accept_count": 1
+  },
+  "_signals": {
+    "host": "oracle.the-undesirables.com",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 39,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Welcome to The Undesirables API. This server provides institutional AI grading, Monte Carlo financial forecasts, and semantic arbitrage matching. All explicitly listed endpoints are gated by x402 and require USDC payment. However, we also provide FREE un-gated endpoints: - GET /api/v1/search?query=<card_name> (Search 370K+ TCG products) - GET /api/v1/market?game=<game_name> (Daily market snapshot).",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
   }
 }

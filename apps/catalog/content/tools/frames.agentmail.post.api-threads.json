@@ -33,13 +33,28 @@
   "payment": {
     "protocol": "x402v2",
     "network": "base",
-    "currency": "USDC",
-    "price_hint": "0.005"
+    "currency": "USDC"
   },
   "_meta": {
     "catalog": "frames-registry",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "agentmail:POST:/api/threads",
     "service_slug": "agentmail"
+  },
+  "_signals": {
+    "host": "registry.frames.ag",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": true,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 0,
+    "network_names": "",
+    "listed_on_count": 1,
+    "total_calls_30d": 0,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "curated"
   }
 }

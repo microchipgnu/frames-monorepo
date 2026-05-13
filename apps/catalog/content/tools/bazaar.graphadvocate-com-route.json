@@ -1,8 +1,8 @@
 {
   "pay_protocol": "0.0.1",
   "id": "bazaar.graphadvocate-com-route",
-  "title": "Onchain data router for AI agents. Plain-English queries → working GraphQL or RE",
-  "description": "Onchain data router for AI agents. Plain-English queries → working GraphQL or REST. 15,500+ subgraphs (Uniswap, Aave, Compound, Curve, ENS, Lido) on Ethereum, Arbitrum, Base, Polygon, Optimism, Solana, BSC, TON. Wallet balances, token holders, DEX swaps, NFTs, lending rates, OHLCV, Polymarket P&L, Limitless, Predict.fun, ERC-8004 agents. 10 free/day, $0.01 USDC after.",
+  "title": "Onchain data router for AI agents. Plain-English → working GraphQL or REST. 15.5",
+  "description": "Onchain data router for AI agents. Plain-English → working GraphQL or REST. 15.5K+ subgraphs on 8 chains. Uniswap, Aave, Compound, ENS, Polymarket, Limitless, Predict.fun, ERC-8004 discovery. Identified senders (include `sender` wallet in A2A metadata): 3 free /route /day, then $0.01 USDC via x402 on Base. Anonymous senders pay $0.01 from call 1. /polymarket + /hyperliquid trader-intel paid from call 1 ($0.01-$0.10).",
   "capabilities": [
     "unspecified"
   ],
@@ -15,13 +15,35 @@
     "network": "base",
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-    "price_hint": "0.01"
+    "price_hint": "0.01",
+    "pay_to": "0x0FF5A6ecef783BBA35463ec2F8403B9B5e9e7C86",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://graphadvocate.com/route",
     "x402_version": 2,
     "accept_count": 1
+  },
+  "_signals": {
+    "host": "graphadvocate.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 18,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
   }
 }

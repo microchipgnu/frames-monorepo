@@ -1,0 +1,63 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.scry-solanahub-de-x402-wallet-transfer-tape",
+  "title": "Query-parameter alias for Scry Transfer Tape. Pass `address` to receive this Sol",
+  "description": "Query-parameter alias for Scry Transfer Tape. Pass `address` to receive this Solana wallet's latest Helius-normalized transfers, Scry identity tags when indexed, and local edge-gap reconciliation before deeper forensics. No API keys, no subscriptions; x402 exact payment per request.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://scry.solanahub.de/x402/wallet-transfer-tape"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.15",
+    "pay_to": "0xF4A904d8326786d90157cf791C281302F11b2036",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.15",
+        "pay_to": "CTKigV78yuErumvqm7Qor8j1hMK2oxNxdhwpVrAKV85d",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "BENrLoUbndxoNMUS5JXApGMtNykLjFXXixMtpDwDR9SP"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://scry.solanahub.de/x402/wallet-transfer-tape",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "scry.solanahub.de",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 2,
+    "network_names": "Base, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 25,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.aimorgan-net-api-strategize",
+  "title": "We're the banker for AI agents. Unified treasury allocation across Morpho, Hyper",
+  "description": "We're the banker for AI agents. Unified treasury allocation across Morpho, Hyperliquid, Polymarket. One call, three rails, non-custodial.",
+  "capabilities": [
+    "treasury",
+    "allocation",
+    "portfolio",
+    "morpho",
+    "hyperliquid",
+    "polymarket",
+    "multi-rail"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://aimorgan.net/api/strategize"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.05",
+    "pay_to": "0xE8F021FA5a8E67E9C05184d9C47f2a3A749cFF27",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://aimorgan.net/api/strategize",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "aimorgan.net",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 17,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

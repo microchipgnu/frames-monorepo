@@ -16,6 +16,12 @@
     "currency": "USDC",
     "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
     "price_hint": "1",
+    "pay_to": "0xF46394adDdA95A3d5bCC1124605E3d15D204623C",
+    "scheme": "exact",
+    "extra": {
+      "name": "USDC",
+      "version": "2"
+    },
     "accepts": [
       {
         "protocol": "x402v2",
@@ -308,9 +314,25 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://x402.quicknode.com/solana-mainnet",
     "x402_version": 2,
     "accept_count": 23
+  },
+  "_signals": {
+    "host": "x402.quicknode.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": true,
+    "is_mass_lister": false,
+    "category": "compute",
+    "network_count": 5,
+    "network_names": "Base, Chain 1952, Polygon, Solana, X Layer",
+    "listed_on_count": 3,
+    "total_calls_30d": 560,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "curated"
   }
 }

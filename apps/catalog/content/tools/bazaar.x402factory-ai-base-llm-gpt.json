@@ -15,13 +15,59 @@
     "network": "base",
     "currency": "USDC",
     "asset": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
-    "price_hint": "NaN"
+    "price_hint": "0",
+    "pay_to": "0x402FaCcC3fAeb72351CC2b68C7966faF5f22B0d4",
+    "scheme": "exact",
+    "extra": {
+      "avatarUrl": "https://x402factory.ai/x402factoryfavoicon.jpg",
+      "chainId": 8453,
+      "decimals": 6,
+      "eip712": {
+        "name": "USD Coin",
+        "version": "2"
+      },
+      "iconUrl": "https://x402factory.ai/x402factoryfavoicon.jpg",
+      "kind": "llm-gpt",
+      "name": "USD Coin",
+      "pricing": {
+        "amount": 0.01,
+        "currency": "USDC",
+        "defaultAmount": 0.01,
+        "isAgentCall": false,
+        "isCreateAction": false,
+        "maxOutputTokens": 2000,
+        "minAmount": 0.001,
+        "mode": "default",
+        "model": "gpt-5-mini",
+        "network": "Base"
+      },
+      "serviceDescription": "x402Factory Base endpoints for agents (notes, LLMs, TTS, Telegram, coin prices, payments).",
+      "serviceName": "x402Factory",
+      "serviceUrl": "https://x402factory.ai",
+      "version": "2"
+    }
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://x402factory.ai/base/llm/gpt",
     "x402_version": 1,
     "accept_count": 1
+  },
+  "_signals": {
+    "host": "x402factory.ai",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 24,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
   }
 }

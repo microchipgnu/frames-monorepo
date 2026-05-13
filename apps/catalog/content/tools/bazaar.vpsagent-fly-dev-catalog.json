@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.vpsagent-fly-dev-catalog",
+  "title": "VpsAgent — rent disposable VPS compute via x402, no signup required. Two product",
+  "description": "VpsAgent — rent disposable VPS compute via x402, no signup required. Two product lines: ephemeral sandboxes (1h / 6h / 24h, 1 vCPU / 1 GB, $0.50–$5) for code execution, CI runs, browser automation; persistent servers (small / medium / large, 30-day or 365-day, $9.99–$359.99) with 2–8 vCPU / 4–16 GB for hosting agents, services, dev environments. Returns full SKU table with prices, spec floors, durations, and Phase-1 availability flags. Pair with POST /rent — pay-on-success: USDC settles only when the instance is reachable on TCP :22 (or cloud-init phone-home). Failed provisions never settle. Renewable via POST /rentals/{id}/renew. Machine-to-machine — no API keys, no accounts, USDC on Base.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://vpsagent.fly.dev/catalog"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01",
+    "pay_to": "0x8eCbd65228930060363C70854da7D37D57ffC358",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://vpsagent.fly.dev/catalog",
+    "x402_version": 1,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "vpsagent.fly.dev",
+    "is_active_14d": true,
+    "is_infra": true,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 5,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

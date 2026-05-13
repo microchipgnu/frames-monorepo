@@ -16,6 +16,12 @@
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
     "price_hint": "0.005",
+    "pay_to": "0x06dFF3c8380b5D1799874adA903fc3422882FD6f",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
     "accepts": [
       {
         "protocol": "x402v2",
@@ -23,7 +29,7 @@
         "currency": "UNKNOWN",
         "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
         "price_hint": "0.005",
-        "pay_to": "BNzfpqtDWcvfQ2ArpcbtaRfFEs4okBUm8xBAHSMBK56y",
+        "pay_to": "95xcrFtRVn2fkoAKiCUKxPpTc1GN8MTyonVwLFfJfzux",
         "scheme": "exact",
         "extra": {
           "decimals": 6,
@@ -31,7 +37,7 @@
             "xSettlementAccountSupported": true
           },
           "feePayer": "AepWpq3GQwL8CeKMtZyKtKPa7W91Coygh3ropAJapVdU",
-          "recentBlockhash": "D3sCrqFHrVLsQpj8MBVhYL2ZbpLwgCBdTKb5sXGSeCra",
+          "recentBlockhash": "6JR15FbNwqeewY69dRtWysW2qttQo9h7uJeDm4U3o22h",
           "tokenProgram": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         }
       }
@@ -39,9 +45,25 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://stableupload.dev/api/upload",
     "x402_version": 2,
     "accept_count": 2
+  },
+  "_signals": {
+    "host": "stableupload.dev",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": true,
+    "is_mass_lister": false,
+    "category": "storage",
+    "network_count": 3,
+    "network_names": "Base, Solana, Tempo",
+    "listed_on_count": 4,
+    "total_calls_30d": 719,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "curated"
   }
 }

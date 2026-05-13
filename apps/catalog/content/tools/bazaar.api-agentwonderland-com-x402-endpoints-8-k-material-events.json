@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-agentwonderland-com-x402-endpoints-8-k-material-events",
+  "title": "8 K Material Events: Review recent 8-K filings to understand material corporate ",
+  "description": "8 K Material Events: Review recent 8-K filings to understand material corporate events that may affect a public company’s outlook, operations, or investor narrative. This agent accepts a stock ticker, can scan recent filings, and can optionally analyze filing content for a more detailed plain-English interpretation. It returns event classifications, filing context, and clearer summaries of key developments such as leadership changes, major agreements, financings, acquisitions, or other materi...",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.agentwonderland.com/x402/endpoints/8-k-material-events"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.1",
+    "pay_to": "0x8d9f03088a69100258eb688870a3cc16a8f91b63",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://api.agentwonderland.com/x402/endpoints/8-k-material-events",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "api.agentwonderland.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 125,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

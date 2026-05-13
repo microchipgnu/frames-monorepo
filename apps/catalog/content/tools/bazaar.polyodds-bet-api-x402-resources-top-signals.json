@@ -1,0 +1,192 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.polyodds-bet-api-x402-resources-top-signals",
+  "title": "PolyOdds Top Signals Snapshot — x402-enabled sports signal intelligence for auto",
+  "description": "PolyOdds Top Signals Snapshot — x402-enabled sports signal intelligence for autonomous agents. Returns up to 3 ranked prediction-market sports signals. Execution is external on Polymarket, Kalshi, or operator workflow.",
+  "capabilities": [
+    "sports",
+    "prediction-markets",
+    "polymarket",
+    "kalshi",
+    "signals",
+    "x402",
+    "agents"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://polyodds.bet/api/x402/resources/top-signals"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.5",
+    "pay_to": "0x5b34d3F21333c59ee4845cDF441Bd86f4f04Cc83",
+    "scheme": "exact",
+    "extra": {
+      "bazaar": {
+        "category": "Prediction Markets",
+        "description": "PolyOdds — Structured sports trading signal. Built for agents.\nPay-per-call x402 endpoint returning real-time prediction-market sports signals across Polymarket and Kalshi. Each call returns up to 3 ranked signals with venue, outcome, edge %, fair probability, liquidity context, and external execution URL. Signal intelligence only — no guaranteed profit, no direct venue execution.\n\nEndpoint: GET https://polyodds.bet/api/x402/resources/top-signals\nPrice: $0.50 USDC per call\nNetwork: Base mainnet (eip155:8453)\nAsset: USDC 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913\nDiscovery manifest: https://polyodds.bet/api/x402/manifest\nQuickstart: https://polyodds.bet/v1/agent/quickstart\nTags: sports · prediction-markets · polymarket · kalshi · signals · x402 · agents",
+        "discoverable": true,
+        "info": {
+          "input": {
+            "method": "GET",
+            "queryParams": {
+              "page": 1,
+              "per_page": 3
+            },
+            "type": "http"
+          },
+          "output": {
+            "example": {
+              "as_of": "2026-05-06T00:00:00Z",
+              "count": 3,
+              "execution_model": "external",
+              "ok": true,
+              "product": "top_signals_snapshot",
+              "service": "PolyOdds",
+              "signals": [
+                {
+                  "edge_pct": 4.2,
+                  "external_execution_only": true,
+                  "fair_prob": 0.57,
+                  "hours_to_kickoff": 2.5,
+                  "id": "example-signal-id",
+                  "market_type": "totals",
+                  "match_title": "Example Team A vs Example Team B",
+                  "outcome": "Over 8.5",
+                  "sport": "baseball_mlb",
+                  "venue": "polymarket",
+                  "venue_price": 0.52
+                }
+              ]
+            },
+            "type": "json"
+          },
+          "service": {
+            "category": "Prediction Markets",
+            "description": "Sports signal intelligence, built for agents.",
+            "name": "PolyOdds",
+            "tags": [
+              "sports",
+              "prediction-markets",
+              "x402",
+              "agents"
+            ]
+          }
+        },
+        "name": "PolyOdds",
+        "schema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "properties": {
+            "input": {
+              "properties": {
+                "method": {
+                  "enum": [
+                    "GET"
+                  ],
+                  "type": "string"
+                },
+                "queryParams": {
+                  "properties": {
+                    "page": {
+                      "default": 1,
+                      "description": "Signal page (1-10). Each page needs a separate payment.",
+                      "maximum": 10,
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    "per_page": {
+                      "default": 3,
+                      "description": "Signals per page. Hard-capped at 3.",
+                      "maximum": 3,
+                      "minimum": 1,
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": {
+                  "const": "http",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type",
+                "method"
+              ],
+              "type": "object"
+            },
+            "output": {
+              "properties": {
+                "example": {
+                  "type": "object"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "input"
+          ],
+          "type": "object"
+        },
+        "tags": [
+          "sports",
+          "prediction-markets",
+          "polymarket",
+          "kalshi",
+          "signals",
+          "x402",
+          "agents"
+        ]
+      },
+      "name": "USD Coin",
+      "service": {
+        "category": "Prediction Markets",
+        "description": "PolyOdds — Structured sports trading signal. Built for agents.\nPay-per-call x402 endpoint returning real-time prediction-market sports signals across Polymarket and Kalshi. Each call returns up to 3 ranked signals with venue, outcome, edge %, fair probability, liquidity context, and external execution URL. Signal intelligence only — no guaranteed profit, no direct venue execution.\n\nEndpoint: GET https://polyodds.bet/api/x402/resources/top-signals\nPrice: $0.50 USDC per call\nNetwork: Base mainnet (eip155:8453)\nAsset: USDC 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913\nDiscovery manifest: https://polyodds.bet/api/x402/manifest\nQuickstart: https://polyodds.bet/v1/agent/quickstart\nTags: sports · prediction-markets · polymarket · kalshi · signals · x402 · agents",
+        "name": "PolyOdds",
+        "tags": [
+          "sports",
+          "prediction-markets",
+          "polymarket",
+          "kalshi",
+          "signals",
+          "x402",
+          "agents"
+        ]
+      },
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://polyodds.bet/api/x402/resources/top-signals",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "polyodds.bet",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 0,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

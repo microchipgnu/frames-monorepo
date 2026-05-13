@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.weather-lonestaroracle-xyz-forecast",
+  "title": "GFS+ECMWF ensemble temperature probability for NWS weather prediction markets",
+  "description": "GFS+ECMWF ensemble temperature probability for NWS weather prediction markets",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://weather.lonestaroracle.xyz/forecast"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.02",
+    "pay_to": "0x52Ab53912D37759B2ad364f22dD06B16714b6C06",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://weather.lonestaroracle.xyz/forecast",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "weather.lonestaroracle.xyz",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 5,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Payment required. Use x402 (Base mainnet USDC, $0.02/query) or Stripe MPP ($0.50/session, 25 queries) via Authorization: Payment header.",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

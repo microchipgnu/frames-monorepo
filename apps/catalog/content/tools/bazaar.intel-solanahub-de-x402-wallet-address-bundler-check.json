@@ -16,6 +16,11 @@
     "currency": "UNKNOWN",
     "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
     "price_hint": "0.01",
+    "pay_to": "CTKigV78yuErumvqm7Qor8j1hMK2oxNxdhwpVrAKV85d",
+    "scheme": "exact",
+    "extra": {
+      "feePayer": "BENrLoUbndxoNMUS5JXApGMtNykLjFXXixMtpDwDR9SP"
+    },
     "accepts": [
       {
         "protocol": "x402v2",
@@ -34,9 +39,25 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://intel.solanahub.de/x402/wallet/:address/bundler-check",
     "x402_version": 2,
     "accept_count": 2
+  },
+  "_signals": {
+    "host": "intel.solanahub.de",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 2,
+    "network_names": "Base, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 2,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
   }
 }

@@ -16,6 +16,12 @@
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
     "price_hint": "0.1",
+    "pay_to": "0x059D091D51a0f011c9872EaA63Df538F5cE15945",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
     "accepts": [
       {
         "protocol": "x402v2",
@@ -34,9 +40,25 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://api.run402.com/tiers/v1/prototype",
     "x402_version": 2,
     "accept_count": 2
+  },
+  "_signals": {
+    "host": "api.run402.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": true,
+    "is_mass_lister": false,
+    "category": "cloud",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 70,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Subscribe to a tier (prototype/hobby/team) to unlock project provisioning, then create projects and deploy. Image generation is per-call. See https://run402.com/openapi.json for full endpoint details.",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "curated"
   }
 }

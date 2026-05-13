@@ -1,0 +1,67 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.codex-everygoodwork-io-address-generate-wallet-address",
+  "title": "This lesson teaches you how to generate a wallet address and understand the reco",
+  "description": "This lesson teaches you how to generate a wallet address and understand the recovery phrase that secures it. To use the wallet address, you need a private email address that isn't tied to your personal or work accounts. The recovery phrase is like your password — only you should know it.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://codex.everygoodwork.io/:address/generate-wallet-address"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0",
+    "pay_to": "0x3Cb759D61A874e19b61962456e9F54439e39775D",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0",
+        "pay_to": "4mrVHqtDj5ctVbsFGPWSyXuykvw3K9U2rwsGfMKMvHeK",
+        "scheme": "exact",
+        "extra": {
+          "blockhashSlot": 400967145,
+          "blockhashValidUntil": 1771370030,
+          "feePayer": "4mrVHqtDj5ctVbsFGPWSyXuykvw3K9U2rwsGfMKMvHeK",
+          "name": "USD Coin",
+          "recentBlockhash": "3NkCCcKrBFEr27m8y9Fq3o33v4Lhy7LK982hPiSFYgDQ"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://codex.everygoodwork.io/:address/generate-wallet-address",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "codex.everygoodwork.io",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 2,
+    "network_names": "Base, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 0,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

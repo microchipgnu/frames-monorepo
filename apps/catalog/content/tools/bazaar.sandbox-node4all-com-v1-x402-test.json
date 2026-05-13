@@ -15,13 +15,35 @@
     "network": "base-sepolia",
     "currency": "USDC",
     "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
-    "price_hint": "0.002"
+    "price_hint": "0.002",
+    "pay_to": "0xd275612Bf0BB35638432c4D95eAA8D5d22346Ca6",
+    "scheme": "exact",
+    "extra": {
+      "name": "USDC",
+      "version": "2"
+    }
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://sandbox.node4all.com/v1/x402-test",
     "x402_version": 2,
     "accept_count": 1
+  },
+  "_signals": {
+    "host": "sandbox.node4all.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 0,
+    "network_names": "",
+    "listed_on_count": 1,
+    "total_calls_30d": 39,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
   }
 }

@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.stableproduct-dev-api-channel3-categories-detail",
+  "title": "Get Channel3 category detail by slug.",
+  "description": "Get Channel3 category detail by slug.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://stableproduct.dev/api/channel3/categories/detail"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01",
+    "pay_to": "0xd9F3261C9feA20A99D0708815010280c549e8ebF",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://stableproduct.dev/api/channel3/categories/detail",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "stableproduct.dev",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 16,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "# StableProducts API\n> Channel3-backed product search, image search, product lookup, brand/category discovery, merchant commission lookup, and price tracking through x402. Every paid route costs $0.01.\n\n## Base URL\nhttps://stableproduct.dev\n\n## Workflow\n1. Use POST /api/channel3/search for text search, text+image search, or filtered product discovery.\n2. Use GET /api/channel3/product-detail with a product_id from search/lookup to retrieve buyable merchant offers.\n3. Use POST /api/channel3/lookup for a product URL.\n4. Use POST /api/channel3/similar with a product_id to find alternatives.\n5. Use brand/category search routes to discover IDs/slugs before filtering search.\n6. Use price-tracking/start, history, subscriptions, and stop together; newly tracked products may have empty history.\n\n## Notes\n- This service only advertises x402, not MPP.\n- Product-heavy routes return trimmed responses by default. Search/image/similar return compact product cards. Detail/lookup return richer products with capped image arrays and offer fields limited to URL, domain, price, availability, and max_commission_rate.\n- Pass include_raw=true in a GET query or include_raw: true in a POST body to receive { data, raw }, where data is the trimmed response and raw is Channel3's full upstream response.\n- Product detail accepts optional website_ids domains, language, country, and currency.\n- Category filters use category slugs. Do not pass display paths as slugs.\n- Website lookup accepts a domain or URL and is useful for best_commission_rate.\n",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

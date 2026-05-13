@@ -20,6 +20,12 @@
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
     "price_hint": "0.02",
+    "pay_to": "0xD34411a70EffbDd000c529bbF572082ffDcF1794",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
     "accepts": [
       {
         "protocol": "x402v2",
@@ -50,9 +56,25 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://x402.silverbackdefi.app/api/v1/token-audit",
     "x402_version": 2,
     "accept_count": 4
+  },
+  "_signals": {
+    "host": "x402.silverbackdefi.app",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 4,
+    "network_names": "Base, Keeta, SKALE Base, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 4,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "# Silverback x402 API — Agent Guide\n\n## Overview\nSilverback provides DeFi intelligence as paid API endpoints using the x402 micropayment protocol. Every endpoint returns JSON. Payments are in USDC on Base, Solana, or SKALE.\n\n## How to call endpoints\n1. Send a request to the endpoint (POST with JSON body, or GET with query params where supported).\n2. You will receive a 402 Payment Required response with an `accepts` array describing payment options.\n3. Pay using x402 protocol (sign a USDC authorization) and resend with the payment proof header.\n4. Receive the JSON response.\n\n## Pricing tiers\n- **Execution** ($0.05): swap\n- **Heavy analysis** ($0.03): technical-analysis, defi-yield, arbitrage-scanner\n- **Intelligence** ($0.02): token-audit, whale-moves, wallet-portfolio\n- **Analysis** ($0.01): pool-analysis, swap-quote, jupiter-quote, holder-analytics\n\n## Common patterns\n- Token identifiers: Use CoinGecko IDs (e.g. \"bitcoin\", \"ethereum\") for market data endpoints, or contract addresses (0x format) for on-chain endpoints.\n- All responses include a `success: boolean` field.\n- Most endpoints accept both GET (query params) and POST (JSON body).\n- Chain defaults to Base (8453) unless specified.\n\n## Payment networks\n- Base (EVM): USDC at 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913\n- Solana: USDC at EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v\n- SKALE Base Hub: USDC (zero gas)\n- $BACK token: Permit2 on Base (15% discount)",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
   }
 }

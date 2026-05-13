@@ -15,13 +15,35 @@
     "network": "base",
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-    "price_hint": "0.015"
+    "price_hint": "0.015",
+    "pay_to": "0xbff6D68Bd9A8Bb5e677eF5ace6d9417d6d783671",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://api.jintel.ai/api/graphql",
     "x402_version": 2,
     "accept_count": 1
+  },
+  "_signals": {
+    "host": "api.jintel.ai",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 1,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Jintel is the finance intelligence layer for AI agents. One GraphQL schema covers market data (equities, indices, crypto — quotes, fundamentals, financials, futures, options), regulatory (sanctions, filings, short interest, campaign finance), macro (GDP, CPI, rates, balance of payments), news + social sentiment, technicals (RSI, MACD, Bollinger, EMA, SMA, ATR, VWMA, MFI), and web research / factor returns. Why agents use it: LLMs are only as good as the data you hand them. Jintel gives agents typed, batched, cache-deduplicated access to finance data they'd otherwise scrape — so every tool call comes back clean and complete. Replace five integrations with five fields: a single nested query fans out to market, technicals, news, risk, and filings in one round trip. Agent-callable surface: POST /api/graphql with a JSON body `{ query, variables?, operationName? }`. Discover the schema via GraphQL introspection (always free) or `/graphiql`. Pay-per-query (x402 v2): POST without `PAYMENT-SIGNATURE` first — the 402 response carries a base64-encoded `PAYMENT-REQUIRED` header with the exact USDC quote on Base for that specific query. Sign an EIP-3009 USDC authorization, retry with `PAYMENT-SIGNATURE: <base64-payload>`. The payer wallet auto-identifies the caller; no signup needed. Common entry points: `entityByTicker(ticker)`, `entitiesByTickers(tickers)`, `quotes(tickers)`, `searchEntities(query)`, `priceHistory(tickers, range)`, `sanctionsScreen(name, country)`. Each `Entity` exposes nested sub-graphs (`market`, `news`, `risk`, `regulatory`, `technicals`, `derivatives`, `financials`, `executives`, `institutionalHoldings`, etc.) — prefer nested sub-graphs over multiple round-trips so loaders batch upstream calls. Tool catalog: the operation declares `x-jintel-tools` (and OpenAPI `examples` on the request body) with one entry per named capability — `quotes`, `searchEntities`, `priceHistory`, `entityByTicker`, `entitiesByTickers`, `marketStatus`, `sanctionsScreen`, `institutionalHoldings`, `gdp`, `inflation`, `interestRates`, `macroSeries`, `shortInterest`, `campaignFinance`, `sp500Multiples`. Each entry carries a parametrised query, an input JSON schema, and an output dot-path so SDK/MCP code generators can register each capability as a discrete tool. All tools share the same `POST /api/graphql` endpoint, auth, and per-query x402 pricing. Array sub-graphs (`news`, `research`, `risk.signals`, `regulatory.filings`, etc.) accept `filter: ArrayFilterInput { since, until, limit, offset, sort }`. Results are sorted newest-first by default. Common agent shapes: research agents (bull/bear case → quote + fundamentals + analyst + news + technicals in one query), compliance agents (sanctions + filings + campaign-finance ties for a counterparty), portfolio copilots (batched quotes + price history + per-ticker news across a holdings list), due-diligence agents (13F holdings, insider trades, short interest, filings for a target). Disclaimers: informational only — not investment, legal, tax, or accounting advice. Sanctions-list lookups are a public-data convenience and are not a compliance-grade screening product. Data is provided \"AS IS\"; see the Terms at https://jintel.ai/terms.",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
   }
 }

@@ -25,9 +25,22 @@ export class CloudflareKvCache implements CatalogCache {
     value: CachedEntry,
     ttlSeconds = 60,
   ): Promise<void> {
-    await this.kv.put(key, JSON.stringify(value), {
-      expirationTtl: ttlSeconds,
-    });
+    const serialized = JSON.stringify(value);
+    // CF KV has a 25 MB per-value limit + a 60 s minimum TTL. If the entry
+    // is too big or the call rejects for any reason, swallow it — the
+    // route still completes via the upstream content fetch, just uncached.
+    // (The 47k-descriptor index is ~56 MB serialized — too large for KV.
+    // List handlers should swap to a slim projection or in-isolate cache
+    // before this becomes a latency problem.)
+    if (serialized.length > 24 * 1024 * 1024) return;
+    try {
+      await this.kv.put(key, serialized, {
+        expirationTtl: Math.max(ttlSeconds, 60),
+      });
+    } catch (e) {
+      // Don't propagate — cache failures should never 500 the request.
+      console.warn(`KV put failed for ${key}:`, e);
+    }
   }
 
   async invalidate(key: string): Promise<void> {

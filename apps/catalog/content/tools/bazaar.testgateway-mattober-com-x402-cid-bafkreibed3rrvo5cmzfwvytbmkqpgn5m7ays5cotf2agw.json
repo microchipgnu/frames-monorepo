@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.testgateway-mattober-com-x402-cid-bafkreibed3rrvo5cmzfwvytbmkqpgn5m7ays5cotf2agw",
+  "title": "https://testgateway.mattober.com/x402/cid/bafkreibed3rrvo5cmzfwvytbmkqpgn5m7ays5",
+  "description": "HTTP resource at https://testgateway.mattober.com/x402/cid/bafkreibed3rrvo5cmzfwvytbmkqpgn5m7ays5cotf2agweycev5ibirl4m",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://testgateway.mattober.com/x402/cid/bafkreibed3rrvo5cmzfwvytbmkqpgn5m7ays5cotf2agweycev5ibirl4m"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base-sepolia",
+    "currency": "USDC",
+    "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "price_hint": "0",
+    "pay_to": "0x0215c0c5621e52B7D05aaEE7C6C6aD07C8688e54",
+    "scheme": "exact",
+    "extra": {
+      "name": "USDC",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://testgateway.mattober.com/x402/cid/bafkreibed3rrvo5cmzfwvytbmkqpgn5m7ays5cotf2agweycev5ibirl4m",
+    "x402_version": 1,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "testgateway.mattober.com",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 0,
+    "network_names": "",
+    "listed_on_count": 1,
+    "total_calls_30d": 0,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-deployer-x402-deployer-workers-dev-ipfs-fetch",
+  "title": "IPFS fetch / IPFS gateway / Web3 storage retrieval / NFT metadata fetcher / File",
+  "description": "IPFS fetch / IPFS gateway / Web3 storage retrieval / NFT metadata fetcher / Filecoin gateway / decentralized content / pinned-content reader. Resolves a CID (CIDv0 Qm... or CIDv1 bafy...) and optional sub-path through a fallback chain of public gateways (cloudflare-ipfs.com to ipfs.io to dweb.link) and returns the content as base64 / text / parsed JSON. Hard cap 5 MB. HEAD pre-flight + streaming size cap so oversized files are rejected before they're fully downloaded. No API key required.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402-deployer.x402-deployer.workers.dev/ipfs-fetch"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.005",
+    "pay_to": "0x6c0752c09e7F6fA6526fCDf40e456a159ebB5621",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://x402-deployer.x402-deployer.workers.dev/ipfs-fetch",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "x402-deployer.x402-deployer.workers.dev",
+    "is_active_14d": true,
+    "is_infra": true,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 2141,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

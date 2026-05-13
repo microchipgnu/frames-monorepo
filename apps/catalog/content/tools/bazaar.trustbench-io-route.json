@@ -1,0 +1,50 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.trustbench-io-route",
+  "title": "TrustBench: non-custodial routing and audit layer for x402. Returns a signed rou",
+  "description": "TrustBench: non-custodial routing and audit layer for x402. Returns a signed routing receipt with on-chain settlement reference, verifiable offline against a published Ed25519 key.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://trustbench.io/route"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.005",
+    "pay_to": "0x552000Ffb06445D2dD7F4264c6595B4b11C33C35",
+    "scheme": "exact",
+    "extra": {
+      "description": "TrustBench routing fee. Pays for the differentiated routing decision and signed routing receipt. Provider payment is a separate x402 transaction, paid directly to the provider after this call.",
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://trustbench.io/route",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "trustbench.io",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 0,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

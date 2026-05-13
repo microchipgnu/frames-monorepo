@@ -1,8 +1,8 @@
 {
   "pay_protocol": "0.0.1",
   "id": "bazaar.x402-deployer-x402-deployer-workers-dev-gas-now-base",
-  "title": "Gas oracle / EIP-1559 fee estimator. Real-time base fee + priority fee for Base ",
-  "description": "Gas oracle / EIP-1559 fee estimator. Real-time base fee + priority fee for Base / Ethereum / Optimism / Arbitrum / Polygon. USD-cost estimates per common tx.",
+  "title": "Gas oracle / gas price API / EIP-1559 fee estimator / Base + Ethereum + Optimism",
+  "description": "Gas oracle / gas price API / EIP-1559 fee estimator / Base + Ethereum + Optimism + Arbitrum + Polygon gas tracker / etherscan-gas alternative / pre-tx cost estimator / USD gas-cost calculator / safe-low + standard + fast tier feed. Reads the chain's latest block, derives the EIP-1559 base fee, suggests priority fees for safe-low / standard / fast tiers, computes the total recommended maxFeePerGas, and converts cost to USD for common tx types (transfer, ERC-20 transfer, Uniswap swap, NFT mint).",
   "capabilities": [
     "unspecified"
   ],
@@ -15,13 +15,35 @@
     "network": "base",
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-    "price_hint": "0.02"
+    "price_hint": "0.02",
+    "pay_to": "0x6c0752c09e7F6fA6526fCDf40e456a159ebB5621",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://x402-deployer.x402-deployer.workers.dev/gas-now-base",
     "x402_version": 2,
     "accept_count": 1
+  },
+  "_signals": {
+    "host": "x402-deployer.x402-deployer.workers.dev",
+    "is_active_14d": true,
+    "is_infra": true,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 2141,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
   }
 }

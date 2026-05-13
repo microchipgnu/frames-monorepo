@@ -1,0 +1,69 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.stablecrypto-dev-api-coingecko-categories",
+  "title": "Get all coin categories with market data",
+  "description": "Get all coin categories with market data",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://stablecrypto.dev/api/coingecko/categories"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01",
+    "pay_to": "0x124F620b4F3b53559Cd9148c9b1B2773ca104478",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.01",
+        "pay_to": "BX1v9we4BCt28GM3hWwfXwnXDXpYHKWMFcWaHNytnbNL",
+        "scheme": "exact",
+        "extra": {
+          "decimals": 6,
+          "features": {
+            "xSettlementAccountSupported": true
+          },
+          "feePayer": "AepWpq3GQwL8CeKMtZyKtKPa7W91Coygh3ropAJapVdU",
+          "recentBlockhash": "74UAc1sQe9yWTwT97ziFghv6nCAqywU1HVZZH1cL3xn5",
+          "tokenProgram": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://stablecrypto.dev/api/coingecko/categories",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "stablecrypto.dev",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": true,
+    "is_mass_lister": false,
+    "category": "finance",
+    "network_count": 2,
+    "network_names": "Base, Solana",
+    "listed_on_count": 3,
+    "total_calls_30d": 20,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "# StableCrypto API\n> Crypto market data via x402/MPP micropayments. All endpoints POST, $0.01 each.\n\n## Base URL\nhttps://stablecrypto.dev\n\n## Auth\nx402/MPP payment (USDC on Base, Solana, or Tempo). Use check_endpoint_schema on any endpoint to get its request schema before calling.\n\n## CoinGecko — Market Data\n/api/coingecko/price, /markets, /coin, /chart, /ohlc, /history, /trending, /global, /categories, /top-movers, /exchange, /exchange/tickers, /exchange/volume-chart\nExample: POST /api/coingecko/price { \"ids\": [\"bitcoin\"], \"vs_currencies\": [\"usd\"] }\n\n## CoinGecko — On-Chain\n/api/coingecko/onchain/networks, /search, /trending, /new-pools, /categories, /pool, /pool/info, /pool/ohlcv, /pool/trades, /network/dexes, /network/trending, /network/new-pools, /network/pools, /category/pools\n\n## DefiLlama — DeFi Data\n/api/defillama/protocols, /protocol, /tvl, /chains, /chain-tvl, /coins/prices, /coins/prices-historical, /coins/batch-historical, /coins/chart, /coins/block, /stablecoins, /stablecoin, /stablecoin-charts, /stablecoin-chains, /dex-overview, /dex-summary, /options-overview, /derivatives-overview, /fees-overview, /fees-summary, /yields/pools, /yields/chart, /yields/pools-borrow, /yields/perps, /yields/lsd-rates, /emissions, /emission, /defi-categories, /forks, /oracles, /hacks, /raises, /etfs/overview, /etfs/history, /bridges, /bridge, /bridge-volume, /bridge-transactions, /treasuries, /treasury\n\n## Alchemy — Blockchain Data\n/api/alchemy/token/token-balances, /token-metadata, /token-allowance, /transfers/asset-transfers, /prices/by-symbol, /prices/by-address, /prices/historical, /portfolio/tokens, /portfolio/token-balances, /portfolio/nfts, /portfolio/nft-collections, /simulation/simulate-asset-changes, /simulation/simulate-execution, /utility/transaction-receipts, /node/rpc\n\n## Etherscan — Ethereum Explorer\n/api/etherscan/account/balance, /balance-multi, /txlist, /txlist-internal, /tokentx, /tokennfttx, /token1155tx, /contract/getabi, /getsourcecode, /getcontractcreation, /transaction/getstatus, /gettxreceiptstatus, /block/getblockreward, /logs/getLogs, /token/tokensupply, /tokeninfo, /gas/gasestimate, /gasoracle, /stats/ethprice, /ethsupply, /nodecount, /chainsize, /dailytx\n",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "curated"
+  }
+}

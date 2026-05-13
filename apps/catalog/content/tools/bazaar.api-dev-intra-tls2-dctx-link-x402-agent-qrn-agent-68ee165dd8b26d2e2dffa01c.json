@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-dev-intra-tls2-dctx-link-x402-agent-qrn-agent-68ee165dd8b26d2e2dffa01c",
+  "title": "The Tavily MCP server provides:\nsearch, extract, map, crawl tools\nReal-time web ",
+  "description": "The Tavily MCP server provides:\nsearch, extract, map, crawl tools\nReal-time web search capabilities through the tavily-search tool\nIntelligent data extraction from web pages via the tavily-extract tool\nPowerful web mapping tool that creates a structured map of website\nWeb crawler that systematically explores websites\n | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api-dev.intra-tls2.dctx.link/x402/agent/qrn:agent:68ee165dd8b26d2e2dffa01c"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base-sepolia",
+    "currency": "USDC",
+    "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "price_hint": "0",
+    "pay_to": "0xcD5CAc332866383842e5d48C4c40A606B5D8DA79",
+    "scheme": "exact",
+    "extra": {
+      "name": "USDC",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://api-dev.intra-tls2.dctx.link/x402/agent/qrn:agent:68ee165dd8b26d2e2dffa01c",
+    "x402_version": 1,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "api-dev.intra-tls2.dctx.link",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 0,
+    "network_names": "",
+    "listed_on_count": 1,
+    "total_calls_30d": 0,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

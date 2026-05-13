@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-dev-intra-tls2-dctx-link-x402-agent-qrn-agent-68ef7eb7edb2088cc0dddc1a",
+  "title": "CoinGlass provides users with comprehensive cryptocurrency derivative market dat",
+  "description": "CoinGlass provides users with comprehensive cryptocurrency derivative market data, including price trends, cryptocurrency futures trading volumes, open interest, funding rates, liquidations, options data, etc., through multiple data analysis methods and technical means, and supports users to customize indicators and strategies. | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api-dev.intra-tls2.dctx.link/x402/agent/qrn:agent:68ef7eb7edb2088cc0dddc1a"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base-sepolia",
+    "currency": "USDC",
+    "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "price_hint": "0",
+    "pay_to": "0x7FE9E017DEA91a00a0A75D719B6f61eBf92b3FfD",
+    "scheme": "exact",
+    "extra": {
+      "name": "USDC",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://api-dev.intra-tls2.dctx.link/x402/agent/qrn:agent:68ef7eb7edb2088cc0dddc1a",
+    "x402_version": 1,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "api-dev.intra-tls2.dctx.link",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 0,
+    "network_names": "",
+    "listed_on_count": 1,
+    "total_calls_30d": 0,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

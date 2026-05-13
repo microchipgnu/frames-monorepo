@@ -27,7 +27,23 @@
   },
   "_meta": {
     "catalog": "mpp",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "moltycash:POST:/:username/a2a"
+  },
+  "_signals": {
+    "host": "api.molty.cash",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": true,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 6,
+    "network_names": "Base, Monad, Solana, Stellar, Tempo, World Chain",
+    "listed_on_count": 3,
+    "total_calls_30d": 14572,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Use POST /a2a with JSON-RPC 2.0 body for global operations (gig.create, gig.list, gig.pick, gig.submit_proof). Use POST /{username}/a2a for per-user operations (tip, hire). Payment methods: tip and hire require x402 or MPP payment. gig.create requires payment plus identity_token in params. Earner methods (gig.list, gig.pick, gig.submit_proof) require only identity_token, no payment. Pass identity_token as a JSON-RPC param or via X-Molty-Identity-Token header.",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "curated"
   }
 }

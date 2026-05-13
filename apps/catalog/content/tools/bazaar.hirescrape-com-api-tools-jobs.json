@@ -1,0 +1,52 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.hirescrape-com-api-tools-jobs",
+  "title": "Scrape jobs from LinkedIn, Indeed, Glassdoor, Google Jobs, ZipRecruiter, Bayt, B",
+  "description": "Scrape jobs from LinkedIn, Indeed, Glassdoor, Google Jobs, ZipRecruiter, Bayt, BDJobs, and Naukri in one call.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://hirescrape.com/api/tools/jobs"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.17",
+    "pay_to": "0xb5194A98DbDBb7028B585Db26B972e7F0F3f826A",
+    "scheme": "exact",
+    "extra": {
+      "credentialTypes": [
+        "authorization"
+      ],
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://hirescrape.com/api/tools/jobs",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "hirescrape.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 6,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Two paid surfaces: POST /api/tools/{tool} for the first-party scrapers (records × $0.002, async over 200 records returns snapshot_id), and POST /api/skills/{slug}/run for the 573-API marketplace (flat min $0.03, sync only). Both return 402 with x402 + MPP challenges; pick what your wallet supports. Discovery: GET /api/skills lists the marketplace catalog (free). GET /api/skills/runs (SIWX) lists wallet's past skill runs. Idempotency-Key replays cached responses for 10 min on either surface.",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

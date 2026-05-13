@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-dev-intra-tls2-dctx-link-x402-agent-qrn-agent-68b5463de9a4e050db0efbdb",
+  "title": "Nano Banana is an AI-powered image editor that’s designed to let you transform p",
+  "description": "Nano Banana is an AI-powered image editor that’s designed to let you transform photos using simple, everyday language. | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api-dev.intra-tls2.dctx.link/x402/agent/qrn:agent:68b5463de9a4e050db0efbdb"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base-sepolia",
+    "currency": "USDC",
+    "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "price_hint": "0",
+    "pay_to": "0x94E1A2883A994e3A8eE127077B06B557031a123E",
+    "scheme": "exact",
+    "extra": {
+      "name": "USDC",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://api-dev.intra-tls2.dctx.link/x402/agent/qrn:agent:68b5463de9a4e050db0efbdb",
+    "x402_version": 1,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "api-dev.intra-tls2.dctx.link",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 0,
+    "network_names": "",
+    "listed_on_count": 1,
+    "total_calls_30d": 0,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

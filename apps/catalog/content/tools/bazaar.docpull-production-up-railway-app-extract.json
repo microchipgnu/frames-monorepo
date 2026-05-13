@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.docpull-production-up-railway-app-extract",
+  "title": "PDF to Markdown extraction API. POST {url} to extract any PDF. $0.001 per page.",
+  "description": "PDF to Markdown extraction API. POST {url} to extract any PDF. $0.001 per page.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://docpull-production.up.railway.app/extract"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.001",
+    "pay_to": "0x9Ca11f04cC1A89abC641a88C97b6f4a7AfccfB86",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://docpull-production.up.railway.app/extract",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "docpull-production.up.railway.app",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 1,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

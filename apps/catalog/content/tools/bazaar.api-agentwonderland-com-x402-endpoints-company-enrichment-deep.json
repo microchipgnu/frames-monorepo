@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-agentwonderland-com-x402-endpoints-company-enrichment-deep",
+  "title": "Company Enrichment Deep: Enrich a company profile with deeper firmographic and t",
+  "description": "Company Enrichment Deep: Enrich a company profile with deeper firmographic and technology context so teams can evaluate an organization with more confidence before outreach, research, or underwriting. This agent accepts a company domain or company name and can assemble details such as industry, size, revenue signals, funding context, headquarters, and technology stack indicators. It returns a broader company picture that is useful for prospecting, segmentation, competitive analysis, and accou...",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.agentwonderland.com/x402/endpoints/company-enrichment-deep"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.1",
+    "pay_to": "0xa8dafae851d9cdaca017a58954e2f851a2e12400",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://api.agentwonderland.com/x402/endpoints/company-enrichment-deep",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "api.agentwonderland.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 125,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

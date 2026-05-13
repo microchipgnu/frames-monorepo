@@ -25,6 +25,7 @@ jobs:
         working-directory: apps/catalog
         run: |
           set -euo pipefail
+          shopt -s nullglob
           for f in content/tools/*.json; do
             echo "→ $f"
             jq empty "$f"
@@ -36,3 +37,47 @@ jobs:
             base=$(basename "$f" .json)
             [ "$id" = "$base" ] || { echo "filename $base does not match descriptor id $id"; exit 1; }
           done
+
+  merchants:
+    name: Merchant JSON shape
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate every merchant entity
+        working-directory: apps/catalog
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          for f in content/merchants/*.json; do
+            echo "→ $f"
+            jq empty "$f"
+            jq -e '.catalog_protocol == "0.0.1"' "$f" > /dev/null || { echo "missing catalog_protocol"; exit 1; }
+            jq -e '.host and .display_name and .category' "$f" > /dev/null || { echo "missing required field"; exit 1; }
+            host=$(jq -r '.host' "$f")
+            base=$(basename "$f" .json)
+            [ "$host" = "$base" ] || { echo "filename $base does not match merchant host $host"; exit 1; }
+          done
+
+  indexes:
+    name: Index files parse + match counts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate ndjson indexes
+        working-directory: apps/catalog
+        run: |
+          set -euo pipefail
+          if [ -f content/index.ndjson ]; then
+            tool_count=$(find content/tools -name '*.json' | wc -l | tr -d ' ')
+            line_count=$(grep -cve '^$' content/index.ndjson || true)
+            echo "tools=$tool_count  index lines=$line_count"
+            [ "$tool_count" = "$line_count" ] || { echo "tool index/file count mismatch"; exit 1; }
+          fi
+          if [ -f content/merchants.ndjson ]; then
+            m_count=$(find content/merchants -name '*.json' 2>/dev/null | wc -l | tr -d ' ')
+            line_count=$(grep -cve '^$' content/merchants.ndjson || true)
+            echo "merchants=$m_count  index lines=$line_count"
+            [ "$m_count" = "$line_count" ] || { echo "merchant index/file count mismatch"; exit 1; }
+          fi

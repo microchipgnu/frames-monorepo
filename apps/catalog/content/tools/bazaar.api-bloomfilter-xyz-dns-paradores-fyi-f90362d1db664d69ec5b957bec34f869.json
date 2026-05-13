@@ -15,13 +15,35 @@
     "network": "base",
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-    "price_hint": "0.1"
+    "price_hint": "0.1",
+    "pay_to": "0xdfd0343eceac37c52b07d5e4fbcd1d005bb9aa7b",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://api.bloomfilter.xyz/dns/paradores.fyi/f90362d1db664d69ec5b957bec34f869",
     "x402_version": 2,
     "accept_count": 1
+  },
+  "_signals": {
+    "host": "api.bloomfilter.xyz",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 8,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "# Bloomfilter — Domain Registration and Configuration API\n\nRegister ICANN domains (.com, .io, .ai, etc.) and manage DNS records, paying with USDC via x402.\n\n## Endpoints\n\n| Method | Endpoint | Price | Description |\n|--------|----------|-------|-------------|\n| POST | /domains/register | Dynamic | Register a domain |\n| POST | /domains/renew | Dynamic | Renew a domain |\n| POST | /dns/{domain} | $0.10 | Add a DNS record |\n| PUT | /dns/{domain}/{recordId} | $0.10 | Update a DNS record |\n| DELETE | /dns/{domain}/{recordId} | $0.10 | Delete a DNS record |\n\n## Free Endpoints\n\n| Method | Endpoint | Description |\n|--------|----------|-------------|\n| GET | /domains/search?query=...&tlds=... | Search domain availability |\n| GET | /domains/pricing | Get all TLD pricing |\n| GET | /domains/{domain} | Get domain info |\n\nDocs: https://docs.bloomfilter.xyz",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
   }
 }

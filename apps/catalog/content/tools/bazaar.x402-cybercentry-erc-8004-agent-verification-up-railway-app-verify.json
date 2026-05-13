@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-cybercentry-erc-8004-agent-verification-up-railway-app-verify",
+  "title": "Verify AI agent identity, authenticity and risk using the Cybercentry ERC-8004 A",
+  "description": "Verify AI agent identity, authenticity and risk using the Cybercentry ERC-8004 Agent Verification (CEAV) API. Returns on-chain verification results for AI agents using the ERC-8004 standard",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402-cybercentry-erc-8004-agent-verification.up.railway.app/verify"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0",
+    "pay_to": "0xfEE13309251B632317ea2d475d6ABa7E7E0219e6",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://x402-cybercentry-erc-8004-agent-verification.up.railway.app/verify",
+    "x402_version": 1,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "x402-cybercentry-erc-8004-agent-verification.up.railway.app",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 0,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

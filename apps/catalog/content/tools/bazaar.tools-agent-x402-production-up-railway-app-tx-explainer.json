@@ -1,0 +1,63 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.tools-agent-x402-production-up-railway-app-tx-explainer",
+  "title": "Decode and explain any EVM blockchain transaction across 11 chains (Base, Ethere",
+  "description": "Decode and explain any EVM blockchain transaction across 11 chains (Base, Ethereum, Arbitrum, Optimism, Avalanche, Polygon, Mantle, Monad, Plasma, BSC, Hyperliquid). Get a human-readable summary of swaps, transfers, approvals, DeFi interactions, and more.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://tools-agent-x402-production.up.railway.app/tx-explainer"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01",
+    "pay_to": "0x0E84dDEdAaE6A779c462C22a59F301EC31B6b808",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.01",
+        "pay_to": "6XcSfqJHr9vNW2vbiRaMqUYVm7shDgLepca54wUTDPN5",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "GVJJ7rdGiXr5xaYbRwRbjfaJL7fmwRygFi1H6aGqDveb"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://tools-agent-x402-production.up.railway.app/tx-explainer",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "tools-agent-x402-production.up.railway.app",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 2,
+    "network_names": "Base, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 0,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

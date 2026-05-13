@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.xonin-x402-vercel-app-api-mint-paths",
+  "title": "Xonin - A generative art NFT collection featuring unique abstract designs of lay",
+  "description": "Xonin - A generative art NFT collection featuring unique abstract designs of layered vivid curves and geometric shapes, crafted with 100 distinct color palettes. The artworks are created, rendered and stored fully onchain to ensure immutability and permanence. Employed art style: Paths. Website: https://xonin.vercel.app; X: https://x.com/XoninNFT.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://xonin-x402.vercel.app/api/mint-paths"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0",
+    "pay_to": "0x531eE0dFf1cF637Aa9e9759c14dD2b95D775c26D",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://xonin-x402.vercel.app/api/mint-paths",
+    "x402_version": 1,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "xonin-x402.vercel.app",
+    "is_active_14d": false,
+    "is_infra": true,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 0,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

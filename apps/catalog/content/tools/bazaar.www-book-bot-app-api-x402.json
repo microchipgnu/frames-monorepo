@@ -15,13 +15,35 @@
     "network": "base",
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-    "price_hint": "0.5"
+    "price_hint": "0.5",
+    "pay_to": "0x26b354827942a0802552e433d357c78d78d2e987",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://www.book-bot.app/api/x402",
     "x402_version": 2,
     "accept_count": 1
+  },
+  "_signals": {
+    "host": "www.book-bot.app",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 2,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "# BookBot API\n\nAI-powered book search and download service.\n\n## Resources\n\n- **POST /api/x402** ($0.50) — Get a download link to the epub version of any book (full agent pipeline)\n- **POST /api/x402/tools/scrape-books** ($0.10) — Search for books on Anna's Archive\n- **POST /api/x402/tools/get-download-link** ($0.10) — Get the direct download link for a specific book\n\n## Usage\n\nAll endpoints accept JSON bodies. The main `/api/x402` endpoint runs the full agent to find and return a download link. The tool endpoints can be used individually for more granular control.",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
   }
 }

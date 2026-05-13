@@ -1,0 +1,88 @@
+name: catalog-refresh
+
+# Every 6 hours: walk all upstream catalogs + indexers, merge into one
+# host-keyed merchant directory, project to ToolDescriptors + MerchantEntity
+# JSONs, and commit if anything changed. The catalog Worker reads main via
+# raw.githubusercontent.com, so a commit here is a live deploy.
+#
+# Secrets (optional — pipeline runs with placeholders if missing):
+#   MPPSCAN_WALLET_PRIVATE_KEY — SIWX wallet for mppscan.com (any Base
+#                                 private key; no funds required, identity-only).
+#                                 If missing: mppscan falls back to committed cache.
+#   X402_WALLET_PRIVATE_KEY    — x402 payment wallet for x402scan.com.
+#                                 Must hold USDC on Base. ~$0.10/refresh.
+#                                 If missing: x402scan falls back to committed cache.
+
+on:
+  schedule:
+    # Every 6 hours, offset 17min so we're not on the top-of-hour scrum
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+    inputs:
+      refresh_probe:
+        description: 'Force re-probe all hosts (bypass 7-day cache)'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install
+        working-directory: apps/catalog
+        run: bun install
+
+      - name: Scrape all sources
+        working-directory: apps/catalog
+        env:
+          MPPSCAN_WALLET_PRIVATE_KEY: ${{ secrets.MPPSCAN_WALLET_PRIVATE_KEY }}
+          X402_WALLET_PRIVATE_KEY: ${{ secrets.X402_WALLET_PRIVATE_KEY }}
+        run: |
+          if [ "${{ inputs.refresh_probe }}" = "true" ]; then
+            bun run scrape -- --refresh
+          else
+            bun run scrape
+          fi
+
+      - name: Merge
+        working-directory: apps/catalog
+        run: bun run merge
+
+      - name: Project to content/
+        working-directory: apps/catalog
+        run: bun run project
+
+      - name: Summarize delta
+        working-directory: apps/catalog
+        run: |
+          set -euo pipefail
+          tools=$(find content/tools -name '*.json' | wc -l | tr -d ' ')
+          merchants=$(find content/merchants -name '*.json' 2>/dev/null | wc -l | tr -d ' ')
+          echo "tools=$tools  merchants=$merchants"
+          jq '.sources[] | {name, status, output_bytes}' content/refresh-meta.json 2>/dev/null || true
+
+      - name: Commit if changed
+        working-directory: apps/catalog
+        run: |
+          set -euo pipefail
+          git config user.name "catalog-refresh-bot"
+          git config user.email "noreply@frames.ag"
+          git add content/ staging/mppscan-cache.json staging/x402scan-cache.json staging/probe-results.json 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No changes."
+            exit 0
+          fi
+          ts=$(date -u +%Y-%m-%dT%H:%MZ)
+          git commit -m "catalog: refresh $ts"
+          git push

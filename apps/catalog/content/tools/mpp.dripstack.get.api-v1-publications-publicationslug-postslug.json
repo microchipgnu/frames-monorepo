@@ -24,7 +24,23 @@
   },
   "_meta": {
     "catalog": "mpp",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "dripstack:GET:/api/v1/publications/:publicationSlug/:postSlug"
+  },
+  "_signals": {
+    "host": "dripstack.xyz",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": true,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 2,
+    "network_names": "Base, Tempo",
+    "listed_on_count": 3,
+    "total_calls_30d": 211,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "How to use this API as an agent:\n1) Discovery: Prefer GET /openapi.json (OpenAPI 3.1) for paths, JSON schemas, and paid-route `x-payment-info.offers[]` (MPP discovery). If OpenAPI is unavailable, use GET /.well-known/x402 (version 1) for the paid resource list in \"METHOD /path\" form.\n2) Public data (no payment): GET /api/v1/publications lists known publications. GET /api/v1/publications/{publicationSlug} returns metadata and post titles. GET /api/publications/posts resolves a publication by publicationId or publicationTitle (substring must match exactly one publication) and returns paginated posts. POST /api/v1/publications/{publicationSlug} imports/refreshes a publication; body may include { forceRefresh?: boolean }.\n3) Alternative search flow (no payment): GET /api/v1/search runs topic search over imported posts.\n4) Paid content: GET /api/v1/publications/{publicationSlug}/{postSlug} returns full post JSON including contentHtml after payment. Unpaid: HTTP 402 with dual challenge (MPP `WWW-Authenticate: Payment …` and x402 v2 `PAYMENT-REQUIRED`). Retry with Authorization: Payment … (MPP) or PAYMENT-SIGNATURE (x402 v2). `x-payment-info.offers[]` lists advisory Tempo / Stripe / Solana charges; runtime 402 is authoritative (per-post USD from the catalog when present, else at least $0.05).\n5) Query ?importer=1 on the paid post route skips payment and redirects into the web importer — not for API agents.\n\nRoot `x-discovery.ownershipProofs` is a DripStack vendor extension (not part of core MPP discovery). Always trust the live 402 challenge over discovery offers.",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "curated"
   }
 }

@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-dev-intra-tls2-dctx-link-x402-swarm-qrn-swarm-68f875c87aa0f71b3c5e29d4",
+  "title": "A real‑time data‑driven dashboard that ranks Hyperliquid’s top 10 traders by PNL",
+  "description": "A real‑time data‑driven dashboard that ranks Hyperliquid’s top 10 traders by PNL, volume, ROI and account value. It offers sortable columns, color‑coded performance, copy‑to‑clipboard, and 30‑day statistics, serving investors who monitor or emulate leading crypto traders. | Powered by Questflow",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api-dev.intra-tls2.dctx.link/x402/swarm/qrn:swarm:68f875c87aa0f71b3c5e29d4"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base-sepolia",
+    "currency": "USDC",
+    "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "price_hint": "0",
+    "pay_to": "0xB8Abd5b42027C80EE45b4eB5c497DD1fE8dCFCB0",
+    "scheme": "exact",
+    "extra": {
+      "name": "USDC",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://api-dev.intra-tls2.dctx.link/x402/swarm/qrn:swarm:68f875c87aa0f71b3c5e29d4",
+    "x402_version": 1,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "api-dev.intra-tls2.dctx.link",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 0,
+    "network_names": "",
+    "listed_on_count": 1,
+    "total_calls_30d": 0,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

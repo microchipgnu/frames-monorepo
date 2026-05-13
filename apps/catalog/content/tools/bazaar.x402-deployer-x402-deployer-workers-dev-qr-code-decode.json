@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-deployer-x402-deployer-workers-dev-qr-code-decode",
+  "title": "QR decoder / QR reader / scan QR from URL / QR code OCR / barcode reader / link ",
+  "description": "QR decoder / QR reader / scan QR from URL / QR code OCR / barcode reader / link extraction from QR. Reads QR codes out of any public image URL (PNG / JPG / GIF / BMP) and returns the decoded text strings. Multiple QR codes in a single image are returned as separate entries. Wraps qrserver.com's free public read-qr-code API (true DIY decode requires canvas, which Workers don't have natively). Returns an empty `codes` array plus a descriptive `note` if the image can't be fetched or no QR is found.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402-deployer.x402-deployer.workers.dev/qr-code-decode"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.002",
+    "pay_to": "0x6c0752c09e7F6fA6526fCDf40e456a159ebB5621",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://x402-deployer.x402-deployer.workers.dev/qr-code-decode",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "x402-deployer.x402-deployer.workers.dev",
+    "is_active_14d": true,
+    "is_infra": true,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 2141,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

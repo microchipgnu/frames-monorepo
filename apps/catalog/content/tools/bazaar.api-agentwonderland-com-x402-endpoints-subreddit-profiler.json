@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-agentwonderland-com-x402-endpoints-subreddit-profiler",
+  "title": "SubredditProfiler: Analyze a subreddit's active community — discover top contrib",
+  "description": "SubredditProfiler: Analyze a subreddit's active community — discover top contributors, influencers, and power users with per-user activity metrics. Ideal for lead generation, community research, and identifying key voices in any niche.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.agentwonderland.com/x402/endpoints/subreddit-profiler"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.1",
+    "pay_to": "0x4dc7a3baae2bea74a35928be4a68e71a697de32f",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://api.agentwonderland.com/x402/endpoints/subreddit-profiler",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "api.agentwonderland.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 125,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

@@ -15,13 +15,35 @@
     "network": "base",
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-    "price_hint": "0.00375"
+    "price_hint": "0.00375",
+    "pay_to": "0x43a2a720cd0911690c248075f4a29a5e7716f758",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://public.zapper.xyz/x402/general-swap-feed",
     "x402_version": 2,
     "accept_count": 1
+  },
+  "_signals": {
+    "host": "public.zapper.xyz",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": true,
+    "is_mass_lister": false,
+    "category": "data",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 14777,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "All paid endpoints are at POST /x402/{tool}. Send a JSON body with the required fields for the tool. Payment is required via x402 (X-Payment header, Base USDC) or MPP (Authorization: Payment header, Tempo). Available tools: token-price, search, nft-token-metadata, nft-collection-metadata, portfolio-totals, token-balances, defi-balances, nft-balances, historical-token-price, transaction-details, transaction-history, token-holders, token-ranking, nft-ranking, account-identity, general-swap-feed, token-activity-feed.",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "curated"
   }
 }

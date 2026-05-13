@@ -5,12 +5,28 @@
   "description": "Hosted tool catalog publisher. Mirrors x402 Bazaar, MPP directory, and frames-registry into pay v0.0.1 ToolDescriptors. Deploys via Cloudflare Workers / Vercel.",
   "type": "module",
   "scripts": {
-    "refresh": "bun run scripts/refresh.ts",
-    "refresh:bazaar": "bun run scripts/refresh.ts --source bazaar",
-    "refresh:mpp": "bun run scripts/refresh.ts --source mpp",
-    "refresh:frames": "bun run scripts/refresh.ts --source frames",
+    "scrape": "bun scripts/scrape-all.ts",
+    "scrape:bazaar": "bun scripts/scrape-bazaar.ts",
+    "scrape:agentic": "bun scripts/scrape-agentic-market.ts",
+    "scrape:paysh": "bun scripts/scrape-paysh.ts",
+    "scrape:mpp-directory": "bun scripts/scrape-mpp-directory.ts",
+    "scrape:mppscan": "bun scripts/scrape-mppscan.ts",
+    "scrape:x402scan": "bun scripts/scrape-x402scan.ts",
+    "scrape:frames-registry": "bun scripts/scrape-frames-registry.ts",
+    "probe": "bun scripts/probe-discovery.ts",
+    "merge": "bun scripts/merge.ts",
+    "project": "bun scripts/write-projections.ts",
+    "refresh": "bun run scrape && bun run merge && bun run project",
+    "serve:content": "bunx -y http-server content -p 4000 --cors -s",
+    "dev": "bunx -y concurrently -k -n content,worker -c blue,magenta 'bun run serve:content' 'cd server && bun run dev:cloudflare'",
     "deploy:cloudflare": "cd server && bun run deploy:cloudflare",
     "deploy:vercel": "cd server && bun run deploy:vercel",
     "typecheck": "cd server && bun run typecheck"
+  },
+  "dependencies": {
+    "viem": "^2.48.11"
+  },
+  "devDependencies": {
+    "@agentcash/discovery": "^1.6.4"
   }
 }

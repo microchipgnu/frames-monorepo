@@ -16,6 +16,12 @@
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
     "price_hint": "1",
+    "pay_to": "0xc273630dB49632EcD077C7dF606B306E400A9882",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
     "accepts": [
       {
         "protocol": "x402v2",
@@ -33,9 +39,25 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://convrgent.ai/api/kyh/timing",
     "x402_version": 2,
     "accept_count": 2
+  },
+  "_signals": {
+    "host": "convrgent.ai",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 2,
+    "network_names": "Base, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 6,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "3 products, pick what you need: KYH (personality analysis — start with /api/kyh/mbti for typing or /api/kyh/portrait for full profile), BLAH (communication coaching — /api/blah/adapt for tone, /api/blah/respond for reply drafts), KYB (sales intelligence — /api/kyb/profile for buyer type, /api/kyb/pitch for personalized pitch). Most agents need just 1-3 endpoints. Use /api/kyh/convergence ($5) only after running 2+ individual frameworks.",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
   }
 }

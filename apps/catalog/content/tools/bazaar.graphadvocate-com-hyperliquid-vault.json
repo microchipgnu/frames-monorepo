@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.graphadvocate-com-hyperliquid-vault",
+  "title": "Vault evaluator for Hyperliquid copy-trading vehicles. POST {vault}. Returns com",
+  "description": "Vault evaluator for Hyperliquid copy-trading vehicles. POST {vault}. Returns composite vault_quality_score (0-100) factoring: leader's own trading skill, depositor concentration (top-1 share = whale-dependent), redemption pressure (withdrawals/deposits ratio), commission rate. Plus lifetime stats and top 5 depositors. Built for copy-trade-vetting bots — NO equivalent service exists; vault data is unique to perps DEXs.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://graphadvocate.com/hyperliquid/vault"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.1",
+    "pay_to": "0x0FF5A6ecef783BBA35463ec2F8403B9B5e9e7C86",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://graphadvocate.com/hyperliquid/vault",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "graphadvocate.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 18,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

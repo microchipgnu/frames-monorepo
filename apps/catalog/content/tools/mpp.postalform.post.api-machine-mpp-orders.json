@@ -23,7 +23,23 @@
   },
   "_meta": {
     "catalog": "mpp",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "postalform:POST:/api/machine/mpp/orders"
+  },
+  "_signals": {
+    "host": "postalform.com",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": true,
+    "is_mass_lister": false,
+    "category": "messaging",
+    "network_count": 2,
+    "network_names": "Base, Tempo",
+    "listed_on_count": 3,
+    "total_calls_30d": 2,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Use OpenAPI as the canonical discovery source for this origin. The /.well-known/x402 manifest is a lightweight compatibility layer for crawlers and agent runtimes that do not yet ingest the full OpenAPI document.\n\nFor both machine payment families, call the validate endpoint first to verify the payload and get a quote before attempting payment.\n\nWhen retrying a create call after a 402 challenge, reuse the same request_id and the exact same JSON body. PostalForm treats request_id as the strict idempotency key and rejects payload drift for that request_id.\n\nIf you intend to send the same document to the same addresses again after a prior order is paid or settled, generate a fresh request_id. PostalForm only collapses recent unpaid duplicate drafts.\n\nFor each address party, choose exactly one strategy: Address with *_address_id and *_address_text, or Manual with *_address_manual. Do not send both strategies for the same party.\n\nPrefer pdf as { \"upload_token\": \"...\" } for the most reliable automation path. The create endpoint also accepts { download_url, file_id }, a data:application/pdf;base64 URL, or an allowlisted HTTPS URL.\n\nFor structured workflow forms, discover forms with GET /api/machine/forms, fetch GET /api/machine/forms/{slug}/schema, then send a top-level form object instead of pdf to the same create/validate endpoints.\n\nFor bulk mailing campaigns, send a bulk object instead of recipient_name and recipient address fields. bulk.csv_content holds the recipient CSV, bulk.content_mode selects text, html, or pdf rendering, and validation returns bulk.recipient_count plus bulk.content_mode.\n\nBulk machine create and poll responses may include campaign_url. Use that route to inspect row-level mailed-item status, delivery events, and tracking for each CSV recipient.\n\nFor flower letters, use the dedicated /api/machine/flower-letters or /api/machine/mpp/flower-letters endpoints. They require a Florist One product code, recipient ZIP, delivery date, full delivery address, and a 200-character card note.\n\nFor postcards, keep using the same endpoints and payment flow. Set mailpiece_type to postcard, provide postcard_size, and supply pdf as the fully composed postcard PDF. See https://postalform.com/postcard-pdf-guidelines for the required 2-page bleed templates and mailing-side layout.\n\nUse POST /api/machine/orders for x402. The server returns 402 with PAYMENT-REQUIRED and expects PAYMENT-SIGNATURE on retry.\n\nUse POST /api/machine/mpp/orders for MPP. The server returns 402 with one or more WWW-Authenticate: Payment challenges and expects Authorization: Payment on retry.\n\nPoll GET /api/machine/orders/{id} or GET /api/machine/mpp/orders/{id} until payment_status becomes paid or the order reaches its terminal status. Those status endpoints accept either the canonical order_id or any aliased request_id returned during create/validate.",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "curated"
   }
 }

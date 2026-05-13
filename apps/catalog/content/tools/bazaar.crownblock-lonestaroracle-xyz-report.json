@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.crownblock-lonestaroracle-xyz-report",
+  "title": "US oil and gas — WTI Brent Henry Hub refined products basin production rig count",
+  "description": "US oil and gas — WTI Brent Henry Hub refined products basin production rig count",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://crownblock.lonestaroracle.xyz/report"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "1",
+    "pay_to": "0x52Ab53912D37759B2ad364f22dD06B16714b6C06",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://crownblock.lonestaroracle.xyz/report",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "crownblock.lonestaroracle.xyz",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 4,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "US oil & gas intelligence - crude prices (WTI/Brent/Henry Hub), refined products (gasoline/heating oil/jet fuel/diesel/propane), crude inventory, rig count, and production by basin (Permian, Bakken, Appalachia, GOM and more). $1.00/report via x402 USDC on Base.  |  Also from LoneStarOracle: MacroPulse (macro.lonestaroracle.xyz)  |  EquityScope (equity.lonestaroracle.xyz)  |  NewsSentiment (news.lonestaroracle.xyz)  |  Full catalog: lonestaroracle.xyz",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

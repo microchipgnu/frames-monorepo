@@ -6,3 +6,11 @@ dist
 .env.local
 .wrangler
 .vercel
+
+# staging/ is the scrape pipeline's working dir — big intermediate JSON.
+# Commit only the cache files that auth-gated scrapers fall back to when
+# their wallet env-var is missing (mppscan, x402scan) + the probe cache.
+staging/*
+!staging/mppscan-cache.json
+!staging/x402scan-cache.json
+!staging/probe-results.json

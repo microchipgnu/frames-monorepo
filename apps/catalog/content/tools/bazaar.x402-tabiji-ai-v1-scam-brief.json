@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-tabiji-ai-v1-scam-brief",
+  "title": "Generate a deterministic, source-linked travel scam brief from Tabiji's curated ",
+  "description": "Generate a deterministic, source-linked travel scam brief from Tabiji's curated scam/safety corpus.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.tabiji.ai/v1/scam-brief"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.05",
+    "pay_to": "0x59959450bb3DA79A8bC07CC078696D6CBA3bEB4a",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://x402.tabiji.ai/v1/scam-brief",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "x402.tabiji.ai",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 1,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

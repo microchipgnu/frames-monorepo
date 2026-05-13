@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.trace-sociologic-ai-trace",
+  "title": "Skip trace lookup - find phones, emails, and optionally owner info",
+  "description": "Skip trace lookup - find phones, emails, and optionally owner info",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://trace.sociologic.ai/trace"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.12",
+    "pay_to": "0x0b6E3594Df4Faa6D66196D5a3271796AD8Bb505d",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://trace.sociologic.ai/trace",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "trace.sociologic.ai",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 4,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Use this API to find phone numbers, emails, and owner information for a person at a given address. Set find_owner=true to discover who owns a property. Payment is automatic via x402 - send a request, receive a 402 with payment details, pay USDC on Base, retry with the X-PAYMENT header.",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

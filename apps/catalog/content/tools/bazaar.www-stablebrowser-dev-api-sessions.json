@@ -15,13 +15,35 @@
     "network": "base",
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-    "price_hint": "0.1"
+    "price_hint": "0.1",
+    "pay_to": "0xcB79b3c5A7dADcD7C30E3bE252c0CA44a06C6f78",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://www.stablebrowser.dev/api/sessions",
     "x402_version": 2,
     "accept_count": 1
+  },
+  "_signals": {
+    "host": "www.stablebrowser.dev",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 41,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "# StableBrowser API\n\nPay-per-session browser automation. Launch a real Chromium browser in the cloud, control it with AI-powered actions, and close it when done.\n\n## Workflow\n\n1. **Create a session** — POST /api/sessions ($0.10, x402 payment). Returns a `sessionId`.\n2. **Use the session** — call any of the session actions below using SIWX (free, wallet-signed identity).\n3. **Close the session** — POST /api/sessions/close when done to avoid leaving orphaned browsers.\n\nAll session actions require `sessionId` in the body and SIWX authentication. Only the wallet that created the session can use it.\n\n## Endpoints\n\n### POST /api/sessions — Create session ($0.10)\nStarts a new Browserbase browser session. Returns `sessionId`, `debugUrl` (Browserbase live view), and `viewerUrl` (in-app viewer).\nOptionally pass an existing `sessionId` to reconnect to a live session rather than starting a fresh one.\n\n### POST /api/sessions/navigate — Navigate to a URL\nGo to any URL. Returns the resolved URL and page title after navigation.\n\n### POST /api/sessions/act — AI-powered action\nPerform a natural language browser action via Stagehand. Examples:\n- \"Click the login button\"\n- \"Fill in the email field with user@example.com\"\n- \"Scroll down to the pricing section\"\nSupports `variables` for safe string interpolation (e.g. \"Type %email% into the search box\" with `variables: { email: \"...\" }`).\n\n### POST /api/sessions/extract — Extract structured data\nPull structured data from the current page using a natural language instruction. Examples:\n- \"Extract all product names and prices\"\n- \"Get the article headline and publication date\"\nReturns `{ data: ... }` where the shape is inferred from the instruction.\n\n### POST /api/sessions/observe — Find interactive elements\nIdentify clickable/interactive elements matching a description. Returns a list of elements with selectors, methods, and args — useful for planning multi-step interactions before committing.\n\n### POST /api/sessions/screenshot — Capture screenshot\nReturns a base64-encoded PNG of the full current page.\n\n### POST /api/sessions/url — Get current URL\nReturns the browser's current URL.\n\n### GET /api/sessions/:sessionId — Get session details\nReturns session status, `liveViewUrl` (Browserbase iframe URL), and timestamps.\n\n### POST /api/sessions/close — Close session\nTerminates the Browserbase session. Always close sessions when done.\n\n## Example flow\n\n```\n// 1. Pay to create session\nPOST /api/sessions → { sessionId: \"abc123\", debugUrl: \"...\", viewerUrl: \"...\" }\n\n// 2. Navigate\nPOST /api/sessions/navigate { sessionId: \"abc123\", url: \"https://example.com\" }\n\n// 3. Interact\nPOST /api/sessions/act { sessionId: \"abc123\", action: \"Click the sign up button\" }\n\n// 4. Extract results\nPOST /api/sessions/extract { sessionId: \"abc123\", instruction: \"Get the confirmation message text\" }\n\n// 5. Close\nPOST /api/sessions/close { sessionId: \"abc123\" }\n```\n\n## Notes\n- Sessions are owned by the creating wallet; all actions verify ownership.\n- Act/extract/observe use Stagehand (AI-powered) and may take a few seconds.\n- Navigate/screenshot/url use Playwright directly and are faster.\n",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
   }
 }

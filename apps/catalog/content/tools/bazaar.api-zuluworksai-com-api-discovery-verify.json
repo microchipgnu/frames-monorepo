@@ -20,13 +20,35 @@
     "network": "base",
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-    "price_hint": "0.0075"
+    "price_hint": "0.0075",
+    "pay_to": "0xfb9F37789E4cFFb145eBB4D68f4dbAF5933d314F",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://api.zuluworksai.com/api/discovery/verify",
     "x402_version": 2,
     "accept_count": 1
+  },
+  "_signals": {
+    "host": "api.zuluworksai.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 36,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "All endpoints accept GET. On first call without an X-PAYMENT header you will receive a 402 with x402 accepts payload. Settle the USDC payment on Base (eip155:8453), then re-call with the X-PAYMENT proof header. Quantum Shield can return its payload encrypted to your ML-KEM-768 public key when supplied via X-Buyer-ML-KEM-Public-Key header.",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
   }
 }

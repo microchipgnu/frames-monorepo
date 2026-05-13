@@ -1,0 +1,66 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.gotobi-hugen-tokyo-gotobi-dates",
+  "title": "Monthly gotobi calendar with all 6 dates (5th, 10th, 15th, 20th, 25th, last busi",
+  "description": "Monthly gotobi calendar with all 6 dates (5th, 10th, 15th, 20th, 25th, last business day) and automatic weekend/holiday adjustments. No public database of adjusted gotobi dates exists — building one requires Japanese holiday law knowledge through 2099. Accepts USDC payments on Base and Solana",
+  "capabilities": [
+    "fx",
+    "japan",
+    "calendar",
+    "gotobi"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://gotobi.hugen.tokyo/gotobi/dates"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.005",
+    "pay_to": "0x29322Ea7EcB34aA6164cb2ddeB9CE650902E4f60",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.005",
+        "pay_to": "4du4AfkjJEwch2zk3shkPJVZfyJHNDnNjEWC6AboaS5Z",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "BENrLoUbndxoNMUS5JXApGMtNykLjFXXixMtpDwDR9SP"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://gotobi.hugen.tokyo/gotobi/dates",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "gotobi.hugen.tokyo",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 2,
+    "network_names": "Base, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 7,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

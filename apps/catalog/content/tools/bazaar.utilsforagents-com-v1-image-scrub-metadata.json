@@ -16,6 +16,12 @@
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
     "price_hint": "0.003",
+    "pay_to": "0x7e67204eea076e8803b5753e5441ba0e62be13a4",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
     "accepts": [
       {
         "protocol": "x402v2",
@@ -33,9 +39,25 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://utilsforagents.com/v1/image/scrub-metadata",
     "x402_version": 2,
     "accept_count": 2
+  },
+  "_signals": {
+    "host": "utilsforagents.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 2,
+    "network_names": "Base, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 53,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "UtilsForAgents provides eight paid utility endpoints for AI agents plus one free feedback endpoint. Paid utility calls cost $0.003 USD each and use the x402 v2 payment protocol — no API keys or accounts needed. POST /v1/feedback is free, unauthenticated, and excluded from x402 discovery.\n\nPayment flow for paid utility routes:\n1. POST JSON (or binary for image endpoints) to a paid /v1/* utility path.\n2. The server replies HTTP 402 with a `PAYMENT-REQUIRED` header (base64-encoded JSON containing an `accepts` array of payment requirements).\n3. Choose one returned payment requirement and sign the matching USDC payment for that network. Current production options are Base mainnet (`eip155:8453`) and Solana mainnet (`solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp`).\n4. Retry the identical request with a `PAYMENT-SIGNATURE` header (base64-encoded payment payload).\n5. On valid payment the server returns the normal 200 result with a `PAYMENT-RESPONSE` header containing settlement details.\n\nEndpoints at a glance:\n• POST /v1/diff — structural JSON diff (RFC 6902 ops, RFC 6901 pointers). Send {\"left\": ..., \"right\": ...}.\n• POST /v1/image/exif-summary — EXIF extraction from JPEG. Send raw image/jpeg binary body.\n• POST /v1/image/scrub-metadata — strip EXIF/XMP/IPTC from JPEG or PNG. Send raw binary body, returns cleaned image.\n• POST /v1/html/to-markdown — convert an HTML string to Markdown. Send {\"html\": \"...\"}.\n• POST /v1/html/fetch-markdown — fetch a URL, convert its HTML to Markdown. Send {\"url\": \"...\"}.\n• POST /v1/text/fetch-content — fetch a URL, auto-detect format, return Markdown/text. Send {\"url\": \"...\"}.\n• POST /v1/url/metadata — fetch a URL, extract Open Graph / Twitter Card / meta tags. Send {\"url\": \"...\"}.\n• POST /v1/utilities/count-tokens — count tokens for LLM input. Send {\"text\": \"...\"}.\n• POST /v1/feedback — submit product or feature feedback for agents. Send {\"text\": \"...\"}. Free, max 600 chars.\n\nGET /health and POST /v1/feedback are free and unauthenticated.\n\nAll JSON endpoints accept Content-Type: application/json. Image endpoints accept image/jpeg or image/png. Max upload: 5 MB. Remote-fetch endpoints limit downloaded content to 2 MB and time out after 5 s.",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
   }
 }

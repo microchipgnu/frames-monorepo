@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-hyperd-ai-api-governance-summarize",
+  "title": "DAO governance proposal summarization. Detects Snapshot/Tally URLs, fetches prop",
+  "description": "DAO governance proposal summarization. Detects Snapshot/Tally URLs, fetches proposal data, returns a structured summary with impact analysis. LLM-powered when ANTHROPIC_API_KEY or OPENAI_API_KEY set; otherwise structured-data only.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.hyperd.ai/api/governance/summarize"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.1",
+    "pay_to": "0x61b51131E1e44552dE2F151Ca59DAc707D9cf1C6",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://api.hyperd.ai/api/governance/summarize",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "api.hyperd.ai",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 36,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "dev:cloudflare": "bunx wrangler dev --config deploy/cloudflare/wrangler.toml",
+    "dev:cloudflare": "bunx wrangler dev --config deploy/cloudflare/wrangler.toml --var CATALOG_CONTENT_BASE:http://127.0.0.1:4000",
     "deploy:cloudflare": "bunx wrangler deploy --config deploy/cloudflare/wrangler.toml",
     "dev:vercel": "vercel dev --cwd deploy/vercel"
   },

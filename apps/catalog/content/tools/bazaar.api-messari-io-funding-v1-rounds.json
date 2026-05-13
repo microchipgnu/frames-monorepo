@@ -1,0 +1,63 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-messari-io-funding-v1-rounds",
+  "title": "Get paginated crypto funding rounds with investors, stage, and raised amounts.",
+  "description": "Get paginated crypto funding rounds with investors, stage, and raised amounts.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.messari.io/funding/v1/rounds"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.15",
+    "pay_to": "0x75Ddd3c42eAce13c59EA0CD1141B886A1c70D2A5",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.15",
+        "pay_to": "jPt2dffmPi7WEtV8J6UFHJQaatEJVyuSFmz5b4DHFG8",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "Hc3sdEAsCGQcpgfivywog9uwtk8gUBUZgsxdME1EJy88"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://api.messari.io/funding/v1/rounds",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "api.messari.io",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": true,
+    "is_mass_lister": false,
+    "category": "data",
+    "network_count": 2,
+    "network_names": "Base, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 25,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "# Messari API\n\nComprehensive crypto data for institutions with pay-per-request x402 access.\n\nhttps://docs.messari.io/api-reference/x402-payments",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "curated"
+  }
+}

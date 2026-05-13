@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.agenttrust-uk-v1-scan",
+  "title": "Scan any OpenClaw SKILL.md for malware, prompt injection, exfiltration, and 37 o",
+  "description": "Scan any OpenClaw SKILL.md for malware, prompt injection, exfiltration, and 37 other threat patterns. Returns risk score 0-100 and detailed findings.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://agenttrust.uk/v1/scan"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.015",
+    "pay_to": "0xE08e64d4044Cd7CE4bfbB44D908E358c4EAfde09",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://agenttrust.uk/v1/scan",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "agenttrust.uk",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 1,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "# AgentTrust\n\n- Scan AI agent skills for security threats\n- Free tier: POST /v1/scan/free (5 rules, no payment)\n- Full scan: POST /v1/scan ($0.015 USDC via x402)\n- Trust lookup: GET /v1/trust/:address ($0.010 USDC)\n- Verify integrity: POST /v1/verify ($0.005 USDC)\n- Full audit report: POST /v1/report ($0.050 USDC)",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

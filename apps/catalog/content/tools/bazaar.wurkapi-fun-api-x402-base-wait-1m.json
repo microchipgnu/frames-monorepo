@@ -1,0 +1,46 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.wurkapi-fun-api-x402-base-wait-1m",
+  "title": "Timeout test endpoint (wait-1m)",
+  "description": "Timeout test endpoint (wait-1m)",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://wurkapi.fun/api/x402/base/wait-1m"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+    "price_hint": "0.01",
+    "pay_to": "0xF00DAF15713e82fBb7bDC4b818444D93D655DE96",
+    "scheme": "exact",
+    "extra": {}
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "upstream_id": "https://wurkapi.fun/api/x402/base/wait-1m",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "wurkapi.fun",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 0,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "# WURK MPP Discovery Guidance\n\nThis document is the canonical discovery source for MPP endpoints.\n\n## Payment flow\n1. Call a protected `/mpp/*` operation without `Authorization: Payment ...`.\n2. Receive HTTP 402 with `WWW-Authenticate: Payment ...` and an `application/problem+json` body.\n3. Build/sign a valid Payment authorization credential.\n4. Retry the same operation with `Authorization: Payment ...`.\n5. Receive HTTP 200 with business payload and `Payment-Receipt` header.\n\n## Notes\n- Runtime challenge/probe behavior is the source of truth.\n- OpenAPI is intentionally lean/canonical: primary POST endpoints are listed for discovery token-budget efficiency.\n- Runtime may expose additional aliases/GET variants; those remain supported but are not all advertised here.\n- Shared advanced creator winner-selection endpoint is included as `POST /api/agenttohumanadvanced/choose-winners`.",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
+  }
+}

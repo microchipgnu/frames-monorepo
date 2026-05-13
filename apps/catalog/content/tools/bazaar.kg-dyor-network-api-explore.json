@@ -15,13 +15,35 @@
     "network": "base",
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-    "price_hint": "1"
+    "price_hint": "1",
+    "pay_to": "0x191eaF1d2134AAcc2d7209eF5DF077E4F134Af34",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://kg.dyor.network/api/explore",
     "x402_version": 2,
     "accept_count": 1
+  },
+  "_signals": {
+    "host": "kg.dyor.network",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 43,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "This API provides crypto intelligence via a knowledge graph covering 586K+ entities (tokens, protocols, chains, investors, people). Start with POST /api/search to find entities by name, then use POST /api/explore to see relationships (investors, team, DeFi pools, governance). Use POST /api/sparql for custom RDF queries and POST /api/timeseries for historical price/TVL/revenue data. For risk analysis, use GET /api/insights/signals/{signal_type} for specific signal types or GET /api/insights/entity/{entity_name} for a full entity deep-dive. Free endpoints: GET /api/schema (ontology), GET /api/signals/catalog (all 28 signal types), GET /api/insights/signals (recent signals overview).",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
   }
 }

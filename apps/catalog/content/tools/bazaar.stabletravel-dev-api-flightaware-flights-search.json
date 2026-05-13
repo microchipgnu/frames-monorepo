@@ -16,6 +16,12 @@
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
     "price_hint": "0.1",
+    "pay_to": "0xDd257723b86B4947483905cdAcBbBC70fACF2ec0",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
     "accepts": [
       {
         "protocol": "x402v2",
@@ -31,7 +37,7 @@
             "xSettlementAccountSupported": true
           },
           "feePayer": "AepWpq3GQwL8CeKMtZyKtKPa7W91Coygh3ropAJapVdU",
-          "recentBlockhash": "2wg7FgdWKBom2WhqWGxMQVf6Lc4VxwYAEVygpeY58yrA",
+          "recentBlockhash": "HcSk8sYwHx5EZjd2pkaDVpCBb4wnR7rtv7ZhtDtLRRqx",
           "tokenProgram": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         }
       }
@@ -39,9 +45,25 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://stabletravel.dev/api/flightaware/flights/search",
     "x402_version": 2,
     "accept_count": 2
+  },
+  "_signals": {
+    "host": "stabletravel.dev",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": true,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 3,
+    "network_names": "Base, Solana, Tempo",
+    "listed_on_count": 3,
+    "total_calls_30d": 266,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "curated"
   }
 }

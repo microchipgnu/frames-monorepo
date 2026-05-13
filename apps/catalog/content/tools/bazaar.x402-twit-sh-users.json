@@ -25,13 +25,35 @@
     "network": "base",
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-    "price_hint": "0.01"
+    "price_hint": "0.01",
+    "pay_to": "0x9dBA414637c611a16BEa6f0796BFcbcBdc410df8",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://x402.twit.sh/users",
     "x402_version": 2,
     "accept_count": 1
+  },
+  "_signals": {
+    "host": "x402.twit.sh",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 349,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "This API requires MPP payment via Tempo for each request. Costs range from $0.0025 to $0.01 USDC per call. To use: (1) send a probe request to get a 402 challenge, (2) pay via Tempo using an MPP client such as mppx, (3) retry with the payment credential in the Authorization header. No gas required — server sponsors all Tempo gas fees.",
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
   }
 }

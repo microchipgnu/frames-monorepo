@@ -1,8 +1,8 @@
 {
   "pay_protocol": "0.0.1",
   "id": "bazaar.x402-deployer-x402-deployer-workers-dev-scrape-website",
-  "title": "Web scraper / HTML to text / website content extractor. Returns title, OG/Twitte",
-  "description": "Web scraper / HTML to text / website content extractor. Returns title, OG/Twitter meta, body in text/HTML/markdown. Optional links. Cheerio-based — fast, no headless browser.",
+  "title": "Scrape any webpage. Pulls title, description, canonical URL, OpenGraph + Twitter",
+  "description": "Scrape any webpage. Pulls title, description, canonical URL, OpenGraph + Twitter card metadata, headings, and outbound links from a single URL. Server-side rendering. Body content rendered as text / raw HTML / clean markdown. Optional link extraction. Cheerio-based, no headless browser — fast and cheap, ideal for static pages and SSR sites. For JS-heavy SPAs that need a real browser, see website-screenshot.",
   "capabilities": [
     "unspecified"
   ],
@@ -15,13 +15,35 @@
     "network": "base",
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-    "price_hint": "0.04"
+    "price_hint": "0.04",
+    "pay_to": "0x6c0752c09e7F6fA6526fCDf40e456a159ebB5621",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://x402-deployer.x402-deployer.workers.dev/scrape-website",
     "x402_version": 2,
     "accept_count": 1
+  },
+  "_signals": {
+    "host": "x402-deployer.x402-deployer.workers.dev",
+    "is_active_14d": true,
+    "is_infra": true,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 2141,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "long-tail"
   }
 }

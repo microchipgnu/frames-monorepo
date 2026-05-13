@@ -15,14 +15,20 @@
     "network": "base",
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-    "price_hint": "NaN",
+    "price_hint": "0",
+    "pay_to": "0xc9368b30BD620164FD1a05a5d99dcaf8Ae754775",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
     "accepts": [
       {
         "protocol": "x402",
         "network": "solana",
         "currency": "UNKNOWN",
         "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
-        "price_hint": "NaN",
+        "price_hint": "0",
         "pay_to": "3H8oRdbRf18b2aaMVBfgJVDhnjhiXjCVTP5ZnNmPuikb",
         "scheme": "exact",
         "extra": {
@@ -35,7 +41,7 @@
         "network": "lightning:mainnet",
         "currency": "UNKNOWN",
         "asset": "sat",
-        "price_hint": "NaN",
+        "price_hint": "0",
         "pay_to": "520ca7be-8ffe-4b50-ba8a-c1d8d6c2141a",
         "scheme": "exact",
         "extra": {
@@ -48,9 +54,25 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-05T19:44:53.315Z",
+    "fetched_at": "2026-05-13T15:54:06.759Z",
     "upstream_id": "https://emc2ai.io/x402/bitquery/latest-pairs/raw",
     "x402_version": 1,
     "accept_count": 3
+  },
+  "_signals": {
+    "host": "emc2ai.io",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": true,
+    "is_mass_lister": false,
+    "category": "data",
+    "network_count": 3,
+    "network_names": "Base, Lightning, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 36,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-05-13T15:54:06.759Z",
+    "quality": "curated"
   }
 }
