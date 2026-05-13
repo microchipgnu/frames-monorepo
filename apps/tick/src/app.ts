@@ -447,6 +447,11 @@ async function executeOpDispatch(args: DispatchArgs): Promise<DispatchOutcome> {
       if (customerPrompt) {
         log.info("customer_prompt_attached", { run_id, length: customerPrompt.length });
       }
+      // Phase E — CitationAgent opt-out. Default on. Customers passing
+      // `params: { verify_citations: false }` skip the post-pass (e.g.,
+      // bulk imports with external verification already done).
+      const verifyCitationsRaw = (body.params as { verify_citations?: unknown } | undefined)?.verify_citations;
+      const verifyCitations = verifyCitationsRaw === false ? false : true;
 
       const sharedLlmOpts = {
         frame_url: body.frame,
@@ -468,7 +473,9 @@ async function executeOpDispatch(args: DispatchArgs): Promise<DispatchOutcome> {
         custom_prompt: customerPrompt,
       };
       const outcome =
-        body.op === "curate" ? await curateOp(sharedLlmOpts) : await discoverOp(sharedLlmOpts);
+        body.op === "curate"
+          ? await curateOp({ ...sharedLlmOpts, verify_citations: verifyCitations })
+          : await discoverOp(sharedLlmOpts);
       const ended_at = new Date().toISOString();
       const settled = sumCosts(outcome.tool_log.map((t) => t.cost));
 

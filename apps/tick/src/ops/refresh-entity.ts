@@ -93,7 +93,13 @@ export interface RefreshEntityResult {
   /** Sum of LLM cost (parent loop + summarizer) for this sub-loop. */
   llm_cost: string;
   /** Why the sub-loop stopped. */
-  stop_reason: "wrote_facts" | "no_change" | "budget_exhausted" | "max_iters" | "error";
+  stop_reason:
+    | "wrote_facts"
+    | "no_change"
+    | "budget_exhausted"
+    | "max_iters"
+    | "no_progress"
+    | "error";
 }
 
 // ---------------------------------------------------------------------------
@@ -205,6 +211,19 @@ export async function refreshEntity(opts: RefreshEntityOptions): Promise<Refresh
 
   const safetyFloor = 0.02;
 
+  // Phase E.1 — fetch dedup. Sub-loops can web_fetch the same URL more than
+  // once (model forgets it pulled it, or pulls it once "to scan" and again
+  // "to verify"). Map keys are `${url} ${entity_hint}` — distinct hints
+  // can legitimately produce distinct summaries. Cached entries return at
+  // zero LLM/fetch cost.
+  const fetchCache = new Map<string, { result_text: string }>();
+
+  // Phase E.2 — evidence-aware early stop. Terminal tools break the outer
+  // loop, so reaching the end of an iter means "non-terminal iter — only
+  // fetches / errors happened." Count those in a row; break when the model
+  // strings together too many no-progress iters.
+  let nonTerminalStreak = 0;
+
   const facts_to_set: ProposedFact[] = [];
   const facts_to_deprecate: ProposedDeprecation[] = [];
   let narrative = "";
@@ -236,6 +255,18 @@ export async function refreshEntity(opts: RefreshEntityOptions): Promise<Refresh
     if (remaining < safetyFloor || (projected > 0 && remaining < projected + safetyFloor)) {
       stop_reason = "budget_exhausted";
       narrative = `(sub-loop budget exhausted at iter ${iter} of ${maxIters}; ${facts_to_set.length} facts proposed before halt)`;
+      break;
+    }
+
+    // Evidence-aware early stop: if the model has chained 2 consecutive
+    // iters that only fetched (no propose / deprecate / no_change), it's
+    // spinning. Bail before burning the rest of the iter cap on more dead
+    // fetches. Sub-loops are short (≤5 iters) so this saves at most 2
+    // iters per call — but on a 13-entity parallel curate that's 26 saved
+    // worst-case.
+    if (nonTerminalStreak >= 2) {
+      stop_reason = "no_progress";
+      narrative = `(sub-loop stopped at iter ${iter} after 2 consecutive non-proposing iters — model not converging on this entity)`;
       break;
     }
 
@@ -291,6 +322,21 @@ export async function refreshEntity(opts: RefreshEntityOptions): Promise<Refresh
           });
           continue;
         }
+        const entityHint = typeof (block.input as { entity_hint?: unknown }).entity_hint === "string"
+          ? String((block.input as { entity_hint?: unknown }).entity_hint)
+          : opts.entity_id;
+        const cacheKey = `${url} | ${entityHint}`;
+        const cached = fetchCache.get(cacheKey);
+        if (cached) {
+          // Dedup hit — return the prior summary with a leading marker so the
+          // model can tell it's seen this and shouldn't re-fetch. No charge.
+          toolResults.push({
+            type: "tool_result",
+            tool_use_id: block.id,
+            content: `[cached fetch — already retrieved earlier this sub-loop]\n${cached.result_text}`,
+          });
+          continue;
+        }
         const result = await opts.refetcher({
           url,
           remaining_budget: remaining.toFixed(6),
@@ -311,15 +357,14 @@ export async function refreshEntity(opts: RefreshEntityOptions): Promise<Refresh
         const summary = await summarizeForContext({
           body: result.body ?? "",
           schema: opts.schema,
-          entity_hint: typeof (block.input as { entity_hint?: unknown }).entity_hint === "string"
-            ? String((block.input as { entity_hint?: unknown }).entity_hint)
-            : opts.entity_id,
+          entity_hint: entityHint,
           source_url: url,
           final_url: result.final_url,
           llm: opts.llm,
         });
         remaining -= Number(fetchCost) + Number(summary.cost);
         totalLlmCost += Number(summary.cost);
+        fetchCache.set(cacheKey, { result_text: summary.summary });
         toolResults.push({
           type: "tool_result",
           tool_use_id: block.id,
@@ -391,6 +436,10 @@ export async function refreshEntity(opts: RefreshEntityOptions): Promise<Refresh
         is_error: true,
       });
     }
+    // Reaching here means no terminal tool fired this iter — only web_fetches
+    // (or errors). Increment the streak; the next iter's top-of-loop check
+    // will bail if we're at 2 in a row.
+    nonTerminalStreak++;
     messages.push({ role: "user", content: toolResults });
   }
 

@@ -1,5 +1,112 @@
 # @frames-ag/tick
 
+## 0.2.0 — 2026-05-13 (Phase E — fetch dedup, evidence-aware early stop, CitationAgent)
+
+Three quality + cost defenses landing together. Together they close the
+last three gaps from the agent-swarm SOTA review against tick's
+architecture: duplicate fetches inside a sub-loop, fetch-in-circles
+without writing, and synthesizer-hallucinated citations.
+
+### 1. Within-sub-agent fetch dedup (`refresh-entity.ts`)
+
+Each `refreshEntity()` invocation now keeps a `Map<url+entity_hint,
+summary>` over its 5-iter budget. A second `web_fetch` for the same URL
+returns the cached summary with a `[cached fetch — already retrieved]`
+marker and zero LLM/network cost. The model sees that it already pulled
+the URL and moves on.
+
+Why this scope (within-sub-agent, not cross-sub-agent): parallel
+sub-agents work on **different entities**, so cross-agent URL overlap is
+fundamentally lower than the Anthropic "N agents same question" case
+that motivated their dedup recommendation. Within-sub-loop dedup catches
+the dominant 80% (model forgets it pulled a URL or pulls once-to-scan,
+once-to-verify) at near-zero implementation cost. Cross-DO dedup is
+deferred until we have telemetry showing it matters.
+
+### 2. Evidence-aware early stop (`refresh-entity.ts` + `curate.ts`)
+
+Two new stop signals:
+
+- **Sub-loop**: 2 consecutive iters that emit no terminal write
+  (`propose_facts` / `propose_deprecations` / `no_change`) → stop with
+  `stop_reason: "no_progress"`. Saves at most 2 sub-loop iters per call
+  on entities that are spinning, which compounds across a parallel
+  N-entity curate.
+- **Parent curate loop**: 3 consecutive iters that emit no events at all
+  → force a wrap-up summary call with `stop_reason: "no_progress"`. Much
+  bigger win here — parent's `max_iters` is 30, so a stuck model could
+  previously burn 25+ iters fetching without writing. Live-observed in
+  the v0.0.10 curate post-mortem.
+
+Different counters because parent and sub-loop have different "progress"
+semantics. Parent counts emitted FrameEvents; sub-loop counts terminal
+tool calls (which break the loop, so we count non-terminal iters in a
+row instead).
+
+### 3. CitationAgent post-pass (`src/ops/verify-citations.ts`)
+
+After the curate loop finishes, every newly-written fact gets a Haiku-
+tier verification pass: "Does the cited `source.excerpt` directly
+support `field = value`?" Strict-JSON output. Unsupported claims get a
+`fact.deprecated` event appended with `reason: "citation_unverified:
+<judge's reason>"`. The original `facts.set_many` event stays in the
+log for audit — dataset projection skips the deprecated facts but the
+trail is preserved.
+
+Cost shape: ~130 input + 30 output tokens per fact at Haiku rates
+($1/$5 per 1M) = ~$0.0003 per fact. A 20-fact curate adds ~$0.006 to
+the bill — under one third the cost of a single tool fetch.
+
+Why this matters more than the +90% accuracy framing in Anthropic's
+research-system writeup: tick is a *dataset curation* product. The
+single most important quality signal is "does the cited quote actually
+support the claim?" A synthesizer that writes claim AND citation in the
+same call has every incentive to fabricate a plausible-sounding excerpt
+for a plausible-sounding value. The CitationAgent runs with a different
+role on a different model and only sees claim + excerpt — it has no way
+to confabulate the relationship between them.
+
+Skip the post-pass by passing `params: { verify_citations: false }` to
+`POST /run` (bulk-import flows with external verification, etc.).
+
+### What's NOT in this version
+
+- **Cross-DO fetch dedup** — deferred. Needs measurement first.
+- **Strict-mode CitationAgent** (re-fetch URL + check excerpt actually
+  appears on the page) — also deferred. Today we trust the excerpt is
+  real and only check that it supports the claim; fabricated excerpts
+  are caught by the separate `verify` op on the next run, not here.
+- **Single-entity inline heuristic** (skip sub-agent dispatch when only
+  one entity is in scope) — re-examined, marginal cost difference,
+  not worth special-casing.
+
+### Migration
+
+- The new `params.verify_citations` is opt-out, default `true`. Existing
+  callers see ~$0.005-$0.02 added to curate runs and may see new
+  `fact.deprecated` events on the same run as the `facts.set_many` that
+  set them. Both pieces are loggable via the new `report.verify_citations`
+  block.
+- The internal `RefreshEntityResult.stop_reason` union grew a
+  `"no_progress"` variant. Public `SubRunSummary.stop_reason` is typed
+  as `string` in `tick-types` so no consumer break.
+
+### Verify (after deploy)
+
+```sh
+tick curate <frame-url> --budget 1.0
+# Watch `report.verify_citations` — should show facts_checked,
+# supported, unsupported. Any unsupported fact emits a fact.deprecated
+# event in the same run.
+```
+
+To opt out for a single run:
+```sh
+tick curate <frame-url> --budget 1.0 --params '{"verify_citations": false}'
+```
+
+---
+
 ## 0.1.2 — 2026-05-13 (Phase D — Anthropic prompt caching on system+tools prefix)
 
 Adds `cache_control: { type: "ephemeral" }` to the system prompt on every

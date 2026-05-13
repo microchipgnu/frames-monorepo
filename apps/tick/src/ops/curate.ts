@@ -22,6 +22,7 @@ import { summarizeForContext } from "../llm/summarize";
 import { buildCurateSystem } from "../llm/system";
 import { CURATE_TOOLS } from "../llm/tools";
 import { refreshEntity } from "./refresh-entity";
+import { verifyCitations } from "./verify-citations";
 import {
   dispatchCatalogGet,
   dispatchCatalogSearch,
@@ -56,6 +57,14 @@ export interface CurateOptions {
    * passed by the CLI's auto-discovery or `--prompt-file` flag.
    */
   custom_prompt?: string;
+  /**
+   * Phase E — CitationAgent. When true (default), every fact written during
+   * this run gets a post-pass Haiku check that its cited excerpt directly
+   * supports the value. Unsupported facts get a `fact.deprecated` event
+   * appended with reason `citation_unverified: …`. Set false to skip
+   * (e.g., bulk-import flows where you've already verified externally).
+   */
+  verify_citations?: boolean;
 }
 
 export async function curate(opts: CurateOptions): Promise<OpOutcome> {
@@ -108,6 +117,12 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
   // Claude tokens — those compound iteration-over-iteration as the context
   // grows. Project the next iter as 1.2× the most expensive prior LLM call.
   let maxLlmCostSeen = 0;
+  // Phase E.2 — evidence-aware early stop. Track consecutive iters that
+  // dispatched only read-only tools (query, web_fetch, catalog_*) with no
+  // events emitted. Stop after 3 in a row. Parent loop's max_iters is 30
+  // so this is a much bigger win than in sub-loops (~10+ iters saved on
+  // models that get stuck searching without writing).
+  let parentNoProgressStreak = 0;
 
   while (iter < maxIters) {
     iter++;
@@ -139,6 +154,37 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
         output_tokens: finalRes.usage.output_tokens,
         cost: finalRes.usage.estimated_cost,
         stop_reason: "budget_exhausted",
+        cache_creation_input_tokens: finalRes.usage.cache_creation_input_tokens,
+        cache_read_input_tokens: finalRes.usage.cache_read_input_tokens,
+      });
+      break;
+    }
+
+    // Evidence-aware early stop. Different signal from the budget guard:
+    // we have plenty of money left, but the model is searching without
+    // writing. Three consecutive iters that emit no events → halt and
+    // force-summarize. Cheap defense against fetch-in-circles.
+    if (parentNoProgressStreak >= 3) {
+      messages.push({
+        role: "user",
+        content: [
+          {
+            type: "text",
+            text: "Three consecutive iterations produced no events (no facts written, no deprecations). Either you have enough data and should call your write tools now, or you should wrap up. Write a one-paragraph summary of what was accomplished and stop calling tools.",
+          },
+        ],
+      });
+      const finalRes = await opts.llm.call({ system, messages, agent: "build" });
+      remaining -= Number(finalRes.usage.estimated_cost);
+      summary = extractText(finalRes.content) || "(no summary — stopped on no-progress)";
+      stopReason = "no_progress";
+      iteration_log.push({
+        iter,
+        model: finalRes.model,
+        input_tokens: finalRes.usage.input_tokens,
+        output_tokens: finalRes.usage.output_tokens,
+        cost: finalRes.usage.estimated_cost,
+        stop_reason: "no_progress",
         cache_creation_input_tokens: finalRes.usage.cache_creation_input_tokens,
         cache_read_input_tokens: finalRes.usage.cache_read_input_tokens,
       });
@@ -224,12 +270,14 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
         })();
 
     const toolResults: LlmContent[] = [];
+    let eventsEmittedThisIter = 0;
     for (let i = 0; i < toolUseBlocks.length; i++) {
       const block = toolUseBlocks[i]!;
       const dispatch = dispatches[i]!;
       remaining -= Number(dispatch.cost);
       for (const ev of dispatch.events) {
         events.push(ev);
+        eventsEmittedThisIter++;
         opts.onEvent?.(ev);
       }
       if (dispatch.tool_call) tool_log.push(dispatch.tool_call);
@@ -244,13 +292,68 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
         is_error: dispatch.is_error,
       });
     }
+    if (eventsEmittedThisIter === 0) {
+      parentNoProgressStreak++;
+    } else {
+      parentNoProgressStreak = 0;
+    }
     messages.push({ role: "user", content: toolResults });
+  }
+
+  // ----- Phase 3: CitationAgent post-pass (Phase E) ----------------------
+  // Verify every fact emitted during this run against its cited excerpt
+  // using a Haiku-tier judge. Unsupported facts get a `fact.deprecated`
+  // event appended so the dataset projection skips them — the original
+  // `facts.set_many` event stays in the log for audit. This is the single
+  // most important defense against synthesizer citation hallucination
+  // (Anthropic's documented failure mode in multi-agent research systems).
+  // Skip if the customer explicitly opted out OR if no facts were written.
+  let verifySummary: VerifyReport | undefined;
+  if (opts.verify_citations !== false && events.length > 0) {
+    try {
+      const verify = await verifyCitations({
+        events,
+        llm: opts.llm,
+        run_id: opts.run_id,
+        agent: opts.agent,
+      });
+      for (const dep of verify.deprecation_events) {
+        events.push(dep);
+        opts.onEvent?.(dep);
+      }
+      // Append verifier LLM calls to the iteration_log so customers see
+      // total run cost in one place. Prefix iters with the parent's
+      // current iter count so they're chronologically last.
+      const offset = iteration_log.length;
+      for (const entry of verify.iteration_log) {
+        iteration_log.push({ ...entry, iter: offset + entry.iter });
+      }
+      verifySummary = {
+        facts_checked: verify.summary.facts_checked,
+        supported: verify.summary.supported,
+        unsupported: verify.summary.unsupported,
+        skipped_no_excerpt: verify.summary.skipped_no_excerpt,
+        llm_cost: verify.llm_cost,
+      };
+      remaining -= Number(verify.llm_cost);
+    } catch (e) {
+      // Don't fail the whole run if the verifier crashes — log on report
+      // and let the customer see what was written without verification.
+      verifySummary = {
+        facts_checked: 0,
+        supported: 0,
+        unsupported: 0,
+        skipped_no_excerpt: 0,
+        llm_cost: "0",
+        error: (e as Error).message,
+      };
+    }
   }
 
   return {
     events,
     tool_log,
-    summary: `curate · ${schema.name}@${meta.sha.slice(0, 7)} · ${iter} iter · ${sub_runs.length} sub-agents · ${events.length} events · ${tool_log.length} tool calls · stop=${stopReason} · $${remaining.toFixed(6)} remaining`,
+    summary: `curate · ${schema.name}@${meta.sha.slice(0, 7)} · ${iter} iter · ${sub_runs.length} sub-agents · ${events.length} events · ${tool_log.length} tool calls · stop=${stopReason} · $${remaining.toFixed(6)} remaining${verifySummary ? ` · verified ${verifySummary.supported}/${verifySummary.facts_checked}` : ""}`,
     iteration_log,
     sub_runs,
     report: {
@@ -263,8 +366,18 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
       sub_runs: sub_runs.length,
       budget_remaining: remaining.toFixed(6),
       llm_summary: summary,
+      ...(verifySummary ? { verify_citations: verifySummary } : {}),
     },
   };
+}
+
+interface VerifyReport {
+  facts_checked: number;
+  supported: number;
+  unsupported: number;
+  skipped_no_excerpt: number;
+  llm_cost: string;
+  error?: string;
 }
 
 interface DispatchContext {

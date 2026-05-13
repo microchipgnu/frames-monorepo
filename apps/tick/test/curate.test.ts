@@ -103,9 +103,12 @@ describe("curate loop control", () => {
     expect(result.report?.iterations).toBe(1);
   });
 
-  test("max_iters caps the loop", async () => {
-    // Build a script of 6 responses, each requesting another (fake) tool call
-    // the loop will fail to dispatch but keep iterating until the cap.
+  test("no_progress early-stop catches the loop before max_iters when no events are emitted", async () => {
+    // Build a script of responses that each request a (fake) tool call the
+    // loop will fail to dispatch — no events emitted. Phase E (v0.2.0) adds
+    // an evidence-aware early stop: 3 consecutive iters with no events
+    // triggers a force-summary call. So even with max_iters=5, this run
+    // stops at iter 4 with stop_reason=no_progress.
     const toolUse: LlmContent = {
       type: "tool_use",
       id: "t_1",
@@ -117,6 +120,12 @@ describe("curate loop control", () => {
       content: [toolUse],
       usage: { input_tokens: 1, output_tokens: 1, estimated_cost: "0.001" },
     }));
+    // Append one extra response for the forced wrap-up summary call.
+    script.push({
+      stop_reason: "end_turn",
+      content: [text("Wrapping up — nothing was written.")],
+      usage: { input_tokens: 1, output_tokens: 1, estimated_cost: "0.001" },
+    });
     const result = await curate({
       ...baseArgs,
       client: mockClient(),
@@ -124,8 +133,8 @@ describe("curate loop control", () => {
       llm: mockLlm(script),
       max_iters: 5,
     });
-    expect(result.report?.iterations).toBe(5);
-    expect(result.report?.stop_reason).toBe("max_iters");
+    expect(result.report?.iterations).toBe(4);
+    expect(result.report?.stop_reason).toBe("no_progress");
   });
 
   test("budget exhaustion triggers a one-shot final-summary call", async () => {
