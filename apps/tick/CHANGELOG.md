@@ -1,5 +1,76 @@
 # @frames-ag/tick
 
+## 0.5.0
+
+### Minor Changes
+
+- 1ff05b6: add /addresses endpoint surfacing public outbound-wallet addresses
+
+  Lets operators fund the outbound wallets externally without booting the full paidFetch stack or holding the private keys. Returns the public Solana / EVM (Base) / Tempo addresses derived from the configured env secrets — null per chain when its secret isn't set.
+
+  Read-only, unauthenticated by design. Public addresses are not sensitive; private keys never appear in the response.
+
+  - New `deriveWalletAddresses(env)` helper in `src/wallet.ts`. EVM address comes from `viem`'s `privateKeyToAccount`. Solana address is the base58 of bytes [32..64] of the keypair JSON (standard Solana keypair layout: priv ‖ pub). Handles malformed inputs by returning null.
+  - New `GET /addresses` route in `src/app.ts` that calls the helper.
+  - 5 unit tests covering: no-config (all null), EVM derivation against a known viem test vector, Solana shape sanity, malformed JSON, wrong-length keypair.
+
+  Funding workflow:
+
+  ```
+  curl https://tick.microchipgnu.workers.dev/addresses
+  # → { addresses: { solana: "...", evm: "0x...", tempo: "0x..." } }
+  # fund each address with USDC on its respective chain
+  ```
+
+### Patch Changes
+
+- 44ba1f1: fix: enable ArkType jitless mode so faremeter works on Cloudflare Workers
+
+  CRITICAL: paidFetch has never actually worked on the deployed tick Worker. Every `settled=$0` we've seen — including before today — was a silent fallback to bare fetch.
+
+  Root cause: `@faremeter/*` packages depend on ArkType 2.x for input validation. ArkType's default mode JIT-compiles validators via `new Function`/`eval`. Cloudflare Workers' V8 isolate disallows code generation from strings (`EvalError: Code generation from strings disallowed for this context`). `bootWallets` was throwing on every cold start with `Error: Encountered an unexpected error while compiling your definition: ... morph14Allows ... domain1Apply`, the catch handler logged a warning, and tick silently fell back to `createHttpRefetcher()` — which gives back a free, non-paying fetch.
+
+  Fix: new `src/arktype-init.ts` calls `configure({ jitless: true })` from `arktype/config`. Imported as the FIRST statement in both `worker.ts` (deployed entry) and `index.ts` (Bun dev entry). ArkType then uses interpreted validation instead of compiling, slower per-check but Workers-compatible.
+
+  After deploy, `/health.wallets.paid_fetch` should report non-zero `handlerCount` + `mppHandlerCount`. paidFetch becomes actually paid.
+
+  Found via:
+
+  1. New `tool_invoke_post_response` log + `bootWallets failed` warning surfaced through `wrangler tail`.
+  2. /health diagnostics returned `paid_fetch: null` (boot threw) confirming the wallet stack wasn't constructed.
+
+  Added `arktype: ^2.2.0` as a direct dep (was transitive) so the `arktype/config` subpath resolves at typecheck time.
+
+- 4b4ecec: paidFetch diagnostics, post-branch logging, 402-leak fallback
+
+  Three changes from probing layoffs-2026 in prod and seeing the same Locus/MPP 402 leak before and after wiring paidFetch into the POST branch.
+
+  **Diagnostics on /health** — `/health.wallets.paid_fetch` now exposes the booted-wallet handler counts (`handlerCount`, `mppHandlerCount`, `configured.{evm,solana,tempo}`). Tells you whether the Solana MPP charge handler actually got registered or boot silently dropped it.
+
+  **Structured log inside dispatchToolInvoke POST branch** — `tool_invoke_post_response` (info) and `tool_invoke_post_threw` (error) capture status, elapsed_ms, paid_fetch_present, error stack. Surfaces whether wrap() saw the 402 and tried, or whether the handler threw inside the call. Read via `wrangler tail`.
+
+  **402-leak fallback (the user-visible fix)** — when a 402 reaches the probe builder, paidFetch already tried to satisfy it and couldn't. Mark `kind: "payment_unhandled"` and `retryable: false`. Agent prompt now says: on `payment_unhandled`, do NOT retry the same descriptor — call `catalog_search` again and prefer a result with a different `payment.protocol` or `payment.network`. Without this fix the agent was grinding on the same Solana/Locus descriptor every iter despite having Base + Tempo funds available.
+
+  `@frames-ag/frame` patch adds `payment_unhandled` to the documented `catalog.probe` hint-kind vocabulary in PROTOCOL.md and the `CatalogProbePayload` type.
+
+- 84562dd: fix: route POST tool_invoke through paidFetch so MPP/x402 402 challenges get paid
+
+  The v0.4.4 probe loop on layoffs-2026 produced this telling signal: agent picked `mpp.brave.post.brave-news-search`, hit status=400 (`q is required`), self-corrected to use `q`, then hit status=402 with a Locus MPP challenge. The 402 should have been paid by the booted Solana wallet — but the POST branch of `dispatchToolInvoke` was using bare `fetch`, not `paidFetch`. The TODO was right there in the file. The 402 leaked as a probe event instead of being satisfied.
+
+  Fix: thread `paidFetch` from `bootWallets` → `pickWalletStack` (renamed from `pickRefetcher`) → `curate/discover` opts → `CatalogDispatchContext` → POST branch. GET branch already routed through `paidFetch` via `createPaidRefetcher`, so this only had to be wired for non-GET.
+
+  Falls back to global fetch when wallets aren't booted (local dev / no secrets) — 402s leak as probe events in that mode, matching prior behavior.
+
+  Once deployed, MPP POST descriptors should produce `tool.invoked` receipts with non-zero `settled` cost, not `catalog.probe` 402 events.
+
+- 900ba83: probe-parse: prefer `message` over `error` when both are strings, and extract field names from "X is required" patterns
+
+  Observed in the first v0.4.4 probe run on layoffs-2026: Brave returned `{error: "Invalid request", message: "q is required"}` and the parser surfaced only "Invalid request" as the hint — losing the actionable field name. The LLM corrected anyway via the raw response excerpt, but the structured hint should carry the field. Now it does.
+
+  - Prefer `message` as the primary hint when both fields are strings; include `error` as a prefix only when distinct.
+  - New regex `^['"]?(\w+)['"]?\s+is\s+(required|missing)` extracts the field name, upgrades the hint kind to `missing_field`.
+  - 2 new unit tests covering the Brave shape and the "X is required" pattern.
+
 ## 0.4.4 — 2026-05-13 (probe loop — surface paid-tool failures as parsed hints)
 
 When `tool_invoke` fails, the agent now gets structured hints instead of an opaque error string. The runtime parses common error-body shapes (FastAPI/Pydantic validation errors, RFC-7807, `{error}`, `{message}`, `{errors: [...]}`) and returns the result with parsed `[kind]` + `field` + `message` lines plus an explicit retry recommendation.
@@ -45,6 +116,7 @@ binding. Catalog is the same shape and needs the same fix.
 Added `CATALOG` service binding alongside the existing `FRAMES_CLOUD`:
 
 **`wrangler.toml`:**
+
 ```toml
 [[services]]
 binding = "CATALOG"
@@ -58,11 +130,12 @@ override (typed `FetcherFetch` so both global fetch and `Fetcher.fetch`
 satisfy it). Defaults to `globalThis.fetch` when unset.
 
 **`app.ts`:**
+
 ```ts
 catalog: new CatalogClient({
   base: env?.CATALOG_BASE,
   fetch: env?.CATALOG ? env.CATALOG.fetch.bind(env.CATALOG) : undefined,
-})
+});
 ```
 
 Mirror of the FRAMES_CLOUD wiring pattern.
@@ -70,6 +143,7 @@ Mirror of the FRAMES_CLOUD wiring pattern.
 ### Validation
 
 After this deploys + first manual layoffs run:
+
 - `catalog_search` should return real ToolDescriptors (currently returns dispatch error)
 - Agent should `tool_invoke` against the cheapest descriptor
 - First paid catalog tool call goes through the v0.4.x payment path
@@ -100,8 +174,12 @@ Same trust signal, ~1/15th the call count, no rate-limit pressure.
 ```json
 {
   "judgements": [
-    { "fact_id": "fact_abc", "supported": true,  "reason": "Match." },
-    { "fact_id": "fact_xyz", "supported": false, "reason": "Excerpt names Bob, not Alice." }
+    { "fact_id": "fact_abc", "supported": true, "reason": "Match." },
+    {
+      "fact_id": "fact_xyz",
+      "supported": false,
+      "reason": "Excerpt names Bob, not Alice."
+    }
   ]
 }
 ```
@@ -114,6 +192,7 @@ same overloaded quota. Batching addresses the root cause: fewer total
 calls, period.
 
 It's also strictly cheaper:
+
 - One prompt cache hit (cached system block) instead of N
 - Less HTTP overhead
 - Less wall-clock time (~5s for 30 facts in one call vs ~15s for 30
@@ -164,7 +243,7 @@ bumps: `@frames-ag/tick` 0.4.0 → 0.4.1
 Architectural cleanup. Tick was running 117 lines of buyer-side
 payment wiring in `src/wallet.ts` — directly importing faremeter
 handlers, building `wrap()` itself. Pay (`@frames-ag/pay`) had the
-*same code* and more, but tick didn't depend on pay. Two parallel
+_same code_ and more, but tick didn't depend on pay. Two parallel
 faremeter integrations in the monorepo.
 
 ### What changed
@@ -207,6 +286,7 @@ against a real paid catalog tool is the actual validation — operator
 work.
 
 bumps:
+
 - `@frames-ag/tick` 0.3.14 → 0.4.0
 - depends on `@frames-ag/pay` 0.2.0 (new dep)
 
@@ -228,9 +308,9 @@ Today's diagnostic data showed refresh sub-loops legitimately needing 2
 fetches when the human-facing URL doesn't have the structured fields
 the schema requires:
 
-  iter 1: fetch github.com/owner/repo → got description, missing stars
-  iter 2: fetch api.github.com/repos/owner/repo → got stars
-  iter 3: propose facts ← KILLED by streak-of-2
+iter 1: fetch github.com/owner/repo → got description, missing stars
+iter 2: fetch api.github.com/repos/owner/repo → got stars
+iter 3: propose facts ← KILLED by streak-of-2
 
 The threshold was a mismatch with discover's (raised to 3 in v0.3.1
 for the same reason). Refresh now matches discover. Worst-case wasted
@@ -263,6 +343,7 @@ in one shot. Operator action; not in tick code.
 ### Validates
 
 Tomorrow's overnight `tick-hosted.yml` run. Expectations:
+
 - No more `stop_reason: max_tokens` halts on the parent
 - Some of the refresh-mode `no_op` cases convert to `propose_facts`
   or `no_change` (specifically the 2-fetch-then-propose pattern)
@@ -279,10 +360,10 @@ bumps: `@frames-ag/tick` 0.3.13 → 0.3.14
 v0.3.12's validation run revealed the actual blocker behind discover/refresh
 `no_op` outcomes. The diagnostic assistant_text traces showed:
 
-  iter 1: "I'll fetch the GitHub repository to verify and fill all fields."
-  iter 2: "The summarizer didn't capture stars/language/commit details.
-           Let me fetch the GitHub API to get those fields reliably."
-  iter 3: KILLED.
+iter 1: "I'll fetch the GitHub repository to verify and fill all fields."
+iter 2: "The summarizer didn't capture stars/language/commit details.
+Let me fetch the GitHub API to get those fields reliably."
+iter 3: KILLED.
 
 The model wasn't being over-cautious — it had a real informational gap.
 The Haiku-tier summarizer was producing prose like "FastMCP is a Python
@@ -298,10 +379,13 @@ instead of prose. New contract:
 ```json
 {
   "fields": {
-    "stars":          { "value": 7212, "excerpt": "7,212 stars" },
-    "language":       { "value": "Python", "excerpt": "Python · 95.3%" },
-    "last_commit_at": { "value": "2026-05-12", "excerpt": "last commit 2 days ago" },
-    "category":       null
+    "stars": { "value": 7212, "excerpt": "7,212 stars" },
+    "language": { "value": "Python", "excerpt": "Python · 95.3%" },
+    "last_commit_at": {
+      "value": "2026-05-12",
+      "excerpt": "last commit 2 days ago"
+    },
+    "category": null
   },
   "notes": "GitHub repo page; redirected from old URL"
 }
@@ -370,6 +454,7 @@ handling, and 3 `tryParseExtraction` unit tests. **140 tests total
 ### Expected impact
 
 Of today's hosted-runtime curates on `mcp-servers`:
+
 - Refresh sub-loops that timed out fetching API as second source: **most should now
   commit at iter 1** with the structured extraction
 - Discover sub-loops failing on schema fields: same
@@ -420,7 +505,7 @@ Mirrored v0.3.3's prompt shape to `refresh-entity.ts:buildRefreshSystem`:
 
 Why the threshold is iter 2 (vs discover's iter 3): refresh starts
 with the entity's existing facts pre-loaded. The first fetch is
-either a confirm (→ no_change) or a contradiction (→ propose_*).
+either a confirm (→ no*change) or a contradiction (→ propose*\*).
 Either outcome is decidable from one fetch. Discover starts blind
 and may genuinely need two fetches to confirm a real entity exists.
 
@@ -465,7 +550,7 @@ Rewrote the `When to reject (no_match)` section in
 - Added a **diagnostic check before each fetch**: "Am I about to fetch
   something to verify my current hypothesis, or am I trying to find a
   different entity from scratch?"
-- Made the role boundary explicit: the sub-loop is for *verification*,
+- Made the role boundary explicit: the sub-loop is for _verification_,
   not exploration. Exploration belongs in the parent loop.
 
 ### Why this is the right shape
@@ -529,7 +614,7 @@ tier switch busts the cache anyway, so passing tools just bloats input.
 ### Expected impact
 
 - Wrap-up call cost: **~$0.18 → ~$0.005** (-97%)
-- `budget_exhausted` runs should now settle *at or under* the budget
+- `budget_exhausted` runs should now settle _at or under_ the budget
   cap with the safety floor doing what it's named for.
 - Marginal quality on the wrap-up summary should be indistinguishable
   for a one-paragraph "what happened" prose generation.
@@ -541,7 +626,7 @@ bumps: `@frames-ag/tick` 0.3.9 → 0.3.10
 ## 0.3.9 — 2026-05-13 (capture assistant reasoning per iter)
 
 The biggest unfixed quality issue is discover sub-loops that reach
-iter 3 but don't propose. Today's iteration_log captures *cost*
+iter 3 but don't propose. Today's iteration_log captures _cost_
 attribution per iter (tokens, dollars, cache hits) but no reasoning
 attribution — there's no record of what the model said alongside its
 tool calls. Without that, we can't tell if a stuck sub-loop is being
@@ -550,11 +635,12 @@ over-cautious, missing data, or genuinely stuck.
 ### Fix
 
 Added `IterationLogEntry.assistant_text` (≤240 chars) — the text the
-model emitted *alongside* its tool_use blocks. Often empty when the
+model emitted _alongside_ its tool_use blocks. Often empty when the
 model dispatches a tool with no preface; when present, the single
 most useful field for diagnosing why a loop stalled or terminated.
 
 Plumbed through all four iteration_log push sites:
+
 - `refresh-entity.ts` (sub-loop)
 - `discover-entity.ts` (sub-loop)
 - `curate.ts` main loop and budget-exhausted final-summary
@@ -586,6 +672,7 @@ Added the optional field; bumped to 0.0.6. Forward-compatible — older
 consumers ignore the field.
 
 bumps:
+
 - `@frames-ag/tick` 0.3.8 → 0.3.9
 - `@frames-ag/tick-types` 0.0.5 → 0.0.6
 
@@ -594,7 +681,7 @@ bumps:
 ## 0.3.8 — 2026-05-13 (dedup duplicate entity.created across parallel sub-agents)
 
 Live curate on 2026-05-13 (post-v0.3.3) added `prefecthq-fastmcp` to
-the dataset *twice* in a single run. Two parallel `discover_entity`
+the dataset _twice_ in a single run. Two parallel `discover_entity`
 sub-agents independently proposed the same `entity_id` because the
 `known_entity_ids` snapshot passed to each sub-loop at dispatch time
 doesn't include same-run-pending proposals from sibling sub-agents.
@@ -659,6 +746,7 @@ when a curate run produced zero events (the verifier never runs in
 that case, so `report.verify_citations` is null). Polish-only.
 
 Changes to `examples/github-action.yml`:
+
 - "Curate result" notice uses a conditional jq expression that prints
   "no facts written — verifier did not run" when the verifier block
   is absent
@@ -764,7 +852,7 @@ bumps: `@frames-ag/tick` 0.3.3 → 0.3.4
 
 Live curate runs of 2026-05-13 showed discover sub-loops reach iter 3
 but still don't propose. After v0.3.1 unblocked the iter-3 mechanical
-path, the *behavioral* gap is now the model being over-conservative:
+path, the _behavioral_ gap is now the model being over-conservative:
 "Stop AS SOON as you have a decision" is too permissive — the model
 reads "I want more corroboration" as "I don't have a decision yet."
 
@@ -843,6 +931,7 @@ per budget-exhausted run.
 v0.2.0 but no live run had exercised it — models never re-fetched the
 same URL within one sub-loop in our test corpus. Added two focused
 tests:
+
 - Same URL fetched across iters → refetcher fires once, cache marker
   goes to the model on the second call.
 - Same URL with different `entity_hint` → two cache keys, refetcher
@@ -905,11 +994,13 @@ and rephrase the test description.
 ### Expected impact
 
 On the same `mcp-servers` curate that triggered this finding:
+
 - v0.3.0: 4 entity_added / 13 no_op-discover / 7 facts_set = 11 useful sub-runs
 - v0.3.1: expected ~12-14 entity_added (the 8-10 that needed iter 3
   to converge) + 7 facts_set + small residual no_op = ~20 useful
 
 Test it the same way:
+
 ```sh
 curl -X POST https://tick.microchipgnu.workers.dev/run \
   -H "authorization: Bearer $TICK_API_KEY" \
@@ -923,7 +1014,7 @@ bumps: `@frames-ag/tick` 0.3.0 → 0.3.1
 
 ## 0.3.0 — 2026-05-13 (Phase F — discover_entity sub-agent + EXPAND/REFRESH framing)
 
-Tick's curate op was *refresh-coded*. The system prompt told the agent
+Tick's curate op was _refresh-coded_. The system prompt told the agent
 to operate on existing entities; the only sub-agent (`refresh_entity`)
 took an existing `entity_id`; the Phase E (v0.2.0) early-stop heuristic
 punished exploration. A curator that only verifies what it already knows
@@ -986,7 +1077,7 @@ Two replacement triggers:
 ### Public API changes
 
 - **New tool** in `CURATE_TOOLS`: `discover_entity(hypothesis,
-  seed_urls?, fields_to_find?)`. Hosted runtimes expose it through the
+seed_urls?, fields_to_find?)`. Hosted runtimes expose it through the
   same Anthropic tool-spec surface as the other curate tools.
 - **`SubRunSummary.action`** in `@frames-ag/tick-types` grew two
   variants: `entity_added`, `entity_matched_existing`. Existing
@@ -1074,7 +1165,7 @@ Cost shape: ~130 input + 30 output tokens per fact at Haiku rates
 the bill — under one third the cost of a single tool fetch.
 
 Why this matters more than the +90% accuracy framing in Anthropic's
-research-system writeup: tick is a *dataset curation* product. The
+research-system writeup: tick is a _dataset curation_ product. The
 single most important quality signal is "does the cited quote actually
 support the claim?" A synthesizer that writes claim AND citation in the
 same call has every incentive to fabricate a plausible-sounding excerpt
@@ -1117,6 +1208,7 @@ tick curate <frame-url> --budget 1.0
 ```
 
 To opt out for a single run:
+
 ```sh
 tick curate <frame-url> --budget 1.0 --params '{"verify_citations": false}'
 ```
@@ -1181,6 +1273,7 @@ clients that read `RunResult.iteration_log` will silently ignore them.
 
 Run any curate against a real frame and inspect the `iteration_log` in
 the response:
+
 ```json
 {
   "iter": 2,
@@ -1188,6 +1281,7 @@ the response:
   "cache_read_input_tokens": 2987
 }
 ```
+
 Iter 1 should show `cache_creation > 0, cache_read = 0`; iters 2+ should
 flip to `cache_read > 0, cache_creation = 0` on the same prefix.
 
@@ -1206,13 +1300,13 @@ batches in one tool-use turn.
 
 - **`src/agents/entity-agent.ts`** — `EntityAgent` Durable Object class.
   Each instance hosts one `refreshEntity()` sub-loop with its own LlmClient
-  + refetcher constructed from the DO's env. Named by `${run_id}:${entity_id}`
-  for idempotency on retries.
+  - refetcher constructed from the DO's env. Named by `${run_id}:${entity_id}`
+    for idempotency on retries.
 - **`worker.ts`** exports `EntityAgent` (required by `wrangler.toml`'s DO
   binding).
 - **`wrangler.toml`** — new `[[durable_objects.bindings]]` for `ENTITY_AGENT`
-  + `[[migrations]]` with `new_sqlite_classes = ["EntityAgent"]`. First
-  deploy after this version adds the DO class to the live Worker.
+  - `[[migrations]]` with `new_sqlite_classes = ["EntityAgent"]`. First
+    deploy after this version adds the DO class to the live Worker.
 - **`env.ts`** — `ENTITY_AGENT?: DurableObjectNamespace<EntityAgent>` typing.
 - **`dispatchRefreshEntity`** routes through the DO when the binding is
   present (production CF Worker); falls back to the in-process function
@@ -1262,11 +1356,13 @@ research to bounded sub-loops via the new `refresh_entity` tool.
 ### The shape
 
 Old curate (v0.0.13 and prior):
+
 - ONE long conversation
 - 13 entities × N fetches × M iters compounded in one context
 - Agent over-explored when each call was cheap (30 iters, 4 events at $1.88)
 
 New curate (v0.1.0):
+
 - Parent reads schema + state (1-2 iters, ~$0.05)
 - Parent dispatches `refresh_entity(id)` per target entity
 - Each sub-agent has:
@@ -1278,6 +1374,7 @@ New curate (v0.1.0):
 - Parent aggregates results, emits final `facts.set_many` events
 
 Expected cost on the same 5-fetch / 4-write workload:
+
 - v0.0.12: $3.13
 - v0.0.13: $1.88
 - v0.1.0: ~$0.40-$0.60 projected (parent ~$0.10 + 4 sub-agents × ~$0.10 each)
@@ -1323,6 +1420,7 @@ to 97K tokens in one shot, every subsequent call cost $0.40-$0.60 just
 to feed the same HTML over and over.
 
 ### Change
+
 - New `src/llm/summarize.ts` — `summarizeForContext()` runs a Haiku-tier
   call (via `agent: "title"` model routing) against the raw fetched body
   with the dataset schema as the extraction template. Output: ~500-2000
@@ -1337,7 +1435,9 @@ to feed the same HTML over and over.
   always gets something useful.
 
 ### Cost impact (projected)
+
 On the same 5-fetch curate run we measured at v0.0.12:
+
 - v0.0.12: ~$3.13 (9 iters × $0.30-$0.60 each due to compounding context)
 - v0.0.13: ~$0.30-$0.50 expected (Haiku summarization is ~$0.005 per fetch;
   parent context stays under ~30K tokens through the loop)
@@ -1346,12 +1446,14 @@ Real numbers from the next live curate run will land in the CHANGELOG
 note for v0.0.14.
 
 ### Model routing — already wired
+
 `agent: "title"` was plumbed since v0.0.0 but never invoked at a real
 call site. The summarizer is the first production caller. Title model
 default: `anthropic/claude-haiku-4-5` (~$1/$5 per 1M tok, ~3x cheaper
 than Sonnet 4.6 input / ~3x cheaper output).
 
 ### What's NOT in this release
+
 - Phase B (per-entity sub-loops) — separate v0.1.0 release
 - Phase C (sub-loops promoted to @cloudflare/agents DOs) — v0.1.1
 - Phase D (prompt-cache + recursive compaction) — v0.1.2
@@ -1361,8 +1463,9 @@ than Sonnet 4.6 input / ~3x cheaper output).
 Three improvements from the post-launch review:
 
 ### Privacy gates on read endpoints
+
 - **`GET /runs/:id`** now requires the caller's `Authorization: Bearer
-  <key>` (via `TICK_API_KEYS`) to map to the same agent that created the
+<key>` (via `TICK_API_KEYS`) to map to the same agent that created the
   run. Earlier "public by run_id possession" leaked frame URL, agent
   identity, source URLs, and the agent's narrative reasoning. 403 on
   mismatch.
@@ -1376,11 +1479,16 @@ Three improvements from the post-launch review:
   gate, consistent with closed-by-default on `/run`.
 
 ### `iteration_log` in `RunResult`
+
 Top-level `result.iteration_log: IterationLogEntry[]` exposes one entry
 per LLM call across the agent loop:
+
 ```ts
-{ iter, model, input_tokens, output_tokens, cost, stop_reason }
+{
+  iter, model, input_tokens, output_tokens, cost, stop_reason;
+}
 ```
+
 Customers can see exactly where their budget went — which iter, which
 model served the call (anthropic vs @cf), and what stopped each call.
 Curate and discover both populate it. `LlmResponse.model` is now part of
@@ -1388,6 +1496,7 @@ the LlmClient surface; `IterationLogEntry` is exported from
 `@frames-ag/tick-types@0.0.2`.
 
 ### Budget pre-flight check
+
 When a caller passes an explicit `budget` to curate/discover that's
 less than 50% of the calibrated default, `/run` returns 400 with a
 `recommended_budget` hint instead of dispatching. Prevents the
@@ -1411,15 +1520,17 @@ of LLM tokens against the prior $1.50 default ceiling and produced 0
 events because the safety_floor guard only tracked tool spend.
 
 ### Default budgets bumped (`packages/tick-types`)
-- `curate`:   $1.50 → **$3.00**
+
+- `curate`: $1.50 → **$3.00**
 - `discover`: $0.50 → **$1.50**
-- `refresh`:  $0.30 → **$0.50**
-- `verify`:   $0.15 (unchanged — no LLM)
+- `refresh`: $0.30 → **$0.50**
+- `verify`: $0.15 (unchanged — no LLM)
 
 Flagship LLM tokens dominate the budget; the old numbers were
 calibrated for cheaper models + tool-spend-only guards.
 
 ### LLM-cost-aware budget guard (`curate.ts` + `discover.ts`)
+
 - Track `maxLlmCostSeen` across iterations.
 - Before each new iter, project next LLM call as `1.2 × maxLlmCostSeen`.
 - Halt early when `remaining < projected + safety_floor`.
@@ -1429,18 +1540,20 @@ post-hoc detect it, then spend ANOTHER call asking for a wrap-up —
 overrunning by 2×. The new projection halts BEFORE the overrun.
 
 ### `RunResult.narrative` (top-level)
+
 The model's one-paragraph wrap-up (previously buried in
 `report.llm_summary`) now also lives at `result.narrative`. It's the
 single most human-readable output of any run and customers shouldn't
 have to dig for it.
 
 Example from a real run:
-> *"This curate tick read the full current state of the
+
+> _"This curate tick read the full current state of the
 > ai_agent_wallets_eu dataset (13 entities) and performed live
 > verification... Budget constraints prevented completing set_facts
 > writes for Ovra's founded_year (2025, confirmed from structured
 > data) and last_news_url/last_news_date updates for Wirex and other
-> entities... Recommended follow-up actions for the next tick:..."*
+> entities... Recommended follow-up actions for the next tick:..."_
 
 That narrative is high-quality customer-facing output; promoting it
 surfaces it in the response shape directly.
@@ -1454,6 +1567,7 @@ marketplace billing — no Anthropic account, CF pays Anthropic from the
 gateway's prepaid balance.
 
 ### Required gateway path: native Anthropic Messages API
+
 Both `env.AI.run("anthropic/...")` AND `/compat/chat/completions` have
 server-side bugs translating tool_use blocks for Anthropic models —
 they strip or mis-map `tool_use.id` on the way to Anthropic's parser.
@@ -1462,24 +1576,28 @@ billing when called with `Authorization: Bearer <gateway-token>` (no
 `x-api-key`, no BYOK alias).
 
 ### `callAnthropic` auth ladder (v0.0.9)
-1. `byokAlias` set       → `cf-aig-byok-alias` header (gateway holds key)
+
+1. `byokAlias` set → `cf-aig-byok-alias` header (gateway holds key)
 2. `anthropicApiKey` set → `x-api-key` header (passthrough; your Anthropic bills)
-3. `gatewayToken` only   → `Authorization: Bearer` (**marketplace; CF bills**)
-4. else                  → error
+3. `gatewayToken` only → `Authorization: Bearer` (**marketplace; CF bills**)
+4. else → error
 
 The third case is the v1 happy path: set `AI_GATEWAY_URL` +
 `AI_GATEWAY_TOKEN` + fund the gateway in the dashboard. Tick handles
 the rest.
 
 ### Removed
+
 - `callGatewayCompat` (broken for Anthropic — never landed as a customer path)
 - The Anthropic branch of `callAiBinding` (same bug as compat)
 - Debug logging from the binding path
 
 ### Live validation
+
 ```
 curate · ai_agent_wallets_eu@e4f9cef · 5 iter · 1 events · 8 tool calls
 ```
+
 End-to-end through tick.microchipgnu.workers.dev with bearer-token auth,
 allowlist gate, service binding to frames-cloud, and Anthropic via
 marketplace.
@@ -1497,6 +1615,7 @@ marketplace handles billing for partnered third-party providers (Anthropic,
 OpenAI, Google, etc.) when called through `env.AI.run`.
 
 ### Config
+
 ```toml
 # wrangler.toml
 [ai]
@@ -1513,6 +1632,7 @@ When the binding is present, `LlmClient` automatically routes
 HTTP paths because it stays inside CF's edge with no extra hop.
 
 ### Implementation
+
 - `LlmClient.callAiBinding()` handles both shapes:
   - `anthropic/*` → Anthropic Messages API body, native response shape
   - `@cf/*` → OpenAI-compat body, translated back to Anthropic-shape via the existing helpers
@@ -1520,6 +1640,7 @@ HTTP paths because it stays inside CF's edge with no extra hop.
 - `/health.llm.ai_binding_present` + `ai_binding_gateway_slug` surface state
 
 ### Priority order in `LlmClient.call()`
+
 1. **AI binding** (env.AI) — for `@cf/*` AND `anthropic/*` models. CF billing.
 2. **Workers AI HTTP** — for `@cf/*` when no binding (e.g. Bun dev). CF billing.
 3. **AI Gateway BYOK** — for `anthropic/*` when binding absent. Anthropic billing via your stored key.
@@ -1538,6 +1659,7 @@ Cloudflare bills you directly per-token — no Anthropic / OpenAI / Google
 account required.
 
 ### Why
+
 Customers who want to skip the provider-account dance can pay CF for
 tokens. Tradeoff: Workers AI's catalog is open-weight only (no Claude /
 GPT-4 / Gemini Pro). For agent loops with tool use, `llama-3.3-70b-
@@ -1545,6 +1667,7 @@ instruct-fp8-fast` is the recommended default — decent at function
 calling, fast inference, low cost (~$0.29 / $2.25 per 1M tokens).
 
 ### Config (per `apps/tick/DEPLOY.md`)
+
 ```bash
 wrangler secret put CF_ACCOUNT_ID         # 97c691...
 wrangler secret put WORKERS_AI_TOKEN      # CF API token w/ Workers AI:Run scope
@@ -1555,6 +1678,7 @@ When all three are set, `LlmClient.call()` prefers Workers AI over the
 Anthropic / BYOK paths regardless of per-agent model defaults.
 
 ### Implementation
+
 - `LlmClient.callWorkersAi()` — POSTs to `api.cloudflare.com/.../ai/v1/chat/completions` (OpenAI-compat shape).
 - **Shape translators** (`anthropicToOpenAiMessages`, `openAiFinishToAnthropicStop`) — translate Anthropic-style messages + tool_use blocks ↔ OpenAI-style messages + tool_calls. The ops (curate/discover) keep returning Anthropic-shape `LlmResponse` so they don't need to change.
 - Per-token pricing for the common `@cf/*` models added to the `PRICES` table.
@@ -1563,7 +1687,7 @@ Anthropic / BYOK paths regardless of per-agent model defaults.
 
 110 tests still passing — the Workers AI path doesn't affect any existing test (Anthropic-shape goes through the same code paths it always did).
 
-## 0.0.6 — 2026-05-12 (fix: rewrite workspace:* deps for npm install)
+## 0.0.6 — 2026-05-12 (fix: rewrite workspace:\* deps for npm install)
 
 v0.0.5 published cleanly to npm but with `workspace:*` left in the
 `dependencies` field for `@frames-ag/payment-tempo` and
@@ -1588,6 +1712,7 @@ frame URL's path component (relative to cwd) and POSTs the contents as
 imposed.
 
 ### What changed
+
 - **`src/cli.ts`** — `resolveCustomerPrompt()`: auto-discovers `prompt.md` from the path component of the frame URL (`https://github.com/<user>/<repo>/datasets/foo` → `./datasets/foo/prompt.md`). Falls back to `./prompt.md` for whole-repo frames. Flags: `--prompt-file <path>` (explicit override, errors if missing) and `--no-prompt` (skip discovery). Logs the resolved path to stderr so CI runs show which prompt was picked up.
 - **`/run` handler** — extracts `body.params.customer_prompt`, validates it's a string, hard-caps at 32 KiB (DoS guard), forwards to `curate()` / `discover()` via `sharedLlmOpts.custom_prompt`. Logs `customer_prompt_attached` with byte count.
 - **`CurateOptions.custom_prompt`** + **`DiscoverOptions.custom_prompt`** — both now formally declare the option (`buildCurateSystem` already consumed it; the field just wasn't wired in).
@@ -1595,11 +1720,13 @@ imposed.
 - **6 new tests** across `test/prompt-discovery.test.ts` (path inference) and `test/curate.test.ts` (system prompt contains the custom prompt verbatim). 110/110 green.
 
 ### Auth ladder summary (after v0.0.4 + v0.0.5)
+
 1. `TICK_API_KEYS` Bearer token (v0.0.4) → stable customer identity
 2. x402-verified payer (v0.0.3) → wallet identity when facilitator configured
 3. IP-hashed fallback → dev/smoketest
 
 ### Migration for `frames-examples`
+
 Per the updated `MIGRATION.md`: workflow-file change only. No `prompt.md` files need to move. The CLI picks them up automatically when invoked from the repo root. See `drafts/frames-examples-migration-pr.md` for the ready-to-push PR.
 
 ## 0.0.4 — 2026-05-12 (bearer-token mode for closed alpha)
@@ -1615,6 +1742,7 @@ Adds `TICK_API_KEYS` — a comma-separated list of `<key>:<agent-identifier>` pa
 A Bearer token that doesn't match a configured key returns **401 immediately** (does NOT fall through). Prevents an attacker from sending a junk key and silently getting IP-hash auth.
 
 ### What changed
+
 - **`src/api-key.ts`** (new) — `parseApiKeys()`, `extractBearerToken()`, `lookupApiKey()`. Accepts both `Authorization: Bearer <key>` and `X-Tick-API-Key: <key>`. Constant-time comparison resists naive timing attacks.
 - **`/run` handler** — bearer-token lookup happens before x402 verify; matched key → use mapped agent, no-header → fall through to x402/IP, bad header → 401 `invalid_api_key`.
 - **`/health.hosted.api_key_count`** surfaces how many keys are configured (smoke check: is auth set up?).
@@ -1628,6 +1756,7 @@ instead of the prior Faremeter-style custom shape. CDP and upstream Faremeter
 adapter layer** — same client code, configurable endpoint.
 
 ### What changed
+
 - **`src/payment/types.ts`** (new) — full TypeScript types for `PaymentRequirements`, `PaymentPayload`, `PaymentRequiredResponse`, `FacilitatorVerifyResponse`, `FacilitatorSettleResponse`. Field names match the [x402 v2 spec](https://github.com/coinbase/x402/blob/main/specs/x402-specification-v2.md) exactly.
 - **`src/payment/payment-requirements.ts`** (new) — `buildPaymentRequirements(env, op, budget)` constructs the spec-shaped `PaymentRequirements` from operator env (`TICK_PAY_TO_ADDRESS`, `TICK_PAY_NETWORK`, `TICK_PAY_ASSET`, `TICK_PAY_SCHEME`, `TICK_PAY_MAX_TIMEOUT_SECONDS`). Scheme defaults: `erc3009` on EVM-shaped networks, `spl-token` on Solana. Asset defaults to USDC on Base mainnet. `usdcToSmallestUnit()` helper converts decimal to 6-decimal integer string.
 - **`src/payment/x402.ts`** rewritten:
@@ -1660,6 +1789,7 @@ The 2026-05-12 finding that "CDP isn't drop-in" is now obsolete — it was true 
 
 If any code outside this repo calls `verifyInboundX402` or `settleX402` directly,
 **signatures changed**:
+
 - `verifyInboundX402(req, facilitatorUrl, body, opts)` → `verifyInboundX402(req, facilitatorUrl, paymentRequirements, opts)`
 - `settleX402(req, facilitatorUrl, amount, payer, network)` → `settleX402(facilitatorUrl, paymentPayload, paymentRequirements, opts)`
 
@@ -1680,6 +1810,7 @@ package.json, trimmed npm tarball (341.6 kB → 119.8 kB packed, 1.7 MB →
 map from the published files.
 
 ### Hosted gating
+
 - **`src/allowlist.ts`** — `parseAllowlist` + `checkAllowlist` with exact-match, prefix-glob (`ip:7f1a*`), and `*` open-gate sentinel
 - **`/run` middleware** — 403 + `agent_not_allowlisted` for un-whitelisted callers (`src/app.ts`)
 - **`/health.hosted`** — surfaces `allowlist_entries`, `allowlist_open`, `closed_by_default`. The third flag is the smoke-check operators use to confirm the gate is configured
@@ -1687,6 +1818,7 @@ map from the published files.
 - **Smoke test extended** — fresh `POST /run closed` case verifies the closed-by-default 403 behavior end-to-end
 
 ### Documentation
+
 - **`DEPLOY.md` rewritten** to lead with the v1 happy path: no facilitator, allowlist-gated, CLI publish included. The facilitator path is demoted to "Phase B — when to add" with both CDP and self-host options documented
 - **CLI publish step** (`npm publish --access public`) added as an explicit deploy stage
 - **`/health` example** updated with the v1 hosted-mode shape (`facilitator_configured: false` is intentional, not a missed config)
@@ -1697,12 +1829,14 @@ map from the published files.
 Built on top of v0.0.0; closes 10 remaining audit gaps end-to-end.
 
 ### Inbound payments
+
 - **x402 verify wired into `/run`** (`src/payment/x402.ts`). Auto-strict when `FACILITATOR_URL` is configured: payment headers are required, the facilitator is authoritative, 401 on rejection. Falls back to optional mode when `FACILITATOR_URL` is unset (dev). Verified payer replaces the IP-hashed identity for the rest of the run.
 - **Settle wired** — `attemptSettle()` runs after every successful op, calls `settleX402` against the facilitator, and stamps the returned `tx_hash` onto the run row via `persistFinalize`. Skips silently when no facilitator, no verified payer, or zero-cost run. Settle failures log but never fail the op.
 - **Receipt signing** (`src/payment/audit-signer.ts`) — ed25519 over canonical JSON of every `tool.invoked` receipt. Key bootstrapped from `AUDIT_PRIVATE_KEY` (32-byte hex/base64url seed, PKCS8-wrapped for WebCrypto). When unset, receipts ship unsigned and `/health` surfaces `audit_key_configured: false`. 8 unit tests cover canonical-JSON determinism, key loading, and the signature-field-exclusion invariant.
 - **`DELETE /history` hardened** — when `FACILITATOR_URL` is set, requires a verified x402 payment header AND the payer must match `?address=`. Third parties can no longer purge another wallet's runs even with knowledge of the address.
 
 ### Runtime
+
 - **SSE streaming on `/run` — now progressive**. Opt-in via `Accept: text/event-stream`. Emits `started` immediately, `frame_event` for each frame event the moment the op produces it (no buffering), `heartbeat` every 5s, terminal `completed` (full RunResult) or `error`. Plumbed via an `onEvent` callback threaded through all four ops (curate / discover / verify / refresh).
 - **discover latent bug fixed**: previously discarded `tool.invoked` receipts (and `r.event` from paid web_fetches). Now collects them into `OpOutcome.events` so spend is auditable and citable from the `propose_entity` review queue.
 - **Batched D1 writes** in `persistFinalize` — single `db.batch()` collapses N tool_calls + N events + 1 run update into one round-trip. Sequential-write fallback on batch failure so partial receipts still land.
@@ -1710,10 +1844,12 @@ Built on top of v0.0.0; closes 10 remaining audit gaps end-to-end.
 - **Idempotency-Key support** on `POST /run` — replays terminal results, 409s on in-flight matches.
 
 ### Library surface
+
 - **`@frames-ag/tick` programmatic entry** — `src/lib.ts` re-exports the four ops, the FrameClient, the CatalogClient, the LlmClient, and the payment helpers. `package.json` ships `types: dist/types/lib.d.ts` so embedders get full TS surface.
 - **Build** now emits both `dist/cli.js` (Node shebang) and `dist/types/` (declarations) via `tsconfig.build.json`.
 
 ### Tests + docs
+
 - **5 new curate-loop tests** (`test/curate.test.ts`) — end_turn, max_iters, max_tokens, unrecognized stop_reason, budget exhaustion, plus an onEvent progressive-callback assertion.
 - **8 new audit-signer tests** (`test/audit-signer.test.ts`) — canonical-JSON determinism, hex seed loading, no-key fallback, signature stability across key permutations, signature-field exclusion. 43/43 green overall.
 - **Smoke test extended** (`scripts/smoketest.ts`) — now covers `/history` + `DELETE /history` gating and live-validates the SSE response actually emits `event: started` in the first chunk.
