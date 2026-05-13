@@ -40,6 +40,19 @@ export interface BootedWallets {
     evmConfigured: boolean;
     tempoConfigured: boolean;
   };
+  /** paidFetch handler counts — surfaced via /health so we can confirm at runtime which payment paths got registered with wrap(). */
+  diagnostics: {
+    /** x402 handlers registered with faremeter wrap(). */
+    handlerCount: number;
+    /** MPP handlers registered with faremeter wrap(). */
+    mppHandlerCount: number;
+    /** Which chain families produced at least one handler. */
+    configured: {
+      evm: boolean;
+      solana: boolean;
+      tempo: boolean;
+    };
+  };
 }
 
 /**
@@ -177,7 +190,7 @@ export async function bootWallets(env: Bindings): Promise<BootedWallets> {
     agent: "tick",
   });
 
-  const { paidFetch } = await createPaidFetch({
+  const { paidFetch, diagnostics } = await createPaidFetch({
     registry,
     solanaRpcUrl: env.SOLANA_RPC_URL,
     retryCount: 2,
@@ -186,6 +199,7 @@ export async function bootWallets(env: Bindings): Promise<BootedWallets> {
 
   return {
     paidFetch,
+    diagnostics,
     fullyConfigured: solanaConfigured && evmConfigured && tempoConfigured,
     config: { solanaConfigured, evmConfigured, tempoConfigured },
   };

@@ -62,10 +62,26 @@ app.get("/", (c) =>
   }),
 );
 
-app.get("/health", (c) => {
+app.get("/health", async (c) => {
   const allowlistEntries = parseAllowlist(c.env?.TICK_ALLOWED_AGENTS);
   const allowlistOpen = allowlistEntries.includes("*");
   const apiKeyEntries = parseApiKeys(c.env?.TICK_API_KEYS);
+
+  // Reach into the cached booted-wallet stack to surface the paidFetch handler
+  // counts. Tells the operator at a glance: "do I actually have a Solana MPP
+  // charge handler registered, or did boot silently drop it?" — answers the
+  // class of question that caused us to chase Locus 402 leaks blind.
+  let paidFetchDiagnostics: BootedWallets["diagnostics"] | null = null;
+  try {
+    const stack = await pickWalletStack(c.env);
+    if (stack.paidFetch) {
+      const wallets = await cachedWallets;
+      paidFetchDiagnostics = wallets?.diagnostics ?? null;
+    }
+  } catch {
+    // Boot errors are logged inside pickWalletStack; /health stays green.
+  }
+
   return c.json({
     ok: true,
     ts: new Date().toISOString(),
@@ -73,6 +89,7 @@ app.get("/health", (c) => {
     wallets: {
       solana_configured: !!(c.env?.SOLANA_OUTBOUND_KEYPAIR_JSON && c.env?.SOLANA_RPC_URL),
       evm_configured: !!c.env?.EVM_OUTBOUND_PRIVATE_KEY,
+      paid_fetch: paidFetchDiagnostics,
     },
     payments: {
       facilitator_configured: !!c.env?.FACILITATOR_URL,

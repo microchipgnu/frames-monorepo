@@ -91,6 +91,26 @@ describe("parseProbeResponse", () => {
     expect(r.hints[0].kind).toBe("rate_limited");
   });
 
+  it("marks 402 as payment_unhandled and non-retryable", () => {
+    // When 402 reaches the probe builder, paidFetch already tried to settle
+    // and failed. Agent should pick a different descriptor with a different
+    // payment.protocol/network — NOT retry the same one.
+    const r = parseProbeResponse(
+      402,
+      JSON.stringify({
+        type: "https://paymentauth.org/problems/payment-required",
+        title: "Payment Required",
+        status: 402,
+        detail: "Payment is required (Locus MPP: brave/llm-context).",
+        challengeId: "abc",
+      }),
+    );
+    expect(r.hints[0].kind).toBe("payment_unhandled");
+    expect(r.hints[0].message).toContain("Locus MPP");
+    expect(r.retryable).toBe(false);
+    expect(r.summary).toContain("different descriptor");
+  });
+
   it("marks 5xx as server_error and non-retryable", () => {
     const r = parseProbeResponse(503, JSON.stringify({ error: "unavailable" }));
     expect(r.hints[0].kind).toBe("server_error");

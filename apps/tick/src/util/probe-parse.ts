@@ -11,6 +11,7 @@ export type ProbeHintKind =
   | "rate_limited"
   | "not_found"
   | "server_error"
+  | "payment_unhandled"
   | "unknown";
 
 export interface ProbeHint {
@@ -27,6 +28,26 @@ export interface ProbeParseResult {
 }
 
 export function parseProbeResponse(status: number, body: string): ProbeParseResult {
+  // 402 only reaches the probe builder when paidFetch already failed to settle
+  // (the seller returned the challenge, wrap() couldn't satisfy it). Retrying
+  // the same descriptor is futile — the agent needs to pick a different one
+  // with a different payment.protocol or payment.network. Mark non-retryable.
+  if (status === 402) {
+    const summary = `HTTP 402: paidFetch could not satisfy the payment challenge. Pick a different descriptor with a different payment.protocol / payment.network.`;
+    let detail = body.slice(0, 200);
+    try {
+      const parsed = JSON.parse(body) as { detail?: string; title?: string };
+      detail = parsed.detail ?? parsed.title ?? detail;
+    } catch {
+      // body wasn't JSON; keep raw excerpt
+    }
+    return {
+      hints: [{ kind: "payment_unhandled", message: detail }],
+      summary,
+      retryable: false,
+    };
+  }
+
   const retryable = status >= 400 && status < 500 && status !== 404;
   const baseKind = statusKind(status);
 

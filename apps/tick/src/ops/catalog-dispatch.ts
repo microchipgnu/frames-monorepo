@@ -9,6 +9,7 @@ import type { FrameEvent } from "@frames-ag/tick-types";
 import type { CatalogClient } from "../catalog/client";
 import { signReceipt } from "../payment/audit-signer";
 import { sha256 } from "../util/hash";
+import { log } from "../util/log";
 import { parseProbeResponse } from "../util/probe-parse";
 import type { Refetcher, ToolDispatchResult } from "./types";
 
@@ -183,10 +184,35 @@ export async function dispatchToolInvoke(
     // unset (local dev / free path): in that mode 402s surface as probe
     // events rather than getting paid.
     const fetchFn = ctx.paidFetch ?? fetch;
-    const res = await fetchFn(inv.url, {
-      method: inv.method,
-      headers: inv.headers,
-      body: inv.body,
+    const startedAt = Date.now();
+    let res: Response;
+    try {
+      res = await fetchFn(inv.url, {
+        method: inv.method,
+        headers: inv.headers,
+        body: inv.body,
+      });
+    } catch (e) {
+      // Network or handler error inside paidFetch — log loudly so we can see
+      // whether wrap()'s MPP handler crashed vs. returned a 402 unchanged.
+      log.error("tool_invoke_post_threw", {
+        tool_id: id,
+        descriptor_id: inv.descriptor._descriptor_id ?? id,
+        run_id: ctx.run_id,
+        paid_fetch_present: !!ctx.paidFetch,
+        elapsed_ms: Date.now() - startedAt,
+        error: e instanceof Error ? `${e.name}: ${e.message}` : String(e),
+        stack: e instanceof Error ? e.stack?.slice(0, 800) : undefined,
+      });
+      throw e;
+    }
+    log.info("tool_invoke_post_response", {
+      tool_id: id,
+      descriptor_id: inv.descriptor._descriptor_id ?? id,
+      run_id: ctx.run_id,
+      paid_fetch_present: !!ctx.paidFetch,
+      status: res.status,
+      elapsed_ms: Date.now() - startedAt,
     });
     const cost =
       res.headers.get("X-PAYMENT-RESPONSE-AMOUNT") ??

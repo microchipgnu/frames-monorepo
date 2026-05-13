@@ -207,6 +207,10 @@ export type CatalogProbePayload = {
       | "rate_limited"
       | "not_found"
       | "server_error"
+      // v0.3.1+ — paidFetch tried to satisfy a 402 and couldn't (handler mismatch
+      // or settle failure). Agent should switch to a different descriptor with a
+      // different payment.protocol/network rather than retry.
+      | "payment_unhandled"
       | "unknown";
     field?: string;
     message: string;

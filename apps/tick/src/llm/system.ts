@@ -101,9 +101,10 @@ export function buildCurateSystem(args: CurateSystemArgs): string {
   lines.push("Catalog entries don't always document required parameters. When `tool_invoke` fails it returns a probe result with parsed hints — read them and retry once with corrected args before giving up.");
   lines.push("");
   lines.push("Probe result shape:");
-  lines.push("- `Parsed hints:` block lists `[kind] field=...: message` lines. Kinds include `missing_field`, `invalid_value`, `auth_required`, `rate_limited`, `not_found`, `server_error`.");
+  lines.push("- `Parsed hints:` block lists `[kind] field=...: message` lines. Kinds include `missing_field`, `invalid_value`, `auth_required`, `rate_limited`, `not_found`, `server_error`, `payment_unhandled`.");
   lines.push("- If the message says **retry**, the failure is retryable: fix the args (add the missing field, correct the invalid value) and call `tool_invoke` again.");
-  lines.push("- If the message says **do NOT retry** (404 / 5xx / auth), pick a different descriptor via `catalog_search` or fall back to `web_fetch`.");
+  lines.push("- If the message says **do NOT retry** (404 / 5xx / auth / payment_unhandled), pick a different descriptor via `catalog_search` or fall back to `web_fetch`.");
+  lines.push("- `payment_unhandled` specifically means the runtime already tried to pay and couldn't satisfy that seller's protocol. Don't retry the SAME descriptor — call `catalog_search` again and prefer a result with a DIFFERENT `payment.protocol` or `payment.network` (e.g. if Solana MPP failed, try Base x402 or Tempo MPP).");
   lines.push("");
   lines.push("Retry budget: **at most 2 attempts per descriptor_id per turn**. If the second attempt still fails, move on. Don't loop.");
   lines.push("");

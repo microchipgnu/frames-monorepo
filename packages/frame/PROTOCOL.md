@@ -201,7 +201,9 @@ Projection-side: indexed, does not affect rows. Frame projector deduplicates by 
 
 Emitted by a runtime when a catalog-mediated `tool_invoke` attempt fails. Carries the runtime's parsed hints from the seller's error body (FastAPI/Pydantic, RFC-7807, `{error}`, `{message}` shapes) plus a truncated response excerpt for cases where the parser couldn't extract structure.
 
-Hint `kind` values: `missing_field`, `invalid_value`, `auth_required`, `rate_limited`, `not_found`, `server_error`, `unknown`. `retryable` is `false` for 404 / 5xx / auth-required and tells the agent to pick a different descriptor instead of retrying.
+Hint `kind` values: `missing_field`, `invalid_value`, `auth_required`, `rate_limited`, `not_found`, `server_error`, `payment_unhandled`, `unknown`. `retryable` is `false` for 404 / 5xx / auth-required / payment-unhandled and tells the agent to pick a different descriptor instead of retrying.
+
+`payment_unhandled` is emitted when the runtime's paidFetch already tried to satisfy a 402 challenge and couldn't (handler mismatch, settle failure, RPC issue). The agent should call `catalog_search` again and prefer a result with a different `payment.protocol` or `payment.network`.
 
 Projection-side: ignored (no row or table impact). The event log retains it so later analysis can answer questions like "which catalog entries have undocumented required fields" without re-running probes. This is the feedback signal that informs what richer metadata the catalog should ship — see the `tick` runtime's probe loop for the emission side.
 
