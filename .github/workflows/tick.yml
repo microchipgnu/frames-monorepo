@@ -37,7 +37,8 @@ jobs:
       fail-fast: false
       matrix:
         dataset:
-          - mcp-servers
+          # mcp-servers migrated to tick-hosted.yml (v0.3.x hosted runtime).
+          # Will move others over progressively after a week of side-by-side data.
           - ai-promises
           - ai-models
           - elon-tweets

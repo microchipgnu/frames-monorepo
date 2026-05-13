@@ -1,0 +1,155 @@
+name: tick-hosted
+
+# Daily refresh of mcp-servers via the v0.3.x hosted tick runtime.
+#
+# This is the migration path off the opencode-flow tick.yml. It runs in
+# parallel with the legacy workflow but on a DIFFERENT set of datasets
+# (currently just mcp-servers — see tick.yml's matrix, which has
+# mcp-servers removed). Compares cleanly side-by-side: the hosted curate's
+# receipts include sub_runs, assistant_text per iter, citation verifier
+# counts, and per-iter cache stats; the opencode flow has none of these.
+#
+# Required repo secret:
+#   TICK_API_KEY        — bearer for the hosted runtime
+#   TICK_API_URL        — optional override; defaults to
+#                         https://tick.microchipgnu.workers.dev
+#
+# Manual trigger:
+#   gh workflow run tick-hosted.yml -R microchipgnu/frames-monorepo
+#   (optionally pass `budget=<usd>`)
+
+on:
+  schedule:
+    # daily at 06:13 UTC. Offset from tick.yml's 06:00 to avoid pile-up.
+    - cron: "13 6 * * *"
+  workflow_dispatch:
+    inputs:
+      budget:
+        description: "USDC budget for this run"
+        required: false
+        default: "1.50"
+
+permissions:
+  contents: write
+
+env:
+  TICK_API_URL_DEFAULT: "https://tick.microchipgnu.workers.dev"
+
+jobs:
+  curate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        dataset:
+          - mcp-servers
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Validate setup
+        run: |
+          if [ -z "${TICK_API_KEY:-}" ]; then
+            echo "::error::TICK_API_KEY repo secret not set"
+            exit 1
+          fi
+          if [ ! -f "examples/frames-examples/datasets/${{ matrix.dataset }}/schema.yml" ]; then
+            echo "::error::no schema.yml at examples/frames-examples/datasets/${{ matrix.dataset }}/"
+            exit 1
+          fi
+        env:
+          TICK_API_KEY: ${{ secrets.TICK_API_KEY }}
+
+      - name: Curate ${{ matrix.dataset }}
+        id: curate
+        env:
+          TICK_API_KEY: ${{ secrets.TICK_API_KEY }}
+          TICK_API_URL: ${{ secrets.TICK_API_URL || env.TICK_API_URL_DEFAULT }}
+          BUDGET: ${{ github.event.inputs.budget || '1.50' }}
+        run: |
+          FRAME_URL="https://github.com/${GITHUB_REPOSITORY}/examples/frames-examples/datasets/${{ matrix.dataset }}"
+          echo "Curating ${FRAME_URL} via ${TICK_API_URL} (budget \$${BUDGET})"
+
+          RESPONSE=$(curl -fsS -X POST "${TICK_API_URL}/run" \
+            -H "authorization: Bearer ${TICK_API_KEY}" \
+            -H "content-type: application/json" \
+            --max-time 600 \
+            -d "$(jq -nc \
+              --arg frame "${FRAME_URL}" \
+              --arg budget "${BUDGET}" \
+              '{op:"curate",frame:$frame,budget:$budget}')")
+
+          echo "$RESPONSE" > /tmp/tick-result.json
+
+          EVENT_COUNT=$(echo "$RESPONSE" | jq '.events | length')
+          SETTLED=$(echo "$RESPONSE" | jq -r '.settled')
+          STOP=$(echo "$RESPONSE" | jq -r '.report.stop_reason')
+
+          echo "events=${EVENT_COUNT}" >> "$GITHUB_OUTPUT"
+          echo "settled=${SETTLED}" >> "$GITHUB_OUTPUT"
+          echo "stop=${STOP}" >> "$GITHUB_OUTPUT"
+
+          echo "::notice title=Curate result::events=${EVENT_COUNT} stop=${STOP} settled=\$${SETTLED}"
+
+      - name: Append events to events.ndjson
+        if: steps.curate.outputs.events != '0'
+        run: |
+          jq -c '.events[]' /tmp/tick-result.json \
+            >> "examples/frames-examples/datasets/${{ matrix.dataset }}/events.ndjson"
+          echo "Appended ${{ steps.curate.outputs.events }} events"
+
+      - name: Commit
+        if: steps.curate.outputs.events != '0'
+        run: |
+          git config user.name "tick-bot"
+          git config user.email "tick-bot@users.noreply.github.com"
+          git add "examples/frames-examples/datasets/${{ matrix.dataset }}/events.ndjson"
+          git diff --cached --quiet && exit 0
+          git commit -m "tick-hosted(${{ matrix.dataset }}): events $(date -u +%Y-%m-%dT%H:%MZ)"
+          git pull --rebase || true
+          git push
+
+      - name: Upload run JSON (diagnostic)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tick-hosted-${{ matrix.dataset }}-${{ github.run_id }}
+          path: /tmp/tick-result.json
+          retention-days: 90
+
+      - name: Summary
+        if: always()
+        run: |
+          if [ ! -f /tmp/tick-result.json ]; then exit 0; fi
+          {
+            echo "## Tick hosted-runtime · ${{ matrix.dataset }}"
+            echo ""
+            echo '```'
+            jq -r '.summary' /tmp/tick-result.json
+            echo '```'
+            echo ""
+            SUB_COUNT=$(jq '.sub_runs | length' /tmp/tick-result.json)
+            if [ "${SUB_COUNT}" -gt 0 ]; then
+              echo "### Sub-agents (${SUB_COUNT})"
+              echo ""
+              jq -r '.sub_runs[] | "- **\(.action)** · `\(.entity_id)` — \(.facts_set) facts in \(.iterations) iters ($\(.llm_cost))"' /tmp/tick-result.json
+              echo ""
+              # Phase F (Layer 1) diagnostic — show assistant text from the first
+              # iter of any no_op sub-loop. Helps diagnose why discover stalls.
+              STALLED_COUNT=$(jq '[.sub_runs[] | select(.action == "no_op")] | length' /tmp/tick-result.json)
+              if [ "${STALLED_COUNT}" -gt 0 ]; then
+                echo "### Stalled sub-loops (${STALLED_COUNT}) — assistant text per iter"
+                echo ""
+                jq -r '.sub_runs[] | select(.action == "no_op") | "**\(.entity_id)** (stop=\(.stop_reason)):\n" + (.iteration_log | map("  - iter \(.iter): \(.assistant_text // "(no text)")") | join("\n"))' /tmp/tick-result.json
+                echo ""
+              fi
+            fi
+            HAS_VERIFY=$(jq -r 'if .report.verify_citations then "yes" else "no" end' /tmp/tick-result.json)
+            if [ "${HAS_VERIFY}" = "yes" ]; then
+              echo "### Citation verifier"
+              echo ""
+              jq -r '.report.verify_citations | "- checked: \(.facts_checked)\n- supported: \(.supported)\n- deprecated: \(.unsupported)\n- llm cost: $\(.llm_cost)"' /tmp/tick-result.json
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
