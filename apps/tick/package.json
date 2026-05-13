@@ -55,6 +55,7 @@
     "@frames-ag/pay": "workspace:*",
     "@frames-ag/payment-tempo": "^0.0.1",
     "@frames-ag/tick-types": "^0.0.7",
+    "arktype": "^2.2.0",
     "@modelcontextprotocol/sdk": "^1.0.0",
     "@solana/kit": "^6.9.0",
     "agents": "^0.12.3",
