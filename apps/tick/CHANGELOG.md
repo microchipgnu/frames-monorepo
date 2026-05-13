@@ -1,5 +1,25 @@
 # @frames-ag/tick
 
+## 0.5.1
+
+### Patch Changes
+
+- a3c17c0: fix: skip the Tempo wallet entry to keep Solana MPP + EVM x402 usable on Workers
+
+  Previous attempt to fix Tempo's dynamic-import failure (`fix(tick): static-import @frames-ag/payment-tempo so wrangler bundles it`, commit `0cea50cbc`) didn't actually work: wrangler does bundle the module's code when you static-reference it, but `@frames-ag/pay`'s `loadTempoMppHandler` uses `await import(pkg)` with a string variable — Workers' runtime has no module resolver to satisfy that lookup even when the code is in the bundle. The dynamic import throws "not installed", pay's catch translates that as a misleading error, and `createPaidFetch` aborts the whole call. Aborting takes Solana MPP and EVM x402 down with it, blocking ALL paid descriptors — not just Tempo ones.
+
+  This patch: skip registering the Tempo entry in `byNetwork` so `createPaidFetch` never reaches `loadTempoMppHandler`. The remaining handlers (Solana x402, Solana MPP charge, Base x402) all register and `paidFetch` becomes usable.
+
+  Cost of this fix: paid descriptors that REQUIRE Tempo MPP are unreachable. Acceptable for now — our $9 Tempo balance can be bridged to Base/Solana via agentcash when needed. Restore once `createPaidFetch` accepts injected handlers (then tick builds the Tempo handler itself via a static import).
+
+- 0cea50c: fix: static-import @frames-ag/payment-tempo so wrangler bundles it
+
+  After the ArkType jitless fix landed, `bootWallets` revealed the next layer: `createPaidFetch: Tempo wallet registered but @frames-ag/payment-tempo is not installed`. The package IS installed as a dep; the issue is bundling. `@frames-ag/pay`'s `loadTempoMppHandler` does `import(pkg)` with a runtime-variable specifier (a deliberate trick to keep arktype's type-checker happy). Wrangler/esbuild can't statically analyze that, so the module never reaches the deployed Worker bundle; the runtime import then fails and pay's catch handler reports "not installed".
+
+  Fix: side-effect static import in `src/wallet.ts`. Wrangler sees the static reference, ships the module; pay's runtime dynamic import resolves cleanly.
+
+  After deploy, `/health.wallets.paid_fetch.mppHandlerCount` should be >= 2 (Solana MPP charge + Tempo MPP charge), `handlerCount` >= 2 (x402 EVM + x402 Solana).
+
 ## 0.5.0
 
 ### Minor Changes
@@ -626,7 +646,7 @@ bumps: `@frames-ag/tick` 0.3.9 → 0.3.10
 ## 0.3.9 — 2026-05-13 (capture assistant reasoning per iter)
 
 The biggest unfixed quality issue is discover sub-loops that reach
-iter 3 but don't propose. Today's iteration_log captures _cost_
+iter 3 but don't propose. Today's iteration*log captures \_cost*
 attribution per iter (tokens, dollars, cache hits) but no reasoning
 attribution — there's no record of what the model said alongside its
 tool calls. Without that, we can't tell if a stuck sub-loop is being
