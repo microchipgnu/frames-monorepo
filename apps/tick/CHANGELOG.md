@@ -1,5 +1,58 @@
 # @frames-ag/tick
 
+## 0.3.9 — 2026-05-13 (capture assistant reasoning per iter)
+
+The biggest unfixed quality issue is discover sub-loops that reach
+iter 3 but don't propose. Today's iteration_log captures *cost*
+attribution per iter (tokens, dollars, cache hits) but no reasoning
+attribution — there's no record of what the model said alongside its
+tool calls. Without that, we can't tell if a stuck sub-loop is being
+over-cautious, missing data, or genuinely stuck.
+
+### Fix
+
+Added `IterationLogEntry.assistant_text` (≤240 chars) — the text the
+model emitted *alongside* its tool_use blocks. Often empty when the
+model dispatches a tool with no preface; when present, the single
+most useful field for diagnosing why a loop stalled or terminated.
+
+Plumbed through all four iteration_log push sites:
+- `refresh-entity.ts` (sub-loop)
+- `discover-entity.ts` (sub-loop)
+- `curate.ts` main loop and budget-exhausted final-summary
+- `discover.ts` op-level loop
+
+### Why ≤240 chars
+
+Cap prevents receipt bloat. Worst-case bloat is ~240 × 5 iters × 20
+sub-runs = ~24 KB per run, additive over the current ~60-75 KB
+typical curate response. Negligible. Diagnostic value is high.
+
+### What this enables
+
+Next diagnostic curate run will show per-iter excerpts like:
+
+```
+iter 1: "I'll fetch the GitHub repo for FastMCP to verify it exists."
+iter 2: "The README confirms FastMCP is a Python MCP server library by Prefect."
+iter 3: "Let me also check the PyPI page to confirm the version..."  ← stalling
+```
+
+That tells us immediately whether the no_op rate is "model is being
+over-cautious despite the v0.3.3 prompt change" vs "summarizer dropped
+the discriminating signal." Different fixes.
+
+### tick-types
+
+Added the optional field; bumped to 0.0.6. Forward-compatible — older
+consumers ignore the field.
+
+bumps:
+- `@frames-ag/tick` 0.3.8 → 0.3.9
+- `@frames-ag/tick-types` 0.0.5 → 0.0.6
+
+---
+
 ## 0.3.8 — 2026-05-13 (dedup duplicate entity.created across parallel sub-agents)
 
 Live curate on 2026-05-13 (post-v0.3.3) added `prefecthq-fastmcp` to

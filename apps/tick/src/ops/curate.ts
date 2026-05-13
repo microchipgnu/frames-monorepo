@@ -179,6 +179,7 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
         stop_reason: "budget_exhausted",
         cache_creation_input_tokens: finalRes.usage.cache_creation_input_tokens,
         cache_read_input_tokens: finalRes.usage.cache_read_input_tokens,
+        assistant_text: summary && summary !== "(no summary)" ? summary.slice(0, 240) : undefined,
       });
       break;
     }
@@ -222,6 +223,7 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
     const llmCost = Number(llmRes.usage.estimated_cost);
     remaining -= llmCost;
     if (llmCost > maxLlmCostSeen) maxLlmCostSeen = llmCost;
+    const iterText = extractText(llmRes.content);
     iteration_log.push({
       iter,
       model: llmRes.model,
@@ -231,6 +233,7 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
       stop_reason: llmRes.stop_reason,
       cache_creation_input_tokens: llmRes.usage.cache_creation_input_tokens,
       cache_read_input_tokens: llmRes.usage.cache_read_input_tokens,
+      assistant_text: iterText.length > 0 ? iterText.slice(0, 240) : undefined,
     });
 
     // Append the assistant's full content (text + tool_use) to messages so the

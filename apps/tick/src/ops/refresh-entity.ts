@@ -281,6 +281,7 @@ export async function refreshEntity(opts: RefreshEntityOptions): Promise<Refresh
     remaining -= llmCost;
     totalLlmCost += llmCost;
     if (llmCost > maxLlmCostSeen) maxLlmCostSeen = llmCost;
+    const iterText = extractText(llmRes.content);
     iteration_log.push({
       iter,
       model: llmRes.model,
@@ -290,6 +291,7 @@ export async function refreshEntity(opts: RefreshEntityOptions): Promise<Refresh
       stop_reason: llmRes.stop_reason,
       cache_creation_input_tokens: llmRes.usage.cache_creation_input_tokens,
       cache_read_input_tokens: llmRes.usage.cache_read_input_tokens,
+      assistant_text: iterText.length > 0 ? iterText.slice(0, 240) : undefined,
     });
 
     messages.push({ role: "assistant", content: llmRes.content });

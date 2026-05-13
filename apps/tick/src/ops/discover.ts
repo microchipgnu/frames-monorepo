@@ -225,6 +225,7 @@ export async function discover(opts: DiscoverOptions): Promise<OpOutcome> {
     const llmCost = Number(llmRes.usage.estimated_cost);
     remaining -= llmCost;
     if (llmCost > maxLlmCostSeen) maxLlmCostSeen = llmCost;
+    const iterText = extractText(llmRes.content);
     iteration_log.push({
       iter,
       model: llmRes.model,
@@ -234,6 +235,7 @@ export async function discover(opts: DiscoverOptions): Promise<OpOutcome> {
       stop_reason: llmRes.stop_reason,
       cache_creation_input_tokens: llmRes.usage.cache_creation_input_tokens,
       cache_read_input_tokens: llmRes.usage.cache_read_input_tokens,
+      assistant_text: iterText.length > 0 ? iterText.slice(0, 240) : undefined,
     });
     messages.push({ role: "assistant", content: llmRes.content });
 

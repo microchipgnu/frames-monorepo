@@ -148,6 +148,14 @@ export interface IterationLogEntry {
    * rate for these — the savings live here.
    */
   cache_read_input_tokens?: number;
+  /**
+   * The assistant's text content for this iter, truncated to ~240 chars.
+   * Captures what the model said *alongside* any tool_use blocks — the
+   * reasoning around the call, not the call itself. Often empty when the
+   * model dispatches a tool without prefacing it; when present, the single
+   * most useful field for diagnosing why a sub-loop stalled. Added v0.3.9.
+   */
+  assistant_text?: string;
 }
 
 /**
