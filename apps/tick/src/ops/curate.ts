@@ -131,6 +131,14 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
   // tight loops the moment they appear. Both are necessary.
   let parentNoProgressStreak = 0;
   let lastIterSignature = "";
+  // Phase F (Layer 1.5) — track entity_ids that have a pending entity.created
+  // event in this run. Parallel discover_entity sub-agents only see
+  // known_entity_ids at dispatch time; two concurrent calls can therefore
+  // both decide to add the same entity, producing duplicate entity.created
+  // events. Live curate on 2026-05-13 reproduced this with `prefecthq-fastmcp`
+  // appearing twice. Loser drops to entity_matched_existing posture in
+  // sub_runs so customers can see the collision in the receipt.
+  const addedEntityIds = new Set<string>();
 
   while (iter < maxIters) {
     iter++;
@@ -291,8 +299,50 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
     for (let i = 0; i < toolUseBlocks.length; i++) {
       const block = toolUseBlocks[i]!;
       const dispatch = dispatches[i]!;
+
+      // Dedup entity.created across parallel sub-agents. Sub-agent receives
+      // known_entity_ids at dispatch time; two concurrent discover_entity
+      // calls can both decide to add the same entity. First wins. Loser is
+      // logged in sub_runs with `entity_matched_existing` posture and its
+      // events are dropped — keeps the receipt honest without writing
+      // duplicates.
+      let duplicateOf: string | undefined;
+      for (const ev of dispatch.events) {
+        if (ev.type === "entity.created") {
+          const id = String((ev.payload as { entity_id?: string }).entity_id ?? "");
+          if (id && addedEntityIds.has(id)) {
+            duplicateOf = id;
+            break;
+          }
+        }
+      }
+      if (duplicateOf) {
+        remaining -= Number(dispatch.cost);
+        if (dispatch.sub_run) {
+          const collided: SubRun = {
+            ...dispatch.sub_run,
+            action: "entity_matched_existing",
+            facts_set: 0,
+            narrative: `(duplicate of \`${duplicateOf}\` — another sub-agent proposed this entity_id earlier in the same turn; events suppressed)`,
+          };
+          sub_runs.push(collided);
+          for (const tc of dispatch.sub_run.tool_log) tool_log.push(tc);
+        }
+        toolResults.push({
+          type: "tool_result",
+          tool_use_id: block.id,
+          content: `(duplicate proposal — \`${duplicateOf}\` was added by a parallel sub-agent this turn; this dispatch's events were suppressed to avoid a double-write)`,
+          is_error: false,
+        });
+        continue;
+      }
+
       remaining -= Number(dispatch.cost);
       for (const ev of dispatch.events) {
+        if (ev.type === "entity.created") {
+          const id = String((ev.payload as { entity_id?: string }).entity_id ?? "");
+          if (id) addedEntityIds.add(id);
+        }
         events.push(ev);
         eventsEmittedThisIter++;
         opts.onEvent?.(ev);

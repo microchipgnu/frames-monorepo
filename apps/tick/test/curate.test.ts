@@ -323,4 +323,108 @@ describe("curate loop control", () => {
     expect(result.report?.stop_reason).toBe("max_tokens");
     expect(result.report?.llm_summary).toContain("truncated");
   });
+
+  // v0.3.8 — parallel sub-agents can both decide to add the same entity_id
+  // because they share the known_entity_ids snapshot at dispatch time. The
+  // parent loop must dedupe after the fact.
+  test("duplicate entity.created across parallel sub-agents is suppressed", async () => {
+    // Two discover_entity calls in one turn, both proposing entity_id="dupe".
+    // The first wins; the second's events are dropped and its sub_run is
+    // converted to entity_matched_existing.
+    const proposeDupe = (callId: string): LlmContent => ({
+      type: "tool_use",
+      id: callId,
+      name: "discover_entity",
+      input: { hypothesis: `Investigate dupe as ${callId}` },
+    });
+
+    // The dispatch helpers we don't mock here will fail if invoked; we don't
+    // need them to — we exercise the parent's dedup logic by short-circuiting
+    // via end_turn after the first turn's tool dispatches complete.
+    //
+    // The real EntityAgent isn't bound in test mode, so dispatchDiscoverEntity
+    // falls back to calling discoverEntity() directly. We can't easily script
+    // that path here without rewriting more of the test harness. So instead
+    // this test focuses on the parent-loop dedup invariant assuming dispatches
+    // return entity.created events with colliding ids.
+    //
+    // Approach: wrap the LLM mock to ALSO satisfy the embedded discoverEntity
+    // sub-loops. Each sub-loop will do propose_new_entity in iter 1 with the
+    // same entity_id. We need 2 sub-loops × 1 LLM call each, plus the parent
+    // turn that initiated them, plus the parent's final end_turn.
+    let llmIdx = 0;
+    const wrappedLlm = {
+      async call(opts: any) {
+        llmIdx++;
+        // Parent turn 1: emit two discover_entity tool_uses.
+        if (llmIdx === 1) {
+          return {
+            stop_reason: "tool_use",
+            content: [proposeDupe("t_a"), proposeDupe("t_b")],
+            usage: { input_tokens: 10, output_tokens: 10, estimated_cost: "0.001" },
+          };
+        }
+        // Two sub-loops' iter 1 — each immediately proposes "dupe".
+        if (llmIdx === 2 || llmIdx === 3) {
+          return {
+            stop_reason: "tool_use",
+            content: [
+              {
+                type: "tool_use",
+                id: `propose_${llmIdx}`,
+                name: "propose_new_entity",
+                input: {
+                  entity_id: "dupe",
+                  facts: [
+                    {
+                      field: "f",
+                      value: "v",
+                      source: { url: "https://x", retrieved_at: "2026-05-11T00:00:00Z", excerpt: "ex" },
+                    },
+                  ],
+                  narrative: "ok",
+                },
+              },
+            ],
+            usage: { input_tokens: 10, output_tokens: 10, estimated_cost: "0.001" },
+          };
+        }
+        // Parent turn 2: end_turn.
+        return {
+          stop_reason: "end_turn",
+          content: [text("done")],
+          usage: { input_tokens: 1, output_tokens: 1, estimated_cost: "0.001" },
+        };
+      },
+    } as any;
+
+    const result = await curate({
+      ...baseArgs,
+      client: mockClient(),
+      catalog: mockCatalog(),
+      llm: wrappedLlm,
+    });
+
+    // Exactly ONE entity.created for "dupe" — the second was suppressed.
+    const createdForDupe = result.events.filter(
+      (e: any) => e.type === "entity.created" && (e.payload as any).entity_id === "dupe",
+    );
+    expect(createdForDupe).toHaveLength(1);
+
+    // And one facts.set_many for "dupe" — the second sub-agent's
+    // companion event was also suppressed.
+    const factsForDupe = result.events.filter(
+      (e: any) => e.type === "facts.set_many" && (e.payload as any).entity_id === "dupe",
+    );
+    expect(factsForDupe).toHaveLength(1);
+
+    // Sub_runs should reflect: one entity_added + one entity_matched_existing.
+    const subActions = (result.sub_runs ?? []).map((s) => s.action);
+    expect(subActions).toContain("entity_added");
+    expect(subActions).toContain("entity_matched_existing");
+
+    // The collision narrative should mention duplicate-of.
+    const collided = (result.sub_runs ?? []).find((s) => s.action === "entity_matched_existing");
+    expect(collided?.narrative).toContain("duplicate");
+  });
 });

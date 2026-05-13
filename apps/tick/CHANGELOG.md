@@ -1,5 +1,66 @@
 # @frames-ag/tick
 
+## 0.3.8 — 2026-05-13 (dedup duplicate entity.created across parallel sub-agents)
+
+Live curate on 2026-05-13 (post-v0.3.3) added `prefecthq-fastmcp` to
+the dataset *twice* in a single run. Two parallel `discover_entity`
+sub-agents independently proposed the same `entity_id` because the
+`known_entity_ids` snapshot passed to each sub-loop at dispatch time
+doesn't include same-run-pending proposals from sibling sub-agents.
+
+### Fix
+
+Added a run-scoped `Set<entity_id>` in the curate parent loop
+(`src/ops/curate.ts`). When a dispatch's events would emit an
+`entity.created` for an id that's already in the set, the dispatch is
+treated as a duplicate:
+
+- Events from that dispatch are suppressed (no double-write)
+- The sub_run is converted to `action: "entity_matched_existing"` with
+  a `narrative` explaining the collision
+- A non-error tool_result goes back to the parent LLM so the agent
+  sees what happened
+- The dispatch's cost is still deducted from budget (real LLM tokens
+  were spent)
+
+First entity.created wins; subsequent ones lose. Order-by-array-index
+in the dispatches loop is deterministic, so identical inputs produce
+identical resolutions.
+
+### Why this happens
+
+Phase C made sub-loops run in parallel via `Promise.all`. Each sub-loop
+reads `known_entity_ids` from `frame_client.iterateEntities()` at the
+moment it's dispatched. All N sub-loops in a single turn see the same
+snapshot. Without cross-sub-agent state, two sub-loops investigating
+adjacent hypotheses (e.g., "fastmcp by Prefect" and "Prefect HQ's
+fastmcp library") can both decide "this is `prefecthq-fastmcp`" and
+both call `propose_new_entity`.
+
+Could have been solved upstream (shared in-flight tracker injected
+into each sub-agent) but that requires cross-DO coordination state
+which would add real latency. Downstream dedup at the parent costs
+~5 lines, ships in this release.
+
+### Test coverage
+
+New `test/curate.test.ts` test: two parallel `discover_entity` calls
+in one turn, both proposing the same `entity_id`. Asserts exactly one
+`entity.created` for that id, exactly one `facts.set_many`, and a
+`sub_runs` mix of one `entity_added` + one `entity_matched_existing`
+with a duplicate-mention narrative. 129 tests pass (was 128).
+
+### Cost note
+
+The duplicate sub-agent's tokens are still charged to the run's
+budget. This is correct — real LLM cost was incurred to produce the
+duplicate proposal. Customers see the wasted spend in the receipt's
+sub_runs entry. The system makes no attempt to refund tokens.
+
+bumps: `@frames-ag/tick` 0.3.7 → 0.3.8
+
+---
+
 ## 0.3.7 — 2026-05-13 (github action template polish — zero-events runs render cleanly)
 
 Templates were rendering "null/null/null supported" in job summaries
