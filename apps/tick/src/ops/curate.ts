@@ -39,6 +39,14 @@ export interface CurateOptions {
   refetcher: Refetcher;
   client?: FrameClient;
   catalog?: CatalogClient;
+  /**
+   * Drop-in `typeof fetch` that satisfies x402/MPP 402 challenges using the
+   * booted outbound wallets. Threaded into `dispatchToolInvoke` for the POST
+   * branch (GET goes through `refetcher`, which is already paidFetch-backed).
+   * When unset, paid POSTs fall back to global fetch — 402s leak as
+   * catalog.probe events instead of getting paid.
+   */
+  paidFetch?: typeof fetch;
   llm: LlmClient;
   /** Hard cap on agent-loop iterations. Defense against infinite tool loops. Default 30. */
   max_iters?: number;
@@ -294,6 +302,7 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
       frame_url: opts.frame_url,
       refetcher: opts.refetcher,
       catalog,
+      paidFetch: opts.paidFetch,
       remaining_budget: remaining.toFixed(6),
       env: opts.env,
       llm: opts.llm,
@@ -484,6 +493,8 @@ interface DispatchContext {
   frame_url: string;
   refetcher: Refetcher;
   catalog: CatalogClient;
+  /** paidFetch threaded from curate opts → catalog-dispatch POST branch. */
+  paidFetch?: typeof fetch;
   remaining_budget: string;
   env?: {
     AUDIT_PRIVATE_KEY?: string;

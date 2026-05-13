@@ -28,6 +28,16 @@ export interface CatalogDispatchContext {
    * Optional: when undefined, receipts carry `signature: ""` (dev mode).
    */
   env?: { AUDIT_PRIVATE_KEY?: string };
+  /**
+   * Drop-in `typeof fetch` that handles x402 / MPP 402 challenges by paying
+   * with the booted outbound wallets. Falls back to global fetch when wallets
+   * weren't booted (local dev) — paid 402s then leak as catalog.probe events.
+   *
+   * Used by the POST/PUT branch of dispatchToolInvoke. The GET branch routes
+   * through `refetcher`, which is itself paidFetch-backed in production
+   * (createPaidRefetcher), so this only needs to be threaded for non-GET.
+   */
+  paidFetch?: typeof fetch;
 }
 
 export async function dispatchCatalogSearch(
@@ -168,9 +178,12 @@ export async function dispatchToolInvoke(
       };
     }
 
-    // POST / PUT / etc — direct fetch (the refetcher is GET-only).
-    // TODO week-4: route through a paid POST wrapper too.
-    const res = await fetch(inv.url, {
+    // POST / PUT / etc — route through paidFetch when wallets are booted so
+    // x402/MPP 402 challenges get satisfied. Falls back to global fetch when
+    // unset (local dev / free path): in that mode 402s surface as probe
+    // events rather than getting paid.
+    const fetchFn = ctx.paidFetch ?? fetch;
+    const res = await fetchFn(inv.url, {
       method: inv.method,
       headers: inv.headers,
       body: inv.body,

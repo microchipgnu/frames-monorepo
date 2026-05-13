@@ -30,6 +30,12 @@ export interface DiscoverOptions {
   refetcher: Refetcher;
   client?: FrameClient;
   catalog?: CatalogClient;
+  /**
+   * Drop-in `typeof fetch` that handles x402/MPP 402 challenges. Threaded into
+   * dispatchToolInvoke's POST branch. See `CurateOptions.paidFetch` for the
+   * full rationale.
+   */
+  paidFetch?: typeof fetch;
   llm: LlmClient;
   /** Capability hints — narrow the search. e.g. ["web-search", "scrape"]. */
   capability_hints?: string[];
@@ -311,6 +317,7 @@ export async function discover(opts: DiscoverOptions): Promise<OpOutcome> {
         const catalogCtx = {
           catalog,
           refetcher: opts.refetcher,
+          paidFetch: opts.paidFetch,
           run_id: opts.run_id,
           remaining_budget: remaining.toFixed(6),
           agent: opts.agent,

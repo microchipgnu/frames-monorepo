@@ -417,7 +417,7 @@ async function executeOpDispatch(args: DispatchArgs): Promise<DispatchOutcome> {
     });
 
     try {
-      const refetcher = await pickRefetcher(env);
+      const { refetcher, paidFetch } = await pickWalletStack(env);
       const llm = new LlmClient({
         gatewayUrl: env!.AI_GATEWAY_URL,
         gatewayToken: env!.AI_GATEWAY_TOKEN,
@@ -459,6 +459,7 @@ async function executeOpDispatch(args: DispatchArgs): Promise<DispatchOutcome> {
         run_id,
         agent,
         refetcher,
+        paidFetch,
         client: new FrameClient({
           base: env?.FRAMES_CLOUD_BASE,
           // Service binding when running on CF (workers-to-workers via public
@@ -544,7 +545,9 @@ async function executeOpDispatch(args: DispatchArgs): Promise<DispatchOutcome> {
     });
 
     try {
-      const refetcher = await pickRefetcher(env);
+      // Verify / refresh ops don't dispatch paid POST tool_invoke, so paidFetch
+      // isn't threaded here. They only refetch sources through the refetcher.
+      const { refetcher } = await pickWalletStack(env);
       const sharedOpts = {
         frame_url: body.frame,
         budget,
@@ -774,12 +777,25 @@ function sumCosts(costs: string[]): string {
 
 let cachedWallets: Promise<BootedWallets | null> | null = null;
 
-async function pickRefetcher(env: Bindings | undefined): Promise<Refetcher> {
-  if (!env) return createHttpRefetcher();
+/**
+ * Returns the refetcher (for GET tool calls and frame source refetches) AND
+ * the raw paidFetch (for POST tool calls via dispatchToolInvoke's non-GET
+ * branch). Both come from the same booted wallet stack, so we surface them
+ * together — callers that only need one ignore the other.
+ *
+ * Falls back to `{ refetcher: createHttpRefetcher(), paidFetch: undefined }`
+ * when no wallets are configured / boot fails — paid 402s then leak as
+ * catalog.probe events instead of getting satisfied.
+ */
+async function pickWalletStack(env: Bindings | undefined): Promise<{
+  refetcher: Refetcher;
+  paidFetch?: typeof fetch;
+}> {
+  if (!env) return { refetcher: createHttpRefetcher() };
 
   const hasAnyWalletSecret =
     !!(env.SOLANA_OUTBOUND_KEYPAIR_JSON || env.EVM_OUTBOUND_PRIVATE_KEY);
-  if (!hasAnyWalletSecret) return createHttpRefetcher();
+  if (!hasAnyWalletSecret) return { refetcher: createHttpRefetcher() };
 
   if (!cachedWallets) {
     cachedWallets = bootWallets(env).catch((e) => {
@@ -788,9 +804,12 @@ async function pickRefetcher(env: Bindings | undefined): Promise<Refetcher> {
     });
   }
   const wallets = await cachedWallets;
-  if (!wallets) return createHttpRefetcher();
+  if (!wallets) return { refetcher: createHttpRefetcher() };
 
-  return createPaidRefetcher({ paidFetch: wallets.paidFetch });
+  return {
+    refetcher: createPaidRefetcher({ paidFetch: wallets.paidFetch }),
+    paidFetch: wallets.paidFetch,
+  };
 }
 
 // ---------------------------------------------------------------------------
