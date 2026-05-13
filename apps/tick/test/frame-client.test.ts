@@ -43,4 +43,49 @@ describe("parseFrameUrl", () => {
     expect(() => parseFrameUrl("not a url")).toThrow(FrameClientError);
     expect(() => parseFrameUrl("https://github.com/")).toThrow(FrameClientError);
   });
+
+  // v0.3.2 — normalize GitHub web-UI URLs.
+  describe("GitHub web-UI URL normalization (v0.3.2+)", () => {
+    test("tree/<branch>/path → strips prefix, lifts branch into ref", () => {
+      const r = parseFrameUrl(
+        "https://github.com/microchipgnu/frames-examples/tree/main/datasets/mcp-servers",
+      );
+      expect(r.user).toBe("microchipgnu");
+      expect(r.repo).toBe("frames-examples");
+      expect(r.frame_path).toBe("datasets/mcp-servers");
+      expect(r.ref).toBe("main");
+    });
+
+    test("blob/<branch>/path/file → keeps file, lifts branch", () => {
+      const r = parseFrameUrl(
+        "https://github.com/u/r/blob/v0.4/datasets/foo/schema.yml",
+      );
+      expect(r.frame_path).toBe("datasets/foo/schema.yml");
+      expect(r.ref).toBe("v0.4");
+    });
+
+    test("explicit ?ref= wins over branch baked into tree/<ref>/", () => {
+      const r = parseFrameUrl(
+        "https://github.com/u/r/tree/main/path?ref=feature-branch",
+      );
+      expect(r.frame_path).toBe("path");
+      expect(r.ref).toBe("feature-branch");
+    });
+
+    test("tree/<branch> with no path → empty frame_path", () => {
+      const r = parseFrameUrl("https://github.com/u/r/tree/main");
+      expect(r.frame_path).toBe("");
+      expect(r.ref).toBe("main");
+    });
+
+    test("a path that legitimately starts with 'tree' but isn't tree/<ref>/", () => {
+      // Edge case: user repo has a top-level directory literally named "tree".
+      // Today our regex catches this — it'd interpret the next segment as
+      // ref. We accept the mis-parse on this rare collision; document it.
+      const r = parseFrameUrl("https://github.com/u/r/tree/data");
+      // Will parse as ref=data, frame_path=""; not ideal but the alternative
+      // (failing to normalize the common web-UI case) is worse.
+      expect(r.ref).toBe("data");
+    });
+  });
 });

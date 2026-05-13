@@ -151,7 +151,14 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
           },
         ],
       });
-      const finalRes = await opts.llm.call({ system, messages, agent: "build" });
+      // Pass `tools` even though we don't want the model to call them.
+      // Anthropic's cache prefix order is `tools → system → messages`; omitting
+      // tools here changes the prefix and busts the cache built up during the
+      // run. Keeping tools matches the cached prefix; the user message tells
+      // the model not to call them, which Anthropic respects reliably.
+      // Live measurement (2026-05-13) confirmed iter-N+1 missed the cache
+      // when this call dropped tools.
+      const finalRes = await opts.llm.call({ system, messages, tools: CURATE_TOOLS, agent: "build" });
       remaining -= Number(finalRes.usage.estimated_cost);
       summary = extractText(finalRes.content) || "(budget exhausted; no final summary)";
       stopReason = "budget_exhausted";

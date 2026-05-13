@@ -1,5 +1,54 @@
 # @frames-ag/tick
 
+## 0.3.2 — 2026-05-13 (three small fixes from live-curate observations)
+
+Three issues surfaced by the live curate runs of 2026-05-13 against
+`microchipgnu/frames-examples/datasets/mcp-servers`. None block usage,
+but each affects either cost or first-touch UX.
+
+### Fixes
+
+**1. `parseFrameUrl` normalizes GitHub web-UI URLs** (`src/frame-client.ts`).
+Today's first live curl 404'd because we sent
+`github.com/u/r/tree/main/datasets/mcp-servers` (the URL anyone copies
+from their browser) and the parser forwarded it raw to frames-cloud,
+which looked for a `schema.yml` at `u/r/tree/main/datasets/mcp-servers/`.
+Now the parser strips `tree/<ref>/` and `blob/<ref>/` prefixes and
+lifts `<ref>` into the ref field. Explicit `?ref=` still wins. Covers
+the dominant customer paste pattern.
+
+**2. Phase D cache hits on the budget-exhausted wrap-up call**
+(`src/ops/curate.ts:131`). The force-summary call dropped `tools` from
+the request body, which changed Anthropic's prefix order (`tools → system →
+messages`) and busted the cached prefix built up over prior iters. Live
+data confirmed iter-N+1 paid the full input rate on a 4-5K-token prefix
+that should have hit the cache. Now passes `tools: CURATE_TOOLS`; the
+user-message instruction "do not call any more tools" is reliable enough
+to keep behavior unchanged while preserving the cache. Saves ~$0.005
+per budget-exhausted run.
+
+**3. Test coverage for Phase E.1 fetch dedup**
+(`test/refresh-entity.test.ts`, new). The dedup cache exists since
+v0.2.0 but no live run had exercised it — models never re-fetched the
+same URL within one sub-loop in our test corpus. Added two focused
+tests:
+- Same URL fetched across iters → refetcher fires once, cache marker
+  goes to the model on the second call.
+- Same URL with different `entity_hint` → two cache keys, refetcher
+  fires twice (the summary is hint-specific).
+
+### What was NOT fixed
+
+Discover convergence (the 13/17 v0.3.0 → 9/17 v0.3.1 failure rate) is
+still mediocre — the iter-3 threshold bump in v0.3.1 unblocked some
+sub-loops mechanically, but most that reach iter 3 still don't propose.
+Needs deeper investigation (sub-loop message-history inspection) before
+the next tuning pass. Tracked separately.
+
+bumps: `@frames-ag/tick` 0.3.1 → 0.3.2
+
+---
+
 ## 0.3.1 — 2026-05-13 (hotfix — raise discover-entity non-terminal streak threshold 2 → 3)
 
 Live curate against `microchipgnu/frames-examples/datasets/mcp-servers`

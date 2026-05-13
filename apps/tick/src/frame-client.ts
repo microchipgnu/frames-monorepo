@@ -16,14 +16,24 @@ const FRAMES_CLOUD_BASE = "https://frames-cloud.workers.dev";
 /**
  * Decomposes a github.com URL into the pieces frames-cloud's resolver needs.
  *
+ * Accepts both the canonical short form AND GitHub's web-UI URLs (with
+ * `/tree/<ref>/` or `/blob/<ref>/`), normalizing the latter — that's what
+ * customers paste from their browser.
+ *
  *   https://github.com/microchipgnu/frames-examples
  *     → { user: "microchipgnu", repo: "frames-examples", frame_path: "", ref: "HEAD" }
  *
  *   https://github.com/microchipgnu/frames-examples/datasets/mcp-servers
  *     → { user: "microchipgnu", repo: "frames-examples", frame_path: "datasets/mcp-servers", ref: "HEAD" }
  *
+ *   https://github.com/microchipgnu/frames-examples/tree/main/datasets/mcp-servers
+ *     → { user: "microchipgnu", repo: "frames-examples", frame_path: "datasets/mcp-servers", ref: "main" }
+ *
+ *   https://github.com/microchipgnu/frames-examples/blob/v0.4/datasets/mcp-servers/schema.yml
+ *     → { user: "microchipgnu", repo: "frames-examples", frame_path: "datasets/mcp-servers/schema.yml", ref: "v0.4" }
+ *
  *   https://github.com/microchipgnu/frames-examples/datasets/mcp-servers?ref=v0.4
- *     → { ..., ref: "v0.4" }
+ *     → { ..., ref: "v0.4" }  (explicit query param wins over a ref baked into the path)
  */
 export function parseFrameUrl(url: string): {
   user: string;
@@ -35,13 +45,26 @@ export function parseFrameUrl(url: string): {
   if (!m) {
     throw new FrameClientError("invalid_frame_url", `Expected https://github.com/<user>/<repo>[/<path>], got: ${url}`);
   }
-  const [, user = "", repo = "", path = "", query = ""] = m;
+  const [, user = "", repo = "", rawPath = "", query = ""] = m;
   const params = new URLSearchParams(query);
+
+  // Normalize GitHub web-UI URLs: `tree/<ref>/<path>` or `blob/<ref>/<path>`.
+  // The browser-pasted form is by far the most common customer mistake.
+  // Strip the prefix and lift `<ref>` out into the ref field — unless an
+  // explicit `?ref=` was set, in which case that wins.
+  let path = rawPath;
+  let pathRef: string | undefined;
+  const treeBlob = path.match(/^(?:tree|blob)\/([^/]+)\/?(.*)$/);
+  if (treeBlob) {
+    pathRef = treeBlob[1];
+    path = treeBlob[2] ?? "";
+  }
+
   return {
     user,
     repo,
     frame_path: path.replace(/\/$/, ""),
-    ref: params.get("ref") ?? "HEAD",
+    ref: params.get("ref") ?? pathRef ?? "HEAD",
   };
 }
 
