@@ -1,5 +1,41 @@
 # @frames-ag/tick
 
+## 0.3.10 — 2026-05-13 (Haiku for wrap-up summary — eliminates the $0.02 budget overrun)
+
+Live curate runs of 2026-05-13 settled $0.02-$0.05 over the $1.50
+budget. Tracing the cost: every `budget_exhausted` (and now
+`no_progress`) run ended with a Sonnet wrap-up call costing ~$0.18.
+That call alone exceeded the $0.05 safety floor; even with perfect
+budget projection during the loop, the wrap-up overrun was structural.
+
+### Fix
+
+Switch both force-summary call sites in `curate.ts` from Sonnet
+(`agent: "build"`) to Haiku (`agent: "title"`):
+
+- Budget-exhausted force-summary
+- No-progress force-summary
+
+Wrap-up is one paragraph of summary prose over a known message
+history. Haiku is more than capable. Sonnet was paying for unused
+reasoning capacity.
+
+Also dropped `tools: CURATE_TOOLS` from the wrap-up calls. v0.3.2's
+"preserve cache by passing tools" reasoning was Sonnet-specific — a
+tier switch busts the cache anyway, so passing tools just bloats input.
+
+### Expected impact
+
+- Wrap-up call cost: **~$0.18 → ~$0.005** (-97%)
+- `budget_exhausted` runs should now settle *at or under* the budget
+  cap with the safety floor doing what it's named for.
+- Marginal quality on the wrap-up summary should be indistinguishable
+  for a one-paragraph "what happened" prose generation.
+
+bumps: `@frames-ag/tick` 0.3.9 → 0.3.10
+
+---
+
 ## 0.3.9 — 2026-05-13 (capture assistant reasoning per iter)
 
 The biggest unfixed quality issue is discover sub-loops that reach

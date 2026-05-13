@@ -159,14 +159,15 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
           },
         ],
       });
-      // Pass `tools` even though we don't want the model to call them.
-      // Anthropic's cache prefix order is `tools → system → messages`; omitting
-      // tools here changes the prefix and busts the cache built up during the
-      // run. Keeping tools matches the cached prefix; the user message tells
-      // the model not to call them, which Anthropic respects reliably.
-      // Live measurement (2026-05-13) confirmed iter-N+1 missed the cache
-      // when this call dropped tools.
-      const finalRes = await opts.llm.call({ system, messages, tools: CURATE_TOOLS, agent: "build" });
+      // v0.3.10 — wrap-up is one paragraph of summary prose. Haiku is the
+      // right tier; Sonnet was costing ~$0.18 per wrap-up which alone
+      // pushed budget-exhausted runs ~$0.02 negative against the cap.
+      // Drop tools too — Haiku doesn't share Sonnet's cached prefix anyway
+      // (different model tier = different cache), so keeping tools just
+      // bloats the input without helping. v0.3.2's "preserve cache by
+      // passing tools" reasoning applied to Sonnet, not to a tier switch.
+      // Expected wrap-up cost: ~$0.005 vs ~$0.18 — eliminates the overrun.
+      const finalRes = await opts.llm.call({ system, messages, agent: "title" });
       remaining -= Number(finalRes.usage.estimated_cost);
       summary = extractText(finalRes.content) || "(budget exhausted; no final summary)";
       stopReason = "budget_exhausted";
@@ -197,7 +198,9 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
           },
         ],
       });
-      const finalRes = await opts.llm.call({ system, messages, agent: "build" });
+      // v0.3.10 — same reasoning as the budget-exhausted wrap-up: Haiku
+      // is the right tier for one-paragraph summary prose.
+      const finalRes = await opts.llm.call({ system, messages, agent: "title" });
       remaining -= Number(finalRes.usage.estimated_cost);
       summary = extractText(finalRes.content) || "(no summary — stopped on no-progress)";
       stopReason = "no_progress";
@@ -210,6 +213,7 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
         stop_reason: "no_progress",
         cache_creation_input_tokens: finalRes.usage.cache_creation_input_tokens,
         cache_read_input_tokens: finalRes.usage.cache_read_input_tokens,
+        assistant_text: summary && summary !== "(no summary — stopped on no-progress)" ? summary.slice(0, 240) : undefined,
       });
       break;
     }
