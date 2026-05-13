@@ -27,6 +27,27 @@ describe("parseProbeResponse", () => {
     expect(r.retryable).toBe(true);
   });
 
+  it("prefers `message` over `error` when both are strings (Brave/llm-context shape)", () => {
+    // Real failure observed in production: agent called brave with `query` and
+    // got back { error: "Invalid request", message: "q is required" }. The
+    // actionable hint is `q is required`, not `Invalid request`.
+    const r = parseProbeResponse(
+      400,
+      JSON.stringify({ error: "Invalid request", message: "q is required" }),
+    );
+    expect(r.hints).toHaveLength(1);
+    expect(r.hints[0].kind).toBe("missing_field");
+    expect(r.hints[0].field).toBe("q");
+    expect(r.hints[0].message).toContain("q is required");
+    expect(r.hints[0].message).toContain("Invalid request");
+  });
+
+  it("extracts field name from 'X is required' patterns", () => {
+    const r = parseProbeResponse(422, JSON.stringify({ message: "limit is required" }));
+    expect(r.hints[0].kind).toBe("missing_field");
+    expect(r.hints[0].field).toBe("limit");
+  });
+
   it("parses { error: { message, field } } shape", () => {
     const r = parseProbeResponse(
       400,

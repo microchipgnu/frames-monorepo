@@ -60,13 +60,23 @@ export function parseProbeResponse(status: number, body: string): ProbeParseResu
     const obj = parsed as Record<string, unknown>;
     const errVal = obj?.error;
     const msgVal = obj?.message;
-    if (typeof errVal === "string") {
-      hints.push({ kind: baseKind, message: errVal });
-    } else if (errVal && typeof errVal === "object") {
+    const errStr = typeof errVal === "string" ? errVal : undefined;
+    const msgStr = typeof msgVal === "string" ? msgVal : undefined;
+    if (errVal && typeof errVal === "object") {
       const e = errVal as { message?: string; code?: string; field?: string };
       hints.push({ kind: baseKind, field: e.field, message: e.message ?? e.code ?? "error" });
-    } else if (typeof msgVal === "string") {
-      hints.push({ kind: baseKind, message: msgVal });
+    } else if (errStr || msgStr) {
+      // Brave-style: { error: "Invalid request", message: "q is required" }.
+      // The actionable hint is in `message`; `error` is just the kind/title.
+      // Prefer `message` and prefix `error` only when distinct + useful.
+      const primary = msgStr ?? errStr ?? "error";
+      const combined = errStr && msgStr && errStr !== msgStr ? `${errStr}: ${msgStr}` : primary;
+      const fieldMatch = primary.match(/^['"]?(\w+)['"]?\s+is\s+(required|missing)/i);
+      hints.push({
+        kind: fieldMatch ? "missing_field" : baseKind,
+        ...(fieldMatch ? { field: fieldMatch[1] } : {}),
+        message: combined,
+      });
     } else if (typeof obj?.detail === "string") {
       hints.push({ kind: baseKind, message: obj.detail as string });
     }
