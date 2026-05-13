@@ -33,7 +33,26 @@ import type { OpOutcome, Refetcher, SubRun, ToolDispatchResult } from "./types";
 
 export interface CurateOptions {
   frame_url: string;
-  budget: string;
+  /**
+   * Total budget (legacy). When set, split 80/20 into llm_budget / tool_budget
+   * if those aren't explicitly provided. Kept for backward compat with the
+   * `POST /run` body shape that ships before v0.5.x.
+   */
+  budget?: string;
+  /**
+   * v0.5.x — separate pot for LLM iterations and sub-agent LLM cost. The
+   * agent stops when this hits zero, independently of `tool_budget`.
+   * Defaults to 80% of `budget` when only `budget` is provided.
+   */
+  llm_budget?: string;
+  /**
+   * v0.5.x — separate pot for paid `tool_invoke` (and any paid web_fetch).
+   * Reserved floor of spend the agent can use on the catalog before being
+   * stopped. Without this split, LLM cost can devour the budget before the
+   * agent ever calls a paid tool.
+   * Defaults to 20% of `budget` when only `budget` is provided.
+   */
+  tool_budget?: string;
   run_id: string;
   agent: string; // "frames-runtime:<wallet>"
   refetcher: Refetcher;
@@ -81,7 +100,25 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
   const catalog = opts.catalog ?? new CatalogClient();
   const maxIters = opts.max_iters ?? 30;
   const safetyFloor = Number(opts.safety_floor ?? "0.05");
-  let remaining = Number(opts.budget);
+
+  // Budget split — two independent pots. Force-stop fires when EITHER hits
+  // the safety floor. Without this split, LLM iter cost (~$1.36 of a $1.50
+  // run, measured live 2026-05-13) drains the single pot before the agent
+  // ever reaches a paid tool. Splitting reserves a guaranteed floor for
+  // paid catalog calls so the runtime can actually validate end-to-end.
+  //
+  // Default split for legacy `budget`: 80% LLM / 20% tool. Tuned from
+  // observed iteration_log breakdowns — LLM dominates, paid tools are
+  // cents at most, but the ratio MUST guarantee some non-zero tool slack.
+  const totalLegacyBudget = opts.budget ? Number(opts.budget) : undefined;
+  let llmRemaining = Number(
+    opts.llm_budget ??
+      (totalLegacyBudget !== undefined ? (totalLegacyBudget * 0.8).toFixed(6) : "1.20"),
+  );
+  let toolRemaining = Number(
+    opts.tool_budget ??
+      (totalLegacyBudget !== undefined ? (totalLegacyBudget * 0.2).toFixed(6) : "0.30"),
+  );
 
   // ----- Phase 1: load context -------------------------------------------
   const meta: FrameMeta = await client.getMeta(opts.frame_url);
@@ -101,7 +138,8 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
     schema,
     readme,
     custom_prompt: opts.custom_prompt,
-    budget: opts.budget,
+    llm_budget: llmRemaining.toFixed(6),
+    tool_budget: toolRemaining.toFixed(6),
   });
 
   // ----- Phase 2: agent loop ---------------------------------------------
@@ -151,19 +189,25 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
   while (iter < maxIters) {
     iter++;
 
-    // Project the next iter's likely LLM cost and halt early when it would
-    // push remaining below the floor. Without this, the agent can run a full
-    // iteration into a budget shortfall, post-hoc detect "remaining < floor",
-    // then spend ANOTHER call asking for a summary — overrunning by 2×.
+    // Project the next iter's likely LLM cost and halt early when the LLM
+    // pot would drop below the floor. Without this, the agent can run a
+    // full iteration into a budget shortfall, post-hoc detect remaining <
+    // floor, then spend ANOTHER call asking for a summary — overrunning 2×.
+    //
+    // Tool budget intentionally NOT checked here: it's a discretionary pot
+    // (only spent if the agent picks `tool_invoke`). Per-call exhaustion is
+    // handled at dispatch time — catalog_dispatch refuses calls whose
+    // price_hint exceeds tool_remaining. Force-stopping when tool_budget is
+    // low would punish runs that haven't used paid tools yet.
     const projectedLlmCost = maxLlmCostSeen > 0 ? maxLlmCostSeen * 1.2 : 0;
-    if (remaining < safetyFloor || (projectedLlmCost > 0 && remaining < projectedLlmCost + safetyFloor)) {
+    if (llmRemaining < safetyFloor || (projectedLlmCost > 0 && llmRemaining < projectedLlmCost + safetyFloor)) {
       // Force-finalize: ask the model for a one-paragraph wrap-up, no more tools.
       messages.push({
         role: "user",
         content: [
           {
             type: "text",
-            text: `Budget remaining is $${remaining.toFixed(4)} (next LLM call projects ~$${projectedLlmCost.toFixed(4)}, safety floor $${safetyFloor}). Wrap up: emit a one-paragraph summary of what was accomplished. Do not call any more tools.`,
+            text: `LLM budget remaining $${llmRemaining.toFixed(4)} (next iter projects ~$${projectedLlmCost.toFixed(4)}, floor $${safetyFloor}). Wrap up: emit a one-paragraph summary of what was accomplished. Do not call any more tools.`,
           },
         ],
       });
@@ -176,7 +220,7 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
       // passing tools" reasoning applied to Sonnet, not to a tier switch.
       // Expected wrap-up cost: ~$0.005 vs ~$0.18 — eliminates the overrun.
       const finalRes = await opts.llm.call({ system, messages, agent: "title" });
-      remaining -= Number(finalRes.usage.estimated_cost);
+      llmRemaining -= Number(finalRes.usage.estimated_cost);
       summary = extractText(finalRes.content) || "(budget exhausted; no final summary)";
       stopReason = "budget_exhausted";
       iteration_log.push({
@@ -209,7 +253,7 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
       // v0.3.10 — same reasoning as the budget-exhausted wrap-up: Haiku
       // is the right tier for one-paragraph summary prose.
       const finalRes = await opts.llm.call({ system, messages, agent: "title" });
-      remaining -= Number(finalRes.usage.estimated_cost);
+      llmRemaining -= Number(finalRes.usage.estimated_cost);
       summary = extractText(finalRes.content) || "(no summary — stopped on no-progress)";
       stopReason = "no_progress";
       iteration_log.push({
@@ -242,7 +286,7 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
       max_tokens: 8192,
     });
     const llmCost = Number(llmRes.usage.estimated_cost);
-    remaining -= llmCost;
+    llmRemaining -= llmCost;
     if (llmCost > maxLlmCostSeen) maxLlmCostSeen = llmCost;
     const iterText = extractText(llmRes.content);
     iteration_log.push({
@@ -303,7 +347,11 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
       refetcher: opts.refetcher,
       catalog,
       paidFetch: opts.paidFetch,
-      remaining_budget: remaining.toFixed(6),
+      // Pass the tool pot to dispatchers — used by catalog_dispatch's
+      // pre-flight price check (descriptor.price_hint vs remaining tool
+      // budget). LLM-cost dispatchers (sub-agents, web_fetch summarizer)
+      // are budget-aware separately when needed.
+      remaining_budget: toolRemaining.toFixed(6),
       env: opts.env,
       llm: opts.llm,
       schema,
@@ -342,7 +390,12 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
         }
       }
       if (duplicateOf) {
-        remaining -= Number(dispatch.cost);
+        // tool_invoke costs (paid catalog calls) come out of the tool pot.
+        // Everything else (sub-agents, web_fetch summarizer, free dispatches)
+        // is LLM-side cost — debit the LLM pot. Duplicate path still
+        // accounts for the spend already incurred by the sub-agent.
+        if (block.name === "tool_invoke") toolRemaining -= Number(dispatch.cost);
+        else llmRemaining -= Number(dispatch.cost);
         if (dispatch.sub_run) {
           const collided: SubRun = {
             ...dispatch.sub_run,
@@ -362,7 +415,10 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
         continue;
       }
 
-      remaining -= Number(dispatch.cost);
+      // Same split as the duplicate-path above: tool_invoke debits the tool
+      // pot, everything else (sub-agents, web_fetch, free) debits the LLM pot.
+      if (block.name === "tool_invoke") toolRemaining -= Number(dispatch.cost);
+      else llmRemaining -= Number(dispatch.cost);
       for (const ev of dispatch.events) {
         if (ev.type === "entity.created") {
           const id = String((ev.payload as { entity_id?: string }).entity_id ?? "");
@@ -441,7 +497,7 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
         skipped_no_excerpt: verify.summary.skipped_no_excerpt,
         llm_cost: verify.llm_cost,
       };
-      remaining -= Number(verify.llm_cost);
+      llmRemaining -= Number(verify.llm_cost);
     } catch (e) {
       // Don't fail the whole run if the verifier crashes — log on report
       // and let the customer see what was written without verification.
@@ -459,7 +515,7 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
   return {
     events,
     tool_log,
-    summary: `curate · ${schema.name}@${meta.sha.slice(0, 7)} · ${iter} iter · ${sub_runs.length} sub-agents · ${events.length} events · ${tool_log.length} tool calls · stop=${stopReason} · $${remaining.toFixed(6)} remaining${verifySummary ? ` · verified ${verifySummary.supported}/${verifySummary.facts_checked}` : ""}`,
+    summary: `curate · ${schema.name}@${meta.sha.slice(0, 7)} · ${iter} iter · ${sub_runs.length} sub-agents · ${events.length} events · ${tool_log.length} tool calls · stop=${stopReason} · llm $${llmRemaining.toFixed(6)} · tool $${toolRemaining.toFixed(6)} remaining${verifySummary ? ` · verified ${verifySummary.supported}/${verifySummary.facts_checked}` : ""}`,
     iteration_log,
     sub_runs,
     report: {
@@ -470,7 +526,10 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
       events_written: events.length,
       tool_calls: tool_log.length,
       sub_runs: sub_runs.length,
-      budget_remaining: remaining.toFixed(6),
+      // Legacy field — sum of remaining pots so older clients still see one number.
+      budget_remaining: (llmRemaining + toolRemaining).toFixed(6),
+      llm_budget_remaining: llmRemaining.toFixed(6),
+      tool_budget_remaining: toolRemaining.toFixed(6),
       llm_summary: summary,
       ...(verifySummary ? { verify_citations: verifySummary } : {}),
     },

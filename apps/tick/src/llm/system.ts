@@ -18,8 +18,10 @@ export interface CurateSystemArgs {
   custom_prompt?: string;
   /** README.md content, if any. Helpful narrative context. */
   readme?: string;
-  /** Remaining USDC budget at boot. */
-  budget: string;
+  /** LLM-iteration USDC budget at boot. Covers Claude/Haiku calls + sub-agent LLM. */
+  llm_budget: string;
+  /** Paid-tool USDC budget at boot. Reserved for `tool_invoke` / paid `web_fetch`. */
+  tool_budget: string;
 }
 
 export function buildCurateSystem(args: CurateSystemArgs): string {
@@ -81,19 +83,24 @@ export function buildCurateSystem(args: CurateSystemArgs): string {
     "- `attach_evidence(fact_id, source)` — add a corroborating source to an existing fact without changing the value.",
   );
   lines.push("");
-  lines.push("Read / search tools:");
+  lines.push("Read tools:");
   lines.push(
     "- `query(mode, args?)` — read current state. `mode=all` lists every entity. `mode=entity` returns a single entity. `mode=field` filters by a field value.",
   );
-  lines.push(
-    "- `catalog_search(capability)`, `catalog_get(id)`, `tool_invoke(id, args)` — federated paid-tool catalog. Use catalog_search to find a search/scrape/enrich tool before falling back to raw web_fetch.",
-  );
   lines.push("");
-  lines.push("External fetch (paid; cost decremented from your budget):");
-  lines.push(
-    "- `web_fetch(url)` — fetch a URL. Page auto-summarized against the schema (~500-2000 tokens of per-field excerpts). Use for cross-entity research or when neither sub-agent is the right shape.",
-  );
+  lines.push("### External lookups — catalog FIRST, web_fetch as fallback");
   lines.push("");
+  lines.push("For ANY external lookup (web search, scrape, enrichment, social, market data, etc.) the order is fixed:");
+  lines.push("");
+  lines.push("1. **`catalog_search(capability)`** — ALWAYS first. The catalog routes you to providers with cleaner, structured outputs and produces audited receipts. Capability tags include `web-search`, `scrape`, `enrich`, `image-gen`, `transcribe`, `social`, `markets`.");
+  lines.push("2. **`catalog_get(id)`** — when you need the descriptor's full param schema before invoking.");
+  lines.push("3. **`tool_invoke(id, args)`** — invoke the top match. The runtime handles payment (x402 / MPP / Solana MPP charge) automatically. Returns the response body + `receipt_id`.");
+  lines.push("4. **`web_fetch(url)` — fallback ONLY.** Use it only when (a) `catalog_search` returns zero hits for the capability you need, (b) all candidate descriptors failed with non-retryable probes, or (c) you have a specific URL in mind that wouldn't be in the catalog (raw GitHub README, vendor docs page).");
+  lines.push("");
+  lines.push("Do NOT skip step 1 just because you know a URL. Catalog tools produce verifiable receipts (`receipt_id`) and use a shared payment path; web_fetch is best-effort raw fetch.");
+  lines.push("");
+
+  // ---- Probe loop --------------------------------------------------------
 
   // ---- Probe loop --------------------------------------------------------
   lines.push("## When tool_invoke fails");
@@ -158,7 +165,12 @@ export function buildCurateSystem(args: CurateSystemArgs): string {
   // ---- Budget ------------------------------------------------------------
   lines.push("## Budget");
   lines.push("");
-  lines.push(`You have **${args.budget} USDC** of remaining budget. Each tool call decrements it. The runtime will force-stop you when budget is exhausted; aim to wrap up cleanly before that.`);
+  lines.push(`Your spend is split into two independent pots:`);
+  lines.push("");
+  lines.push(`- **LLM budget — ${args.llm_budget} USDC.** Covers your reasoning iterations + sub-agent LLM cost (refresh_entity, discover_entity, web_fetch's summarizer, citation verifier).`);
+  lines.push(`- **Tool budget — ${args.tool_budget} USDC.** Reserved for paid \`tool_invoke\` calls. The runtime spends this on x402/MPP payments to catalog sellers. CAN'T be used for LLM iterations.`);
+  lines.push("");
+  lines.push(`The runtime force-stops you when EITHER pot hits its safety floor. The tool budget is a guaranteed floor — use it. If you skip catalog tools to "save" the budget, you'll be force-stopped with USDC unspent.`);
   lines.push("");
   lines.push("Begin by reading the current state. Then act per the dataset's instructions.");
 

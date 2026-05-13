@@ -189,6 +189,51 @@ describe("curate loop control", () => {
     expect(result.report?.stop_reason).toBe("no_progress");
   });
 
+  test("explicit llm_budget + tool_budget are tracked independently in the receipt", async () => {
+    // When both pots are passed, the receipt should expose both remainders.
+    // This is the primary contract for the v0.5.x budget split.
+    const endTurn: LlmResponse = {
+      stop_reason: "end_turn",
+      content: [text("nothing to do — end of turn.")],
+      usage: { input_tokens: 1, output_tokens: 1, estimated_cost: "0.01" },
+    };
+    const result = await curate({
+      ...baseArgs,
+      // No `budget` — only the split pots.
+      llm_budget: "1.20",
+      tool_budget: "0.30",
+      client: mockClient(),
+      catalog: mockCatalog(),
+      llm: mockLlm([endTurn]),
+    });
+    expect(result.report?.llm_budget_remaining).toBeDefined();
+    expect(result.report?.tool_budget_remaining).toBeDefined();
+    // LLM debited 0.01 → 1.20 - 0.01 = 1.19 remaining
+    expect(Number(result.report?.llm_budget_remaining)).toBeCloseTo(1.19, 2);
+    // No tool_invoke calls → tool budget untouched.
+    expect(Number(result.report?.tool_budget_remaining)).toBeCloseTo(0.30, 2);
+  });
+
+  test("legacy `budget` splits 80/20 into llm/tool pots", async () => {
+    // Backward compat: when only `budget` is set, default split kicks in.
+    const endTurn: LlmResponse = {
+      stop_reason: "end_turn",
+      content: [text("done.")],
+      usage: { input_tokens: 1, output_tokens: 1, estimated_cost: "0.05" },
+    };
+    const result = await curate({
+      ...baseArgs,
+      budget: "1.50",
+      client: mockClient(),
+      catalog: mockCatalog(),
+      llm: mockLlm([endTurn]),
+    });
+    // 80% of 1.50 = 1.20 LLM pot, minus 0.05 = 1.15 remaining.
+    expect(Number(result.report?.llm_budget_remaining)).toBeCloseTo(1.15, 2);
+    // 20% of 1.50 = 0.30 tool pot, untouched.
+    expect(Number(result.report?.tool_budget_remaining)).toBeCloseTo(0.30, 2);
+  });
+
   test("budget exhaustion triggers a one-shot final-summary call", async () => {
     // First response is a tool_use that costs nothing; the loop drops below
     // safety_floor next iteration and asks for a wrap-up.

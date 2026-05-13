@@ -83,7 +83,10 @@ describe("projector", () => {
     expect(r.rows[0]?.fields.name).toBe("Acme Inc");
   });
 
-  test("deprecate_fact reverts to prior fact", () => {
+  // Longer timeout — this test writes 3 events + a deprecate, hitting
+  // better-sqlite3 four times. CI sometimes spends >5s here on cold runners
+  // when the native binding is paged from disk; locally completes in <50ms.
+  test("deprecate_fact reverts to prior fact", { timeout: 30_000 }, () => {
     const dir = fresh("revert");
     const frame = new Frame(dir);
     frame.addEntity({ entity_id: "acme" });
