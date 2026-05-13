@@ -1,9 +1,12 @@
 name: catalog-refresh
 
-# Every 6 hours: walk all upstream catalogs + indexers, merge into one
+# Once a day: walk all upstream catalogs + indexers, merge into one
 # host-keyed merchant directory, project to ToolDescriptors + MerchantEntity
 # JSONs, and commit if anything changed. The catalog Worker reads main via
 # raw.githubusercontent.com, so a commit here is a live deploy.
+#
+# Cost: ~$0.10/refresh (only x402scan is paid). Daily = ~$3/mo.
+# Manual rerun: `gh workflow run catalog-refresh.yml`
 #
 # Secrets (optional — pipeline runs with placeholders if missing):
 #   MPPSCAN_WALLET_PRIVATE_KEY — SIWX wallet for mppscan.com (any Base
@@ -15,8 +18,9 @@ name: catalog-refresh
 
 on:
   schedule:
-    # Every 6 hours, offset 17min so we're not on the top-of-hour scrum
-    - cron: '17 */6 * * *'
+    # Daily at 05:17 UTC (off-peak, quiet hours in EU/AM).
+    # Bump to '17 */12 * * *' if you want twice-daily; '17 5 */2 * *' for every 2 days.
+    - cron: '17 5 * * *'
   workflow_dispatch:
     inputs:
       refresh_probe:
