@@ -175,7 +175,8 @@ export interface FrameEvent {
     | "fact.deprecated"
     | "evidence.attached"
     | "entity.removed"
-    | "tool.invoked";       // emitted by pay when a paid call fires
+    | "tool.invoked"        // emitted by pay when a paid call fires
+    | "catalog.probe";      // attempt log for tool_invoke: success or failure with parsed hints
   agent: string; // e.g. "frames-runtime:<wallet-address>"
   run_id: string; // v0.2.0 field
   payload: unknown;

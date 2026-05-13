@@ -104,7 +104,12 @@ export type EventType =
   // Emitted by pay (or any future cost-bearing tool runner) when a paid
   // tool call fires from inside a frame loop. Frame projector indexes
   // these into a tool_invocations table for audit and cost rollups.
-  | "tool.invoked";
+  | "tool.invoked"
+  // v0.3.0+ — Emitted by runtimes (e.g. tick) when a catalog-mediated paid
+  // tool call fails. Carries the parsed hints + response excerpt so later
+  // analysis can answer "which catalog entries need richer metadata".
+  // Telemetry-only: projection ignores it; the event log retains it.
+  | "catalog.probe";
 
 export type AgentId = string; // "<kind>:<identifier>", e.g. "claude:opus-4.7"
 
@@ -173,6 +178,48 @@ export type EntityRemovedPayload = {
   reason: string;
 };
 
+/**
+ * v0.3.0+ — telemetry event emitted when a catalog tool_invoke attempt fails.
+ *
+ * Hints are produced by the runtime's error-body parser (FastAPI / RFC-7807 /
+ * `{error}` / `{message}` shapes). Used downstream to answer questions like
+ * "which catalog entries have undocumented required fields" — the catalog can
+ * then ship richer metadata for the entries that fail most often.
+ *
+ * The projection ignores this event type; rows are unaffected. The event log
+ * retains it so analysis is possible without re-running probes.
+ */
+export type CatalogProbePayload = {
+  /** Catalog descriptor id the agent called. */
+  tool_id: string;
+  /** Content-addressed descriptor id (SHA-256 of canonical JSON). */
+  descriptor_id: string;
+  /** Args the agent sent. */
+  args: Record<string, unknown>;
+  /** HTTP status returned by the seller. 0 when the request never reached the seller (network / timeout). */
+  status: number;
+  /** Parsed hints extracted from the response body. */
+  hints: Array<{
+    kind:
+      | "missing_field"
+      | "invalid_value"
+      | "auth_required"
+      | "rate_limited"
+      | "not_found"
+      | "server_error"
+      | "unknown";
+    field?: string;
+    message: string;
+    suggested?: unknown;
+  }>;
+  /** One-line human summary of the failure (e.g. "HTTP 422: missing required fields: query, limit"). */
+  summary: string;
+  /** Truncated response excerpt (max 1 KiB) for cases where the parser couldn't extract structured hints. */
+  response_excerpt: string;
+  /** True when the agent should retry once with corrected args. False for 404 / 5xx / auth-required. */
+  retryable: boolean;
+};
+
 export type FrameEvent =
   | EventEnvelope<EntityCreatedPayload> & { type: "entity.created" }
   | EventEnvelope<FactSetPayload> & { type: "fact.set" }
@@ -180,7 +227,8 @@ export type FrameEvent =
   | EventEnvelope<FactDeprecatedPayload> & { type: "fact.deprecated" }
   | EventEnvelope<EvidenceAttachedPayload> & { type: "evidence.attached" }
   | EventEnvelope<EntityRemovedPayload> & { type: "entity.removed" }
-  | EventEnvelope<ToolInvokedPayload> & { type: "tool.invoked" };
+  | EventEnvelope<ToolInvokedPayload> & { type: "tool.invoked" }
+  | EventEnvelope<CatalogProbePayload> & { type: "catalog.probe" };
 
 // ─── Projection ──────────────────────────────────────────────────────────────
 

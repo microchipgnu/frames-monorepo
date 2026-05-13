@@ -52,10 +52,13 @@ export function createHttpRefetcher(opts: HttpRefetcherOptions = {}): Refetcher 
     clearTimeout(timer);
 
     if (!res.ok) {
+      const errBody = await readBodyCapped(res, maxBytes);
       return {
         ok: false,
         final_url: res.url,
+        status: res.status,
         error: `HTTP ${res.status}`,
+        error_body: errBody,
         tool_call: makeFreeToolCall(url, "0", started, undefined, `HTTP ${res.status}`),
       };
     }
@@ -107,6 +110,23 @@ function makeFreeToolCall(
   void started;
   void bytes;
   void _error;
+}
+
+async function readBodyCapped(res: Response, maxBytes: number): Promise<string> {
+  const reader = res.body?.getReader();
+  let received = 0;
+  const chunks: Uint8Array[] = [];
+  if (reader) {
+    while (true) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      if (value) {
+        received += value.byteLength;
+        if (received <= maxBytes) chunks.push(value);
+      }
+    }
+  }
+  return new TextDecoder("utf-8").decode(concat(chunks));
 }
 
 function concat(chunks: Uint8Array[]): Uint8Array {

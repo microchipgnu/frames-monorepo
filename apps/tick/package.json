@@ -1,6 +1,6 @@
 {
   "name": "@frames-ag/tick",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "module": "src/index.ts",
   "type": "module",
   "private": false,
@@ -54,7 +54,7 @@
     "@faremeter/wallet-solana": "^0.21.0",
     "@frames-ag/pay": "workspace:*",
     "@frames-ag/payment-tempo": "^0.0.1",
-    "@frames-ag/tick-types": "^0.0.6",
+    "@frames-ag/tick-types": "^0.0.7",
     "@modelcontextprotocol/sdk": "^1.0.0",
     "@solana/kit": "^6.9.0",
     "agents": "^0.12.3",

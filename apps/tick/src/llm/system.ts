@@ -95,6 +95,19 @@ export function buildCurateSystem(args: CurateSystemArgs): string {
   );
   lines.push("");
 
+  // ---- Probe loop --------------------------------------------------------
+  lines.push("## When tool_invoke fails");
+  lines.push("");
+  lines.push("Catalog entries don't always document required parameters. When `tool_invoke` fails it returns a probe result with parsed hints — read them and retry once with corrected args before giving up.");
+  lines.push("");
+  lines.push("Probe result shape:");
+  lines.push("- `Parsed hints:` block lists `[kind] field=...: message` lines. Kinds include `missing_field`, `invalid_value`, `auth_required`, `rate_limited`, `not_found`, `server_error`.");
+  lines.push("- If the message says **retry**, the failure is retryable: fix the args (add the missing field, correct the invalid value) and call `tool_invoke` again.");
+  lines.push("- If the message says **do NOT retry** (404 / 5xx / auth), pick a different descriptor via `catalog_search` or fall back to `web_fetch`.");
+  lines.push("");
+  lines.push("Retry budget: **at most 2 attempts per descriptor_id per turn**. If the second attempt still fails, move on. Don't loop.");
+  lines.push("");
+
   // ---- Invariants --------------------------------------------------------
   lines.push("## Invariants (enforced by the runtime)");
   lines.push("");

@@ -1,5 +1,20 @@
 # @frames-ag/frame
 
+## 0.3.0 — 2026-05-13 (catalog.probe runtime telemetry)
+
+Adds `catalog.probe` as a new optional event type for runtime-emitted telemetry. Lets runtimes (e.g. `@frames-ag/tick@^0.4.4`) record paid-tool-call failures with structured hints so downstream analysis can answer "which catalog entries need richer metadata" without re-running probes.
+
+### Added
+
+- New event type `catalog.probe` in `EventType` union (`src/types.ts`). Payload: `{ tool_id, descriptor_id, args, status, hints, summary, response_excerpt, retryable }`. Hint kinds: `missing_field` / `invalid_value` / `auth_required` / `rate_limited` / `not_found` / `server_error` / `unknown`.
+- `CatalogProbePayload` type exported alongside other payload types.
+- Projector gets an explicit no-op case for `catalog.probe` — telemetry doesn't affect rows; the event log retains it for analysis.
+- `PROTOCOL.md` documents both `catalog.probe` (new) and `tool.invoked` (previously in the type union but undocumented). Both are runtime-telemetry: projection-ignored, event-log-retained.
+
+### Forward-compatibility
+
+Additive change. Existing events.ndjson files remain valid. Older readers skip `catalog.probe` via the spec's "unknown event types must be skipped" rule. The wire format, projection algorithm, source schema, and schema.yml field vocabulary are unchanged.
+
 ## 0.2.0
 
 ### Minor Changes

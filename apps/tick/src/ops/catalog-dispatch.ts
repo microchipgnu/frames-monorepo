@@ -9,6 +9,7 @@ import type { FrameEvent } from "@frames-ag/tick-types";
 import type { CatalogClient } from "../catalog/client";
 import { signReceipt } from "../payment/audit-signer";
 import { sha256 } from "../util/hash";
+import { parseProbeResponse } from "../util/probe-parse";
 import type { Refetcher, ToolDispatchResult } from "./types";
 
 export interface CatalogDispatchContext {
@@ -104,11 +105,20 @@ export async function dispatchToolInvoke(
       const cost = r.tool_call?.cost ?? "0";
       const descriptor_id = inv.descriptor._descriptor_id ?? id;
       if (!r.ok) {
+        const probe = buildProbeEvent({
+          ctx,
+          tool_id: id,
+          descriptor_id,
+          args,
+          status: r.status,
+          error: r.error,
+          error_body: r.error_body,
+        });
         return {
-          result_text: `tool_invoke(${id}) failed: ${r.error}`,
+          result_text: probe.result_text,
           is_error: true,
           cost,
-          events: r.event ? [r.event] : [],
+          events: r.event ? [r.event, probe.event] : [probe.event],
           tool_call: r.tool_call ? { ...r.tool_call, descriptor_id, tool_id: id } : undefined,
         };
       }
@@ -171,11 +181,21 @@ export async function dispatchToolInvoke(
       "0";
     const text = await res.text();
     if (!res.ok) {
+      const descriptor_id = inv.descriptor._descriptor_id ?? id;
+      const probe = buildProbeEvent({
+        ctx,
+        tool_id: id,
+        descriptor_id,
+        args,
+        status: res.status,
+        error: `HTTP ${res.status}`,
+        error_body: text,
+      });
       return {
-        result_text: `tool_invoke(${id}) HTTP ${res.status}: ${text.slice(0, 500)}`,
+        result_text: probe.result_text,
         is_error: true,
         cost,
-        events: [],
+        events: [probe.event],
       };
     }
     const ts = new Date().toISOString();
@@ -241,5 +261,71 @@ function jsonResult(value: unknown): ToolDispatchResult {
 
 function errorResult(msg: string): ToolDispatchResult {
   return { result_text: msg, is_error: true, cost: "0", events: [] };
+}
+
+/**
+ * Build a catalog.probe FrameEvent + the matching result_text shown to the LLM.
+ *
+ * Called from both the GET and POST failure paths in dispatchToolInvoke. The
+ * event records every attempt — args, status, parsed hints — so analytics can
+ * later answer "which catalog entries fail and why" without re-running probes.
+ *
+ * The result_text is designed for the LLM: a one-line summary + the structured
+ * hints (so a retry with corrected args is possible) + the raw response excerpt
+ * as a last-resort context. Capped so it doesn't eat the agent's token budget.
+ */
+function buildProbeEvent(args: {
+  ctx: CatalogDispatchContext;
+  tool_id: string;
+  descriptor_id: string;
+  args: Record<string, unknown>;
+  status?: number;
+  error?: string;
+  error_body?: string;
+}): { event: FrameEvent; result_text: string } {
+  const status = args.status ?? 0;
+  const body = (args.error_body ?? "").slice(0, 4 * 1024);
+  const parsed = status > 0
+    ? parseProbeResponse(status, body)
+    : { hints: [{ kind: "unknown" as const, message: args.error ?? "fetch failed" }], summary: args.error ?? "fetch failed", retryable: false };
+
+  const event: FrameEvent = {
+    id: randomUUID(),
+    ts: new Date().toISOString(),
+    type: "catalog.probe",
+    agent: args.ctx.agent,
+    run_id: args.ctx.run_id,
+    payload: {
+      tool_id: args.tool_id,
+      descriptor_id: args.descriptor_id,
+      args: args.args,
+      status,
+      hints: parsed.hints,
+      summary: parsed.summary,
+      response_excerpt: body.slice(0, 1024),
+      retryable: parsed.retryable,
+    },
+  };
+
+  const hintLines = parsed.hints
+    .map((h) => `  - [${h.kind}]${h.field ? ` field=${h.field}` : ""}: ${h.message}`)
+    .join("\n");
+  const retryLine = parsed.retryable
+    ? `Retry tool_invoke(${args.tool_id}) once with corrected args. If it fails again, fall back to web_fetch.`
+    : `Do NOT retry tool_invoke(${args.tool_id}); pick another descriptor or fall back to web_fetch.`;
+
+  const result_text = [
+    `tool_invoke(${args.tool_id}) failed: ${parsed.summary}`,
+    "",
+    "Parsed hints:",
+    hintLines,
+    "",
+    retryLine,
+    body ? `\nResponse excerpt:\n${body.slice(0, 500)}` : "",
+  ]
+    .filter(Boolean)
+    .join("\n");
+
+  return { event, result_text };
 }
 

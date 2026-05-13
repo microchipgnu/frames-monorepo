@@ -146,6 +146,67 @@ Adds an additional source to an existing fact without changing the value. Used w
 
 Removes an entity from the rows projection. Equivalent to deprecating all of its facts. `reason` is required. The entity's history remains in `events.ndjson` and can be inspected via `git log`.
 
+### `tool.invoked` (runtime telemetry)
+
+```json
+{
+  "payload": {
+    "receipt": {
+      "pay_protocol": "0.0.1",
+      "id": "uuid-v4",
+      "ts": "2026-04-30T14:22:11.000Z",
+      "tool_id": "search.exa",
+      "descriptor_id": "sha256-of-canonical-descriptor",
+      "params_hash": "sha256-of-args",
+      "protocol": "x402-v2",
+      "wallet_id": "tick",
+      "wallet_address": "0xa1b2...",
+      "amount": "0.0050",
+      "currency": "USDC",
+      "network": "base",
+      "agent": "frames-runtime:0xa1b2...",
+      "signature": "..."
+    },
+    "tool": {
+      "params": { "query": "..." },
+      "response_excerpt": "...",
+      "response_size_bytes": 14823
+    }
+  }
+}
+```
+
+Emitted by `pay` (or any cost-bearing tool runner) when a paid tool call fires from inside a frame loop. Indexed into a `tool_invocations` table by the projector for audit and cost rollups. The `receipt.id` value is what `source.receipt_id` references when a fact is derived from a paid fetch — this links facts forward to the call that produced them.
+
+Projection-side: indexed, does not affect rows. Frame projector deduplicates by outer event `id` so `frame verify`-style replays don't double-count.
+
+### `catalog.probe` (runtime telemetry, v0.3.0+)
+
+```json
+{
+  "payload": {
+    "tool_id": "search.exa",
+    "descriptor_id": "sha256-of-canonical-descriptor",
+    "args": { "query": "" },
+    "status": 422,
+    "hints": [
+      { "kind": "missing_field", "field": "body.query", "message": "field required" }
+    ],
+    "summary": "HTTP 422: missing required fields: body.query",
+    "response_excerpt": "{\"detail\":[{\"loc\":[\"body\",\"query\"],\"msg\":\"field required\",\"type\":\"value_error.missing\"}]}",
+    "retryable": true
+  }
+}
+```
+
+Emitted by a runtime when a catalog-mediated `tool_invoke` attempt fails. Carries the runtime's parsed hints from the seller's error body (FastAPI/Pydantic, RFC-7807, `{error}`, `{message}` shapes) plus a truncated response excerpt for cases where the parser couldn't extract structure.
+
+Hint `kind` values: `missing_field`, `invalid_value`, `auth_required`, `rate_limited`, `not_found`, `server_error`, `unknown`. `retryable` is `false` for 404 / 5xx / auth-required and tells the agent to pick a different descriptor instead of retrying.
+
+Projection-side: ignored (no row or table impact). The event log retains it so later analysis can answer questions like "which catalog entries have undocumented required fields" without re-running probes. This is the feedback signal that informs what richer metadata the catalog should ship — see the `tick` runtime's probe loop for the emission side.
+
+`status: 0` indicates the request never reached the seller (network error, timeout).
+
 ## Source schema
 
 A `source` is a JSON object:

@@ -220,6 +220,13 @@ export function fold(events: FrameEvent[] | EventWithLine[]): ProjectionState {
         }
         break;
       }
+      case "catalog.probe": {
+        // v0.3.0+ telemetry: catalog tool_invoke failure record. Doesn't affect
+        // rows or tool_invocations — the event log retains it so downstream
+        // analysis can ask "which catalog entries fail and why" without
+        // re-running probes. Projection-side no-op by design.
+        break;
+      }
       // Unknown event types are skipped (forward-compat).
       default:
         break;

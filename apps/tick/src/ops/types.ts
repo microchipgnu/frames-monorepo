@@ -50,6 +50,10 @@ export interface RefetchResult {
   body_bytes?: number;
   /** Error message when ok=false. */
   error?: string;
+  /** HTTP status code when the server responded (absent for network errors / timeouts). */
+  status?: number;
+  /** Response body when ok=false. Truncated to the same byte cap as `body`. Used by the probe loop to parse hints. */
+  error_body?: string;
   /** The tool.invoked event the runtime should append to the frame's events.ndjson. */
   event?: FrameEvent;
   /** The corresponding tool_log row for the receipt. */

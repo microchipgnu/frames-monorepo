@@ -1,5 +1,32 @@
 # @frames-ag/tick
 
+## 0.4.4 — 2026-05-13 (probe loop — surface paid-tool failures as parsed hints)
+
+When `tool_invoke` fails, the agent now gets structured hints instead of an opaque error string. The runtime parses common error-body shapes (FastAPI/Pydantic validation errors, RFC-7807, `{error}`, `{message}`, `{errors: [...]}`) and returns the result with parsed `[kind]` + `field` + `message` lines plus an explicit retry recommendation.
+
+Probing-first is intentional: rather than curating richer metadata for ~5800 catalog entries upfront, we let real runs tell us which entries need it. Every probe attempt emits a `catalog.probe` frame event (new protocol type, see `@frames-ag/frame@0.3.0`) — the event log retains it for "which entries fail and why" analysis.
+
+### Added
+
+- `src/util/probe-parse.ts` — parser for paid-tool error responses. Returns `{ hints: ProbeHint[], summary, retryable }` with hint kinds `missing_field` / `invalid_value` / `auth_required` / `rate_limited` / `not_found` / `server_error` / `unknown`. 10 unit tests covering the common JSON shapes + plain-text fallback.
+- `catalog.probe` frame events emitted from both GET and POST failure paths in `ops/catalog-dispatch.ts`. Each event carries the descriptor id, args, status, parsed hints, response excerpt, and `retryable` flag.
+- New "When tool_invoke fails" section in `llm/system.ts` teaches the agent to read hints, retry once with corrected args, cap retries at 2 per descriptor per turn, fall back to `web_fetch` on non-retryable failures.
+
+### Changed
+
+- `RefetchResult` (ops/types.ts) extended with optional `status?` and `error_body?`. Both refetchers (free + paid) now capture the response body on 4xx/5xx so the probe parser has something to work with. Existing callers that read `body` only on `ok=true` are unaffected.
+- `dispatchToolInvoke` returns a rich, structured `result_text` on failure instead of a one-line "failed: HTTP 422" string. Includes parsed hints block + retry/no-retry instruction + response excerpt.
+
+### Protocol
+
+- Requires `@frames-ag/tick-types@^0.0.7` (adds `catalog.probe` to the FrameEvent type union).
+- Frame protocol consumers should be on `@frames-ag/frame@^0.3.0` to project the new event type properly (older versions skip it via the forward-compat default arm — additive, non-breaking).
+
+### Not yet (deferred)
+
+- No automatic in-dispatch retries. By design: money/402 stays deterministic via the refetcher; schema problems bubble to the LLM where reasoning happens.
+- No write-back of probe results to the catalog as "discovered hints" yet. That's the week-2 step once we see real probe volume tell us which entries need it.
+
 ## 0.4.3 — 2026-05-14 (CATALOG service binding — fixes Worker→Worker 404+1042)
 
 When the new catalog landed at `catalog.microchipgnu.workers.dev` and we
