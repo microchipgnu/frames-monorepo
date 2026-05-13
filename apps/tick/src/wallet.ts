@@ -27,13 +27,6 @@ import { createLocalWallet as createSolanaWallet } from "@faremeter/wallet-solan
 import { createLocalWallet as createEvmWallet } from "@faremeter/wallet-evm";
 import { privateKeyToAccount } from "viem/accounts";
 import { base } from "viem/chains";
-// Static reference to @frames-ag/payment-tempo so wrangler's bundler ships
-// the module into the deployed Worker. `@frames-ag/pay`'s createPaidFetch
-// loads this package via `import(pkg)` with a runtime-variable specifier,
-// which bundlers can't statically analyze — without this side-effect import,
-// the module is missing from the bundle and the runtime dynamic import
-// throws, which pay's catch translates as "not installed".
-import "@frames-ag/payment-tempo";
 import type { Bindings } from "./env";
 
 export interface BootedWallets {
@@ -172,24 +165,19 @@ export async function bootWallets(env: Bindings): Promise<BootedWallets> {
     }];
     evmConfigured = true;
 
-    // Tempo MPP uses the same private key, exposed as a viem Account.
-    // pay's createPaidFetch lazy-imports `@frames-ag/payment-tempo` for us.
+    // Tempo MPP — temporarily disabled in deployed Worker builds.
     //
-    // The `as any` on `account` is a workaround for bun's monorepo
-    // resolution producing two viem instances when pay and tick have
-    // independent dep trees. Runtime shape is identical; TS sees two
-    // distinct Account types. Resolves cleanly once we dedupe viem at
-    // the root workspace level.
-    const tempoAccount = privateKeyToAccount(evmKey);
-    byNetwork["tempo"] = [{
-      kind: "tempo",
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      account: tempoAccount as any,
-      label: "tick-outbound",
-      address: tempoAccount.address,
-      source: "env",
-    }];
-    tempoConfigured = true;
+    // pay's createPaidFetch calls loadTempoMppHandler which does
+    // `await import(pkg)` with a string-variable specifier. Workers'
+    // runtime has no module resolver to satisfy that — the lookup throws
+    // "not installed", pay's catch translates that as a misleading error,
+    // and the entire createPaidFetch call aborts. Aborting takes Solana
+    // MPP + EVM x402 down with it, blocking *all* paid calls.
+    //
+    // Skipping the tempo entry keeps the other handlers registered and the
+    // booted paidFetch usable. Restore once pay's createPaidFetch accepts
+    // pre-built handler injection so tick can construct a tempo handler
+    // itself via a static import.
   }
 
   const registry = new WalletRegistry({
