@@ -120,10 +120,17 @@ export async function createPaidFetch(
             "createPaidFetch: solanaRpcUrl is required when a Solana wallet is registered",
           );
         }
+        // Pass the configured RPC URL to BOTH handlers. The x402 exact
+        // handler's `rpcInput` (3rd arg) is optional — when omitted, the
+        // handler falls back to Solana's public mainnet-beta RPC, which
+        // is rate-limited and slow. Pre-v0.4.0 tick passed this; the
+        // first cut of createPaidFetch dropped it. Restored here.
         // The faremeter Solana wallet shape and our structural
         // SolanaWalletShape are compatible; cast to satisfy the types.
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        handlers.push(createX402SolanaHandler(entry.wallet as any, solanaMint as any));
+        handlers.push(
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          createX402SolanaHandler(entry.wallet as any, solanaMint as any, opts.solanaRpcUrl),
+        );
         mppHandlers.push(
           createMPPSolanaChargeClient({
             // eslint-disable-next-line @typescript-eslint/no-explicit-any

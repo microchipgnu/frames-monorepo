@@ -1,5 +1,26 @@
 # @frames-ag/pay
 
+## 0.2.1 — 2026-05-14 (hotfix — pass Solana RPC URL to x402 exact handler)
+
+`createPaidFetch` in v0.2.0 passed `solanaRpcUrl` to the MPP Solana
+charge client but **dropped it for the x402 exact handler**. Faremeter's
+`createPaymentHandler` accepts the RPC as an optional third arg; when
+omitted, it falls back to Solana's public `mainnet-beta` RPC
+(rate-limited, ~300-800ms latency).
+
+Fix: pass `opts.solanaRpcUrl` as the third argument to
+`createX402SolanaHandler`. One-line change.
+
+Caught before any paid Solana x402 calls were made — today's tick
+hosted runs only fetch `github.com` URLs (free). But would have
+manifested as slow/failing payments the first time a paid Solana
+endpoint was hit.
+
+Pre-existing in `faremeter-bridge.ts` (the descriptor-driven path) —
+NOT fixed here because that's a different mechanism (descriptor
+doesn't carry RPC config; needs a separate addressing). Tracked as
+a follow-up.
+
 ## 0.2.0 — 2026-05-14 (createPaidFetch + subpath exports)
 
 ### Minor Changes

@@ -1,5 +1,15 @@
 # @frames-ag/tick
 
+## 0.4.1 — 2026-05-14 (hotfix via pay@0.2.1 — Solana RPC URL restored to x402 handler)
+
+Picks up `@frames-ag/pay@0.2.1`, which restores the `solanaRpcUrl`
+passthrough to faremeter's x402 Solana exact handler. v0.4.0's
+consolidation accidentally dropped this — see pay's CHANGELOG.
+
+No code change in tick. The fix is one line in pay's `paid-fetch.ts`.
+
+bumps: `@frames-ag/tick` 0.4.0 → 0.4.1
+
 ## 0.4.0 — 2026-05-14 (consume `@frames-ag/pay` for buyer-side payments)
 
 Architectural cleanup. Tick was running 117 lines of buyer-side
