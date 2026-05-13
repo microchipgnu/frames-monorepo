@@ -43,6 +43,71 @@ export interface BootedWallets {
 }
 
 /**
+ * Public addresses for every configured outbound wallet. Used by `/addresses`
+ * so operators can fund the wallets externally without booting the full
+ * paidFetch stack. Returns `null` for any chain that isn't configured.
+ *
+ * Derived from env secrets — no wallet boot required. Safe to call from any
+ * request handler.
+ */
+export interface WalletAddresses {
+  solana: string | null;
+  evm: string | null;
+  tempo: string | null;
+}
+
+export function deriveWalletAddresses(env: Bindings): WalletAddresses {
+  let solana: string | null = null;
+  if (env.SOLANA_OUTBOUND_KEYPAIR_JSON) {
+    try {
+      const bytes = Uint8Array.from(JSON.parse(env.SOLANA_OUTBOUND_KEYPAIR_JSON));
+      if (bytes.length === 64) {
+        solana = base58Encode(bytes.slice(32));
+      }
+    } catch {
+      // Malformed keypair JSON — surfaced as null; /balance will say configured=false.
+    }
+  }
+
+  let evm: string | null = null;
+  if (env.EVM_OUTBOUND_PRIVATE_KEY) {
+    try {
+      evm = privateKeyToAccount(env.EVM_OUTBOUND_PRIVATE_KEY as `0x${string}`).address;
+    } catch {
+      // Malformed hex; surface null.
+    }
+  }
+
+  // Tempo MPP reuses the EVM key (see bootWallets for the rationale).
+  const tempo = evm;
+
+  return { solana, evm, tempo };
+}
+
+const BASE58_ALPHABET = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
+
+function base58Encode(bytes: Uint8Array): string {
+  if (bytes.length === 0) return "";
+  const digits: number[] = [0];
+  for (const b of bytes) {
+    let carry = b;
+    for (let i = 0; i < digits.length; i++) {
+      carry += (digits[i] ?? 0) * 256;
+      digits[i] = carry % 58;
+      carry = (carry / 58) | 0;
+    }
+    while (carry > 0) {
+      digits.push(carry % 58);
+      carry = (carry / 58) | 0;
+    }
+  }
+  let result = "";
+  for (let i = 0; i < bytes.length && bytes[i] === 0; i++) result += "1";
+  for (let i = digits.length - 1; i >= 0; i--) result += BASE58_ALPHABET[digits[i] ?? 0];
+  return result;
+}
+
+/**
  * Boot the outbound wallet stack from Worker env. Missing secrets degrade
  * gracefully: each chain is independent. Returns paidFetch even when no
  * wallets are configured (it's a thin pass-through to global fetch in

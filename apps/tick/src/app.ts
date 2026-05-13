@@ -41,7 +41,7 @@ import { settleX402, verifyInboundX402 } from "./payment/x402";
 import { checkRateLimit, identityKeyForRequest } from "./rate-limit";
 import { errorResponse } from "./util/errors";
 import { log } from "./util/log";
-import { bootWallets, type BootedWallets } from "./wallet";
+import { bootWallets, deriveWalletAddresses, type BootedWallets } from "./wallet";
 
 const VALID_OPS: ReadonlySet<Op> = new Set(["curate", "refresh", "verify", "discover"]);
 
@@ -1215,6 +1215,20 @@ app.get("/balance", (c) => {
       evm_configured: !!c.env?.EVM_OUTBOUND_PRIVATE_KEY,
       tempo_configured: !!c.env?.EVM_OUTBOUND_PRIVATE_KEY, // same key as EVM
     },
+  });
+});
+
+// Public addresses of the outbound wallets, so an operator can fund them
+// externally (Solana USDC for Locus/Solana-MPP, Base USDC for x402,
+// Tempo for Tempo-MPP). Read-only: derived from the same env secrets as
+// /balance, never exposes the private key. Returns `null` per chain when
+// the secret isn't configured. Unauthenticated by design — public addresses
+// are not sensitive.
+app.get("/addresses", (c) => {
+  const addrs = deriveWalletAddresses(c.env);
+  return c.json({
+    note: "Public outbound-wallet addresses for funding. Solana funds Locus/Solana-MPP; EVM funds Base x402; Tempo MPP reuses the EVM key (same address on Tempo).",
+    addresses: addrs,
   });
 });
 
