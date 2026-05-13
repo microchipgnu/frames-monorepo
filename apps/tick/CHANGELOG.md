@@ -1,5 +1,67 @@
 # @frames-ag/tick
 
+## 0.3.12 — 2026-05-13 (apply the "commit decisively" prompt fix to the refresh sub-agent too)
+
+v0.3.11's first validation run revealed a different failure mode than
+expected. Of the 8 remaining `no_op` sub-loops on the post-v0.3.11
+curate, **3 were refresh sub-loops, not discover**. Trace from one:
+
+```
+iter 1: "I'll fetch the GitHub repository for this entity to verify
+         and fill in all fields."
+iter 2: "Let me fetch additional details from the GitHub API and the
+         README to fill in the missing fields."
+iter 3: KILLED by streak-of-2 early stop.
+```
+
+This is the same over-corroboration mode v0.3.3 fixed for the discover
+sub-loop — but the refresh sub-loop's prompt was never updated to
+match. v0.3.3 only touched `discover-entity.ts`. The legacy
+"Stop AS SOON as you have a decision. Don't over-explore." language
+remained in `refresh-entity.ts:buildRefreshSystem` since v0.1.0.
+
+### Fix
+
+Mirrored v0.3.3's prompt shape to `refresh-entity.ts:buildRefreshSystem`:
+
+- **Commit by iter 2.** After ONE confirming fetch, propose. No need
+  for a corroborating second source.
+- **New "When to commit vs reject"** section enumerating concrete
+  triggers. Calls out that `no_change` is the correct outcome on
+  stable entities — not a failure.
+- **Explicit "Avoid the over-corroboration trap"** anti-pattern:
+  GitHub UI → API → README → wiki is the 4-fetch death spiral. Pick
+  one source, propose, return.
+- **Hard rule rewrite**: "Do NOT fetch a second source just to feel
+  more confident."
+
+Why the threshold is iter 2 (vs discover's iter 3): refresh starts
+with the entity's existing facts pre-loaded. The first fetch is
+either a confirm (→ no_change) or a contradiction (→ propose_*).
+Either outcome is decidable from one fetch. Discover starts blind
+and may genuinely need two fetches to confirm a real entity exists.
+
+### Expected impact
+
+Of today's hosted runs on `mcp-servers`, 3-5 sub-loops per run were
+refresh-mode timeouts. If the new prompt converts those to fast
+`no_change` or `propose_facts`:
+
+- Lower wasted spend per curate (~$0.05-0.10 saved)
+- Cleaner signal back to the parent (no_change vs no_op = the parent
+  knows the entity is current vs the entity is unverified)
+- Sub-loops complete in 2 iters typically instead of timing out at 3
+
+### Validating
+
+Next `tick-hosted.yml` run. Expectation: of the 8 no_op outcomes
+today, 3-5 should convert. Watch the `assistant_text` traces to
+confirm the model now commits after one fetch instead of pivoting.
+
+bumps: `@frames-ag/tick` 0.3.11 → 0.3.12
+
+---
+
 ## 0.3.11 — 2026-05-13 (sharper no_match trigger in discover sub-agent)
 
 First diagnostic data from v0.3.9 (the `assistant_text` capture) on a
