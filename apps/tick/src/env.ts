@@ -35,6 +35,15 @@ export type Bindings = {
   FRAMES_CLOUD?: Fetcher;
 
   /**
+   * Service binding for the catalog Worker — same Worker→Worker pattern as
+   * FRAMES_CLOUD. When `CATALOG_BASE` points at a `*.workers.dev` URL,
+   * direct HTTP fetch returns 404+1042. The binding routes through CF's
+   * internal RPC instead. Falls back to global fetch against `CATALOG_BASE`
+   * when this binding is missing (local dev or external catalog).
+   */
+  CATALOG?: Fetcher;
+
+  /**
    * Durable Object namespace for EntityAgent — runs each refresh_entity
    * sub-loop in an isolated DO instance. Concurrent across entities via
    * `Promise.all`, each with its own 30s CPU budget. Falls back to the

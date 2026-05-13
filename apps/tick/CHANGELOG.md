@@ -1,5 +1,58 @@
 # @frames-ag/tick
 
+## 0.4.3 — 2026-05-14 (CATALOG service binding — fixes Worker→Worker 404+1042)
+
+When the new catalog landed at `catalog.microchipgnu.workers.dev` and we
+pointed `CATALOG_BASE` at it, three consecutive layoffs curates showed
+the same pattern: agent calls `catalog_search`, dispatch returns an
+error, agent says "Catalog is unavailable" and falls back to
+`web_fetch`. Zero paid tool calls.
+
+Root cause: CF Workers can't reliably fetch each other's `*.workers.dev`
+URLs — direct HTTP returns `404 + Cloudflare error 1042`. We hit the
+exact same wall in week 1 with frames-cloud and solved it with a service
+binding. Catalog is the same shape and needs the same fix.
+
+### Fix
+
+Added `CATALOG` service binding alongside the existing `FRAMES_CLOUD`:
+
+**`wrangler.toml`:**
+```toml
+[[services]]
+binding = "CATALOG"
+service = "catalog"
+```
+
+**`env.ts`:** `CATALOG?: Fetcher` in the Bindings type, alongside `FRAMES_CLOUD`.
+
+**`catalog/client.ts`:** `CatalogClient` now accepts an optional `fetch`
+override (typed `FetcherFetch` so both global fetch and `Fetcher.fetch`
+satisfy it). Defaults to `globalThis.fetch` when unset.
+
+**`app.ts`:**
+```ts
+catalog: new CatalogClient({
+  base: env?.CATALOG_BASE,
+  fetch: env?.CATALOG ? env.CATALOG.fetch.bind(env.CATALOG) : undefined,
+})
+```
+
+Mirror of the FRAMES_CLOUD wiring pattern.
+
+### Validation
+
+After this deploys + first manual layoffs run:
+- `catalog_search` should return real ToolDescriptors (currently returns dispatch error)
+- Agent should `tool_invoke` against the cheapest descriptor
+- First paid catalog tool call goes through the v0.4.x payment path
+
+149 tests pass (unchanged).
+
+bumps: `@frames-ag/tick` 0.4.2 → 0.4.3
+
+---
+
 ## 0.4.2 — 2026-05-14 (CitationAgent batches multiple facts into one Haiku call)
 
 Today's first manual hosted curate exposed a real issue: with 15

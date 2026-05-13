@@ -36,6 +36,14 @@ migrations_dir = "migrations"
 binding = "FRAMES_CLOUD"
 service = "frames-cloud"
 
+# Catalog Worker — same Worker→Worker routing pattern. catalog runs at
+# catalog.microchipgnu.workers.dev; direct HTTP from tick (also *.workers.dev)
+# returns 404+1042. The binding routes via CF's internal RPC. CatalogClient
+# falls back to HTTP against CATALOG_BASE when this binding is unset.
+[[services]]
+binding = "CATALOG"
+service = "catalog"
+
 # ---------------------------------------------------------------------------
 # Workers AI binding — used both for CF-hosted models (@cf/...) and partnered
 # third-party models (anthropic/*, openai/*, etc.). Cloudflare bills directly

@@ -466,7 +466,12 @@ async function executeOpDispatch(args: DispatchArgs): Promise<DispatchOutcome> {
           // local dev / smoketest.
           fetch: env?.FRAMES_CLOUD ? env.FRAMES_CLOUD.fetch.bind(env.FRAMES_CLOUD) : undefined,
         }),
-        catalog: new CatalogClient({ base: env?.CATALOG_BASE }),
+        catalog: new CatalogClient({
+          base: env?.CATALOG_BASE,
+          // Service binding when running on CF (workers-to-workers via
+          // *.workers.dev URLs returns 404+1042). Same pattern as FRAMES_CLOUD.
+          fetch: env?.CATALOG ? env.CATALOG.fetch.bind(env.CATALOG) : undefined,
+        }),
         llm,
         env,
         onEvent: args.onEvent,

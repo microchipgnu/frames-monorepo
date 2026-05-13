@@ -56,21 +56,40 @@ export interface CatalogListResponse {
   cursor?: string | null;
 }
 
+/**
+ * Minimal fetch signature that both global `fetch` and CF Worker
+ * `Fetcher['fetch']` satisfy. (CF's typing doesn't include `preconnect`
+ * which `typeof fetch` requires.)
+ */
+type FetcherFetch = (
+  input: RequestInfo | URL,
+  init?: RequestInit,
+) => Promise<Response>;
+
 export interface CatalogClientOptions {
   base?: string;
   /** ETag cache shared across requests. Lets repeated reads short-circuit on 304. */
   etag_cache?: Map<string, { etag: string; body: string }>;
+  /**
+   * Optional fetch override. When the catalog is another CF Worker reached
+   * via service binding (`env.CATALOG.fetch.bind(env.CATALOG)`), pass it
+   * here to avoid the workers.dev → workers.dev 404+1042 failure mode.
+   * Falls back to global fetch when unset.
+   */
+  fetch?: FetcherFetch;
 }
 
 export class CatalogClient {
   private base: string;
   private etagCache?: Map<string, { etag: string; body: string }>;
+  private readonly fetchImpl: FetcherFetch;
   /** In-memory descriptor cache by id. The catalog is content-addressed so caching by id is safe within a session. */
   private descriptorCache = new Map<string, ToolDescriptor>();
 
   constructor(opts: CatalogClientOptions = {}) {
     this.base = opts.base ?? CATALOG_BASE;
     this.etagCache = opts.etag_cache;
+    this.fetchImpl = opts.fetch ?? (fetch as FetcherFetch);
   }
 
   /**
@@ -171,7 +190,7 @@ export class CatalogClient {
     const headers = new Headers({ accept: "application/json" });
     const cached = this.etagCache?.get(url);
     if (cached) headers.set("If-None-Match", cached.etag);
-    const res = await fetch(url, { headers });
+    const res = await this.fetchImpl(url, { headers });
     if (res.status === 304 && cached) {
       return JSON.parse(cached.body);
     }
