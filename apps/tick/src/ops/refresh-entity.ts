@@ -222,6 +222,12 @@ export async function refreshEntity(opts: RefreshEntityOptions): Promise<Refresh
   // loop, so reaching the end of an iter means "non-terminal iter — only
   // fetches / errors happened." Count those in a row; break when the model
   // strings together too many no-progress iters.
+  //
+  // Threshold raised to 3 in v0.3.14 (matching discover's v0.3.1 fix).
+  // Live data 2026-05-13 showed refresh sub-loops legitimately needing 2
+  // fetches (human-facing URL + structured API endpoint) before a propose
+  // when the page lacks readable numeric fields. With threshold 2, iter 3
+  // (the propose iter) was being killed before the model could act.
   let nonTerminalStreak = 0;
 
   const facts_to_set: ProposedFact[] = [];
@@ -258,15 +264,15 @@ export async function refreshEntity(opts: RefreshEntityOptions): Promise<Refresh
       break;
     }
 
-    // Evidence-aware early stop: if the model has chained 2 consecutive
+    // Evidence-aware early stop: if the model has chained 3 consecutive
     // iters that only fetched (no propose / deprecate / no_change), it's
     // spinning. Bail before burning the rest of the iter cap on more dead
-    // fetches. Sub-loops are short (≤5 iters) so this saves at most 2
-    // iters per call — but on a 13-entity parallel curate that's 26 saved
-    // worst-case.
-    if (nonTerminalStreak >= 2) {
+    // fetches. Sub-loops are short (≤5 iters) so worst-case wasted iters
+    // when truly stuck is 2 — but legitimate 2-fetch convergence patterns
+    // (HTML page + structured API) get their iter 3 to propose.
+    if (nonTerminalStreak >= 3) {
       stop_reason = "no_progress";
-      narrative = `(sub-loop stopped at iter ${iter} after 2 consecutive non-proposing iters — model not converging on this entity)`;
+      narrative = `(sub-loop stopped at iter ${iter} after 3 consecutive non-proposing iters — model not converging on this entity)`;
       break;
     }
 

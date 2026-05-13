@@ -218,11 +218,20 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
       break;
     }
 
+    // max_tokens bumped 4096 → 8192 in v0.3.14. v0.3.13's structured-output
+    // summarizer produces denser per-fetch results (field names + values +
+    // excerpts + notes vs prior prose), and the model's response on
+    // multi-tool-use turns (parallel sub-agent dispatches with arguments
+    // each) can be sizeable. Live data 2026-05-13 caught a
+    // stop_reason: max_tokens parent halt that wasn't happening before.
+    // 8192 leaves room without being wasteful — typical turns produce
+    // 200-1500 output tokens.
     const llmRes = await opts.llm.call({
       system,
       messages,
       tools: CURATE_TOOLS,
       agent: "build",
+      max_tokens: 8192,
     });
     const llmCost = Number(llmRes.usage.estimated_cost);
     remaining -= llmCost;

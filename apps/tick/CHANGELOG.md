@@ -1,5 +1,67 @@
 # @frames-ag/tick
 
+## 0.3.14 — 2026-05-13 (loop-shape fixes — refresh threshold + parent max_tokens)
+
+Two small fixes surfaced by v0.3.13's validation run. Both are loop-shape
+tunings, not fetcher-architecture changes — they apply regardless of how
+web_fetch is implemented. Fetcher routing improvements (Firecrawl-style
+structured extraction) are deferred to the federated catalog where they
+belong; this release ships only what's general.
+
+### Fixes
+
+**1. `refresh-entity.ts` — `nonTerminalStreak >= 2` → `>= 3`.**
+
+Today's diagnostic data showed refresh sub-loops legitimately needing 2
+fetches when the human-facing URL doesn't have the structured fields
+the schema requires:
+
+  iter 1: fetch github.com/owner/repo → got description, missing stars
+  iter 2: fetch api.github.com/repos/owner/repo → got stars
+  iter 3: propose facts ← KILLED by streak-of-2
+
+The threshold was a mismatch with discover's (raised to 3 in v0.3.1
+for the same reason). Refresh now matches discover. Worst-case wasted
+iters when genuinely stuck rises from 1 to 2 (~$0.025 → ~$0.050) but
+the convergence path opens.
+
+**2. `curate.ts` — parent loop `max_tokens` 4096 → 8192.**
+
+v0.3.13 introduced `stop_reason: max_tokens` halts that weren't
+happening before. The structured-output summarizer produces denser
+per-fetch results (field names + values + excerpts + notes per field
+vs prior prose) and the model's multi-tool-use response turns (when
+dispatching N parallel sub-agents each with arguments) can be sizeable.
+4096 was too tight against the new context shape.
+
+Typical turns produce 200-1500 output tokens; 8192 leaves room without
+being wasteful. Bumped only at the parent loop's main LLM call —
+wrap-up calls (already Haiku, short) and sub-loop calls (already
+2048 max) stay as-is.
+
+### What this is NOT
+
+Not a fetcher fix. The remaining `no_op` cases where the human-facing
+URL lacks structured fields will still need a 2-fetch dance. Real fix
+for that pattern is **federated-catalog Firecrawl-shape extraction**:
+when the catalog has a structured-extract tool entry, the agent calls
+`tool_invoke("firecrawl.extract", {url, schema})` and gets typed JSON
+in one shot. Operator action; not in tick code.
+
+### Validates
+
+Tomorrow's overnight `tick-hosted.yml` run. Expectations:
+- No more `stop_reason: max_tokens` halts on the parent
+- Some of the refresh-mode `no_op` cases convert to `propose_facts`
+  or `no_change` (specifically the 2-fetch-then-propose pattern)
+- General no_op rate drops modestly — full fix waits for catalog-Firecrawl
+
+140 tests pass (unchanged).
+
+bumps: `@frames-ag/tick` 0.3.13 → 0.3.14
+
+---
+
 ## 0.3.13 — 2026-05-13 (structured-output summarizer — Haiku emits per-field JSON, not prose)
 
 v0.3.12's validation run revealed the actual blocker behind discover/refresh
