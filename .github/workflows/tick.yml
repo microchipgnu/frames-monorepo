@@ -37,15 +37,15 @@ jobs:
       fail-fast: false
       matrix:
         dataset:
-          # mcp-servers migrated to tick-hosted.yml (v0.3.x hosted runtime).
-          # Will move others over progressively after a week of side-by-side data.
+          # mcp-servers + layoffs-2026 migrated to tick-hosted.yml (v0.3.x
+          # hosted runtime). Will move others over progressively after a
+          # week of side-by-side data.
           - ai-promises
           - ai-models
           - elon-tweets
           - blindspot-briefs
           - agent-networks
           - agent-wallets
-          - layoffs-2026
           - crypto-ai-jobs
     steps:
       - uses: actions/checkout@v4

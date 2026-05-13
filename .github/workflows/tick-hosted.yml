@@ -44,6 +44,7 @@ jobs:
       matrix:
         dataset:
           - mcp-servers
+          - layoffs-2026
     steps:
       - uses: actions/checkout@v4
         with:
