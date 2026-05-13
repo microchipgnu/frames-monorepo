@@ -57,27 +57,35 @@ Inventory existing entities and their `date_announced` values.
 
 ### 2. Discover new announcements
 
-**Before any external fetch, find the right tools:**
+**Before any external fetch, find the right tools.** Use these capability
+tags — they're what the catalog at `catalog.microchipgnu.workers.dev`
+actually indexes (verified 2026-05-14):
 
 ```
-catalog_search(capability="news-search", limit=10)
-catalog_search(capability="web-search",  limit=10)
-catalog_search(capability="social-search", limit=10)
+catalog_search(capability="news",       limit=5)   # news search (e.g. Brave News, Serper)
+catalog_search(capability="web-search", limit=10)  # general web search (Brave Search, etc.)
+catalog_search(capability="search",     limit=5)   # broader search bucket
+catalog_search(capability="semantic",   limit=5)   # semantic / neural search if present
 ```
 
-Pick the cheapest available tool per capability and `tool_invoke` it. Example
-queries to fan out:
+Pick the cheapest available tool per capability and `tool_invoke` it.
+Example queries to fan out across whatever tools are returned:
 
-- News-search: `"layoffs 2026"`, `"company layoffs <previous-week-date>"`
-- Web-search (semantic if available): `"company announces layoffs in 2026"`
-  with a freshness filter ≤ 7 days
-- Social-search (Reddit/X): `"laid off today"`, scoped to recent week
+- News: `"layoffs 2026"`, `"company layoffs <previous-week-date>"`
+- Web-search: `"company announces layoffs in 2026"` with a freshness
+  filter ≤ 7 days if the tool supports it
+- Semantic (if any): `"workforce reduction announcements"` — broader query
+
+**Avoid asking for tags that don't exist.** As of 2026-05-14 the catalog
+does NOT have entries tagged `news-search`, `social-search`,
+`semantic-search`, or `scrape`. Try the tags above instead. If
+`catalog_search` returns empty `tools[]` for ALL of them, fall back to:
+- SEC EDGAR direct `web_fetch` (`https://www.sec.gov/cgi-bin/browse-edgar`)
+- WARN notice database `web_fetch` (state-specific)
+- `discover_entity` with seed_urls when you already know an authoritative URL
 
 Deduplicate by company name across all sources. **Cap at 20 new
 candidates per run** to bound cost.
-
-If `catalog_search` returns nothing for a capability, fall back to direct
-SEC EDGAR `web_fetch` and `discover_entity` with seed_urls.
 
 ### 3. For each new candidate
 
