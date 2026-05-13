@@ -1,0 +1,136 @@
+# Drop this into `.github/workflows/tick-curate.yml` inside the repo that
+# hosts your frame. Runs weekly + on-demand, calling the hosted tick
+# runtime to refresh the dataset and committing new events back.
+#
+# Setup (one-time):
+#   1. Sign up at tick.frames.ag and copy your API key.
+#   2. In this repo: Settings → Secrets and variables → Actions → New secret
+#      Name:  TICK_API_KEY
+#      Value: <your key>
+#   3. Edit FRAME_PATH below to point at your frame's directory in this repo
+#      (the directory that contains schema.yml + events.ndjson).
+#   4. Commit + push. Action will fire weekly; trigger manually via
+#      Actions tab → tick-curate → "Run workflow".
+#
+# What it does on each run:
+#   - POSTs to https://tick.frames.ag/run with op=curate
+#   - tick reads your frame, expands + refreshes facts via sub-agents,
+#     verifies citations via Haiku, returns new events
+#   - This workflow appends the new events to events.ndjson and commits
+#
+# Cost: bounded by the `budget` field below. Tick refuses to overshoot.
+# Typical small frames (5-20 entities): $0.50-$2.00 per run.
+
+name: tick-curate
+
+on:
+  schedule:
+    # Mondays at 06:13 UTC. Avoid :00 marks to dodge cron pile-ups.
+    - cron: "13 6 * * 1"
+  workflow_dispatch:
+    inputs:
+      budget:
+        description: "USDC budget for this run (overrides default)"
+        required: false
+        default: "1.50"
+
+env:
+  # Path to your frame relative to the repo root. Must contain schema.yml.
+  FRAME_PATH: datasets/my-frame
+  # Default budget per run when triggered by schedule.
+  DEFAULT_BUDGET: "1.50"
+
+permissions:
+  contents: write
+
+jobs:
+  curate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate setup
+        run: |
+          if [ -z "${TICK_API_KEY:-}" ]; then
+            echo "::error::TICK_API_KEY secret is not set. See workflow header for setup."
+            exit 1
+          fi
+          if [ ! -f "${FRAME_PATH}/schema.yml" ]; then
+            echo "::error::No schema.yml at ${FRAME_PATH}/. Edit FRAME_PATH in this workflow."
+            exit 1
+          fi
+        env:
+          TICK_API_KEY: ${{ secrets.TICK_API_KEY }}
+
+      - name: Run curate
+        id: curate
+        env:
+          TICK_API_KEY: ${{ secrets.TICK_API_KEY }}
+          BUDGET: ${{ github.event.inputs.budget || env.DEFAULT_BUDGET }}
+        run: |
+          FRAME_URL="https://github.com/${GITHUB_REPOSITORY}/${FRAME_PATH}"
+          echo "Curating ${FRAME_URL} with budget \$${BUDGET}"
+
+          RESPONSE=$(curl -fsS -X POST https://tick.frames.ag/run \
+            -H "authorization: Bearer ${TICK_API_KEY}" \
+            -H "content-type: application/json" \
+            -d "$(jq -nc \
+              --arg frame "${FRAME_URL}" \
+              --arg budget "${BUDGET}" \
+              '{op:"curate",frame:$frame,budget:$budget}')")
+
+          echo "$RESPONSE" > /tmp/tick-result.json
+          EVENT_COUNT=$(echo "$RESPONSE" | jq '.events | length')
+          SETTLED=$(echo "$RESPONSE" | jq -r '.settled')
+          STOP=$(echo "$RESPONSE" | jq -r '.report.stop_reason')
+          VERIFY=$(echo "$RESPONSE" | jq -r '.report.verify_citations | "\(.supported)/\(.facts_checked) supported, \(.unsupported) deprecated"')
+
+          echo "events=${EVENT_COUNT}" >> "$GITHUB_OUTPUT"
+          echo "settled=${SETTLED}" >> "$GITHUB_OUTPUT"
+
+          echo "::notice title=Curate result::events=${EVENT_COUNT} stop=${STOP} settled=\$${SETTLED} verify=${VERIFY}"
+
+      - name: Append events to events.ndjson
+        if: steps.curate.outputs.events != '0'
+        run: |
+          # The /run response includes a `.events[]` array (canonical frame
+          # event shape). Append each as one NDJSON line.
+          jq -c '.events[]' /tmp/tick-result.json >> "${FRAME_PATH}/events.ndjson"
+          echo "Appended ${{ steps.curate.outputs.events }} events to ${FRAME_PATH}/events.ndjson"
+
+      - name: Commit + push
+        if: steps.curate.outputs.events != '0'
+        run: |
+          git config user.name "tick-bot"
+          git config user.email "tick-bot@users.noreply.github.com"
+          git add "${FRAME_PATH}/events.ndjson"
+          git diff --cached --quiet && exit 0
+          git commit -m "tick: ${FRAME_PATH##*/} refresh ($(date -u +%Y-%m-%dT%H:%MZ))"
+          git pull --rebase || true
+          git push
+
+      - name: Upload run JSON
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tick-result-${{ github.run_id }}
+          path: /tmp/tick-result.json
+          retention-days: 30
+
+      - name: Summary
+        if: always()
+        run: |
+          if [ -f /tmp/tick-result.json ]; then
+            echo "## Tick run summary" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+            jq -r '.summary' /tmp/tick-result.json >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "**Sub-agents:**" >> "$GITHUB_STEP_SUMMARY"
+            jq -r '.sub_runs[] | "- \(.action): `\(.entity_id)` — \(.facts_set) facts in \(.iterations) iters (\$\(.llm_cost))"' /tmp/tick-result.json >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "**Citation verifier:**" >> "$GITHUB_STEP_SUMMARY"
+            jq -r '.report.verify_citations | "- checked: \(.facts_checked)\n- supported: \(.supported)\n- deprecated: \(.unsupported)\n- llm cost: $\(.llm_cost)"' /tmp/tick-result.json >> "$GITHUB_STEP_SUMMARY"
+          fi

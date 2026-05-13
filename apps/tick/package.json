@@ -1,6 +1,6 @@
 {
   "name": "@frames-ag/tick",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "module": "src/index.ts",
   "type": "module",
   "private": false,
@@ -75,6 +75,7 @@
     "dist/cli.js",
     "dist/types/",
     "skill/",
+    "examples/",
     "README.md",
     "CHANGELOG.md",
     "DEPLOY.md",

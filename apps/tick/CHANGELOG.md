@@ -1,5 +1,37 @@
 # @frames-ag/tick
 
+## 0.3.4 — 2026-05-13 (drop-in GitHub Action template for hosted curate)
+
+Adds `examples/github-action.yml` + `examples/README.md` to the
+published npm package. The template is the smallest possible
+customer-facing onboarding flow:
+
+1. Copy `examples/github-action.yml` to `.github/workflows/tick-curate.yml`
+   in the repo containing your frame.
+2. Add `TICK_API_KEY` as a repo secret.
+3. Edit `FRAME_PATH` to point at your frame directory.
+4. Commit. Action fires weekly, also exposes `workflow_dispatch` for
+   on-demand runs.
+
+The template POSTs to `tick.frames.ag/run`, appends new events to
+`events.ndjson`, commits + pushes. Job summary surfaces per-sub-agent
+breakdown and citation verifier counts. Full JSON uploaded as an
+artifact for 30 days.
+
+### Why drop-in vs documentation
+
+Reading a docs page about "how to integrate tick into your CI" is a
+20-minute task. Copying one YAML file into the right directory is a
+2-minute task. The template is the docs.
+
+The existing `frames-monorepo` cron uses `opencode + agent skills`
+(legacy flow); this template is the v0.3+ path that calls the hosted
+tick runtime directly via HTTP. New customers should use this.
+
+bumps: `@frames-ag/tick` 0.3.3 → 0.3.4
+
+---
+
 ## 0.3.3 — 2026-05-13 (discover prompt tuning — make "commit decisively" explicit)
 
 Live curate runs of 2026-05-13 showed discover sub-loops reach iter 3
