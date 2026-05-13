@@ -27,6 +27,13 @@ import { createLocalWallet as createSolanaWallet } from "@faremeter/wallet-solan
 import { createLocalWallet as createEvmWallet } from "@faremeter/wallet-evm";
 import { privateKeyToAccount } from "viem/accounts";
 import { base } from "viem/chains";
+// Static reference to @frames-ag/payment-tempo so wrangler's bundler ships
+// the module into the deployed Worker. `@frames-ag/pay`'s createPaidFetch
+// loads this package via `import(pkg)` with a runtime-variable specifier,
+// which bundlers can't statically analyze — without this side-effect import,
+// the module is missing from the bundle and the runtime dynamic import
+// throws, which pay's catch translates as "not installed".
+import "@frames-ag/payment-tempo";
 import type { Bindings } from "./env";
 
 export interface BootedWallets {
