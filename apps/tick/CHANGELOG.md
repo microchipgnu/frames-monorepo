@@ -1,5 +1,23 @@
 # @frames-ag/tick
 
+## 0.3.7 — 2026-05-13 (github action template polish — zero-events runs render cleanly)
+
+Templates were rendering "null/null/null supported" in job summaries
+when a curate run produced zero events (the verifier never runs in
+that case, so `report.verify_citations` is null). Polish-only.
+
+Changes to `examples/github-action.yml`:
+- "Curate result" notice uses a conditional jq expression that prints
+  "no facts written — verifier did not run" when the verifier block
+  is absent
+- Job summary section gates on sub-run count and verifier presence;
+  no zombie "**Sub-agents (0):**" headers, no malformed verifier
+  table
+
+bumps: `@frames-ag/tick` 0.3.6 → 0.3.7
+
+---
+
 ## 0.3.6 — 2026-05-13 (hotfix — point at the production URL that actually responds)
 
 Multiple surfaces in the codebase point at `tick.frames.ag`. That

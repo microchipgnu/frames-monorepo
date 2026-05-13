@@ -90,7 +90,9 @@ jobs:
           EVENT_COUNT=$(echo "$RESPONSE" | jq '.events | length')
           SETTLED=$(echo "$RESPONSE" | jq -r '.settled')
           STOP=$(echo "$RESPONSE" | jq -r '.report.stop_reason')
-          VERIFY=$(echo "$RESPONSE" | jq -r '.report.verify_citations | "\(.supported)/\(.facts_checked) supported, \(.unsupported) deprecated"')
+          # verify_citations is only present when events were written.
+          VERIFY=$(echo "$RESPONSE" \
+            | jq -r 'if .report.verify_citations then "\(.report.verify_citations.supported)/\(.report.verify_citations.facts_checked) supported, \(.report.verify_citations.unsupported) deprecated" else "no facts written — verifier did not run" end')
 
           echo "events=${EVENT_COUNT}" >> "$GITHUB_OUTPUT"
           echo "settled=${SETTLED}" >> "$GITHUB_OUTPUT"
@@ -127,16 +129,27 @@ jobs:
       - name: Summary
         if: always()
         run: |
-          if [ -f /tmp/tick-result.json ]; then
-            echo "## Tick run summary" >> "$GITHUB_STEP_SUMMARY"
-            echo "" >> "$GITHUB_STEP_SUMMARY"
-            echo '```' >> "$GITHUB_STEP_SUMMARY"
-            jq -r '.summary' /tmp/tick-result.json >> "$GITHUB_STEP_SUMMARY"
-            echo '```' >> "$GITHUB_STEP_SUMMARY"
-            echo "" >> "$GITHUB_STEP_SUMMARY"
-            echo "**Sub-agents:**" >> "$GITHUB_STEP_SUMMARY"
-            jq -r '.sub_runs[] | "- \(.action): `\(.entity_id)` — \(.facts_set) facts in \(.iterations) iters (\$\(.llm_cost))"' /tmp/tick-result.json >> "$GITHUB_STEP_SUMMARY"
-            echo "" >> "$GITHUB_STEP_SUMMARY"
-            echo "**Citation verifier:**" >> "$GITHUB_STEP_SUMMARY"
-            jq -r '.report.verify_citations | "- checked: \(.facts_checked)\n- supported: \(.supported)\n- deprecated: \(.unsupported)\n- llm cost: $\(.llm_cost)"' /tmp/tick-result.json >> "$GITHUB_STEP_SUMMARY"
+          if [ ! -f /tmp/tick-result.json ]; then
+            exit 0
           fi
+          {
+            echo "## Tick run summary"
+            echo ""
+            echo '```'
+            jq -r '.summary' /tmp/tick-result.json
+            echo '```'
+            echo ""
+            SUB_COUNT=$(jq '.sub_runs | length' /tmp/tick-result.json)
+            if [ "${SUB_COUNT}" -gt 0 ]; then
+              echo "**Sub-agents (${SUB_COUNT}):**"
+              echo ""
+              jq -r '.sub_runs[] | "- `\(.action)`: `\(.entity_id)` — \(.facts_set) facts in \(.iterations) iters ($\(.llm_cost))"' /tmp/tick-result.json
+              echo ""
+            fi
+            HAS_VERIFY=$(jq -r 'if .report.verify_citations then "yes" else "no" end' /tmp/tick-result.json)
+            if [ "${HAS_VERIFY}" = "yes" ]; then
+              echo "**Citation verifier:**"
+              echo ""
+              jq -r '.report.verify_citations | "- checked: \(.facts_checked)\n- supported: \(.supported)\n- deprecated: \(.unsupported)\n- llm cost: $\(.llm_cost)"' /tmp/tick-result.json
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
