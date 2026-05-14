@@ -511,10 +511,11 @@ const MODEL_PRICES: Record<string, { in: number; out: number }> = {
   "claude-sonnet-4-6": { in: 3.0, out: 15.0 },
   "claude-opus-4-7": { in: 15.0, out: 75.0 },
 
-  // ===== Google Gemini (cheap, fast, 1M context, function calling) =====
-  "google/gemini-2.0-flash": { in: 0.15, out: 0.60 },
-  "google/gemini-2.5-flash": { in: 0.30, out: 2.50 },
-  "google/gemini-2.5-pro": { in: 1.25, out: 10.0 },
+  // ===== Google Gemini (cheap, fast, 1M context, function calling)
+  // CF AI Gateway prefix is `google-ai-studio` (NOT `google`) per their provider list.
+  "google-ai-studio/gemini-2.0-flash": { in: 0.15, out: 0.60 },
+  "google-ai-studio/gemini-2.5-flash": { in: 0.30, out: 2.50 },
+  "google-ai-studio/gemini-2.5-pro": { in: 1.25, out: 10.0 },
 
   // ===== OpenAI =====
   "openai/gpt-4o-mini": { in: 0.15, out: 0.60 },

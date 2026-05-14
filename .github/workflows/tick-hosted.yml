@@ -29,11 +29,11 @@ on:
         required: false
         default: "1.50"
       model:
-        description: "Parent model. Options: anthropic/claude-{sonnet-4-6 (default, has prompt cache),opus-4-7}; google/gemini-2.5-pro; openai/gpt-4.1; xai/grok-3"
+        description: "Parent model (validated: anthropic/claude-sonnet-4-6 [default, cache]). Untested: google-ai-studio/gemini-2.5-pro, openai/gpt-4.1, xai/grok-3"
         required: false
         default: ""
       sub_agent_model:
-        description: "Sub-agent model. Options: anthropic/claude-haiku-4-5 (default, has prompt cache); google/gemini-2.0-flash; openai/gpt-4o-mini; groq/llama-3.3-70b-versatile; deepseek/deepseek-chat"
+        description: "Sub-agent model (validated: anthropic/claude-haiku-4-5 [default, cache]). Untested: google-ai-studio/gemini-2.0-flash, openai/gpt-4o-mini, groq/llama-3.3-70b-versatile"
         required: false
         default: ""
 
