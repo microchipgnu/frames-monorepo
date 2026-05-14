@@ -154,17 +154,27 @@ export class LlmClient {
     let model;
     let routingPath: "anthropic-gateway" | "anthropic-direct" | "unified-gateway";
     if (gw && isAnthropicModel) {
-      // CF Gateway BYOK: pass the alias as `x-api-key` (createAnthropic puts
-      // apiKey there). Gateway resolves the alias to the real upstream key.
-      // When no alias, fall back to a placeholder — gateway will use its
-      // default upstream config.
+      // CF Gateway BYOK uses a custom header, NOT the upstream provider's
+      // standard auth header: `cf-aig-byok-alias: <alias>` tells the gateway
+      // to substitute the alias for the stored upstream key before forwarding
+      // to Anthropic. The Worker never sees the real key.
+      //
+      // The SDK still requires `apiKey` (for x-api-key). We pass a placeholder
+      // — the gateway strips/ignores it when cf-aig-byok-alias is present.
+      // For passthrough (no BYOK) we send the real anthropic key as x-api-key.
       const bareModelId = modelId.replace(/^anthropic\//, "");
+      const useByok = !!this.cfg.byokAlias;
+      const extraHeaders: Record<string, string> = {};
+      if (this.cfg.gatewayToken) {
+        extraHeaders["cf-aig-authorization"] = `Bearer ${this.cfg.gatewayToken}`;
+      }
+      if (useByok) {
+        extraHeaders["cf-aig-byok-alias"] = this.cfg.byokAlias!;
+      }
       const anthropic = createAnthropic({
-        apiKey: this.cfg.byokAlias ?? this.cfg.anthropicApiKey ?? "cf-gateway-byok",
+        apiKey: useByok ? "byok-placeholder" : (this.cfg.anthropicApiKey ?? ""),
         baseURL: `https://gateway.ai.cloudflare.com/v1/${gw.accountId}/${gw.gatewaySlug}/anthropic/v1`,
-        headers: this.cfg.gatewayToken
-          ? { "cf-aig-authorization": `Bearer ${this.cfg.gatewayToken}` }
-          : undefined,
+        headers: Object.keys(extraHeaders).length > 0 ? extraHeaders : undefined,
       });
       model = anthropic(bareModelId);
       routingPath = "anthropic-gateway";
