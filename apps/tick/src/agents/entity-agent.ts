@@ -90,12 +90,8 @@ export class EntityAgent extends DurableObject<Bindings> {
       gatewayToken: this.env.AI_GATEWAY_TOKEN,
       byokAlias: this.env.AI_GATEWAY_BYOK_ALIAS,
       anthropicApiKey: this.env.ANTHROPIC_API_KEY,
-      anthropicBaseUrl: this.env.ANTHROPIC_BASE_URL,
       gatewayMetadata: { runId: req.run_id, entity_id: req.entity_id, wallet: req.agent, source: "EntityAgent" },
-      workersAiAccountId: this.env.CF_ACCOUNT_ID,
-      workersAiToken: this.env.WORKERS_AI_TOKEN,
       workersAiModel: this.env.WORKERS_AI_MODEL,
-      ai: this.env.AI,
       aiGatewaySlug: this.env.AI_GATEWAY_SLUG,
     });
 
@@ -146,12 +142,8 @@ export class EntityAgent extends DurableObject<Bindings> {
       gatewayToken: this.env.AI_GATEWAY_TOKEN,
       byokAlias: this.env.AI_GATEWAY_BYOK_ALIAS,
       anthropicApiKey: this.env.ANTHROPIC_API_KEY,
-      anthropicBaseUrl: this.env.ANTHROPIC_BASE_URL,
       gatewayMetadata: { runId: req.run_id, wallet: req.agent, source: "EntityAgent/discover" },
-      workersAiAccountId: this.env.CF_ACCOUNT_ID,
-      workersAiToken: this.env.WORKERS_AI_TOKEN,
       workersAiModel: this.env.WORKERS_AI_MODEL,
-      ai: this.env.AI,
       aiGatewaySlug: this.env.AI_GATEWAY_SLUG,
     });
 

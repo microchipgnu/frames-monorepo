@@ -86,7 +86,10 @@ describe("projector", () => {
   // Longer timeout — this test writes 3 events + a deprecate, hitting
   // better-sqlite3 four times. CI sometimes spends >5s here on cold runners
   // when the native binding is paged from disk; locally completes in <50ms.
-  test("deprecate_fact reverts to prior fact", { timeout: 30_000 }, () => {
+  // The `(name, options, callback)` form is valid in bun:test at runtime but
+  // bun's TS types don't yet declare it — cast to any to keep typecheck clean.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (test as any)("deprecate_fact reverts to prior fact", { timeout: 30_000 }, () => {
     const dir = fresh("revert");
     const frame = new Frame(dir);
     frame.addEntity({ entity_id: "acme" });

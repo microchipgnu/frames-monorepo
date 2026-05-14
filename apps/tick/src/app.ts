@@ -437,17 +437,13 @@ async function executeOpDispatch(args: DispatchArgs): Promise<DispatchOutcome> {
         gatewayToken: env!.AI_GATEWAY_TOKEN,
         byokAlias: env!.AI_GATEWAY_BYOK_ALIAS,
         anthropicApiKey: env!.ANTHROPIC_API_KEY,
-        anthropicBaseUrl: env!.ANTHROPIC_BASE_URL,
         gatewayMetadata: { runId: run_id, op: body.op, wallet: agent },
         // Workers AI HTTP fallback (Bun dev). Inside the deployed Worker
         // the AI binding below is preferred — same provider, no HTTP hop.
-        workersAiAccountId: env!.CF_ACCOUNT_ID,
-        workersAiToken: env!.WORKERS_AI_TOKEN,
         workersAiModel: env!.WORKERS_AI_MODEL,
         // CF Workers AI binding — preferred. Routes both @cf/* and
         // anthropic/* models with CF billing. No external provider account
         // needed; CF's marketplace bills directly for partnered providers.
-        ai: env!.AI,
         aiGatewaySlug: env!.AI_GATEWAY_SLUG,
       });
       // Extract optional customer prompt from body.params. Hard-cap the size

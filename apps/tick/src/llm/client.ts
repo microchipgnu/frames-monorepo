@@ -93,21 +93,19 @@ export interface LlmClientConfig {
   cfAccountId?: string;
   /** BYOK alias (gateway-side stored key). When unset, falls back to provider-direct keys. */
   byokAlias?: string;
-  /** Passthrough Anthropic API key — used only when there's no gateway / BYOK. */
+  /** Passthrough Anthropic API key — used only when running outside the gateway (local dev). */
   anthropicApiKey?: string;
-  /** Direct Anthropic base URL (for local dev). */
-  anthropicBaseUrl?: string;
-  /** Per-agent default models. All prefixed `<provider>/<model-id>`. */
+  /** Per-agent default models. All accepted: `anthropic/*`, `openai/*`, `google/*`, `@cf/*`. */
   buildModel?: string;
   titleModel?: string;
   exploreModel?: string;
-  /** Workers AI HTTP fallback (Bun dev) — unused with Vercel SDK but kept for cfg compat. */
-  workersAiAccountId?: string;
-  workersAiToken?: string;
+  /**
+   * Global model override. When set, every call uses this model regardless
+   * of `agent`. Name kept for compatibility with env.WORKERS_AI_MODEL; any
+   * gateway-supported model id works (not limited to Workers AI).
+   */
   workersAiModel?: string;
-  /** CF Workers AI binding — kept for back-compat. ai-gateway-provider doesn't need it. */
-  ai?: unknown;
-  /** Metadata attached to every call (logged by AI Gateway analytics). */
+  /** Metadata attached to every call (AI Gateway analytics). */
   gatewayMetadata?: Record<string, unknown>;
 }
 
@@ -128,7 +126,6 @@ export class LlmClient {
       buildModel: "anthropic/claude-sonnet-4-6",
       titleModel: "anthropic/claude-haiku-4-5",
       exploreModel: "anthropic/claude-sonnet-4-6",
-      anthropicBaseUrl: "https://api.anthropic.com",
       ...cfg,
     };
   }
