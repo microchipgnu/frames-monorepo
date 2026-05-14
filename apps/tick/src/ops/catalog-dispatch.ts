@@ -428,11 +428,32 @@ function buildProbeEvent(args: {
     ? `Retry tool_invoke(${args.tool_id}) once with corrected args. If it fails again, fall back to web_fetch.`
     : `Do NOT retry tool_invoke(${args.tool_id}); pick another descriptor or fall back to web_fetch.`;
 
+  // When the API says a field is required AND the args we sent contain a
+  // synonymous field, surface the explicit rename. Agents that just see
+  // "field=q is required" sometimes fail to map that back to their `query`
+  // argument; an explicit "rename query → q" snaps them to the fix.
+  const sentFields = Object.keys(args.args ?? {});
+  const renameSuggestions: string[] = [];
+  for (const h of parsed.hints) {
+    if (h.kind !== "missing_field" || !h.field) continue;
+    const wanted = h.field.toLowerCase();
+    const renameFromOf = (cands: string[]) => sentFields.find((f) => cands.includes(f.toLowerCase()));
+    let from: string | undefined;
+    if (wanted === "q") from = renameFromOf(["query", "search", "keyword", "keywords", "term", "text", "input"]);
+    else if (wanted === "query") from = renameFromOf(["q", "search", "keyword"]);
+    else if (wanted === "url") from = renameFromOf(["link", "href", "uri"]);
+    else if (wanted === "text") from = renameFromOf(["content", "body", "input"]);
+    if (from) renameSuggestions.push(`Rename arg \`${from}\` → \`${h.field}\` (kept value).`);
+  }
+
   const result_text = [
     `tool_invoke(${args.tool_id}) failed: ${parsed.summary}`,
     "",
+    `You sent: ${JSON.stringify(args.args)}`,
+    "",
     "Parsed hints:",
     hintLines,
+    renameSuggestions.length > 0 ? `\nSuggested fix:\n${renameSuggestions.map((l) => `  - ${l}`).join("\n")}` : "",
     "",
     retryLine,
     body ? `\nResponse excerpt:\n${body.slice(0, 500)}` : "",
