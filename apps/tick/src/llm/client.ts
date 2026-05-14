@@ -487,21 +487,55 @@ function mapResponse(result: any, modelId: string): LlmResponse {
 
 // ---------- Pricing --------------------------------------------------------
 
-// USD per 1M tokens, by model id. Covers the model ids we actually pick
-// in this codebase (anthropic/* aliases + the CF Workers AI fallbacks).
-// Anthropic rate card as of 2026-Q2.
+// USD per 1M tokens, by model id. Prices as of 2026-Q2.
+//
+// Routing summary:
+//   - `anthropic/*` → @ai-sdk/anthropic, CF Gateway native endpoint
+//     (supports prompt caching, 1h TTL beta).
+//   - everything else → @ai-sdk/openai-compatible via CF Gateway's
+//     `/v1/compat` endpoint. CF Gateway routes by the `<provider>/`
+//     prefix to the right upstream. Prompt caching is NOT supported on
+//     this path (compat strips Anthropic-specific options).
+//
+// Pass via `body.params.model` or `body.params.sub_agent_model` on
+// `POST /run` (or via workflow_dispatch inputs `model` / `sub_agent_model`).
+// The provider must be configured on the CF AI Gateway side — either
+// in marketplace mode or with a stored upstream key.
 const MODEL_PRICES: Record<string, { in: number; out: number }> = {
+  // ===== Anthropic =====
   "anthropic/claude-haiku-4-5": { in: 1.0, out: 5.0 },
   "anthropic/claude-sonnet-4-6": { in: 3.0, out: 15.0 },
   "anthropic/claude-opus-4-7": { in: 15.0, out: 75.0 },
-  // Bare ids (back-compat with response.modelId after the `anthropic/` prefix
-  // is stripped by the gateway).
+  // Bare ids (response.modelId after the `anthropic/` prefix is stripped).
   "claude-haiku-4-5": { in: 1.0, out: 5.0 },
   "claude-sonnet-4-6": { in: 3.0, out: 15.0 },
   "claude-opus-4-7": { in: 15.0, out: 75.0 },
-  // CF Workers AI — public pricing.
+
+  // ===== Google Gemini (cheap, fast, 1M context, function calling) =====
+  "google/gemini-2.0-flash": { in: 0.15, out: 0.60 },
+  "google/gemini-2.5-flash": { in: 0.30, out: 2.50 },
+  "google/gemini-2.5-pro": { in: 1.25, out: 10.0 },
+
+  // ===== OpenAI =====
+  "openai/gpt-4o-mini": { in: 0.15, out: 0.60 },
+  "openai/gpt-4.1-mini": { in: 0.40, out: 1.60 },
+  "openai/gpt-4.1": { in: 2.00, out: 8.00 },
+
+  // ===== Groq (very fast inference) =====
+  "groq/llama-3.3-70b-versatile": { in: 0.59, out: 0.79 },
+  "groq/llama-3.1-8b-instant": { in: 0.05, out: 0.08 },
+
+  // ===== DeepSeek =====
+  "deepseek/deepseek-chat": { in: 0.27, out: 1.10 },
+
+  // ===== xAI Grok =====
+  "xai/grok-3-mini": { in: 0.30, out: 0.50 },
+  "xai/grok-3": { in: 3.00, out: 15.0 },
+
+  // ===== CF Workers AI (billed directly by CF in marketplace mode) =====
   "@cf/meta/llama-3.3-70b-instruct-fp8-fast": { in: 0.293, out: 2.253 },
   "@cf/meta/llama-3.1-8b-instruct": { in: 0.282, out: 0.827 },
+  "@cf/meta/llama-3.1-70b-instruct": { in: 0.293, out: 2.253 },
 };
 
 function computeCost(
