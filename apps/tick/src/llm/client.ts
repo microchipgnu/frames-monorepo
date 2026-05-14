@@ -24,6 +24,7 @@
 import { generateText, type ModelMessage, tool as aiTool } from "ai";
 import { createAiGateway } from "ai-gateway-provider";
 import { createUnified } from "ai-gateway-provider/providers/unified";
+import { createAnthropic } from "@ai-sdk/anthropic";
 
 // ---------- Public types (UNCHANGED from client.ts) -------------------------
 
@@ -133,18 +134,32 @@ export class LlmClient {
   async call(opts: CallOptions): Promise<LlmResponse> {
     const modelId = opts.model ?? this.pickModel(opts.agent ?? "build");
 
-    // Build the gateway-wrapped model. ai-gateway-provider's `unified()` accepts
-    // any provider/model string the gateway knows about (anthropic/openai/google/
-    // workers-ai/xai/...). The gateway resolves auth via BYOK aliases stored
-    // on the gateway side — we never see raw provider keys.
-    const { accountId, gatewaySlug } = this.parseGateway();
-    const aigateway = createAiGateway({
-      accountId,
-      gateway: gatewaySlug,
-      apiKey: this.cfg.gatewayToken,
-    });
-    const unified = createUnified({ apiKey: this.cfg.byokAlias });
-    const model = aigateway(unified(modelId));
+    // Two routing paths:
+    //   1. Gateway path (production): all calls flow through CF AI Gateway,
+    //      which resolves provider auth via stored BYOK aliases. Any model
+    //      string (anthropic/*, openai/*, google/*, @cf/*) works.
+    //   2. Direct Anthropic (local dev / smoketest): no gateway configured,
+    //      but ANTHROPIC_API_KEY is present. Only anthropic/* models work.
+    const gw = this.tryParseGateway();
+    let model;
+    if (gw) {
+      const aigateway = createAiGateway({
+        accountId: gw.accountId,
+        gateway: gw.gatewaySlug,
+        apiKey: this.cfg.gatewayToken,
+      });
+      const unified = createUnified({ apiKey: this.cfg.byokAlias });
+      model = aigateway(unified(modelId));
+    } else if (this.cfg.anthropicApiKey && modelId.startsWith("anthropic/")) {
+      // Direct passthrough for local dev. Strip the `anthropic/` prefix
+      // because @ai-sdk/anthropic's createAnthropic() wants the bare model id.
+      const anthropic = createAnthropic({ apiKey: this.cfg.anthropicApiKey });
+      model = anthropic(modelId.replace(/^anthropic\//, ""));
+    } else {
+      throw new LlmError(
+        `LlmClient unconfigured: no AI gateway (gatewayUrl / cfAccountId+aiGatewaySlug) and no anthropicApiKey for model ${modelId}.`,
+      );
+    }
 
     const messages = mapToModelMessages(opts.messages);
     const tools = mapToTools(opts.tools);
@@ -180,8 +195,12 @@ export class LlmClient {
     return this.cfg.buildModel!;
   }
 
-  private parseGateway(): { accountId: string; gatewaySlug: string } {
-    // Prefer explicit cfAccountId + aiGatewaySlug. Else parse from gatewayUrl.
+  /**
+   * Try to resolve the AI Gateway accountId + gatewaySlug from the configured
+   * fields. Returns null when neither path is available (caller falls back to
+   * direct provider mode).
+   */
+  private tryParseGateway(): { accountId: string; gatewaySlug: string } | null {
     if (this.cfg.cfAccountId && this.cfg.aiGatewaySlug) {
       return { accountId: this.cfg.cfAccountId, gatewaySlug: this.cfg.aiGatewaySlug };
     }
@@ -189,9 +208,7 @@ export class LlmClient {
       const m = this.cfg.gatewayUrl.match(/gateway\.ai\.cloudflare\.com\/v1\/([^/]+)\/([^/?#]+)/);
       if (m) return { accountId: m[1]!, gatewaySlug: m[2]! };
     }
-    throw new LlmError(
-      "ai-gateway-provider requires either cfAccountId + aiGatewaySlug, or a gatewayUrl matching /v1/<account>/<slug>",
-    );
+    return null;
   }
 }
 

@@ -94,11 +94,15 @@ app.get("/health", async (c) => {
       pay_to_configured: !!c.env?.TICK_PAY_TO_ADDRESS,
     },
     llm: {
-      ai_binding_present: !!c.env?.AI,
-      ai_binding_gateway_slug: c.env?.AI_GATEWAY_SLUG ?? null,
-      ai_gateway_configured: !!(c.env?.AI_GATEWAY_URL && c.env?.AI_GATEWAY_BYOK_ALIAS),
+      // Primary path post-v0.5.x: CF AI Gateway via ai-gateway-provider.
+      // BYOK alias is optional (gateway uses dashboard-configured upstream keys when unset).
+      ai_gateway_configured: !!(c.env?.AI_GATEWAY_URL && c.env?.AI_GATEWAY_TOKEN),
+      ai_gateway_slug: c.env?.AI_GATEWAY_SLUG ?? null,
+      ai_gateway_byok_alias: c.env?.AI_GATEWAY_BYOK_ALIAS ? "set" : null,
+      // Fallback path for local dev / smoketest with no gateway provisioned.
       anthropic_passthrough_configured: !!c.env?.ANTHROPIC_API_KEY,
-      workers_ai_http_configured: !!(c.env?.CF_ACCOUNT_ID && c.env?.WORKERS_AI_TOKEN && c.env?.WORKERS_AI_MODEL),
+      // Default model override (legacy env.WORKERS_AI_MODEL; any gateway-supported model id works).
+      model_override: c.env?.WORKERS_AI_MODEL ?? null,
     },
     hosted: {
       allowlist_entries: allowlistEntries.length,
