@@ -103,6 +103,9 @@ app.get("/health", async (c) => {
       anthropic_passthrough_configured: !!c.env?.ANTHROPIC_API_KEY,
       // Default model override (legacy env.WORKERS_AI_MODEL; any gateway-supported model id works).
       model_override: c.env?.WORKERS_AI_MODEL ?? null,
+      // Sub-agent model override (refresh_entity / discover_entity).
+      // When unset, sub-agents use parent's buildModel (Sonnet 4.6).
+      sub_agent_model: c.env?.SUB_AGENT_MODEL ?? null,
     },
     hosted: {
       allowlist_entries: allowlistEntries.length,
