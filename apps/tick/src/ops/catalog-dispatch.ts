@@ -102,19 +102,21 @@ export async function dispatchCatalogSearch(
   try {
     const limit = typeof input.limit === "number" ? Math.min(50, Math.max(1, input.limit)) : 10;
     const capability = typeof input.capability === "string" ? input.capability : undefined;
-    const page = await ctx.catalog.search({ capability, limit });
-    // Tag each descriptor with `payable` so the agent can prefer payable
-    // ones — but surface ALL results. Earlier (2026-05-13) we filtered
-    // unpayable descriptors out entirely. That caused 5 of 5 sub-agents
-    // to stall on the morning cron because the catalog returned empty
-    // for capabilities like "enrich" / "news" — most descriptors at
-    // those tags are on Tempo MPP (filtered) and the agent fell back to
-    // web_fetch which couldn't extract structured data → no_progress.
-    //
-    // Advisory tagging lets the agent see all options, prefer payable
-    // ones, and the existing payment_unhandled probe + retry semantics
-    // handle the rare unpayable click without stalling the run.
-    const slim = page.tools.slice(0, limit).map((t) => ({
+    // Over-fetch from catalog so we can rank payable-first before slicing.
+    // The 2026-05-13 advisory-filter regression and the 2026-05-14 layoffs
+    // run both showed the same failure mode: the top 10 catalog results
+    // for "news" / "enrich" are Tempo MPP descriptors which we can't pay,
+    // and the agent gives up after seeing "all payable=false." We still
+    // surface unpayable items so the agent has full visibility, but
+    // payable ones go first.
+    const overfetchLimit = Math.min(50, Math.max(limit, limit * 3));
+    const page = await ctx.catalog.search({ capability, limit: overfetchLimit });
+    const ranked = [...page.tools].sort((a, b) => {
+      const aPay = isDescriptorPayable(a.payment.protocol, a.payment.network, ctx.walletCapability) ? 0 : 1;
+      const bPay = isDescriptorPayable(b.payment.protocol, b.payment.network, ctx.walletCapability) ? 0 : 1;
+      return aPay - bPay;
+    });
+    const slim = ranked.slice(0, limit).map((t) => ({
       id: t.id,
       title: t.title,
       description: t.description,
