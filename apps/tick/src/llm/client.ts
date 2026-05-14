@@ -148,7 +148,11 @@ export class LlmClient {
         gateway: gw.gatewaySlug,
         apiKey: this.cfg.gatewayToken,
       });
-      const unified = createUnified({ apiKey: this.cfg.byokAlias });
+      // Only pass apiKey to createUnified when actually set. Passing
+      // `{ apiKey: undefined }` confuses the provider vs. omitting entirely.
+      const unified = this.cfg.byokAlias
+        ? createUnified({ apiKey: this.cfg.byokAlias })
+        : createUnified();
       model = aigateway(unified(modelId));
     } else if (this.cfg.anthropicApiKey && modelId.startsWith("anthropic/")) {
       // Direct passthrough for local dev. Strip the `anthropic/` prefix
@@ -180,9 +184,23 @@ export class LlmClient {
         stopWhen: undefined,
       });
     } catch (e) {
-      throw new LlmError(
-        `LLM call failed (${modelId}): ${e instanceof Error ? e.message : String(e)}`,
+      // Log the FULL error before wrapping so we can see provider responses
+      // in wrangler tail. The wrapped LlmError loses stack + nested details.
+      const errMsg = e instanceof Error ? `${e.name}: ${e.message}` : String(e);
+      const stack = e instanceof Error ? e.stack?.slice(0, 1000) : undefined;
+      console.error(
+        JSON.stringify({
+          level: "error",
+          ts: new Date().toISOString(),
+          event: "llm_call_failed",
+          model: modelId,
+          path: gw ? "gateway" : "anthropic-passthrough",
+          gateway_slug: gw?.gatewaySlug,
+          error: errMsg,
+          stack,
+        }),
       );
+      throw new LlmError(`LLM call failed (${modelId}): ${errMsg}`);
     }
 
     return mapResponse(result, modelId);

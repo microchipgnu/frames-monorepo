@@ -386,16 +386,19 @@ async function executeOpDispatch(args: DispatchArgs): Promise<DispatchOutcome> {
   const { body, env, run_id, agent, budget, started_at, idempotencyKey, paymentProtocol, paymentNetwork } = args;
 
   if (body.op === "curate" || body.op === "discover") {
-    const hasByok = !!(env?.AI_GATEWAY_URL && env?.AI_GATEWAY_BYOK_ALIAS);
+    // Post-v0.5.x: LLM path is Vercel AI SDK + ai-gateway-provider.
+    // Two valid auth modes:
+    //   1. AI Gateway: AI_GATEWAY_URL + AI_GATEWAY_TOKEN configured
+    //      (BYOK alias optional; gateway uses dashboard-stored upstream keys)
+    //   2. Direct Anthropic passthrough: ANTHROPIC_API_KEY set (local dev only)
+    const hasGateway = !!(env?.AI_GATEWAY_URL && env?.AI_GATEWAY_TOKEN);
     const hasPassthroughKey = !!env?.ANTHROPIC_API_KEY;
-    const hasWorkersAiHttp = !!(env?.CF_ACCOUNT_ID && env?.WORKERS_AI_TOKEN && env?.WORKERS_AI_MODEL);
-    const hasAiBinding = !!env?.AI;
-    if (!hasByok && !hasPassthroughKey && !hasWorkersAiHttp && !hasAiBinding) {
+    if (!hasGateway && !hasPassthroughKey) {
       return {
         kind: "err",
         status: 400,
         code: "missing_llm_auth",
-        message: `${body.op} requires LLM auth: AI binding (preferred, CF-billed), BYOK gateway, passthrough Anthropic, or Workers AI HTTP. verify/refresh don't need one.`,
+        message: `${body.op} requires LLM auth: configure AI Gateway (AI_GATEWAY_URL + AI_GATEWAY_TOKEN, recommended) or ANTHROPIC_API_KEY for direct passthrough. verify/refresh don't need one.`,
         details: { run_id, op: body.op, frame: body.frame, started_at, ended_at: new Date().toISOString() },
       };
     }
