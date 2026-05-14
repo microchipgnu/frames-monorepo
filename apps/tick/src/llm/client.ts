@@ -489,20 +489,24 @@ function mapResponse(result: any, modelId: string): LlmResponse {
 
 // USD per 1M tokens, by model id. Prices as of 2026-Q2.
 //
-// Routing summary:
-//   - `anthropic/*` → @ai-sdk/anthropic, CF Gateway native endpoint
-//     (supports prompt caching, 1h TTL beta).
+// CF AI Gateway has two model categories — both routable via this client:
+//   - HOSTED (`@cf/...`): CF runs the model on Workers AI, bills CF rates
+//     directly. No upstream provider key needed. Function-calling models
+//     are noted in CF's catalog with "Function calling" badge.
+//   - PROXIED (`anthropic/`, `google/`, `openai/`, etc.): CF routes to the
+//     upstream and bills the user. Most don't need a BYOK alias because
+//     CF AI Gateway has marketplace upstream config.
+//
+// Routing in this client:
+//   - `anthropic/*` → @ai-sdk/anthropic + CF Gateway NATIVE Anthropic
+//     endpoint. Supports prompt caching (cache_control + ttl=1h beta).
 //   - everything else → @ai-sdk/openai-compatible via CF Gateway's
-//     `/v1/compat` endpoint. CF Gateway routes by the `<provider>/`
-//     prefix to the right upstream. Prompt caching is NOT supported on
-//     this path (compat strips Anthropic-specific options).
+//     `/v1/compat` endpoint. Caching not supported on this path.
 //
 // Pass via `body.params.model` or `body.params.sub_agent_model` on
 // `POST /run` (or via workflow_dispatch inputs `model` / `sub_agent_model`).
-// The provider must be configured on the CF AI Gateway side — either
-// in marketplace mode or with a stored upstream key.
 const MODEL_PRICES: Record<string, { in: number; out: number }> = {
-  // ===== Anthropic =====
+  // ===== Proxied — Anthropic (has prompt caching) =====
   "anthropic/claude-haiku-4-5": { in: 1.0, out: 5.0 },
   "anthropic/claude-sonnet-4-6": { in: 3.0, out: 15.0 },
   "anthropic/claude-opus-4-7": { in: 15.0, out: 75.0 },
@@ -511,32 +515,36 @@ const MODEL_PRICES: Record<string, { in: number; out: number }> = {
   "claude-sonnet-4-6": { in: 3.0, out: 15.0 },
   "claude-opus-4-7": { in: 15.0, out: 75.0 },
 
-  // ===== Google Gemini (cheap, fast, 1M context, function calling)
-  // CF AI Gateway prefix is `google-ai-studio` (NOT `google`) per their provider list.
-  "google-ai-studio/gemini-2.0-flash": { in: 0.15, out: 0.60 },
-  "google-ai-studio/gemini-2.5-flash": { in: 0.30, out: 2.50 },
-  "google-ai-studio/gemini-2.5-pro": { in: 1.25, out: 10.0 },
+  // ===== Proxied — Google Gemini =====
+  // CF prefix is `google/` (NOT `google-ai-studio/`); 2026-Q2 lineup is
+  // gemini-3-flash / gemini-3.1-pro / gemini-3.1-flash-lite.
+  "google/gemini-3-flash": { in: 0.15, out: 0.60 },
+  "google/gemini-3.1-flash-lite": { in: 0.08, out: 0.30 },
+  "google/gemini-3.1-pro": { in: 1.25, out: 10.0 },
 
-  // ===== OpenAI =====
-  "openai/gpt-4o-mini": { in: 0.15, out: 0.60 },
-  "openai/gpt-4.1-mini": { in: 0.40, out: 1.60 },
+  // ===== Proxied — OpenAI =====
   "openai/gpt-4.1": { in: 2.00, out: 8.00 },
+  "openai/gpt-4.1-mini": { in: 0.40, out: 1.60 },
+  "openai/o4-mini": { in: 1.10, out: 4.40 },
+  "openai/gpt-5.4": { in: 2.50, out: 10.0 },
+  "openai/gpt-5.4-mini": { in: 0.30, out: 1.20 },
+  "openai/gpt-5.4-nano": { in: 0.10, out: 0.40 },
+  "openai/gpt-5.5": { in: 5.00, out: 20.0 },
 
-  // ===== Groq (very fast inference) =====
-  "groq/llama-3.3-70b-versatile": { in: 0.59, out: 0.79 },
-  "groq/llama-3.1-8b-instant": { in: 0.05, out: 0.08 },
-
-  // ===== DeepSeek =====
-  "deepseek/deepseek-chat": { in: 0.27, out: 1.10 },
-
-  // ===== xAI Grok =====
-  "xai/grok-3-mini": { in: 0.30, out: 0.50 },
-  "xai/grok-3": { in: 3.00, out: 15.0 },
-
-  // ===== CF Workers AI (billed directly by CF in marketplace mode) =====
+  // ===== HOSTED on CF Workers AI (no upstream key needed, function-calling) =====
+  // All have "Function calling" capability in CF's catalog.
+  "@cf/openai/gpt-oss-120b": { in: 0.50, out: 2.00 },
+  "@cf/openai/gpt-oss-20b": { in: 0.20, out: 0.80 },
+  "@cf/moonshotai/kimi-k2.6": { in: 0.50, out: 2.50 },
+  "@cf/moonshotai/kimi-k2.5": { in: 0.50, out: 2.50 },
+  "@cf/zai-org/glm-4.7-flash": { in: 0.20, out: 0.80 },
+  "@cf/meta/llama-4-scout-17b-16e-instruct": { in: 0.30, out: 1.20 },
   "@cf/meta/llama-3.3-70b-instruct-fp8-fast": { in: 0.293, out: 2.253 },
-  "@cf/meta/llama-3.1-8b-instruct": { in: 0.282, out: 0.827 },
-  "@cf/meta/llama-3.1-70b-instruct": { in: 0.293, out: 2.253 },
+  "@cf/google/gemma-4-26b-a4b-it": { in: 0.25, out: 1.00 },
+  "@cf/nvidia/nemotron-3-120b-a12b": { in: 0.40, out: 1.60 },
+  "@cf/qwen/qwen3-30b-a3b-fp8": { in: 0.30, out: 1.20 },
+  "@cf/mistralai/mistral-small-3.1-24b-instruct": { in: 0.25, out: 1.00 },
+  "@cf/ibm-granite/granite-4.0-h-micro": { in: 0.15, out: 0.60 },
 };
 
 function computeCost(
