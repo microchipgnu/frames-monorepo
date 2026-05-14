@@ -233,10 +233,15 @@ async function judgeBatch(
     "",
     "Rules:",
     "- A claim is supported only if the excerpt explicitly states or unambiguously implies the value.",
-    "- Numerical mismatches → unsupported.",
+    "- Numerical mismatches → unsupported (exact match required for ints/floats/percentages).",
+    "- For STRING values, semantic equivalence counts. Examples that ARE supported:",
+    "  · excerpt 'MCP server framework' supports value 'framework' (the field is `category`).",
+    "  · excerpt 'name: mcp-jetbrains' inside a JetBrains/ repo path supports value 'JetBrains/mcp-jetbrains'.",
+    "  · truncated excerpt where the visible portion clearly supports the value (the truncation is the harness's, not the source's fault).",
     "- Vague paraphrase that doesn't pin the exact value → unsupported.",
     "- Empty / generic excerpts that say nothing about the field → unsupported.",
-    "- Be strict. False positives erode dataset trust more than false negatives.",
+    "- Don't reject for missing parenthetical asides or extra qualifiers — judge whether the CORE claim is supported.",
+    "- Be strict on numbers and identifiers; be reasonable on prose. False positives erode dataset trust, but rejecting semantically-correct facts wastes the agent's work.",
     "- The output array MUST contain exactly one entry per fact_id in the input. Use the exact fact_id string for each.",
   ].join("\n");
 
