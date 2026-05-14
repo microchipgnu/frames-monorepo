@@ -66,6 +66,11 @@ export interface CurateOptions {
    * catalog.probe events instead of getting paid.
    */
   paidFetch?: typeof fetch;
+  /**
+   * Which payment chains have a booted wallet. Threaded into catalog dispatch
+   * so `catalog_search` filters out descriptors the runtime can't pay.
+   */
+  walletCapability?: { evm: boolean; solana: boolean; tempo: boolean };
   llm: LlmClient;
   /** Hard cap on agent-loop iterations. Defense against infinite tool loops. Default 30. */
   max_iters?: number;
@@ -347,6 +352,7 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
       refetcher: opts.refetcher,
       catalog,
       paidFetch: opts.paidFetch,
+      walletCapability: opts.walletCapability,
       // Pass the tool pot to dispatchers — used by catalog_dispatch's
       // pre-flight price check (descriptor.price_hint vs remaining tool
       // budget). LLM-cost dispatchers (sub-agents, web_fetch summarizer)
@@ -554,6 +560,8 @@ interface DispatchContext {
   catalog: CatalogClient;
   /** paidFetch threaded from curate opts → catalog-dispatch POST branch. */
   paidFetch?: typeof fetch;
+  /** Booted-wallet chains, threaded from curate opts → catalog-dispatch filter. */
+  walletCapability?: { evm: boolean; solana: boolean; tempo: boolean };
   remaining_budget: string;
   env?: {
     AUDIT_PRIVATE_KEY?: string;
@@ -812,6 +820,12 @@ async function dispatchRefreshEntity(
         focus,
         llm: ctx.llm,
         refetcher: ctx.refetcher,
+        // Thread the paid stack into the inline (no-DO) fallback path too —
+        // sub-agents need catalog access in dev/smoketest just like in prod.
+        catalog: ctx.catalog,
+        paidFetch: ctx.paidFetch,
+        walletCapability: ctx.walletCapability,
+        env: ctx.env,
         budget: "0.30",
         max_iters: 5,
         run_id: ctx.run_id,
@@ -953,6 +967,11 @@ async function dispatchDiscoverEntity(
         fields_to_find,
         llm: ctx.llm,
         refetcher: ctx.refetcher,
+        // Same paid-stack threading as the inline refresh path.
+        catalog: ctx.catalog,
+        paidFetch: ctx.paidFetch,
+        walletCapability: ctx.walletCapability,
+        env: ctx.env,
         budget: "0.30",
         max_iters: 5,
         run_id: ctx.run_id,

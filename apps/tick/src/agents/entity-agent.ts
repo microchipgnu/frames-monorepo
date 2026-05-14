@@ -25,13 +25,20 @@
 // dispatchRefreshEntity in curate.ts swaps one for the other transparently
 // — local Bun dev falls back to the direct function call (no DO binding).
 
+// IMPORTANT: arktype-init must be imported BEFORE anything that pulls in
+// @faremeter/* (which `pickWalletStack` transitively does). Each DO instance
+// runs in its own isolate with its own module graph, so the worker.ts-level
+// configure() call doesn't carry over — we have to set it here too.
+import "../arktype-init";
+
 import { DurableObject } from "cloudflare:workers";
+import { CatalogClient } from "../catalog/client";
 import type { Bindings } from "../env";
 import { FrameClient } from "../frame-client";
 import { LlmClient } from "../llm/client";
-import { createHttpRefetcher } from "../ops/refetcher";
 import { refreshEntity, type RefreshEntityResult } from "../ops/refresh-entity";
 import { discoverEntity, type DiscoverEntityResult } from "../ops/discover-entity";
+import { pickWalletStack } from "../wallet";
 
 /** Serializable input to the DO. Excludes class instances (LlmClient / Refetcher
  *  are constructed inside the DO from env). */
@@ -72,9 +79,12 @@ export class EntityAgent extends DurableObject<Bindings> {
    * separate CPU budgets.
    */
   async refresh(req: RefreshEntityRequest): Promise<RefreshEntityResult> {
-    // Construct an LlmClient + refetcher INSIDE the DO from its env. The
-    // parent's instances aren't serializable, but the DO has the same env
-    // bindings and can build equivalent ones.
+    // Construct an LlmClient + paid wallet stack + CatalogClient INSIDE the
+    // DO from its env. The parent's instances aren't serializable, but the
+    // DO has the same env bindings and can build equivalent ones. Booting
+    // the paid stack here means sub-agents can call paid catalog tools and
+    // settle 402s — previously the DO used the FREE refetcher and had no
+    // catalog client, so every paid path was inaccessible.
     const llm = new LlmClient({
       gatewayUrl: this.env.AI_GATEWAY_URL,
       gatewayToken: this.env.AI_GATEWAY_TOKEN,
@@ -88,7 +98,19 @@ export class EntityAgent extends DurableObject<Bindings> {
       ai: this.env.AI,
       aiGatewaySlug: this.env.AI_GATEWAY_SLUG,
     });
-    const refetcher = createHttpRefetcher();
+
+    // Boot the paid stack inside the DO. Each isolate has its own cache so
+    // the boot runs at most once per isolate lifetime. Falls back to a free
+    // refetcher when wallet secrets are missing (local dev).
+    const { refetcher, paidFetch, walletCapability } = await pickWalletStack(this.env);
+
+    // CatalogClient — uses the service binding when running on CF (avoids
+    // Worker→Worker 404+1042 over public *.workers.dev URLs); falls back to
+    // global fetch against CATALOG_BASE for local dev / external catalog.
+    const catalog = new CatalogClient({
+      base: this.env.CATALOG_BASE,
+      fetch: this.env.CATALOG ? this.env.CATALOG.fetch.bind(this.env.CATALOG) : undefined,
+    });
 
     // The DO doesn't need its own FrameClient (entity_state was already
     // loaded by the parent and passed in). Pure compute from here.
@@ -101,6 +123,10 @@ export class EntityAgent extends DurableObject<Bindings> {
       focus: req.focus,
       llm,
       refetcher,
+      paidFetch,
+      walletCapability,
+      catalog,
+      env: this.env,
       budget: req.budget,
       max_iters: req.max_iters,
       run_id: req.run_id,
@@ -128,7 +154,12 @@ export class EntityAgent extends DurableObject<Bindings> {
       ai: this.env.AI,
       aiGatewaySlug: this.env.AI_GATEWAY_SLUG,
     });
-    const refetcher = createHttpRefetcher();
+
+    const { refetcher, paidFetch, walletCapability } = await pickWalletStack(this.env);
+    const catalog = new CatalogClient({
+      base: this.env.CATALOG_BASE,
+      fetch: this.env.CATALOG ? this.env.CATALOG.fetch.bind(this.env.CATALOG) : undefined,
+    });
     void FrameClient;
 
     return await discoverEntity({
@@ -139,6 +170,10 @@ export class EntityAgent extends DurableObject<Bindings> {
       fields_to_find: req.fields_to_find,
       llm,
       refetcher,
+      paidFetch,
+      walletCapability,
+      catalog,
+      env: this.env,
       budget: req.budget,
       max_iters: req.max_iters,
       run_id: req.run_id,

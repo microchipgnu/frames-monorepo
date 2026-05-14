@@ -30,9 +30,9 @@ import { curate as curateOp } from "./ops/curate";
 import { discover as discoverOp } from "./ops/discover";
 import { refresh as refreshOp } from "./ops/refresh";
 import { verify as verifyOp } from "./ops/verify";
-import { createHttpRefetcher } from "./ops/refetcher";
-import { createPaidRefetcher } from "./ops/paid-refetcher";
-import type { OpOutcome, Refetcher } from "./ops/types";
+// createHttpRefetcher / createPaidRefetcher moved into ./wallet.pickWalletStack;
+// `Refetcher` re-imported here only for the OpOutcome type chain.
+import type { OpOutcome } from "./ops/types";
 import { checkAllowlist, parseAllowlist } from "./allowlist";
 import { lookupApiKey, parseApiKeys } from "./api-key";
 import { buildPaymentRequirements } from "./payment/payment-requirements";
@@ -41,7 +41,7 @@ import { settleX402, verifyInboundX402 } from "./payment/x402";
 import { checkRateLimit, identityKeyForRequest } from "./rate-limit";
 import { errorResponse } from "./util/errors";
 import { log } from "./util/log";
-import { bootWallets, deriveWalletAddresses, type BootedWallets } from "./wallet";
+import { deriveWalletAddresses, pickWalletStack, type BootedWallets } from "./wallet";
 
 const VALID_OPS: ReadonlySet<Op> = new Set(["curate", "refresh", "verify", "discover"]);
 
@@ -74,10 +74,7 @@ app.get("/health", async (c) => {
   let paidFetchDiagnostics: BootedWallets["diagnostics"] | null = null;
   try {
     const stack = await pickWalletStack(c.env);
-    if (stack.paidFetch) {
-      const wallets = await cachedWallets;
-      paidFetchDiagnostics = wallets?.diagnostics ?? null;
-    }
+    paidFetchDiagnostics = stack.diagnostics ?? null;
   } catch {
     // Boot errors are logged inside pickWalletStack; /health stays green.
   }
@@ -434,7 +431,7 @@ async function executeOpDispatch(args: DispatchArgs): Promise<DispatchOutcome> {
     });
 
     try {
-      const { refetcher, paidFetch } = await pickWalletStack(env);
+      const { refetcher, paidFetch, walletCapability } = await pickWalletStack(env);
       const llm = new LlmClient({
         gatewayUrl: env!.AI_GATEWAY_URL,
         gatewayToken: env!.AI_GATEWAY_TOKEN,
@@ -477,6 +474,7 @@ async function executeOpDispatch(args: DispatchArgs): Promise<DispatchOutcome> {
         agent,
         refetcher,
         paidFetch,
+        walletCapability,
         client: new FrameClient({
           base: env?.FRAMES_CLOUD_BASE,
           // Service binding when running on CF (workers-to-workers via public
@@ -792,42 +790,9 @@ function sumCosts(costs: string[]): string {
 //   - bootWallets throws (e.g., malformed JSON keypair)
 // ---------------------------------------------------------------------------
 
-let cachedWallets: Promise<BootedWallets | null> | null = null;
-
-/**
- * Returns the refetcher (for GET tool calls and frame source refetches) AND
- * the raw paidFetch (for POST tool calls via dispatchToolInvoke's non-GET
- * branch). Both come from the same booted wallet stack, so we surface them
- * together — callers that only need one ignore the other.
- *
- * Falls back to `{ refetcher: createHttpRefetcher(), paidFetch: undefined }`
- * when no wallets are configured / boot fails — paid 402s then leak as
- * catalog.probe events instead of getting satisfied.
- */
-async function pickWalletStack(env: Bindings | undefined): Promise<{
-  refetcher: Refetcher;
-  paidFetch?: typeof fetch;
-}> {
-  if (!env) return { refetcher: createHttpRefetcher() };
-
-  const hasAnyWalletSecret =
-    !!(env.SOLANA_OUTBOUND_KEYPAIR_JSON || env.EVM_OUTBOUND_PRIVATE_KEY);
-  if (!hasAnyWalletSecret) return { refetcher: createHttpRefetcher() };
-
-  if (!cachedWallets) {
-    cachedWallets = bootWallets(env).catch((e) => {
-      console.error("bootWallets failed; falling back to free refetcher:", e);
-      return null;
-    });
-  }
-  const wallets = await cachedWallets;
-  if (!wallets) return { refetcher: createHttpRefetcher() };
-
-  return {
-    refetcher: createPaidRefetcher({ paidFetch: wallets.paidFetch }),
-    paidFetch: wallets.paidFetch,
-  };
-}
+// pickWalletStack moved to ./wallet so both this Worker and the EntityAgent
+// DO can share the same boot path. Each isolate gets its own cache (module-
+// level `let` is per-isolate).
 
 // ---------------------------------------------------------------------------
 // Persistence helpers — best-effort. If db is undefined (bun --hot dev), no-op.

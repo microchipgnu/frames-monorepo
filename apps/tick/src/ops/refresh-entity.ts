@@ -28,6 +28,11 @@ import type { IterationLogEntry } from "@frames-ag/tick-types";
 import type { FrameSchema } from "../frame-client";
 import type { LlmClient, LlmContent, LlmMessage, LlmToolSpec } from "../llm/client";
 import { summarizeForContext } from "../llm/summarize";
+import {
+  dispatchCatalogGet,
+  dispatchCatalogSearch,
+  dispatchToolInvoke,
+} from "./catalog-dispatch";
 import type { Refetcher } from "./types";
 
 // ---------------------------------------------------------------------------
@@ -52,6 +57,20 @@ export interface RefreshEntityOptions {
   llm: LlmClient;
   /** Refetcher (shared with parent). Each fetch is summarized before reaching the sub-loop's context. */
   refetcher: Refetcher;
+  /**
+   * Catalog client — when provided, the sub-agent gains `catalog_search`,
+   * `catalog_get`, and `tool_invoke` tools so it can find paid descriptors
+   * directly instead of retrying web_fetch on URLs that don't have the
+   * fields it needs. When omitted, the sub-agent runs with the legacy
+   * narrow palette (web_fetch + propose_*).
+   */
+  catalog?: import("../catalog/client").CatalogClient;
+  /** paidFetch for x402/MPP 402 challenges on `tool_invoke` POST endpoints. */
+  paidFetch?: typeof fetch;
+  /** Booted-wallet chains; threaded into the catalog search filter. */
+  walletCapability?: { evm: boolean; solana: boolean; tempo: boolean };
+  /** Worker env — used by catalog dispatch for AUDIT_PRIVATE_KEY (receipt signing). */
+  env?: { AUDIT_PRIVATE_KEY?: string };
   /** Budget for this sub-loop (USDC). Default $0.30 — enough for 3-5 iters with summarized fetches. */
   budget?: string;
   /** Max iterations. Default 5 — sub-loops should be tight. */
@@ -199,6 +218,58 @@ const REFRESH_TOOLS: LlmToolSpec[] = [
   },
 ];
 
+/**
+ * Optional catalog tools. Surfaced to the sub-agent only when a CatalogClient
+ * is provided (which now happens via EntityAgent DO post-v0.5.x). Without
+ * these, the sub-agent's only external lookup is `web_fetch` — fine for many
+ * sources but means it can't reach paid catalog descriptors that return
+ * structured data the auto-summarizer would otherwise strip.
+ */
+const CATALOG_TOOLS: LlmToolSpec[] = [
+  {
+    name: "catalog_search",
+    description:
+      "Search the federated tool catalog for paid tools matching a capability tag (e.g. 'enrich', 'web-search', 'scrape', 'social'). Returns descriptors filtered to ones the runtime can actually pay. PREFER THIS over web_fetch when you need structured data about an entity (stars, language, last commit, holders, follower count, etc.) — paid descriptors return that data as first-class JSON fields without the summarizer dropping them.",
+    input_schema: {
+      type: "object",
+      properties: {
+        capability: {
+          type: "string",
+          description: "Capability tag — e.g. 'enrich', 'web-search', 'scrape', 'social', 'markets'.",
+        },
+        limit: { type: "number", description: "Max results (1–50). Default 10." },
+      },
+    },
+  },
+  {
+    name: "catalog_get",
+    description:
+      "Resolve a single descriptor by id. Use after `catalog_search` when you need the full param schema before invoking.",
+    input_schema: {
+      type: "object",
+      properties: { id: { type: "string" } },
+      required: ["id"],
+    },
+  },
+  {
+    name: "tool_invoke",
+    description:
+      "Invoke a paid catalog tool. The runtime handles x402 / MPP payment automatically and returns the response body + receipt_id. On a 4xx error the result includes `Parsed hints:` — read the hint kinds and retry once with corrected args if `retryable: true`.",
+    input_schema: {
+      type: "object",
+      properties: {
+        id: { type: "string", description: "ToolDescriptor id from catalog_search." },
+        args: {
+          type: "object",
+          description: "Arguments matching descriptor.invocation.params_schema.",
+          additionalProperties: true,
+        },
+      },
+      required: ["id"],
+    },
+  },
+];
+
 export async function refreshEntity(opts: RefreshEntityOptions): Promise<RefreshEntityResult> {
   const maxIters = opts.max_iters ?? 5;
   const budgetStart = Number(opts.budget ?? "0.30");
@@ -279,7 +350,10 @@ export async function refreshEntity(opts: RefreshEntityOptions): Promise<Refresh
     const llmRes = await opts.llm.call({
       system,
       messages,
-      tools: REFRESH_TOOLS,
+      // Surface catalog tools only when a catalog client is wired in. Older
+      // call sites that don't pass `opts.catalog` keep the legacy narrow
+      // palette (back-compat).
+      tools: opts.catalog ? [...REFRESH_TOOLS, ...CATALOG_TOOLS] : REFRESH_TOOLS,
       agent: "build",
       max_tokens: 2048,
     });
@@ -424,6 +498,43 @@ export async function refreshEntity(opts: RefreshEntityOptions): Promise<Refresh
         break loop;
       }
 
+      // Catalog tools — surfaced only when opts.catalog is set. Each dispatch
+      // re-uses the same helpers as the parent curate loop, so paid receipts
+      // and probe events get emitted consistently.
+      if (
+        opts.catalog &&
+        (block.name === "catalog_search" || block.name === "catalog_get" || block.name === "tool_invoke")
+      ) {
+        const catalogCtx = {
+          catalog: opts.catalog,
+          refetcher: opts.refetcher,
+          paidFetch: opts.paidFetch,
+          walletCapability: opts.walletCapability,
+          run_id: opts.run_id,
+          remaining_budget: remaining.toFixed(6),
+          agent: opts.agent,
+          env: opts.env,
+        };
+        const dispatch =
+          block.name === "catalog_search"
+            ? await dispatchCatalogSearch(block.input as Record<string, unknown>, catalogCtx)
+            : block.name === "catalog_get"
+              ? await dispatchCatalogGet(block.input as Record<string, unknown>, catalogCtx)
+              : await dispatchToolInvoke(block.input as Record<string, unknown>, catalogCtx);
+        remaining -= Number(dispatch.cost);
+        if (dispatch.tool_call) tool_log.push(dispatch.tool_call);
+        // Sub-loop scope: we don't write frame events from inside the sub-agent.
+        // The parent curate loop materializes events; here we just surface the
+        // tool_result back to the LLM so it can decide what to propose.
+        toolResults.push({
+          type: "tool_result",
+          tool_use_id: block.id,
+          content: dispatch.result_text,
+          is_error: dispatch.is_error,
+        });
+        continue;
+      }
+
       if (block.name === "no_change") {
         const input = block.input as { narrative?: unknown };
         if (typeof input.narrative === "string") narrative = input.narrative;
@@ -478,13 +589,24 @@ function buildRefreshSystem(opts: RefreshEntityOptions): string {
   lines.push("## Loop shape");
   lines.push("");
   lines.push("1. Look at the entity's current state (below). Identify fields that look stale or missing.");
-  lines.push("2. Use `web_fetch(url)` to verify or fill them. Each fetched page is auto-summarized to ~500-2000 tokens before you see it.");
+  if (opts.catalog) {
+    lines.push("2. **FIRST: try `catalog_search(capability)`** with a capability tag that matches what you need (e.g. `enrich` for repo stats / company data / token metrics, `social` for follower counts, `markets` for price/volume). Paid catalog tools return structured JSON fields — the auto-summarizer doesn't drop them. If catalog returns a relevant descriptor, call `tool_invoke(id, args)` to fetch the data.");
+    lines.push("3. **Only fall back to `web_fetch(url)`** when catalog yields zero hits for the capability you need, or all `tool_invoke` attempts produce non-retryable probes. `web_fetch` summarizes the page to ~500-2000 tokens — it drops structured fields, so it's a worse choice for typed data (stars, follower counts, last_commit_at).");
+  } else {
+    lines.push("2. Use `web_fetch(url)` to verify or fill them. Each fetched page is auto-summarized to ~500-2000 tokens before you see it.");
+  }
   lines.push("3. **Commit by iter 2.** After ONE fetch that confirms or contradicts the current state, propose. Do not fetch a second source to corroborate the first if the first was already informative.");
   lines.push("4. Call exactly ONE terminal tool:");
   lines.push("   - `propose_facts` — set facts (terminal)");
   lines.push("   - `propose_deprecations` — deprecate stale fact_ids (terminal)");
   lines.push("   - `no_change` — nothing to update (terminal)");
   lines.push("");
+  if (opts.catalog) {
+    lines.push("### Probe results from `tool_invoke`");
+    lines.push("");
+    lines.push("`tool_invoke` failures return a `Parsed hints:` block. If `retryable: true` (typically `missing_field` / `invalid_value`), fix the args and retry the same descriptor once. If `retryable: false` (`payment_unhandled`, `not_found`, `auth_required`, `server_error`), DON'T retry the same descriptor — switch via another `catalog_search` with a different capability or fall back to `web_fetch`.");
+    lines.push("");
+  }
   lines.push("## When to commit vs reject");
   lines.push("");
   lines.push("**Propose / deprecate when:**");

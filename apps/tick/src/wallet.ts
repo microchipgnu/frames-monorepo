@@ -28,6 +28,9 @@ import { createLocalWallet as createEvmWallet } from "@faremeter/wallet-evm";
 import { privateKeyToAccount } from "viem/accounts";
 import { base } from "viem/chains";
 import type { Bindings } from "./env";
+import { createHttpRefetcher } from "./ops/refetcher";
+import { createPaidRefetcher } from "./ops/paid-refetcher";
+import type { Refetcher } from "./ops/types";
 
 export interface BootedWallets {
   /** Drop-in replacement for global fetch that auto-pays 402s. */
@@ -197,5 +200,60 @@ export async function bootWallets(env: Bindings): Promise<BootedWallets> {
     diagnostics,
     fullyConfigured: solanaConfigured && evmConfigured && tempoConfigured,
     config: { solanaConfigured, evmConfigured, tempoConfigured },
+  };
+}
+
+// ---------------------------------------------------------------------------
+// `pickWalletStack` — shared wallet boot helper used by both the parent
+// Worker (app.ts via /run) and the EntityAgent DO. Both need the same code
+// path: try to boot wallets from env secrets, fall back to a free refetcher
+// when no secrets are present or boot throws. Each isolate gets its own
+// `cachedWallets` because module-level `let` is per-isolate — caching across
+// requests within the same isolate is fine and intentional.
+//
+// Returns:
+//   - `refetcher`     — paid (`createPaidRefetcher`) when wallets boot,
+//                       otherwise free (`createHttpRefetcher`).
+//   - `paidFetch?`    — drop-in `typeof fetch` that handles 402s, only when
+//                       wallets booted successfully.
+//   - `walletCapability?` — which chains have a registered handler. Threaded
+//                       to catalog dispatch's filter.
+// ---------------------------------------------------------------------------
+
+let cachedWallets: Promise<BootedWallets | null> | null = null;
+
+export interface WalletStack {
+  refetcher: Refetcher;
+  paidFetch?: typeof fetch;
+  walletCapability?: { evm: boolean; solana: boolean; tempo: boolean };
+  /**
+   * Full handler-count diagnostics from `createPaidFetch`. Surfaced via
+   * `/health` so operators can confirm at runtime which payment paths
+   * registered with `wrap()`. Undefined when wallets didn't boot.
+   */
+  diagnostics?: BootedWallets["diagnostics"];
+}
+
+export async function pickWalletStack(env: Bindings | undefined): Promise<WalletStack> {
+  if (!env) return { refetcher: createHttpRefetcher() };
+
+  const hasAnyWalletSecret =
+    !!(env.SOLANA_OUTBOUND_KEYPAIR_JSON || env.EVM_OUTBOUND_PRIVATE_KEY);
+  if (!hasAnyWalletSecret) return { refetcher: createHttpRefetcher() };
+
+  if (!cachedWallets) {
+    cachedWallets = bootWallets(env).catch((e) => {
+      console.error("bootWallets failed; falling back to free refetcher:", e);
+      return null;
+    });
+  }
+  const wallets = await cachedWallets;
+  if (!wallets) return { refetcher: createHttpRefetcher() };
+
+  return {
+    refetcher: createPaidRefetcher({ paidFetch: wallets.paidFetch }),
+    paidFetch: wallets.paidFetch,
+    walletCapability: wallets.diagnostics.configured,
+    diagnostics: wallets.diagnostics,
   };
 }

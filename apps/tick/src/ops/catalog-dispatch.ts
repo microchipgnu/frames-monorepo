@@ -39,6 +39,60 @@ export interface CatalogDispatchContext {
    * (createPaidRefetcher), so this only needs to be threaded for non-GET.
    */
   paidFetch?: typeof fetch;
+  /**
+   * Which payment chains have a booted wallet on this Worker. Threaded from
+   * `BootedWallets.diagnostics.configured`. `catalog_search` filters out
+   * descriptors whose `payment.protocol × payment.network` can't be satisfied
+   * — avoids surfacing tools the agent would only be able to fail on.
+   *
+   * Default (when undefined) — show all; sensible for local dev.
+   */
+  walletCapability?: { evm: boolean; solana: boolean; tempo: boolean };
+}
+
+/**
+ * Map a descriptor's payment shape to the wallet kind required to satisfy it.
+ * Returns null when the runtime has no handler shape for this combination —
+ * those descriptors are unconditionally filtered (we couldn't pay even with
+ * every wallet booted).
+ */
+function descriptorRequiresWallet(
+  protocol: string | undefined,
+  network: string | undefined,
+): "evm" | "solana" | "tempo" | null {
+  if (!protocol || !network) return null;
+  const proto = protocol.toLowerCase();
+  const net = network.toLowerCase();
+  // x402: payer pays on the descriptor's chain.
+  if (proto === "x402" || proto === "x402v2") {
+    if (net === "base" || net === "base-mainnet" || net === "ethereum") return "evm";
+    if (net === "solana" || net === "solana-mainnet") return "solana";
+    return null;
+  }
+  // MPP: same per-network breakdown.
+  if (proto === "mpp") {
+    if (net === "solana" || net === "solana-mainnet") return "solana";
+    if (net === "tempo") return "tempo";
+    if (net === "base" || net === "base-mainnet") return "evm";
+    return null;
+  }
+  return null;
+}
+
+/**
+ * True when the runtime has a booted wallet that can satisfy the descriptor's
+ * payment. Used to filter catalog_search results so the agent never sees
+ * descriptors we'd reject at payment time.
+ */
+function isDescriptorPayable(
+  protocol: string | undefined,
+  network: string | undefined,
+  capability: CatalogDispatchContext["walletCapability"],
+): boolean {
+  if (!capability) return true; // permissive when capability unknown (local dev)
+  const required = descriptorRequiresWallet(protocol, network);
+  if (required === null) return false; // unknown protocol/network combination → can't pay
+  return capability[required] === true;
 }
 
 export async function dispatchCatalogSearch(
@@ -48,10 +102,21 @@ export async function dispatchCatalogSearch(
   try {
     const limit = typeof input.limit === "number" ? Math.min(50, Math.max(1, input.limit)) : 10;
     const capability = typeof input.capability === "string" ? input.capability : undefined;
-    const page = await ctx.catalog.search({ capability, limit });
+    // Over-fetch (×3) so that after filtering out unpayable descriptors we
+    // still have ≥ `limit` to surface to the agent. The catalog may have many
+    // results for a capability but only a fraction match our booted wallets.
+    const fetchLimit = Math.min(50, limit * 3);
+    const page = await ctx.catalog.search({ capability, limit: fetchLimit });
+    // Filter out descriptors whose payment.protocol × payment.network we
+    // don't have a booted wallet for. Surfacing un-payable descriptors just
+    // wastes a tool_invoke iteration → 402 → payment_unhandled probe.
+    const payable = page.tools.filter((t) =>
+      isDescriptorPayable(t.payment.protocol, t.payment.network, ctx.walletCapability),
+    );
+    const filteredCount = page.tools.length - payable.length;
     // Trim to fields the agent needs to pick a tool — keeps the tool_result
     // token-efficient. Full descriptors come on demand via catalog_get.
-    const slim = page.tools.slice(0, limit).map((t) => ({
+    const slim = payable.slice(0, limit).map((t) => ({
       id: t.id,
       title: t.title,
       description: t.description,
@@ -63,7 +128,14 @@ export async function dispatchCatalogSearch(
         price_hint: t.payment.price_hint,
       },
     }));
-    return jsonResult({ count: slim.length, tools: slim, has_more: !!page.cursor });
+    return jsonResult({
+      count: slim.length,
+      tools: slim,
+      has_more: payable.length > limit,
+      ...(filteredCount > 0
+        ? { filtered_unpayable: filteredCount, payable_chains: ctx.walletCapability }
+        : {}),
+    });
   } catch (e) {
     return errorResult(`catalog_search failed: ${(e as Error).message}`);
   }

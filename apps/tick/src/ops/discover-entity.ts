@@ -36,6 +36,11 @@ import type { IterationLogEntry } from "@frames-ag/tick-types";
 import type { FrameSchema } from "../frame-client";
 import type { LlmClient, LlmContent, LlmMessage, LlmToolSpec } from "../llm/client";
 import { summarizeForContext } from "../llm/summarize";
+import {
+  dispatchCatalogGet,
+  dispatchCatalogSearch,
+  dispatchToolInvoke,
+} from "./catalog-dispatch";
 import type { Refetcher } from "./types";
 import type { ProposedFact } from "./refresh-entity";
 
@@ -66,6 +71,17 @@ export interface DiscoverEntityOptions {
   llm: LlmClient;
   /** Refetcher. Each fetch summarized + cached. */
   refetcher: Refetcher;
+  /**
+   * Catalog client — when provided, the sub-agent gains `catalog_search`,
+   * `catalog_get`, `tool_invoke`. Same pattern as `RefreshEntityOptions`.
+   */
+  catalog?: import("../catalog/client").CatalogClient;
+  /** paidFetch for x402/MPP 402 challenges on tool_invoke POST endpoints. */
+  paidFetch?: typeof fetch;
+  /** Booted-wallet chains; threaded into catalog_search's filter. */
+  walletCapability?: { evm: boolean; solana: boolean; tempo: boolean };
+  /** Worker env — for catalog dispatch receipt signing. */
+  env?: { AUDIT_PRIVATE_KEY?: string };
   /** Budget for this sub-loop (USDC). Default $0.30. */
   budget?: string;
   /** Max iterations. Default 5. */
@@ -184,6 +200,57 @@ const DISCOVER_TOOLS: LlmToolSpec[] = [
   },
 ];
 
+/**
+ * Catalog tools — surfaced when `opts.catalog` is wired in. Same shape as
+ * refresh-entity's CATALOG_TOOLS. Discover sub-agents benefit even more
+ * from catalog access because they're trying to find a new entity from
+ * scratch — paid search/enrich descriptors return more structured starting
+ * data than blindly summarizing whatever URL Sonnet guessed.
+ */
+const DISCOVER_CATALOG_TOOLS: LlmToolSpec[] = [
+  {
+    name: "catalog_search",
+    description:
+      "Search the federated tool catalog for paid tools matching a capability tag (e.g. 'web-search', 'enrich', 'scrape', 'social', 'markets'). Returns descriptors filtered to ones the runtime can actually pay. PREFER THIS over web_fetch when investigating an entity from scratch — paid search/enrich descriptors return structured first-class fields the summarizer would otherwise strip.",
+    input_schema: {
+      type: "object",
+      properties: {
+        capability: {
+          type: "string",
+          description: "Capability tag — e.g. 'web-search', 'enrich', 'scrape', 'social', 'markets'.",
+        },
+        limit: { type: "number", description: "Max results (1–50). Default 10." },
+      },
+    },
+  },
+  {
+    name: "catalog_get",
+    description: "Resolve a single descriptor by id. Use after `catalog_search` when you need the full param schema.",
+    input_schema: {
+      type: "object",
+      properties: { id: { type: "string" } },
+      required: ["id"],
+    },
+  },
+  {
+    name: "tool_invoke",
+    description:
+      "Invoke a paid catalog tool. The runtime handles x402 / MPP payment automatically. On a 4xx error the result includes `Parsed hints:` — read the hint kinds and retry once with corrected args if `retryable: true`.",
+    input_schema: {
+      type: "object",
+      properties: {
+        id: { type: "string", description: "ToolDescriptor id from catalog_search." },
+        args: {
+          type: "object",
+          description: "Arguments matching descriptor.invocation.params_schema.",
+          additionalProperties: true,
+        },
+      },
+      required: ["id"],
+    },
+  },
+];
+
 // ---------------------------------------------------------------------------
 // Sub-loop implementation
 // ---------------------------------------------------------------------------
@@ -252,7 +319,10 @@ export async function discoverEntity(opts: DiscoverEntityOptions): Promise<Disco
     const llmRes = await opts.llm.call({
       system,
       messages,
-      tools: DISCOVER_TOOLS,
+      // Append catalog tools when a CatalogClient is wired in. Same pattern
+      // as refresh-entity — sub-agent gets paid catalog access only when
+      // the EntityAgent DO had the env to boot the wallet stack.
+      tools: opts.catalog ? [...DISCOVER_TOOLS, ...DISCOVER_CATALOG_TOOLS] : DISCOVER_TOOLS,
       agent: "build",
       max_tokens: 2048,
     });
@@ -347,6 +417,41 @@ export async function discoverEntity(opts: DiscoverEntityOptions): Promise<Disco
           type: "tool_result",
           tool_use_id: block.id,
           content: summary.summary,
+        });
+        continue;
+      }
+
+      // Catalog tools — only when opts.catalog is wired in. Mirrors the
+      // dispatch block in refresh-entity.ts; sub-loop scope means we don't
+      // emit frame events from here, just surface the tool_result back to
+      // the LLM.
+      if (
+        opts.catalog &&
+        (block.name === "catalog_search" || block.name === "catalog_get" || block.name === "tool_invoke")
+      ) {
+        const catalogCtx = {
+          catalog: opts.catalog,
+          refetcher: opts.refetcher,
+          paidFetch: opts.paidFetch,
+          walletCapability: opts.walletCapability,
+          run_id: opts.run_id,
+          remaining_budget: remaining.toFixed(6),
+          agent: opts.agent,
+          env: opts.env,
+        };
+        const dispatch =
+          block.name === "catalog_search"
+            ? await dispatchCatalogSearch(block.input as Record<string, unknown>, catalogCtx)
+            : block.name === "catalog_get"
+              ? await dispatchCatalogGet(block.input as Record<string, unknown>, catalogCtx)
+              : await dispatchToolInvoke(block.input as Record<string, unknown>, catalogCtx);
+        remaining -= Number(dispatch.cost);
+        if (dispatch.tool_call) tool_log.push(dispatch.tool_call);
+        toolResults.push({
+          type: "tool_result",
+          tool_use_id: block.id,
+          content: dispatch.result_text,
+          is_error: dispatch.is_error,
         });
         continue;
       }
@@ -459,13 +564,24 @@ function buildDiscoverSystem(opts: DiscoverEntityOptions): string {
   lines.push("## Loop shape");
   lines.push("");
   lines.push("1. Read the hypothesis. If seed URLs were provided, fetch them first.");
-  lines.push("2. Use `web_fetch(url)` to verify the entity exists and gather field values. Each page is auto-summarized to ~500-2000 tokens before you see it.");
+  if (opts.catalog) {
+    lines.push("2. **FIRST: try `catalog_search(capability)`** — for entity discovery, capabilities like `web-search`, `enrich`, `social`, `markets` find paid descriptors that return structured first-class data (no summarizer dropping fields). Call `tool_invoke(id, args)` on the top match. This is faster + cleaner than guessing URLs to `web_fetch`.");
+    lines.push("3. **Only fall back to `web_fetch(url)`** when catalog yields zero hits for your needed capability, or when the seed URLs already point at the canonical source (e.g. a specific GitHub repo).");
+  } else {
+    lines.push("2. Use `web_fetch(url)` to verify the entity exists and gather field values. Each page is auto-summarized to ~500-2000 tokens before you see it.");
+  }
   lines.push("3. **Commit by iter 3.** After 1-2 fetches that confirm the entity, propose. You do NOT need 3+ corroborating sources.");
   lines.push("4. Call exactly ONE terminal tool:");
   lines.push("   - `propose_new_entity(entity_id, facts[], narrative)` — add it (terminal)");
   lines.push("   - `propose_match_existing(entity_id, narrative)` — already in dataset under this id (terminal)");
   lines.push("   - `no_match(narrative)` — hypothesis was wrong or out of scope (terminal)");
   lines.push("");
+  if (opts.catalog) {
+    lines.push("### Probe results from `tool_invoke`");
+    lines.push("");
+    lines.push("On failure the result contains a `Parsed hints:` block. If `retryable: true`, fix args and retry the same descriptor once. If `retryable: false` (`payment_unhandled`, `not_found`, `auth_required`, `server_error`), don't retry — pick another descriptor via `catalog_search` (different capability or different provider) or fall back to `web_fetch`.");
+    lines.push("");
+  }
   lines.push("## When to propose vs reject");
   lines.push("");
   lines.push("**Propose new entity when:**");

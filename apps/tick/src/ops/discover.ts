@@ -36,6 +36,8 @@ export interface DiscoverOptions {
    * full rationale.
    */
   paidFetch?: typeof fetch;
+  /** Booted-wallet chains; threaded into catalog dispatch's filter. */
+  walletCapability?: { evm: boolean; solana: boolean; tempo: boolean };
   llm: LlmClient;
   /** Capability hints — narrow the search. e.g. ["web-search", "scrape"]. */
   capability_hints?: string[];
@@ -318,6 +320,7 @@ export async function discover(opts: DiscoverOptions): Promise<OpOutcome> {
           catalog,
           refetcher: opts.refetcher,
           paidFetch: opts.paidFetch,
+          walletCapability: opts.walletCapability,
           run_id: opts.run_id,
           remaining_budget: remaining.toFixed(6),
           agent: opts.agent,

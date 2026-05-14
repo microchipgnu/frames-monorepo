@@ -12,10 +12,10 @@ export {
   type WalletEntry,
   type WalletRegistryConfig,
   type SolanaWalletShape,
-} from "./wallet-registry.ts";
+} from "./wallet-registry";
 
 export {
   createPaidFetch,
   type CreatePaidFetchOptions,
   type CreatePaidFetchResult,
-} from "./paid-fetch.ts";
+} from "./paid-fetch";
