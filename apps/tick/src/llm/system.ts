@@ -125,6 +125,7 @@ export function buildCurateSystem(args: CurateSystemArgs): string {
   lines.push("4. Bulk-write when atomic. Use `add_entity_with_facts` / `set_facts` instead of per-field calls.");
   lines.push("5. When you fetch a source via `tool_invoke`, the tool_result includes a `receipt_id`. Paste it into `source.receipt_id` on any fact you derive from that fetch — this links the fact forward to the paid call for verifiable provenance.");
   lines.push("6. When budget is exhausted you will be force-stopped. Aim to leave the dataset in a coherent state at every turn.");
+  lines.push("7. Keep narrative terse — emit tool calls directly, don't enumerate findings in prose. Long inline summaries waste output budget and risk hitting `max_tokens` mid-turn (typical good turn: <500 output tokens of text + the tool calls).");
   lines.push("");
 
   // ---- Dataset spec ------------------------------------------------------
