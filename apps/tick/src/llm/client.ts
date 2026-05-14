@@ -444,17 +444,30 @@ function mapResponse(result: any, modelId: string): LlmResponse {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (result.providerMetadata?.anthropic as any)?.cacheCreationInputTokens ?? 0;
 
-  const inputTokens = result.usage?.inputTokens ?? result.usage?.promptTokens ?? 0;
-  const outputTokens = result.usage?.outputTokens ?? result.usage?.completionTokens ?? 0;
+  // Vercel AI SDK 6 reports `result.usage.inputTokens` as the TOTAL prompt
+  // (non-cached + cache_creation + cache_read). For billing we need just the
+  // non-cached portion; the cache buckets are billed separately at their own
+  // rates. The SDK exposes `inputTokenDetails.noCacheTokens` for this, but it
+  // can be missing on some providers — fall back to total − cache.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const u = result.usage as any;
+  const totalInputTokens = u?.inputTokens ?? u?.promptTokens ?? 0;
+  const noCacheInputTokens =
+    u?.inputTokenDetails?.noCacheTokens ??
+    Math.max(0, totalInputTokens - cacheCreationTokens - cacheReadTokens);
+  const outputTokens = u?.outputTokens ?? u?.completionTokens ?? 0;
   const estimatedCost = computeCost(modelId, {
-    input: inputTokens,
+    input: noCacheInputTokens,
     output: outputTokens,
     cacheCreation: cacheCreationTokens,
     cacheRead: cacheReadTokens,
   });
 
   const usage: LlmUsage = {
-    input_tokens: inputTokens,
+    // We surface the TOTAL input tokens (cache included) here so the
+    // iteration_log reads naturally — readers can see the prompt size at a
+    // glance, then read cache_creation/cache_read to know how much was billed.
+    input_tokens: totalInputTokens,
     output_tokens: outputTokens,
     // Estimated cost in USD. CF AI Gateway is still the authoritative billing
     // source; this is a token-based estimate from the per-model price table
