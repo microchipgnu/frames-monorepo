@@ -108,6 +108,15 @@ export interface LlmClientConfig {
   workersAiModel?: string;
   /** Metadata attached to every call (AI Gateway analytics). */
   gatewayMetadata?: Record<string, unknown>;
+  /**
+   * Cloudflare Workers AI binding (`env.AI`). Required to route `@cf/*`
+   * models — those go directly through the binding (CF runs the model on
+   * Workers AI infrastructure, no upstream provider needed). CF AI Gateway
+   * compat endpoint does NOT accept `@cf/*` ids; this binding is the only
+   * supported path. When unset, `@cf/*` model requests throw LlmError.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  ai?: any;
 }
 
 export class LlmError extends Error {
@@ -133,6 +142,15 @@ export class LlmClient {
 
   async call(opts: CallOptions): Promise<LlmResponse> {
     const modelId = opts.model ?? this.pickModel(opts.agent ?? "build");
+
+    // `@cf/*` models — Workers AI catalog. The CF AI Gateway compat
+    // endpoint rejects most `@cf/*` ids (confirmed 2026-05-14 via wrangler
+    // tail on both `@cf/openai/gpt-oss-20b` and `workers-ai/@cf/...` —
+    // both 400 Bad Request). The reliable path is env.AI.run() directly,
+    // optionally with `gateway: { id }` for observability.
+    if (modelId.startsWith("@cf/")) {
+      return this.callWorkersAi(modelId, opts);
+    }
 
     // Three routing paths. The choice matters for prompt caching:
     //   1. Anthropic via CF Gateway NATIVE endpoint (`/anthropic`): the
@@ -296,6 +314,154 @@ export class LlmClient {
     if (agent === "title") return this.cfg.titleModel!;
     if (agent === "explore") return this.cfg.exploreModel!;
     return this.cfg.buildModel!;
+  }
+
+  /**
+   * Call a Workers AI (`@cf/*`) model via the `env.AI` binding. Bypasses the
+   * Vercel SDK entirely — translates our `LlmMessage[]` shape into the
+   * OpenAI-compatible chat-completions body that env.AI accepts for chat
+   * models, then translates the response back into LlmResponse.
+   *
+   * Routes through the AI Gateway when `aiGatewaySlug` is set (for logging
+   * + cost tracking in the gateway dashboard).
+   */
+  private async callWorkersAi(modelId: string, opts: CallOptions): Promise<LlmResponse> {
+    if (!this.cfg.ai) {
+      throw new LlmError(`@cf/* model "${modelId}" requires env.AI binding, but none was provided to LlmClient`);
+    }
+
+    // Translate LlmMessage[] → OpenAI chat-completions messages.
+    // System goes first; user/assistant/tool messages follow.
+    interface OAMsg {
+      role: "system" | "user" | "assistant" | "tool";
+      content: string | null;
+      tool_call_id?: string;
+      tool_calls?: Array<{ id: string; type: "function"; function: { name: string; arguments: string } }>;
+    }
+    const messages: OAMsg[] = [];
+    if (opts.system) messages.push({ role: "system", content: opts.system });
+    for (const m of opts.messages) {
+      if (m.role === "user") {
+        const textParts = m.content.filter((c): c is Extract<LlmContent, { type: "text" }> => c.type === "text");
+        const toolResults = m.content.filter((c): c is Extract<LlmContent, { type: "tool_result" }> => c.type === "tool_result");
+        if (textParts.length > 0) {
+          messages.push({ role: "user", content: textParts.map((c) => c.text).join("\n") });
+        }
+        for (const tr of toolResults) {
+          messages.push({ role: "tool", tool_call_id: tr.tool_use_id, content: tr.content });
+        }
+      } else {
+        // assistant
+        const textParts = m.content.filter((c): c is Extract<LlmContent, { type: "text" }> => c.type === "text");
+        const toolUses = m.content.filter((c): c is Extract<LlmContent, { type: "tool_use" }> => c.type === "tool_use");
+        const text = textParts.map((c) => c.text).join("");
+        const tool_calls = toolUses.map((c) => ({
+          id: c.id,
+          type: "function" as const,
+          function: { name: c.name, arguments: JSON.stringify(c.input) },
+        }));
+        messages.push({
+          role: "assistant",
+          content: text.length > 0 ? text : null,
+          ...(tool_calls.length > 0 ? { tool_calls } : {}),
+        });
+      }
+    }
+
+    const body: Record<string, unknown> = {
+      messages,
+      max_tokens: opts.max_tokens ?? 4096,
+    };
+    if (opts.tools && opts.tools.length > 0) {
+      body.tools = opts.tools.map((t) => ({
+        type: "function",
+        function: { name: t.name, description: t.description, parameters: t.input_schema },
+      }));
+      body.tool_choice = "auto";
+    }
+
+    const gatewayOpts = this.cfg.aiGatewaySlug
+      ? { gateway: { id: this.cfg.aiGatewaySlug } }
+      : undefined;
+
+    let json: {
+      choices?: Array<{
+        message?: {
+          role?: string;
+          content?: string | null;
+          tool_calls?: Array<{ id: string; type: string; function: { name: string; arguments: string } }>;
+        };
+        finish_reason?: string;
+      }>;
+      usage?: { prompt_tokens?: number; completion_tokens?: number };
+    };
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      json = (await (this.cfg.ai as any).run(modelId, body, gatewayOpts)) as typeof json;
+    } catch (e) {
+      const errMsg = e instanceof Error ? `${e.name}: ${e.message}` : String(e);
+      console.error(
+        JSON.stringify({
+          level: "error",
+          ts: new Date().toISOString(),
+          event: "llm_call_failed",
+          model: modelId,
+          path: "workers-ai-binding",
+          error: errMsg,
+        }),
+      );
+      throw new LlmError(`Workers AI call failed (${modelId}): ${errMsg}`);
+    }
+
+    const choice = json.choices?.[0];
+    if (!choice?.message) {
+      throw new LlmError(`Workers AI returned no choice for ${modelId}`);
+    }
+
+    const content: LlmContent[] = [];
+    if (typeof choice.message.content === "string" && choice.message.content.length > 0) {
+      content.push({ type: "text", text: choice.message.content });
+    }
+    for (const tc of choice.message.tool_calls ?? []) {
+      let input: Record<string, unknown> = {};
+      try {
+        input = JSON.parse(tc.function.arguments) as Record<string, unknown>;
+      } catch {
+        input = { _raw: tc.function.arguments };
+      }
+      content.push({ type: "tool_use", id: tc.id, name: tc.function.name, input });
+    }
+
+    let stop_reason = "end_turn";
+    switch (choice.finish_reason) {
+      case "stop": stop_reason = "end_turn"; break;
+      case "tool_calls": stop_reason = "tool_use"; break;
+      case "length": stop_reason = "max_tokens"; break;
+      case "content_filter": stop_reason = "stop_sequence"; break;
+      default: stop_reason = choice.finish_reason ?? "end_turn";
+    }
+
+    const inputTokens = json.usage?.prompt_tokens ?? 0;
+    const outputTokens = json.usage?.completion_tokens ?? 0;
+    const estimatedCost = computeCost(modelId, {
+      input: inputTokens,
+      output: outputTokens,
+      cacheCreation: 0,
+      cacheRead: 0,
+    });
+
+    return {
+      stop_reason,
+      content,
+      usage: {
+        input_tokens: inputTokens,
+        output_tokens: outputTokens,
+        estimated_cost: estimatedCost,
+        cache_creation_input_tokens: 0,
+        cache_read_input_tokens: 0,
+      },
+      model: modelId,
+    };
   }
 
   /**

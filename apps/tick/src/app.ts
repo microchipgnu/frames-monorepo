@@ -455,6 +455,7 @@ async function executeOpDispatch(args: DispatchArgs): Promise<DispatchOutcome> {
         // anthropic/* models with CF billing. No external provider account
         // needed; CF's marketplace bills directly for partnered providers.
         aiGatewaySlug: env!.AI_GATEWAY_SLUG,
+        ai: env?.AI,
       });
       // Extract optional customer prompt from body.params. Hard-cap the size
       // so a malformed/oversized prompt can't blow the LLM context budget or

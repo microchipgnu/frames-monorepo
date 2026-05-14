@@ -101,6 +101,7 @@ export class EntityAgent extends DurableObject<Bindings> {
       gatewayMetadata: { runId: req.run_id, entity_id: req.entity_id, wallet: req.agent, source: "EntityAgent" },
       workersAiModel: this.env.WORKERS_AI_MODEL,
       aiGatewaySlug: this.env.AI_GATEWAY_SLUG,
+      ai: this.env.AI,
     });
 
     // Boot the paid stack inside the DO. Each isolate has its own cache so
@@ -157,6 +158,7 @@ export class EntityAgent extends DurableObject<Bindings> {
       gatewayMetadata: { runId: req.run_id, wallet: req.agent, source: "EntityAgent/discover" },
       workersAiModel: this.env.WORKERS_AI_MODEL,
       aiGatewaySlug: this.env.AI_GATEWAY_SLUG,
+      ai: this.env.AI,
     });
 
     const { refetcher, paidFetch, walletCapability } = await pickWalletStack(this.env);
