@@ -203,10 +203,14 @@ export class LlmClient {
     const tools = mapToTools(opts.tools);
 
     // Anthropic prompt caching: mark the LAST message with
-    // `cacheControl: ephemeral`. The @ai-sdk/anthropic provider applies
-    // message-level cacheControl to that message's LAST content part. Anthropic
-    // caches everything at and before that breakpoint (system + tools + prior
-    // messages) for 5 minutes, billing cache_read at ~0.1× input rate.
+    // `cacheControl: ephemeral, ttl: 1h`. The @ai-sdk/anthropic provider
+    // applies message-level cacheControl to that message's LAST content part.
+    // Anthropic caches everything at and before that breakpoint (system +
+    // tools + prior messages), billing cache_read at ~0.1× input rate.
+    //
+    // ttl=1h vs default 5m: 1h write is 2× input rate (vs 1.25× for 5m), but
+    // reads stay 0.1×. Our runs span 5–15 min with 6–10 iters; the 5m TTL
+    // misses on later iters cost more than the 1h write premium amortizes.
     //
     // Only effective on the `anthropic-*` routing paths; the unified compat
     // adapter strips Anthropic-specific provider options.
@@ -217,7 +221,7 @@ export class LlmClient {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (last as any).providerOptions = {
         ...((last as any).providerOptions ?? {}),
-        anthropic: { cacheControl: { type: "ephemeral" } },
+        anthropic: { cacheControl: { type: "ephemeral", ttl: "1h" } },
       };
     }
 
