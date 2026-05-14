@@ -171,10 +171,15 @@ export class LlmClient {
       if (useByok) {
         extraHeaders["cf-aig-byok-alias"] = this.cfg.byokAlias!;
       }
+      // 1h cache TTL requires the extended-cache-ttl beta header. The SDK
+      // accepts `ttl: "1h"` in cacheControl but does NOT add this header
+      // automatically — without it Anthropic silently falls back to 5m TTL,
+      // which is what was happening on iter 3+ misses.
+      extraHeaders["anthropic-beta"] = "extended-cache-ttl-2025-04-11";
       const anthropic = createAnthropic({
         apiKey: useByok ? "byok-placeholder" : (this.cfg.anthropicApiKey ?? ""),
         baseURL: `https://gateway.ai.cloudflare.com/v1/${gw.accountId}/${gw.gatewaySlug}/anthropic/v1`,
-        headers: Object.keys(extraHeaders).length > 0 ? extraHeaders : undefined,
+        headers: extraHeaders,
       });
       model = anthropic(bareModelId);
       routingPath = "anthropic-gateway";
@@ -190,7 +195,12 @@ export class LlmClient {
       model = aigateway(unified(modelId));
       routingPath = "unified-gateway";
     } else if (this.cfg.anthropicApiKey && isAnthropicModel) {
-      const anthropic = createAnthropic({ apiKey: this.cfg.anthropicApiKey });
+      const anthropic = createAnthropic({
+        apiKey: this.cfg.anthropicApiKey,
+        // See gateway path above — required for cacheControl ttl: "1h" to
+        // be honored. Without this, Anthropic silently falls back to 5m TTL.
+        headers: { "anthropic-beta": "extended-cache-ttl-2025-04-11" },
+      });
       model = anthropic(modelId.replace(/^anthropic\//, ""));
       routingPath = "anthropic-direct";
     } else {
