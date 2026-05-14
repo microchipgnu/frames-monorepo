@@ -114,8 +114,6 @@ export type Bindings = {
    * a provisioned BYOK alias). Ignored when AI_GATEWAY_BYOK_ALIAS is set.
    */
   ANTHROPIC_API_KEY?: string;
-  /** Direct Anthropic base URL fallback when AI_GATEWAY_URL is unset. */
-  ANTHROPIC_BASE_URL?: string;
 
   /**
    * Ed25519 audit signing key (32-byte seed, hex or base64url). Signs every
@@ -125,22 +123,14 @@ export type Bindings = {
    */
   AUDIT_PRIVATE_KEY?: string;
 
-  // ---------------------------------------------------------------------
-  // Workers AI mode — Cloudflare-hosted models, CF bills directly.
-  // No external provider account needed. Use this when you'd rather pay
-  // Cloudflare for tokens than wire BYOK or passthrough to Anthropic.
-  // ---------------------------------------------------------------------
-  /** CF account ID for Workers AI. Required for Workers AI mode. */
-  CF_ACCOUNT_ID?: string;
-  /** API token with Workers AI:Run scope. Same scope as gateway tokens usually. */
-  WORKERS_AI_TOKEN?: string;
   /**
-   * Default Workers AI model. Must start with `@cf/`. Example:
-   *   `@cf/meta/llama-3.3-70b-instruct-fp8-fast` (recommended for agent loops)
-   *   `@cf/qwen/qwq-32b`
-   *   `@cf/google/gemma-3-12b-it`
-   * When set, all `LlmClient.call()` invocations use this regardless of
-   * the per-agent buildModel/titleModel defaults.
+   * Global model override. When set, every LlmClient.call() uses this model
+   * regardless of agent role. Any gateway-supported model id works:
+   *   `anthropic/claude-sonnet-4-6`
+   *   `openai/gpt-5.4-mini`
+   *   `google/gemini-3.1-flash-lite`
+   *   `@cf/meta/llama-3.3-70b-instruct-fp8-fast` (cheapest, Workers AI hosted)
+   * Name kept for back-compat — pre-v0.5.x this was Workers-AI-specific.
    */
   WORKERS_AI_MODEL?: string;
 
