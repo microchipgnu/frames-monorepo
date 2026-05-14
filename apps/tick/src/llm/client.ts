@@ -21,7 +21,7 @@
 //     us in USDC directly. No need to compute estimated_cost from price
 //     tables; usage tokens still propagate for diagnostics.
 
-import { generateText, type ModelMessage, tool as aiTool } from "ai";
+import { generateText, type ModelMessage, tool as aiTool, jsonSchema } from "ai";
 import { createAiGateway } from "ai-gateway-provider";
 import { createUnified } from "ai-gateway-provider/providers/unified";
 import { createAnthropic } from "@ai-sdk/anthropic";
@@ -288,13 +288,14 @@ function mapToTools(tools: LlmToolSpec[] | undefined): Record<string, ReturnType
   if (!tools || tools.length === 0) return undefined;
   const out: Record<string, ReturnType<typeof aiTool>> = {};
   for (const t of tools) {
-    // The SDK accepts a JSON Schema directly via `inputSchema` (recent
-    // versions). Older versions wanted a Zod schema; we use the JSON Schema
-    // path since our LlmToolSpec already carries it.
+    // Wrap raw JSON Schema in the SDK's `jsonSchema()` helper. Passing the
+    // raw schema object directly fails at call time with
+    // `TypeError: schema2 is not a function` inside the SDK's `asSchema`.
+    // The helper produces a SchemaV1 the SDK can introspect.
     out[t.name] = aiTool({
       description: t.description,
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      inputSchema: t.input_schema as any,
+      inputSchema: jsonSchema(t.input_schema as any),
       // No `execute` — we handle dispatch externally.
     });
   }
