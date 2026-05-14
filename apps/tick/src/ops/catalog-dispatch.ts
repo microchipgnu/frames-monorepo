@@ -102,21 +102,19 @@ export async function dispatchCatalogSearch(
   try {
     const limit = typeof input.limit === "number" ? Math.min(50, Math.max(1, input.limit)) : 10;
     const capability = typeof input.capability === "string" ? input.capability : undefined;
-    // Over-fetch (×3) so that after filtering out unpayable descriptors we
-    // still have ≥ `limit` to surface to the agent. The catalog may have many
-    // results for a capability but only a fraction match our booted wallets.
-    const fetchLimit = Math.min(50, limit * 3);
-    const page = await ctx.catalog.search({ capability, limit: fetchLimit });
-    // Filter out descriptors whose payment.protocol × payment.network we
-    // don't have a booted wallet for. Surfacing un-payable descriptors just
-    // wastes a tool_invoke iteration → 402 → payment_unhandled probe.
-    const payable = page.tools.filter((t) =>
-      isDescriptorPayable(t.payment.protocol, t.payment.network, ctx.walletCapability),
-    );
-    const filteredCount = page.tools.length - payable.length;
-    // Trim to fields the agent needs to pick a tool — keeps the tool_result
-    // token-efficient. Full descriptors come on demand via catalog_get.
-    const slim = payable.slice(0, limit).map((t) => ({
+    const page = await ctx.catalog.search({ capability, limit });
+    // Tag each descriptor with `payable` so the agent can prefer payable
+    // ones — but surface ALL results. Earlier (2026-05-13) we filtered
+    // unpayable descriptors out entirely. That caused 5 of 5 sub-agents
+    // to stall on the morning cron because the catalog returned empty
+    // for capabilities like "enrich" / "news" — most descriptors at
+    // those tags are on Tempo MPP (filtered) and the agent fell back to
+    // web_fetch which couldn't extract structured data → no_progress.
+    //
+    // Advisory tagging lets the agent see all options, prefer payable
+    // ones, and the existing payment_unhandled probe + retry semantics
+    // handle the rare unpayable click without stalling the run.
+    const slim = page.tools.slice(0, limit).map((t) => ({
       id: t.id,
       title: t.title,
       description: t.description,
@@ -127,13 +125,18 @@ export async function dispatchCatalogSearch(
         currency: t.payment.currency,
         price_hint: t.payment.price_hint,
       },
+      payable: isDescriptorPayable(t.payment.protocol, t.payment.network, ctx.walletCapability),
     }));
+    const unpayableCount = slim.filter((t) => !t.payable).length;
     return jsonResult({
       count: slim.length,
       tools: slim,
-      has_more: payable.length > limit,
-      ...(filteredCount > 0
-        ? { filtered_unpayable: filteredCount, payable_chains: ctx.walletCapability }
+      has_more: !!page.cursor,
+      ...(unpayableCount > 0
+        ? {
+            note: `${unpayableCount} of ${slim.length} descriptors have payable=false (chain not booted on this runtime). Prefer payable=true; if no payable option fits, you can still try one — runtime returns payment_unhandled and you switch to a different result.`,
+            payable_chains: ctx.walletCapability,
+          }
         : {}),
     });
   } catch (e) {
