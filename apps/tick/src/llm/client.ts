@@ -168,10 +168,39 @@ export class LlmClient {
     const messages = mapToModelMessages(opts.messages);
     const tools = mapToTools(opts.tools);
 
+    // Anthropic prompt caching: mark the LAST user message in the conversation
+    // with `cacheControl: ephemeral`. Anthropic caches everything BEFORE that
+    // marker (system + tools + prior assistant/user messages) for 5 minutes,
+    // billing cache_read at ~0.1× the input rate on subsequent iters.
+    //
+    // The cache key includes the full prefix, so successive iters within the
+    // same run hit the cache cleanly as long as the prefix is stable (we
+    // always append, never mutate prior messages).
+    //
+    // Pre-Vercel-SDK swap (2026-05-13), the hand-rolled client did this via
+    // cache_creation_input_tokens / cache_read_input_tokens directly. Lost
+    // it in the refactor → 6-iter runs paying full Sonnet rates for 128k
+    // input each iter → ~$2 of input alone per run. Restoring caching cuts
+    // that to ~$0.10-$0.30.
+    const isAnthropic = modelId.startsWith("anthropic/") || (gw === null && this.cfg.anthropicApiKey);
+    if (isAnthropic && messages.length > 0) {
+      const lastIdx = messages.length - 1;
+      const last = messages[lastIdx]!;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (last as any).providerOptions = {
+        ...((last as any).providerOptions ?? {}),
+        anthropic: { cacheControl: { type: "ephemeral" } },
+      };
+    }
+
     let result;
     try {
       result = await generateText({
         model,
+        // Pass system as a separate field so Anthropic caches it natively
+        // (cache markers on the LAST user message cache system + tools + prior
+        // messages — Anthropic's cache_control covers everything before the
+        // marker, including the system prompt and tool definitions).
         system: opts.system,
         messages,
         tools,
@@ -182,6 +211,16 @@ export class LlmClient {
         maxOutputTokens: opts.max_tokens,
         // Don't let the SDK auto-step into a multi-turn loop — we manage that.
         stopWhen: undefined,
+        // Provider-level options. Anthropic's cache_control on the message
+        // above is the primary cache signal; this object can carry future
+        // model-wide options (e.g. extended thinking budget).
+        ...(isAnthropic
+          ? {
+              providerOptions: {
+                anthropic: {},
+              },
+            }
+          : {}),
       });
     } catch (e) {
       // Log the FULL error before wrapping so we can see provider responses
@@ -346,12 +385,27 @@ function mapResponse(result: any, modelId: string): LlmResponse {
       stop_reason = result.finishReason ?? "end_turn";
   }
 
+  // Anthropic cache token counts come through providerMetadata in the SDK
+  // response. When prompt caching is hit, `cachedInputTokens` represents the
+  // tokens read from cache (billed at ~0.1× the input rate). Iteration_log
+  // shows these so cache effectiveness is visible per-iter.
+  const cacheReadTokens =
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (result.providerMetadata?.anthropic as any)?.cacheReadInputTokens ??
+    result.usage?.cachedInputTokens ??
+    0;
+  const cacheCreationTokens =
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (result.providerMetadata?.anthropic as any)?.cacheCreationInputTokens ?? 0;
+
   const usage: LlmUsage = {
     input_tokens: result.usage?.inputTokens ?? result.usage?.promptTokens ?? 0,
     output_tokens: result.usage?.outputTokens ?? result.usage?.completionTokens ?? 0,
     // Estimated cost: best-effort placeholder — CF AI Gateway is the
     // authoritative billing source. Diagnostic value only.
     estimated_cost: "0",
+    cache_creation_input_tokens: cacheCreationTokens,
+    cache_read_input_tokens: cacheReadTokens,
   };
 
   return {
