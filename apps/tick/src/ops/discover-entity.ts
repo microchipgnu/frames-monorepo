@@ -82,6 +82,12 @@ export interface DiscoverEntityOptions {
   walletCapability?: { evm: boolean; solana: boolean; tempo: boolean };
   /** Worker env — for catalog dispatch receipt signing. */
   env?: { AUDIT_PRIVATE_KEY?: string };
+  /**
+   * Model override for this sub-loop. When set, overrides the default `agent: "build"`
+   * routing (which goes to Sonnet 4.6). Threaded from env.SUB_AGENT_MODEL via
+   * the EntityAgent DO — e.g. `anthropic/claude-haiku-4-5` for 3× cost cut.
+   */
+  subAgentModel?: string;
   /** Budget for this sub-loop (USDC). Default $0.30. */
   budget?: string;
   /** Max iterations. Default 5. */
@@ -323,7 +329,9 @@ export async function discoverEntity(opts: DiscoverEntityOptions): Promise<Disco
       // as refresh-entity — sub-agent gets paid catalog access only when
       // the EntityAgent DO had the env to boot the wallet stack.
       tools: opts.catalog ? [...DISCOVER_TOOLS, ...DISCOVER_CATALOG_TOOLS] : DISCOVER_TOOLS,
-      agent: "build",
+      // Sub-agent model override (env.SUB_AGENT_MODEL → opts.subAgentModel)
+      // for cost reduction. Falls back to agent=build (Sonnet) when unset.
+      ...(opts.subAgentModel ? { model: opts.subAgentModel } : { agent: "build" as const }),
       max_tokens: 2048,
     });
     const llmCost = Number(llmRes.usage.estimated_cost);

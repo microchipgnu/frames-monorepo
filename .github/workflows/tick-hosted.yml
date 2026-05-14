@@ -38,7 +38,7 @@ env:
 jobs:
   curate:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
     strategy:
       fail-fast: false
       matrix:
@@ -73,10 +73,14 @@ jobs:
           FRAME_URL="https://github.com/${GITHUB_REPOSITORY}/examples/frames-examples/datasets/${{ matrix.dataset }}"
           echo "Curating ${FRAME_URL} via ${TICK_API_URL} (budget \$${BUDGET})"
 
+          # 20-min cap: post-Vercel-SDK refactor (2026-05-13) mcp-servers
+          # curate runs ~10-12 min on the heavier dataset (19 sub-agents × Sonnet).
+          # 10-min cap was firing curl: (28). Once SUB_AGENT_MODEL flips to Haiku,
+          # this can probably drop back to 10 min — leaving 20 as safety margin.
           RESPONSE=$(curl -fsS -X POST "${TICK_API_URL}/run" \
             -H "authorization: Bearer ${TICK_API_KEY}" \
             -H "content-type: application/json" \
-            --max-time 600 \
+            --max-time 1200 \
             -d "$(jq -nc \
               --arg frame "${FRAME_URL}" \
               --arg budget "${BUDGET}" \

@@ -362,7 +362,11 @@ export async function refreshEntity(opts: RefreshEntityOptions): Promise<Refresh
       // call sites that don't pass `opts.catalog` keep the legacy narrow
       // palette (back-compat).
       tools: opts.catalog ? [...REFRESH_TOOLS, ...CATALOG_TOOLS] : REFRESH_TOOLS,
-      agent: "build",
+      // Sub-agent model override: opts.subAgentModel (threaded from
+      // env.SUB_AGENT_MODEL via the EntityAgent DO) → uses a cheaper tier
+      // for the bulk of LLM cost. Falls back to agent=build (Sonnet) when
+      // unset so existing callers don't change behavior.
+      ...(opts.subAgentModel ? { model: opts.subAgentModel } : { agent: "build" as const }),
       max_tokens: 2048,
     });
     const llmCost = Number(llmRes.usage.estimated_cost);

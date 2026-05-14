@@ -123,6 +123,10 @@ export class EntityAgent extends DurableObject<Bindings> {
       walletCapability,
       catalog,
       env: this.env,
+      // SUB_AGENT_MODEL flips every sub-loop LLM call to e.g.
+      // anthropic/claude-haiku-4-5 — 3× cheaper than Sonnet 4.6 for the
+      // bounded reasoning sub-agents do.
+      subAgentModel: this.env.SUB_AGENT_MODEL,
       budget: req.budget,
       max_iters: req.max_iters,
       run_id: req.run_id,
@@ -166,6 +170,7 @@ export class EntityAgent extends DurableObject<Bindings> {
       walletCapability,
       catalog,
       env: this.env,
+      subAgentModel: this.env.SUB_AGENT_MODEL,
       budget: req.budget,
       max_iters: req.max_iters,
       run_id: req.run_id,
