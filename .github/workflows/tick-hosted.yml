@@ -28,6 +28,14 @@ on:
         description: "USDC budget for this run"
         required: false
         default: "1.50"
+      model:
+        description: "Parent-agent model (overrides worker default Sonnet)"
+        required: false
+        default: ""
+      sub_agent_model:
+        description: "Sub-agent model (overrides SUB_AGENT_MODEL env, default Haiku)"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -69,14 +77,21 @@ jobs:
           TICK_API_KEY: ${{ secrets.TICK_API_KEY }}
           TICK_API_URL: ${{ secrets.TICK_API_URL || env.TICK_API_URL_DEFAULT }}
           BUDGET: ${{ github.event.inputs.budget || '1.50' }}
+          MODEL: ${{ github.event.inputs.model || '' }}
+          SUB_AGENT_MODEL_INPUT: ${{ github.event.inputs.sub_agent_model || '' }}
         run: |
           FRAME_URL="https://github.com/${GITHUB_REPOSITORY}/examples/frames-examples/datasets/${{ matrix.dataset }}"
-          echo "Curating ${FRAME_URL} via ${TICK_API_URL} (budget \$${BUDGET})"
+          echo "Curating ${FRAME_URL} via ${TICK_API_URL} (budget \$${BUDGET}) model=${MODEL:-default} sub=${SUB_AGENT_MODEL_INPUT:-default}"
 
-          # 20-min cap: post-Vercel-SDK refactor (2026-05-13) mcp-servers
-          # curate runs ~10-12 min on the heavier dataset (19 sub-agents × Sonnet).
-          # 10-min cap was firing curl: (28). Once SUB_AGENT_MODEL flips to Haiku,
-          # this can probably drop back to 10 min — leaving 20 as safety margin.
+          # 30-min cap: mcp-servers with 20+ sub-agents can serialize through
+          # DO scheduling longer than the prior 20-min ceiling — failed run
+          # 25855544974 hit curl: (28) before this bump.
+          # `model` + `sub_agent_model` are per-run overrides surfaced via
+          # workflow_dispatch inputs; empty string means "use worker default".
+          PARAMS_JSON=$(jq -nc \
+            --arg model "${MODEL}" \
+            --arg sub_agent_model "${SUB_AGENT_MODEL_INPUT}" \
+            '({model:$model, sub_agent_model:$sub_agent_model} | with_entries(select(.value != "")))')
           RESPONSE=$(curl -fsS -X POST "${TICK_API_URL}/run" \
             -H "authorization: Bearer ${TICK_API_KEY}" \
             -H "content-type: application/json" \
@@ -84,7 +99,8 @@ jobs:
             -d "$(jq -nc \
               --arg frame "${FRAME_URL}" \
               --arg budget "${BUDGET}" \
-              '{op:"curate",frame:$frame,budget:$budget}')")
+              --argjson params "${PARAMS_JSON}" \
+              '{op:"curate",frame:$frame,budget:$budget} + (if ($params | length) > 0 then {params:$params} else {} end)')")
 
           echo "$RESPONSE" > /tmp/tick-result.json
 

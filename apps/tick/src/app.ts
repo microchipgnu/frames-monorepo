@@ -473,6 +473,28 @@ async function executeOpDispatch(args: DispatchArgs): Promise<DispatchOutcome> {
       const verifyCitationsRaw = (body.params as { verify_citations?: unknown } | undefined)?.verify_citations;
       const verifyCitations = verifyCitationsRaw === false ? false : true;
 
+      // Per-run model overrides — let the caller (workflow/CLI) pick cheaper
+      // models without redeploying. `model` overrides the parent agent;
+      // `sub_agent_model` overrides refresh/discover sub-agents.
+      const requestParams = body.params as
+        | { model?: unknown; sub_agent_model?: unknown }
+        | undefined;
+      const requestModel =
+        typeof requestParams?.model === "string" && requestParams.model.length > 0
+          ? requestParams.model
+          : undefined;
+      const requestSubAgentModel =
+        typeof requestParams?.sub_agent_model === "string" && requestParams.sub_agent_model.length > 0
+          ? requestParams.sub_agent_model
+          : undefined;
+      if (requestModel || requestSubAgentModel) {
+        log.info("model_overrides_attached", {
+          run_id,
+          model: requestModel ?? null,
+          sub_agent_model: requestSubAgentModel ?? null,
+        });
+      }
+
       const sharedLlmOpts = {
         frame_url: body.frame,
         budget,
@@ -498,6 +520,8 @@ async function executeOpDispatch(args: DispatchArgs): Promise<DispatchOutcome> {
         env,
         onEvent: args.onEvent,
         custom_prompt: customerPrompt,
+        model: requestModel,
+        sub_agent_model: requestSubAgentModel,
       };
       const outcome =
         body.op === "curate"

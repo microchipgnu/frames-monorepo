@@ -444,12 +444,22 @@ function mapResponse(result: any, modelId: string): LlmResponse {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (result.providerMetadata?.anthropic as any)?.cacheCreationInputTokens ?? 0;
 
+  const inputTokens = result.usage?.inputTokens ?? result.usage?.promptTokens ?? 0;
+  const outputTokens = result.usage?.outputTokens ?? result.usage?.completionTokens ?? 0;
+  const estimatedCost = computeCost(modelId, {
+    input: inputTokens,
+    output: outputTokens,
+    cacheCreation: cacheCreationTokens,
+    cacheRead: cacheReadTokens,
+  });
+
   const usage: LlmUsage = {
-    input_tokens: result.usage?.inputTokens ?? result.usage?.promptTokens ?? 0,
-    output_tokens: result.usage?.outputTokens ?? result.usage?.completionTokens ?? 0,
-    // Estimated cost: best-effort placeholder — CF AI Gateway is the
-    // authoritative billing source. Diagnostic value only.
-    estimated_cost: "0",
+    input_tokens: inputTokens,
+    output_tokens: outputTokens,
+    // Estimated cost in USD. CF AI Gateway is still the authoritative billing
+    // source; this is a token-based estimate from the per-model price table
+    // below. Used for budget enforcement + iter-log diagnostics.
+    estimated_cost: estimatedCost,
     cache_creation_input_tokens: cacheCreationTokens,
     cache_read_input_tokens: cacheReadTokens,
   };
@@ -460,4 +470,48 @@ function mapResponse(result: any, modelId: string): LlmResponse {
     usage,
     model: result.response?.modelId ?? modelId,
   };
+}
+
+// ---------- Pricing --------------------------------------------------------
+
+// USD per 1M tokens, by model id. Covers the model ids we actually pick
+// in this codebase (anthropic/* aliases + the CF Workers AI fallbacks).
+// Anthropic rate card as of 2026-Q2.
+const MODEL_PRICES: Record<string, { in: number; out: number }> = {
+  "anthropic/claude-haiku-4-5": { in: 1.0, out: 5.0 },
+  "anthropic/claude-sonnet-4-6": { in: 3.0, out: 15.0 },
+  "anthropic/claude-opus-4-7": { in: 15.0, out: 75.0 },
+  // Bare ids (back-compat with response.modelId after the `anthropic/` prefix
+  // is stripped by the gateway).
+  "claude-haiku-4-5": { in: 1.0, out: 5.0 },
+  "claude-sonnet-4-6": { in: 3.0, out: 15.0 },
+  "claude-opus-4-7": { in: 15.0, out: 75.0 },
+  // CF Workers AI — public pricing.
+  "@cf/meta/llama-3.3-70b-instruct-fp8-fast": { in: 0.293, out: 2.253 },
+  "@cf/meta/llama-3.1-8b-instruct": { in: 0.282, out: 0.827 },
+};
+
+function computeCost(
+  modelId: string,
+  tokens: { input: number; output: number; cacheCreation: number; cacheRead: number },
+): string {
+  // Lookup tolerates the bare id and the provider/id form. Defaults to
+  // Sonnet rate when unknown — prevents silent under-reporting if a new
+  // model ships before this table is updated.
+  const price =
+    MODEL_PRICES[modelId] ??
+    MODEL_PRICES[modelId.replace(/^anthropic\//, "")] ??
+    MODEL_PRICES["anthropic/claude-sonnet-4-6"]!;
+
+  // Anthropic pricing rules:
+  //   non-cached input    → 1.0× input rate
+  //   cache write (1h ttl)→ 2.0× input rate (we use ttl=1h in this client)
+  //   cache read          → 0.1× input rate
+  //   output              → 1.0× output rate
+  const cost =
+    (tokens.input / 1_000_000) * price.in +
+    (tokens.cacheCreation / 1_000_000) * price.in * 2.0 +
+    (tokens.cacheRead / 1_000_000) * price.in * 0.1 +
+    (tokens.output / 1_000_000) * price.out;
+  return cost.toFixed(6);
 }

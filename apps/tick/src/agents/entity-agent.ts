@@ -52,6 +52,12 @@ export interface RefreshEntityRequest {
   max_iters?: number;
   run_id: string;
   agent: string;
+  /**
+   * Per-run model override for this sub-agent. When set, wins over
+   * `env.SUB_AGENT_MODEL`. Lets callers route specific runs to a cheaper
+   * model without redeploying.
+   */
+  sub_agent_model?: string;
 }
 
 export interface DiscoverEntityRequest {
@@ -64,6 +70,8 @@ export interface DiscoverEntityRequest {
   max_iters?: number;
   run_id: string;
   agent: string;
+  /** See RefreshEntityRequest.sub_agent_model. */
+  sub_agent_model?: string;
 }
 
 export class EntityAgent extends DurableObject<Bindings> {
@@ -126,7 +134,7 @@ export class EntityAgent extends DurableObject<Bindings> {
       // SUB_AGENT_MODEL flips every sub-loop LLM call to e.g.
       // anthropic/claude-haiku-4-5 — 3× cheaper than Sonnet 4.6 for the
       // bounded reasoning sub-agents do.
-      subAgentModel: this.env.SUB_AGENT_MODEL,
+      subAgentModel: req.sub_agent_model ?? this.env.SUB_AGENT_MODEL,
       budget: req.budget,
       max_iters: req.max_iters,
       run_id: req.run_id,
@@ -170,7 +178,7 @@ export class EntityAgent extends DurableObject<Bindings> {
       walletCapability,
       catalog,
       env: this.env,
-      subAgentModel: this.env.SUB_AGENT_MODEL,
+      subAgentModel: req.sub_agent_model ?? this.env.SUB_AGENT_MODEL,
       budget: req.budget,
       max_iters: req.max_iters,
       run_id: req.run_id,

@@ -98,6 +98,19 @@ export interface CurateOptions {
    * (e.g., bulk-import flows where you've already verified externally).
    */
   verify_citations?: boolean;
+  /**
+   * Override the parent agent's model for this run. Format: `<provider>/<id>`,
+   * e.g. `anthropic/claude-haiku-4-5`. When unset, uses the LlmClient's
+   * default for `agent: "build"` (typically Sonnet 4.6). Threaded from
+   * `body.params.model` on `POST /run`.
+   */
+  model?: string;
+  /**
+   * Override sub-agent (refresh/discover) model for this run. Threaded into
+   * the EntityAgent DO via the dispatch request. Defaults to
+   * `env.SUB_AGENT_MODEL` when unset.
+   */
+  sub_agent_model?: string;
 }
 
 export async function curate(opts: CurateOptions): Promise<OpOutcome> {
@@ -287,7 +300,9 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
       system,
       messages,
       tools: CURATE_TOOLS,
-      agent: "build",
+      // Per-run model override (`body.params.model`) wins over the agent
+      // default; fall back to `agent: "build"` (Sonnet) when unset.
+      ...(opts.model ? { model: opts.model } : { agent: "build" as const }),
       // Bumped 8192 → 16384 (Sonnet supports up to 32k output). The 8192
       // cap was clipping mcp-servers iter 5 mid-tool-use when the parent
       // batched many proposals → stop=max_tokens → events=0. Doubling gives
@@ -365,6 +380,7 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
       env: opts.env,
       llm: opts.llm,
       schema,
+      sub_agent_model: opts.sub_agent_model,
     });
 
     const dispatches: ToolDispatchResult[] = allSubAgents
@@ -575,6 +591,8 @@ interface DispatchContext {
   /** LLM + schema needed for cheap-model summarization of fetched pages. */
   llm: LlmClient;
   schema: FrameSchema;
+  /** Per-run sub-agent model override; threaded into refresh/discover dispatch. */
+  sub_agent_model?: string;
 }
 
 async function dispatchTool(
@@ -816,6 +834,7 @@ async function dispatchRefreshEntity(
         max_iters: 5,
         run_id: ctx.run_id,
         agent: ctx.agent,
+        sub_agent_model: ctx.sub_agent_model,
       })
     : await refreshEntity({
         entity_id,
@@ -834,6 +853,7 @@ async function dispatchRefreshEntity(
         max_iters: 5,
         run_id: ctx.run_id,
         agent: ctx.agent,
+        subAgentModel: ctx.sub_agent_model,
       });
 
   // Emit the sub-loop's writes as real frame events.
@@ -962,6 +982,7 @@ async function dispatchDiscoverEntity(
         max_iters: 5,
         run_id: ctx.run_id,
         agent: ctx.agent,
+        sub_agent_model: ctx.sub_agent_model,
       })
     : await discoverEntity({
         hypothesis,
@@ -980,6 +1001,7 @@ async function dispatchDiscoverEntity(
         max_iters: 5,
         run_id: ctx.run_id,
         agent: ctx.agent,
+        subAgentModel: ctx.sub_agent_model,
       });
 
   // Emit events when the sub-loop proposed a new entity. Match
