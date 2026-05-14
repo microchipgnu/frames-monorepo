@@ -134,31 +134,55 @@ export class LlmClient {
   async call(opts: CallOptions): Promise<LlmResponse> {
     const modelId = opts.model ?? this.pickModel(opts.agent ?? "build");
 
-    // Two routing paths:
-    //   1. Gateway path (production): all calls flow through CF AI Gateway,
-    //      which resolves provider auth via stored BYOK aliases. Any model
-    //      string (anthropic/*, openai/*, google/*, @cf/*) works.
-    //   2. Direct Anthropic (local dev / smoketest): no gateway configured,
-    //      but ANTHROPIC_API_KEY is present. Only anthropic/* models work.
+    // Three routing paths. The choice matters for prompt caching:
+    //   1. Anthropic via CF Gateway NATIVE endpoint (`/anthropic`): the
+    //      @ai-sdk/anthropic provider speaks Anthropic's native API and
+    //      preserves `cache_control` on messages/tools. THIS is what makes
+    //      prompt caching work in production.
+    //   2. Non-Anthropic via CF Gateway compat endpoint (OpenAI-compat).
+    //      The `unified` adapter translates to OpenAI's shape; Anthropic-
+    //      specific options (like cache_control) get dropped — fine for
+    //      openai/*, google/*, @cf/* models which use their own caching.
+    //   3. Direct Anthropic (local dev): same SDK as path 1, just no gateway.
+    //
+    // Why this matters: ai-gateway-provider's `unified` is built on
+    // @ai-sdk/openai-compatible. CF Gateway's OpenAI-compat endpoint strips
+    // Anthropic's `cache_control`. Routing Anthropic models through native
+    // gets us cache hits + observability + BYOK aliasing.
     const gw = this.tryParseGateway();
+    const isAnthropicModel = modelId.startsWith("anthropic/");
     let model;
-    if (gw) {
+    let routingPath: "anthropic-gateway" | "anthropic-direct" | "unified-gateway";
+    if (gw && isAnthropicModel) {
+      // CF Gateway BYOK: pass the alias as `x-api-key` (createAnthropic puts
+      // apiKey there). Gateway resolves the alias to the real upstream key.
+      // When no alias, fall back to a placeholder — gateway will use its
+      // default upstream config.
+      const bareModelId = modelId.replace(/^anthropic\//, "");
+      const anthropic = createAnthropic({
+        apiKey: this.cfg.byokAlias ?? this.cfg.anthropicApiKey ?? "cf-gateway-byok",
+        baseURL: `https://gateway.ai.cloudflare.com/v1/${gw.accountId}/${gw.gatewaySlug}/anthropic/v1`,
+        headers: this.cfg.gatewayToken
+          ? { "cf-aig-authorization": `Bearer ${this.cfg.gatewayToken}` }
+          : undefined,
+      });
+      model = anthropic(bareModelId);
+      routingPath = "anthropic-gateway";
+    } else if (gw) {
       const aigateway = createAiGateway({
         accountId: gw.accountId,
         gateway: gw.gatewaySlug,
         apiKey: this.cfg.gatewayToken,
       });
-      // Only pass apiKey to createUnified when actually set. Passing
-      // `{ apiKey: undefined }` confuses the provider vs. omitting entirely.
       const unified = this.cfg.byokAlias
         ? createUnified({ apiKey: this.cfg.byokAlias })
         : createUnified();
       model = aigateway(unified(modelId));
-    } else if (this.cfg.anthropicApiKey && modelId.startsWith("anthropic/")) {
-      // Direct passthrough for local dev. Strip the `anthropic/` prefix
-      // because @ai-sdk/anthropic's createAnthropic() wants the bare model id.
+      routingPath = "unified-gateway";
+    } else if (this.cfg.anthropicApiKey && isAnthropicModel) {
       const anthropic = createAnthropic({ apiKey: this.cfg.anthropicApiKey });
       model = anthropic(modelId.replace(/^anthropic\//, ""));
+      routingPath = "anthropic-direct";
     } else {
       throw new LlmError(
         `LlmClient unconfigured: no AI gateway (gatewayUrl / cfAccountId+aiGatewaySlug) and no anthropicApiKey for model ${modelId}.`,
@@ -168,22 +192,16 @@ export class LlmClient {
     const messages = mapToModelMessages(opts.messages);
     const tools = mapToTools(opts.tools);
 
-    // Anthropic prompt caching: mark the LAST user message in the conversation
-    // with `cacheControl: ephemeral`. Anthropic caches everything BEFORE that
-    // marker (system + tools + prior assistant/user messages) for 5 minutes,
-    // billing cache_read at ~0.1× the input rate on subsequent iters.
+    // Anthropic prompt caching: mark the LAST message with
+    // `cacheControl: ephemeral`. The @ai-sdk/anthropic provider applies
+    // message-level cacheControl to that message's LAST content part. Anthropic
+    // caches everything at and before that breakpoint (system + tools + prior
+    // messages) for 5 minutes, billing cache_read at ~0.1× input rate.
     //
-    // The cache key includes the full prefix, so successive iters within the
-    // same run hit the cache cleanly as long as the prefix is stable (we
-    // always append, never mutate prior messages).
-    //
-    // Pre-Vercel-SDK swap (2026-05-13), the hand-rolled client did this via
-    // cache_creation_input_tokens / cache_read_input_tokens directly. Lost
-    // it in the refactor → 6-iter runs paying full Sonnet rates for 128k
-    // input each iter → ~$2 of input alone per run. Restoring caching cuts
-    // that to ~$0.10-$0.30.
-    const isAnthropic = modelId.startsWith("anthropic/") || (gw === null && this.cfg.anthropicApiKey);
-    if (isAnthropic && messages.length > 0) {
+    // Only effective on the `anthropic-*` routing paths; the unified compat
+    // adapter strips Anthropic-specific provider options.
+    const cachingEnabled = routingPath === "anthropic-gateway" || routingPath === "anthropic-direct";
+    if (cachingEnabled && messages.length > 0) {
       const lastIdx = messages.length - 1;
       const last = messages[lastIdx]!;
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -211,16 +229,6 @@ export class LlmClient {
         maxOutputTokens: opts.max_tokens,
         // Don't let the SDK auto-step into a multi-turn loop — we manage that.
         stopWhen: undefined,
-        // Provider-level options. Anthropic's cache_control on the message
-        // above is the primary cache signal; this object can carry future
-        // model-wide options (e.g. extended thinking budget).
-        ...(isAnthropic
-          ? {
-              providerOptions: {
-                anthropic: {},
-              },
-            }
-          : {}),
       });
     } catch (e) {
       // Log the FULL error before wrapping so we can see provider responses
@@ -233,7 +241,7 @@ export class LlmClient {
           ts: new Date().toISOString(),
           event: "llm_call_failed",
           model: modelId,
-          path: gw ? "gateway" : "anthropic-passthrough",
+          path: routingPath,
           gateway_slug: gw?.gatewaySlug,
           error: errMsg,
           stack,
