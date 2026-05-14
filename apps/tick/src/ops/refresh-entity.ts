@@ -71,6 +71,14 @@ export interface RefreshEntityOptions {
   walletCapability?: { evm: boolean; solana: boolean; tempo: boolean };
   /** Worker env — used by catalog dispatch for AUDIT_PRIVATE_KEY (receipt signing). */
   env?: { AUDIT_PRIVATE_KEY?: string };
+  /**
+   * Model for the sub-loop reasoning. Defaults to `anthropic/claude-haiku-4-5`
+   * — 3× cheaper than Sonnet 4.6 with same function-calling shape. Set to
+   * `@cf/meta/llama-3.3-70b-instruct-fp8-fast` (or another Workers AI model)
+   * for ~10× cheaper at the cost of tool-use reliability. Threaded from
+   * `Bindings.SUB_AGENT_MODEL` via the EntityAgent DO / curate dispatch.
+   */
+  subAgentModel?: string;
   /** Budget for this sub-loop (USDC). Default $0.30 — enough for 3-5 iters with summarized fetches. */
   budget?: string;
   /** Max iterations. Default 5 — sub-loops should be tight. */

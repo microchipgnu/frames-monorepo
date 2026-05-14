@@ -144,6 +144,23 @@ export type Bindings = {
    */
   WORKERS_AI_MODEL?: string;
 
+  /**
+   * Per-sub-agent model override. When set, `refresh_entity` and
+   * `discover_entity` sub-loops use this model instead of the parent's
+   * `build` default. Sub-agents do bounded, focused reasoning — typically
+   * fine on a cheaper tier (Haiku, or even Workers-AI hosted Llama/GLM).
+   *
+   * Format: `<provider>/<model-id>`. Examples:
+   *   `anthropic/claude-haiku-4-5`              — default, 3× cheaper than Sonnet 4.6
+   *   `@cf/meta/llama-3.3-70b-instruct-fp8-fast` — Workers AI hosted, ~10× cheaper, function calling
+   *   `@cf/openai/gpt-oss-20b`                   — OpenAI open-weight via Workers AI
+   *   `@cf/zai-org/glm-4.7-flash`                — GLM Flash
+   *
+   * Unset → defaults to `anthropic/claude-haiku-4-5`. Parent stays on
+   * its own `buildModel` for cross-entity reasoning.
+   */
+  SUB_AGENT_MODEL?: string;
+
   // ---------------------------------------------------------------------
   // x402 v2 PaymentRequirements config — only needed when adding inbound
   // billing in Phase B. Until `TICK_PAY_TO_ADDRESS` is set, the server
