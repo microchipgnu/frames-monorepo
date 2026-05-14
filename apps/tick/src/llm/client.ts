@@ -202,22 +202,37 @@ export class LlmClient {
     const messages = mapToModelMessages(opts.messages);
     const tools = mapToTools(opts.tools);
 
-    // Anthropic prompt caching: mark the LAST message with
-    // `cacheControl: ephemeral, ttl: 1h`. The @ai-sdk/anthropic provider
-    // applies message-level cacheControl to that message's LAST content part.
-    // Anthropic caches everything at and before that breakpoint (system +
-    // tools + prior messages), billing cache_read at ~0.1× input rate.
+    // Anthropic prompt caching: two breakpoints.
+    //   1. SYSTEM message with cacheControl — caches the system prompt + tool
+    //      definitions, the largest fully-stable chunk (~5k tokens for our
+    //      agent prompts). This anchor is rock-solid: it never moves and
+    //      doesn't depend on conversation state.
+    //   2. LAST conversation message with cacheControl — caches the prior
+    //      messages so successive iters cheaply replay the conversation.
     //
-    // ttl=1h vs default 5m: 1h write is 2× input rate (vs 1.25× for 5m), but
-    // reads stay 0.1×. Our runs span 5–15 min with 6–10 iters; the 5m TTL
-    // misses on later iters cost more than the 1h write premium amortizes.
+    // We pass system as a system-role message (not via the top-level
+    // `system:` param) so it can carry providerOptions. ttl=1h is 2× write
+    // rate (vs 1.25× for 5m) but eliminates TTL-miss costs on slower runs;
+    // reads stay 0.1× regardless.
     //
     // Only effective on the `anthropic-*` routing paths; the unified compat
     // adapter strips Anthropic-specific provider options.
     const cachingEnabled = routingPath === "anthropic-gateway" || routingPath === "anthropic-direct";
-    if (cachingEnabled && messages.length > 0) {
-      const lastIdx = messages.length - 1;
-      const last = messages[lastIdx]!;
+    const finalMessages: ModelMessage[] = cachingEnabled && opts.system
+      ? ([
+          {
+            role: "system",
+            content: opts.system,
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            providerOptions: { anthropic: { cacheControl: { type: "ephemeral", ttl: "1h" } } },
+          } as any,
+          ...messages,
+        ])
+      : messages;
+
+    if (cachingEnabled && finalMessages.length > 0) {
+      const lastIdx = finalMessages.length - 1;
+      const last = finalMessages[lastIdx]!;
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (last as any).providerOptions = {
         ...((last as any).providerOptions ?? {}),
@@ -229,12 +244,11 @@ export class LlmClient {
     try {
       result = await generateText({
         model,
-        // Pass system as a separate field so Anthropic caches it natively
-        // (cache markers on the LAST user message cache system + tools + prior
-        // messages — Anthropic's cache_control covers everything before the
-        // marker, including the system prompt and tool definitions).
-        system: opts.system,
-        messages,
+        // When caching is on, system is passed as a system-role message in
+        // `messages` (so it can carry cacheControl). Otherwise via the
+        // top-level field.
+        ...(cachingEnabled ? {} : { system: opts.system }),
+        messages: finalMessages,
         tools,
         // We dispatch tools ourselves — let the model produce the tool_calls
         // and stop, don't let the SDK auto-execute (no `execute` on our tools).
