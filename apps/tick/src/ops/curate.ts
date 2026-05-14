@@ -288,7 +288,11 @@ export async function curate(opts: CurateOptions): Promise<OpOutcome> {
       messages,
       tools: CURATE_TOOLS,
       agent: "build",
-      max_tokens: 8192,
+      // Bumped 8192 → 16384 (Sonnet supports up to 32k output). The 8192
+      // cap was clipping mcp-servers iter 5 mid-tool-use when the parent
+      // batched many proposals → stop=max_tokens → events=0. Doubling gives
+      // headroom for parents managing 15-25 sub-agent dispatches.
+      max_tokens: 16384,
     });
     const llmCost = Number(llmRes.usage.estimated_cost);
     llmRemaining -= llmCost;
