@@ -38,7 +38,7 @@ env:
 jobs:
   curate:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 35
     strategy:
       fail-fast: false
       matrix:
@@ -80,7 +80,7 @@ jobs:
           RESPONSE=$(curl -fsS -X POST "${TICK_API_URL}/run" \
             -H "authorization: Bearer ${TICK_API_KEY}" \
             -H "content-type: application/json" \
-            --max-time 1200 \
+            --max-time 1800 \
             -d "$(jq -nc \
               --arg frame "${FRAME_URL}" \
               --arg budget "${BUDGET}" \
