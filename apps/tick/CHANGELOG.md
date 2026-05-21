@@ -1,5 +1,156 @@
 # @frames-ag/tick
 
+## 0.6.0
+
+### Minor Changes
+
+- 6b05ccf: split single `budget` into `llm_budget` + `tool_budget` so paid tools have a reserved spend floor
+
+  Today's runs showed the root cause of `settled=$0` across every curate: with a single $1.50 pot, LLM iteration cost (~$1.36 measured) consumes the budget before the agent ever reaches a `tool_invoke`. Sub-agents fan out and finish the rest. The agent never picks paid tools because it can't afford them.
+
+  `CurateOptions` now has two independent pots:
+
+  - **`llm_budget`** — LLM iterations + sub-agent LLM + web_fetch summarizer + citation verifier
+  - **`tool_budget`** — paid `tool_invoke` calls (the x402/MPP path)
+
+  Each cost-emitting site debits its own pot. The force-stop guard fires when **`llm_budget`** drops below the safety floor (or projected next-iter cost would). `tool_budget` is **NOT** a force-stop signal — it's a guaranteed floor; per-call exhaustion is handled at dispatch time (catalog_dispatch refuses calls whose `price_hint` exceeds `tool_remaining`).
+
+  ### Default split
+
+  When only the legacy `budget` field is provided, the runtime splits **80% LLM / 20% tool**. A $1.50 budget becomes $1.20 LLM + $0.30 tool — that floor of $0.30 is what guarantees the agent can pay for catalog calls even after a long LLM-heavy run.
+
+  When `llm_budget` and `tool_budget` are passed explicitly (via `CurateOptions` direct usage), they override the split entirely.
+
+  ### System prompt
+
+  The agent now sees both pots in the system prompt and is told explicitly that `tool_budget` can't be used for LLM iterations — "if you skip catalog tools to save budget, you'll be force-stopped with USDC unspent."
+
+  ### Compatibility
+
+  - `CurateOptions.budget` stays optional; legacy callers passing `budget` still work via the 80/20 default split.
+  - New optional fields `llm_budget` / `tool_budget` in `CurateOptions`.
+  - New optional fields `llm_budget_remaining` / `tool_budget_remaining` in the run receipt's report. `budget_remaining` is preserved (now reports sum of both pots).
+  - `CurateSystemArgs.budget` was replaced by `llm_budget` + `tool_budget` (breaking for anyone building the system prompt directly outside tick — not a public API).
+
+  ### Not in scope
+
+  - `DiscoverOptions` still uses the single-pot model. Mirror change can ship as a follow-up if/when discover-flow runs need the same protection.
+  - `RunInput` HTTP body still accepts only `budget` — splitting via the wire API can ship once the curate-side split has been validated live.
+
+- b226d7e: sub-agents (refresh_entity, discover_entity) get full catalog access
+
+  Today's runs showed the actual external-fetch work happens in sub-agents, not the parent curate loop. 19 of 19 sub-agents on mcp-servers went straight to `web_fetch`; 4 stalled with `no_progress` retrying GitHub URLs the auto-summarizer drops fields from. The parent-loop catalog-first prompt change had zero effect because sub-agents had their own narrow tool palette (`web_fetch`, `propose_facts`, `propose_deprecations`, `no_change`) — no `catalog_search`, no `tool_invoke`. And the EntityAgent DO used the FREE refetcher, so even if it had paid tools they wouldn't have settled.
+
+  This change wires the paid stack and catalog tools end-to-end into the sub-agent loops:
+
+  - **EntityAgent DO now boots the paid wallet stack** via the new shared `pickWalletStack` helper (moved from `app.ts` to `wallet.ts` so the DO can call it too). `arktype-init` is imported FIRST so faremeter's ArkType schemas compile cleanly inside the DO isolate.
+  - **EntityAgent DO constructs a CatalogClient** using the same service binding (`env.CATALOG`) the parent uses.
+  - **`refreshEntity()` and `discoverEntity()` accept** new optional fields: `catalog`, `paidFetch`, `walletCapability`, `env`. When present, the sub-agent gains `catalog_search`, `catalog_get`, and `tool_invoke` tools alongside its terminal proposals.
+  - **Sub-agent system prompts** now bias catalog-first when catalog is wired in. Explicit guidance: "FIRST: try `catalog_search(capability)` — paid descriptors return structured first-class JSON fields the summarizer doesn't drop. Only fall back to `web_fetch` when catalog yields zero hits."
+  - **`curate.ts` threads the paid stack** into both the inline-fallback `refreshEntity()` / `discoverEntity()` call paths.
+
+  Combined with the new `walletCapability` filter on `catalog_search` (this release), sub-agents now have everything they need to organically exercise the paid path:
+
+  - Bias toward catalog ✓
+  - Catalog tools available ✓
+  - paidFetch wired ✓
+  - Filtered to only payable descriptors ✓
+
+  Tests: 169/169 pass. `bun run build` clean (declaration emit needed the dependent `.ts` extension fix in `@frames-ag/pay`'s wallet subpath — landed in pay@^0.2.2).
+
+- a4754ec: LlmClient internals → Vercel AI SDK + ai-gateway-provider (693 → 330 LOC)
+
+  Public API unchanged — every call site continues `await llm.call({system, messages, tools, agent})`. What changed is the implementation underneath: hand-rolled Anthropic Messages API + Workers AI HTTP + provider-routing (~500 lines of plumbing) is replaced with `generateText()` from the `ai` package, routed through `ai-gateway-provider`.
+
+  ### Why
+
+  Every additional provider required ~300 lines (auth, request shape, response shape, tool-call translation). Adding `openai/*`, `google/*`, `xai/*`, etc. for sub-agent cost optimization would have been a real engineering project. With `ai-gateway-provider`, any model becomes a string: `SUB_AGENT_MODEL=openai/gpt-5.4-nano` or `SUB_AGENT_MODEL=@cf/meta/llama-3.3-70b-instruct-fp8-fast` or `SUB_AGENT_MODEL=google/gemini-3.1-flash-lite`. The gateway resolves auth via BYOK aliases stored on the CF dashboard.
+
+  ### What's preserved (no call-site changes)
+
+  - All public types: `LlmRole`, `LlmContent`, `LlmMessage`, `LlmToolSpec`, `LlmUsage`, `LlmResponse`, `CallOptions`, `LlmClientConfig`, `LlmError`.
+  - The `LlmClient.call(opts)` shape — same input, same output.
+  - Per-agent default models (`buildModel`, `titleModel`, `exploreModel`).
+  - `SUB_AGENT_MODEL` env var (lands separately, this PR makes the override trivial).
+
+  ### What's gone
+
+  - The hand-rolled Anthropic Messages API request/response code.
+  - The Workers AI HTTP fallback path (Workers AI is now reachable via `workers-ai/@cf/...` model strings through the gateway).
+  - The per-provider model price table — CF AI Gateway is the authoritative billing source; we no longer compute `estimated_cost` from token counts. Diagnostic field set to "0"; usage tokens still propagated for telemetry.
+  - The `retry` wrapper — Vercel SDK handles transient errors via its own retry strategy.
+
+  ### New deps
+
+  - `ai@6.0.182` — the core SDK
+  - `ai-gateway-provider@3.1.3` — CF AI Gateway routing
+  - `@ai-sdk/anthropic`, `@ai-sdk/openai`, `@ai-sdk/google`, `@ai-sdk/xai`, `@ai-sdk/groq` — provider adapters (only the ones we'll actually use load at runtime)
+
+  ### Migration / message-format translation
+
+  The trickiest part: our `LlmContent` shape (Anthropic-style: `text | tool_use | tool_result` blocks all in a single message) → Vercel SDK's `ModelMessage[]` (which separates tool results into their own `role: "tool"` messages). A `user` message containing both `tool_result` and `text` blocks splits into two SDK messages (one `role: "tool"` + one `role: "user"`).
+
+  Tools are mapped via the SDK's `tool({description, inputSchema})` factory. We deliberately don't pass `execute` — sub-agents dispatch tools externally (catalog_search, web_fetch, etc.), so the SDK returns `tool_calls` for our code to handle and we feed results back as the next user message.
+
+  Response mapping: `result.text + result.toolCalls` → our `content[]` array; `finishReason` ("stop"|"tool-calls"|"length") → our `stop_reason` ("end_turn"|"tool_use"|"max_tokens").
+
+  ### Tests
+
+  169/169 pass. No test changes needed because the public LlmClient surface didn't change.
+
+  ### Next steps (separate ship)
+
+  Once this is in prod and a tick-hosted run validates end-to-end, sub-agents can flip to a cheaper model via `SUB_AGENT_MODEL`. Realistic candidates:
+
+  - `anthropic/claude-haiku-4-5` — 3× cheaper than Sonnet 4.6, same Anthropic tool-use shape
+  - `openai/gpt-5.4-nano` — fast + cheap, OpenAI tool calling
+  - `google/gemini-3.1-flash-lite` — Google's cheapest with function calling
+  - `@cf/meta/llama-3.3-70b-instruct-fp8-fast` — 10× cheaper than Sonnet, function calling, hosted on Workers AI
+
+  Each is a single env-var change with no code touched.
+
+### Patch Changes
+
+- 6b05ccf: prompt: bias the curate agent toward `catalog_search` FIRST, web_fetch as fallback only
+
+  Last three live runs on layoffs-2026 / mcp-servers all settled at $0 because the agent reached for `web_fetch` directly for every lookup and never picked a paid catalog descriptor. The prompt mentioned `catalog_search` but framed it as a sub-option of "read/search tools" — agents read that as "use whichever is convenient."
+
+  Now the prompt has an explicit external-lookup contract:
+
+  > For ANY external lookup, the order is fixed:
+  >
+  > 1. `catalog_search(capability)` — ALWAYS first
+  > 2. `catalog_get(id)` — when you need full param schema
+  > 3. `tool_invoke(id, args)` — invoke the top match (runtime handles x402 / MPP automatically)
+  > 4. `web_fetch(url)` — FALLBACK ONLY, used when catalog yields zero hits or all probes fail
+
+  `web_fetch` is no longer listed under "external fetch (paid)" — it's framed as the fallback path. Catalog tools are framed as the default. This is the change that makes paid descriptors actually get tried so we can validate the `tool.invoked` / paid-settle path end-to-end.
+
+  Pure prompt-text change — no API surface affected.
+
+- b226d7e: catalog_search filters descriptors by booted wallet capability
+
+  Today's brave-news-search probes showed the agent attempting tools the runtime can't pay (Locus MPP requires Solana — fine — but other Tempo MPP descriptors would also surface even though Tempo isn't booted on this Worker). Each unpayable descriptor wastes a `tool_invoke` iteration → 402 → `payment_unhandled` probe.
+
+  `dispatchCatalogSearch` now over-fetches (×3 the requested limit) and filters out descriptors whose `payment.protocol × payment.network` doesn't match a booted wallet. Filter logic in `descriptorRequiresWallet()`:
+
+  - `x402` on `base` / `solana` → needs `evm` / `solana` wallet
+  - `mpp` on `solana` / `tempo` / `base` → needs `solana` / `tempo` / `evm` wallet
+  - Unknown protocol/network combination → filtered (no handler shape)
+
+  When at least one descriptor is filtered, the result includes `filtered_unpayable` + `payable_chains` so the agent sees what's available. When `walletCapability` is undefined (local dev without env), the filter is permissive (all results shown).
+
+  `walletCapability` is threaded from `BootedWallets.diagnostics.configured` → `pickWalletStack` → `CurateOptions.walletCapability` → `CatalogDispatchContext.walletCapability`. Same path supports sub-agent dispatch (via the new sub-agent catalog tools, also this release).
+
+- fix: pin `@frames-ag/pay` to a real version instead of `workspace:*`
+
+  `apps/tick/package.json` declared `"@frames-ag/pay": "workspace:*"`. Bun's `npm publish` does not rewrite the workspace protocol on publish, so 0.5.1 shipped that literal `workspace:*` string to the registry. Result: `npx -y @frames-ag/tick ...` fails with `EUNSUPPORTEDPROTOCOL: Unsupported URL Type "workspace:": workspace:*` before the `tick` bin is ever symlinked, surfacing to the user as `sh: tick: command not found`.
+
+  Pin to `^0.2.1` (the current published version of `@frames-ag/pay`) so npm can resolve it from the registry. No source change; only the manifest needs to round-trip a real semver range when published.
+
+- Updated dependencies [b226d7e]
+  - @frames-ag/pay@0.2.2
+
 ## 0.5.1
 
 ### Patch Changes
