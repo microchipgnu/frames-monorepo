@@ -1,0 +1,13 @@
+.frame/
+node_modules/
+.env*
+.DS_Store
+# Ignore each ephemeral scrape output by name so we can selectively track
+# staging/mppscan-cache.json (gitignore can't un-exclude a file once its
+# parent directory is excluded).
+/staging/bazaar.json
+/staging/agentic-market.json
+/staging/paysh.json
+/staging/mppscan.json
+/staging/x402scan.json
+/staging/merged.json

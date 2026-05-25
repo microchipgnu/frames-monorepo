@@ -1,0 +1,89 @@
+frame_protocol: 0.0.1
+name: skill-watch
+description: |
+  Live security audit posture for top skills on skills.sh.
+  Each entity is one skill (owner/repo/skill_path), scanned with agentsec
+  (OWASP Agentic Skills Top 10). Refreshed on a schedule. Findings,
+  scores, and the agentsec scan output are evidenced per fact.
+entity_type: skill
+
+fields:
+  # Identity (skills.sh URL: /:owner/:repo/:skill_path)
+  owner:
+    type: string
+    required: true
+  repo:
+    type: string
+    required: true
+  skill_path:
+    type: string
+    required: true
+    description: Path within the repo, e.g. skills/find-skills
+  skill_name:
+    type: string
+    required: true
+  description:
+    type: string
+
+  # skills.sh signal
+  install_count:
+    type: int
+  trending_rank:
+    type: int
+  hot_rank:
+    type: int
+
+  # agentsec scores (0-100, A-F)
+  score_overall:
+    type: int
+  score_security:
+    type: int
+  score_quality:
+    type: int
+  score_maintenance:
+    type: int
+  grade:
+    type: enum
+    values: [A, B, C, D, F]
+
+  # Findings rollup
+  findings_critical:
+    type: int
+  findings_high:
+    type: int
+  findings_medium:
+    type: int
+  findings_low:
+    type: int
+  has_vulnerabilities:
+    type: bool
+    description: True iff at least one critical or high finding.
+  top_finding_rule:
+    type: string
+    description: Rule id of the highest-severity finding (e.g. STOR-GIT-MISSING).
+  top_finding_owasp:
+    type: enum
+    values: [AST01, AST02, AST03, AST04, AST05, AST06, AST07, AST08, AST09, AST10]
+
+  # Web3 detection (agentsec built-in)
+  is_web3:
+    type: bool
+  web3_confidence:
+    type: enum
+    values: [no, low, medium, high]
+
+  # Quality signals
+  has_readme:
+    type: bool
+  has_license:
+    type: bool
+  has_tests:
+    type: bool
+
+  # Provenance
+  last_scanned_at:
+    type: date
+  agentsec_version:
+    type: string
+
+tests: []

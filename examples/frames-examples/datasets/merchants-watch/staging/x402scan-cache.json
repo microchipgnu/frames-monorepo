@@ -1,0 +1,2427 @@
+{
+  "data": [
+    {
+      "recipient": "0x57a6b0547557ed5817d5988ce30fc4729aef0ed7",
+      "chain": "base",
+      "facilitator_ids": [
+        "payAI"
+      ],
+      "tx_count": 8,
+      "volume_usd_30d": 407206.796123,
+      "unique_buyers": 8,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x542793a5f0e26fc6b7ec17653c14d010fcdcf089",
+      "chain": "base",
+      "facilitator_ids": [
+        "payAI"
+      ],
+      "tx_count": 135,
+      "volume_usd_30d": 193096.245526,
+      "unique_buyers": 135,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x8e7769d440b3460b92159dd9c6d17302b036e2d6",
+      "chain": "base",
+      "facilitator_ids": [
+        "mrdn"
+      ],
+      "tx_count": 10827,
+      "volume_usd_30d": 162294.209872,
+      "unique_buyers": 14,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xffde1acbac169f822dabc3d97d6d7127dcae6003",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 19,
+      "volume_usd_30d": 65319.33,
+      "unique_buyers": 16,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xe96e69c5f2aa672f6c49984923907422d90ff476",
+      "chain": "base",
+      "facilitator_ids": [
+        "mrdn"
+      ],
+      "tx_count": 4320,
+      "volume_usd_30d": 60466.885105,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x10c140022927429afb5f7779f4bc5495da8c1e24",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 139345,
+      "volume_usd_30d": 60009.651362,
+      "unique_buyers": 51153,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xe5d5c29e6fecc6fbd304e00c103506ecfe1baf00",
+      "chain": "base",
+      "facilitator_ids": [
+        "mrdn"
+      ],
+      "tx_count": 3990,
+      "volume_usd_30d": 57521.031732,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x1452af43065628a82464bafb8ceba13481db1fce",
+      "chain": "base",
+      "facilitator_ids": [
+        "payAI"
+      ],
+      "tx_count": 69,
+      "volume_usd_30d": 52632.352906,
+      "unique_buyers": 69,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xfa5ffc8dfd54c45bed139e0676ea697e7d88b7e1",
+      "chain": "base",
+      "facilitator_ids": [
+        "payAI"
+      ],
+      "tx_count": 67,
+      "volume_usd_30d": 51167.806585,
+      "unique_buyers": 67,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x4dff19ebae58a1a736d0ec020835ead62c94b2a4",
+      "chain": "base",
+      "facilitator_ids": [
+        "payAI"
+      ],
+      "tx_count": 67,
+      "volume_usd_30d": 51058.273722,
+      "unique_buyers": 67,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x3deaa70f75df6fd600c6c7ae8636b3992d80790b",
+      "chain": "base",
+      "facilitator_ids": [
+        "payAI"
+      ],
+      "tx_count": 67,
+      "volume_usd_30d": 50945.766242,
+      "unique_buyers": 67,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x2be7d5bfbe7bdbb63e5c83f3a663aa05b29f77cb",
+      "chain": "base",
+      "facilitator_ids": [
+        "payAI"
+      ],
+      "tx_count": 68,
+      "volume_usd_30d": 50907.50766,
+      "unique_buyers": 68,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xc70bf85b4c8648c0062e5cf511f60e659c95ac36",
+      "chain": "base",
+      "facilitator_ids": [
+        "payAI"
+      ],
+      "tx_count": 69,
+      "volume_usd_30d": 50625.363354,
+      "unique_buyers": 69,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x07d05521abfc0b561e3f888702de9cb743626547",
+      "chain": "base",
+      "facilitator_ids": [
+        "payAI"
+      ],
+      "tx_count": 66,
+      "volume_usd_30d": 50541.377359,
+      "unique_buyers": 66,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x45a7967b411d5f96be7fe520bd6a748ae062d9e3",
+      "chain": "base",
+      "facilitator_ids": [
+        "payAI"
+      ],
+      "tx_count": 68,
+      "volume_usd_30d": 49328.348295,
+      "unique_buyers": 68,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x5d6df6b10c54617dac4bf9993ad9fa384b7b36d3",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase",
+        "dexter"
+      ],
+      "tx_count": 76660,
+      "volume_usd_30d": 19136.2,
+      "unique_buyers": 5178,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x14ca2791f2a6c0725de56103966a0bbb593e8ca7",
+      "chain": "base",
+      "facilitator_ids": [
+        "mrdn"
+      ],
+      "tx_count": 1374,
+      "volume_usd_30d": 14451.918718,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xef4364fe4487353df46eb7c811d4fac78b856c7f",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase",
+        "virtuals"
+      ],
+      "tx_count": 21406,
+      "volume_usd_30d": 10233.303384,
+      "unique_buyers": 2298,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x13db4caf175f23f1429c2df6b333350c24705192",
+      "chain": "base",
+      "facilitator_ids": [
+        "mrdn"
+      ],
+      "tx_count": 329,
+      "volume_usd_30d": 6901.254337,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xe55eb84c37e90dfb7304969e5c6bff02c600f748",
+      "chain": "base",
+      "facilitator_ids": [
+        "mrdn"
+      ],
+      "tx_count": 311,
+      "volume_usd_30d": 6857.470584,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xfe8f511d8542f687cf70b798c388ef4c3265794d",
+      "chain": "base",
+      "facilitator_ids": [
+        "mrdn"
+      ],
+      "tx_count": 333,
+      "volume_usd_30d": 6699.617204,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x1e8e93cb91778e5b1a3639706789195a838960f8",
+      "chain": "base",
+      "facilitator_ids": [
+        "anyspend"
+      ],
+      "tx_count": 3968,
+      "volume_usd_30d": 6663,
+      "unique_buyers": 260,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xe2c37f7ae68f60f640277ba3e85109127965f440",
+      "chain": "base",
+      "facilitator_ids": [
+        "mrdn"
+      ],
+      "tx_count": 150,
+      "volume_usd_30d": 3721.973309,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xe9030014f5dae217d0a152f02a043567b16c1abf",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 75177,
+      "volume_usd_30d": 3652.179038,
+      "unique_buyers": 272,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x87f1d896e39f0629c7a391d255364ed9c4a47da0",
+      "chain": "base",
+      "facilitator_ids": [
+        "payAI"
+      ],
+      "tx_count": 26,
+      "volume_usd_30d": 3165,
+      "unique_buyers": 24,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xaeffddc0af3b4411499883f2524159f249a00bd4",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 69,
+      "volume_usd_30d": 2973.694207,
+      "unique_buyers": 18,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x325bdf6f7efab24a2210c48c1b64cab2eae1d430",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 75401,
+      "volume_usd_30d": 2694.6251,
+      "unique_buyers": 477,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x07f067959297767c887dbfa3c72379c66e82a045",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 4369,
+      "volume_usd_30d": 2666.81,
+      "unique_buyers": 163,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x21dd37e3e4ea6ccc0a5c98a4944702ede6e7be10",
+      "chain": "base",
+      "facilitator_ids": [
+        "openx402"
+      ],
+      "tx_count": 374,
+      "volume_usd_30d": 2330,
+      "unique_buyers": 152,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xa57dfd96898b19b3715e4dc81b2bfe32ffea3820",
+      "chain": "base",
+      "facilitator_ids": [
+        "mrdn"
+      ],
+      "tx_count": 1,
+      "volume_usd_30d": 2000,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xa9dd7cc9cbf0e05551332209289f04be36bc2315",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 1205677,
+      "volume_usd_30d": 1927.262766,
+      "unique_buyers": 254,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x3291e96b3bff7ed56e3ca8364273c5b4654b2b37",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 128,
+      "volume_usd_30d": 1682.918,
+      "unique_buyers": 24,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x2bb72231eed303cc91a462a1fa738b42b6a9ac6d",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase",
+        "payAI"
+      ],
+      "tx_count": 489460,
+      "volume_usd_30d": 1646.6806,
+      "unique_buyers": 128,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x654d13b64c57c79c456fc8e7ee59dd9b72161e61",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 1593,
+      "volume_usd_30d": 1620.4062,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x93862e5b2b1fa10a01772e7e9ca7cdc7deb5ca25",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 293,
+      "volume_usd_30d": 1324.98,
+      "unique_buyers": 92,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xbcf63e6ea161bbe3c36cbfb09fd3a084ecbdf358",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 18,
+      "volume_usd_30d": 1256.898059,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xff09d540717c450f6948b216598ef8a008e26b62",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 16,
+      "volume_usd_30d": 1102.850115,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x9701d2db3f6852b3bfe95d94ca15af849d627523",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 239,
+      "volume_usd_30d": 994.68,
+      "unique_buyers": 4,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x644ba104e6baaf45c6e683382b7875eb90e8be07",
+      "chain": "base",
+      "facilitator_ids": [
+        "mrdn"
+      ],
+      "tx_count": 2,
+      "volume_usd_30d": 889.02,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xa87728f0fa7c4283a133afd3990a26cd05811ddb",
+      "chain": "base",
+      "facilitator_ids": [
+        "mrdn"
+      ],
+      "tx_count": 3,
+      "volume_usd_30d": 871.2,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xca3cffdc216443a95fcde1d52a32645a34c7b5f0",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 54,
+      "volume_usd_30d": 835,
+      "unique_buyers": 7,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x30a83c52aa03312ec69d8d17f1c8c01a4628fa2d",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 312,
+      "volume_usd_30d": 800.12182,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xe3148537ef9cad71291a860417efbcbb9e0457f9",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 51,
+      "volume_usd_30d": 782,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x5f114bb1b71f78fcc601ecc479978d685f2d468a",
+      "chain": "base",
+      "facilitator_ids": [
+        "primer"
+      ],
+      "tx_count": 2228,
+      "volume_usd_30d": 720.902857,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xc7f347369e5e26c03c050c5ec9cc366b1819c044",
+      "chain": "base",
+      "facilitator_ids": [
+        "primer"
+      ],
+      "tx_count": 2226,
+      "volume_usd_30d": 720.887925,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xcc74a6404d54de40572e67dc4fa03c6280e68ae3",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 19,
+      "volume_usd_30d": 646.827134,
+      "unique_buyers": 13,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x9b8c4094947f997699b13ff16b362607642fa338",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 273,
+      "volume_usd_30d": 641.28271,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xfbe7ff003a996d02cc62174dcc52edb21831b391",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 154,
+      "volume_usd_30d": 639.996481,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xc50257a8a71d6f8107f031b3d66dca21f6551310",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 603,
+      "volume_usd_30d": 611.8595,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x191eaf1d2134aacc2d7209ef5df077e4f134af34",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 353,
+      "volume_usd_30d": 582.15,
+      "unique_buyers": 4,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x66c40946b0dffd04be467e18309857307ecd37cb",
+      "chain": "base",
+      "facilitator_ids": [
+        "polymer"
+      ],
+      "tx_count": 5699,
+      "volume_usd_30d": 569.9,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x7d2ceb7a0e0c39a3d0f7b5b491659fde4bb7bcfe",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 8333,
+      "volume_usd_30d": 561.9,
+      "unique_buyers": 282,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x93e44be74672a3cb13008973bbc787a670be395f",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 119,
+      "volume_usd_30d": 535.00506,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x6d6e695b09861467c7d462f5aaf31cf3540b9192",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 73894,
+      "volume_usd_30d": 515.319,
+      "unique_buyers": 248,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x8755a2faf86c9e3758450d703f8bbcada343c62e",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 14594,
+      "volume_usd_30d": 483.5747,
+      "unique_buyers": 27,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xec9641ebdcdfcad27bc10472d26bdd61cbf71d5c",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase",
+        "openfacilitator"
+      ],
+      "tx_count": 2494,
+      "volume_usd_30d": 439.6,
+      "unique_buyers": 16,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x8b29dabd6fbb5a09dacbc7978eaed66a8540721d",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 14640,
+      "volume_usd_30d": 430.581,
+      "unique_buyers": 174,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x91f0be9181da57c36bbf7d5eaa36845fe54f2ae9",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 273,
+      "volume_usd_30d": 408.33,
+      "unique_buyers": 12,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xd18d5a31908cc3e42cd1f929da32f8edb2e92800",
+      "chain": "base",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 62,
+      "volume_usd_30d": 393.64,
+      "unique_buyers": 26,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x09aea4b2242abc8bb4bb78d537a67a245a7bec64",
+      "chain": "base",
+      "facilitator_ids": [
+        "mrdn"
+      ],
+      "tx_count": 12,
+      "volume_usd_30d": 312.04,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x7353a2227e82170ec8b6036cd97b6f93e3235cfd",
+      "chain": "base",
+      "facilitator_ids": [
+        "polymer"
+      ],
+      "tx_count": 4,
+      "volume_usd_30d": 300.01,
+      "unique_buyers": 4,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xd8ba61a0b0974db0ec8e325c7628470526558e9b",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase",
+        "payAI"
+      ],
+      "tx_count": 1972,
+      "volume_usd_30d": 286.12,
+      "unique_buyers": 50,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x517fa696527ce322bd36b10a6afca26f64db30e6",
+      "chain": "base",
+      "facilitator_ids": [
+        "questflow"
+      ],
+      "tx_count": 7,
+      "volume_usd_30d": 273.102124,
+      "unique_buyers": 7,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x4aabe17c239ef71c3a26ba7c2b3e0aebbfc1df26",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 271,
+      "volume_usd_30d": 271,
+      "unique_buyers": 21,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x4f4beb658084d7bd7ea0b6f74dbf6e99f93d422d",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 3954,
+      "volume_usd_30d": 252.88,
+      "unique_buyers": 1750,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x2670b922ef37c7df47158725c0cc407b5382293f",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 469,
+      "volume_usd_30d": 251.22,
+      "unique_buyers": 40,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x5b9acf47eda712cdc7ec4b499646f6c236d880c7",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 22,
+      "volume_usd_30d": 248.77,
+      "unique_buyers": 20,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xd593832ce9c2b13b192ba50b55dd9af44e96700d",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 2313,
+      "volume_usd_30d": 244.37,
+      "unique_buyers": 15,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xfda5a8dc19e814a7880515feb88308bbee625d6d",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase",
+        "payAI"
+      ],
+      "tx_count": 854,
+      "volume_usd_30d": 242.4998,
+      "unique_buyers": 34,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x7177ed1fcf2f8e69ade2da195985737177c3de48",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 696,
+      "volume_usd_30d": 239.75,
+      "unique_buyers": 145,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x5bdcd6bf6c6418aaef38de4f4eafb3c9269acf05",
+      "chain": "base",
+      "facilitator_ids": [
+        "questflow"
+      ],
+      "tx_count": 2,
+      "volume_usd_30d": 227.69,
+      "unique_buyers": 2,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x9968daa62a852dbc6b644fed1fb1add883328c04",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 17,
+      "volume_usd_30d": 225,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x75bb1cdd38c2ed174a26efa1a12a4bafa26a01ba",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 32,
+      "volume_usd_30d": 197.78,
+      "unique_buyers": 22,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x6d4e7efb88dec105939b972c98c353304ced6751",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 6,
+      "volume_usd_30d": 187,
+      "unique_buyers": 3,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xcfa26f13c6c18307033ece13bbb8f470da5b4dbe",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 3036,
+      "volume_usd_30d": 182.16,
+      "unique_buyers": 86,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x13d2ae14aa98353af95a187699189f5b53467438",
+      "chain": "base",
+      "facilitator_ids": [
+        "questflow"
+      ],
+      "tx_count": 2,
+      "volume_usd_30d": 179.18,
+      "unique_buyers": 2,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x2a835a505d4ea32372cc420d2663b885ce089453",
+      "chain": "base",
+      "facilitator_ids": [
+        "payAI"
+      ],
+      "tx_count": 33,
+      "volume_usd_30d": 176.38,
+      "unique_buyers": 11,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xdb5c2df47e4a6df74edeb6de3159ae38b8cc10fd",
+      "chain": "base",
+      "facilitator_ids": [
+        "payAI"
+      ],
+      "tx_count": 1750,
+      "volume_usd_30d": 175,
+      "unique_buyers": 15,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x05262188bc274c84d848838f5f8193bbfb83cd6d",
+      "chain": "base",
+      "facilitator_ids": [
+        "questflow"
+      ],
+      "tx_count": 5,
+      "volume_usd_30d": 171.246009,
+      "unique_buyers": 4,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x29322ea7ecb34aa6164cb2ddeb9ce650902e4f60",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase",
+        "dexter"
+      ],
+      "tx_count": 12548,
+      "volume_usd_30d": 169.95,
+      "unique_buyers": 100,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x44dc2dceaa22c7ef6b2e2cf2362fd3fb476b7c2c",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 8257,
+      "volume_usd_30d": 168.42,
+      "unique_buyers": 65,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x9dba414637c611a16bea6f0796bfcbcbdc410df8",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase",
+        "dexter"
+      ],
+      "tx_count": 17240,
+      "volume_usd_30d": 168.255,
+      "unique_buyers": 106,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xabcb091d90419e1c8ad4818f1b33fc4645501892",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 164,
+      "volume_usd_30d": 162.36,
+      "unique_buyers": 18,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x1450d5868eff502ecbed9cedc5dc39512cc88448",
+      "chain": "base",
+      "facilitator_ids": [
+        "questflow"
+      ],
+      "tx_count": 6,
+      "volume_usd_30d": 160.350499,
+      "unique_buyers": 6,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xb5998e11e666fd1e7f3b8e8d9122a755eec1e9b7",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase",
+        "payAI"
+      ],
+      "tx_count": 25128,
+      "volume_usd_30d": 153.88,
+      "unique_buyers": 374,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x3c0820e2dabd5feae1fd03b78079dee15c7f83d8",
+      "chain": "base",
+      "facilitator_ids": [
+        "daydreams"
+      ],
+      "tx_count": 12,
+      "volume_usd_30d": 151.107,
+      "unique_buyers": 3,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x674a6c77813fc690966b239e8c46fca63039aa95",
+      "chain": "base",
+      "facilitator_ids": [
+        "thirdweb"
+      ],
+      "tx_count": 254,
+      "volume_usd_30d": 149.65,
+      "unique_buyers": 47,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xf19b97914395563fbf2872e247ecbbd8842470a1",
+      "chain": "base",
+      "facilitator_ids": [
+        "thirdweb"
+      ],
+      "tx_count": 254,
+      "volume_usd_30d": 149.20105,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xea09413c62f6f25df7463341cc42ead470373205",
+      "chain": "base",
+      "facilitator_ids": [
+        "bitrefill"
+      ],
+      "tx_count": 51,
+      "volume_usd_30d": 148.57,
+      "unique_buyers": 6,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x6a5e7d954f49712abf3f873f037ec845b7b8c666",
+      "chain": "base",
+      "facilitator_ids": [
+        "payAI"
+      ],
+      "tx_count": 144644,
+      "volume_usd_30d": 144.644,
+      "unique_buyers": 298,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xa449e4ae6aede3f4eb44a48428398650bb7315ac",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 21,
+      "volume_usd_30d": 144.5022,
+      "unique_buyers": 7,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x93053f1e7a5efeda532fe69cbbe43cbec3a0f13f",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 5679,
+      "volume_usd_30d": 141.67,
+      "unique_buyers": 61,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xda158f96c7d02e787ec75858d108366bda6aaeb3",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 94,
+      "volume_usd_30d": 135.75,
+      "unique_buyers": 2,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x7cc7c86904d1ed8092eff41d58f49fdeceae7330",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 9,
+      "volume_usd_30d": 135,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x064d3e48508730fca8e5c3bc6fef041e5da46556",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 964,
+      "volume_usd_30d": 134.769,
+      "unique_buyers": 21,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x8e4b195c14f20e1ba4c40234f471e1781f293b45",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 26,
+      "volume_usd_30d": 128,
+      "unique_buyers": 4,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x3982df8f2ef7481fb62dcb20113cf5186e1e9a0d",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 4,
+      "volume_usd_30d": 126,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xc0900bc3ed4520b761012ca75164d0d4746124bc",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 249,
+      "volume_usd_30d": 124.5,
+      "unique_buyers": 6,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0xb4ad76dfebc6a98d4c99bb43ea8a8023ab57a902",
+      "chain": "base",
+      "facilitator_ids": [
+        "payAI"
+      ],
+      "tx_count": 2,
+      "volume_usd_30d": 120.4,
+      "unique_buyers": 2,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "0x79252e67d690d3cb8d8b32fd0da274b6134da687",
+      "chain": "base",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 1,
+      "volume_usd_30d": 120,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=base&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "BJGdsDXJFy63eCAnX3UmGfShp8BuqbtkTfcamyRGr7VQ",
+      "chain": "solana",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 323828,
+      "volume_usd_30d": 135391.996986,
+      "unique_buyers": 116672,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "Bd2xS189uhhnxUeBeVF3JFXrg8zQgrvqZtpqh8hgkCEQ",
+      "chain": "solana",
+      "facilitator_ids": [
+        "coinbase",
+        "dexter"
+      ],
+      "tx_count": 167430,
+      "volume_usd_30d": 3349.488,
+      "unique_buyers": 98,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "X4o2D8op42a2jcNJJVZcDq3eYivh1oR9XiezPWCXosZ",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 25407,
+      "volume_usd_30d": 1290.34,
+      "unique_buyers": 1025,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "F4ekyPpWfqao4YmpNfbfqZEcYB4N5gfS6L3rBNNNN9H6",
+      "chain": "solana",
+      "facilitator_ids": [
+        "payAI"
+      ],
+      "tx_count": 59,
+      "volume_usd_30d": 1179.41,
+      "unique_buyers": 49,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "6V4wFgAMRDYTx8QNk9ecdu2KLGeSt36Qu86XLc5xVZnE",
+      "chain": "solana",
+      "facilitator_ids": [
+        "payAI"
+      ],
+      "tx_count": 60,
+      "volume_usd_30d": 900,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "AbbuSAH5Ur4a47KSVEzy4dP4wvLY8DSvdQDbJuJjiWfW",
+      "chain": "solana",
+      "facilitator_ids": [
+        "coinbase",
+        "dexter"
+      ],
+      "tx_count": 7634,
+      "volume_usd_30d": 768.2,
+      "unique_buyers": 24,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "AQqnMFBwGZEoti85aTVRy8XYpKrho7GaMDx9ZB3CEeKA",
+      "chain": "solana",
+      "facilitator_ids": [
+        "payAI"
+      ],
+      "tx_count": 10819,
+      "volume_usd_30d": 451.025429,
+      "unique_buyers": 46,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "Bn7sLNmcL9ru5kt9gNwVn8e8Sx912dBTxiUBNiwjbiY8",
+      "chain": "solana",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 15410,
+      "volume_usd_30d": 371.38,
+      "unique_buyers": 90,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "9VaDVp1Wb78G4Wm6VuTiMrpESjrUymXefQTHcJGRSTEA",
+      "chain": "solana",
+      "facilitator_ids": [
+        "coinbase",
+        "dexter",
+        "payAI",
+        "relai"
+      ],
+      "tx_count": 2340,
+      "volume_usd_30d": 316.455196,
+      "unique_buyers": 232,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "8LiXrHC61irY8qwj6qevoiRXxYfrTgSaHVbm8rav6HT2",
+      "chain": "solana",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 189,
+      "volume_usd_30d": 218.51,
+      "unique_buyers": 32,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "6cvgmdrsVxyiuPzqMCSBnS7fAmA5Mk2VG4BcfVhC8jdC",
+      "chain": "solana",
+      "facilitator_ids": [
+        "corbits"
+      ],
+      "tx_count": 2934,
+      "volume_usd_30d": 207.4007,
+      "unique_buyers": 42,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "7G73PLhKvAPBGTzG5ESAE4coE7QrVeTTKfhTxQZbyGgC",
+      "chain": "solana",
+      "facilitator_ids": [
+        "corbits",
+        "dexter",
+        "payAI"
+      ],
+      "tx_count": 30921,
+      "volume_usd_30d": 203.874,
+      "unique_buyers": 108,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "DdeMfXrDae49VAkvVZHUhWh7FDuirAuFCuuJruqXv5G2",
+      "chain": "solana",
+      "facilitator_ids": [
+        "payAI"
+      ],
+      "tx_count": 1900,
+      "volume_usd_30d": 190,
+      "unique_buyers": 3,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "Hon3ixSL4qATjWwCaZxomQy3n2jrugugviku9TS5nxnQ",
+      "chain": "solana",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 11,
+      "volume_usd_30d": 181,
+      "unique_buyers": 5,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "3MZVk97x9SeRxbYpc3jhzRfU2fyA3emYutnqfn9kNfYX",
+      "chain": "solana",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 24,
+      "volume_usd_30d": 143.821,
+      "unique_buyers": 3,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "BRiDGeEqiNGZrvLWCHLBmfwuagC3cUhAEFzYCaJDFCME",
+      "chain": "solana",
+      "facilitator_ids": [
+        "payAI"
+      ],
+      "tx_count": 3,
+      "volume_usd_30d": 129,
+      "unique_buyers": 2,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "ANhAZ9uuc7wGh1ssKXhSk7xMM7vP4AXHxYZsk1V9PqoU",
+      "chain": "solana",
+      "facilitator_ids": [
+        "payAI"
+      ],
+      "tx_count": 49,
+      "volume_usd_30d": 77.517,
+      "unique_buyers": 8,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "3DVYcGeK5ZEXHWy7vHURcBbvX8F8BfZWp4SNptctH1ww",
+      "chain": "solana",
+      "facilitator_ids": [
+        "payAI"
+      ],
+      "tx_count": 339,
+      "volume_usd_30d": 73.559937,
+      "unique_buyers": 3,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "SAT8g2xU7AFy7eUmNJ9SNrM6yYo7LDCi13GXJ8Ez9kC",
+      "chain": "solana",
+      "facilitator_ids": [
+        "payAI"
+      ],
+      "tx_count": 45,
+      "volume_usd_30d": 70.74,
+      "unique_buyers": 5,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "8z4vBb8j2K6DtwKnqsvHWTRoydTNXV7aWUmmCr8gToud",
+      "chain": "solana",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 1,
+      "volume_usd_30d": 69.077333,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "Ey6D6dH9N8ufxtD9jVEEFTzoBwFuRrzphkVmW3pYoPg",
+      "chain": "solana",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 1,
+      "volume_usd_30d": 69.077333,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "2bxbFqMDKSNsK1B7RHvkE3Px7bzojYXD4dpK8YPLenGS",
+      "chain": "solana",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 1,
+      "volume_usd_30d": 69.077333,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "2nkTRv3qxk7n2eYYjFAndReVXaV7sTF3Z9pNimvp5jcp",
+      "chain": "solana",
+      "facilitator_ids": [
+        "payAI"
+      ],
+      "tx_count": 8,
+      "volume_usd_30d": 64.43,
+      "unique_buyers": 4,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "8tScdq2XdikVzieRVVvfzgmsyM4QPrgFZTw7mJCCuoQT",
+      "chain": "solana",
+      "facilitator_ids": [
+        "payAI"
+      ],
+      "tx_count": 1,
+      "volume_usd_30d": 58.2,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "dGYweup8dNAqNffRtRUgdw55b6KfJ7qAKFmgGpVVbhE",
+      "chain": "solana",
+      "facilitator_ids": [
+        "payAI"
+      ],
+      "tx_count": 1,
+      "volume_usd_30d": 58.2,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "G5zPMrcctacCDn2qrRyaMtSpAUuVyPe3KyhuzGwVQUrc",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 1056,
+      "volume_usd_30d": 52.8,
+      "unique_buyers": 234,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "3F8hnyyhv52fLfhEdsnSZEAt58k2ou2wc2FpY1dYQpGQ",
+      "chain": "solana",
+      "facilitator_ids": [
+        "openfacilitator"
+      ],
+      "tx_count": 6,
+      "volume_usd_30d": 50.91,
+      "unique_buyers": 2,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "H82JrNg1GiPz7EFBAkfPE28SSyFPiKvRbkK1FypdyBCJ",
+      "chain": "solana",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 11,
+      "volume_usd_30d": 45.22,
+      "unique_buyers": 2,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "53JhuF8bgxvUQ59nDG6kWs4awUQYCS3wswQmUsV5uC7t",
+      "chain": "solana",
+      "facilitator_ids": [
+        "corbits",
+        "payAI"
+      ],
+      "tx_count": 42348,
+      "volume_usd_30d": 45.219282,
+      "unique_buyers": 22,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "GmZHbTi2sMJPS3nRmoYVk3sDWnZEHxHWJkbqbGkeJNQQ",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 818,
+      "volume_usd_30d": 40.9,
+      "unique_buyers": 203,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "HTvdg5d34iCrzVf1PwMi42GSkS53Z5L384F2gyVTXjY3",
+      "chain": "solana",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 52,
+      "volume_usd_30d": 40.39,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "4TfEcG8PnkiXNDVncao1s1grtTUsHaoCVGPHUj45hSjr",
+      "chain": "solana",
+      "facilitator_ids": [
+        "corbits"
+      ],
+      "tx_count": 166,
+      "volume_usd_30d": 38.44,
+      "unique_buyers": 18,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "CTHkdqq4QJDhaMtTdBo3VrhNnyyoHkdGLiaJCpbUTNtE",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 761,
+      "volume_usd_30d": 38.05,
+      "unique_buyers": 222,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "D2pqw2UyM59v9NEsDdWGfE9LkFa9afJwV14VnTjiNG4c",
+      "chain": "solana",
+      "facilitator_ids": [
+        "coinbase",
+        "corbits",
+        "payAI"
+      ],
+      "tx_count": 3819,
+      "volume_usd_30d": 37.554,
+      "unique_buyers": 42,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "2qCaUqpxW5JKKoSexTq6GZyrJEnVdGgUx6DF3xeZUEv7",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 742,
+      "volume_usd_30d": 37.1,
+      "unique_buyers": 216,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "3Wuj6VjJXuCmQZjGRhW56xbEk6TzCyMEUVRZgLBYNE2Z",
+      "chain": "solana",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 11880,
+      "volume_usd_30d": 35.64,
+      "unique_buyers": 24,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "GJ9TPKUSz9wBuj329rJMzzs8DbFRYxqiQSQxoVtdcMUs",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 711,
+      "volume_usd_30d": 35.55,
+      "unique_buyers": 220,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "Hmtw85eQhXVPfNYFaNHNpitrsRqfFREWxWxNXnv9fBdT",
+      "chain": "solana",
+      "facilitator_ids": [
+        "corbits"
+      ],
+      "tx_count": 4,
+      "volume_usd_30d": 35.02,
+      "unique_buyers": 3,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "FWoD65bNMnYuvA4sjSokrJvTV61nUbPfAuxgjiGZtNT9",
+      "chain": "solana",
+      "facilitator_ids": [
+        "corbits",
+        "dexter",
+        "payAI"
+      ],
+      "tx_count": 132,
+      "volume_usd_30d": 31.62,
+      "unique_buyers": 15,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "5DjujrYUErt13HMMMh1iABCH79AXoykXTcVqzJ8N4PUW",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 608,
+      "volume_usd_30d": 30.4,
+      "unique_buyers": 175,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "2Q24XKbrh1sfmfp9cSoXM774yXf5nidTnuDySdUJ8Bht",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 608,
+      "volume_usd_30d": 30.4,
+      "unique_buyers": 194,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "4JwMa9zFJidY13zRmjPpzdz4dtBpxfD2v6BzPL328tkh",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 603,
+      "volume_usd_30d": 30.15,
+      "unique_buyers": 207,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "5oyuQPEULRQyGzS7RfN5hbDFxHRDzVxKLqDWiXA9HzvV",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 603,
+      "volume_usd_30d": 30.15,
+      "unique_buyers": 243,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "G31qi9w86XYkjUfbeEiRakJTjbAHMnLz4sWCue9S1uh1",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 601,
+      "volume_usd_30d": 30.05,
+      "unique_buyers": 212,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "CseyGhn6BvSAD2QQM3X7A4MViJLyscME1bvAAtQGsKJd",
+      "chain": "solana",
+      "facilitator_ids": [
+        "payAI"
+      ],
+      "tx_count": 2,
+      "volume_usd_30d": 30,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "AsXNWeXUCXFs4JcRbvMceGdz3YJCEnaoR8MisbgoWYpi",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 595,
+      "volume_usd_30d": 29.75,
+      "unique_buyers": 206,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "5JMi8VZenHufqWYwU41xWqsGmxkzZyopKT9ATAwKAGwM",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 592,
+      "volume_usd_30d": 29.6,
+      "unique_buyers": 185,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "88Ld2nVMVjNdu775vBQoAihUQWQ1DptETaeHGmzghDGC",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 577,
+      "volume_usd_30d": 28.85,
+      "unique_buyers": 196,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "7hmu8An21NHRC36p5apSBrZZMy3mzfXnJfqCoqt5dRSn",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 572,
+      "volume_usd_30d": 28.6,
+      "unique_buyers": 181,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "AgqTeGpaKq2W1Y3UYUgQZqz4gsXwVc61QNrBpaujn81N",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 567,
+      "volume_usd_30d": 28.35,
+      "unique_buyers": 178,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "35eX8T8YNpddq4NW157HjyfsC21pczoCXMAgyJ24bwEv",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 558,
+      "volume_usd_30d": 27.9,
+      "unique_buyers": 148,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "DsKmdkYx49Xc1WhqMUAztwhdYPTqieyC98VmnnJdgpXX",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 612,
+      "volume_usd_30d": 27.84,
+      "unique_buyers": 8,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "AYbXooth6ebW3m95nRjiqp8mhqQo7k3rerFZsgtqYcup",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 551,
+      "volume_usd_30d": 27.55,
+      "unique_buyers": 166,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "9vEPKw1nfVoG531P5LZ3AhoYgpx2pbErjB8U5zQkCU9x",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 548,
+      "volume_usd_30d": 27.4,
+      "unique_buyers": 171,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "BSruaEC9njxeW5EVdhfuqNUa6WYAv3ntyfiK53d9raWj",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 542,
+      "volume_usd_30d": 27.1,
+      "unique_buyers": 194,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "27Kt4oTFK4j1NzMeThXhnotso8TcZ7FVesMEUoAVCxZt",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 526,
+      "volume_usd_30d": 26.3,
+      "unique_buyers": 191,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "6mpmkhFwDLZs8zxm3TxYMNd5FmeChpBwTUJvT3nCLJ4w",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 522,
+      "volume_usd_30d": 26.1,
+      "unique_buyers": 180,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "BAYaC8YbSMn7KKiuKpT8WugYCBMPPFKBZZ1h1AZWfGMb",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 515,
+      "volume_usd_30d": 25.75,
+      "unique_buyers": 152,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "GpM5NUm1iwLvKu2o94MbNUKc6HcrPHDLsu9P5C9RxcQp",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 506,
+      "volume_usd_30d": 25.3,
+      "unique_buyers": 219,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "7Xw8JQf8a3yuQL8SUrvKzX5rNXZhgzUbZoDANE2eERE7",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 494,
+      "volume_usd_30d": 24.7,
+      "unique_buyers": 184,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "44UUWDbqhwXh7fQwHquiA6z8JpuF6nmqP9nSjdKkeEvY",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 484,
+      "volume_usd_30d": 24.2,
+      "unique_buyers": 139,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "71idaX4AzmJociHBTBsAFvinbozLUwhs3LQ2eee9fS5s",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 473,
+      "volume_usd_30d": 23.65,
+      "unique_buyers": 175,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "By3QqWUTZrfxSdWgYhGVnTeg3x5B3Gfj6VFuyJu1HZdm",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 459,
+      "volume_usd_30d": 22.95,
+      "unique_buyers": 161,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "6RmqK9Y78Zzq9CyYCjKvVXjouXHRhCPiUPdEZYXCP4pu",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 442,
+      "volume_usd_30d": 22.1,
+      "unique_buyers": 147,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "Ak3Zw57WFjq94FGuX4sWNetqiCpbWQgmLoNmfRzEsadx",
+      "chain": "solana",
+      "facilitator_ids": [
+        "relai"
+      ],
+      "tx_count": 4,
+      "volume_usd_30d": 22,
+      "unique_buyers": 3,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "6N5jEvZKrEyjN9fKvWSY4yD896oeka5wXTNGrQ6rAooX",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 434,
+      "volume_usd_30d": 21.7,
+      "unique_buyers": 181,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "8xPf2SCd2cTzrQtNWAZ49TfoZAZvGmZPN5KjWMP9KiZb",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 425,
+      "volume_usd_30d": 21.25,
+      "unique_buyers": 168,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "4aXxLVNYA8Gawq4D3h8ePE8rhx5BMMSbEYduBSYZqkAo",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 403,
+      "volume_usd_30d": 20.15,
+      "unique_buyers": 173,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "F1N7mau1AECvQ21Q9ShNWF1D4S2gFU34MsytkYb27qxD",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 402,
+      "volume_usd_30d": 20.1,
+      "unique_buyers": 166,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "ADnL5Xs2kSt8JLQGrZvENdk8uchhKK4j6bU4SJoP6SQV",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 397,
+      "volume_usd_30d": 19.85,
+      "unique_buyers": 180,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "HJmYSLt1Ux7iJzMRrmbvXB7F92tm33qRNNEa6CvdYq1i",
+      "chain": "solana",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 1,
+      "volume_usd_30d": 19.81,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "HE3dSf5tiQQHMssaa9YjMgie8sgfk6WRA1kEbkbtTgAw",
+      "chain": "solana",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 19,
+      "volume_usd_30d": 19.552395,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "3SFz7PGAdDqZMi34WFrBQhckgRkJojjMDzXPCu2x2Bsp",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 380,
+      "volume_usd_30d": 19,
+      "unique_buyers": 175,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "EAEhR7VwdsLpFfmMmqpi3vX9k9UCpCQN5xvFqf7JDCTg",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 378,
+      "volume_usd_30d": 18.9,
+      "unique_buyers": 121,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "5pZzTw9c466QJ9DFUHVA53Dd1xaTyyEZHMQDb9H2uuQo",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 374,
+      "volume_usd_30d": 18.7,
+      "unique_buyers": 179,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "Gx6D6wq18fGqNwrFvTsjY55iEVCqX4sHS8QFEorGVK3x",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 367,
+      "volume_usd_30d": 18.35,
+      "unique_buyers": 154,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "GgS891nMiEETjBEFw1QQxVcAqsRV34mDYpxh24TrpCiD",
+      "chain": "solana",
+      "facilitator_ids": [
+        "coinbase"
+      ],
+      "tx_count": 348,
+      "volume_usd_30d": 18.29,
+      "unique_buyers": 2,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "CJzshyUq3kZroD8fcJhCnvZzjqoNUiqdPix7GrhRjPtt",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 364,
+      "volume_usd_30d": 18.2,
+      "unique_buyers": 164,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "9GvPL7gsN8Phsh4da1BmB9S3txN2r5zmXfYvU8kDEyge",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 360,
+      "volume_usd_30d": 18,
+      "unique_buyers": 145,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "DQHqgisJdmYuY9ycg5XFbrRzLQYRARQkqGPuzdVzs2ti",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 359,
+      "volume_usd_30d": 17.95,
+      "unique_buyers": 129,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "GTN9EwwHtBJEFMVnnMtY6qrR12XyD5cPrj2rJcM9Qto1",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 355,
+      "volume_usd_30d": 17.75,
+      "unique_buyers": 166,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "5c219cRr39in8BG8bUa5jodKv99d4r74u5F8PrUqwhPc",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 349,
+      "volume_usd_30d": 17.45,
+      "unique_buyers": 99,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "9UiAURGHPuxMs4UUv4dZcNr8BbnCLUG9V1HhKq6FFA94",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 348,
+      "volume_usd_30d": 17.4,
+      "unique_buyers": 170,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "DWEQTCuM73nh3ZbX7ZDhPvuTknH3p72b2uM6yK8cU6ot",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 337,
+      "volume_usd_30d": 16.85,
+      "unique_buyers": 170,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "9NQ3YE39vYojUyriKL6cZziztZbGuPjiaGKeenyqKhtU",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 336,
+      "volume_usd_30d": 16.8,
+      "unique_buyers": 183,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "CimnDFmmgwuuERA8J8MiqHfPGWxTXrnBV9heAAPSSz9P",
+      "chain": "solana",
+      "facilitator_ids": [
+        "payAI"
+      ],
+      "tx_count": 1,
+      "volume_usd_30d": 16,
+      "unique_buyers": 1,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "29XqFRpqRrXs8UjSsZnscqW3cTxNdY84qfaa9BGo3y4j",
+      "chain": "solana",
+      "facilitator_ids": [
+        "corbits"
+      ],
+      "tx_count": 59,
+      "volume_usd_30d": 15.975,
+      "unique_buyers": 19,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "DQARaSVCz5Vv9q3SaCw4fLnVBigimJYcny6ZRyCtNGTm",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 313,
+      "volume_usd_30d": 15.65,
+      "unique_buyers": 149,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "7ZpsXfd71ihamtBddhZaxL89d2g4cMyV3ptuiAhKWcm5",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 310,
+      "volume_usd_30d": 15.5,
+      "unique_buyers": 161,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "B2KGC7sHNvH81MnWoYqgc1eEcLaF6Fa2WshgnSwmguqK",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 300,
+      "volume_usd_30d": 15,
+      "unique_buyers": 140,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "HNi9KbDrvRkPyYJabJteQdaeXWSK3ZL79mUGQWNhzkGv",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 300,
+      "volume_usd_30d": 15,
+      "unique_buyers": 114,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "Dgpwf7dwdWsXeeeDrkySGpeBF9G6586iU296BurYxeNG",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 300,
+      "volume_usd_30d": 15,
+      "unique_buyers": 166,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "8qevV4WtEnwBE3rRpB6B3KFVuaGw1hvuhAX5trcNw51L",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 296,
+      "volume_usd_30d": 14.8,
+      "unique_buyers": 141,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "9d1C7fgr2S3KRMTw9jshpkwURmYAynD8b51Abwtf3jQz",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 295,
+      "volume_usd_30d": 14.75,
+      "unique_buyers": 129,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "7r4e5dwNS68MDaxbw7N8jbzHq7RCMBp9z6smHFH4NXWw",
+      "chain": "solana",
+      "facilitator_ids": [
+        "payAI"
+      ],
+      "tx_count": 28,
+      "volume_usd_30d": 14.21,
+      "unique_buyers": 6,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "7tHEqGzaaxTraQ6U2TsjLmmd9pNMQiRDoeCeH3gNFeQY",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 273,
+      "volume_usd_30d": 13.65,
+      "unique_buyers": 110,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "BXN7cPMkMNb48AvRA3yhUioaHESh5owq7R8ExAYdH4Sp",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 271,
+      "volume_usd_30d": 13.55,
+      "unique_buyers": 153,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "37ftj5z1fruFMvSA8vYdFZQoe49amFD65zwhKeS4Rb5P",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 270,
+      "volume_usd_30d": 13.55,
+      "unique_buyers": 121,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "8YxN1wJxLk2iLHXpSWX8bRc3yRkR6ucveMbQXS9zePUf",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 268,
+      "volume_usd_30d": 13.4,
+      "unique_buyers": 153,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    },
+    {
+      "recipient": "24N6rcoyX4UyCj1efDgYzYUKBsUnkqJAM9xXbJZEExrr",
+      "chain": "solana",
+      "facilitator_ids": [
+        "dexter"
+      ],
+      "tx_count": 264,
+      "volume_usd_30d": 13.2,
+      "unique_buyers": 118,
+      "source_url": "https://x402scan.com/api/x402/merchants?chain=solana&page=0&page_size=100",
+      "observed_at": "2026-05-12T19:44:55.586Z"
+    }
+  ],
+  "refreshed_at": "2026-05-12T19:44:55.586Z",
+  "note": "Top 100 by volume per chain, 30-day timeframe. Fetched manually via agentcash MCP on 2026-05-12 ($0.02 total). Refresh by re-running scrape-x402scan.ts once X402_WALLET_PRIVATE_KEY is wired in."
+}

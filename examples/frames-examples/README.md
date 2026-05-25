@@ -23,6 +23,8 @@ Datasets, each in its own directory under `datasets/`:
 | [`blindspot-threads`](datasets/blindspot-threads) | Non-obvious connections across each day's briefs. |
 | [`agent-networks`](datasets/agent-networks) | Open questions on the agent / machine-network economy, with rolling evidence. |
 | [`agent-wallets`](datasets/agent-wallets) | Live catalog of agent wallets, registries, and payment protocols + the services each one exposes. |
+| [`merchants-watch`](datasets/merchants-watch) | Live x402/MPP merchant directory — every host accepting paid HTTP requests, aggregated across Coinbase Bazaar, agentic.market, pay.sh, mppscan, x402scan. |
+| [`skill-watch`](datasets/skill-watch) | Live agentsec (OWASP Agentic Skills Top 10) security audit posture for top skills on skills.sh. |
 
 Each dataset is a self-contained frame: `schema.yml` (the contract),
 `prompt.md` (the maintenance loop), `events.ndjson` (the append-only log),

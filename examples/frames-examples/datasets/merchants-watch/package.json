@@ -1,0 +1,20 @@
+{
+  "name": "merchants-watch",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "scrape:bazaar": "bun scripts/scrape-bazaar.ts",
+    "scrape:agentic": "bun scripts/scrape-agentic-market.ts",
+    "scrape:paysh": "bun scripts/scrape-paysh.ts",
+    "scrape:mppscan": "bun scripts/scrape-mppscan.ts",
+    "scrape:x402scan": "bun scripts/scrape-x402scan.ts",
+    "scrape": "bun scripts/scrape-all.ts",
+    "merge": "bun scripts/merge.ts",
+    "fold": "bun scripts/fold.ts",
+    "tick": "bun run scrape && bun run merge && bun run fold"
+  },
+  "dependencies": {
+    "@frames-ag/frame": "^0.2.0",
+    "viem": "^2.48.11"
+  }
+}

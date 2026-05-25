@@ -1,0 +1,160 @@
+frame_protocol: 0.0.1
+name: merchants-watch
+description: |
+  Live directory of x402/MPP merchants — every host accepting paid HTTP requests
+  across the agentic economy. Aggregates the Coinbase Bazaar (CDP discovery
+  catalog), agentic.market, and pay.sh / Solana Foundation pay-skills into one
+  per-host view with networks accepted, rail coverage, endpoint count, and
+  pricing range. Each fact is evidenced with the source URL it was observed at.
+entity_type: merchant
+
+fields:
+  # Identity
+  host:
+    type: string
+    required: true
+    description: Canonical hostname (lowercased, no protocol, no path).
+  display_name:
+    type: string
+    description: Best human-readable name across sources; falls back to host.
+  description:
+    type: string
+  category:
+    type: enum
+    description: Normalized into pay.sh's taxonomy.
+    values:
+      [
+        ai_ml,
+        data,
+        search,
+        messaging,
+        maps,
+        translation,
+        security,
+        shopping,
+        media,
+        finance,
+        cloud,
+        storage,
+        devtools,
+        compute,
+        other,
+      ]
+  category_source:
+    type: enum
+    values: [pay_sh, agentic_market, claude_inferred, none]
+
+  # Rail coverage — what payment networks this merchant accepts
+  networks_accepted:
+    type: string
+    description: Comma-separated CAIP-2 ids + friendly aliases as observed on chain.
+  network_names:
+    type: string
+    description: Human-readable chain names (e.g. "Base, Solana, Polygon").
+  primary_network:
+    type: string
+    description: Friendly name of the dominant chain (most resources or first listed).
+  network_count:
+    type: int
+  network_tiers:
+    type: string
+    description: Comma-separated tier labels (evm_rollup, solana, alt_l1, off_chain).
+
+  # Cross-catalog presence
+  on_bazaar:
+    type: bool
+  on_agentic_market:
+    type: bool
+  on_pay_sh:
+    type: bool
+  on_mppscan:
+    type: bool
+    description: True if the merchant settled at least one MPP/Tempo payment indexed by mppscan.
+  # Direct-probe MPP advertising — what the merchant TELLS us it supports
+  # when we hit one of its endpoints with POST {} and read the 402 challenge.
+  # Catches merchants who advertise MPP but haven't been indexed by mppscan
+  # yet (settlement-indexed sources lag advertisement by definition).
+  advertises_mpp:
+    type: bool
+    description: True if the merchant's 402 response advertises ≥2 payment methods/networks (WWW-Authenticate Payment with multiple challenges, or x402 accepts[] with multiple networks).
+  advertises_x402:
+    type: bool
+    description: True if the merchant's 402 response carries an x402 accepts[] envelope (header or body).
+  advertised_methods:
+    type: string
+    description: Comma-separated raw methods advertised in the probe (tempo, stripe, base, solana, ...).
+  advertised_networks:
+    type: string
+    description: Comma-separated friendly chain names advertised in the probe.
+  mpp_source:
+    type: enum
+    description: Where the MPP signal came from for this merchant.
+    values: [none, mppscan, probe, both]
+  probe_status:
+    type: enum
+    values: [ok, non-402, timeout, error, skipped, untried]
+  probe_endpoint:
+    type: string
+  listed_on_count:
+    type: int
+
+  # Tempo-side volume (from mppscan, separate from x402 / bazaar volume).
+  tempo_tx_count:
+    type: int
+  tempo_volume_usd:
+    type: float
+  tempo_latest_tx:
+    type: date
+
+  # Per-chain x402 volume (30d, USDC). Lets the dashboard surface the chain-
+  # by-chain gap — "moltycash made $X on Base + $Y on Solana + $Z on Tempo".
+  volume_usd_base:
+    type: float
+  volume_usd_solana:
+    type: float
+  tx_count_base:
+    type: int
+  tx_count_solana:
+    type: int
+  # Combined x402 (Base + Solana) for backward-compat with the existing
+  # dashboard sort + headline math.
+  x402_tx_count_30d:
+    type: int
+  x402_volume_usd_30d:
+    type: float
+  x402_buyers_30d:
+    type: int
+  x402_facilitators:
+    type: string
+    description: Comma-separated facilitators serving this merchant (coinbase, payAI, mrdn, dexter, …).
+
+  # Activity signals
+  bazaar_resource_count:
+    type: int
+    description: Number of indexed paid endpoints on this host.
+  bazaar_last_updated:
+    type: date
+    description: Most recent lastUpdated across this host's bazaar resources.
+  is_active_14d:
+    type: bool
+  is_mass_lister:
+    type: bool
+    description: True if bazaar_resource_count > 500 (orbisapi, lowpaymentfee, etc.).
+  is_infra:
+    type: bool
+    description: True if host is auto-generated infrastructure (AWS Lambda, Vercel, Workers, etc.) — drop from default prospect view.
+  is_recognized:
+    type: bool
+    description: True if the merchant has a human-curated display_name from agentic.market or pay.sh AND is not infra — the launchable showcase set.
+
+  # Pricing signal — observed across the merchant's endpoints
+  min_price_usd:
+    type: float
+  max_price_usd:
+    type: float
+
+  # Provenance
+  observed_at:
+    type: date
+
+tests: []

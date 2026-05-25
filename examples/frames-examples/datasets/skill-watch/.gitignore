@@ -1,0 +1,10 @@
+.frame/
+node_modules/
+.env
+.env.local
+scan-results.json
+skills.json
+*.tgz
+tools/agentsec/node_modules/
+tools/agentsec/package.json
+tools/agentsec/package-lock.json
