@@ -388,9 +388,83 @@ function findOfferRoute(
   return offer.tools.find((t) => t.route === wanted);
 }
 
+// Index probes by the descriptor id they produce so framesToDescriptors can
+// look them up directly without recomputing slugs. Exported for the canonical
+// projection main() to call before iterating bundles.
+import type { RouteProbe, X402AcceptsEntry } from "./probe-402-frames-registry.ts";
+
+function indexProbesByDescriptorId(probes: RouteProbe[]): Map<string, RouteProbe> {
+  const map = new Map<string, RouteProbe>();
+  for (const p of probes) {
+    if (p.status !== "ok") continue;
+    const m = p.route.match(/^([A-Z]+)\s+(.+)$/);
+    if (!m) continue;
+    const id = `frames.${slugify(p.service_slug)}.${m[1]!.toLowerCase()}.${slugify(m[2]!)}`;
+    map.set(id, p);
+  }
+  return map;
+}
+
+// Per-(network, asset-lowercased) → currency. Mirrors the table in
+// backfill-frames-from-probes.ts; kept inline here so the canonical
+// projection path doesn't depend on a backfill script.
+const KNOWN_ASSET_CURRENCY: Record<string, string> = {
+  "eip155:8453|0x833589fcd6edb6e08f4c7c32d4f71b54bda02913": "USDC",
+  "eip155:8453|0xfde4c96c8593536e31f229ea8f37b2ada2699bb2": "USDT",
+  "eip155:84532|0x036cbd53842c5426634e7929541ec2318f3dcf7e": "USDC",
+  "eip155:137|0x3c499c542cef5e3811e1192ce70d8cc03d5c3359": "USDC",
+  "eip155:196|0x74b7f16337b8972027f6196a17a631ac6de26d22": "USDC",
+  "eip155:43114|0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e": "USDC",
+  "solana:5eykt4usfv8p8njdtrepy1vzqkqzkvdp|epjfwdd5aufqssqem2qn1xzybapc8g4weggkzwytdt1v": "USDC",
+  "solana:5eykt4usfv8p8njdtrepy1vzqkqzkvdp|es9vmfrzacermjfrf4h2fyd4kconky11mcce8benwnyb": "USDT",
+  "solana:5eykt4usfv8p8njdtrepy1vzqkqzkvdp|cashx9kjustyftlfwgvevf59sgeg9sh5ffcnzmvpcash": "CASH",
+};
+
+function currencyFromAccepts(entry: X402AcceptsEntry): string | undefined {
+  const rawName = (entry.extra && typeof entry.extra === "object" && typeof (entry.extra as { name?: unknown }).name === "string")
+    ? (entry.extra as { name: string }).name
+    : undefined;
+  if (rawName) {
+    if (/usd\s*coin|^usdc$/i.test(rawName)) return "USDC";
+    if (/tether|^usdt$/i.test(rawName)) return "USDT";
+    if (/^cash$/i.test(rawName)) return "CASH";
+  }
+  return KNOWN_ASSET_CURRENCY[`${entry.network.toLowerCase()}|${entry.asset.toLowerCase()}`];
+}
+
+function priceHintFromAmount(amount: string, decimals = 6): string | undefined {
+  const n = Number(amount);
+  if (!Number.isFinite(n)) return undefined;
+  return (n / Math.pow(10, decimals)).toString();
+}
+
+function paymentOptionsFromProbe(probe: RouteProbe): PaymentOption[] {
+  const out: PaymentOption[] = [];
+  for (const entry of probe.accepts ?? []) {
+    const network = canonicalNetworkName(entry.network);
+    if (!network) continue;
+    const currency = currencyFromAccepts(entry);
+    const priceHint = priceHintFromAmount(entry.amount);
+    out.push({
+      protocol: "x402v2",
+      ...(entry.scheme && { scheme: entry.scheme }),
+      network,
+      ...(currency !== undefined && { currency }),
+      asset: entry.asset,
+      amount: entry.amount,
+      ...(priceHint !== undefined && { price_hint: priceHint }),
+      pay_to: entry.payTo,
+      ...(typeof entry.maxTimeoutSeconds === "number" && { max_timeout_seconds: entry.maxTimeoutSeconds }),
+      ...(entry.extra && Object.keys(entry.extra).length > 0 && { extra: entry.extra }),
+    });
+  }
+  return out;
+}
+
 function framesToDescriptors(
   bundle: FramesServiceWithSpec,
   fetchedAt: string,
+  probesByDescriptorId: Map<string, RouteProbe>,
 ): ToolDescriptor[] {
   const out: ToolDescriptor[] = [];
   const { service, spec, offer } = bundle;
@@ -406,39 +480,38 @@ function framesToDescriptors(
       const paramsSchema = op.requestBody?.content?.["application/json"]?.schema;
       const priceFromOpenApi = priceFromOp(op);
 
-      // Prefer the /offer manifest (canonical multi-rail) over the
-      // description-string sniff. /offer is the authoritative source per
-      // registry.frames.ag's spec; OpenAPI doesn't carry networks.
-      const offerRoute = findOfferRoute(offer, m, path);
-      const offerNetworks = offerRoute?.networks
-        ?.map((n) => canonicalNetworkName(n.network))
-        .filter((x): x is string => typeof x === "string")
-        ?? [];
-      const uniqueOfferNetworks = Array.from(new Set(offerNetworks));
+      // Build payment in priority order:
+      //   1. live 402 probe — full multi-rail with currency/asset/extra
+      //   2. /offer manifest — multi-network but no currency info, defaults USDC
+      //   3. networkFromOpDescription + "base" / USDC — single-rail legacy
+      let payment: ToolDescriptor["payment"] | undefined;
 
-      // Pick primary: first offer network if any, else network sniffed from
-      // op.description, else "base". Falling back to "base" matches the
-      // previous behaviour and stays correct when /offer is absent.
-      const primaryNetwork = uniqueOfferNetworks[0]
-        ?? networkFromOpDescription(op.description)
-        ?? "base";
-      const alternates = uniqueOfferNetworks.slice(1);
+      const probe = probesByDescriptorId.get(id);
+      if (probe?.accepts?.length) {
+        const options = paymentOptionsFromProbe(probe);
+        if (options.length > 0) {
+          const [primary, ...rest] = options;
+          payment = {
+            ...primary!,
+            ...(rest.length > 0 && { accepts: rest }),
+          };
+        }
+      }
 
-      const offerPrice = priceHintFromOffer(offerRoute?.price);
-      const priceHint = offerPrice ?? (priceFromOpenApi ? String(priceFromOpenApi) : undefined);
-
-      out.push({
-        pay_protocol: "0.0.1",
-        id,
-        title: op.summary ?? `${service.title} — ${m} ${path}`,
-        description: op.description ?? service.description,
-        capabilities: service.tags?.length ? service.tags : ["unspecified"],
-        invocation: {
-          method: m,
-          url: `${baseUrl}${path}`,
-          ...(paramsSchema ? { params_schema: paramsSchema } : {}),
-        },
-        payment: {
+      if (!payment) {
+        const offerRoute = findOfferRoute(offer, m, path);
+        const offerNetworks = offerRoute?.networks
+          ?.map((n) => canonicalNetworkName(n.network))
+          .filter((x): x is string => typeof x === "string")
+          ?? [];
+        const uniqueOfferNetworks = Array.from(new Set(offerNetworks));
+        const primaryNetwork = uniqueOfferNetworks[0]
+          ?? networkFromOpDescription(op.description)
+          ?? "base";
+        const alternates = uniqueOfferNetworks.slice(1);
+        const offerPrice = priceHintFromOffer(offerRoute?.price);
+        const priceHint = offerPrice ?? (priceFromOpenApi ? String(priceFromOpenApi) : undefined);
+        payment = {
           protocol: "x402v2",
           network: primaryNetwork,
           currency: "USDC",
@@ -451,7 +524,21 @@ function framesToDescriptors(
               ...(priceHint && { price_hint: priceHint }),
             })),
           }),
+        };
+      }
+
+      out.push({
+        pay_protocol: "0.0.1",
+        id,
+        title: op.summary ?? `${service.title} — ${m} ${path}`,
+        description: op.description ?? service.description,
+        capabilities: service.tags?.length ? service.tags : ["unspecified"],
+        invocation: {
+          method: m,
+          url: `${baseUrl}${path}`,
+          ...(paramsSchema ? { params_schema: paramsSchema } : {}),
         },
+        payment,
         _meta: {
           catalog: "frames-registry",
           fetched_at: fetchedAt,
@@ -594,6 +681,14 @@ function main() {
     safeReadJson<MppService[]>("staging/mpp-directory-services.json") ?? [];
   const framesBundles =
     safeReadJson<FramesServiceWithSpec[]>("staging/frames-registry-services.json") ?? [];
+  // Live 402-probe data is preferred over /offer for frames-registry —
+  // /offer doesn't carry currency or asset, only networks. The probe's
+  // accepts[] is the seller's ground truth.
+  const framesProbes =
+    safeReadJson<import("./probe-402-frames-registry.ts").RouteProbe[]>(
+      "staging/frames-registry-402-probes.json",
+    ) ?? [];
+  const framesProbesByDescriptorId = indexProbesByDescriptorId(framesProbes);
 
   // Wipe + recreate content dirs for a clean projection.
   if (existsSync(TOOLS_DIR)) rmSync(TOOLS_DIR, { recursive: true });
@@ -629,7 +724,7 @@ function main() {
     }
   }
   for (const bundle of framesBundles) {
-    for (const d of framesToDescriptors(bundle, fetchedAt)) {
+    for (const d of framesToDescriptors(bundle, fetchedAt, framesProbesByDescriptorId)) {
       pushWithCollision(d, d._meta?.upstream_id ?? d.id);
     }
   }
