@@ -101,28 +101,158 @@ export async function payForTool(
     ...(ctx.fetchImpl !== undefined && { fetchImpl: ctx.fetchImpl }),
   });
   const descriptor = resolved.descriptor;
-
-  // 4. Select a viable payment option.
-  // Walks descriptor.payment (canonical) + descriptor.payment.accepts[]
-  // (alternates). For each, checks if a wallet is configured for that
-  // network and (under "block" policy) that the wallet has sufficient
-  // balance for the option's price_hint. Picks the first option that
-  // passes — falls through to throw if none do.
   const policy = ctx.balancePolicy ?? "block";
-  const selection = await selectPaymentOption(descriptor, ctx.registry, policy);
-  const bridge = selection.bridge;
-  // The "effective" descriptor reflects which option was chosen — used
-  // for receipt fields (wallet_id, network, currency, …).
-  const effectiveDescriptor = selection.effectiveDescriptor;
 
-  // 5. Build invocation. Use the effective descriptor (chosen accept) so
-  // receipt metadata reflects what was actually settled.
+  // 2. Walk options with runtime fallback.
+  //
+  // Selection-time fallback (existing): for each option, find a wallet that
+  // builds a viable bridge + (under "block") has sufficient balance.
+  //
+  // Runtime fallback (this PR): if the selected option's bridge succeeds but
+  // the actual dispatch (agentwallet 500, seller 5xx, etc.) fails, move to
+  // the next option instead of throwing. Agentwallet-delegated wallets pass
+  // selection regardless of funding (balance check is bypassed for
+  // delegated bridges), so the only way to discover an empty wallet on a
+  // multi-rail descriptor is to attempt and fall through.
+  const options = buildOptionList(descriptor);
+  const selectionAttempts: SelectionAttempt[] = [];
+  const runtimeFailures: string[] = [];
+
+  for (let i = 0; i < options.length; i++) {
+    const option = options[i]!;
+    const sel = await selectForOption(descriptor, option, ctx.registry, policy);
+    selectionAttempts.push(...sel.attempts);
+    if (!sel.ok) continue;
+
+    try {
+      return await dispatchAfterSelection(
+        sel.bridge,
+        sel.effectiveDescriptor,
+        descriptor,
+        resolved,
+        input,
+        ctx,
+      );
+    } catch (e) {
+      // Only DispatchError / InsufficientBalanceError are rail-retryable —
+      // they originate from a payment attempt and another rail may succeed.
+      // Anything else (TypeError, etc.) is a programming bug; bubble it.
+      if (!(e instanceof DispatchError) && !(e instanceof InsufficientBalanceError)) {
+        throw e;
+      }
+      runtimeFailures.push(
+        `[option ${i} ${option.protocol}/${option.network ?? "?"}/${option.currency ?? "?"}] ${(e as Error).message}`,
+      );
+      // Try the next option.
+    }
+  }
+
+  // Every option either failed selection (no wallet) or dispatched and threw.
+  // Aggregate both into one DispatchError so callers can see the full trace.
+  const selectionSummary = selectionAttempts
+    .map((a) => `[${a.option.protocol}/${a.option.network ?? "?"} via ${a.walletId}] ${a.status}${a.detail ? ` — ${a.detail}` : ""}`)
+    .join("; ");
+  const runtimeSummary = runtimeFailures.length > 0
+    ? ` || runtime failures: ${runtimeFailures.join("; ")}`
+    : "";
+  throw new DispatchError(
+    `no rail succeeded across ${options.length} payment option${options.length === 1 ? "" : "s"}: ${selectionSummary}${runtimeSummary}`,
+  );
+}
+
+/**
+ * Build [primary, ...accepts[]] from a descriptor. The top-level
+ * (protocol, network, currency, asset, price_hint) is the canonical first
+ * option per pay SPEC v0.0.1 §"PaymentOption".
+ */
+function buildOptionList(descriptor: ToolDescriptor): PaymentOption[] {
+  const options: PaymentOption[] = [];
+  options.push({
+    protocol: descriptor.payment.protocol,
+    ...(descriptor.payment.network !== undefined && { network: descriptor.payment.network }),
+    ...(descriptor.payment.currency !== undefined && { currency: descriptor.payment.currency }),
+    ...(descriptor.payment.asset !== undefined && { asset: descriptor.payment.asset }),
+    ...(descriptor.payment.price_hint !== undefined && { price_hint: descriptor.payment.price_hint }),
+  } as PaymentOption);
+  if (Array.isArray(descriptor.payment.accepts)) {
+    options.push(...descriptor.payment.accepts);
+  }
+  return options;
+}
+
+type SelectForOptionResult =
+  | { ok: true; bridge: ReturnType<typeof buildHandlers>; effectiveDescriptor: ToolDescriptor; attempts: SelectionAttempt[] }
+  | { ok: false; attempts: SelectionAttempt[] };
+
+/**
+ * Try to find a viable wallet for ONE payment option. Walks the wallets
+ * configured for the option's network and returns the first whose bridge
+ * builds (and, under "block" policy, whose balance covers the option's
+ * price_hint). Returns ok=false with attempts captured if nothing works.
+ *
+ * Extracted from the old monolithic `selectPaymentOption` so `payForTool`
+ * can loop with runtime retry across options.
+ */
+async function selectForOption(
+  descriptor: ToolDescriptor,
+  option: PaymentOption,
+  registry: WalletRegistry,
+  policy: "off" | "warn" | "block",
+): Promise<SelectForOptionResult> {
+  const effective = applyOption(descriptor, option);
+  const attempts: SelectionAttempt[] = [];
+
+  // Free path — proto === "none" — has no entry. Build once, return.
+  if (effective.payment.protocol === "none") {
+    const placeholder = registry.entriesFor(effective.payment.network ?? "")[0];
+    if (placeholder) {
+      const bridge = buildHandlers(effective, placeholder);
+      attempts.push({ option, walletId: walletIdOf(placeholder), status: "selected", detail: "free path" });
+      return { ok: true, bridge, effectiveDescriptor: effective, attempts };
+    }
+  }
+
+  const network = option.network;
+  const entries = network ? registry.entriesFor(network) : [];
+  if (entries.length === 0) {
+    attempts.push({
+      option,
+      walletId: "—",
+      status: "no_wallet_for_network",
+      detail: `no wallet configured for network "${network ?? "(missing)"}"`,
+    });
+    return { ok: false, attempts };
+  }
+
+  // Walk wallets configured for this network; pick the first viable.
+  for (const entry of entries) {
+    const result = await tryEntry(effective, entry, policy);
+    attempts.push({ option, walletId: walletIdOf(entry), status: result.status, ...(result.detail !== undefined && { detail: result.detail }) });
+    if (result.status === "selected") {
+      return { ok: true, bridge: result.bridge!, effectiveDescriptor: effective, attempts };
+    }
+  }
+  return { ok: false, attempts };
+}
+
+/**
+ * Run the actual dispatch after `selectForOption` succeeded. Extracted from
+ * the old `payForTool` body so the loop in `payForTool` can wrap a single
+ * dispatch in try/catch and try the next option on failure.
+ */
+async function dispatchAfterSelection(
+  bridge: ReturnType<typeof buildHandlers>,
+  effectiveDescriptor: ToolDescriptor,
+  descriptor: ToolDescriptor,
+  resolved: import("../manifest/resolve.ts").ResolvedToolEntry,
+  input: PayForToolInput,
+  ctx: DispatchContext,
+): Promise<PayForToolResult> {
   const invocationUrl = effectiveDescriptor.invocation.url;
   const method = effectiveDescriptor.invocation.method.toUpperCase();
   const requestBody =
     method === "GET" || method === "HEAD" ? undefined : JSON.stringify(input.params);
   const requestHash = await sha256Of(requestBody ?? "");
-
   const fetchImpl = ctx.fetchImpl ?? fetch;
 
   // ---- Delegated provider path ----
@@ -178,16 +308,9 @@ export async function payForTool(
   const responseHash = await sha256Of(responseText);
   const body = JSON.parse(responseText) as unknown;
 
-  // 6. Extract settled payment metadata.
-  // The test endpoint at registry.frames.ag returns { ..., payment: { network, payer, txHash } }
-  // Sniff that shape; otherwise fall back to descriptor hints.
   const settled = sniffSettlement(body, effectiveDescriptor);
 
-  // 7. Build receipt.
   const network = effectiveDescriptor.payment.network ?? "unknown";
-  // Use the entry that was *chosen* by selectPaymentOption — not just the
-  // primary on this network — so receipts reflect the wallet that actually
-  // signed.
   const chosenEntry = bridge.walletEntry;
   const wallet_id = chosenEntry
     ? walletIdOf(chosenEntry)
@@ -224,7 +347,6 @@ export async function payForTool(
   };
 
   const receipt: Receipt = await buildReceipt(receiptInput);
-  // elapsedMs is currently unused but kept locally for future timing receipts.
   void elapsedMs;
   const toolPayload = buildToolPayload(input.params, responseText);
   await persistReceipt(receipt, ctx, toolPayload);
@@ -329,94 +451,11 @@ interface SelectionAttempt {
   detail?: string;
 }
 
-interface SelectionResult {
-  bridge: ReturnType<typeof buildHandlers>;
-  effectiveDescriptor: ToolDescriptor;
-  attempts: SelectionAttempt[];
-  chosen: PaymentOption;
-}
-
-/**
- * Walk descriptor.payment (canonical option) + descriptor.payment.accepts[]
- * (alternates), and within each option iterate the wallet entries configured
- * for that network. Picks the first (option, entry) pair whose bridge builds
- * cleanly and (under "block" policy) whose balance covers the price_hint.
- *
- * Two axes of fallback:
- *   - Across options: descriptor offered Base + Solana, no Base wallet → try Solana.
- *   - Within an option: two wallets on Base, first has no USDC → try second.
- *
- * Throws DispatchError listing all attempts if nothing is viable.
- */
-async function selectPaymentOption(
-  descriptor: ToolDescriptor,
-  registry: WalletRegistry,
-  policy: "off" | "warn" | "block",
-): Promise<SelectionResult> {
-  const options: PaymentOption[] = [];
-  options.push({
-    protocol: descriptor.payment.protocol,
-    ...(descriptor.payment.network !== undefined && { network: descriptor.payment.network }),
-    ...(descriptor.payment.currency !== undefined && { currency: descriptor.payment.currency }),
-    ...(descriptor.payment.asset !== undefined && { asset: descriptor.payment.asset }),
-    ...(descriptor.payment.price_hint !== undefined && { price_hint: descriptor.payment.price_hint }),
-  } as PaymentOption);
-  if (Array.isArray(descriptor.payment.accepts)) {
-    options.push(...descriptor.payment.accepts);
-  }
-
-  const attempts: SelectionAttempt[] = [];
-  for (const option of options) {
-    const effective = applyOption(descriptor, option);
-
-    // Free path — proto === "none" — has no entry. Build once, return.
-    if (effective.payment.protocol === "none") {
-      // The bridge ignores its entry argument on the free path; pass any
-      // entry as a placeholder. (We expect no networks with a free path
-      // in practice; this is just defensive.)
-      const placeholder = registry.entriesFor(effective.payment.network ?? "")[0];
-      if (placeholder) {
-        const bridge = buildHandlers(effective, placeholder);
-        attempts.push({ option, walletId: walletIdOf(placeholder), status: "selected", detail: "free path" });
-        return { bridge, effectiveDescriptor: effective, attempts, chosen: option };
-      }
-      // Even free paths need *some* entry to compose the receipt's wallet_id;
-      // if there's nothing configured we report no_wallet_for_network.
-    }
-
-    const network = option.network;
-    const entries = network ? registry.entriesFor(network) : [];
-    if (entries.length === 0) {
-      attempts.push({
-        option,
-        walletId: "—",
-        status: "no_wallet_for_network",
-        detail: `no wallet configured for network "${network ?? "(missing)"}"`,
-      });
-      continue;
-    }
-
-    // Walk through wallets configured for this network.
-    let optionResolved = false;
-    for (const entry of entries) {
-      const result = await tryEntry(effective, entry, policy);
-      attempts.push({ option, walletId: walletIdOf(entry), status: result.status, ...(result.detail !== undefined && { detail: result.detail }) });
-      if (result.status === "selected") {
-        return { bridge: result.bridge!, effectiveDescriptor: effective, attempts, chosen: option };
-      }
-      // status was no_handler / no_wallet_for_network / insufficient_balance
-      // / balance_check_failed → try the next entry on this network.
-    }
-    void optionResolved;
-  }
-
-  const summary = attempts
-    .map((a) => `[${a.option.protocol}/${a.option.network ?? "?"} via ${a.walletId}] ${a.status}${a.detail ? ` — ${a.detail}` : ""}`)
-    .join("; ");
-  throw new DispatchError(
-    `no viable wallet across ${options.length} payment option${options.length === 1 ? "" : "s"}: ${summary}`,
-  );
-}
+// `selectPaymentOption` was replaced by `selectForOption` + the loop in
+// `payForTool` (see top of file). The combined version adds runtime fallback
+// across rails — selection-time fallback was already here, but if the
+// selected option's dispatch fails at runtime (agentwallet 500, seller 5xx),
+// the loop now tries the next option instead of throwing.
 
 interface EntryAttemptResult {
   status:
@@ -555,11 +594,25 @@ async function dispatchViaAgentwallet(
   const { wallet, descriptor, fetchImpl } = input;
   const fetchUrl = `${wallet.baseUrl.replace(/\/$/, "")}/api/wallets/${encodeURIComponent(wallet.username)}/actions/x402/fetch`;
 
-  const reqBody = {
+  // The agentwallet API doesn't carry rail selection today — it picks one
+  // based on its own internal defaults. With multi-rail descriptors and pay
+  // looping over options, we attach a `payment_rail` hint telling agentwallet
+  // which rail the dispatcher chose for THIS attempt. Older agentwallet
+  // versions ignore the field (extra body keys are no-op); newer versions
+  // can honor it to actually loop through rails on failure.
+  const reqBody: Record<string, unknown> = {
     url: input.url,
     method: input.method,
     body: input.method === "GET" || input.method === "HEAD" ? undefined : input.params,
   };
+  if (descriptor.payment.network) {
+    reqBody["payment_rail"] = {
+      protocol: descriptor.payment.protocol,
+      network: descriptor.payment.network,
+      ...(descriptor.payment.currency !== undefined && { currency: descriptor.payment.currency }),
+      ...(descriptor.payment.asset !== undefined && { asset: descriptor.payment.asset }),
+    };
+  }
 
   const res = await fetchImpl(fetchUrl, {
     method: "POST",
