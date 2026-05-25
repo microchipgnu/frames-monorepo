@@ -30,15 +30,77 @@
   },
   "payment": {
     "protocol": "x402v2",
+    "scheme": "exact",
     "network": "base",
     "currency": "USDC",
-    "price_hint": "0.01",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "amount": "2000000",
+    "price_hint": "2",
+    "pay_to": "0x6e3184C204e596dED89E8A5693B602097F4Ab687",
+    "max_timeout_seconds": 300,
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
     "accepts": [
       {
         "protocol": "x402v2",
+        "scheme": "exact",
         "network": "solana-mainnet",
         "currency": "USDC",
-        "price_hint": "0.01"
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "amount": "2000000",
+        "price_hint": "2",
+        "pay_to": "7r4e5dwNS68MDaxbw7N8jbzHq7RCMBp9z6smHFH4NXWw",
+        "max_timeout_seconds": 300,
+        "extra": {
+          "feePayer": "2wKupLR9q6wXYppw8Gr2NvWxKBUqm4PPJKkQfoxHDBg4"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "scheme": "exact",
+        "network": "avalanche",
+        "currency": "USDC",
+        "asset": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
+        "amount": "2000000",
+        "price_hint": "2",
+        "pay_to": "0x6e3184C204e596dED89E8A5693B602097F4Ab687",
+        "max_timeout_seconds": 300,
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "scheme": "exact",
+        "network": "xlayer",
+        "currency": "USDC",
+        "asset": "0x74b7f16337b8972027f6196a17a631ac6de26d22",
+        "amount": "2000000",
+        "price_hint": "2",
+        "pay_to": "0x6e3184C204e596dED89E8A5693B602097F4Ab687",
+        "max_timeout_seconds": 300,
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "scheme": "exact",
+        "network": "polygon",
+        "currency": "USDC",
+        "asset": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "amount": "2000000",
+        "price_hint": "2",
+        "pay_to": "0x6e3184C204e596dED89E8A5693B602097F4Ab687",
+        "max_timeout_seconds": 300,
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
       }
     ]
   },
