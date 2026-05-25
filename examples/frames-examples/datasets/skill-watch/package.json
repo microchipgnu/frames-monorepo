@@ -1,0 +1,13 @@
+{
+  "name": "skill-watch",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "scrape": "bun scripts/scrape.ts",
+    "scan": "bun scripts/scan.ts",
+    "fold": "bun scripts/fold.ts"
+  },
+  "dependencies": {
+    "@frames-ag/frame": "^0.1.1"
+  }
+}
