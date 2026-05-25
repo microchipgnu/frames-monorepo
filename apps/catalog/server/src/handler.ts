@@ -284,8 +284,9 @@ export function createHandler(deps: HandlerDeps) {
       content_base: deps.content.baseUrl,
       routes: [
         "GET /tools/:id",
-        "GET /catalog?q=&capability=&cursor=&limit=",
+        "GET /catalog?q=&capability=&rail=&cursor=&limit=",
         "GET /catalog/:id",
+        "GET /capabilities?quality=&min_count=",
         "GET /merchants?q=&capability=&rail=&active=&recognized=&cursor=&limit=",
         "GET /merchants/:host",
         "GET /search?q=",
@@ -295,6 +296,71 @@ export function createHandler(deps: HandlerDeps) {
     }),
   );
 
+
+  // /capabilities — flat list of every capability tag in the catalog with
+  // tool counts and a few example tool IDs per tag. Lets discoverers see
+  // the canonical taxonomy at a glance instead of enumerating 1,100 tools
+  // to figure out which tag names actually exist.
+  //
+  // Verified motivation (2026-05-25): the layoffs-2026 prompt called
+  // catalog_search() with `news-search`, `social-search`, `semantic-search`,
+  // `scrape` — none of those tag names exist in the catalog. The real
+  // names are `news` (6), `social` (123), `semantic` (4), and there is no
+  // scrape tag at all. /capabilities exposes that truth in one request.
+  app.get("/capabilities", async (c) => {
+    const quality = parseQuality(c.req.query("quality"));
+    const minCount = Math.max(
+      parseInt(c.req.query("min_count") ?? "1", 10) || 1,
+      1,
+    );
+    const exampleLimit = clamp(
+      parseInt(c.req.query("examples") ?? "3", 10) || 3,
+      0,
+      10,
+    );
+
+    const cacheKey = `capabilities:${quality}:${minCount}:${exampleLimit}`;
+    let cached = await deps.cache.get(cacheKey);
+    if (!cached) {
+      const index = await getIndexForQuality(deps, quality);
+      const counts = new Map<string, { count: number; examples: string[] }>();
+      for (const t of index) {
+        for (const cap of t.capabilities ?? []) {
+          let bucket = counts.get(cap);
+          if (!bucket) {
+            bucket = { count: 0, examples: [] };
+            counts.set(cap, bucket);
+          }
+          bucket.count++;
+          if (bucket.examples.length < exampleLimit) bucket.examples.push(t.id);
+        }
+      }
+      const capabilities = Array.from(counts.entries())
+        .filter(([, v]) => v.count >= minCount)
+        .map(([name, v]) => ({ name, count: v.count, examples: v.examples }))
+        .sort((a, b) => b.count - a.count || (a.name < b.name ? -1 : 1));
+      const body = {
+        pay_protocol: PAY_PROTOCOL,
+        catalog_protocol: CATALOG_PROTOCOL,
+        quality,
+        total: capabilities.length,
+        capabilities,
+      };
+      cached = {
+        etag: `W/"capabilities-${quality}-${capabilities.length}"`,
+        body: JSON.stringify(body),
+        contentType: "application/json",
+      };
+      await deps.cache.set(cacheKey, cached, 60);
+    }
+    c.header("Cache-Control", CACHE_CONTROL);
+    return new Response(cached.body, {
+      headers: {
+        "Content-Type": cached.contentType,
+        "Cache-Control": CACHE_CONTROL,
+      },
+    });
+  });
 
   app.get("/_meta", async (c) => {
     const cacheKey = "refresh-meta";
@@ -403,8 +469,21 @@ export function createHandler(deps: HandlerDeps) {
       const m = resolveMerchantForHost(t.host, merchantsByHost);
       if (active && m && !m.is_active_14d) return false;
       if (recognized && !m?.is_recognized) return false;
-      if (rail && m && !m.network_names.toLowerCase().split(/,\s*/).includes(rail))
-        return false;
+      if (rail) {
+        // Rail matches if EITHER the merchant's primary network_names
+        // OR the descriptor's accepts_networks contains it. The latter
+        // surfaces multi-rail descriptors whose alternate rails aren't
+        // reflected in the merchant's primary listing — e.g. a tool that
+        // settles on base/USDC by default but advertises an accepts[]
+        // entry for solana-mainnet/CASH.
+        const merchantRails = m?.network_names.toLowerCase().split(/,\s*/).filter(Boolean) ?? [];
+        const descriptorRails = (t.accepts_networks ?? t.payment.network ?? "")
+          .toLowerCase()
+          .split(/,\s*/)
+          .filter(Boolean);
+        const combined = new Set([...merchantRails, ...descriptorRails]);
+        if (!combined.has(rail)) return false;
+      }
       return true;
     });
     if (capability) {

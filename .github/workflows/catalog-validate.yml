@@ -67,14 +67,25 @@ jobs:
 
       - name: Validate ndjson indexes
         working-directory: apps/catalog
+        # The descriptor projection is split by quality:
+        #   content/index.ndjson           = curated entries (~1k)
+        #   content/index-longtail.ndjson  = long-tail entries (~36k)
+        # The two together should account for every file in content/tools/.
         run: |
           set -euo pipefail
+          tool_count=$(find content/tools -name '*.json' | wc -l | tr -d ' ')
+          curated_lines=0
+          longtail_lines=0
           if [ -f content/index.ndjson ]; then
-            tool_count=$(find content/tools -name '*.json' | wc -l | tr -d ' ')
-            line_count=$(grep -cve '^$' content/index.ndjson || true)
-            echo "tools=$tool_count  index lines=$line_count"
-            [ "$tool_count" = "$line_count" ] || { echo "tool index/file count mismatch"; exit 1; }
+            curated_lines=$(grep -cve '^$' content/index.ndjson || true)
           fi
+          if [ -f content/index-longtail.ndjson ]; then
+            longtail_lines=$(grep -cve '^$' content/index-longtail.ndjson || true)
+          fi
+          combined=$((curated_lines + longtail_lines))
+          echo "tools=$tool_count  curated=$curated_lines  longtail=$longtail_lines  combined=$combined"
+          [ "$tool_count" = "$combined" ] || { echo "tool/(curated+longtail) count mismatch"; exit 1; }
+
           if [ -f content/merchants.ndjson ]; then
             m_count=$(find content/merchants -name '*.json' 2>/dev/null | wc -l | tr -d ' ')
             line_count=$(grep -cve '^$' content/merchants.ndjson || true)
