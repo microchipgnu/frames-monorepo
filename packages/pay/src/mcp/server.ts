@@ -1,7 +1,7 @@
 // pay MCP server (stdio).
 //
-// Exposes pay's library as 5 MCP tools:
-//   pay_tool, add_tool, list_tools, discover, wallet_status
+// Exposes pay's library as 6 MCP tools:
+//   pay_tool, add_tool, list_tools, discover, wallet_status, check_descriptor_drift
 //
 // Run: `bunx -y @frames-ag/pay-mcp` (when published) or `bun run src/mcp/server.ts`.
 // Reads ~/.frames/pay/config.yaml; creates audit key on first use.
@@ -21,6 +21,10 @@ import {
   walletStatusHandler,
   walletStatusSchema,
 } from "./tools/wallet-status.ts";
+import {
+  checkDescriptorDriftHandler,
+  checkDescriptorDriftSchema,
+} from "./tools/check-drift.ts";
 
 export async function startServer(): Promise<void> {
   const config = await loadRuntimeConfig();
@@ -36,6 +40,7 @@ export async function startServer(): Promise<void> {
     listToolsSchema,
     discoverSchema,
     walletStatusSchema,
+    checkDescriptorDriftSchema,
   ];
 
   server.setRequestHandler(ListToolsRequestSchema, async () => ({
@@ -56,6 +61,8 @@ export async function startServer(): Promise<void> {
           return await discoverHandler(args ?? {}, config);
         case "wallet_status":
           return await walletStatusHandler(args ?? {}, config);
+        case "check_descriptor_drift":
+          return await checkDescriptorDriftHandler(args ?? {}, config);
         default:
           throw new Error(`unknown tool: ${name}`);
       }
