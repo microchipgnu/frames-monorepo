@@ -306,6 +306,14 @@ const WALLET_FACTORIES: Record<string, WalletFactory> = {
     // a receipt from that response.
     //
     // Keys never leave agentwallet's servers. Funds are custodied by frames.ag.
+    //
+    // baseUrl resolution (in priority order):
+    //   1. `base_url` set in the pay config stanza (allows self-hosted
+    //      agentwallet, or override when the agentwallet config file is from
+    //      an older onboarding that pre-dates the baseUrl field)
+    //   2. `baseUrl` in ~/.agentwallet/config.json (set by current onboarding)
+    //   3. AGENTWALLET_BASE_URL env var
+    //   4. "https://frames.ag" (the canonical hosted endpoint)
     const home = process.env["HOME"] ?? homedir();
     const configPath =
       typeof cfg["config_path"] === "string"
@@ -325,13 +333,18 @@ const WALLET_FACTORIES: Record<string, WalletFactory> = {
       solanaAddress?: string;
     };
     if (!stored.apiToken) throw new Error(`${configPath} missing apiToken`);
-    if (!stored.baseUrl) throw new Error(`${configPath} missing baseUrl`);
     if (!stored.username) throw new Error(`${configPath} missing username`);
+
+    const baseUrl =
+      (typeof cfg["base_url"] === "string" ? (cfg["base_url"] as string) : undefined) ??
+      stored.baseUrl ??
+      process.env["AGENTWALLET_BASE_URL"] ??
+      "https://frames.ag";
 
     return {
       kind: "delegated",
       provider: "agentwallet",
-      baseUrl: stored.baseUrl,
+      baseUrl,
       apiToken: stored.apiToken,
       username: stored.username,
       addresses: {

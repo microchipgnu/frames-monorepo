@@ -77,6 +77,16 @@ function detectAgentwallet(): Detection | null {
       solanaAddress?: string;
     };
     if (!cfg.apiToken || !cfg.username) return null;
+    // Older agentwallet onboardings did not write `baseUrl` into the config
+    // file. Surface that to the user as an explicit `base_url` in the
+    // generated stanza so it's visible in pay config + so the loader doesn't
+    // have to silently default. Keep "https://frames.ag" as the canonical
+    // endpoint — same default the loader uses as a last resort.
+    const baseUrl = cfg.baseUrl ?? "https://frames.ag";
+    const baseUrlIsDefault = !cfg.baseUrl;
+    const baseUrlLine = baseUrlIsDefault
+      ? `    base_url: ${baseUrl}  # defaulted — ${path} missing baseUrl`
+      : `    base_url: ${baseUrl}`;
     const networks: string[] = [];
     const stanzas: string[] = [];
     const entries: Detection["entries"] = [];
@@ -85,11 +95,12 @@ function detectAgentwallet(): Detection | null {
       stanzas.push(
         `  base:
     kind: agentwallet
-    label: my-agentwallet`,
+    label: my-agentwallet
+${baseUrlLine}`,
       );
       entries.push({
         network: "base",
-        config: { kind: "agentwallet", label: "my-agentwallet" },
+        config: { kind: "agentwallet", label: "my-agentwallet", base_url: baseUrl },
       });
     }
     if (cfg.solanaAddress) {
@@ -97,16 +108,17 @@ function detectAgentwallet(): Detection | null {
       stanzas.push(
         `  solana-mainnet:
     kind: agentwallet
-    label: my-agentwallet`,
+    label: my-agentwallet
+${baseUrlLine}`,
       );
       entries.push({
         network: "solana-mainnet",
-        config: { kind: "agentwallet", label: "my-agentwallet" },
+        config: { kind: "agentwallet", label: "my-agentwallet", base_url: baseUrl },
       });
     }
     return {
       kind: "agentwallet",
-      label: `agentwallet @ ${cfg.baseUrl ?? "frames.ag"}`,
+      label: `agentwallet @ ${baseUrl}${baseUrlIsDefault ? " (defaulted)" : ""}`,
       source: path,
       address: cfg.evmAddress ?? cfg.solanaAddress,
       yamlSnippet: stanzas.join("\n"),

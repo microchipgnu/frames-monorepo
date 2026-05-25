@@ -45,6 +45,7 @@
   },
   "scripts": {
     "typecheck": "tsc --noEmit",
+    "test": "bun test",
     "smoke:dry": "bun run examples/smoke/dry-run.ts",
     "smoke:gen-wallet": "bun run examples/smoke/gen-wallet.ts",
     "smoke:settle": "bun run examples/smoke/settle.ts",
