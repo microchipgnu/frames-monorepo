@@ -73,8 +73,20 @@ export {
 export {
   payForTool,
   DispatchError,
+  InsufficientBalanceError,
   type DispatchContext,
 } from "./wallet/dispatch.ts";
+
+export {
+  classifyPayError,
+  type PayError,
+  type PayErrorKind,
+} from "./errors.ts";
+
+export {
+  renderWalletStatus,
+  type RenderWalletStatusOptions,
+} from "./wallet/status.ts";
 
 export {
   loadRuntimeConfig,
