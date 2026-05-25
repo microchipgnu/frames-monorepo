@@ -1,6 +1,6 @@
 {
   "name": "@frames-ag/pay",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Buyer-side runtime for paid agent tool calls. Catalog + manifest + lock + signed receipts. MCP server for any harness, CLI for shells. Wallets via faremeter (EVM/Solana/OWS/Crossmint), agentcash, frames, or hosted agentwallet.",
   "keywords": [
     "x402",
