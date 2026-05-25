@@ -26,7 +26,41 @@ export type FramesService = {
   description: string;
   version?: string;
   tags?: string[];
-  endpoints: { base: string; openapi: string };
+  endpoints: {
+    base: string;
+    openapi: string;
+    /**
+     * Per-route payment offer (multi-rail). Optional because not every
+     * service in the registry exposes one yet; if absent we fall back to
+     * single-rail derived from the OpenAPI spec.
+     */
+    offer?: string;
+  };
+};
+
+/**
+ * Per-route payment offer returned by `registry.frames.ag/api/service/<slug>/offer`.
+ * `networks[]` is the multi-rail list — each entry carries a CAIP-2-style
+ * `network` plus a friendly `networkName`. This is the canonical source for
+ * `payment.accepts[]` on frames-registry descriptors; OpenAPI does not
+ * carry it.
+ */
+export type FramesOfferRoute = {
+  route: string; // "POST /api/search"
+  description?: string;
+  price?: string; // "$0.01"
+  mimeType?: string;
+  networks?: Array<{
+    network: string; // "eip155:8453" | "solana:5eyk…"
+    networkName?: string; // "Base" | "Solana"
+    type?: "evm" | "solana" | string;
+  }>;
+};
+
+export type FramesOffer = {
+  version?: string;
+  service?: Pick<FramesService, "slug" | "title">;
+  tools?: FramesOfferRoute[];
 };
 
 export type OpenApiOp = {
@@ -64,6 +98,8 @@ export type OpenApiSpec = {
 export type FramesServiceWithSpec = {
   service: FramesService;
   spec: OpenApiSpec;
+  /** Multi-rail payment offer if the service exposes /offer; else null. */
+  offer: FramesOffer | null;
   fetched_at: string;
 };
 
@@ -144,7 +180,19 @@ async function main() {
       console.warn(`  ! ${service.slug}: openapi fetch failed — ${(e as Error).message}`);
       continue;
     }
-    withSpecs.push({ service, spec, fetched_at: observedAt });
+    // /offer is the canonical multi-rail source (the OpenAPI spec doesn't
+    // carry payment networks). Missing /offer is non-fatal — the descriptor
+    // projection will fall back to single-rail base/USDC.
+    let offer: FramesOffer | null = null;
+    const offerUrl = service.endpoints.offer;
+    if (offerUrl) {
+      try {
+        offer = await fetchJson<FramesOffer>(offerUrl);
+      } catch (e) {
+        console.warn(`  ! ${service.slug}: offer fetch failed — ${(e as Error).message}`);
+      }
+    }
+    withSpecs.push({ service, spec, offer, fetched_at: observedAt });
 
     const baseUrl = spec.servers?.[0]?.url ?? service.endpoints.base;
     const host = canonicalHost(baseUrl);
