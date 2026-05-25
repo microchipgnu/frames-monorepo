@@ -70,11 +70,33 @@ interface SlimToolDescriptor {
     price_hint?: string;
   };
   host: string | null;
+  /**
+   * Comma-separated network names this descriptor accepts (primary +
+   * `payment.accepts[]` alternates). Lets the /catalog rail filter match
+   * multi-rail descriptors whose merchant's primary network_names doesn't
+   * advertise the rail. Omitted when there's only one rail (the primary).
+   */
+  accepts_networks?: string;
   _meta?: { catalog: string };
+}
+
+function deriveAcceptsNetworks(payment: ToolDescriptor["payment"]): string | undefined {
+  const networks = new Set<string>();
+  if (payment.network) networks.add(payment.network);
+  if (Array.isArray(payment.accepts)) {
+    for (const opt of payment.accepts) {
+      if (opt && typeof opt === "object" && typeof opt.network === "string") {
+        networks.add(opt.network);
+      }
+    }
+  }
+  if (networks.size <= 1) return undefined;
+  return Array.from(networks).join(",");
 }
 
 function slimDescriptor(d: ToolDescriptor): SlimToolDescriptor {
   const desc = d.description ?? "";
+  const acceptsNetworks = deriveAcceptsNetworks(d.payment);
   return {
     pay_protocol: "0.0.1",
     id: d.id,
@@ -92,6 +114,7 @@ function slimDescriptor(d: ToolDescriptor): SlimToolDescriptor {
       ...(d.payment.price_hint !== undefined && { price_hint: d.payment.price_hint }),
     },
     host: d._signals?.host ?? null,
+    ...(acceptsNetworks !== undefined && { accepts_networks: acceptsNetworks }),
     ...(d._meta?.catalog && { _meta: { catalog: d._meta.catalog } }),
   };
 }

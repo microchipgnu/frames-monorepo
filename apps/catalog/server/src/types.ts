@@ -33,6 +33,21 @@ export interface SlimSignals {
   quality: "curated" | "long-tail";
 }
 
+// Alternate settlement options a seller advertises. Mirrors pay's
+// PaymentOption (pay/SPEC.md v0.0.1). A descriptor may carry multiple rails
+// here — typically the primary in `payment.{protocol,network,currency,...}`
+// plus alternates here. Clients pick the first option they can settle.
+export interface PaymentOption {
+  protocol: string;
+  network: string;
+  currency?: string;
+  asset?: string;
+  amount?: string;
+  price_hint?: string;
+  pay_to?: string;
+  [k: string]: unknown;
+}
+
 export interface ToolDescriptor {
   pay_protocol: string;
   id: string;
@@ -49,6 +64,14 @@ export interface ToolDescriptor {
     network?: string;
     currency?: string;
     price_hint?: string;
+    asset?: string;
+    pay_to?: string;
+    /**
+     * Alternate settlement options. The top-level (protocol, network, currency, …)
+     * trio is the canonical first option. Clients filter by `?rail=` should
+     * match if any rail in {primary} ∪ {accepts[].network} matches.
+     */
+    accepts?: PaymentOption[];
     [k: string]: unknown;
   };
   schemas?: Record<string, unknown>;
@@ -58,6 +81,15 @@ export interface ToolDescriptor {
   _signals?: ToolSignals;
   _meta?: { catalog?: "bazaar" | "mpp" | "frames-registry" | string };
   host?: string | null;
+  /**
+   * Comma-separated network names this descriptor accepts (primary + any
+   * `payment.accepts[]` alternates), derived at projection time. Lets the
+   * /catalog rail filter match descriptors whose alternates include the
+   * requested network even when the merchant's primary `network_names`
+   * doesn't. Stamped onto slim index entries; not on /tools/:id full
+   * descriptors (which already carry `payment.accepts[]`).
+   */
+  accepts_networks?: string;
   [k: string]: unknown;
 }
 
