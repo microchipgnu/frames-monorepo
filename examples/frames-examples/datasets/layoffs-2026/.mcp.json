@@ -1,0 +1,25 @@
+{
+  "mcpServers": {
+    "frame-layoffs-2026": {
+      "command": "bunx",
+      "args": [
+        "-y",
+        "@frames-ag/frame",
+        "serve",
+        "."
+      ],
+      "env": {
+        "FRAME_AGENT": "claude:opus-4.7"
+      }
+    },
+    "pay": {
+      "command": "bunx",
+      "args": [
+        "-y",
+        "-p",
+        "@frames-ag/pay",
+        "pay-mcp"
+      ]
+    }
+  }
+}
