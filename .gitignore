@@ -21,3 +21,9 @@ dist/
 
 # wrangler local state (miniflare KV/cache)
 .wrangler/
+
+# OpenProse run state — run traces, per-service workspaces, source caches.
+# events.ndjson is the canonical state; everything under .prose/runs/ and
+# top-level workspace/ is regenerable scratch.
+**/.prose/runs/
+**/datasets/*/workspace/
