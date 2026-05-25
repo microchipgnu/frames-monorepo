@@ -26,7 +26,12 @@ import { canonicalHost, aliasCandidate } from "./host.ts";
 import type { MerchantEntity } from "./merge.ts";
 import type { BazaarItem } from "./scrape-bazaar.ts";
 import type { MppService } from "./scrape-mpp-directory.ts";
-import type { FramesServiceWithSpec, OpenApiOp } from "./scrape-frames-registry.ts";
+import type {
+  FramesServiceWithSpec,
+  FramesOffer,
+  FramesOfferRoute,
+  OpenApiOp,
+} from "./scrape-frames-registry.ts";
 
 const ROOT = resolve(import.meta.dir, "..");
 const CONTENT_ROOT = resolve(ROOT, "content");
@@ -334,12 +339,61 @@ function networkFromOpDescription(desc: string | undefined): string | undefined 
   return undefined;
 }
 
+// CAIP-2 / friendly-name → canonical pay network name. Mirrors what
+// dispatch.ts and the bazaar scraper use so multi-rail descriptors stay
+// addressable by the same lowercase keys (base, solana-mainnet, …).
+function canonicalNetworkName(network: string): string | undefined {
+  if (network.startsWith("eip155:")) {
+    const chainId = network.slice("eip155:".length);
+    switch (chainId) {
+      case "1":
+        return "ethereum";
+      case "8453":
+        return "base";
+      case "42161":
+        return "arbitrum";
+      case "10":
+        return "optimism";
+      case "137":
+        return "polygon";
+      default:
+        return undefined;
+    }
+  }
+  if (network.startsWith("solana:")) {
+    const cluster = network.slice("solana:".length);
+    if (cluster === "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp") return "solana-mainnet";
+    if (cluster === "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wwLy85A") return "solana-devnet";
+    return "solana-mainnet"; // unknown cluster falls back to mainnet
+  }
+  return undefined;
+}
+
+// Parse a "$0.01" → "0.01" string for payment.price_hint.
+function priceHintFromOffer(price?: string): string | undefined {
+  if (!price) return undefined;
+  const stripped = price.replace(/^\$/, "").trim();
+  return stripped.length > 0 ? stripped : undefined;
+}
+
+// Look up the offer route for a (path, method). The offer's `route` field
+// is "POST /api/search" — uppercase method + space + path.
+function findOfferRoute(
+  offer: FramesOffer | null | undefined,
+  method: string,
+  path: string,
+): FramesOfferRoute | undefined {
+  if (!offer?.tools) return undefined;
+  const wanted = `${method.toUpperCase()} ${path}`;
+  return offer.tools.find((t) => t.route === wanted);
+}
+
 function framesToDescriptors(
   bundle: FramesServiceWithSpec,
   fetchedAt: string,
 ): ToolDescriptor[] {
   const out: ToolDescriptor[] = [];
-  const { service, spec } = bundle;
+  const { service, spec, offer } = bundle;
   const baseUrl = spec.servers?.[0]?.url ?? service.endpoints.base;
   for (const [path, methods] of Object.entries(spec.paths ?? {})) {
     for (const [method, op] of Object.entries(methods)) {
@@ -350,8 +404,29 @@ function framesToDescriptors(
 
       const id = `frames.${slugify(service.slug)}.${m.toLowerCase()}.${slugify(path)}`;
       const paramsSchema = op.requestBody?.content?.["application/json"]?.schema;
-      const price = priceFromOp(op);
-      const network = networkFromOpDescription(op.description) ?? "base";
+      const priceFromOpenApi = priceFromOp(op);
+
+      // Prefer the /offer manifest (canonical multi-rail) over the
+      // description-string sniff. /offer is the authoritative source per
+      // registry.frames.ag's spec; OpenAPI doesn't carry networks.
+      const offerRoute = findOfferRoute(offer, m, path);
+      const offerNetworks = offerRoute?.networks
+        ?.map((n) => canonicalNetworkName(n.network))
+        .filter((x): x is string => typeof x === "string")
+        ?? [];
+      const uniqueOfferNetworks = Array.from(new Set(offerNetworks));
+
+      // Pick primary: first offer network if any, else network sniffed from
+      // op.description, else "base". Falling back to "base" matches the
+      // previous behaviour and stays correct when /offer is absent.
+      const primaryNetwork = uniqueOfferNetworks[0]
+        ?? networkFromOpDescription(op.description)
+        ?? "base";
+      const alternates = uniqueOfferNetworks.slice(1);
+
+      const offerPrice = priceHintFromOffer(offerRoute?.price);
+      const priceHint = offerPrice ?? (priceFromOpenApi ? String(priceFromOpenApi) : undefined);
+
       out.push({
         pay_protocol: "0.0.1",
         id,
@@ -365,9 +440,17 @@ function framesToDescriptors(
         },
         payment: {
           protocol: "x402v2",
-          network,
+          network: primaryNetwork,
           currency: "USDC",
-          ...(price && { price_hint: price }),
+          ...(priceHint && { price_hint: priceHint }),
+          ...(alternates.length > 0 && {
+            accepts: alternates.map((network) => ({
+              protocol: "x402v2",
+              network,
+              currency: "USDC",
+              ...(priceHint && { price_hint: priceHint }),
+            })),
+          }),
         },
         _meta: {
           catalog: "frames-registry",

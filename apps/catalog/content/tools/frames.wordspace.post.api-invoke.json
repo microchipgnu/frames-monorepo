@@ -36,7 +36,16 @@
   "payment": {
     "protocol": "x402v2",
     "network": "base",
-    "currency": "USDC"
+    "currency": "USDC",
+    "price_hint": "2",
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "USDC",
+        "price_hint": "2"
+      }
+    ]
   },
   "_meta": {
     "catalog": "frames-registry",

@@ -14,8 +14,9 @@
   },
   "payment": {
     "protocol": "x402v2",
-    "network": "base-sepolia",
-    "currency": "USDC"
+    "network": "solana-mainnet",
+    "currency": "USDC",
+    "price_hint": "0.001"
   },
   "_meta": {
     "catalog": "frames-registry",
