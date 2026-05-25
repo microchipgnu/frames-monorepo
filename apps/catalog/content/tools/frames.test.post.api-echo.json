@@ -20,9 +20,33 @@
   },
   "payment": {
     "protocol": "x402v2",
-    "network": "solana-mainnet",
+    "scheme": "exact",
+    "network": "base-sepolia",
     "currency": "USDC",
-    "price_hint": "0.001"
+    "asset": "0x036cbd53842c5426634e7929541ec2318f3dcf7e",
+    "amount": "1000",
+    "price_hint": "0.001",
+    "pay_to": "0xe62923133a417cEe4241677865Ed5a63F44F4B54",
+    "max_timeout_seconds": 800,
+    "extra": {
+      "name": "USDC",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "scheme": "exact",
+        "network": "solana-devnet",
+        "asset": "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU",
+        "amount": "1000",
+        "price_hint": "0.001",
+        "pay_to": "2DaBonP27dnavQ3AXoDAwnXyKyGBC2DPse24xaCYu7th",
+        "max_timeout_seconds": 800,
+        "extra": {
+          "feePayer": "2DaBonP27dnavQ3AXoDAwnXyKyGBC2DPse24xaCYu7th"
+        }
+      }
+    ]
   },
   "_meta": {
     "catalog": "frames-registry",
