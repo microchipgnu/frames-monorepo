@@ -11,10 +11,15 @@
     "scrape": "bun scripts/scrape-all.ts",
     "merge": "bun scripts/merge.ts",
     "fold": "bun scripts/fold.ts",
-    "tick": "bun run scrape && bun run merge && bun run fold"
+    "tick": "bun run scrape && bun run merge && bun run fold",
+    "curate": "opencode run \"prose run .agents/prose/src/curate.prose.md frame=. budget_usd=0.75 naming_cap=30 category_cap=30 recognition_cap=20 discovery_cap=10 recognition_volume_floor_usd=100\"",
+    "tick:full": "bun run tick && bun run curate"
   },
   "dependencies": {
     "@frames-ag/frame": "^0.2.0",
     "viem": "^2.48.11"
+  },
+  "devDependencies": {
+    "bun-types": "^1.3.14"
   }
 }

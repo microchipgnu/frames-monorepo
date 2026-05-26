@@ -1,0 +1,25 @@
+{
+  "mcpServers": {
+    "frame-merchants-watch": {
+      "command": "bunx",
+      "args": [
+        "-y",
+        "@frames-ag/frame",
+        "serve",
+        "."
+      ],
+      "env": {
+        "FRAME_AGENT": "claude:opus-4.7"
+      }
+    },
+    "pay": {
+      "command": "bunx",
+      "args": [
+        "-y",
+        "-p",
+        "@frames-ag/pay@latest",
+        "pay-mcp"
+      ]
+    }
+  }
+}

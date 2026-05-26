@@ -56,7 +56,59 @@ bun run merge        # writes staging/merged.json
 bun run fold         # appends to events.ndjson
 ```
 
-Or `bun run tick` to do all three.
+Or `bun run tick` to do all three (deterministic phase only).
+
+### Two-phase tick
+
+The dataset is maintained in **two phases**:
+
+| Phase | Owns | Driver |
+|---|---|---|
+| **Scrape** (deterministic) | identity + rail truth: `host`, `networks_accepted`, `on_*`, `bazaar_*`, `tempo_*`, `volume_*`, `probe_*`, `advertises_*`, `is_active_14d`, `is_mass_lister`, `is_infra` | `scripts/scrape-all.ts` → `merge.ts` → `fold.ts` (`bun run tick`) |
+| **Curate** (agentic) | naming + semantic + recognition gaps: `display_name`, `description`, `category` (with `category_source = "claude_inferred"`), `is_recognized` — plus a bounded net-new discovery slice | OpenProse contracts under `.agents/prose/src/` |
+
+Run the full two-phase pipeline:
+
+```bash
+bun run tick:full    # equivalent to: bun run tick && bun run curate
+```
+
+Run just the curate phase against a frame already populated by `bun run tick`:
+
+```bash
+bun run curate
+```
+
+`bun run curate` shells out to `opencode run "prose run …"`. OpenProse
+is not a separate binary — the contract files under `.agents/prose/src/`
+are interpreted by an LLM agent (opencode, claude-code, or any harness
+with the `open-prose` skill) that embodies the OpenProse VM
+in-session. Each invocation writes a run snapshot under
+`.agents/prose/runs/<timestamp>/` with the resolved contract, per-service
+workspaces, and a `vm.log.md` execution trace.
+
+The curate phase needs an agentwallet configured for `pay-mcp` and an
+`OPENROUTER_API_KEY` (or another LLM provider opencode is configured for).
+Its budget is bounded — default `$0.75` USDC per run across exa /
+serper / firecrawl / twitter calls; the contract hard-stops at the
+ceiling. See `.agents/prose/src/curate.prose.md` for the full parameter
+list and per-service contracts.
+
+To run the curate phase from inside Claude Code interactively (instead
+of via opencode), just type:
+
+```
+prose run datasets/merchants-watch/.agents/prose/src/curate.prose.md
+  frame=datasets/merchants-watch budget_usd=0.75 …
+```
+
+— the `open-prose` skill activates on the `prose run` prefix.
+
+`scripts/merge.ts` reads back curate-written `display_name`,
+`description`, `category` (when `category_source = "claude_inferred"`)
+on the next deterministic tick, so agentic enrichments survive across
+runs — they only get overwritten when a higher-authority source
+(pay.sh, agentic.market) starts catalogues the host.
 
 ## Querying
 

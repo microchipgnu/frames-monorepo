@@ -2,6 +2,10 @@
 node_modules/
 .env*
 .DS_Store
+# OpenProse run snapshots — kept by the runtime, not source. Each tick gets
+# its own runs/<timestamp>/ tree under .agents/prose/.
+.agents/prose/runs/
+.agents/prose/workspace/
 # Ignore each ephemeral scrape output by name so we can selectively track
 # staging/mppscan-cache.json (gitignore can't un-exclude a file once its
 # parent directory is excluded).

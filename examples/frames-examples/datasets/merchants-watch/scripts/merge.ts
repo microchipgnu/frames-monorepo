@@ -12,7 +12,9 @@
 //   - prices: take widest min/max across sources
 
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { Frame } from "@frames-ag/frame";
 import { describeNetwork, isInfraHost } from "./host.ts";
+import { entityIdFromHost } from "./host.ts";
 
 // Static, hand-curated category map for hosts that neither pay.sh nor
 // agentic.market categorize. Reviewed by humans (or via in-chat Claude
@@ -106,7 +108,7 @@ type Merged = {
   display_name: string;
   description: string | null;
   category: string;
-  category_source: "pay_sh" | "agentic_market" | "none";
+  category_source: "pay_sh" | "agentic_market" | "claude_inferred" | "none";
 
   networks_accepted: string;
   network_names: string;
@@ -207,6 +209,45 @@ function pickDisplayName(host: string, ...candidates: (string | null | undefined
   return host.replace(/^(api|x402|www)\./, "").replace(/^./, (s) => s.toUpperCase());
 }
 
+// Read previously-evidenced display_name / description / category off the
+// frame. These fields can be set by the curate (agent) pass — when scrapers
+// have nothing fresh to say, we want those evidenced values to survive the
+// merge instead of getting clobbered back to the host-derived fallback.
+//
+// Scrapers still win when they DO provide a value: pay.sh / agentic.market
+// are higher-authority than agent inference for category, and curated brand
+// names from the indexes still take precedence over agent-written ones.
+type FrameOverride = {
+  display_name?: string;
+  description?: string;
+  category?: string;
+  category_source?: string;
+  is_recognized?: boolean;
+};
+
+function loadFrameOverrides(framePath: string): Map<string, FrameOverride> {
+  const out = new Map<string, FrameOverride>();
+  try {
+    const frame = new Frame(framePath, { agent: "system:merchants-watch-merge" });
+    const result = frame.query({ mode: "all" });
+    for (const row of result.rows) {
+      const f = row.fields as Record<string, unknown>;
+      const host = typeof f.host === "string" ? f.host : null;
+      if (!host) continue;
+      const o: FrameOverride = {};
+      if (typeof f.display_name === "string") o.display_name = f.display_name;
+      if (typeof f.description === "string") o.description = f.description;
+      if (typeof f.category === "string") o.category = f.category;
+      if (typeof f.category_source === "string") o.category_source = f.category_source;
+      if (typeof f.is_recognized === "boolean") o.is_recognized = f.is_recognized;
+      out.set(host, o);
+    }
+  } catch {
+    /* no events yet — first run, nothing to preserve */
+  }
+  return out;
+}
+
 function main() {
   const bazaar: Bazaar[] = JSON.parse(readFileSync("staging/bazaar.json", "utf8"));
   const agentic: Agentic[] = JSON.parse(readFileSync("staging/agentic-market.json", "utf8"));
@@ -220,6 +261,9 @@ function main() {
   const probe: Probe[] = existsSync("staging/probe-results.json")
     ? JSON.parse(readFileSync("staging/probe-results.json", "utf8"))
     : [];
+
+  // Snapshot frame-evidenced overrides ONCE so the per-host loop is fast.
+  const frameByHost = loadFrameOverrides(process.cwd());
 
   const bazaarByHost = new Map(bazaar.map((b) => [b.host, b]));
   const agenticByHost = new Map(agentic.map((a) => [a.host, a]));
@@ -381,7 +425,10 @@ function main() {
     const primaryNetwork = friendlyNames[0] ?? "—";
     const networkCount = dedupedChains.size;
 
-    // Category: pay.sh > agentic > overrides > "other"
+    // Category: pay.sh > agentic > category-overrides.json > frame-evidenced
+    // agent inference > "other". Agent-written inferences (category_source =
+    // "claude_inferred") survive across ticks until a higher-authority source
+    // (pay.sh or agentic.market) catalogs the host.
     let category = "other";
     let categorySource: "pay_sh" | "agentic_market" | "claude_inferred" | "none" = "none";
     if (p?.category && PAYSH_TAXONOMY.has(p.category)) {
@@ -395,6 +442,16 @@ function main() {
       } else if (overrides[host]) {
         category = overrides[host].category;
         categorySource = "claude_inferred";
+      } else {
+        const fromFrame = frameByHost.get(host);
+        if (
+          fromFrame?.category &&
+          fromFrame.category !== "other" &&
+          fromFrame.category_source === "claude_inferred"
+        ) {
+          category = fromFrame.category;
+          categorySource = "claude_inferred";
+        }
       }
     }
 
@@ -471,25 +528,44 @@ function main() {
     const x402TxCount = txCountBase + txCountSolana;
     const x402Volume = volumeBase + volumeSolana;
 
+    const fromFrame = frameByHost.get(host);
     const displayName = pickDisplayName(
       host,
       a?.display_name,
       p?.display_name,
       mp?.display_name,
+      // Agent-evidenced fallback: only used when no scraper found a curated
+      // name. Excluded if it matches the host fallback (means a prior merge
+      // already wrote the host-derived value with no real curation).
+      fromFrame?.display_name &&
+        fromFrame.display_name.toLowerCase() !== host
+        ? fromFrame.display_name
+        : undefined,
     );
     // "Recognized" = there's a real human-curated brand name (not the host
-    // fallback) AND it's not infra. The launchable showcase set.
+    // fallback) AND it's not infra. The launchable showcase set. The curate
+    // agent's `recognizer` can also evidence a brand by writing display_name,
+    // so a frame-evidenced display_name counts when scrapers have nothing.
     const hasCuratedName =
       (a?.display_name && a.display_name.toLowerCase() !== host) ||
       (p?.display_name && p.display_name.toLowerCase() !== host) ||
-      (mp?.display_name && mp.display_name.toLowerCase() !== host);
+      (mp?.display_name && mp.display_name.toLowerCase() !== host) ||
+      !!(
+        fromFrame?.display_name &&
+        fromFrame.display_name.toLowerCase() !== host
+      );
     const isRecognized = !!hasCuratedName && !isInfra && !isMassLister;
 
     merged.push({
       host,
       display_name: displayName,
       description:
-        a?.description ?? p?.description ?? mp?.description ?? b?.description ?? null,
+        a?.description ??
+        p?.description ??
+        mp?.description ??
+        b?.description ??
+        fromFrame?.description ??
+        null,
       category,
       category_source: categorySource,
       networks_accepted: [...rawNetworks].sort().join(","),
