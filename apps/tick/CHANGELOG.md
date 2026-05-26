@@ -1,5 +1,12 @@
 # @frames-ag/tick
 
+## 0.6.3
+
+### Patch Changes
+
+- Updated dependencies [07db601]
+  - @frames-ag/pay@0.5.0
+
 ## 0.6.2
 
 ### Patch Changes
