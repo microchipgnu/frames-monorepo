@@ -37,9 +37,29 @@ import {
 import type { ToolInvocationPayload } from "../types.ts";
 
 export class DispatchError extends Error {
-  constructor(message: string) {
+  /**
+   * Full upstream response body when the error wraps a seller / agentwallet
+   * response. Optional because not every DispatchError originates from an
+   * HTTP failure (selection failures, internal logic errors, etc.).
+   *
+   * Surfaced through `classifyPayError` as `details.body` so callers see
+   * the actual reason agentwallet rejected — not the 200-char truncated
+   * prefix that ended up in `message`.
+   */
+  body?: {
+    /** Parsed JSON if the body was JSON; null if parse failed. */
+    parsed: unknown | null;
+    /** Raw text body, full length. */
+    raw: string;
+    /** Upstream HTTP status. */
+    status: number;
+    /** "seller" | "agentwallet" | "agentwallet_inner" — disambiguates layer. */
+    source: "seller" | "agentwallet" | "agentwallet_inner";
+  };
+  constructor(message: string, body?: DispatchError["body"]) {
     super(message);
     this.name = "DispatchError";
+    if (body) this.body = body;
   }
 }
 
@@ -300,7 +320,8 @@ async function dispatchAfterSelection(
   if (!res.ok) {
     const text = await res.text();
     throw new DispatchError(
-      `seller returned ${res.status}: ${text.slice(0, 200)}`,
+      `seller returned ${res.status}: ${truncateForMessage(text)}`,
+      { parsed: tryParseJson(text), raw: text, status: res.status, source: "seller" },
     );
   }
 
@@ -416,6 +437,27 @@ function sniffSettlement(body: unknown, descriptor: ToolDescriptor): SettledMeta
       amount: descriptor.payment.price_hint,
     }),
   };
+}
+
+/**
+ * Truncate an upstream response body for embedding in an Error.message
+ * (which is what users see by default). Long enough to be useful (1k chars
+ * is generally enough to see the error code + message), short enough that
+ * one error doesn't drown a log line. Full body is preserved on
+ * DispatchError.body.raw / DispatchError.body.parsed.
+ */
+function truncateForMessage(text: string, max = 1000): string {
+  if (text.length <= max) return text;
+  return `${text.slice(0, max)}… [${text.length - max} chars truncated; see DispatchError.body.raw / classifyPayError details.body]`;
+}
+
+/** Parse JSON, return null on failure. Used for DispatchError.body.parsed. */
+function tryParseJson(text: string): unknown | null {
+  try {
+    return JSON.parse(text);
+  } catch {
+    return null;
+  }
 }
 
 async function sha256Of(text: string): Promise<string> {
@@ -626,7 +668,8 @@ async function dispatchViaAgentwallet(
   if (!res.ok) {
     const text = await res.text();
     throw new DispatchError(
-      `agentwallet ${res.status}: ${text.slice(0, 200)}`,
+      `agentwallet ${res.status}: ${truncateForMessage(text)}`,
+      { parsed: tryParseJson(text), raw: text, status: res.status, source: "agentwallet" },
     );
   }
 
@@ -635,13 +678,19 @@ async function dispatchViaAgentwallet(
   const aw = JSON.parse(responseText) as AgentwalletFetchResponse;
 
   if (aw.success === false) {
-    throw new DispatchError(`agentwallet failed: ${aw.error ?? "(no error message)"}`);
+    throw new DispatchError(
+      `agentwallet failed: ${aw.error ?? "(no error message)"}`,
+      { parsed: aw, raw: responseText, status: 200, source: "agentwallet" },
+    );
   }
 
   const innerStatus = aw.response?.status ?? 0;
   if (innerStatus < 200 || innerStatus >= 300) {
+    const innerBody = aw.response?.body;
+    const innerRaw = JSON.stringify(innerBody);
     throw new DispatchError(
-      `seller (via agentwallet) returned ${innerStatus}: ${JSON.stringify(aw.response?.body).slice(0, 200)}`,
+      `seller (via agentwallet) returned ${innerStatus}: ${truncateForMessage(innerRaw)}`,
+      { parsed: innerBody ?? null, raw: innerRaw, status: innerStatus, source: "agentwallet_inner" },
     );
   }
 
