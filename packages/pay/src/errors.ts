@@ -88,6 +88,42 @@ export function classifyPayError(err: unknown): PayError {
   if (err instanceof DispatchError) {
     const msg = err.message;
 
+    // "no rail succeeded across N payment options: ..." — the aggregated
+    // error from payForTool's runtime-fallback loop (PR #17). Classify by
+    // what the per-rail runtime failures look like; the runtime-failures
+    // tail of the message lists every per-rail attempt.
+    if (/^no rail succeeded across/.test(msg)) {
+      // Find the first agentwallet-style status code in the runtime tail.
+      // If every rail returned the same status, treat them as one signal.
+      const railStatuses = [...msg.matchAll(/agentwallet (\d+):/g)].map((m) => Number(m[1]));
+      const allAgentwallet = railStatuses.length > 0;
+      const status = railStatuses[0];
+      if (allAgentwallet) {
+        const retryable = status !== undefined && [429, 500, 502, 503, 504].includes(status);
+        return {
+          kind: "agentwallet_unreachable",
+          message: msg,
+          retryable,
+          details: {
+            rail_count: railStatuses.length,
+            rail_statuses: railStatuses,
+            // Surface a short hint for the agent — what every rail returned.
+            ...(status !== undefined && new Set(railStatuses).size === 1 && {
+              uniform_status: status,
+            }),
+          },
+          cause: msg,
+        };
+      }
+      // Mixed runtime failures — leave as unknown but preserve full message.
+      return {
+        kind: "unknown",
+        message: msg,
+        retryable: false,
+        cause: msg,
+      };
+    }
+
     // "no viable wallet across N payment option(s): ..."
     // Inspect the summary to refine the classification. The dispatch summary
     // string is the structured truth — these checks mirror the per-attempt
@@ -129,12 +165,27 @@ export function classifyPayError(err: unknown): PayError {
     // "agentwallet 500: ..." / "agentwallet failed: ..."
     if (/^agentwallet (\d+|failed)/.test(msg)) {
       const status = msg.match(/^agentwallet (\d+)/)?.[1];
-      const retryable = status === undefined || ["500", "502", "503", "504"].includes(status);
+      // Retryable when the status is a server-side transient (5xx) or
+      // when it's a 429 throttle (the throttle will lift). 4xx other than
+      // 429 is a client config issue and should not be retried as-is.
+      const retryable = status === undefined || ["429", "500", "502", "503", "504"].includes(status);
+      const details: Record<string, unknown> = {};
+      if (status !== undefined) details["agentwallet_status"] = Number(status);
+      // DispatchError carries the full upstream body. Surface its parsed
+      // form so callers see the actual reason agentwallet rejected — not
+      // just the truncated prefix in `message`. This is the fix for the
+      // "opaque 500" surfaced by the layoffs-2026 discover run on
+      // 2026-05-26 where the real error sat just past the old 200-char
+      // truncation cliff.
+      if (err.body) {
+        details["body"] = err.body.parsed ?? err.body.raw;
+        details["body_source"] = err.body.source;
+      }
       return {
         kind: "agentwallet_unreachable",
         message: msg,
         retryable,
-        ...(status !== undefined && { details: { agentwallet_status: Number(status) } }),
+        ...(Object.keys(details).length > 0 && { details }),
         cause: msg,
       };
     }
@@ -145,11 +196,16 @@ export function classifyPayError(err: unknown): PayError {
       const status = Number(sellerMatch[1]);
       // 5xx = seller side problem (likely transient). 4xx = client/rail issue (not retryable as-is).
       const retryable = status >= 500;
+      const details: Record<string, unknown> = { seller_status: status };
+      if (err.body) {
+        details["body"] = err.body.parsed ?? err.body.raw;
+        details["body_source"] = err.body.source;
+      }
       return {
         kind: "seller_rejected",
         message: msg,
         retryable,
-        details: { seller_status: status },
+        details,
         cause: msg,
       };
     }
