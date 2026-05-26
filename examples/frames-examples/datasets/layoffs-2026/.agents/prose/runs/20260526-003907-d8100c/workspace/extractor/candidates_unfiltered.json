@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "extracted_at": "2026-05-26",
+  "candidates_unfiltered": [],
+  "notes": "raw_results contains 0 settled calls (all 6 failed with opaque agentwallet 500 — see searcher/__error.md). Nothing to map; emitting empty array per the extractor contract (drop, never write null candidates)."
+}

@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "picked_at": "2026-05-26",
+  "program": "discover",
+  "budget_usd": 0.20,
+  "chosen_tools": [
+    {
+      "rank": 1,
+      "name": "exa_search",
+      "role": "primary-semantic-news",
+      "price_hint_usd": 0.01,
+      "locked": true,
+      "descriptor_id": "sha256-CN_sNNBVetLiOBKCjgMCIUY24_r_XCpHb1i8naIdVvk",
+      "rails": ["base/USDC"],
+      "rationale": "Neural semantic web with date + news-category filters. Locked descriptor advertises 0.01 USDC on base via x402v2; base wallet is configured. Cheap, high coverage per dollar, ideal for discover-stage semantic recall of company×date layoff announcements. Descriptor fetched 2026-05-25 (~1 day ago — fresh)."
+    },
+    {
+      "rank": 2,
+      "name": "twitter_search",
+      "role": "corroborator-official",
+      "price_hint_usd": 0.01,
+      "locked": true,
+      "descriptor_id": "sha256-eXRKwGQgvNcSZi8Lun12PHIkktbimUmpiR6Ll5rf7LE",
+      "rails": ["base/USDC"],
+      "rationale": "Official CEO/company posts on X — authority_tier 2 (primary) when the CEO names a headcount. Same base/USDC rail, matches the funded wallet. Complements exa_search by providing first-party corroboration for facts surfaced by semantic news."
+    }
+  ],
+  "rejected_tools": [
+    {
+      "name": "serper_news",
+      "reason": "Locked source advertises mpp on tempo only; no tempo wallet configured. Not payable."
+    },
+    {
+      "name": "reddit_search",
+      "reason": "mpp on tempo only; no tempo wallet. Also a tier-5 corroborator (employee mood) — off the critical path for discover."
+    },
+    {
+      "name": "firecrawl_scrape",
+      "reason": "Belongs to curate/refresh (full-text scrape of a known URL), not discover."
+    }
+  ],
+  "wallets_available": ["base", "solana-mainnet"],
+  "two_tool_minimum_satisfied": true,
+  "notes": "Both chosen tools share base/USDC as their sole advertised rail in the locked descriptor; base wallet is configured (0xBd9EB8899d7207bEB35A140010E154438a25E55f). solana-mainnet wallet is also configured but not exercised by the chosen tools — left available for future multi-rail descriptors. discover/serper/reddit/firecrawl all gated behind tempo, which has no wallet — the multi-rail dispatch gap noted in user memory is not unblocked here, but the two base/USDC tools cover discover's mandate (semantic news + official X)."
+}

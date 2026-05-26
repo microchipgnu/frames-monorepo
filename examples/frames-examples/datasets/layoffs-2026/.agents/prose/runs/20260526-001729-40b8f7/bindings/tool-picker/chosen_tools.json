@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "picked_at": "2026-05-25",
+  "program": "discover",
+  "budget_usd": 0.20,
+  "chosen_tools": [
+    {
+      "rank": 1,
+      "name": "exa_search",
+      "role": "primary-semantic-news",
+      "price_hint_usd": 0.01,
+      "locked": true,
+      "descriptor_id": "sha256-CN_sNNBVetLiOBKCjgMCIUY24_r_XCpHb1i8naIdVvk",
+      "rails": [
+        "base/USDC",
+        "base/USDT",
+        "solana-mainnet/USDC",
+        "solana-mainnet/USDT",
+        "solana-mainnet/CASH"
+      ],
+      "rationale": "Neural semantic web with date + news-category filters. Multi-rail descriptor now advertises five accepts; pay.selectPaymentOption picks whichever wallet has funds. Cheap, high coverage per dollar."
+    },
+    {
+      "rank": 2,
+      "name": "twitter_search",
+      "role": "corroborator-official",
+      "price_hint_usd": 0.01,
+      "locked": true,
+      "descriptor_id": "sha256-eXRKwGQgvNcSZi8Lun12PHIkktbimUmpiR6Ll5rf7LE",
+      "rails": [
+        "base/USDC",
+        "base/USDT",
+        "solana-mainnet/USDC",
+        "solana-mainnet/USDT",
+        "solana-mainnet/CASH"
+      ],
+      "rationale": "CEO + company official posts. authority_tier 2 (primary) when CEO names a number. Same multi-rail accepts as exa_search."
+    }
+  ],
+  "rejected_tools": [
+    {
+      "name": "serper_news",
+      "reason": "Pays on tempo (mpp), no tempo wallet configured. Skipped."
+    },
+    {
+      "name": "reddit_search",
+      "reason": "Pays on tempo (mpp). Also tier-5 corroborator only; skip for budget-constrained run."
+    },
+    {
+      "name": "firecrawl_scrape",
+      "reason": "Scrape belongs to curate/refresh, not discover."
+    }
+  ],
+  "wallets_available": ["base", "solana-mainnet"],
+  "two_tool_minimum_satisfied": true,
+  "pivot_note": "Previous run's shortfall was 'base underfunded, no other rail.' Both blockers cleared: descriptors now advertise five accepts each, and a solana-mainnet wallet is configured. pay.selectPaymentOption picks the rail."
+}

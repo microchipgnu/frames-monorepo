@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "planned_at": "2026-05-26",
+  "freshness_window": {
+    "start": "2026-05-12",
+    "end": "2026-05-26",
+    "days": 14,
+    "rationale": "Canonical window = today (2026-05-26) minus freshness_days=14. Most-recent persisted entities (cloudflare/upwork-2026-05-07) sit just outside this window, so the plan targets net-new announcements after 2026-05-12."
+  },
+  "min_queries": 4,
+  "queries": [
+    {
+      "id": "q1-exa-news-broad",
+      "tool": "exa_search",
+      "slice": "semantic-news-broad",
+      "params": {
+        "query": "company announces layoffs workforce reduction May 2026",
+        "category": "news",
+        "startPublishedDate": "2026-05-12",
+        "endPublishedDate": "2026-05-26",
+        "numResults": 10
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "Broad news-category sweep for any layoff announcement in the window. Anchors the discover funnel; high recall, low precision — downstream dedup/extractor filters."
+    },
+    {
+      "id": "q2-exa-ai-restructure",
+      "tool": "exa_search",
+      "slice": "semantic-ai-restructure",
+      "params": {
+        "query": "AI restructuring layoffs automation displacing workers 2026",
+        "category": "news",
+        "startPublishedDate": "2026-05-12",
+        "endPublishedDate": "2026-05-26",
+        "numResults": 10
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "Targets sector=ai + reason_stated=ai-restructuring / automation — the dominant 2026 narrative (Cloudflare-style 'AI now core to our workforce' framings)."
+    },
+    {
+      "id": "q3-exa-warn-8k",
+      "tool": "exa_search",
+      "slice": "semantic-warn-8k",
+      "params": {
+        "query": "WARN notice filing 8-K SEC workforce reduction restructuring plan",
+        "category": "news",
+        "startPublishedDate": "2026-05-12",
+        "endPublishedDate": "2026-05-26",
+        "numResults": 10
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "Authoritative-source path per README rule: WARN filings + 8-K exhibits give exact layoff_count / layoff_percentage / sec_filing_url with high confidence."
+    },
+    {
+      "id": "q4-exa-finance-sector",
+      "tool": "exa_search",
+      "slice": "semantic-news-broad",
+      "params": {
+        "query": "bank fintech finance company layoffs job cuts cost cutting 2026",
+        "category": "news",
+        "startPublishedDate": "2026-05-12",
+        "endPublishedDate": "2026-05-26",
+        "numResults": 10
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "Sector-balancing query so the plan isn't tech-monoculture. Schema enum 'finance' is well-represented in 2026 cost-cutting cycles; complements q1's broad sweep with a deliberately narrowed sector variant."
+    },
+    {
+      "id": "q5-twitter-official-posts",
+      "tool": "twitter_search",
+      "slice": "social-official-posts",
+      "params": {
+        "query": "(layoffs OR \"job cuts\" OR \"workforce reduction\") -filter:retweets lang:en since:2026-05-12 until:2026-05-26",
+        "numResults": 15
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "Catches CEO/company official posts on X — direct path to official_statement_url + reason_excerpt. Two-tool minimum satisfier."
+    },
+    {
+      "id": "q6-twitter-ceo-statement",
+      "tool": "twitter_search",
+      "slice": "semantic-ceo-statement",
+      "params": {
+        "query": "(\"difficult decision\" OR \"reducing our team\" OR \"saying goodbye\" OR \"restructuring\") (layoffs OR \"job cuts\") -filter:retweets lang:en since:2026-05-12 until:2026-05-26",
+        "numResults": 15
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "CEO-statement phrasing pattern — the canonical 'memo-style' opener. Targets ceo_name + reason_excerpt fields and corroborates exa hits via social channel."
+    }
+  ],
+  "estimated_total_cost_usd": 0.06,
+  "budget_ceiling_usd": 0.20,
+  "headroom_usd": 0.14,
+  "tools_used": ["exa_search", "twitter_search"],
+  "distinct_slices": [
+    "semantic-news-broad",
+    "semantic-ai-restructure",
+    "semantic-warn-8k",
+    "social-official-posts",
+    "semantic-ceo-statement"
+  ],
+  "two_tool_minimum_satisfied": true,
+  "min_queries_satisfied": true,
+  "notes": "6 queries (1.5x min) at $0.06 leaves $0.14 headroom — enough for searcher to retry the prior base/USDC opaque-500s on solana/USDC fallback rails for every query. q4 deliberately repeats the news-broad slice as a sector-narrowed variant (per Strategies clause). All exa queries set startPublishedDate/endPublishedDate; both twitter queries embed since:/until: operators."
+}

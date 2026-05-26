@@ -1,0 +1,8 @@
+{
+  "rail": { "chain": "solana-mainnet", "currency": "CASH" },
+  "tx_hash": "2mGjqu3rhQEX6zLqR6Md1HJjGGmiqBbRXJzwk58z5nWXdGj5YodLWuxYMTsDyyEDj7JxxdC2ZYnzZq7emnMSbd6v",
+  "receipt_id": "00MPMKUBVR-0I4W5F5E2S173S52",
+  "amount": "0.01",
+  "currency": "CASH",
+  "network": "solana-mainnet"
+}

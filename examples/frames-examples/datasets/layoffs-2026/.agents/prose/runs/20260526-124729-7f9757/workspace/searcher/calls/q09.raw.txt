@@ -1,0 +1,3537 @@
+{
+  "body": {
+    "success": true,
+    "tweets": [
+      {
+        "type": "tweet",
+        "id": "2059061436215640252",
+        "url": "https://x.com/leaving_tech/status/2059061436215640252",
+        "twitterUrl": "https://twitter.com/leaving_tech/status/2059061436215640252",
+        "text": "@bindureddy The layoffs are real. The 10-100x is a marketing number.\n\nThe actual story is simpler: growth slowed, interest rates rose, and AI gave executives the language to call efficiency what used to be called desperation",
+        "source": "Twitter for iPhone",
+        "retweetCount": 1,
+        "replyCount": 0,
+        "likeCount": 0,
+        "quoteCount": 0,
+        "viewCount": 47,
+        "createdAt": "Mon May 25 23:57:56 +0000 2026",
+        "lang": "en",
+        "bookmarkCount": 0,
+        "isReply": true,
+        "inReplyToId": "2059050001439858791",
+        "conversationId": "2059050001439858791",
+        "displayTextRange": [
+          12,
+          224
+        ],
+        "inReplyToUserId": "6398252",
+        "inReplyToUsername": "bindureddy",
+        "author": {
+          "type": "user",
+          "userName": "leaving_tech",
+          "url": "https://x.com/leaving_tech",
+          "twitterUrl": "https://twitter.com/leaving_tech",
+          "id": "2052668115926822914",
+          "name": "Leaving Tech",
+          "isVerified": false,
+          "isBlueVerified": true,
+          "verifiedType": null,
+          "profilePicture": "https://pbs.twimg.com/profile_images/2053443753755480067/CAoB-2Rb_normal.jpg",
+          "coverPicture": "https://pbs.twimg.com/profile_banners/2052668115926822914/1778321540",
+          "description": "",
+          "location": "In transit",
+          "followers": 676,
+          "following": 392,
+          "status": "",
+          "canDm": false,
+          "canMediaTag": true,
+          "createdAt": "Fri May 08 08:33:20 +0000 2026",
+          "entities": {
+            "description": {
+              "urls": []
+            },
+            "url": {}
+          },
+          "fastFollowersCount": 0,
+          "favouritesCount": 4825,
+          "hasCustomTimelines": true,
+          "isTranslator": false,
+          "mediaCount": 60,
+          "statusesCount": 3543,
+          "withheldInCountries": [],
+          "affiliatesHighlightedLabel": {},
+          "possiblySensitive": false,
+          "pinnedTweetIds": [
+            "2058650216908083361"
+          ],
+          "profile_bio": {
+            "description": "Tech refugee. Layoffs and burnout survivor. Escaping 9-5, interview circus and AI anxiety. Now building my own thing.\nSound familiar?",
+            "entities": {
+              "description": {}
+            }
+          },
+          "isAutomated": false,
+          "automatedBy": null
+        },
+        "extendedEntities": {},
+        "card": null,
+        "place": {},
+        "entities": {
+          "user_mentions": [
+            {
+              "id_str": "6398252",
+              "indices": [
+                0,
+                11
+              ],
+              "name": "Bindu Reddy",
+              "screen_name": "bindureddy"
+            }
+          ]
+        },
+        "quoted_tweet": null,
+        "retweeted_tweet": null,
+        "isLimitedReply": false,
+        "communityInfo": null,
+        "article": null
+      },
+      {
+        "type": "tweet",
+        "id": "2059060877081325869",
+        "url": "https://x.com/photographer__/status/2059060877081325869",
+        "twitterUrl": "https://twitter.com/photographer__/status/2059060877081325869",
+        "text": "@levie As soon as AI can perform at the level of their analysts, we will see mass layoffs. There's no reason to hire people for something AI can do 100 times faster and 10-100 times cheaper.",
+        "source": "Twitter for iPhone",
+        "retweetCount": 0,
+        "replyCount": 0,
+        "likeCount": 1,
+        "quoteCount": 0,
+        "viewCount": 126,
+        "createdAt": "Mon May 25 23:55:43 +0000 2026",
+        "lang": "en",
+        "bookmarkCount": 0,
+        "isReply": true,
+        "inReplyToId": "2059025559896883489",
+        "conversationId": "2059025559896883489",
+        "displayTextRange": [
+          7,
+          190
+        ],
+        "inReplyToUserId": "914061",
+        "inReplyToUsername": "levie",
+        "author": {
+          "type": "user",
+          "userName": "photographer__",
+          "url": "https://x.com/photographer__",
+          "twitterUrl": "https://twitter.com/photographer__",
+          "id": "44464402",
+          "name": "inventstuff",
+          "isVerified": false,
+          "isBlueVerified": false,
+          "verifiedType": null,
+          "profilePicture": "https://pbs.twimg.com/profile_images/1374450937062858762/sWGkbn8J_normal.jpg",
+          "coverPicture": "",
+          "description": "",
+          "location": "Italy",
+          "followers": 154,
+          "following": 36,
+          "status": "",
+          "canDm": false,
+          "canMediaTag": true,
+          "createdAt": "Wed Jun 03 21:37:24 +0000 2009",
+          "entities": {
+            "description": {
+              "urls": []
+            },
+            "url": {}
+          },
+          "fastFollowersCount": 0,
+          "favouritesCount": 21361,
+          "hasCustomTimelines": true,
+          "isTranslator": false,
+          "mediaCount": 35,
+          "statusesCount": 503,
+          "withheldInCountries": [],
+          "affiliatesHighlightedLabel": {},
+          "possiblySensitive": false,
+          "pinnedTweetIds": [],
+          "profile_bio": {
+            "description": "",
+            "entities": {
+              "description": {}
+            }
+          },
+          "isAutomated": false,
+          "automatedBy": null
+        },
+        "extendedEntities": {},
+        "card": null,
+        "place": {},
+        "entities": {
+          "user_mentions": [
+            {
+              "id_str": "914061",
+              "indices": [
+                0,
+                6
+              ],
+              "name": "Aaron Levie",
+              "screen_name": "levie"
+            }
+          ]
+        },
+        "quoted_tweet": null,
+        "retweeted_tweet": null,
+        "isLimitedReply": false,
+        "communityInfo": null,
+        "article": null
+      },
+      {
+        "type": "tweet",
+        "id": "2059060559354487253",
+        "url": "https://x.com/SensibleBarb/status/2059060559354487253",
+        "twitterUrl": "https://twitter.com/SensibleBarb/status/2059060559354487253",
+        "text": "@coii_piink @DRIGOMINAJ They do this all the time too. Like the time when #it tried to pretend the MASSIVE layoffs they were having on the label were “normal” for any other. 🤣 Bunch of fckn dummies watching Barb accts just to turn around and reveal they watching. 💀",
+        "source": "Twitter for iPhone",
+        "retweetCount": 1,
+        "replyCount": 0,
+        "likeCount": 49,
+        "quoteCount": 0,
+        "viewCount": 1123,
+        "createdAt": "Mon May 25 23:54:27 +0000 2026",
+        "lang": "en",
+        "bookmarkCount": 0,
+        "isReply": true,
+        "inReplyToId": "2059052316511056009",
+        "conversationId": "2059052316511056009",
+        "displayTextRange": [
+          24,
+          265
+        ],
+        "inReplyToUserId": "1060048911514124288",
+        "inReplyToUsername": "coii_piink",
+        "author": {
+          "type": "user",
+          "userName": "SensibleBarb",
+          "url": "https://x.com/SensibleBarb",
+          "twitterUrl": "https://twitter.com/SensibleBarb",
+          "id": "1561046047807381511",
+          "name": "Lady M. 🥷🏽",
+          "isVerified": false,
+          "isBlueVerified": true,
+          "verifiedType": null,
+          "profilePicture": "https://pbs.twimg.com/profile_images/1843468388372242432/_vUIrgSA_normal.jpg",
+          "coverPicture": "https://pbs.twimg.com/profile_banners/1561046047807381511/1678247368",
+          "description": "",
+          "location": "GAG CITY ",
+          "followers": 2585,
+          "following": 2290,
+          "status": "",
+          "canDm": false,
+          "canMediaTag": false,
+          "createdAt": "Sat Aug 20 17:42:48 +0000 2022",
+          "entities": {
+            "description": {
+              "urls": []
+            },
+            "url": {}
+          },
+          "fastFollowersCount": 0,
+          "favouritesCount": 104321,
+          "hasCustomTimelines": true,
+          "isTranslator": false,
+          "mediaCount": 1035,
+          "statusesCount": 41866,
+          "withheldInCountries": [],
+          "affiliatesHighlightedLabel": {},
+          "possiblySensitive": false,
+          "pinnedTweetIds": [],
+          "profile_bio": {
+            "description": "Blog for to the one & only QUEEN OF HIP HOP! 👑 #BARBMOVEMENT 🦄 she follows 🙂‍↕️",
+            "entities": {
+              "description": {
+                "hashtags": [
+                  {
+                    "indices": [
+                      47,
+                      60
+                    ],
+                    "text": "BARBMOVEMENT"
+                  }
+                ]
+              }
+            }
+          },
+          "isAutomated": false,
+          "automatedBy": null
+        },
+        "extendedEntities": {},
+        "card": null,
+        "place": {},
+        "entities": {
+          "hashtags": [
+            {
+              "indices": [
+                74,
+                77
+              ],
+              "text": "it"
+            }
+          ],
+          "user_mentions": [
+            {
+              "id_str": "1060048911514124288",
+              "indices": [
+                0,
+                11
+              ],
+              "name": "✨ Woo Woo Ladii ✨📿",
+              "screen_name": "coii_piink"
+            },
+            {
+              "id_str": "775457023127412740",
+              "indices": [
+                12,
+                23
+              ],
+              "name": "𝓡ꕥ",
+              "screen_name": "DRIGOMINAJ"
+            }
+          ]
+        },
+        "quoted_tweet": null,
+        "retweeted_tweet": null,
+        "isLimitedReply": false,
+        "communityInfo": null,
+        "article": null
+      },
+      {
+        "type": "tweet",
+        "id": "2059060109917999393",
+        "url": "https://x.com/chris_becker_/status/2059060109917999393",
+        "twitterUrl": "https://twitter.com/chris_becker_/status/2059060109917999393",
+        "text": "It's interesting to frame near-term mass layoffs performed by healthy companies as narrow actions directly addressing weak links.\n\nNecessary, but not sufficient, to accelerate abundance.\n\nModernity's moral Trolley Problem.",
+        "source": "Twitter for iPhone",
+        "retweetCount": 0,
+        "replyCount": 0,
+        "likeCount": 0,
+        "quoteCount": 0,
+        "viewCount": 4,
+        "createdAt": "Mon May 25 23:52:40 +0000 2026",
+        "lang": "en",
+        "bookmarkCount": 0,
+        "isReply": false,
+        "inReplyToId": null,
+        "conversationId": "2059060109917999393",
+        "displayTextRange": [
+          0,
+          222
+        ],
+        "inReplyToUserId": null,
+        "inReplyToUsername": null,
+        "author": {
+          "type": "user",
+          "userName": "chris_becker_",
+          "url": "https://x.com/chris_becker_",
+          "twitterUrl": "https://twitter.com/chris_becker_",
+          "id": "1315457532622704640",
+          "name": "Chris Becker",
+          "isVerified": false,
+          "isBlueVerified": false,
+          "verifiedType": null,
+          "profilePicture": "https://pbs.twimg.com/profile_images/1936854219408961536/TuSmSPb1_normal.jpg",
+          "coverPicture": "",
+          "description": "",
+          "location": "",
+          "followers": 23,
+          "following": 145,
+          "status": "",
+          "canDm": true,
+          "canMediaTag": true,
+          "createdAt": "Mon Oct 12 01:01:38 +0000 2020",
+          "entities": {
+            "description": {
+              "urls": []
+            },
+            "url": {}
+          },
+          "fastFollowersCount": 0,
+          "favouritesCount": 335,
+          "hasCustomTimelines": true,
+          "isTranslator": false,
+          "mediaCount": 24,
+          "statusesCount": 744,
+          "withheldInCountries": [],
+          "affiliatesHighlightedLabel": {},
+          "possiblySensitive": false,
+          "pinnedTweetIds": [
+            "1928939915716280424"
+          ],
+          "profile_bio": {
+            "description": "SMB Owner | Data Scientist | Philosophy Nerd | Well-Intended Dilettante",
+            "entities": {
+              "description": {}
+            }
+          },
+          "isAutomated": false,
+          "automatedBy": null
+        },
+        "extendedEntities": {},
+        "card": null,
+        "place": {},
+        "entities": {},
+        "quoted_tweet": {
+          "type": "tweet",
+          "id": "2010824948764327970",
+          "url": "https://x.com/ChadJonesEcon/status/2010824948764327970",
+          "twitterUrl": "https://twitter.com/ChadJonesEcon/status/2010824948764327970",
+          "text": "@ChrisTonetti Weak links are crucial: Tasks are complements in our model, so even infinite output of some tasks does not lead to infinite GDP. The economy is constrained by the weakest links. 8/N",
+          "source": "Twitter for iPhone",
+          "retweetCount": 1,
+          "replyCount": 1,
+          "likeCount": 9,
+          "quoteCount": 1,
+          "viewCount": 1027,
+          "createdAt": "Mon Jan 12 21:23:21 +0000 2026",
+          "lang": "en",
+          "bookmarkCount": 3,
+          "isReply": true,
+          "inReplyToId": "2010823486227296446",
+          "conversationId": "2010823486227296446",
+          "displayTextRange": [
+            14,
+            195
+          ],
+          "inReplyToUserId": null,
+          "inReplyToUsername": null,
+          "author": {
+            "type": "user",
+            "userName": "ChadJonesEcon",
+            "url": "https://x.com/ChadJonesEcon",
+            "twitterUrl": "https://twitter.com/ChadJonesEcon",
+            "id": "1265655077135499265",
+            "name": "Chad Jones",
+            "isVerified": false,
+            "isBlueVerified": true,
+            "verifiedType": null,
+            "profilePicture": "https://pbs.twimg.com/profile_images/1265655601679314946/hrueTB2q_normal.jpg",
+            "coverPicture": "",
+            "description": "",
+            "location": "",
+            "followers": 10351,
+            "following": 839,
+            "status": "",
+            "canDm": false,
+            "canMediaTag": true,
+            "createdAt": "Wed May 27 14:45:11 +0000 2020",
+            "entities": {
+              "description": {
+                "urls": []
+              },
+              "url": {}
+            },
+            "fastFollowersCount": 0,
+            "favouritesCount": 1837,
+            "hasCustomTimelines": true,
+            "isTranslator": false,
+            "mediaCount": 24,
+            "statusesCount": 225,
+            "withheldInCountries": [],
+            "affiliatesHighlightedLabel": {},
+            "possiblySensitive": false,
+            "pinnedTweetIds": [
+              "2010823486227296446"
+            ],
+            "profile_bio": {
+              "description": "Economics professor at Stanford GSB working on AI and economic growth.",
+              "entities": {
+                "description": {}
+              }
+            },
+            "isAutomated": false,
+            "automatedBy": null
+          },
+          "extendedEntities": {},
+          "card": null,
+          "place": {},
+          "entities": {
+            "user_mentions": [
+              {
+                "id_str": "799584024",
+                "indices": [
+                  0,
+                  13
+                ],
+                "name": "Chris Tonetti",
+                "screen_name": "ChrisTonetti"
+              }
+            ]
+          },
+          "quoted_tweet": null,
+          "retweeted_tweet": null,
+          "isLimitedReply": false,
+          "communityInfo": null,
+          "article": null
+        },
+        "retweeted_tweet": null,
+        "isLimitedReply": false,
+        "communityInfo": null,
+        "article": null
+      },
+      {
+        "type": "tweet",
+        "id": "2059060064871137549",
+        "url": "https://x.com/pak74511/status/2059060064871137549",
+        "twitterUrl": "https://twitter.com/pak74511/status/2059060064871137549",
+        "text": "🤔 This time, I have re-compressed the two major themes—'U.S. Market Key Watching Points' and 'The Cruel Reality Behind Big Tech Layoffs'—into the most intuitive text.\n\n​1. Tomorrow's U.S. Stock Market Summary: \"Expectations and Wait-and-See\"\n\n​Tomorrow's (May 26) opening U.S. market will be heavily dominated by three major trends.\n\n• ​Oil Prices and Peace: The United States and Iran are looking to finalize a negotiation to halt fighting for 60 days. If the blocked sea lane (the Strait of Hormuz) reopens and oil prices drop, concerns over rising inflation will ease, serving as a massive boon for the entire stock market.\n\n• ​Nvidia's Fatigue: Although Nvidia reported staggering earnings last week, its stock price entered a wait-and-see mode. This is due to the sentiment that all the good news has already been priced in. Whether other Big Tech companies can break this stagnation and push upward tomorrow is critical.\n\n• ​Waiting for the Real Report Card: The Federal Reserve's most closely watched inflation gauge, the 🤔 PCE index, drops later this week. \n\nBecause this indicator needs to come out favorable for the \"higher-for-longer interest rates\" anxiety to cool down, a wait-and-see stance is likely to prevail in the early part of the week.\n\nPCE stands for Personal Consumption Expenditures.\n\n​In the context of the U.S. economy and Wall Street, it is officially released by the Bureau of Economic Analysis (BEA) and is referred to as the PCE Price Index.\n\n​It measures the changes in the prices of goods and services purchased by consumers throughout the United States, serving as the Federal Reserve's absolute favorite yardstick for tracking inflation.\n\n​2. The Core Truth Behind Big Tech Layoffs: \"Buying Systems Instead of People\"\n\n​The reason why companies like Google and Meta are executing massive layoffs while raking in historic amounts of money is not simply to trim expenses.\n\n​Restructuring Through True Innovation: If the past job cuts were 'defensive layoffs' aimed at trimming fat when the company faced difficulties, today's cuts are 'aggressive re-allocations' to swap out legacy human roles and inject intelligent AI systems into the enterprise engine.\n\n​Data Proven by Themselves: When they tested AI tools on their own internal employees first, the data proved a miracle: headcount was reduced by 15%, yet operational speed accelerated by 40%. Looking at these concrete metrics, Wall Street investors are happily bidding up stock prices, concluding, \"This company has built a structure that can duplicate money infinitely without labor costs.\"\n\n​🤔 The Downfall of UI/UX Design Personnel: In particular, designers who used to spend their days prettifying smartphone app screens and layout buttons are seeing their seats vanish first.\n\n​This is because an AI can now finish both screen design and front-end coding in 10 seconds with a single prompt—and as the technology reaches its zenith, the physical 'screen' handled by humans fades into the background entirely (Zero-UI).\n\n​Instead of dense, jargon-filled professional terminology, let me unpack this very intuitively through the shifting dynamics of a 'restaurant' and a 'smartphone' right around us.\n\n​We will immediately understand why Wall Street is cheering and which companies are bound to fall behind.\n\n​1. Layoffs in 2023 vs. Layoffs in 2026 (The Restaurant Analogy)\n\n🤫 ​The 2023 Layoffs (Defensive Layoffs):\n\n​A restaurant hired 100 employees during the pandemic, projecting an absolute flood of customers. Once the pandemic ended, the foot traffic suddenly dried up. Facing looming deficits, the owner rushed to lay off 30 servers to tighten the belt. Shareholders are relieved, but the restaurant hasn't gotten any tastier or more innovative.\n\n🤫 ​The 2026 Layoffs (Aggressive Re-allocation):",
+        "source": "Twitter for iPhone",
+        "retweetCount": 0,
+        "replyCount": 1,
+        "likeCount": 0,
+        "quoteCount": 0,
+        "viewCount": 14,
+        "createdAt": "Mon May 25 23:52:29 +0000 2026",
+        "lang": "en",
+        "bookmarkCount": 0,
+        "isReply": true,
+        "inReplyToId": "1897674369910141026",
+        "conversationId": "1897674369910141026",
+        "displayTextRange": [
+          0,
+          276
+        ],
+        "inReplyToUserId": "1774539666814832640",
+        "inReplyToUsername": "pak74511",
+        "author": {
+          "type": "user",
+          "userName": "pak74511",
+          "url": "https://x.com/pak74511",
+          "twitterUrl": "https://twitter.com/pak74511",
+          "id": "1774539666814832640",
+          "name": "Jamie Pak",
+          "isVerified": false,
+          "isBlueVerified": true,
+          "verifiedType": null,
+          "profilePicture": "https://pbs.twimg.com/profile_images/2008310623235379200/L_dPDbbq_normal.jpg",
+          "coverPicture": "",
+          "description": "",
+          "location": "Westfield, IN",
+          "followers": 751,
+          "following": 909,
+          "status": "",
+          "canDm": false,
+          "canMediaTag": false,
+          "createdAt": "Sun Mar 31 20:51:14 +0000 2024",
+          "entities": {
+            "description": {
+              "urls": []
+            },
+            "url": {}
+          },
+          "fastFollowersCount": 0,
+          "favouritesCount": 3319,
+          "hasCustomTimelines": true,
+          "isTranslator": false,
+          "mediaCount": 1626,
+          "statusesCount": 10972,
+          "withheldInCountries": [],
+          "affiliatesHighlightedLabel": {},
+          "possiblySensitive": false,
+          "pinnedTweetIds": [
+            "2014363282354700646"
+          ],
+          "profile_bio": {
+            "description": "Writing in English & Korean •\nMarkets · AI · Civic Structure •\nKorean-American civic voice",
+            "entities": {
+              "description": {},
+              "url": {
+                "urls": [
+                  {
+                    "display_url": "ko-fi.com/pak74511",
+                    "expanded_url": "https://ko-fi.com/pak74511",
+                    "indices": [
+                      0,
+                      23
+                    ],
+                    "url": "https://t.co/4rBvu4bfOr"
+                  }
+                ]
+              }
+            }
+          },
+          "isAutomated": false,
+          "automatedBy": null
+        },
+        "extendedEntities": {},
+        "card": null,
+        "place": {},
+        "entities": {
+          "hashtags": [],
+          "symbols": [],
+          "urls": [],
+          "user_mentions": []
+        },
+        "quoted_tweet": null,
+        "retweeted_tweet": null,
+        "isLimitedReply": false,
+        "communityInfo": null,
+        "article": null
+      },
+      {
+        "type": "tweet",
+        "id": "2059059115280765089",
+        "url": "https://x.com/pak74511/status/2059059115280765089",
+        "twitterUrl": "https://twitter.com/pak74511/status/2059059115280765089",
+        "text": "😶‍🌫️ ​This time, I have re-compressed the two major themes—'U.S. Market Key Watching Points' and 'The Cruel Reality Behind Big Tech Layoffs'—into the most intuitive text.\n\n​1. Tomorrow's U.S. Stock Market Summary: \"Expectations and Wait-and-See\"\n\n​Tomorrow's (May 26) opening U.S. market will be heavily dominated by three major trends.\n\n• ​Oil Prices and Peace: The United States and Iran are looking to finalize a negotiation to halt fighting for 60 days. If the blocked sea lane (the Strait of Hormuz) reopens and oil prices drop, concerns over rising inflation will ease, serving as a massive boon for the entire stock market.\n\n• ​Nvidia's Fatigue: Although Nvidia reported staggering earnings last week, its stock price entered a wait-and-see mode. This is due to the sentiment that all the good news has already been priced in. Whether other Big Tech companies can break this stagnation and push upward tomorrow is critical.\n\n• ​Waiting for the Real Report Card: The Federal Reserve's most closely watched inflation gauge, the 🤔 PCE index, drops later this week. \n\nBecause this indicator needs to come out favorable for the \"higher-for-longer interest rates\" anxiety to cool down, a wait-and-see stance is likely to prevail in the early part of the week.\n\nPCE stands for Personal Consumption Expenditures.\n\n​In the context of the U.S. economy and Wall Street, it is officially released by the Bureau of Economic Analysis (BEA) and is referred to as the PCE Price Index.\n\n​It measures the changes in the prices of goods and services purchased by consumers throughout the United States, serving as the Federal Reserve's absolute favorite yardstick for tracking inflation.\n\n​2. The Core Truth Behind Big Tech Layoffs: \"Buying Systems Instead of People\"\n\n​The reason why companies like Google and Meta are executing massive layoffs while raking in historic amounts of money is not simply to trim expenses.\n\n​Restructuring Through True Innovation: If the past job cuts were 'defensive layoffs' aimed at trimming fat when the company faced difficulties, today's cuts are 'aggressive re-allocations' to swap out legacy human roles and inject intelligent AI systems into the enterprise engine.\n\n​Data Proven by Themselves: When they tested AI tools on their own internal employees first, the data proved a miracle: headcount was reduced by 15%, yet operational speed accelerated by 40%. Looking at these concrete metrics, Wall Street investors are happily bidding up stock prices, concluding, \"This company has built a structure that can duplicate money infinitely without labor costs.\"\n\n​🤔 The Downfall of UI/UX Design Personnel: In particular, designers who used to spend their days prettifying smartphone app screens and layout buttons are seeing their seats vanish first.\n\n​This is because an AI can now finish both screen design and front-end coding in 10 seconds with a single prompt—and as the technology reaches its zenith, the physical 'screen' handled by humans fades into the background entirely (Zero-UI).\n\n​Instead of dense, jargon-filled professional terminology, let me unpack this very intuitively through the shifting dynamics of a 'restaurant' and a 'smartphone' right around us.\n\n​We will immediately understand why Wall Street is cheering and which companies are bound to fall behind.\n\n​1. Layoffs in 2023 vs. Layoffs in 2026 (The Restaurant Analogy)\n\n🤫 ​The 2023 Layoffs (Defensive Layoffs):\n\n​A restaurant hired 100 employees during the pandemic, projecting an absolute flood of customers. Once the pandemic ended, the foot traffic suddenly dried up. Facing looming deficits, the owner rushed to lay off 30 servers to tighten the belt. Shareholders are relieved, but the restaurant hasn't gotten any tastier or more innovative.\n\n🤫 ​The 2026 Layoffs (Aggressive Re-allocation):",
+        "source": "Twitter for iPhone",
+        "retweetCount": 0,
+        "replyCount": 1,
+        "likeCount": 0,
+        "quoteCount": 0,
+        "viewCount": 14,
+        "createdAt": "Mon May 25 23:48:43 +0000 2026",
+        "lang": "en",
+        "bookmarkCount": 0,
+        "isReply": true,
+        "inReplyToId": "2014363282354700646",
+        "conversationId": "2014363282354700646",
+        "displayTextRange": [
+          0,
+          280
+        ],
+        "inReplyToUserId": "1774539666814832640",
+        "inReplyToUsername": "pak74511",
+        "author": {
+          "type": "user",
+          "userName": "pak74511",
+          "url": "https://x.com/pak74511",
+          "twitterUrl": "https://twitter.com/pak74511",
+          "id": "1774539666814832640",
+          "name": "Jamie Pak",
+          "isVerified": false,
+          "isBlueVerified": true,
+          "verifiedType": null,
+          "profilePicture": "https://pbs.twimg.com/profile_images/2008310623235379200/L_dPDbbq_normal.jpg",
+          "coverPicture": "",
+          "description": "",
+          "location": "Westfield, IN",
+          "followers": 751,
+          "following": 909,
+          "status": "",
+          "canDm": false,
+          "canMediaTag": false,
+          "createdAt": "Sun Mar 31 20:51:14 +0000 2024",
+          "entities": {
+            "description": {
+              "urls": []
+            },
+            "url": {}
+          },
+          "fastFollowersCount": 0,
+          "favouritesCount": 3319,
+          "hasCustomTimelines": true,
+          "isTranslator": false,
+          "mediaCount": 1626,
+          "statusesCount": 10972,
+          "withheldInCountries": [],
+          "affiliatesHighlightedLabel": {},
+          "possiblySensitive": false,
+          "pinnedTweetIds": [
+            "2014363282354700646"
+          ],
+          "profile_bio": {
+            "description": "Writing in English & Korean •\nMarkets · AI · Civic Structure •\nKorean-American civic voice",
+            "entities": {
+              "description": {},
+              "url": {
+                "urls": [
+                  {
+                    "display_url": "ko-fi.com/pak74511",
+                    "expanded_url": "https://ko-fi.com/pak74511",
+                    "indices": [
+                      0,
+                      23
+                    ],
+                    "url": "https://t.co/4rBvu4bfOr"
+                  }
+                ]
+              }
+            }
+          },
+          "isAutomated": false,
+          "automatedBy": null
+        },
+        "extendedEntities": {},
+        "card": null,
+        "place": {},
+        "entities": {
+          "hashtags": [],
+          "symbols": [],
+          "urls": [],
+          "user_mentions": []
+        },
+        "quoted_tweet": null,
+        "retweeted_tweet": null,
+        "isLimitedReply": false,
+        "communityInfo": null,
+        "article": null
+      },
+      {
+        "type": "tweet",
+        "id": "2059058228445511947",
+        "url": "https://x.com/Leonhitchens/status/2059058228445511947",
+        "twitterUrl": "https://twitter.com/Leonhitchens/status/2059058228445511947",
+        "text": "Always sad to see layoffs but I’m a little surprised Wix hasn’t leaned into the vibe coding of sites. \n\nThey were advertising hard maybe 1 to 2 years ago. Heard them on podcasts, in YoutTube Videos, and all over Twitter. Now they’re laying off",
+        "source": "Twitter for iPhone",
+        "retweetCount": 0,
+        "replyCount": 1,
+        "likeCount": 1,
+        "quoteCount": 0,
+        "viewCount": 162,
+        "createdAt": "Mon May 25 23:45:11 +0000 2026",
+        "lang": "en",
+        "bookmarkCount": 0,
+        "isReply": false,
+        "inReplyToId": null,
+        "conversationId": "2059058228445511947",
+        "displayTextRange": [
+          0,
+          243
+        ],
+        "inReplyToUserId": null,
+        "inReplyToUsername": null,
+        "author": {
+          "type": "user",
+          "userName": "Leonhitchens",
+          "url": "https://x.com/Leonhitchens",
+          "twitterUrl": "https://twitter.com/Leonhitchens",
+          "id": "105887047",
+          "name": "Leon Hitchens",
+          "isVerified": false,
+          "isBlueVerified": true,
+          "verifiedType": null,
+          "profilePicture": "https://pbs.twimg.com/profile_images/1895259706383323136/S8pSU0PU_normal.jpg",
+          "coverPicture": "https://pbs.twimg.com/profile_banners/105887047/1677551757",
+          "description": "",
+          "location": "Texas",
+          "followers": 1100,
+          "following": 666,
+          "status": "",
+          "canDm": true,
+          "canMediaTag": true,
+          "createdAt": "Sun Jan 17 20:45:06 +0000 2010",
+          "entities": {
+            "description": {
+              "urls": []
+            },
+            "url": {}
+          },
+          "fastFollowersCount": 0,
+          "favouritesCount": 27546,
+          "hasCustomTimelines": true,
+          "isTranslator": false,
+          "mediaCount": 1934,
+          "statusesCount": 25475,
+          "withheldInCountries": [],
+          "affiliatesHighlightedLabel": {},
+          "possiblySensitive": false,
+          "pinnedTweetIds": [
+            "1737952933004636364"
+          ],
+          "profile_bio": {
+            "description": "Digital Creator | Niche Blogger | Internet Marketer | Build Sites on WordPress",
+            "entities": {
+              "description": {},
+              "url": {
+                "urls": [
+                  {
+                    "display_url": "leonhitchens.com",
+                    "expanded_url": "http://leonhitchens.com",
+                    "indices": [
+                      0,
+                      23
+                    ],
+                    "url": "https://t.co/9KwJeO3vgj"
+                  }
+                ]
+              }
+            }
+          },
+          "isAutomated": false,
+          "automatedBy": null
+        },
+        "extendedEntities": {},
+        "card": null,
+        "place": {},
+        "entities": {},
+        "quoted_tweet": {
+          "type": "tweet",
+          "id": "2058885265385562295",
+          "url": "https://x.com/glenngabe/status/2058885265385562295",
+          "twitterUrl": "https://twitter.com/glenngabe/status/2058885265385562295",
+          "text": "Tough to see this, but they aren't alone... -> Wix is expected to cut ~1,000 jobs in the coming months, or ~20% of its workforce, after weak Q1 earnings and a ~50% collapse of its stock in 2026\n\n\"Over the past year, since the acquisition of Maor Shlomo’s Base44, which enables AI-driven “vibe coding” through natural-language prompts, much of Wix’s growth has come from that activity. The operation is lean in terms of manpower, but requires substantial investment in marketing and generates significant computing costs.\" https://t.co/IWYLmVahEd",
+          "source": "Twitter for iPhone",
+          "retweetCount": 1,
+          "replyCount": 8,
+          "likeCount": 24,
+          "quoteCount": 4,
+          "viewCount": 5901,
+          "createdAt": "Mon May 25 12:17:54 +0000 2026",
+          "lang": "en",
+          "bookmarkCount": 7,
+          "isReply": false,
+          "inReplyToId": null,
+          "conversationId": "2058885265385562295",
+          "displayTextRange": [
+            0,
+            279
+          ],
+          "inReplyToUserId": null,
+          "inReplyToUsername": null,
+          "author": {
+            "type": "user",
+            "userName": "glenngabe",
+            "url": "https://x.com/glenngabe",
+            "twitterUrl": "https://twitter.com/glenngabe",
+            "id": "14592937",
+            "name": "Glenn Gabe",
+            "isVerified": false,
+            "isBlueVerified": true,
+            "verifiedType": null,
+            "profilePicture": "https://pbs.twimg.com/profile_images/1939273879274287104/XDnMSJi5_normal.jpg",
+            "coverPicture": "https://pbs.twimg.com/profile_banners/14592937/1398209583",
+            "description": "",
+            "location": "Princeton, NJ",
+            "followers": 83097,
+            "following": 7501,
+            "status": "",
+            "canDm": false,
+            "canMediaTag": false,
+            "createdAt": "Tue Apr 29 23:46:31 +0000 2008",
+            "entities": {
+              "description": {
+                "urls": []
+              },
+              "url": {}
+            },
+            "fastFollowersCount": 0,
+            "favouritesCount": 44523,
+            "hasCustomTimelines": true,
+            "isTranslator": false,
+            "mediaCount": 23360,
+            "statusesCount": 92170,
+            "withheldInCountries": [],
+            "affiliatesHighlightedLabel": {},
+            "possiblySensitive": false,
+            "pinnedTweetIds": [],
+            "profile_bio": {
+              "description": "SEO and AI Search Consultant at G-Squared Interactive focused on Google algorithm update recovery and AI Search visibility. Podcast: \"SEO From The Front Lines\".",
+              "entities": {
+                "description": {},
+                "url": {
+                  "urls": [
+                    {
+                      "display_url": "gsqi.com",
+                      "expanded_url": "https://www.gsqi.com",
+                      "indices": [
+                        0,
+                        23
+                      ],
+                      "url": "https://t.co/wFDMxzLSH8"
+                    }
+                  ]
+                }
+              }
+            },
+            "isAutomated": false,
+            "automatedBy": null
+          },
+          "extendedEntities": {},
+          "card": {
+            "binding_values": [
+              {
+                "key": "photo_image_full_size_large",
+                "value": {
+                  "image_value": {
+                    "height": 257,
+                    "url": "https://pbs.twimg.com/card_img/2058530820701245440/odoHq2CX?format=jpg&name=800x419",
+                    "width": 490
+                  }
+                }
+              },
+              {
+                "key": "thumbnail_image",
+                "value": {
+                  "image_value": {
+                    "height": 150,
+                    "url": "https://pbs.twimg.com/card_img/2058530820701245440/odoHq2CX?format=jpg&name=280x150",
+                    "width": 266
+                  }
+                }
+              },
+              {
+                "key": "description",
+                "value": {
+                  "string_value": "The company will reduce roughly 20% of its workforce after a steep stock decline and rising AI-related costs."
+                }
+              },
+              {
+                "key": "domain",
+                "value": {
+                  "string_value": "www.calcalistech.com"
+                }
+              },
+              {
+                "key": "thumbnail_image_large",
+                "value": {
+                  "image_value": {
+                    "height": 627,
+                    "url": "https://pbs.twimg.com/card_img/2058530820701245440/odoHq2CX?format=jpg&name=1200x627",
+                    "width": 1200
+                  }
+                }
+              },
+              {
+                "key": "summary_photo_image_small",
+                "value": {
+                  "image_value": {
+                    "height": 202,
+                    "url": "https://pbs.twimg.com/card_img/2058530820701245440/odoHq2CX?format=jpg&name=386x202",
+                    "width": 386
+                  }
+                }
+              },
+              {
+                "key": "thumbnail_image_original",
+                "value": {
+                  "image_value": {
+                    "height": 276,
+                    "url": "https://pbs.twimg.com/card_img/2058530820701245440/odoHq2CX?format=jpg&name=orig",
+                    "width": 490
+                  }
+                }
+              },
+              {
+                "key": "photo_image_full_size_small",
+                "value": {
+                  "image_value": {
+                    "height": 202,
+                    "url": "https://pbs.twimg.com/card_img/2058530820701245440/odoHq2CX?format=jpg&name=386x202",
+                    "width": 386
+                  }
+                }
+              },
+              {
+                "key": "summary_photo_image_large",
+                "value": {
+                  "image_value": {
+                    "height": 257,
+                    "url": "https://pbs.twimg.com/card_img/2058530820701245440/odoHq2CX?format=jpg&name=800x419",
+                    "width": 490
+                  }
+                }
+              },
+              {
+                "key": "thumbnail_image_small",
+                "value": {
+                  "image_value": {
+                    "height": 81,
+                    "url": "https://pbs.twimg.com/card_img/2058530820701245440/odoHq2CX?format=jpg&name=144x144",
+                    "width": 144
+                  }
+                }
+              },
+              {
+                "key": "thumbnail_image_x_large",
+                "value": {
+                  "image_value": {
+                    "height": 276,
+                    "url": "https://pbs.twimg.com/card_img/2058530820701245440/odoHq2CX?format=png&name=2048x2048_2_exp",
+                    "width": 490
+                  }
+                }
+              },
+              {
+                "key": "photo_image_full_size_original",
+                "value": {
+                  "image_value": {
+                    "height": 276,
+                    "url": "https://pbs.twimg.com/card_img/2058530820701245440/odoHq2CX?format=jpg&name=orig",
+                    "width": 490
+                  }
+                }
+              },
+              {
+                "key": "vanity_url",
+                "value": {
+                  "scribe_key": "vanity_url",
+                  "string_value": "calcalistech.com"
+                }
+              },
+              {
+                "key": "photo_image_full_size",
+                "value": {
+                  "image_value": {
+                    "height": 257,
+                    "url": "https://pbs.twimg.com/card_img/2058530820701245440/odoHq2CX?format=jpg&name=800x419",
+                    "width": 490
+                  }
+                }
+              },
+              {
+                "key": "thumbnail_image_color",
+                "value": {
+                  "image_color_value": {
+                    "palette": [
+                      {
+                        "percentage": 46.06,
+                        "rgb": {
+                          "blue": 108,
+                          "green": 101,
+                          "red": 101
+                        }
+                      },
+                      {
+                        "percentage": 45.25,
+                        "rgb": {
+                          "blue": 213,
+                          "green": 185,
+                          "red": 174
+                        }
+                      },
+                      {
+                        "percentage": 3.86,
+                        "rgb": {
+                          "blue": 144,
+                          "green": 149,
+                          "red": 167
+                        }
+                      },
+                      {
+                        "percentage": 1.45,
+                        "rgb": {
+                          "blue": 64,
+                          "green": 111,
+                          "red": 97
+                        }
+                      },
+                      {
+                        "percentage": 1.26,
+                        "rgb": {
+                          "blue": 102,
+                          "green": 105,
+                          "red": 125
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "key": "title",
+                "value": {
+                  "string_value": "Wix to cut 1,000 jobs in largest layoff round in company history | Ctech"
+                }
+              },
+              {
+                "key": "summary_photo_image_color",
+                "value": {
+                  "image_color_value": {
+                    "palette": [
+                      {
+                        "percentage": 46.06,
+                        "rgb": {
+                          "blue": 108,
+                          "green": 101,
+                          "red": 101
+                        }
+                      },
+                      {
+                        "percentage": 45.25,
+                        "rgb": {
+                          "blue": 213,
+                          "green": 185,
+                          "red": 174
+                        }
+                      },
+                      {
+                        "percentage": 3.86,
+                        "rgb": {
+                          "blue": 144,
+                          "green": 149,
+                          "red": 167
+                        }
+                      },
+                      {
+                        "percentage": 1.45,
+                        "rgb": {
+                          "blue": 64,
+                          "green": 111,
+                          "red": 97
+                        }
+                      },
+                      {
+                        "percentage": 1.26,
+                        "rgb": {
+                          "blue": 102,
+                          "green": 105,
+                          "red": 125
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "key": "summary_photo_image_x_large",
+                "value": {
+                  "image_value": {
+                    "height": 276,
+                    "url": "https://pbs.twimg.com/card_img/2058530820701245440/odoHq2CX?format=png&name=2048x2048_2_exp",
+                    "width": 490
+                  }
+                }
+              },
+              {
+                "key": "summary_photo_image",
+                "value": {
+                  "image_value": {
+                    "height": 257,
+                    "url": "https://pbs.twimg.com/card_img/2058530820701245440/odoHq2CX?format=jpg&name=800x419",
+                    "width": 490
+                  }
+                }
+              },
+              {
+                "key": "photo_image_full_size_color",
+                "value": {
+                  "image_color_value": {
+                    "palette": [
+                      {
+                        "percentage": 46.06,
+                        "rgb": {
+                          "blue": 108,
+                          "green": 101,
+                          "red": 101
+                        }
+                      },
+                      {
+                        "percentage": 45.25,
+                        "rgb": {
+                          "blue": 213,
+                          "green": 185,
+                          "red": 174
+                        }
+                      },
+                      {
+                        "percentage": 3.86,
+                        "rgb": {
+                          "blue": 144,
+                          "green": 149,
+                          "red": 167
+                        }
+                      },
+                      {
+                        "percentage": 1.45,
+                        "rgb": {
+                          "blue": 64,
+                          "green": 111,
+                          "red": 97
+                        }
+                      },
+                      {
+                        "percentage": 1.26,
+                        "rgb": {
+                          "blue": 102,
+                          "green": 105,
+                          "red": 125
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "key": "photo_image_full_size_x_large",
+                "value": {
+                  "image_value": {
+                    "height": 276,
+                    "url": "https://pbs.twimg.com/card_img/2058530820701245440/odoHq2CX?format=png&name=2048x2048_2_exp",
+                    "width": 490
+                  }
+                }
+              },
+              {
+                "key": "card_url",
+                "value": {
+                  "scribe_key": "card_url",
+                  "string_value": "https://t.co/IWYLmVahEd"
+                }
+              },
+              {
+                "key": "summary_photo_image_original",
+                "value": {
+                  "image_value": {
+                    "height": 276,
+                    "url": "https://pbs.twimg.com/card_img/2058530820701245440/odoHq2CX?format=jpg&name=orig",
+                    "width": 490
+                  }
+                }
+              }
+            ],
+            "card_platform": {
+              "platform": {
+                "audience": {
+                  "name": "production"
+                },
+                "device": {
+                  "name": "iPhone",
+                  "version": "13"
+                }
+              }
+            },
+            "name": "summary_large_image",
+            "url": "https://t.co/IWYLmVahEd",
+            "user_refs_results": []
+          },
+          "place": {},
+          "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "urls": [
+              {
+                "display_url": "calcalistech.com/ctechnews/arti…",
+                "expanded_url": "https://www.calcalistech.com/ctechnews/article/b1oebi11xge",
+                "indices": [
+                  522,
+                  545
+                ],
+                "url": "https://t.co/IWYLmVahEd"
+              }
+            ],
+            "user_mentions": []
+          },
+          "quoted_tweet": null,
+          "retweeted_tweet": null,
+          "isLimitedReply": false,
+          "communityInfo": null,
+          "article": null
+        },
+        "retweeted_tweet": null,
+        "isLimitedReply": false,
+        "communityInfo": null,
+        "article": null
+      },
+      {
+        "type": "tweet",
+        "id": "2059058191778890034",
+        "url": "https://x.com/doctorkevin/status/2059058191778890034",
+        "twitterUrl": "https://twitter.com/doctorkevin/status/2059058191778890034",
+        "text": "\"In an era of AI automation, layoffs and constant disruption, resilience requires leaders to face reality honestly, maintain realistic optimism grounded in action and anchor themselves in work that holds genuine meaning and purpose.\" https://t.co/Urm4AcG3w7",
+        "source": "Twitter for iPhone",
+        "retweetCount": 0,
+        "replyCount": 0,
+        "likeCount": 0,
+        "quoteCount": 0,
+        "viewCount": 37,
+        "createdAt": "Mon May 25 23:45:03 +0000 2026",
+        "lang": "en",
+        "bookmarkCount": 0,
+        "isReply": false,
+        "inReplyToId": null,
+        "conversationId": "2059058191778890034",
+        "displayTextRange": [
+          0,
+          257
+        ],
+        "inReplyToUserId": null,
+        "inReplyToUsername": null,
+        "author": {
+          "type": "user",
+          "userName": "doctorkevin",
+          "url": "https://x.com/doctorkevin",
+          "twitterUrl": "https://twitter.com/doctorkevin",
+          "id": "17814359",
+          "name": "Dr. Kevin Gazzara",
+          "isVerified": false,
+          "isBlueVerified": false,
+          "verifiedType": null,
+          "profilePicture": "https://pbs.twimg.com/profile_images/1951039834652549125/fLSZzjGE_normal.jpg",
+          "coverPicture": "https://pbs.twimg.com/profile_banners/17814359/1736403156",
+          "description": "",
+          "location": "Phoenix, Arizona",
+          "followers": 49313,
+          "following": 23246,
+          "status": "",
+          "canDm": true,
+          "canMediaTag": true,
+          "createdAt": "Tue Dec 02 18:31:57 +0000 2008",
+          "entities": {
+            "description": {
+              "urls": []
+            },
+            "url": {}
+          },
+          "fastFollowersCount": 0,
+          "favouritesCount": 4430,
+          "hasCustomTimelines": true,
+          "isTranslator": false,
+          "mediaCount": 845,
+          "statusesCount": 37753,
+          "withheldInCountries": [],
+          "affiliatesHighlightedLabel": {},
+          "possiblySensitive": false,
+          "pinnedTweetIds": [
+            "2057114209905733875"
+          ],
+          "profile_bio": {
+            "description": "🅲🅴🅾 Magna Leadership & https://t.co/DumyOxk4uJ #Author Professional #Keynote #Speaker #ExecutiveCoach #Management 🅴🆇🅿🅴🆁🆃 #Professor #Leadership",
+            "entities": {
+              "description": {
+                "hashtags": [
+                  {
+                    "indices": [
+                      47,
+                      54
+                    ],
+                    "text": "Author"
+                  },
+                  {
+                    "indices": [
+                      68,
+                      76
+                    ],
+                    "text": "Keynote"
+                  },
+                  {
+                    "indices": [
+                      77,
+                      85
+                    ],
+                    "text": "Speaker"
+                  },
+                  {
+                    "indices": [
+                      86,
+                      101
+                    ],
+                    "text": "ExecutiveCoach"
+                  },
+                  {
+                    "indices": [
+                      102,
+                      113
+                    ],
+                    "text": "Management"
+                  },
+                  {
+                    "indices": [
+                      121,
+                      131
+                    ],
+                    "text": "Professor"
+                  },
+                  {
+                    "indices": [
+                      132,
+                      143
+                    ],
+                    "text": "Leadership"
+                  }
+                ],
+                "urls": [
+                  {
+                    "display_url": "CoachSultants.com",
+                    "expanded_url": "http://CoachSultants.com",
+                    "indices": [
+                      23,
+                      46
+                    ],
+                    "url": "https://t.co/DumyOxk4uJ"
+                  }
+                ]
+              },
+              "url": {
+                "urls": [
+                  {
+                    "display_url": "coachsultants.com",
+                    "expanded_url": "https://www.coachsultants.com/",
+                    "indices": [
+                      0,
+                      23
+                    ],
+                    "url": "https://t.co/vlBdh2J9J9"
+                  }
+                ]
+              }
+            }
+          },
+          "isAutomated": false,
+          "automatedBy": null
+        },
+        "extendedEntities": {},
+        "card": {
+          "binding_values": [
+            {
+              "key": "photo_image_full_size_large",
+              "value": {
+                "image_value": {
+                  "height": 419,
+                  "url": "https://pbs.twimg.com/card_img/2057461941438763008/PPwMVR9r?format=jpg&name=800x419",
+                  "width": 800
+                }
+              }
+            },
+            {
+              "key": "thumbnail_image",
+              "value": {
+                "image_value": {
+                  "height": 150,
+                  "url": "https://pbs.twimg.com/card_img/2057461941438763008/PPwMVR9r?format=jpg&name=280x150",
+                  "width": 267
+                }
+              }
+            },
+            {
+              "key": "description",
+              "value": {
+                "string_value": "Leaders can build resilience by facing reality honestly and maintaining realistic optimism grounded in action, writes LaRae Quy."
+              }
+            },
+            {
+              "key": "domain",
+              "value": {
+                "string_value": "www.smartbrief.com"
+              }
+            },
+            {
+              "key": "thumbnail_image_large",
+              "value": {
+                "image_value": {
+                  "height": 320,
+                  "url": "https://pbs.twimg.com/card_img/2057461941438763008/PPwMVR9r?format=jpg&name=800x320_1",
+                  "width": 569
+                }
+              }
+            },
+            {
+              "key": "summary_photo_image_small",
+              "value": {
+                "image_value": {
+                  "height": 202,
+                  "url": "https://pbs.twimg.com/card_img/2057461941438763008/PPwMVR9r?format=jpg&name=386x202",
+                  "width": 386
+                }
+              }
+            },
+            {
+              "key": "thumbnail_image_original",
+              "value": {
+                "image_value": {
+                  "height": 1299,
+                  "url": "https://pbs.twimg.com/card_img/2057461941438763008/PPwMVR9r?format=jpg&name=orig",
+                  "width": 2309
+                }
+              }
+            },
+            {
+              "key": "site",
+              "value": {
+                "scribe_key": "publisher_id",
+                "user_value": {
+                  "id_str": "24167147",
+                  "path": []
+                }
+              }
+            },
+            {
+              "key": "photo_image_full_size_small",
+              "value": {
+                "image_value": {
+                  "height": 202,
+                  "url": "https://pbs.twimg.com/card_img/2057461941438763008/PPwMVR9r?format=jpg&name=386x202",
+                  "width": 386
+                }
+              }
+            },
+            {
+              "key": "summary_photo_image_large",
+              "value": {
+                "image_value": {
+                  "height": 419,
+                  "url": "https://pbs.twimg.com/card_img/2057461941438763008/PPwMVR9r?format=jpg&name=800x419",
+                  "width": 800
+                }
+              }
+            },
+            {
+              "key": "thumbnail_image_small",
+              "value": {
+                "image_value": {
+                  "height": 81,
+                  "url": "https://pbs.twimg.com/card_img/2057461941438763008/PPwMVR9r?format=jpg&name=144x144",
+                  "width": 144
+                }
+              }
+            },
+            {
+              "key": "thumbnail_image_x_large",
+              "value": {
+                "image_value": {
+                  "height": 1152,
+                  "url": "https://pbs.twimg.com/card_img/2057461941438763008/PPwMVR9r?format=png&name=2048x2048_2_exp",
+                  "width": 2048
+                }
+              }
+            },
+            {
+              "key": "photo_image_full_size_original",
+              "value": {
+                "image_value": {
+                  "height": 1299,
+                  "url": "https://pbs.twimg.com/card_img/2057461941438763008/PPwMVR9r?format=jpg&name=orig",
+                  "width": 2309
+                }
+              }
+            },
+            {
+              "key": "vanity_url",
+              "value": {
+                "scribe_key": "vanity_url",
+                "string_value": "smartbrief.com"
+              }
+            },
+            {
+              "key": "photo_image_full_size",
+              "value": {
+                "image_value": {
+                  "height": 314,
+                  "url": "https://pbs.twimg.com/card_img/2057461941438763008/PPwMVR9r?format=jpg&name=600x314",
+                  "width": 600
+                }
+              }
+            },
+            {
+              "key": "thumbnail_image_color",
+              "value": {
+                "image_color_value": {
+                  "palette": [
+                    {
+                      "percentage": 69.04,
+                      "rgb": {
+                        "blue": 194,
+                        "green": 144,
+                        "red": 38
+                      }
+                    },
+                    {
+                      "percentage": 20.76,
+                      "rgb": {
+                        "blue": 159,
+                        "green": 183,
+                        "red": 208
+                      }
+                    },
+                    {
+                      "percentage": 4.58,
+                      "rgb": {
+                        "blue": 54,
+                        "green": 54,
+                        "red": 56
+                      }
+                    },
+                    {
+                      "percentage": 1.94,
+                      "rgb": {
+                        "blue": 126,
+                        "green": 81,
+                        "red": 2
+                      }
+                    },
+                    {
+                      "percentage": 1.43,
+                      "rgb": {
+                        "blue": 160,
+                        "green": 140,
+                        "red": 129
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "key": "title",
+              "value": {
+                "string_value": "How to build effective leadership resilience that creates success - SmartBrief"
+              }
+            },
+            {
+              "key": "summary_photo_image_color",
+              "value": {
+                "image_color_value": {
+                  "palette": [
+                    {
+                      "percentage": 69.04,
+                      "rgb": {
+                        "blue": 194,
+                        "green": 144,
+                        "red": 38
+                      }
+                    },
+                    {
+                      "percentage": 20.76,
+                      "rgb": {
+                        "blue": 159,
+                        "green": 183,
+                        "red": 208
+                      }
+                    },
+                    {
+                      "percentage": 4.58,
+                      "rgb": {
+                        "blue": 54,
+                        "green": 54,
+                        "red": 56
+                      }
+                    },
+                    {
+                      "percentage": 1.94,
+                      "rgb": {
+                        "blue": 126,
+                        "green": 81,
+                        "red": 2
+                      }
+                    },
+                    {
+                      "percentage": 1.43,
+                      "rgb": {
+                        "blue": 160,
+                        "green": 140,
+                        "red": 129
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "key": "summary_photo_image_x_large",
+              "value": {
+                "image_value": {
+                  "height": 1152,
+                  "url": "https://pbs.twimg.com/card_img/2057461941438763008/PPwMVR9r?format=png&name=2048x2048_2_exp",
+                  "width": 2048
+                }
+              }
+            },
+            {
+              "key": "summary_photo_image",
+              "value": {
+                "image_value": {
+                  "height": 314,
+                  "url": "https://pbs.twimg.com/card_img/2057461941438763008/PPwMVR9r?format=jpg&name=600x314",
+                  "width": 600
+                }
+              }
+            },
+            {
+              "key": "photo_image_full_size_color",
+              "value": {
+                "image_color_value": {
+                  "palette": [
+                    {
+                      "percentage": 69.04,
+                      "rgb": {
+                        "blue": 194,
+                        "green": 144,
+                        "red": 38
+                      }
+                    },
+                    {
+                      "percentage": 20.76,
+                      "rgb": {
+                        "blue": 159,
+                        "green": 183,
+                        "red": 208
+                      }
+                    },
+                    {
+                      "percentage": 4.58,
+                      "rgb": {
+                        "blue": 54,
+                        "green": 54,
+                        "red": 56
+                      }
+                    },
+                    {
+                      "percentage": 1.94,
+                      "rgb": {
+                        "blue": 126,
+                        "green": 81,
+                        "red": 2
+                      }
+                    },
+                    {
+                      "percentage": 1.43,
+                      "rgb": {
+                        "blue": 160,
+                        "green": 140,
+                        "red": 129
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "key": "photo_image_full_size_x_large",
+              "value": {
+                "image_value": {
+                  "height": 1152,
+                  "url": "https://pbs.twimg.com/card_img/2057461941438763008/PPwMVR9r?format=png&name=2048x2048_2_exp",
+                  "width": 2048
+                }
+              }
+            },
+            {
+              "key": "card_url",
+              "value": {
+                "scribe_key": "card_url",
+                "string_value": "https://t.co/Urm4AcG3w7"
+              }
+            },
+            {
+              "key": "summary_photo_image_original",
+              "value": {
+                "image_value": {
+                  "height": 1299,
+                  "url": "https://pbs.twimg.com/card_img/2057461941438763008/PPwMVR9r?format=jpg&name=orig",
+                  "width": 2309
+                }
+              }
+            }
+          ],
+          "card_platform": {
+            "platform": {
+              "audience": {
+                "name": "production"
+              },
+              "device": {
+                "name": "iPhone",
+                "version": "13"
+              }
+            }
+          },
+          "name": "summary_large_image",
+          "url": "https://t.co/Urm4AcG3w7",
+          "user_refs_results": [
+            {
+              "rest_id": "24167147",
+              "result": {
+                "__typename": "User",
+                "action_counts": {
+                  "favorites_count": 24072
+                },
+                "avatar": {
+                  "image_url": "https://pbs.twimg.com/profile_images/1747633646704439296/hkGWxPwW_normal.jpg"
+                },
+                "banner": {
+                  "image_url": "https://pbs.twimg.com/profile_banners/24167147/1705591750"
+                },
+                "core": {
+                  "created_at": "Fri Mar 13 13:07:50 +0000 2009",
+                  "name": "SmartBrief",
+                  "screen_name": "SmartBrief"
+                },
+                "dm_permissions": {
+                  "can_dm": false
+                },
+                "exclusive_tweet_following": false,
+                "follow_request_sent": false,
+                "identity_profile_labels_highlighted_label": {},
+                "location": {
+                  "location": " New York City"
+                },
+                "media_permissions": {
+                  "can_media_tag": true
+                },
+                "notifications_settings": {
+                  "notifications_enabled": false
+                },
+                "pinned_items": {},
+                "privacy": {
+                  "protected": false,
+                  "suspended": false
+                },
+                "private_super_following": false,
+                "profile_bio": {
+                  "description": "The leader in targeted #business #news and information, covering 14 industries and serving 7M readers. Sign up at https://t.co/Yqu8HNsCvN to stay informed.",
+                  "entities": {
+                    "description": {
+                      "hashtags": [
+                        {
+                          "indices": [
+                            23,
+                            32
+                          ],
+                          "text": "business"
+                        },
+                        {
+                          "indices": [
+                            33,
+                            38
+                          ],
+                          "text": "news"
+                        }
+                      ],
+                      "urls": [
+                        {
+                          "display_url": "smartbrief.com",
+                          "expanded_url": "https://www.smartbrief.com",
+                          "indices": [
+                            114,
+                            137
+                          ],
+                          "url": "https://t.co/Yqu8HNsCvN"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "urls": [
+                        {
+                          "display_url": "smartbrief.com",
+                          "expanded_url": "https://www.smartbrief.com/",
+                          "indices": [
+                            0,
+                            23
+                          ],
+                          "url": "https://t.co/D6m2ZZwFbj"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "profile_image_shape": "Circle",
+                "profile_metadata": {
+                  "profile_interstitial_type": "",
+                  "profile_link_color": "0079C1"
+                },
+                "profile_translation": {
+                  "translator_type_enum": "None"
+                },
+                "properties": {
+                  "has_extended_profile": false,
+                  "has_no_screen_name": false
+                },
+                "relationship_counts": {
+                  "followers": 28528,
+                  "following": 10326
+                },
+                "relationship_perspectives": {
+                  "blocked_by": false,
+                  "blocking": false,
+                  "followed_by": false,
+                  "following": false,
+                  "live_following": false,
+                  "muting": false
+                },
+                "rest_id": "24167147",
+                "smart_blocked_by": false,
+                "smart_blocking": false,
+                "super_follow_eligible": false,
+                "super_followed_by": false,
+                "super_following": false,
+                "tweet_counts": {
+                  "media_tweets": 2427,
+                  "tweets": 37281
+                },
+                "verification": {
+                  "is_blue_verified": true,
+                  "verified": false
+                },
+                "website": {
+                  "url": "https://t.co/D6m2ZZwFbj"
+                }
+              }
+            }
+          ]
+        },
+        "place": {},
+        "entities": {
+          "urls": [
+            {
+              "display_url": "smartbrief.com/original/how-t…",
+              "expanded_url": "https://www.smartbrief.com/original/how-to-build-effective-leadership-resilience-that-creates-success?utm_campaign=meetedgar&utm_medium=social&utm_source=meetedgar.com",
+              "indices": [
+                234,
+                257
+              ],
+              "url": "https://t.co/Urm4AcG3w7"
+            }
+          ]
+        },
+        "quoted_tweet": null,
+        "retweeted_tweet": null,
+        "isLimitedReply": false,
+        "communityInfo": null,
+        "article": null
+      },
+      {
+        "type": "tweet",
+        "id": "2059057916959715815",
+        "url": "https://x.com/maybe_scottx/status/2059057916959715815",
+        "twitterUrl": "https://twitter.com/maybe_scottx/status/2059057916959715815",
+        "text": "@TheDadspective @Awk20000 I don't think it helps that destiny somehow has this ability to rub people up the wrong way. he shouldn't be banned but i'd be surprised if they ever unbanned him, Once twitch does another round of layoffs we'll see if whoever hates him is still there i guess",
+        "source": "Twitter for iPhone",
+        "retweetCount": 0,
+        "replyCount": 1,
+        "likeCount": 2,
+        "quoteCount": 0,
+        "viewCount": 382,
+        "createdAt": "Mon May 25 23:43:57 +0000 2026",
+        "lang": "en",
+        "bookmarkCount": 0,
+        "isReply": true,
+        "inReplyToId": "2059057095148789869",
+        "conversationId": "2059055228872540432",
+        "displayTextRange": [
+          26,
+          285
+        ],
+        "inReplyToUserId": "1169056609886199808",
+        "inReplyToUsername": "TheDadspective",
+        "author": {
+          "type": "user",
+          "userName": "maybe_scottx",
+          "url": "https://x.com/maybe_scottx",
+          "twitterUrl": "https://twitter.com/maybe_scottx",
+          "id": "877658994009092097",
+          "name": "Scott 👻👾",
+          "isVerified": false,
+          "isBlueVerified": false,
+          "verifiedType": null,
+          "profilePicture": "https://pbs.twimg.com/profile_images/1977686242994122752/dTvUCeRT_normal.jpg",
+          "coverPicture": "https://pbs.twimg.com/profile_banners/877658994009092097/1630774404",
+          "description": "",
+          "location": "",
+          "followers": 118,
+          "following": 260,
+          "status": "",
+          "canDm": false,
+          "canMediaTag": false,
+          "createdAt": "Wed Jun 21 22:46:25 +0000 2017",
+          "entities": {
+            "description": {
+              "urls": []
+            },
+            "url": {}
+          },
+          "fastFollowersCount": 0,
+          "favouritesCount": 152956,
+          "hasCustomTimelines": true,
+          "isTranslator": false,
+          "mediaCount": 247,
+          "statusesCount": 20580,
+          "withheldInCountries": [],
+          "affiliatesHighlightedLabel": {},
+          "possiblySensitive": false,
+          "pinnedTweetIds": [],
+          "profile_bio": {
+            "description": "",
+            "entities": {
+              "description": {}
+            }
+          },
+          "isAutomated": false,
+          "automatedBy": null
+        },
+        "extendedEntities": {},
+        "card": null,
+        "place": {},
+        "entities": {
+          "user_mentions": [
+            {
+              "id_str": "1169056609886199808",
+              "indices": [
+                0,
+                15
+              ],
+              "name": "Josman",
+              "screen_name": "TheDadspective"
+            },
+            {
+              "id_str": "1741916934164381696",
+              "indices": [
+                16,
+                25
+              ],
+              "name": "yeet",
+              "screen_name": "Awk20000"
+            }
+          ]
+        },
+        "quoted_tweet": null,
+        "retweeted_tweet": null,
+        "isLimitedReply": false,
+        "communityInfo": null,
+        "article": null
+      },
+      {
+        "type": "tweet",
+        "id": "2059057361277296654",
+        "url": "https://x.com/VonGlahnBLU/status/2059057361277296654",
+        "twitterUrl": "https://twitter.com/VonGlahnBLU/status/2059057361277296654",
+        "text": "@R3DNIGHTINGALE I don't think it's layoffs because the comms are alive and well. This line in particular seems to be dying out.",
+        "source": "Twitter for iPhone",
+        "retweetCount": 0,
+        "replyCount": 1,
+        "likeCount": 1,
+        "quoteCount": 0,
+        "viewCount": 32,
+        "createdAt": "Mon May 25 23:41:45 +0000 2026",
+        "lang": "en",
+        "bookmarkCount": 0,
+        "isReply": true,
+        "inReplyToId": "2059056348646510763",
+        "conversationId": "2059055502714081592",
+        "displayTextRange": [
+          16,
+          127
+        ],
+        "inReplyToUserId": "1824124186832322560",
+        "inReplyToUsername": "R3DNIGHTINGALE",
+        "author": {
+          "type": "user",
+          "userName": "VonGlahnBLU",
+          "url": "https://x.com/VonGlahnBLU",
+          "twitterUrl": "https://twitter.com/VonGlahnBLU",
+          "id": "2020325032895844352",
+          "name": "Michael Von Glahn 💙🔞 MD-1031",
+          "isVerified": false,
+          "isBlueVerified": false,
+          "verifiedType": null,
+          "profilePicture": "https://pbs.twimg.com/profile_images/2052573545620721666/5JIaaH1h_normal.jpg",
+          "coverPicture": "https://pbs.twimg.com/profile_banners/2020325032895844352/1776627440",
+          "description": "",
+          "location": "Applejack Orchard",
+          "followers": 21,
+          "following": 28,
+          "status": "",
+          "canDm": true,
+          "canMediaTag": true,
+          "createdAt": "Sun Feb 08 02:33:40 +0000 2026",
+          "entities": {
+            "description": {
+              "urls": []
+            },
+            "url": {}
+          },
+          "fastFollowersCount": 0,
+          "favouritesCount": 913,
+          "hasCustomTimelines": true,
+          "isTranslator": false,
+          "mediaCount": 65,
+          "statusesCount": 626,
+          "withheldInCountries": [],
+          "affiliatesHighlightedLabel": {},
+          "possiblySensitive": false,
+          "pinnedTweetIds": [
+            "2020329531996008836"
+          ],
+          "profile_bio": {
+            "description": "28 year old combat nurse for Builder's League United.\n\n🔞 If you're under the age of 18, please don't follow me. 🔞",
+            "entities": {
+              "description": {}
+            }
+          },
+          "isAutomated": false,
+          "automatedBy": null
+        },
+        "extendedEntities": {},
+        "card": null,
+        "place": {},
+        "entities": {
+          "user_mentions": [
+            {
+              "id_str": "1824124186832322560",
+              "indices": [
+                0,
+                15
+              ],
+              "name": "Emily Nightingale | 🔞",
+              "screen_name": "R3DNIGHTINGALE"
+            }
+          ]
+        },
+        "quoted_tweet": null,
+        "retweeted_tweet": null,
+        "isLimitedReply": false,
+        "communityInfo": null,
+        "article": null
+      },
+      {
+        "type": "tweet",
+        "id": "2059057230461260278",
+        "url": "https://x.com/mannypul8r/status/2059057230461260278",
+        "twitterUrl": "https://twitter.com/mannypul8r/status/2059057230461260278",
+        "text": "@opalaries resignations\nlayoffs, 2024\nlayoffs, 2025\nartists shelved\n\nyou cannot reason with these people— they don’t believe the evidence because they are brainwashed\n\natlantic will fall https://t.co/ytoIqKFEag",
+        "source": "Twitter for iPhone",
+        "retweetCount": 1,
+        "replyCount": 0,
+        "likeCount": 14,
+        "quoteCount": 0,
+        "viewCount": 1542,
+        "createdAt": "Mon May 25 23:41:13 +0000 2026",
+        "lang": "en",
+        "bookmarkCount": 0,
+        "isReply": true,
+        "inReplyToId": "2058990011752894731",
+        "conversationId": "2058990011752894731",
+        "displayTextRange": [
+          11,
+          186
+        ],
+        "inReplyToUserId": "1814419033313423361",
+        "inReplyToUsername": "opalaries",
+        "author": {
+          "type": "user",
+          "userName": "mannypul8r",
+          "url": "https://x.com/mannypul8r",
+          "twitterUrl": "https://twitter.com/mannypul8r",
+          "id": "1725734277218770944",
+          "name": "new york nic",
+          "isVerified": false,
+          "isBlueVerified": false,
+          "verifiedType": null,
+          "profilePicture": "https://pbs.twimg.com/profile_images/2016556408045551616/HxrsCMtd_normal.jpg",
+          "coverPicture": "https://pbs.twimg.com/profile_banners/1725734277218770944/1762359909",
+          "description": "",
+          "location": "all these low iq hos baffle me",
+          "followers": 262,
+          "following": 128,
+          "status": "",
+          "canDm": false,
+          "canMediaTag": true,
+          "createdAt": "Sat Nov 18 04:34:59 +0000 2023",
+          "entities": {
+            "description": {
+              "urls": []
+            },
+            "url": {}
+          },
+          "fastFollowersCount": 0,
+          "favouritesCount": 41219,
+          "hasCustomTimelines": true,
+          "isTranslator": false,
+          "mediaCount": 2539,
+          "statusesCount": 13300,
+          "withheldInCountries": [],
+          "affiliatesHighlightedLabel": {},
+          "possiblySensitive": false,
+          "pinnedTweetIds": [
+            "1998918123957727604"
+          ],
+          "profile_bio": {
+            "description": "Christian first even though i make mistakes! simply put, entertainment is my sports. don’t forget that class is always in session",
+            "entities": {
+              "description": {}
+            }
+          },
+          "isAutomated": false,
+          "automatedBy": null
+        },
+        "extendedEntities": {
+          "media": [
+            {
+              "display_url": "pic.twitter.com/ytoIqKFEag",
+              "expanded_url": "https://twitter.com/mannypul8r/status/2059057230461260278/photo/1",
+              "ext_master_playlist_only": [],
+              "ext_media_availability": {
+                "status": "Available"
+              },
+              "ext_playlists": [],
+              "features": {
+                "large": {
+                  "faces": []
+                },
+                "orig": {
+                  "faces": []
+                }
+              },
+              "id_str": "2059057227038629888",
+              "indices": [
+                187,
+                210
+              ],
+              "media_key": "3_2059057227038629888",
+              "media_results": {
+                "id": "QXBpTWVkaWFSZXN1bHRzOgwAAQoAARyTPaN91qAACgACHJM9pEnX0fYAAA==",
+                "result": {
+                  "__typename": "ApiMedia",
+                  "id": "QXBpTWVkaWE6DAABCgABHJM9o33WoAAKAAIckz2kSdfR9gAA",
+                  "media_key": "3_2059057227038629888"
+                }
+              },
+              "media_url_https": "https://pbs.twimg.com/media/HJM9o33WoAAwve_.jpg",
+              "original_info": {
+                "focus_rects": [
+                  {
+                    "h": 722,
+                    "w": 1290,
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "h": 1290,
+                    "w": 1290,
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "h": 1471,
+                    "w": 1290,
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "h": 1583,
+                    "w": 792,
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "h": 1583,
+                    "w": 1290,
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "height": 1583,
+                "width": 1290
+              },
+              "sizes": {
+                "large": {
+                  "h": 1583,
+                  "w": 1290
+                }
+              },
+              "type": "photo",
+              "url": "https://t.co/ytoIqKFEag"
+            },
+            {
+              "display_url": "pic.twitter.com/ytoIqKFEag",
+              "expanded_url": "https://twitter.com/mannypul8r/status/2059057230461260278/photo/1",
+              "ext_master_playlist_only": [],
+              "ext_media_availability": {
+                "status": "Available"
+              },
+              "ext_playlists": [],
+              "features": {
+                "large": {
+                  "faces": []
+                },
+                "orig": {
+                  "faces": []
+                }
+              },
+              "id_str": "2059057227047002112",
+              "indices": [
+                187,
+                210
+              ],
+              "media_key": "3_2059057227047002112",
+              "media_results": {
+                "id": "QXBpTWVkaWFSZXN1bHRzOgwAAQoAARyTPaN+VmAACgACHJM9pEnX0fYAAA==",
+                "result": {
+                  "__typename": "ApiMedia",
+                  "id": "QXBpTWVkaWE6DAABCgABHJM9o35WYAAKAAIckz2kSdfR9gAA",
+                  "media_key": "3_2059057227047002112"
+                }
+              },
+              "media_url_https": "https://pbs.twimg.com/media/HJM9o35WYAA5a8r.jpg",
+              "original_info": {
+                "focus_rects": [
+                  {
+                    "h": 722,
+                    "w": 1290,
+                    "x": 0,
+                    "y": 95
+                  },
+                  {
+                    "h": 1290,
+                    "w": 1290,
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "h": 1471,
+                    "w": 1290,
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "h": 2031,
+                    "w": 1016,
+                    "x": 274,
+                    "y": 0
+                  },
+                  {
+                    "h": 2031,
+                    "w": 1290,
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "height": 2031,
+                "width": 1290
+              },
+              "sizes": {
+                "large": {
+                  "h": 2031,
+                  "w": 1290
+                }
+              },
+              "type": "photo",
+              "url": "https://t.co/ytoIqKFEag"
+            },
+            {
+              "display_url": "pic.twitter.com/ytoIqKFEag",
+              "expanded_url": "https://twitter.com/mannypul8r/status/2059057230461260278/photo/1",
+              "ext_master_playlist_only": [],
+              "ext_media_availability": {
+                "status": "Available"
+              },
+              "ext_playlists": [],
+              "features": {
+                "large": {
+                  "faces": []
+                },
+                "orig": {
+                  "faces": []
+                }
+              },
+              "id_str": "2059057227038588928",
+              "indices": [
+                187,
+                210
+              ],
+              "media_key": "3_2059057227038588928",
+              "media_results": {
+                "id": "QXBpTWVkaWFSZXN1bHRzOgwAAQoAARyTPaN91gAACgACHJM9pEnX0fYAAA==",
+                "result": {
+                  "__typename": "ApiMedia",
+                  "id": "QXBpTWVkaWE6DAABCgABHJM9o33WAAAKAAIckz2kSdfR9gAA",
+                  "media_key": "3_2059057227038588928"
+                }
+              },
+              "media_url_https": "https://pbs.twimg.com/media/HJM9o33WAAAga5e.jpg",
+              "original_info": {
+                "focus_rects": [
+                  {
+                    "h": 492,
+                    "w": 879,
+                    "x": 411,
+                    "y": 0
+                  },
+                  {
+                    "h": 492,
+                    "w": 492,
+                    "x": 689,
+                    "y": 0
+                  },
+                  {
+                    "h": 492,
+                    "w": 432,
+                    "x": 719,
+                    "y": 0
+                  },
+                  {
+                    "h": 492,
+                    "w": 246,
+                    "x": 812,
+                    "y": 0
+                  },
+                  {
+                    "h": 492,
+                    "w": 1290,
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "height": 492,
+                "width": 1290
+              },
+              "sizes": {
+                "large": {
+                  "h": 492,
+                  "w": 1290
+                }
+              },
+              "type": "photo",
+              "url": "https://t.co/ytoIqKFEag"
+            },
+            {
+              "display_url": "pic.twitter.com/ytoIqKFEag",
+              "expanded_url": "https://twitter.com/mannypul8r/status/2059057230461260278/photo/1",
+              "ext_master_playlist_only": [],
+              "ext_media_availability": {
+                "status": "Available"
+              },
+              "ext_playlists": [],
+              "features": {
+                "large": {
+                  "faces": [
+                    {
+                      "h": 183,
+                      "w": 183,
+                      "x": 585,
+                      "y": 908
+                    }
+                  ]
+                },
+                "orig": {
+                  "faces": [
+                    {
+                      "h": 183,
+                      "w": 183,
+                      "x": 585,
+                      "y": 908
+                    }
+                  ]
+                }
+              },
+              "id_str": "2059057227047059456",
+              "indices": [
+                187,
+                210
+              ],
+              "media_key": "3_2059057227047059456",
+              "media_results": {
+                "id": "QXBpTWVkaWFSZXN1bHRzOgwAAQoAARyTPaN+V0AACgACHJM9pEnX0fYAAA==",
+                "result": {
+                  "__typename": "ApiMedia",
+                  "id": "QXBpTWVkaWE6DAABCgABHJM9o35XQAAKAAIckz2kSdfR9gAA",
+                  "media_key": "3_2059057227047059456"
+                }
+              },
+              "media_url_https": "https://pbs.twimg.com/media/HJM9o35XQAAx6Rv.jpg",
+              "original_info": {
+                "focus_rects": [
+                  {
+                    "h": 722,
+                    "w": 1290,
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "h": 1290,
+                    "w": 1290,
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "h": 1471,
+                    "w": 1290,
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "h": 1537,
+                    "w": 769,
+                    "x": 268,
+                    "y": 0
+                  },
+                  {
+                    "h": 1537,
+                    "w": 1290,
+                    "x": 0,
+                    "y": 0
+                  }
+                ],
+                "height": 1537,
+                "width": 1290
+              },
+              "sizes": {
+                "large": {
+                  "h": 1537,
+                  "w": 1290
+                }
+              },
+              "type": "photo",
+              "url": "https://t.co/ytoIqKFEag"
+            }
+          ]
+        },
+        "card": null,
+        "place": {},
+        "entities": {
+          "user_mentions": [
+            {
+              "id_str": "1814419033313423361",
+              "indices": [
+                0,
+                10
+              ],
+              "name": "⚜️ FEMALE YE ⚜️",
+              "screen_name": "opalaries"
+            }
+          ]
+        },
+        "quoted_tweet": null,
+        "retweeted_tweet": null,
+        "isLimitedReply": false,
+        "communityInfo": null,
+        "article": null
+      },
+      {
+        "type": "tweet",
+        "id": "2059057184437076078",
+        "url": "https://x.com/PawelJLisowski/status/2059057184437076078",
+        "twitterUrl": "https://twitter.com/PawelJLisowski/status/2059057184437076078",
+        "text": "@bindureddy Companies layoff because they are bloated and need to restructure. But almost all companies doing layoffs are hiring at same time. Overall hiring for tech jobs is going up, especially for experienced engineers proficient with AI.",
+        "source": "Twitter for iPhone",
+        "retweetCount": 0,
+        "replyCount": 1,
+        "likeCount": 0,
+        "quoteCount": 0,
+        "viewCount": 196,
+        "createdAt": "Mon May 25 23:41:02 +0000 2026",
+        "lang": "en",
+        "bookmarkCount": 0,
+        "isReply": true,
+        "inReplyToId": "2059050001439858791",
+        "conversationId": "2059050001439858791",
+        "displayTextRange": [
+          12,
+          241
+        ],
+        "inReplyToUserId": "6398252",
+        "inReplyToUsername": "bindureddy",
+        "author": {
+          "type": "user",
+          "userName": "PawelJLisowski",
+          "url": "https://x.com/PawelJLisowski",
+          "twitterUrl": "https://twitter.com/PawelJLisowski",
+          "id": "1993270634080874496",
+          "name": "Paweł J Lisowski",
+          "isVerified": false,
+          "isBlueVerified": true,
+          "verifiedType": null,
+          "profilePicture": "https://pbs.twimg.com/profile_images/2056401454991028225/NxRdmjpr_normal.jpg",
+          "coverPicture": "https://pbs.twimg.com/profile_banners/1993270634080874496/1779143581",
+          "description": "",
+          "location": "Gdynia, Poland",
+          "followers": 139,
+          "following": 106,
+          "status": "",
+          "canDm": true,
+          "canMediaTag": true,
+          "createdAt": "Tue Nov 25 10:49:03 +0000 2025",
+          "entities": {
+            "description": {
+              "urls": []
+            },
+            "url": {}
+          },
+          "fastFollowersCount": 0,
+          "favouritesCount": 787,
+          "hasCustomTimelines": true,
+          "isTranslator": false,
+          "mediaCount": 47,
+          "statusesCount": 1403,
+          "withheldInCountries": [],
+          "affiliatesHighlightedLabel": {},
+          "possiblySensitive": false,
+          "pinnedTweetIds": [
+            "2057239837728542954"
+          ],
+          "profile_bio": {
+            "description": "Fullstack dev, 9yr exp. shipping solo.\nRethinking UX and workflows for the AI era.\nAcuvis. Fend. agent-ws.",
+            "entities": {
+              "description": {},
+              "url": {
+                "urls": [
+                  {
+                    "display_url": "plisowski.dev",
+                    "expanded_url": "http://plisowski.dev",
+                    "indices": [
+                      0,
+                      23
+                    ],
+                    "url": "https://t.co/7sL1s6ARuM"
+                  }
+                ]
+              }
+            }
+          },
+          "isAutomated": false,
+          "automatedBy": null
+        },
+        "extendedEntities": {},
+        "card": null,
+        "place": {},
+        "entities": {
+          "user_mentions": [
+            {
+              "id_str": "6398252",
+              "indices": [
+                0,
+                11
+              ],
+              "name": "Bindu Reddy",
+              "screen_name": "bindureddy"
+            }
+          ]
+        },
+        "quoted_tweet": null,
+        "retweeted_tweet": null,
+        "isLimitedReply": false,
+        "communityInfo": null,
+        "article": null
+      },
+      {
+        "type": "tweet",
+        "id": "2059056800239075578",
+        "url": "https://x.com/politiwars/status/2059056800239075578",
+        "twitterUrl": "https://twitter.com/politiwars/status/2059056800239075578",
+        "text": "@rishabhm There have been over 120,000 STEM layoffs in American so far THIS YEAR.   On top of the hundreds of thousands in previous years. \n\nWe don't need a single immigrant for STEM jobs here.  Zero.",
+        "source": "Twitter for iPhone",
+        "retweetCount": 0,
+        "replyCount": 0,
+        "likeCount": 1,
+        "quoteCount": 0,
+        "viewCount": 19,
+        "createdAt": "Mon May 25 23:39:31 +0000 2026",
+        "lang": "en",
+        "bookmarkCount": 0,
+        "isReply": true,
+        "inReplyToId": "2058849074011599348",
+        "conversationId": "2058849074011599348",
+        "displayTextRange": [
+          10,
+          200
+        ],
+        "inReplyToUserId": "35297349",
+        "inReplyToUsername": "rishabhm",
+        "author": {
+          "type": "user",
+          "userName": "politiwars",
+          "url": "https://x.com/politiwars",
+          "twitterUrl": "https://twitter.com/politiwars",
+          "id": "389648599",
+          "name": "Samuel Culper 722",
+          "isVerified": false,
+          "isBlueVerified": true,
+          "verifiedType": null,
+          "profilePicture": "https://pbs.twimg.com/profile_images/1881847997291778048/mz86JXXm_normal.jpg",
+          "coverPicture": "https://pbs.twimg.com/profile_banners/389648599/1737502501",
+          "description": "",
+          "location": "America",
+          "followers": 10808,
+          "following": 10239,
+          "status": "",
+          "canDm": false,
+          "canMediaTag": true,
+          "createdAt": "Wed Oct 12 19:37:41 +0000 2011",
+          "entities": {
+            "description": {
+              "urls": []
+            },
+            "url": {}
+          },
+          "fastFollowersCount": 0,
+          "favouritesCount": 13902,
+          "hasCustomTimelines": true,
+          "isTranslator": false,
+          "mediaCount": 7754,
+          "statusesCount": 804341,
+          "withheldInCountries": [],
+          "affiliatesHighlightedLabel": {},
+          "possiblySensitive": false,
+          "pinnedTweetIds": [
+            "2054191904376639506"
+          ],
+          "profile_bio": {
+            "description": "Retired, 45+ years in IT, electronics, two-way radio. Certifications in NIMS, ICS, RF, NATSEC etc.\n\nAncestry to G. Washington and the Culper Spy Ring.",
+            "entities": {
+              "description": {}
+            }
+          },
+          "isAutomated": false,
+          "automatedBy": null
+        },
+        "extendedEntities": {},
+        "card": null,
+        "place": {},
+        "entities": {
+          "user_mentions": [
+            {
+              "id_str": "35297349",
+              "indices": [
+                0,
+                9
+              ],
+              "name": "Rishabh Mukherjee",
+              "screen_name": "rishabhm"
+            }
+          ]
+        },
+        "quoted_tweet": null,
+        "retweeted_tweet": null,
+        "isLimitedReply": false,
+        "communityInfo": null,
+        "article": null
+      },
+      {
+        "type": "tweet",
+        "id": "2059056698414002298",
+        "url": "https://x.com/x2724dfTdyw7QKb/status/2059056698414002298",
+        "twitterUrl": "https://twitter.com/x2724dfTdyw7QKb/status/2059056698414002298",
+        "text": "@scwtflol @THe0GAmer @MarvelRivals Xi demanded that NetEase carry out layoffs; otherwise, he would let MR die.🤓",
+        "source": "Twitter for iPhone",
+        "retweetCount": 0,
+        "replyCount": 0,
+        "likeCount": 0,
+        "quoteCount": 0,
+        "viewCount": 33,
+        "createdAt": "Mon May 25 23:39:06 +0000 2026",
+        "lang": "en",
+        "bookmarkCount": 0,
+        "isReply": true,
+        "inReplyToId": "2058994204467196346",
+        "conversationId": "2058956264965538269",
+        "displayTextRange": [
+          35,
+          111
+        ],
+        "inReplyToUserId": "1887679580565348352",
+        "inReplyToUsername": "scwtflol",
+        "author": {
+          "type": "user",
+          "userName": "x2724dfTdyw7QKb",
+          "url": "https://x.com/x2724dfTdyw7QKb",
+          "twitterUrl": "https://twitter.com/x2724dfTdyw7QKb",
+          "id": "1459734443615084550",
+          "name": "SpidyDude420.",
+          "isVerified": false,
+          "isBlueVerified": false,
+          "verifiedType": null,
+          "profilePicture": "https://pbs.twimg.com/profile_images/1816382066164129794/U7n3CnFu_normal.jpg",
+          "coverPicture": "https://pbs.twimg.com/profile_banners/1459734443615084550/1757990269",
+          "description": "",
+          "location": " ",
+          "followers": 18,
+          "following": 314,
+          "status": "",
+          "canDm": false,
+          "canMediaTag": true,
+          "createdAt": "Sun Nov 14 04:06:39 +0000 2021",
+          "entities": {
+            "description": {
+              "urls": []
+            },
+            "url": {}
+          },
+          "fastFollowersCount": 0,
+          "favouritesCount": 98,
+          "hasCustomTimelines": true,
+          "isTranslator": false,
+          "mediaCount": 129,
+          "statusesCount": 859,
+          "withheldInCountries": [],
+          "affiliatesHighlightedLabel": {},
+          "possiblySensitive": false,
+          "pinnedTweetIds": [],
+          "profile_bio": {
+            "description": "",
+            "entities": {
+              "description": {}
+            }
+          },
+          "isAutomated": false,
+          "automatedBy": null
+        },
+        "extendedEntities": {},
+        "card": null,
+        "place": {},
+        "entities": {
+          "user_mentions": [
+            {
+              "id_str": "1887679580565348352",
+              "indices": [
+                0,
+                9
+              ],
+              "name": "oof",
+              "screen_name": "scwtflol"
+            },
+            {
+              "id_str": "1431535765482348548",
+              "indices": [
+                10,
+                20
+              ],
+              "name": "Master of Controversy",
+              "screen_name": "THe0GAmer"
+            },
+            {
+              "id_str": "1726712518155046912",
+              "indices": [
+                21,
+                34
+              ],
+              "name": "Marvel Rivals",
+              "screen_name": "MarvelRivals"
+            }
+          ]
+        },
+        "quoted_tweet": null,
+        "retweeted_tweet": null,
+        "isLimitedReply": false,
+        "communityInfo": null,
+        "article": null
+      },
+      {
+        "type": "tweet",
+        "id": "2059056403214373218",
+        "url": "https://x.com/yes_cartoonn/status/2059056403214373218",
+        "twitterUrl": "https://twitter.com/yes_cartoonn/status/2059056403214373218",
+        "text": "@spongieupdates than those 2, CN is for the first time since its inception irrelevant with kids, and thats due to WB and its record of horrible mergers for the past decade or so, making CN suffers with massive layoffs, cancelled projects, failure with HBOMax, and more that I can imagine actually",
+        "source": "Twitter for iPhone",
+        "retweetCount": 0,
+        "replyCount": 1,
+        "likeCount": 0,
+        "quoteCount": 0,
+        "viewCount": 20,
+        "createdAt": "Mon May 25 23:37:56 +0000 2026",
+        "lang": "en",
+        "bookmarkCount": 0,
+        "isReply": true,
+        "inReplyToId": "2059054197530624212",
+        "conversationId": "2056736848320270579",
+        "displayTextRange": [
+          16,
+          296
+        ],
+        "inReplyToUserId": "1893294781498802176",
+        "inReplyToUsername": "yes_cartoonn",
+        "author": {
+          "type": "user",
+          "userName": "yes_cartoonn",
+          "url": "https://x.com/yes_cartoonn",
+          "twitterUrl": "https://twitter.com/yes_cartoonn",
+          "id": "1893294781498802176",
+          "name": "i",
+          "isVerified": false,
+          "isBlueVerified": false,
+          "verifiedType": null,
+          "profilePicture": "https://pbs.twimg.com/profile_images/2035747193525809155/WUsrwwFN_normal.jpg",
+          "coverPicture": "https://pbs.twimg.com/profile_banners/1893294781498802176/1774194939",
+          "description": "",
+          "location": "",
+          "followers": 94,
+          "following": 8,
+          "status": "",
+          "canDm": false,
+          "canMediaTag": true,
+          "createdAt": "Sat Feb 22 13:40:38 +0000 2025",
+          "entities": {
+            "description": {
+              "urls": []
+            },
+            "url": {}
+          },
+          "fastFollowersCount": 0,
+          "favouritesCount": 139,
+          "hasCustomTimelines": true,
+          "isTranslator": false,
+          "mediaCount": 100,
+          "statusesCount": 2129,
+          "withheldInCountries": [],
+          "affiliatesHighlightedLabel": {},
+          "possiblySensitive": false,
+          "pinnedTweetIds": [],
+          "profile_bio": {
+            "description": "Youtube: https://t.co/hJmhKlZXRw // Free Palestine🇵🇸",
+            "entities": {
+              "description": {
+                "urls": [
+                  {
+                    "display_url": "youtube.com/@ily7m",
+                    "expanded_url": "http://youtube.com/@ily7m",
+                    "indices": [
+                      9,
+                      32
+                    ],
+                    "url": "https://t.co/hJmhKlZXRw"
+                  }
+                ]
+              }
+            }
+          },
+          "isAutomated": false,
+          "automatedBy": null
+        },
+        "extendedEntities": {},
+        "card": null,
+        "place": {},
+        "entities": {
+          "user_mentions": [
+            {
+              "id_str": "1158940120881487872",
+              "indices": [
+                0,
+                15
+              ],
+              "name": "spongieupdatestv",
+              "screen_name": "spongieupdates"
+            }
+          ]
+        },
+        "quoted_tweet": null,
+        "retweeted_tweet": null,
+        "isLimitedReply": false,
+        "communityInfo": null,
+        "article": null
+      },
+      {
+        "type": "tweet",
+        "id": "2059056398516752571",
+        "url": "https://x.com/BlueQuacker/status/2059056398516752571",
+        "twitterUrl": "https://twitter.com/BlueQuacker/status/2059056398516752571",
+        "text": "@sushimassacre yeaaa exactly! plus a lot of smaller companies have been using and relying on AI because of this idea of \"GenAI is the future\", which resulted on massive layoffs, awful business decisions and bankruptcies\n\npeople really need to stop idealizing technology like this",
+        "source": "Twitter for iPhone",
+        "retweetCount": 0,
+        "replyCount": 0,
+        "likeCount": 2,
+        "quoteCount": 0,
+        "viewCount": 13,
+        "createdAt": "Mon May 25 23:37:55 +0000 2026",
+        "lang": "en",
+        "bookmarkCount": 0,
+        "isReply": true,
+        "inReplyToId": "2059055148262215695",
+        "conversationId": "2059035570849141172",
+        "displayTextRange": [
+          15,
+          279
+        ],
+        "inReplyToUserId": "1136521493737758720",
+        "inReplyToUsername": "sushimassacre",
+        "author": {
+          "type": "user",
+          "userName": "BlueQuacker",
+          "url": "https://x.com/BlueQuacker",
+          "twitterUrl": "https://twitter.com/BlueQuacker",
+          "id": "1565406267652415489",
+          "name": "Quacker 🦆 (Comms Open)",
+          "isVerified": false,
+          "isBlueVerified": false,
+          "verifiedType": null,
+          "profilePicture": "https://pbs.twimg.com/profile_images/2051792135289016320/W6QZLTea_normal.png",
+          "coverPicture": "https://pbs.twimg.com/profile_banners/1565406267652415489/1743554979",
+          "description": "",
+          "location": "at your local pond",
+          "followers": 932,
+          "following": 323,
+          "status": "",
+          "canDm": true,
+          "canMediaTag": true,
+          "createdAt": "Thu Sep 01 18:30:28 +0000 2022",
+          "entities": {
+            "description": {
+              "urls": []
+            },
+            "url": {}
+          },
+          "fastFollowersCount": 0,
+          "favouritesCount": 25172,
+          "hasCustomTimelines": true,
+          "isTranslator": false,
+          "mediaCount": 1478,
+          "statusesCount": 18306,
+          "withheldInCountries": [],
+          "affiliatesHighlightedLabel": {},
+          "possiblySensitive": false,
+          "pinnedTweetIds": [
+            "2012651099031793887"
+          ],
+          "profile_bio": {
+            "description": "|| I'm a duck! - 19 - Artist ||\n\nGive me breadddddddd om nom onomnom",
+            "entities": {
+              "description": {},
+              "url": {
+                "urls": [
+                  {
+                    "display_url": "ko-fi.com/bluequacker",
+                    "expanded_url": "https://ko-fi.com/bluequacker",
+                    "indices": [
+                      0,
+                      23
+                    ],
+                    "url": "https://t.co/1TNR0FULSq"
+                  }
+                ]
+              }
+            }
+          },
+          "isAutomated": false,
+          "automatedBy": null
+        },
+        "extendedEntities": {},
+        "card": null,
+        "place": {},
+        "entities": {
+          "user_mentions": [
+            {
+              "id_str": "1136521493737758720",
+              "indices": [
+                0,
+                14
+              ],
+              "name": "sushimassacre",
+              "screen_name": "sushimassacre"
+            }
+          ]
+        },
+        "quoted_tweet": null,
+        "retweeted_tweet": null,
+        "isLimitedReply": false,
+        "communityInfo": null,
+        "article": null
+      },
+      {
+        "type": "tweet",
+        "id": "2059056348646510763",
+        "url": "https://x.com/R3DNIGHTINGALE/status/2059056348646510763",
+        "twitterUrl": "https://twitter.com/R3DNIGHTINGALE/status/2059056348646510763",
+        "text": "@VonGlahnBLU It has been very quiet lately. I was not expecting any layoffs, if that is what is occurring.",
+        "source": "Twitter for iPhone",
+        "retweetCount": 0,
+        "replyCount": 1,
+        "likeCount": 2,
+        "quoteCount": 0,
+        "viewCount": 30,
+        "createdAt": "Mon May 25 23:37:43 +0000 2026",
+        "lang": "en",
+        "bookmarkCount": 0,
+        "isReply": true,
+        "inReplyToId": "2059055502714081592",
+        "conversationId": "2059055502714081592",
+        "displayTextRange": [
+          13,
+          106
+        ],
+        "inReplyToUserId": "2020325032895844352",
+        "inReplyToUsername": "VonGlahnBLU",
+        "author": {
+          "type": "user",
+          "userName": "R3DNIGHTINGALE",
+          "url": "https://x.com/R3DNIGHTINGALE",
+          "twitterUrl": "https://twitter.com/R3DNIGHTINGALE",
+          "id": "1824124186832322560",
+          "name": "Emily Nightingale | 🔞",
+          "isVerified": false,
+          "isBlueVerified": false,
+          "verifiedType": null,
+          "profilePicture": "https://pbs.twimg.com/profile_images/1956825056236941312/kTS0zI5J_normal.jpg",
+          "coverPicture": "https://pbs.twimg.com/profile_banners/1824124186832322560/1735274564",
+          "description": "",
+          "location": "Badlands, USA",
+          "followers": 120,
+          "following": 189,
+          "status": "",
+          "canDm": false,
+          "canMediaTag": true,
+          "createdAt": "Thu Aug 15 16:41:19 +0000 2024",
+          "entities": {
+            "description": {
+              "urls": []
+            },
+            "url": {}
+          },
+          "fastFollowersCount": 0,
+          "favouritesCount": 2706,
+          "hasCustomTimelines": true,
+          "isTranslator": false,
+          "mediaCount": 101,
+          "statusesCount": 1242,
+          "withheldInCountries": [],
+          "affiliatesHighlightedLabel": {},
+          "possiblySensitive": false,
+          "pinnedTweetIds": [
+            "1824135071973982305"
+          ],
+          "profile_bio": {
+            "description": "Served in Queen Alexandria’s Imperial Military Nursing Service, now serving RED team for any additional medical needs. Perhaps entangled with Herr Humboldt.",
+            "entities": {
+              "description": {},
+              "url": {
+                "urls": [
+                  {
+                    "display_url": "archiveofourown.org/works/60764122…",
+                    "expanded_url": "https://archiveofourown.org/works/60764122/chapters/155184109",
+                    "indices": [
+                      0,
+                      23
+                    ],
+                    "url": "https://t.co/uoPIrGD305"
+                  }
+                ]
+              }
+            }
+          },
+          "isAutomated": false,
+          "automatedBy": null
+        },
+        "extendedEntities": {},
+        "card": null,
+        "place": {},
+        "entities": {
+          "user_mentions": [
+            {
+              "id_str": "2020325032895844352",
+              "indices": [
+                0,
+                12
+              ],
+              "name": "Michael Von Glahn 💙🔞 MD-1031",
+              "screen_name": "VonGlahnBLU"
+            }
+          ]
+        },
+        "quoted_tweet": null,
+        "retweeted_tweet": null,
+        "isLimitedReply": false,
+        "communityInfo": null,
+        "article": null
+      },
+      {
+        "type": "tweet",
+        "id": "2059055904008413451",
+        "url": "https://x.com/pillowbrush/status/2059055904008413451",
+        "twitterUrl": "https://twitter.com/pillowbrush/status/2059055904008413451",
+        "text": "@the_abduco @charcoal150 curse of osiris ocurred when the full studio was working on d2 so pointing at lightfall like that was marathon's fault is nonsense, and lightfall is what triggered the layoffs",
+        "source": "Twitter for iPhone",
+        "retweetCount": 0,
+        "replyCount": 1,
+        "likeCount": 32,
+        "quoteCount": 0,
+        "viewCount": 167,
+        "createdAt": "Mon May 25 23:35:57 +0000 2026",
+        "lang": "en",
+        "bookmarkCount": 0,
+        "isReply": true,
+        "inReplyToId": "2059051977519349993",
+        "conversationId": "2058994542272270665",
+        "displayTextRange": [
+          25,
+          200
+        ],
+        "inReplyToUserId": "1712507090944630784",
+        "inReplyToUsername": "the_abduco",
+        "author": {
+          "type": "user",
+          "userName": "pillowbrush",
+          "url": "https://x.com/pillowbrush",
+          "twitterUrl": "https://twitter.com/pillowbrush",
+          "id": "1511182385961910274",
+          "name": "Paracetamol",
+          "isVerified": false,
+          "isBlueVerified": false,
+          "verifiedType": null,
+          "profilePicture": "https://pbs.twimg.com/profile_images/1511182651079729153/kH3YuooD_normal.jpg",
+          "coverPicture": "https://pbs.twimg.com/profile_banners/1511182385961910274/1716961119",
+          "description": "",
+          "location": "Your walls",
+          "followers": 42,
+          "following": 76,
+          "status": "",
+          "canDm": false,
+          "canMediaTag": false,
+          "createdAt": "Tue Apr 05 03:23:14 +0000 2022",
+          "entities": {
+            "description": {
+              "urls": []
+            },
+            "url": {}
+          },
+          "fastFollowersCount": 0,
+          "favouritesCount": 37584,
+          "hasCustomTimelines": true,
+          "isTranslator": false,
+          "mediaCount": 1564,
+          "statusesCount": 13687,
+          "withheldInCountries": [],
+          "affiliatesHighlightedLabel": {},
+          "possiblySensitive": false,
+          "pinnedTweetIds": [],
+          "profile_bio": {
+            "description": "Failing to learn art",
+            "entities": {
+              "description": {}
+            }
+          },
+          "isAutomated": false,
+          "automatedBy": null
+        },
+        "extendedEntities": {},
+        "card": null,
+        "place": {},
+        "entities": {
+          "user_mentions": [
+            {
+              "id_str": "1712507090944630784",
+              "indices": [
+                0,
+                11
+              ],
+              "name": "Abduco",
+              "screen_name": "the_abduco"
+            },
+            {
+              "id_str": "1687175048828964865",
+              "indices": [
+                12,
+                24
+              ],
+              "name": "Coal.",
+              "screen_name": "charcoal150"
+            }
+          ]
+        },
+        "quoted_tweet": null,
+        "retweeted_tweet": null,
+        "isLimitedReply": false,
+        "communityInfo": null,
+        "article": null
+      },
+      {
+        "type": "tweet",
+        "id": "2059055479306011035",
+        "url": "https://x.com/waateanews/status/2059055479306011035",
+        "twitterUrl": "https://twitter.com/waateanews/status/2059055479306011035",
+        "text": "The PSA is heading into high-stakes mediation over proposed job cuts at Te Puni Kōkiri, with concerns the changes could weaken support for Māori communities and undermine the Crown’s Te Tiriti obligations.\n\nThe union says more than 100 roles could be lost across the agency, while Te Puni Kōkiri maintains consultation is still underway.\n\nWhat’s at stake — and why the outcome matters for Māori development across Aotearoa — in our latest story 👇\n\n#TePuniKōkiri #PSA #MāoriDevelopment #PublicService #Aotearoa #WaateaNews",
+        "source": "Twitter for iPhone",
+        "retweetCount": 0,
+        "replyCount": 0,
+        "likeCount": 1,
+        "quoteCount": 0,
+        "viewCount": 46,
+        "createdAt": "Mon May 25 23:34:16 +0000 2026",
+        "lang": "en",
+        "bookmarkCount": 0,
+        "isReply": false,
+        "inReplyToId": null,
+        "conversationId": "2059055479306011035",
+        "displayTextRange": [
+          0,
+          280
+        ],
+        "inReplyToUserId": null,
+        "inReplyToUsername": null,
+        "author": {
+          "type": "user",
+          "userName": "waateanews",
+          "url": "https://x.com/waateanews",
+          "twitterUrl": "https://twitter.com/waateanews",
+          "id": "102839175",
+          "name": "Waatea",
+          "isVerified": false,
+          "isBlueVerified": true,
+          "verifiedType": null,
+          "profilePicture": "https://pbs.twimg.com/profile_images/1957620160627634178/Qi6WBNaV_normal.jpg",
+          "coverPicture": "https://pbs.twimg.com/profile_banners/102839175/1755567993",
+          "description": "",
+          "location": "Mangere, Auckland",
+          "followers": 5213,
+          "following": 877,
+          "status": "",
+          "canDm": false,
+          "canMediaTag": true,
+          "createdAt": "Fri Jan 08 00:52:06 +0000 2010",
+          "entities": {
+            "description": {
+              "urls": []
+            },
+            "url": {}
+          },
+          "fastFollowersCount": 0,
+          "favouritesCount": 454,
+          "hasCustomTimelines": true,
+          "isTranslator": false,
+          "mediaCount": 11218,
+          "statusesCount": 42357,
+          "withheldInCountries": [],
+          "affiliatesHighlightedLabel": {},
+          "possiblySensitive": false,
+          "pinnedTweetIds": [],
+          "profile_bio": {
+            "description": "Aucklands' Urban Maori Radio & News Station",
+            "entities": {
+              "description": {},
+              "url": {
+                "urls": [
+                  {
+                    "display_url": "waateanews.com",
+                    "expanded_url": "http://www.waateanews.com",
+                    "indices": [
+                      0,
+                      23
+                    ],
+                    "url": "https://t.co/Ws7Me2HqKs"
+                  }
+                ]
+              }
+            }
+          },
+          "isAutomated": false,
+          "automatedBy": null
+        },
+        "extendedEntities": {
+          "media": [
+            {
+              "additional_media_info": {
+                "monetizable": true
+              },
+              "display_url": "pic.twitter.com/5IfHfCgg1x",
+              "expanded_url": "https://twitter.com/waateanews/status/2059055479306011035/video/1",
+              "ext_master_playlist_only": [],
+              "ext_media_availability": {
+                "status": "Available"
+              },
+              "ext_playlists": [],
+              "id_str": "2059055417335156736",
+              "indices": [
+                281,
+                304
+              ],
+              "media_key": "13_2059055417335156736",
+              "media_results": {
+                "id": "QXBpTWVkaWFSZXN1bHRzOgwABAoAARyTO/4jGxAAAAA=",
+                "result": {
+                  "__typename": "ApiMedia",
+                  "id": "QXBpTWVkaWE6DAAECgABHJM7/iMbEAAAAA==",
+                  "media_key": "13_2059055417335156736"
+                }
+              },
+              "media_url_https": "https://pbs.twimg.com/amplify_video_thumb/2059055417335156736/img/UBOo1AjxXbq78-c4.jpg",
+              "original_info": {
+                "focus_rects": [],
+                "height": 788,
+                "width": 940
+              },
+              "sizes": {
+                "large": {
+                  "h": 788,
+                  "w": 940
+                }
+              },
+              "type": "video",
+              "url": "https://t.co/5IfHfCgg1x",
+              "video_info": {
+                "aspect_ratio": [
+                  235,
+                  197
+                ],
+                "duration_millis": 30000,
+                "variants": [
+                  {
+                    "content_type": "application/x-mpegURL",
+                    "url": "https://video.twimg.com/amplify_video/2059055417335156736/pl/83lSnKngw2Edrvgl.m3u8?tag=27"
+                  },
+                  {
+                    "bitrate": 256000,
+                    "content_type": "video/mp4",
+                    "url": "https://video.twimg.com/amplify_video/2059055417335156736/vid/avc1/322x270/KZi8xY-TI_F1bFNL.mp4?tag=27"
+                  },
+                  {
+                    "bitrate": 832000,
+                    "content_type": "video/mp4",
+                    "url": "https://video.twimg.com/amplify_video/2059055417335156736/vid/avc1/428x360/tdn9QDh6vtFviuNp.mp4?tag=27"
+                  },
+                  {
+                    "bitrate": 2176000,
+                    "content_type": "video/mp4",
+                    "url": "https://video.twimg.com/amplify_video/2059055417335156736/vid/avc1/858x720/vrrTjgX7ebzeBRCn.mp4?tag=27"
+                  },
+                  {
+                    "bitrate": 10368000,
+                    "content_type": "video/mp4",
+                    "url": "https://video.twimg.com/amplify_video/2059055417335156736/vid/avc1/940x788/nVdy5T681GutVbmF.mp4?tag=27"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "card": null,
+        "place": {},
+        "entities": {
+          "hashtags": [
+            {
+              "indices": [
+                448,
+                461
+              ],
+              "text": "TePuniKōkiri"
+            },
+            {
+              "indices": [
+                462,
+                466
+              ],
+              "text": "PSA"
+            },
+            {
+              "indices": [
+                467,
+                484
+              ],
+              "text": "MāoriDevelopment"
+            },
+            {
+              "indices": [
+                485,
+                499
+              ],
+              "text": "PublicService"
+            },
+            {
+              "indices": [
+                500,
+                509
+              ],
+              "text": "Aotearoa"
+            },
+            {
+              "indices": [
+                510,
+                521
+              ],
+              "text": "WaateaNews"
+            }
+          ],
+          "symbols": [],
+          "timestamps": [],
+          "urls": [],
+          "user_mentions": []
+        },
+        "quoted_tweet": null,
+        "retweeted_tweet": null,
+        "isLimitedReply": false,
+        "communityInfo": null,
+        "article": null
+      },
+      {
+        "type": "tweet",
+        "id": "2059055177811063158",
+        "url": "https://x.com/Mvl80Vl8/status/2059055177811063158",
+        "twitterUrl": "https://twitter.com/Mvl80Vl8/status/2059055177811063158",
+        "text": "@Jason Are you insane!!  1-3 million !! We had negative job growth and tons of layoffs! 90% of the jobs are going to foreign born . You must really hate American white collar workers because  this and AI would take everyone of their jobs 👎👎",
+        "source": "Twitter for iPhone",
+        "retweetCount": 0,
+        "replyCount": 0,
+        "likeCount": 3,
+        "quoteCount": 0,
+        "viewCount": 27,
+        "createdAt": "Mon May 25 23:33:04 +0000 2026",
+        "lang": "en",
+        "bookmarkCount": 0,
+        "isReply": true,
+        "inReplyToId": "2058935805868224728",
+        "conversationId": "2058935805868224728",
+        "displayTextRange": [
+          7,
+          240
+        ],
+        "inReplyToUserId": "3840",
+        "inReplyToUsername": "Jason",
+        "author": {
+          "type": "user",
+          "userName": "Mvl80Vl8",
+          "url": "https://x.com/Mvl80Vl8",
+          "twitterUrl": "https://twitter.com/Mvl80Vl8",
+          "id": "1520231501417246720",
+          "name": "Mvl80",
+          "isVerified": false,
+          "isBlueVerified": true,
+          "verifiedType": null,
+          "profilePicture": "https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png",
+          "coverPicture": "",
+          "description": "",
+          "location": "California, USA",
+          "followers": 1292,
+          "following": 5275,
+          "status": "",
+          "canDm": false,
+          "canMediaTag": false,
+          "createdAt": "Sat Apr 30 02:40:19 +0000 2022",
+          "entities": {
+            "description": {
+              "urls": []
+            },
+            "url": {}
+          },
+          "fastFollowersCount": 0,
+          "favouritesCount": 378686,
+          "hasCustomTimelines": true,
+          "isTranslator": false,
+          "mediaCount": 39,
+          "statusesCount": 34685,
+          "withheldInCountries": [],
+          "affiliatesHighlightedLabel": {},
+          "possiblySensitive": false,
+          "pinnedTweetIds": [],
+          "profile_bio": {
+            "description": "",
+            "entities": {
+              "description": {}
+            }
+          },
+          "isAutomated": false,
+          "automatedBy": null
+        },
+        "extendedEntities": {},
+        "card": null,
+        "place": {},
+        "entities": {
+          "user_mentions": [
+            {
+              "id_str": "3840",
+              "indices": [
+                0,
+                6
+              ],
+              "name": "@jason",
+              "screen_name": "Jason"
+            }
+          ]
+        },
+        "quoted_tweet": null,
+        "retweeted_tweet": null,
+        "isLimitedReply": false,
+        "communityInfo": null,
+        "article": null
+      }
+    ],
+    "has_next_page": true,
+    "next_cursor": "DAADDAABCgABHJNBd4RWwLwKAAIckzvGXltxdgAIAAIAAAACCAADAAAAAAgABAAAAAAKAAUck-X5u8AnEAoABhyT5fm7v9jwAAA",
+    "payment": {
+      "paidBy": "2DaBonP27dnavQ3AXoDAwnXyKyGBC2DPse24xaCYu7th",
+      "txHash": "3ggK5EyUop9vBuLxhrHQ8r1CrJh45viBAZwMyo6h6HpKRRe1WqpyQZcrhjneNNGH2vcpq83XBPcFmwa5BcbzE7ML"
+    }
+  },
+  "receipt": {
+    "id": "00MPMKXZ8O-1G1F1G6Z1F306V3V",
+    "tool_id": "frames.twitter.post.api-search-tweets",
+    "tool_local_name": "twitter_search",
+    "descriptor_id": "sha256-eXRKwGQgvNcSZi8Lun12PHIkktbimUmpiR6Ll5rf7LE",
+    "amount": "0.01",
+    "currency": "CASH",
+    "network": "solana-mainnet",
+    "wallet_address": "AyyQz8tScHpiAh7S3v8XXhxHbfvfSiErLGur11SmegRc",
+    "ts": "2026-05-26T11:56:42.024Z"
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "per_entity": [
+    {
+      "entity_id": "meta-2026-05-20",
+      "fields_added": [],
+      "sources_attached": [],
+      "fact_ids": [],
+      "sec_searched": true,
+      "warn_searched": false,
+      "notes": "SEC EDGAR: only 2026-05-04 and 2026-04-29 8-Ks found; no 8-K filed within ±30 days specifically covering the 8,000-job layoff announced May 20. Left sec_filing_url UNSET. No first-party about.meta.com URL in evidence_urls; no official_statement_url available. Region=global so WARN portal not in scope."
+    },
+    {
+      "entity_id": "intuit-2026-05-20",
+      "fields_added": ["sec_filing_url", "ceo_name"],
+      "sources_attached": [
+        "https://www.sec.gov/Archives/edgar/data/896878/000089687826000024/intu-20260520.htm",
+        "https://www.sec.gov/Archives/edgar/data/896878/000089687826000024/fy26q3earningspressrelease.htm"
+      ],
+      "fact_ids": [
+        "3a131e1b-e827-415f-b4c2-77e410999a2f",
+        "de4b70c2-e2c0-46df-a6f4-f100b30768b3"
+      ],
+      "sec_searched": true,
+      "warn_searched": false,
+      "notes": "INTU 8-K filed 2026-05-20 (accession 0000896878-26-000024) with item 2.05 (Costs Associated with Exit or Disposal Activities) matches the announcement date exactly. CEO Sasan Goodarzi named in Exhibit 99.1 earnings press release. Did NOT set official_statement_url — the 8-K text says 'faster, leaner, more focused' which does not match writer's reason_excerpt 'faster, leaner, and more focused' verbatim. Did not set total_workforce_before — no explicit pre-layoff headcount stated. Region=global so WARN not in scope."
+    },
+    {
+      "entity_id": "cisco-2026-05-13",
+      "fields_added": ["sec_filing_url", "official_statement_url", "ceo_name"],
+      "sources_attached": [
+        "https://www.sec.gov/Archives/edgar/data/858877/000085887726000075/csco-20260513.htm",
+        "https://blogs.cisco.com/news/our-path-forward"
+      ],
+      "fact_ids": [
+        "dd52b257-8b38-4d6c-b6d3-e2833b5ef9b1",
+        "ea4b08f0-c568-438c-a517-61865218853c",
+        "a7acf610-f8e4-4248-a225-6409b733ec69"
+      ],
+      "sec_searched": true,
+      "warn_searched": false,
+      "notes": "CSCO 8-K filed 2026-05-13 (accession 0000858877-26-000075) with item 2.05 matches announcement date exactly. Cisco blog by CEO Chuck Robbins is the primary_source; verified reason_excerpt 'we are making changes today that will result in the reduction of our overall workforce in Q4 by fewer than 4,000 jobs, representing less than 5 percent of our total employee base' is present verbatim. CEO confirmed in blog byline. Region=global so WARN not in scope."
+    },
+    {
+      "entity_id": "wix-2026-05-25",
+      "fields_added": [],
+      "sources_attached": [],
+      "fact_ids": [],
+      "sec_searched": false,
+      "warn_searched": false,
+      "notes": "Israeli company (WIX trades on Nasdaq as foreign private issuer, files 20-F/6-K rather than 8-K). No US-region affected so WARN out of scope. Evidence URLs contain no wix.com first-party page; calcalistech and X tweets only. Per service rules skipped SEC for non-US. Left unenriched."
+    },
+    {
+      "entity_id": "clickup-2026-05-23",
+      "fields_added": [],
+      "sources_attached": [],
+      "fact_ids": [],
+      "sec_searched": false,
+      "warn_searched": true,
+      "notes": "Private company — no SEC filings expected. Evidence URLs are an Economic Times article only (no clickup.com first-party URL). Quick WARN portal scan: ClickUp HQ is San Diego CA; CA EDD WARN xlsx (warn_report1.xlsx, retrieved 2026-05-26) contains no ClickUp entry. Left unenriched."
+    },
+    {
+      "entity_id": "panera-2026-05-20",
+      "fields_added": [],
+      "sources_attached": [],
+      "fact_ids": [],
+      "sec_searched": false,
+      "warn_searched": true,
+      "notes": "Private (Panera Brands subsidiary of JAB Holdings) — no public SEC filings expected. Primary source is warntracker.com aggregator. State WARN portals (OH — West Chester/Butler; MD — Jessup) not directly fetched within 90s budget; warntracker URL already attached as primary_source by writer. No first-party panera.com URL in evidence."
+    },
+    {
+      "entity_id": "ssp-america-2026-05-19",
+      "fields_added": [],
+      "sources_attached": [],
+      "fact_ids": [],
+      "sec_searched": false,
+      "warn_searched": true,
+      "notes": "Subsidiary of SSP Group plc (LSE) — not a separate SEC filer. CA EDD WARN xlsx (warn_report1.xlsx) contains an unrelated SSP America/Intel row from 2025-07 in Tipton; does not match the 2026-05-19 Sacramento layoff (CA WARN data lag prevents 2026 confirmation). Skipped warn_filing_url to avoid attaching the wrong record."
+    },
+    {
+      "entity_id": "elior-2026-05-17",
+      "fields_added": [],
+      "sources_attached": [],
+      "fact_ids": [],
+      "sec_searched": false,
+      "warn_searched": true,
+      "notes": "French parent (Elior Group SA, Euronext Paris) — no US SEC 8-K. WI WARN portal not directly queried within 90s budget; warntracker.com already attached as primary_source by writer. No first-party elior.com press release surfaced."
+    },
+    {
+      "entity_id": "diamond-transportation-services-2026-05-12",
+      "fields_added": [],
+      "sources_attached": [],
+      "fact_ids": [],
+      "sec_searched": false,
+      "warn_searched": true,
+      "notes": "Subsidiary of National Express / WeDriveU — not a direct SEC filer (National Express is UK-listed). MD WARN portal not directly queried within budget; Strauss Borrelli class-action notice already attached as primary_source. No first-party press release."
+    },
+    {
+      "entity_id": "macrogenics-2026-05-13",
+      "fields_added": ["sec_filing_url", "ceo_name", "affected_teams"],
+      "sources_attached": [
+        "https://www.sec.gov/Archives/edgar/data/1125345/000112534526000040/mgnx-20260513.htm",
+        "https://www.sec.gov/Archives/edgar/data/1125345/000112534526000040/exhibit99-1earningspressre.htm"
+      ],
+      "fact_ids": [
+        "4d80c2d6-0dac-4e3e-bf43-9cad2cf2e327",
+        "64b43000-7c8e-48a6-8ecd-a1193a521a4c",
+        "f87270d0-bf8b-4412-bcfc-d9f5dc6430fe"
+      ],
+      "sec_searched": true,
+      "warn_searched": false,
+      "notes": "MGNX 8-K filed 2026-05-13 (accession 0001125345-26-000040, the exact filing the writer's primary_source mirrored). Exhibit 99.1 earnings press release names Eric Risser as President and CEO and states '≈140 employees are expected to transfer to Bora ... approximately 135 employees at closing'. Did not set total_workforce_before — only post-close headcount stated, not pre-layoff. Did not set layoff_count — writer omitted intentionally."
+    },
+    {
+      "entity_id": "linkedin-2026-05-13",
+      "fields_added": [],
+      "sources_attached": [],
+      "fact_ids": [],
+      "sec_searched": true,
+      "warn_searched": false,
+      "notes": "LinkedIn is a Microsoft subsidiary — checked MSFT 8-K filings (CIK 0000789019) for May 2026: only 2026-05-14 (item 5.02 officer departure) and 2026-04-29 (items 2.02/9.01 earnings) — neither addresses LinkedIn layoffs. No SEC filing matches. Evidence_urls are X tweets only; no linkedin.com first-party post. Left unenriched."
+    },
+    {
+      "entity_id": "starbucks-2026-05-15",
+      "fields_added": ["sec_filing_url", "affected_teams"],
+      "sources_attached": [
+        "https://www.sec.gov/Archives/edgar/data/829224/000082922426000088/sbux-20260513.htm"
+      ],
+      "fact_ids": [
+        "c450e88e-85dd-455b-884e-aba24c561cef",
+        "5b0997c4-a2ba-4fa5-bd52-de24ff41da0a"
+      ],
+      "sec_searched": true,
+      "warn_searched": false,
+      "notes": "SBUX 8-K filed 2026-05-15 (accession 0000829224-26-000088) with item 2.05 (Costs Associated with Exit or Disposal Activities); board approved restructuring under 'Back to Starbucks' strategy on 2026-05-13. Affected_teams set verbatim: 'domestic and international support organization and non-retail facilities'. Did NOT set ceo_name — CEO Brian Niccol is not named in the 8-K body itself (only by counsel signer Joshua Gaul); candidate had it from a tweet only, no official confirmation."
+    },
+    {
+      "entity_id": "upwork-2026-05-14",
+      "fields_added": ["sec_filing_url", "ceo_name"],
+      "sources_attached": [
+        "https://www.sec.gov/Archives/edgar/data/1627475/000162747526000033/upwork-20260507.htm",
+        "https://www.sec.gov/Archives/edgar/data/1627475/000162747526000033/upwork1q26-pressrelease.htm"
+      ],
+      "fact_ids": [
+        "5ee88059-7b56-4a6b-a448-7aa94dac3e07",
+        "aa52ba60-5f6f-4b52-ac2e-12dc552fb19b"
+      ],
+      "sec_searched": true,
+      "warn_searched": false,
+      "notes": "UPWK 8-K filed 2026-05-07 (accession 0001627475-26-000033) with items 2.02, 2.05, 7.01, 9.01 — 7 days before writer's date_announced 2026-05-14 but well within ±30-day window. Exhibit 99.1 press release explicitly names 'Hayden Brown, president and CEO of Upwork Inc.' and states '~24%' workforce reduction (writer set 25.0 — minor delta; not enricher's job to correct). Did not set official_statement_url — evidence_urls only contain an X tweet, and writer set no reason_excerpt to verify."
+    },
+    {
+      "entity_id": "gitlab-2026-05-12",
+      "fields_added": ["sec_filing_url"],
+      "sources_attached": [
+        "https://www.sec.gov/Archives/edgar/data/1653482/000165348226000095/exhibit991-letterfromwilla.htm"
+      ],
+      "fact_ids": [
+        "2f383778-c527-4be1-9bb3-98d114d14747"
+      ],
+      "sec_searched": true,
+      "warn_searched": false,
+      "notes": "GTLB 8-K filed 2026-05-11 (accession 0001653482-26-000095) with items 2.02, 7.01, 9.01. Exhibit 99.1 is the CEO restructuring letter ('GitLab Act 2: A letter to our customers and our investors') announcing the voluntary separation window and country-footprint reduction. Did NOT set official_statement_url — writer's reason_excerpt 'Authoring code by hand may be going away.' is NOT present verbatim in the official 8-K letter (the letter discusses 'agentic era' and AI-driven workflow shifts but does not contain that exact sentence — it appears to have come from the CEO's X thread, not the letter). CEO Bill Staples found in letter but writer did not set ceo_name for GitLab and this was not in candidate fields, so left untouched. Region=global so WARN out of scope."
+    }
+  ],
+  "enrichment_blocked": [],
+  "stats": {
+    "entities_in": 14,
+    "facts_added": 12,
+    "sec_filings_found": 7,
+    "warn_notices_found": 0,
+    "official_statements_verified": 1
+  }
+}

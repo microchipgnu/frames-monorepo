@@ -1,0 +1,91 @@
+{
+  "planned_total_usd": 0.06,
+  "budget_usd": 0.20,
+  "headroom_usd": 0.14,
+  "two_tool_minimum_satisfied": true,
+  "distinct_slices": 6,
+  "min_queries_satisfied": true,
+  "freshness_window": { "from": "2026-05-12", "to": "2026-05-26", "days": 14 },
+  "queries": [
+    {
+      "id": "q1",
+      "tool": "exa_search",
+      "slice": "semantic-news-broad",
+      "params": {
+        "query": "company announces layoffs workforce reduction May 2026",
+        "numResults": 10,
+        "type": "neural",
+        "startPublishedDate": "2026-05-12",
+        "endPublishedDate": "2026-05-26"
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "Broadest semantic sweep across the 14-day window."
+    },
+    {
+      "id": "q2",
+      "tool": "exa_search",
+      "slice": "semantic-ai-restructure",
+      "params": {
+        "query": "AI restructuring layoffs automation job cuts technology",
+        "numResults": 10,
+        "type": "neural",
+        "startPublishedDate": "2026-05-12",
+        "endPublishedDate": "2026-05-26"
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "Captures the dominant 2026 reason_stated value."
+    },
+    {
+      "id": "q3",
+      "tool": "exa_search",
+      "slice": "semantic-warn-8k",
+      "params": {
+        "query": "WARN notice filing 8-K SEC workforce reduction May 2026",
+        "numResults": 10,
+        "type": "neural",
+        "startPublishedDate": "2026-05-12",
+        "endPublishedDate": "2026-05-26"
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "Pulls authoritative tier-1 filings (sec_filing_url / warn_filing_url evidence)."
+    },
+    {
+      "id": "q4",
+      "tool": "exa_search",
+      "slice": "semantic-memo-style",
+      "params": {
+        "query": "internal memo employees job cuts restructuring 2026",
+        "numResults": 10,
+        "type": "neural",
+        "startPublishedDate": "2026-05-12",
+        "endPublishedDate": "2026-05-26"
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "Hits leaked-memo coverage often missed by news headlines."
+    },
+    {
+      "id": "q5",
+      "tool": "twitter_search",
+      "slice": "social-official-posts",
+      "params": {
+        "query": "(layoffs OR \"job cuts\") -filter:retweets lang:en",
+        "limit": 25,
+        "since": "2026-05-12"
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "Direct posts from company/CEO accounts — authority_tier 2 evidence."
+    },
+    {
+      "id": "q6",
+      "tool": "twitter_search",
+      "slice": "social-ceo-statement",
+      "params": {
+        "query": "CEO statement layoffs workforce reduction from:verified",
+        "limit": 25,
+        "since": "2026-05-12"
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "Filters for verified-account CEO statements."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "run_started_at": "2026-05-26T00:01:00Z",
+  "spent_usd": 0.00,
+  "budget_usd": 0.20,
+  "results": [
+    {
+      "query_id": "q1-exa-broad",
+      "tool": "exa_search",
+      "settled": false,
+      "paid_usd": 0.00,
+      "error": {
+        "kind": "agentwallet-500",
+        "rail_attempted": "base/USDC",
+        "chain": "eip155:8453",
+        "amount_raw": "10000",
+        "recipient": "0xe62923133a417cEe4241677865Ed5a63F44F4B54",
+        "duration_ms": 584,
+        "attempts": 1
+      }
+    },
+    {
+      "query_id": "q3-exa-warn",
+      "tool": "exa_search",
+      "settled": false,
+      "paid_usd": 0.00,
+      "error": {
+        "kind": "agentwallet-500",
+        "rail_attempted": "base/USDC",
+        "chain": "eip155:8453",
+        "duration_ms": 509,
+        "attempts": 1
+      }
+    },
+    {
+      "query_id": "q5-twitter-recent",
+      "tool": "twitter_search",
+      "settled": false,
+      "paid_usd": 0.00,
+      "error": {
+        "kind": "agentwallet-500",
+        "rail_attempted": "base/USDC",
+        "chain": "eip155:8453",
+        "duration_ms": 411,
+        "attempts": 1
+      }
+    }
+  ],
+  "settled_count": 0,
+  "failed_count": 3
+}

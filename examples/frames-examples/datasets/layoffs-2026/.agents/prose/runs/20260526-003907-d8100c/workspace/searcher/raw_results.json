@@ -1,0 +1,57 @@
+{
+  "calls": [
+    {
+      "query_id": "q1-exa-news-broad",
+      "tool": "exa_search",
+      "settled": false,
+      "paid_usd": 0.0,
+      "rail": { "chain": "eip155:8453", "currency": "USDC" },
+      "error": "no rail succeeded across 5 payment options. All 5 fallback options (base/USDC, base/USDT, solana-mainnet/USDC, solana-mainnet/USDT, solana-mainnet/CASH) returned agentwallet 500. Each option's actual payment payload was identical: chain=eip155:8453, amountRaw=10000, recipient=0xe62923133a417cEe4241677865Ed5a63F44F4B54 — i.e. the multi-rail fallback iterated rail-selection but the per-attempt payment payload was never re-templated for the chosen rail."
+    },
+    {
+      "query_id": "q2-exa-ai-restructure",
+      "tool": "exa_search",
+      "settled": false,
+      "paid_usd": 0.0,
+      "rail": { "chain": "eip155:8453", "currency": "USDC" },
+      "error": "Identical 5-option failure mode as q1. Every option dispatched to agentwallet with chain=eip155:8453/USDC/recipient=0xe629... and got agentwallet 500."
+    },
+    {
+      "query_id": "q5-twitter-official-posts",
+      "tool": "twitter_search",
+      "settled": false,
+      "paid_usd": 0.0,
+      "rail": { "chain": "eip155:8453", "currency": "USDC" },
+      "error": "Identical 5-option failure mode — same base/USDC payload dispatched on every rail attempt; agentwallet 500 across the board. Switched tools after q2 to confirm not exa-specific; twitter_search fails the same way."
+    },
+    {
+      "query_id": "q3-exa-warn-8k",
+      "tool": "exa_search",
+      "settled": false,
+      "paid_usd": 0.0,
+      "rail": { "chain": "eip155:8453", "currency": "USDC" },
+      "error": "Identical 5-option failure mode. agentwallet 500 on every rail attempt; payload always base/USDC/0xe629..."
+    },
+    {
+      "query_id": "q4-exa-finance-sector",
+      "tool": "exa_search",
+      "settled": false,
+      "paid_usd": 0.0,
+      "rail": { "chain": "eip155:8453", "currency": "USDC" },
+      "error": "Identical 5-option failure mode. agentwallet 500 on every rail attempt; payload always base/USDC/0xe629..."
+    },
+    {
+      "query_id": "q6-twitter-ceo-statement",
+      "tool": "twitter_search",
+      "settled": false,
+      "paid_usd": 0.0,
+      "rail": { "chain": "eip155:8453", "currency": "USDC" },
+      "error": "Identical 5-option failure mode. agentwallet 500 on every rail attempt; payload always base/USDC/0xe629..."
+    }
+  ],
+  "spent_usd": 0.0,
+  "settled_count": 0,
+  "failed_count": 6,
+  "budget_usd": 0.20,
+  "notes": "AllCallsFailed. Multi-rail fallback (commit baaa1774c) fired — pay client iterated all 5 advertised payment.accepts[] options for every query — but each per-rail attempt sent an identical agentwallet payload of {chain:eip155:8453, currency:USDC, recipient:0xe62923133a417cEe4241677865Ed5a63F44F4B54}, indicating the rail-iteration loop selects the option but the payment-payload template still hard-picks base/USDC. Wallets are configured for both base and solana-mainnet. Zero settlements; zero USD spent; full $0.20 budget remains. Diagnostic surfaced to orchestrator for dedup→shortfall."
+}

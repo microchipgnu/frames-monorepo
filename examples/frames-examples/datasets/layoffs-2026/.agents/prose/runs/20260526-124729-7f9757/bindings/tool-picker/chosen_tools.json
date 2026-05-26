@@ -1,0 +1,40 @@
+{
+  "chosen_tools": [
+    {
+      "rank": 1,
+      "name": "exa_search",
+      "role": "semantic-web",
+      "price_hint_usd": 0.01,
+      "rails": [
+        { "network": "base", "currency": "USDC" },
+        { "network": "base", "currency": "USDT" },
+        { "network": "solana-mainnet", "currency": "USDC" },
+        { "network": "solana-mainnet", "currency": "USDT" },
+        { "network": "solana-mainnet", "currency": "CASH" }
+      ],
+      "descriptor_id": "sha256-CN_sNNBVetLiOBKCjgMCIUY24_r_XCpHb1i8naIdVvk",
+      "descriptor_fetched_at": "2026-05-25T22:48:39.408Z",
+      "stale_days": 1,
+      "rationale": "Schema/README explicitly call out Exa neural web search for semantic discovery and freshness checks of layoff announcements. Descriptor is locked, fresh (1 day old), and advertises multi-rail accepts that match both configured wallets (base + solana-mainnet, USDC primary). Primary rail (base USDC) aligns with the agent's existing dispatch path, minimizing rail-routing dispatch risk."
+    },
+    {
+      "rank": 2,
+      "name": "twitter_search",
+      "role": "social-official",
+      "price_hint_usd": 0.01,
+      "rails": [
+        { "network": "base", "currency": "USDC" },
+        { "network": "base", "currency": "USDT" },
+        { "network": "solana-mainnet", "currency": "USDC" },
+        { "network": "solana-mainnet", "currency": "USDT" },
+        { "network": "solana-mainnet", "currency": "CASH" }
+      ],
+      "descriptor_id": "sha256-eXRKwGQgvNcSZi8Lun12PHIkktbimUmpiR6Ll5rf7LE",
+      "descriptor_fetched_at": "2026-05-25T22:49:02.912Z",
+      "stale_days": 1,
+      "rationale": "README designates X/Twitter as the channel for official CEO/company announcements — directly populates official_statement_url, status, and social_signal fields. Same price, same multi-rail accept set as exa_search, fresh descriptor (1 day old), matching wallets on both base and solana-mainnet."
+    }
+  ],
+  "two_tool_minimum_satisfied": true,
+  "notes": "Both chosen tools are locked, resolvable via mcp__pay__list_tools, and reachable on rails (base, solana-mainnet) for which agent wallets are configured (agentwallet:my-agentwallet on 0xBd9E... and AyyQz8...). The other three manifest entries — serper_news, reddit_search, firecrawl_scrape — are unlocked, and the catalog lists their settlement on the `tempo` network (MPP rail) for which no wallet is configured; resolving them would require add_tool or a first-time pay_tool call, both prohibited for this service. They are therefore deliberately excluded for this run. Recommend the searcher prefer rail `base + USDC` (matches current pay dispatch defaults) with `solana-mainnet + USDC` as a documented fallback for both chosen tools."
+}

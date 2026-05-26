@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "planned_at": "2026-05-25",
+  "freshness_window": {
+    "start": "2026-05-12",
+    "end": "2026-05-25",
+    "days": 13,
+    "rationale": "Frame already covers through 2026-05-12 (53 entities). Narrowing to post-last-coverage avoids spending on re-discovery."
+  },
+  "min_queries": 4,
+  "queries": [
+    {
+      "id": "q1-exa-broad",
+      "tool": "exa_search",
+      "slice": "semantic-news-broad",
+      "params": {
+        "query": "company announces layoffs workforce reduction May 2026",
+        "category": "news",
+        "startPublishedDate": "2026-05-12",
+        "endPublishedDate": "2026-05-25",
+        "numResults": 25
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "Broad semantic announcement query, news category, explicit freshness window."
+    },
+    {
+      "id": "q2-exa-ceo",
+      "tool": "exa_search",
+      "slice": "semantic-ceo-statement",
+      "params": {
+        "query": "CEO statement on layoffs job cuts workforce reduction announcement",
+        "category": "news",
+        "startPublishedDate": "2026-05-12",
+        "endPublishedDate": "2026-05-25",
+        "numResults": 20
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "CEO-anchored language picks up tier-1 official statements (CEO posts are authority_tier 2)."
+    },
+    {
+      "id": "q3-exa-warn",
+      "tool": "exa_search",
+      "slice": "semantic-warn-8k",
+      "params": {
+        "query": "WARN notice filing 8-K SEC workforce reduction layoff May 2026",
+        "category": "news",
+        "startPublishedDate": "2026-05-12",
+        "endPublishedDate": "2026-05-25",
+        "numResults": 20
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "Authoritative filings angle — WARN/8-K coverage often has hard numbers + dates (authority_tier 1)."
+    },
+    {
+      "id": "q4-exa-ai-restructure",
+      "tool": "exa_search",
+      "slice": "semantic-ai-restructure",
+      "params": {
+        "query": "AI restructuring layoffs automation job cuts technology company May 2026",
+        "category": "news",
+        "startPublishedDate": "2026-05-12",
+        "endPublishedDate": "2026-05-25",
+        "numResults": 20
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "AI-restructuring is the dominant 2026 driver per schema enum; surfaces the reason_stated bucket explicitly."
+    },
+    {
+      "id": "q5-twitter-recent",
+      "tool": "twitter_search",
+      "slice": "social-official-posts",
+      "params": {
+        "query": "(layoffs OR \"job cuts\" OR \"workforce reduction\") -filter:retweets lang:en",
+        "queryType": "Latest",
+        "cursor": ""
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "CEO + company official posts; tier-2 primary when CEO names a number, else tier-4 corroborator."
+    }
+  ],
+  "estimated_total_cost_usd": 0.05,
+  "budget_ceiling_usd": 0.20,
+  "headroom_usd": 0.15,
+  "tools_used": ["exa_search", "twitter_search"],
+  "distinct_slices": [
+    "semantic-news-broad",
+    "semantic-ceo-statement",
+    "semantic-warn-8k",
+    "semantic-ai-restructure",
+    "social-official-posts"
+  ],
+  "two_tool_minimum_satisfied": true,
+  "min_queries_satisfied": true
+}

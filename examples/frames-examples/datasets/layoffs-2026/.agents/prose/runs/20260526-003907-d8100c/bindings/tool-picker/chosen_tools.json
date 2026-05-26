@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "picked_at": "2026-05-26",
+  "program": "discover",
+  "budget_usd": 0.20,
+  "chosen_tools": [
+    {
+      "rank": 1,
+      "name": "exa_search",
+      "role": "primary-semantic-news",
+      "price_hint_usd": 0.01,
+      "locked": true,
+      "descriptor_id": "sha256-CN_sNNBVetLiOBKCjgMCIUY24_r_XCpHb1i8naIdVvk",
+      "rails": [
+        "base/USDC",
+        "base/USDT",
+        "solana-mainnet/USDC",
+        "solana-mainnet/USDT",
+        "solana-mainnet/CASH"
+      ],
+      "preferred_rail": "base/USDC",
+      "rationale": "Semantic web + news category search is the discover backbone for layoffs (covers news, company, linkedin profile, tweet categories in one tool). Full multi-rail descriptor: base+solana wallets configured for both, so runtime rail-fallback (baaa1774c) can retry on opaque-500. Lowest viable price hint ($0.01). Descriptor fetched 2026-05-25, fresh."
+    },
+    {
+      "rank": 2,
+      "name": "twitter_search",
+      "role": "corroborator-social",
+      "price_hint_usd": 0.01,
+      "locked": true,
+      "descriptor_id": "sha256-eXRKwGQgvNcSZi8Lun12PHIkktbimUmpiR6Ll5rf7LE",
+      "rails": [
+        "base/USDC",
+        "base/USDT",
+        "solana-mainnet/USDC",
+        "solana-mainnet/USDT",
+        "solana-mainnet/CASH"
+      ],
+      "preferred_rail": "base/USDC",
+      "rationale": "Official CEO/company announcements live on X — direct path to authoritative source for reason_excerpt and official_statement_url per README's authoritative-source rule. Same 5-rail multi-accept as exa, both wallets cover it. Fresh lock (2026-05-25)."
+    }
+  ],
+  "rejected_tools": [
+    {
+      "name": "serper_news",
+      "reason": "Unresolved (not installed) AND catalog summary shows only mpp/tempo rail with token 0x20c0...b9537d11c60e8b50 — no tempo wallet configured. Resolving would require pay_tool (prohibited by this service). Exa already covers the news category, so loss is bounded."
+    },
+    {
+      "name": "reddit_search",
+      "reason": "Unresolved + same tempo-only rail problem. No configured tempo wallet. Employee-side mood is a nice-to-have for status/social_signal but not load-bearing for primary entity discovery."
+    },
+    {
+      "name": "firecrawl_scrape",
+      "reason": "Belongs to curate/refresh (full-text extraction from press releases), not discover. Out of role even if it were resolvable."
+    }
+  ],
+  "wallets_available": ["base", "solana-mainnet"],
+  "two_tool_minimum_satisfied": true,
+  "multirail_status": "Both chosen tools advertise 5 accept rails (base USDC/USDT + solana USDC/USDT/CASH); base/USDC primary with solana/USDC as automatic fallback target — searcher can dodge the prior base/USDC opaque-500 by trying solana on retry.",
+  "notes": "Discover stack collapses from 5 declared tools to 2 payable ones because the 3 stableenrich tools require a tempo wallet that's not configured. Exa's news+semantic coverage compensates for losing serper_news. Reddit social_signal will be missing this run — acceptable for discover; curate/refresh can pick it up if a tempo wallet is added later."
+}

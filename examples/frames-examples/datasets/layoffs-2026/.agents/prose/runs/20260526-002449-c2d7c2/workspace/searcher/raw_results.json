@@ -1,0 +1,44 @@
+{
+  "calls": [
+    {
+      "query_id": "q1-exa-news-broad",
+      "tool": "exa_search",
+      "settled": false,
+      "paid_usd": 0.0,
+      "body_summary": null,
+      "rail": { "chain": "eip155:8453", "currency": "USDC" },
+      "error": "agentwallet 500: {\"success\":false,\"paid\":false,\"attempts\":1,\"duration\":543,\"payment\":{\"chain\":\"eip155:8453\",\"amountRaw\":\"10000\",\"amountFormatted\":\"0.01 USDC\",\"recipient\":\"0xe62923133a417cEe4241677865Ed5a63F44F4B54\",\"t...(truncated)"
+    },
+    {
+      "query_id": "q2-exa-warn-8k",
+      "tool": "exa_search",
+      "settled": false,
+      "paid_usd": 0.0,
+      "body_summary": null,
+      "rail": { "chain": "eip155:8453", "currency": "USDC" },
+      "error": "agentwallet 500: {\"success\":false,\"paid\":false,\"attempts\":1,\"duration\":607,\"payment\":{\"chain\":\"eip155:8453\",\"amountRaw\":\"10000\",\"amountFormatted\":\"0.01 USDC\",\"recipient\":\"0xe62923133a417cEe4241677865Ed5a63F44F4B54\",\"t...(truncated)"
+    },
+    {
+      "query_id": "q3-exa-ai-restructure",
+      "tool": "exa_search",
+      "settled": false,
+      "paid_usd": 0.0,
+      "body_summary": null,
+      "rail": { "chain": "eip155:8453", "currency": "USDC" },
+      "error": "agentwallet 500: {\"success\":false,\"paid\":false,\"attempts\":1,\"duration\":452,\"payment\":{\"chain\":\"eip155:8453\",\"amountRaw\":\"10000\",\"amountFormatted\":\"0.01 USDC\",\"recipient\":\"0xe62923133a417cEe4241677865Ed5a63F44F4B54\",\"t...(truncated)"
+    },
+    {
+      "query_id": "q4-twitter-official",
+      "tool": "twitter_search",
+      "settled": false,
+      "paid_usd": 0.0,
+      "body_summary": null,
+      "rail": { "chain": "eip155:8453", "currency": "USDC" },
+      "error": "agentwallet 500: {\"success\":false,\"paid\":false,\"attempts\":1,\"duration\":502,\"payment\":{\"chain\":\"eip155:8453\",\"amountRaw\":\"10000\",\"amountFormatted\":\"0.01 USDC\",\"recipient\":\"0xe62923133a417cEe4241677865Ed5a63F44F4B54\",\"t...(truncated)"
+    }
+  ],
+  "spent_usd": 0.0,
+  "settled_count": 0,
+  "failed_count": 4,
+  "budget_usd": 0.20
+}

@@ -17,7 +17,7 @@
       "args": [
         "-y",
         "-p",
-        "@frames-ag/pay",
+        "@frames-ag/pay@latest",
         "pay-mcp"
       ]
     }

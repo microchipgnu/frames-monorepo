@@ -1,0 +1,591 @@
+{
+  "candidates": [
+    {
+      "entity_id": "meta-2026-05-20",
+      "fields": {
+        "company": "Meta Platforms, Inc.",
+        "company_domain": "https://about.meta.com",
+        "date_announced": "2026-05-20",
+        "layoff_count": 8000,
+        "layoff_percentage": 10.0,
+        "sector": "tech",
+        "region": "global",
+        "reason_stated": "ai-restructuring",
+        "reason_excerpt": "continued effort to run the company more efficiently and to allow us to offset the other investments we're making",
+        "ceo_name": "Mark Zuckerberg"
+      },
+      "evidence_urls": [
+        "https://www.theverge.com/tech/935163/meta-layoffs-ai-investment-offset-memo",
+        "https://timesofindia.indiatimes.com/technology/tech-news/mark-zuckerbergs-email-to-employees-has-a-goodbye-note-for-those-laid-off-says-i-feel-the-weight-and-am-spending-a-lot-of-time-to-make-sure-/articleshow/131242806.cms",
+        "https://en.tempo.co/read/2105231/meta-ceo-mark-zuckerberg-sends-goodbye-message-after-mass-layoffs",
+        "https://www.techtimes.com/articles/316900/20260520/meta-forces-workers-train-their-ai-replacements-then-cuts-8000-jobs-record-profit.htm",
+        "https://economictimes.indiatimes.com/news/international/us/meta-layoffs-2026-why-zuckerbergs-ai-bet-is-eliminating-7900-jobs-and-what-it-means-for-every-tech-worker/articleshow/131226173.cms",
+        "https://timesofindia.indiatimes.com/technology/tech-news/unfortunately-your-role-has-been-eliminated-as-part-of-meta-leadership-in-4-am-email-to-laid-off-employees/articleshow/131235172.cms",
+        "https://x.com/PolymarketMoney/status/2057125234776723500",
+        "https://x.com/faststocknewss/status/2057124258313273520",
+        "https://x.com/Sam_Badawi/status/2057124924897239142"
+      ],
+      "confidence": 0.9,
+      "authority_tier": 4,
+      "notes": "Heavily multi-sourced (tier-4 tech press + corroborating tweets). Quote pulled from Meta management memo as relayed by The Verge and Times of India. No direct tier-1 (about.meta.com) URL surfaced in raw results."
+    },
+    {
+      "entity_id": "intuit-2026-05-20",
+      "fields": {
+        "company": "Intuit Inc.",
+        "company_domain": "https://www.intuit.com",
+        "date_announced": "2026-05-20",
+        "layoff_count": 3000,
+        "layoff_percentage": 17.0,
+        "sector": "finance",
+        "region": "global",
+        "reason_stated": "ai-restructuring",
+        "reason_excerpt": "faster, leaner, and more focused",
+        "ceo_name": "Sasan Goodarzi"
+      },
+      "evidence_urls": [
+        "https://www.stocktitan.net/sec-filings/INTU/8-k-intuit-inc-reports-material-event-b23073259896.html",
+        "https://www.theregister.com/saas/2026/05/21/intuit-axes-3000-without-blaming-ai/5243807",
+        "https://www.beri.net/article/intuit-3000-layoffs-anthropic-openai-deals-2026"
+      ],
+      "confidence": 0.95,
+      "authority_tier": 1,
+      "notes": "Confirmed by 8-K filing summary (Stock Titan reporting on INTU 8-K) plus tier-4 The Register coverage of earnings call. 17% workforce cut announced same day as Q3 FY2026 earnings. CEO publicly disputed AI as cause but memo named AI as destination for freed capital."
+    },
+    {
+      "entity_id": "cisco-2026-05-13",
+      "fields": {
+        "company": "Cisco Systems, Inc.",
+        "company_domain": "https://www.cisco.com",
+        "date_announced": "2026-05-13",
+        "layoff_count": 4000,
+        "layoff_percentage": 5.0,
+        "sector": "tech",
+        "region": "global",
+        "reason_stated": "ai-restructuring",
+        "reason_excerpt": "we are making changes today that will result in the reduction of our overall workforce in Q4 by fewer than 4,000 jobs, representing less than 5 percent of our total employee base",
+        "ceo_name": "Chuck Robbins"
+      },
+      "evidence_urls": [
+        "https://blogs.cisco.com/news/our-path-forward"
+      ],
+      "confidence": 0.95,
+      "authority_tier": 1,
+      "notes": "Official Cisco blog post by CEO Chuck Robbins. Announcement tied to Q3 FY26 earnings; notifications begin May 14. Layoff_count is upper bound ('fewer than 4,000')."
+    },
+    {
+      "entity_id": "oracle-2026-03-31",
+      "fields": {
+        "company": "Oracle Corporation",
+        "company_domain": "https://www.oracle.com",
+        "date_announced": "2026-03-31",
+        "layoff_count": 25000,
+        "layoff_percentage": 18.0,
+        "sector": "tech",
+        "region": "global",
+        "reason_stated": "ai-restructuring"
+      },
+      "evidence_urls": [
+        "https://www.refolk.ai/blog/oracle-march-2026-layoffs-sourcing-oci-fusion-cerner",
+        "https://www.techreaderdaily.com/article/the-warn-acts-60-day-notice-cycle-is-broken-and-workers-are-paying"
+      ],
+      "confidence": 0.55,
+      "authority_tier": 4,
+      "notes": "Number is an estimate (range 20,000-30,000 from TD Cowen; midpoint used). Oracle never publicly confirmed; SEC 10-Q discloses $2.1B restructuring charge. Tier-1 confirmation only via 10-Q reference, not surfaced as direct URL. Date is layoff execution date per multiple secondary sources."
+    },
+    {
+      "entity_id": "wix-2026-05-25",
+      "fields": {
+        "company": "Wix.com Ltd.",
+        "company_domain": "https://www.wix.com",
+        "date_announced": "2026-05-25",
+        "layoff_count": 1000,
+        "layoff_percentage": 20.0,
+        "sector": "tech",
+        "region": "global",
+        "reason_stated": "ai-restructuring"
+      },
+      "evidence_urls": [
+        "https://www.calcalistech.com/ctechnews/article/b1oebi11xge",
+        "https://x.com/BNOfTheDay/status/2059035518952784174"
+      ],
+      "confidence": 0.65,
+      "authority_tier": 4,
+      "notes": "Calcalistech (Israeli tier-4 trade press) reports ~1,000 jobs / ~20% of 5,277 workforce. Wix declined to comment, so not officially confirmed. Reason cited as eroding profitability and AI-era role redundancy."
+    },
+    {
+      "entity_id": "clickup-2026-05-23",
+      "fields": {
+        "company": "ClickUp",
+        "company_domain": "https://clickup.com",
+        "date_announced": "2026-05-23",
+        "layoff_percentage": 22.0,
+        "sector": "tech",
+        "region": "us",
+        "reason_stated": "ai-restructuring",
+        "ceo_name": "Zeb Evans"
+      },
+      "evidence_urls": [
+        "https://economictimes.indiatimes.com/news/new-updates/us-company-clickup-lays-off-22-workforce-but-ceo-says-bigger-rewards-await-those-who-master-ai/articleshow/131276511.cms"
+      ],
+      "confidence": 0.55,
+      "authority_tier": 4,
+      "notes": "Economic Times (regional tier-4 press) reports 22% workforce reduction. Absolute count not specified. CEO cited '100x output' AI-driven operations as reason."
+    },
+    {
+      "entity_id": "panera-2026-05-20",
+      "fields": {
+        "company": "Panera",
+        "date_announced": "2026-05-20",
+        "layoff_count": 188,
+        "sector": "hospitality",
+        "region": "us",
+        "reason_stated": "cost-cutting"
+      },
+      "evidence_urls": [
+        "https://www.warntracker.com/layoff/panera-2026-05-20"
+      ],
+      "confidence": 0.7,
+      "authority_tier": 4,
+      "notes": "WARN tracker (DOL data aggregator). 188 affected across West Chester/Butler OH (70) and Jessup MD (118). WARN notice filed March 27, 2026; effective May 20."
+    },
+    {
+      "entity_id": "ssp-america-2026-05-19",
+      "fields": {
+        "company": "SSP America",
+        "date_announced": "2026-05-19",
+        "layoff_count": 44,
+        "sector": "hospitality",
+        "region": "us",
+        "reason_stated": "cost-cutting"
+      },
+      "evidence_urls": [
+        "https://www.warntracker.com/layoff/ssp-america-2026-05-19"
+      ],
+      "confidence": 0.7,
+      "authority_tier": 4,
+      "notes": "WARN tracker (DOL aggregator). 44 employees in Sacramento, CA. WARN notice filed March 19, 2026; effective May 19."
+    },
+    {
+      "entity_id": "elior-2026-05-17",
+      "fields": {
+        "company": "Elior, Inc.",
+        "date_announced": "2026-05-17",
+        "layoff_count": 155,
+        "sector": "hospitality",
+        "region": "us",
+        "reason_stated": "cost-cutting"
+      },
+      "evidence_urls": [
+        "https://www.warntracker.com/layoff/elior-2026-05-17"
+      ],
+      "confidence": 0.7,
+      "authority_tier": 4,
+      "notes": "WARN tracker (DOL aggregator). 155 employees in Oshkosh, WI. WARN notice filed November 3, 2025; effective May 17, 2026."
+    },
+    {
+      "entity_id": "diamond-transportation-services-2026-05-12",
+      "fields": {
+        "company": "Diamond Transportation Services Inc.",
+        "date_announced": "2026-05-12",
+        "layoff_count": 571,
+        "sector": "transport",
+        "region": "us",
+        "reason_stated": "other"
+      },
+      "evidence_urls": [
+        "https://straussborrelli.com/2026/05/14/diamond-transportation-services-maryland-warn-act-investigation/"
+      ],
+      "confidence": 0.6,
+      "authority_tier": 4,
+      "notes": "Strauss Borrelli PLLC class-action investigation notice. 571 employees, Landover MD facility. WARN compliance disputed (potential violation under investigation). National Express / WeDriveU subsidiary."
+    },
+    {
+      "entity_id": "bill-holdings-2026-05-07",
+      "fields": {
+        "company": "BILL Holdings, Inc.",
+        "company_domain": "https://www.bill.com",
+        "date_announced": "2026-05-07",
+        "layoff_count": 700,
+        "layoff_percentage": 30.0,
+        "sector": "finance",
+        "region": "us",
+        "reason_stated": "cost-cutting",
+        "reason_excerpt": "organizational agility and efficiency, while also seeking to drive greater profitability"
+      },
+      "evidence_urls": [
+        "https://www.refolk.ai/blog/bill-holdings-layoffs-2026-ap-ar-engineers"
+      ],
+      "confidence": 0.7,
+      "authority_tier": 4,
+      "notes": "Refolk reporting cites BILL Holdings 8-K filing dated May 7, 2026. ~700 jobs / up to 30% of 2,333 workforce. Stated rationale notably did NOT cite AI (unlike peer companies same week)."
+    },
+    {
+      "entity_id": "macrogenics-2026-05-13",
+      "fields": {
+        "company": "MacroGenics, Inc.",
+        "company_domain": "https://www.macrogenics.com",
+        "date_announced": "2026-05-13",
+        "sector": "healthcare",
+        "region": "us",
+        "reason_stated": "business-pivot"
+      },
+      "evidence_urls": [
+        "https://last10k.com/sec-filings/mgnx/0001125345-26-000040.htm"
+      ],
+      "confidence": 0.65,
+      "authority_tier": 1,
+      "notes": "8-K filing. ~140 employees transfer to Bora as part of manufacturing divestiture, additional reductions bring total to ~135 employees post-close. Headcount delta not directly stated; count omitted to avoid invention."
+    },
+    {
+      "entity_id": "group-1-automotive-2026-04-01",
+      "fields": {
+        "company": "Group 1 Automotive",
+        "company_domain": "https://www.group1auto.com",
+        "date_announced": "2026-04-01",
+        "layoff_count": 700,
+        "layoff_percentage": 5.0,
+        "sector": "automotive",
+        "region": "us",
+        "reason_stated": "market-downturn",
+        "reason_excerpt": "In the U.S., SG&A performance did not meet our expectations",
+        "ceo_name": "Daryl Kenningham"
+      },
+      "evidence_urls": [
+        "https://www.wardsauto.com/news/group-1-automotive-trims-700-jobs-in-q1-amid-uncertain-market/820785/"
+      ],
+      "confidence": 0.7,
+      "authority_tier": 4,
+      "notes": "WardsAuto (trade press). 'Nearly 700 U.S. jobs' / ~5% of workforce. Disclosed on April 30 earnings call; cuts implemented early April. Used April 1 as approximate announcement date."
+    },
+    {
+      "entity_id": "linkedin-2026-05-13",
+      "fields": {
+        "company": "LinkedIn (Microsoft)",
+        "company_domain": "https://www.linkedin.com",
+        "date_announced": "2026-05-13",
+        "layoff_count": 875,
+        "layoff_percentage": 5.0,
+        "sector": "tech",
+        "region": "us",
+        "reason_stated": "cost-cutting",
+        "ceo_name": "Daniel Shapero",
+        "social_signal": "@LayoffAI tweet via @JoinBlind sourcing"
+      },
+      "evidence_urls": [
+        "https://x.com/LayoffAI/status/2054573253621145854",
+        "https://x.com/JimChuong/status/2057126551590744575"
+      ],
+      "confidence": 0.45,
+      "authority_tier": 5,
+      "notes": "LayoffAI tweet (anonymous-source aggregator) reports 875 cuts (~5%). JimChuong tweet later reports 600 with July 13 effective date impacting Bay Area engineering/product/marketing. Possibly two waves or conflicting counts. Tier-5 social-only signal until corroborated."
+    },
+    {
+      "entity_id": "starbucks-2026-05-15",
+      "fields": {
+        "company": "Starbucks Corporation",
+        "company_domain": "https://www.starbucks.com",
+        "date_announced": "2026-05-15",
+        "layoff_count": 300,
+        "sector": "hospitality",
+        "region": "us",
+        "reason_stated": "cost-cutting",
+        "ceo_name": "Brian Niccol",
+        "social_signal": "@WallStRollup tweet on third round of layoffs under Niccol turnaround"
+      },
+      "evidence_urls": [
+        "https://x.com/WallStRollup/status/2055278096631181533"
+      ],
+      "confidence": 0.45,
+      "authority_tier": 5,
+      "notes": "Single tier-5 tweet source. 300 corporate jobs cut, regional office closures. Third round under CEO Niccol's turnaround strategy."
+    },
+    {
+      "entity_id": "cloudflare-2026-05-07",
+      "fields": {
+        "company": "Cloudflare, Inc.",
+        "company_domain": "https://www.cloudflare.com",
+        "date_announced": "2026-05-07",
+        "layoff_count": 1100,
+        "layoff_percentage": 20.0,
+        "sector": "tech",
+        "region": "global",
+        "reason_stated": "ai-restructuring",
+        "reason_excerpt": "Two weeks ago I laid off more than 20% of my workforce. I didn't do it because Cloudflare is struggling.",
+        "ceo_name": "Matthew Prince",
+        "social_signal": "@wallstengine quoted Matthew Prince WSJ op-ed; @LayoffAI follow-up"
+      },
+      "evidence_urls": [
+        "https://x.com/wallstengine/status/2057378437485216031",
+        "https://x.com/LayoffAI/status/2057485600346005923",
+        "https://x.com/PolymarketMoney/status/2057451485777289309"
+      ],
+      "confidence": 0.7,
+      "authority_tier": 2,
+      "notes": "CEO Matthew Prince's WSJ op-ed (quoted via @wallstengine) confirms 20%+ workforce cut (~1,100). Announcement framed as ~two weeks before May 21 tweet, so approx May 7. Cuts targeted 'measurer' roles (middle management, ops, HR, finance, analytics)."
+    },
+    {
+      "entity_id": "upwork-2026-05-14",
+      "fields": {
+        "company": "Upwork Inc.",
+        "company_domain": "https://www.upwork.com",
+        "date_announced": "2026-05-14",
+        "layoff_percentage": 25.0,
+        "sector": "tech",
+        "region": "us",
+        "reason_stated": "ai-restructuring",
+        "ceo_name": "Hayden Brown",
+        "social_signal": "@Nicolascole77 tweet citing CEO Hayden Brown statement"
+      },
+      "evidence_urls": [
+        "https://x.com/Nicolascole77/status/2054902676035678613"
+      ],
+      "confidence": 0.4,
+      "authority_tier": 5,
+      "notes": "Single tier-5 tweet. 25% staff cut despite CEO calling business 'healthy.' No absolute count, no direct CEO statement URL."
+    },
+    {
+      "entity_id": "gitlab-2026-05-12",
+      "fields": {
+        "company": "GitLab Inc.",
+        "company_domain": "https://about.gitlab.com",
+        "date_announced": "2026-05-12",
+        "sector": "tech",
+        "region": "global",
+        "reason_stated": "ai-restructuring",
+        "reason_excerpt": "Authoring code by hand may be going away.",
+        "social_signal": "@LayoffAI thread on CEO 10-part X post; voluntary separation window closes May 18"
+      },
+      "evidence_urls": [
+        "https://x.com/LayoffAI/status/2054260651338748038",
+        "https://x.com/LayoffAI/status/2054287997957177558",
+        "https://x.com/Dinosn/status/2054189289882210492"
+      ],
+      "confidence": 0.45,
+      "authority_tier": 5,
+      "notes": "CEO posted 10-part thread May 12 announcing restructuring, voluntary separation window, 30% country-footprint reduction, R&D reorg into 60 smaller teams. No headcount number disclosed; planned for June 2 earnings call. Tier-5 social-only."
+    }
+  ],
+  "dropped": [
+    {
+      "reason": "obscure aggregator (Batam News Asia) — derivative reporting on Meta layoffs; original sources already captured",
+      "source_url": "https://batamnewsasia.com/2026/05/25/meta-fired-8000-people-at-4-am-while-telling-them-to-stay-home/"
+    },
+    {
+      "reason": "low-quality blog (techpopdaily) reports 15,000 figure that conflicts with consistent 8,000 across tier-3/4 sources",
+      "source_url": "https://www.techpopdaily.com/blog/meta-cuts-15000-jobs-ai-first-restructuring-2026"
+    },
+    {
+      "reason": "derivative aggregator (biphoo.uk) on Intuit layoffs; primary sources already captured",
+      "source_url": "https://biphoo.uk/intuit-to-lay-off-over-3000-employees-to-refocus-on-ai"
+    },
+    {
+      "reason": "AI-roundup site (kingy.ai) — automated aggregator",
+      "source_url": "https://kingy.ai/ai/meta-layoffs-2026-leaked-memo-reveals-8000-cut-at-4-am-wednesday/"
+    },
+    {
+      "reason": "AI agent news roundup (awesomeagents.ai) — derivative content",
+      "source_url": "https://awesomeagents.ai/news/meta-mci-employee-tracking-layoffs/"
+    },
+    {
+      "reason": "aggregate industry stat (113K layoffs across 179 companies) — no single layoff event",
+      "source_url": "https://techjournal.org/tech-layoffs-2026-ai-spending"
+    },
+    {
+      "reason": "aggregate industry stat — no single layoff event",
+      "source_url": "https://www.techtimes.com/articles/316802/20260518/tech-layoffs-surpass-113000-2026-no-federal-law-requiring-ai-disclosure.htm"
+    },
+    {
+      "reason": "CEO sentiment survey — no specific layoff event",
+      "source_url": "https://gizmodo.com/99-of-ceos-expect-ai-driven-layoffs-in-the-next-two-years-2000762994"
+    },
+    {
+      "reason": "WARN Act legal explainer — no specific layoff event",
+      "source_url": "https://elitetrialgroup.com/news/what-are-the-california-warn-act-2026-changes/"
+    },
+    {
+      "reason": "WARN Act opinion piece — no specific layoff event",
+      "source_url": "https://www.techreaderdaily.com/article/warn-notices-signal-institutional-distress-not-worker-safety"
+    },
+    {
+      "reason": "WARN Act state-law explainer — no layoff event",
+      "source_url": "https://ogletree.com/insights-resources/blog-posts/nebraska-enacts-state-warn-law/"
+    },
+    {
+      "reason": "CLE course advertisement — no layoff event",
+      "source_url": "https://taxrepcle.com/products/ai-driven-layoffs-navigating-warn-owbpa-and-discrimination-liability-in-algorithmic-rifs/"
+    },
+    {
+      "reason": "company financial release — staffing services revenue, not a layoff announcement",
+      "source_url": "https://www.morningstar.com/news/accesswire/1166824msn/gee-group-announces-improved-financial-results-for-the-fiscal-2026-second-quarter-and-year-to-date"
+    },
+    {
+      "reason": "layoff.today is a derivative aggregator; Acrisure announcement not corroborated by primary source in raw results",
+      "source_url": "https://layoff.today/finance/acrisure-layoffs-2026-05"
+    },
+    {
+      "reason": "noise — generic AI/layoff commentary, no specific company event",
+      "source_url": "https://x.com/leaving_tech/status/2059061436215640252"
+    },
+    {
+      "reason": "noise — speculative AI/jobs commentary, no event",
+      "source_url": "https://x.com/photographer__/status/2059060877081325869"
+    },
+    {
+      "reason": "noise — unrelated music label gossip",
+      "source_url": "https://x.com/SensibleBarb/status/2059060559354487253"
+    },
+    {
+      "reason": "noise — abstract AI/layoffs commentary",
+      "source_url": "https://x.com/chris_becker_/status/2059060109917999393"
+    },
+    {
+      "reason": "noise — stock market commentary, no specific event",
+      "source_url": "https://x.com/pak74511/status/2059060064871137549"
+    },
+    {
+      "reason": "duplicate of pak74511 noise",
+      "source_url": "https://x.com/pak74511/status/2059059115280765089"
+    },
+    {
+      "reason": "noise — Wix commentary, no new info beyond Calcalistech",
+      "source_url": "https://x.com/Leonhitchens/status/2059058228445511947"
+    },
+    {
+      "reason": "noise — generic resilience quote, no event",
+      "source_url": "https://x.com/doctorkevin/status/2059058191778890034"
+    },
+    {
+      "reason": "noise — unrelated Twitch ban speculation",
+      "source_url": "https://x.com/maybe_scottx/status/2059057916959715815"
+    },
+    {
+      "reason": "noise — unidentifiable comm reference",
+      "source_url": "https://x.com/VonGlahnBLU/status/2059057361277296654"
+    },
+    {
+      "reason": "noise — Atlantic Records gossip, no specific event",
+      "source_url": "https://x.com/mannypul8r/status/2059057230461260278"
+    },
+    {
+      "reason": "noise — generic hiring/layoffs takes",
+      "source_url": "https://x.com/PawelJLisowski/status/2059057184437076078"
+    },
+    {
+      "reason": "noise — aggregate STEM layoff stat, no event",
+      "source_url": "https://x.com/politiwars/status/2059056800239075578"
+    },
+    {
+      "reason": "noise — NetEase/MarvelRivals speculation",
+      "source_url": "https://x.com/x2724dfTdyw7QKb/status/2059056698414002298"
+    },
+    {
+      "reason": "noise — Cartoon Network/WB commentary",
+      "source_url": "https://x.com/yes_cartoonn/status/2059056403214373218"
+    },
+    {
+      "reason": "noise — generic AI/business commentary",
+      "source_url": "https://x.com/BlueQuacker/status/2059056398516752571"
+    },
+    {
+      "reason": "noise — comms reply, no event",
+      "source_url": "https://x.com/R3DNIGHTINGALE/status/2059056348646510763"
+    },
+    {
+      "reason": "noise — Bungie/Destiny game-dev commentary",
+      "source_url": "https://x.com/pillowbrush/status/2059055904008413451"
+    },
+    {
+      "reason": "Te Puni Kōkiri (NZ govt agency) — only social-signal tweet, no specific date and no quantified count yet (proposed)",
+      "source_url": "https://x.com/waateanews/status/2059055479306011035"
+    },
+    {
+      "reason": "noise — H1B/political commentary",
+      "source_url": "https://x.com/Mvl80Vl8/status/2059055177811063158"
+    },
+    {
+      "reason": "q10 entirely off-topic (movie/Beckham/del Potro/Melinda Gates — 'difficult decision' phrase noise)",
+      "source_url": "twitter_search:q10"
+    },
+    {
+      "reason": "noise — generic CEO meme",
+      "source_url": "https://x.com/VadimStrizheus/status/2058718287127544123"
+    },
+    {
+      "reason": "noise — Hayden Adams/Uniswap backstory, not a 2026 layoff event",
+      "source_url": "https://x.com/CryptoWithJack/status/2058745576775422072"
+    },
+    {
+      "reason": "noise — apocryphal anecdote, no specific company",
+      "source_url": "https://x.com/javarevisited/status/2057117512974971321"
+    },
+    {
+      "reason": "noise — Forbes FTC scams report, off-topic",
+      "source_url": "https://x.com/Forbes/status/2058971650633408800"
+    },
+    {
+      "reason": "noise — Glean CEO opinion, no event",
+      "source_url": "https://x.com/FITEMaharashtra/status/2058459875680620698"
+    },
+    {
+      "reason": "Mercer CEO-survey opinion piece, no specific event",
+      "source_url": "https://x.com/mashable/status/2058994532172070935"
+    },
+    {
+      "reason": "noise — abstract AI/UBI commentary",
+      "source_url": "https://x.com/David97768248/status/2059045602881864040"
+    },
+    {
+      "reason": "noise — Block/AI commentary, no specific event",
+      "source_url": "https://x.com/Game_The_Theory/status/2059048662303437037"
+    },
+    {
+      "reason": "noise — Meta layoffs commentary, covered elsewhere",
+      "source_url": "https://x.com/HkSuccess/status/2059042980221116508"
+    },
+    {
+      "reason": "noise — H1B/AI commentary",
+      "source_url": "https://x.com/blueshaggyshoes/status/2059042429815099651"
+    },
+    {
+      "reason": "noise — union org commentary, no specific event",
+      "source_url": "https://x.com/aaronboyde2001/status/2059041756352536597"
+    },
+    {
+      "reason": "noise — Anthropic policy commentary",
+      "source_url": "https://x.com/David97768248/status/2059041033422586311"
+    },
+    {
+      "reason": "noise — Anthropic/Noah Smith commentary",
+      "source_url": "https://x.com/David97768248/status/2059040845291200995"
+    },
+    {
+      "reason": "noise — generic AI/covid analogy",
+      "source_url": "https://x.com/rpernett/status/2059039568306028758"
+    },
+    {
+      "reason": "noise — abstract management commentary",
+      "source_url": "https://x.com/archjh80985/status/2059038788744339928"
+    },
+    {
+      "reason": "noise — productivity-tool commentary",
+      "source_url": "https://x.com/Lord__Dexter/status/2059036683543146534"
+    },
+    {
+      "reason": "Meta Ireland 350 jobs is a sub-event of meta-2026-05-20 — already captured in parent entity_id",
+      "source_url": "https://x.com/VirginMediaNews/status/2059036666166177999"
+    }
+  ],
+  "stats": {
+    "raw_count": 91,
+    "candidates_count": 18,
+    "dropped_count": 52,
+    "by_authority_tier": {
+      "1": 3,
+      "2": 1,
+      "3": 0,
+      "4": 10,
+      "5": 4
+    }
+  }
+}

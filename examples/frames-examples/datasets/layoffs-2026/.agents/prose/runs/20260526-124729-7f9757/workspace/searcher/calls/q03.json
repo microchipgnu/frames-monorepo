@@ -1,0 +1,57 @@
+{
+  "success": true,
+  "requestId": "d450c4681ba5d086810c9a9d32f56d50",
+  "resolvedSearchType": "",
+  "costDollars": { "total": 0.007, "search": { "neural": 0.007 } },
+  "results": [
+    {
+      "id": "https://batamnewsasia.com/2026/05/25/meta-fired-8000-people-at-4-am-while-telling-them-to-stay-home/",
+      "url": "https://batamnewsasia.com/2026/05/25/meta-fired-8000-people-at-4-am-while-telling-them-to-stay-home/",
+      "title": "Meta Fired 8,000 People at 4 AM While Telling Them to Stay Home - Best Breaking News and Beyond: Singapore, Batam and some say JB",
+      "publishedDate": "2026-05-25T00:00:00.000Z",
+      "author": "batamnews8",
+      "score": 1,
+      "text": "On May 20, 2026, at 4 AM local time, thousands of Meta employees woke up to an email - 'Unfortunately, your role has been eliminated as part of today's reorganization,' it began. Roughly 8,000 people, or 10 percent of Meta's global workforce, learned their fate this way. Meta's May 2026 layoffs did not arrive without warning. As early as March 2026, Reuters reported the company was preparing for sweeping workforce reductions to offset mounting AI infrastructure costs. Meta rolled out the 8,000 terminations in three waves, staggered by time zone. The affected employees spanned the company's integrity team, cybersecurity divisions, and content design teams, according to Business Insider. Zuckerberg's internal memo: 'AI is the most consequential technology of our lifetimes. The companies that lead the way will define the next generation.' The memo promised no further company-wide layoffs this year. 7,000 employees would be shifted into AI-focused roles and 6,000 planned hires cancelled. Meta expects to employ approximately 71,000 people after this round concludes. The company has forecast between USD 125 billion to USD 145 billion in AI infrastructure spending for 2026 alone.",
+      "highlights": ["On May 20, 2026, at 4 AM local time, thousands of Meta employees woke up to an email - 'Unfortunately, your role has been eliminated as part of today's reorganization'", "Roughly 8,000 people, or 10 percent of Meta's global workforce, learned their fate this way", "the memo promised no further company-wide layoffs this year - though HRD America reported a second round of cuts is planned for the second half of 2026"]
+    },
+    {
+      "id": "https://blogs.cisco.com/news/our-path-forward",
+      "url": "https://blogs.cisco.com/news/our-path-forward",
+      "title": "Our Path Forward - Cisco Blogs",
+      "publishedDate": "2026-05-13T00:00:00.000Z",
+      "author": "Chuck Robbins,",
+      "score": 0.75,
+      "text": "This afternoon, we shared the following email with Cisco employees. Team, Today we announced our Q3 FY26 earnings with record revenue of $15.8 billion, up 12 percent year over year. The companies that will win in the AI era will be those with focus, urgency, and the discipline to continuously shift investment toward the areas where demand and long-term value creation are strongest. With this, we are making changes today that will result in the reduction of our overall workforce in Q4 by fewer than 4,000 jobs, representing less than 5 percent of our total employee base. Most notifications will begin on May 14 and continue globally in alignment with applicable local laws and regulations. For employees whose roles are impacted, leaders will share details directly - including timing, available resources, support, and benefits in each country. This will include pro-rated payment of FY26 bonuses to impacted employees. While we are reducing roles in some areas, we are making clear, strategic investments - particularly in silicon, optics, security, and in our employees' use of AI across the company. Chuck and the Executive Leadership Team",
+      "highlights": ["we are making changes today that will result in the reduction of our overall workforce in Q4 by fewer than 4,000 jobs, representing less than 5 percent of our total employee base", "Most notifications will begin on May 14 and continue globally in alignment with applicable local laws and regulations", "While we are reducing roles in some areas, we are making clear, strategic investments - particularly in silicon, optics, security, and in our employees' use of AI across the company"]
+    },
+    {
+      "id": "https://timesofindia.indiatimes.com/technology/tech-news/mark-zuckerbergs-email-to-employees-has-a-goodbye-note-for-those-laid-off-says-i-feel-the-weight-and-am-spending-a-lot-of-time-to-make-sure-/articleshow/131242806.cms",
+      "url": "https://timesofindia.indiatimes.com/technology/tech-news/mark-zuckerbergs-email-to-employees-has-a-goodbye-note-for-those-laid-off-says-i-feel-the-weight-and-am-spending-a-lot-of-time-to-make-sure-/articleshow/131242806.cms",
+      "title": "Mark Zuckerberg's email to employees has a 'goodbye note' for those laid off; says: I feel the weight and am spending a lot of time to make sure ...",
+      "publishedDate": "2026-05-21T00:00:00.000Z",
+      "author": "TOI Tech Desk / TIMESOFINDIA.COM / May 21, 2026, 13:32 IST",
+      "score": 0.5,
+      "text": "Meta layoffs have started. As announced last month, Meta started sending emails to thousands of employees whose role the company is eliminating. The 'layoff email' sent to affected employees across geographies has gone from Meta leadership. 'As previously shared, we have decided to reduce headcount as part of our continued effort to run the company more efficiently and to allow us to offset the other investments we're making. Unfortunately, your role has been eliminated as part of today's reorganization.' Mark Zuckerberg's email to all employees: 'Hey everyone, I want to express my gratitude to everyone leaving today. AI is the most consequential technology of our lifetimes. The companies that lead the way will define the next generation. I want to be clear that we do not expect other company-wide layoffs this year.' Meta plans to spend between US$125 billion and US$145 billion this year on AI infrastructure.",
+      "highlights": ["As previously shared, we have decided to reduce headcount as part of our continued effort to run the company more efficiently", "AI is the most consequential technology of our lifetimes. The companies that lead the way will define the next generation", "I want to be clear that we do not expect other company-wide layoffs this year"]
+    },
+    {
+      "id": "https://en.tempo.co/read/2105231/meta-ceo-mark-zuckerberg-sends-goodbye-message-after-mass-layoffs",
+      "url": "https://en.tempo.co/read/2105231/meta-ceo-mark-zuckerberg-sends-goodbye-message-after-mass-layoffs",
+      "title": "Meta CEO Mark Zuckerberg Sends Goodbye Message After Mass Layoffs",
+      "publishedDate": "2026-05-25T00:00:00.000Z",
+      "author": "Petir Garda Bhwana",
+      "score": 0.25,
+      "text": "Meta has begun another major round of layoffs affecting around 8,000 employees, or roughly 10 percent of its global workforce, as the company accelerates investment in artificial intelligence (AI) infrastructure and restructuring efforts. Meta CEO Mark Zuckerberg addressed employees in an internal memo after layoff notifications were distributed in phases across Asia, Europe, and the United States. The company plans to move more than 7,000 employees into AI-focused projects and eliminate approximately 6,000 planned hires. Employees in the United States were offered severance packages including 16 weeks of base pay plus an additional two weeks for every completed year of service. Meta plans to spend between US$125 billion and US$145 billion this year on AI infrastructure.",
+      "highlights": ["Meta has begun another major round of layoffs affecting around 8,000 employees, or roughly 10 percent of its global workforce", "the company plans to move more than 7,000 employees into AI-focused projects and eliminate approximately 6,000 planned hires", "16 weeks of base pay plus an additional two weeks for every completed year of service"]
+    },
+    {
+      "id": "https://www.refolk.ai/blog/oracle-march-2026-layoffs-sourcing-oci-fusion-cerner",
+      "url": "https://www.refolk.ai/blog/oracle-march-2026-layoffs-sourcing-oci-fusion-cerner",
+      "title": "Oracle's March 31 Layoff: 25,000 Engineers, 491 WARN Filings, Zero Badges",
+      "publishedDate": "2026-05-21T00:00:00.000Z",
+      "score": 0,
+      "text": "On March 31, 2026, Oracle sent 6 a.m. termination emails to somewhere between 20,000 and 30,000 employees and said nothing publicly. Two months later, WARN filings cover 491 people in Washington state. Oracle's March cuts: TD Cowen pegs them at 18% of a 162,000-person workforce. The company never confirmed a number. It did not address the cuts on its Q3 FY2026 earnings call. It disclosed a $2.1 billion restructuring charge in the 10-Q. The WARN Act gap is the whole sourcing thesis. Oracle filed for 491 employees in Washington. India alone absorbed roughly 12,000 cuts. Divisions: Cerner/Oracle Health: 8,000-10,000 (Millennium integration, HL7/FHIR pipelines, RHS); OCI Tier 1/Tier 2 support: 6,000-8,000; ERP consulting and Fusion Cloud Applications: 5,000-7,000; SVOS: 30%+ cuts; NetSuite, Cloud Sales, Customer Success: significant. AI data center engineering, security, and database engineering teams were largely protected. Severance: four weeks of pay for the first year plus one week per year of service, capped at 26 weeks.",
+      "highlights": ["On March 31, 2026, Oracle sent 6 a.m. termination emails to somewhere between 20,000 and 30,000 employees", "Oracle's March cuts: TD Cowen pegs them at 18% of a 162,000-person workforce", "Cerner / Oracle Health: 8,000 to 10,000. Millennium integration, HL7/FHIR pipelines, Revenue & Health Sciences (RHS) saw cuts of 30% or more", "ERP consulting and Fusion Cloud Applications professional services: 5,000 to 7,000"]
+    }
+  ]
+}

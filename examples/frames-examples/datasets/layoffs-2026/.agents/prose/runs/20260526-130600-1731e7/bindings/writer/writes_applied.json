@@ -1,0 +1,378 @@
+{
+  "new_entities": [
+    {
+      "entity_id": "meta-2026-05-20",
+      "fact_ids": [
+        "265baa73-6564-4339-a23b-49bc315064a9",
+        "16a501e5-0ea9-45e3-b78d-c7c6afd1d4b2",
+        "bcc3dcc1-825f-40bb-a709-811987564140",
+        "dc8fdab1-32a2-4243-be44-25d0b4cf21ae",
+        "a2ac2b84-0257-4809-9031-08365737bd9e",
+        "6ea8e3bd-b1bb-4573-b3ec-1751846da955",
+        "6b2e9da7-3921-4e5f-819a-e5c7c462fa4c",
+        "ac4977e2-280e-4fca-8e19-962fa7999fd5",
+        "5e19f82f-3318-49b4-afae-65dd8a20495b",
+        "d207e49b-c513-423e-958f-ff0c7bcbcef4"
+      ],
+      "facts_set": [
+        "company",
+        "company_domain",
+        "date_announced",
+        "layoff_count",
+        "layoff_percentage",
+        "sector",
+        "region",
+        "reason_stated",
+        "reason_excerpt",
+        "status"
+      ],
+      "primary_source": "https://www.theverge.com/tech/935163/meta-layoffs-ai-investment-offset-memo",
+      "extra_evidence_count": 2
+    },
+    {
+      "entity_id": "intuit-2026-05-20",
+      "fact_ids": [
+        "628de24a-b760-4b52-a8f9-96c7fe668a92",
+        "923d5615-1c1c-4a8a-94ad-a6c05c48d83b",
+        "d522ee3a-03f5-4d1d-856b-39f38ccf7df1",
+        "11268938-7468-4991-9acc-fa3013ea735a",
+        "aa2194eb-4f7a-4453-a757-6ea1d9550eca",
+        "e5d7c129-cac8-4779-847f-2de620a6cb92",
+        "78bbb78b-9da9-4114-982e-e2f833c8489f",
+        "50fd12b6-1fc5-4d6f-9ff8-e1ae10bebb03",
+        "d952215e-3ca8-48ae-8780-4a7838884456",
+        "f993b60f-a259-49ff-927f-0a61c1f98599"
+      ],
+      "facts_set": [
+        "company",
+        "company_domain",
+        "date_announced",
+        "layoff_count",
+        "layoff_percentage",
+        "sector",
+        "region",
+        "reason_stated",
+        "reason_excerpt",
+        "status"
+      ],
+      "primary_source": "https://www.stocktitan.net/sec-filings/INTU/8-k-intuit-inc-reports-material-event-b23073259896.html",
+      "extra_evidence_count": 1
+    },
+    {
+      "entity_id": "cisco-2026-05-13",
+      "fact_ids": [
+        "aa4b33e4-f10d-41e7-864c-2dfc775e4a7f",
+        "b1e3a1eb-3388-41b2-be70-9c42d4eb3e13",
+        "8dc25563-beec-42f3-b418-ba9fedf206a6",
+        "3aa05297-38bf-4bd2-8750-272d148e4687",
+        "b316ef74-28ff-476a-82ce-fbe65fd092cd",
+        "4bfd9edf-c08a-4f5c-970c-974958ab434e",
+        "9cb98e78-30a1-4c81-8e82-74e7665d0b7c",
+        "c1c1fb7a-fec4-4b47-88d5-b86092e01f2c",
+        "e7993fcf-5fd2-4b9e-9850-55ea6d1d355c",
+        "7b06694f-5aa2-4ea6-b4ff-313697483d58"
+      ],
+      "facts_set": [
+        "company",
+        "company_domain",
+        "date_announced",
+        "layoff_count",
+        "layoff_percentage",
+        "sector",
+        "region",
+        "reason_stated",
+        "reason_excerpt",
+        "status"
+      ],
+      "primary_source": "https://blogs.cisco.com/news/our-path-forward",
+      "extra_evidence_count": 0
+    },
+    {
+      "entity_id": "wix-2026-05-25",
+      "fact_ids": [
+        "e5164781-36a5-4ba3-9d0e-b864623272ff",
+        "5fe9c693-2d7b-4ada-8812-b14d5924ab9b",
+        "08f73d66-731d-4aac-b73b-60904468d4d8",
+        "f026233e-66a1-4f77-b8c4-20cf538b0a1b",
+        "7fb9b87f-2a46-425f-af27-ee5083fa3263",
+        "a1c6d7db-38f0-4968-abbb-780bd35604c1",
+        "9d92ad82-395c-4b2e-bdd1-05d8c6137143",
+        "fedc549b-a346-416e-8344-2c6ae538792c",
+        "ae23c926-8ee3-41f9-b378-bb63f0f8efc6"
+      ],
+      "facts_set": [
+        "company",
+        "company_domain",
+        "date_announced",
+        "layoff_count",
+        "layoff_percentage",
+        "sector",
+        "region",
+        "reason_stated",
+        "status"
+      ],
+      "primary_source": "https://www.calcalistech.com/ctechnews/article/b1oebi11xge",
+      "extra_evidence_count": 1
+    },
+    {
+      "entity_id": "clickup-2026-05-23",
+      "fact_ids": [
+        "05bc8859-9857-4275-b873-9b5eb4376533",
+        "d3b61041-98e7-42cd-a443-eda2e6b59225",
+        "573b5dae-d435-427f-a704-313b06880f4e",
+        "652a22ad-6b1e-4373-88d5-6d7ce67a1ea6",
+        "bc805010-c803-43c5-a100-62a8f152bf25",
+        "1be04bb0-7e9d-4c24-b5cd-585ff4307154",
+        "2b735c91-bfef-45d4-b56b-36f9092ad5cd",
+        "ed68e78a-dd16-45ee-a7aa-b6479f82a2ee"
+      ],
+      "facts_set": [
+        "company",
+        "company_domain",
+        "date_announced",
+        "layoff_percentage",
+        "sector",
+        "region",
+        "reason_stated",
+        "status"
+      ],
+      "primary_source": "https://economictimes.indiatimes.com/news/new-updates/us-company-clickup-lays-off-22-workforce-but-ceo-says-bigger-rewards-await-those-who-master-ai/articleshow/131276511.cms",
+      "extra_evidence_count": 0
+    },
+    {
+      "entity_id": "panera-2026-05-20",
+      "fact_ids": [
+        "05613bc8-aa5b-4e75-9b8e-457d21187812",
+        "c16cac7e-d637-4059-945d-b693ef6bf5ff",
+        "fc349f2f-04bc-482a-a521-e04ecc49d6e4",
+        "6aff74c4-635e-496d-9e4c-55423424972b",
+        "6f38fa88-2ece-4317-aa94-1ffc345309af",
+        "1446f251-3d93-418e-948e-6131d1f679ec",
+        "c5e2a983-362d-4258-b2ad-8df5109bea3d"
+      ],
+      "facts_set": [
+        "company",
+        "date_announced",
+        "layoff_count",
+        "sector",
+        "region",
+        "reason_stated",
+        "status"
+      ],
+      "primary_source": "https://www.warntracker.com/layoff/panera-2026-05-20",
+      "extra_evidence_count": 0
+    },
+    {
+      "entity_id": "ssp-america-2026-05-19",
+      "fact_ids": [
+        "fecfcd17-cb2c-4730-a1b1-6134606860ec",
+        "1687a007-1944-4aab-8dea-d3b44f6c7a7e",
+        "5b97b0de-27e4-4a70-a498-d0b8a9d9b34f",
+        "feb569ee-ad4a-4b87-b629-cb2115331a4f",
+        "db8d44ea-f87e-413f-8ec9-65cfe6913532",
+        "09a0e0e4-d86c-4c6c-a634-62bb81d45e93",
+        "ddf96bc0-7f3b-4f7a-be63-7fa3e738d42f"
+      ],
+      "facts_set": [
+        "company",
+        "date_announced",
+        "layoff_count",
+        "sector",
+        "region",
+        "reason_stated",
+        "status"
+      ],
+      "primary_source": "https://www.warntracker.com/layoff/ssp-america-2026-05-19",
+      "extra_evidence_count": 0
+    },
+    {
+      "entity_id": "elior-2026-05-17",
+      "fact_ids": [
+        "30e3f313-0f47-4e37-8ee0-ebfec24e0be4",
+        "3a41c53f-94a4-4ebe-b0b7-74a8a924cfa4",
+        "45288336-abde-47f9-9c16-ca42a8f5b98a",
+        "9bd131f7-90f2-42dd-9c89-aefb4a785e10",
+        "c5124a6c-b041-445a-a91a-1e7ed0b21409",
+        "d50c9278-b42c-41ca-9441-bd2a3757872d",
+        "300e2d10-e723-48ed-8620-b5a9f2c2dce2"
+      ],
+      "facts_set": [
+        "company",
+        "date_announced",
+        "layoff_count",
+        "sector",
+        "region",
+        "reason_stated",
+        "status"
+      ],
+      "primary_source": "https://www.warntracker.com/layoff/elior-2026-05-17",
+      "extra_evidence_count": 0
+    },
+    {
+      "entity_id": "diamond-transportation-services-2026-05-12",
+      "fact_ids": [
+        "554a188d-002b-4b34-9e2c-62886bb086e9",
+        "4fd7b53b-b90c-40d6-b18d-90a9e63dec6f",
+        "f4e123be-3cd9-4f47-9791-bee1bafc94d7",
+        "856b3e7d-7c9e-4ce9-b95d-d92745bfb862",
+        "55b62be4-a0e9-4f9f-8b2f-714ad9afb656",
+        "2c3aa78a-9b3b-419b-b3a0-02f1e33f335b",
+        "c489ddd8-ca83-496f-8d1e-265cb055ea09"
+      ],
+      "facts_set": [
+        "company",
+        "date_announced",
+        "layoff_count",
+        "sector",
+        "region",
+        "reason_stated",
+        "status"
+      ],
+      "primary_source": "https://straussborrelli.com/2026/05/14/diamond-transportation-services-maryland-warn-act-investigation/",
+      "extra_evidence_count": 0
+    },
+    {
+      "entity_id": "macrogenics-2026-05-13",
+      "fact_ids": [
+        "437cbd69-997c-435e-9267-7858d8286c12",
+        "1c755315-0ae9-48f8-a7df-068049d59861",
+        "dd7d839e-169a-4847-a407-f6a214f0466c",
+        "eac5a5ec-ba77-45a6-b86c-49cc6f08b9c0",
+        "b830f24d-b028-4507-b169-92da08e31562",
+        "c40bc7ae-f72f-4a28-9695-a3a3f9ece969",
+        "5fd81785-f96c-4ad4-b7e7-8f8b206d486f"
+      ],
+      "facts_set": [
+        "company",
+        "company_domain",
+        "date_announced",
+        "sector",
+        "region",
+        "reason_stated",
+        "status"
+      ],
+      "primary_source": "https://last10k.com/sec-filings/mgnx/0001125345-26-000040.htm",
+      "extra_evidence_count": 0
+    },
+    {
+      "entity_id": "linkedin-2026-05-13",
+      "fact_ids": [
+        "aae7c654-ef32-4779-8d11-cc1077c66c54",
+        "9b6bf443-4226-47a4-bdd8-0d16c441d2ab",
+        "4192ed6d-2426-46c3-996c-aeb6aecee8ef",
+        "6632d01e-6d1e-404b-9919-845ed53d6494",
+        "328f9d3a-4572-44a1-b1a7-3e99463fcdc6",
+        "62568da7-3130-426b-95b7-6707371f630d",
+        "6f821b92-3d63-4217-9f6f-e84a09e6ceef",
+        "284231fe-db45-45cc-ae23-92af5f17c289",
+        "3cb8ba73-4644-4081-8ebc-7c2646aab9cf",
+        "d5f853d9-0056-49b1-8960-3f1f9ea8a36a"
+      ],
+      "facts_set": [
+        "company",
+        "company_domain",
+        "date_announced",
+        "layoff_count",
+        "layoff_percentage",
+        "sector",
+        "region",
+        "reason_stated",
+        "social_signal",
+        "status"
+      ],
+      "primary_source": "https://x.com/LayoffAI/status/2054573253621145854",
+      "extra_evidence_count": 1
+    },
+    {
+      "entity_id": "starbucks-2026-05-15",
+      "fact_ids": [
+        "173cc2e0-214e-4f96-b929-d8492fa974ac",
+        "fff29937-f599-448a-9d1b-46860dfc103d",
+        "7382c9ab-7270-4abc-8092-0c7878e18a60",
+        "0a35899b-7871-4af2-87f0-fd56557eb25c",
+        "69d81b44-5291-4185-9b68-427e8cf59882",
+        "bcfb5461-fb14-4023-8415-ac3d3c519c2c",
+        "784ce80f-0555-4656-8f87-9cf73a6bc58d",
+        "26d4e961-0496-4ba3-9541-5eb946b79366",
+        "ae0e0531-9b8f-47fa-af24-84fe40d1e9d2"
+      ],
+      "facts_set": [
+        "company",
+        "company_domain",
+        "date_announced",
+        "layoff_count",
+        "sector",
+        "region",
+        "reason_stated",
+        "social_signal",
+        "status"
+      ],
+      "primary_source": "https://x.com/WallStRollup/status/2055278096631181533",
+      "extra_evidence_count": 0
+    },
+    {
+      "entity_id": "upwork-2026-05-14",
+      "fact_ids": [
+        "6c73d685-b98d-4024-ae60-2e4063d0fe13",
+        "c70fe5dc-dea7-4f74-8737-726937e16d75",
+        "bc036a50-0a90-4d36-bbdd-feac07523df4",
+        "a2a24209-6edd-4df4-a9bb-11c17546cbdc",
+        "3ae6561b-c206-48bb-8cfc-563532f1f2c8",
+        "a2eaeaf4-b38f-40d6-84b3-45c6abc8579d",
+        "b021cad0-7bbd-4d86-858b-b3a33d2ef610",
+        "3668943b-1e95-421a-aa08-b1ad3685b581",
+        "9d4ea337-ebcd-4616-bcca-1964b124f000"
+      ],
+      "facts_set": [
+        "company",
+        "company_domain",
+        "date_announced",
+        "layoff_percentage",
+        "sector",
+        "region",
+        "reason_stated",
+        "social_signal",
+        "status"
+      ],
+      "primary_source": "https://x.com/Nicolascole77/status/2054902676035678613",
+      "extra_evidence_count": 0
+    },
+    {
+      "entity_id": "gitlab-2026-05-12",
+      "fact_ids": [
+        "01119200-0257-47fa-b1cf-f9d67f60c26f",
+        "2873fce5-b5f1-4c7f-a233-00347f3c30ce",
+        "f5f8ad91-5877-4395-80f5-da11c9ef1569",
+        "fcdac2fe-4743-4016-961d-35e5fdf2cb66",
+        "c8ffafc6-2858-4483-a5c6-c284de940bfc",
+        "6ef28644-766d-4cf8-9aef-cb01515ee91f",
+        "fc793aee-fa15-4e7f-949b-d8df0ddd9c6d",
+        "a758819d-3468-4b37-b62a-2a5326eca952",
+        "1bb1175c-d883-42a2-b5ec-7581cb531d1c"
+      ],
+      "facts_set": [
+        "company",
+        "company_domain",
+        "date_announced",
+        "sector",
+        "region",
+        "reason_stated",
+        "reason_excerpt",
+        "social_signal",
+        "status"
+      ],
+      "primary_source": "https://x.com/LayoffAI/status/2054260651338748038",
+      "extra_evidence_count": 2
+    }
+  ],
+  "status_transitions": [],
+  "schema_violations": [],
+  "collisions": [],
+  "stats": {
+    "candidates_in": 14,
+    "entities_created": 14,
+    "total_facts_set": 124,
+    "skipped_schema": 0,
+    "skipped_collision": 0
+  }
+}

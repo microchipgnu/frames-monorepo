@@ -1,0 +1,192 @@
+{
+  "queries": [
+    {
+      "id": "q01",
+      "tool": "exa_search",
+      "slice": "semantic-news-broad",
+      "params": {
+        "query": "company announces layoffs workforce reduction May 2026",
+        "category": "news",
+        "type": "neural",
+        "useAutoprompt": true,
+        "numResults": 10,
+        "startPublishedDate": "2026-05-12",
+        "endPublishedDate": "2026-05-26",
+        "contents": { "text": true, "highlights": true }
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "Broad semantic sweep of news category for top-of-funnel discovery of any 2026 layoff announcement in the freshness window. Highest-recall query — anchors the run."
+    },
+    {
+      "id": "q02",
+      "tool": "exa_search",
+      "slice": "semantic-news-broad",
+      "params": {
+        "query": "tech company job cuts headcount reduction announcement late May 2026",
+        "category": "news",
+        "type": "neural",
+        "useAutoprompt": true,
+        "numResults": 10,
+        "startPublishedDate": "2026-05-12",
+        "endPublishedDate": "2026-05-26",
+        "contents": { "text": true, "highlights": true }
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "Tech-sector tilt on the broad slice — captures the dominant layoff cohort (tech/ai) and uses different phrasing to surface non-overlapping Exa results."
+    },
+    {
+      "id": "q03",
+      "tool": "exa_search",
+      "slice": "semantic-ceo-statement",
+      "params": {
+        "query": "CEO statement letter to employees layoffs job cuts 2026",
+        "category": "news",
+        "type": "neural",
+        "useAutoprompt": true,
+        "numResults": 10,
+        "startPublishedDate": "2026-05-12",
+        "endPublishedDate": "2026-05-26",
+        "contents": { "text": true, "highlights": true }
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "Targets tier-1 official source (CEO letters / company blog posts) which the schema prefers for layoff_count, reason_excerpt, ceo_name fields. Authoritative-source rule favors these."
+    },
+    {
+      "id": "q04",
+      "tool": "exa_search",
+      "slice": "semantic-ceo-statement",
+      "params": {
+        "query": "CEO message announcement workforce restructuring May 2026",
+        "category": "company",
+        "type": "neural",
+        "useAutoprompt": true,
+        "numResults": 10,
+        "startPublishedDate": "2026-05-12",
+        "endPublishedDate": "2026-05-26",
+        "contents": { "text": true, "highlights": true }
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "Company-category variant — Exa's company category surfaces corporate domains directly, ideal for official_statement_url. Pairs with q03 for breadth on tier-1 sources."
+    },
+    {
+      "id": "q05",
+      "tool": "exa_search",
+      "slice": "semantic-warn-8k",
+      "params": {
+        "query": "WARN notice filing workforce reduction 2026",
+        "category": "news",
+        "type": "neural",
+        "useAutoprompt": true,
+        "numResults": 10,
+        "startPublishedDate": "2026-05-12",
+        "endPublishedDate": "2026-05-26",
+        "contents": { "text": true, "highlights": true }
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "Authoritative WARN Act filings give exact layoff_count and warn_filing_url. State labor sites and aggregators report these — high signal-to-noise for US tier-1 evidence."
+    },
+    {
+      "id": "q06",
+      "tool": "exa_search",
+      "slice": "semantic-warn-8k",
+      "params": {
+        "query": "SEC 8-K filing workforce reduction restructuring charges May 2026",
+        "category": "news",
+        "type": "neural",
+        "useAutoprompt": true,
+        "numResults": 10,
+        "startPublishedDate": "2026-05-12",
+        "endPublishedDate": "2026-05-26",
+        "contents": { "text": true, "highlights": true }
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "8-K filings populate sec_filing_url and provide hard layoff numbers + restructuring charges. Publicly-traded companies must disclose material workforce actions."
+    },
+    {
+      "id": "q07",
+      "tool": "exa_search",
+      "slice": "semantic-ai-restructure",
+      "params": {
+        "query": "AI automation layoffs restructuring replacing workers 2026",
+        "category": "news",
+        "type": "neural",
+        "useAutoprompt": true,
+        "numResults": 10,
+        "startPublishedDate": "2026-05-12",
+        "endPublishedDate": "2026-05-26",
+        "contents": { "text": true, "highlights": true }
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "Captures the dominant 2026 reason_stated bucket (ai-restructuring). Surfaces companies explicitly citing AI as the driver — important for reason_excerpt enrichment."
+    },
+    {
+      "id": "q08",
+      "tool": "exa_search",
+      "slice": "semantic-memo-style",
+      "params": {
+        "query": "internal memo leaked layoffs job cuts employees email 2026",
+        "category": "news",
+        "type": "neural",
+        "useAutoprompt": true,
+        "numResults": 10,
+        "startPublishedDate": "2026-05-12",
+        "endPublishedDate": "2026-05-26",
+        "contents": { "text": true, "highlights": true }
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "Internal memos leaked to press often precede official statements and carry rich reason_excerpt + affected_teams detail. Schema-aligned for partially-executed status."
+    },
+    {
+      "id": "q09",
+      "tool": "twitter_search",
+      "slice": "social-official-posts",
+      "params": {
+        "query": "(layoffs OR \"job cuts\" OR \"workforce reduction\") -filter:retweets lang:en since:2026-05-12 until:2026-05-26",
+        "queryType": "Latest",
+        "cursor": ""
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "Primary social-official sweep — broad English-language tweets in the freshness window minus retweets. Surfaces CEO posts, company accounts, and reporter scoops for official_statement_url and social_signal."
+    },
+    {
+      "id": "q10",
+      "tool": "twitter_search",
+      "slice": "social-official-posts",
+      "params": {
+        "query": "(\"we are laying off\" OR \"reducing our workforce\" OR \"difficult decision\") -filter:retweets lang:en since:2026-05-12 until:2026-05-26",
+        "queryType": "Latest",
+        "cursor": ""
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "First-person phrasings characteristic of CEO/founder posts on X. README explicitly designates X for official CEO/company announcements — this is the highest-signal slice for that role."
+    },
+    {
+      "id": "q11",
+      "tool": "twitter_search",
+      "slice": "social-official-posts",
+      "params": {
+        "query": "(layoffs OR \"laid off\") (CEO OR founder OR \"our team\") -filter:retweets lang:en since:2026-05-12 until:2026-05-26",
+        "queryType": "Top",
+        "cursor": ""
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "Top-ranked variant filtered to CEO/founder/team context — leverages engagement signal to surface the most-discussed announcements (good for tier-1 prioritization)."
+    },
+    {
+      "id": "q12",
+      "tool": "twitter_search",
+      "slice": "semantic-ai-restructure",
+      "params": {
+        "query": "(layoffs OR \"job cuts\") (AI OR automation OR \"replaced by AI\") -filter:retweets lang:en since:2026-05-12 until:2026-05-26",
+        "queryType": "Latest",
+        "cursor": ""
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "Cross-slice: social channel × ai-restructure reason. Captures public reaction + employee posts citing AI-driven cuts, feeding social_signal and reason_stated."
+    }
+  ],
+  "total_est_cost_usd": 0.12,
+  "two_tool_minimum_satisfied": true,
+  "distinct_slices": 6,
+  "freshness_window": { "start": "2026-05-12", "end": "2026-05-26" }
+}

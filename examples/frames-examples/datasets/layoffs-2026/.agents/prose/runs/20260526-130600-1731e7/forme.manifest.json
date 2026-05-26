@@ -1,0 +1,103 @@
+{
+  "id": "layoffs-curate-lite",
+  "systemName": "layoffs-curate-lite",
+  "sourcePath": "root.prose.md",
+  "derivation": {
+    "kind": "subset",
+    "parent": "src/curate.prose.md",
+    "omitted_services": ["inventory", "refresher", "tool-picker", "query-planner", "searcher", "extractor", "dedup"],
+    "rationale": "User opted for 'land 14 from this run' over a full curate. Discovery phase is replaced by a run-typed input pointing at the upstream discover run (20260526-124729-7f9757); the refresh phase is skipped entirely (refresh_actions defaults to an empty list).",
+    "note": "This run was wired ad-hoc — no dedicated curate-lite.prose.md source exists. Future runs of this shape should be authored as a kind: system source declaring exactly these three services and the run-typed upstream input, then wired through a proper Forme pass."
+  },
+  "caller": {
+    "requires": [
+      { "name": "frame", "description": "path to the frame directory", "path": "bindings/caller/frame.md" },
+      { "name": "upstream_discover_run", "description": "completed discover run whose shortfall candidates are being landed", "type": "run", "path": "bindings/caller/upstream_discover_run.md" },
+      { "name": "new_candidates", "description": "writer-ready candidate list promoted from upstream shortfall (14 rows after freshness + frame-existing filters)", "path": "bindings/caller/new_candidates.json" },
+      { "name": "min_field_coverage", "description": "auditor threshold for flagging entities as under-covered", "default": 0.6, "path": "bindings/caller/min_field_coverage.md" }
+    ],
+    "returns": [
+      { "name": "report", "source": "auditor", "description": "workspace/curate/report.json with added/refreshed/enriched/deprecated/disputed/under_covered_entities/status_transitions/audit_stats" }
+    ],
+    "defaults_omitted_from_parent": {
+      "refresh_actions": "empty (refresh phase skipped)",
+      "budget_usd": "N/A (no paid services in this subset)",
+      "min_new_entities": "N/A (discovery skipped; caller supplies new_candidates directly)",
+      "freshness_days": "N/A (applied by upstream discover run)",
+      "refresh_age_days": "N/A (refresh skipped)",
+      "refresh_cap": "N/A (refresh skipped)"
+    }
+  },
+  "graph": [
+    {
+      "id": "writer",
+      "sourcePath": "sources/writer.prose.md",
+      "workspacePath": "workspace/writer/",
+      "inputs": [
+        { "name": "new_candidates", "from": "caller", "path": "bindings/caller/new_candidates.json", "note": "Promoted from upstream shortfall — substitutes the dedup service's output the parent system would otherwise wire." },
+        { "name": "refresh_actions", "from": "synthetic", "value": [], "note": "Refresh phase skipped; writer treats refresh_actions as an empty list." },
+        { "name": "frame", "from": "caller", "path": "bindings/caller/frame.md" }
+      ],
+      "outputs": [
+        { "name": "writes_applied", "workspacePath": "workspace/writer/writes_applied.json", "bindingPath": "bindings/writer/writes_applied.json", "public": true }
+      ],
+      "errors": ["SchemaViolation"],
+      "delegates": []
+    },
+    {
+      "id": "enricher",
+      "sourcePath": "sources/enricher.prose.md",
+      "workspacePath": "workspace/enricher/",
+      "inputs": [
+        { "name": "writes_applied", "from": "service", "sourceNodeId": "writer", "sourceOutput": "writes_applied", "path": "bindings/writer/writes_applied.json" },
+        { "name": "frame", "from": "caller", "path": "bindings/caller/frame.md" }
+      ],
+      "outputs": [
+        { "name": "enrichment_applied", "workspacePath": "workspace/enricher/enrichment_applied.json", "bindingPath": "bindings/enricher/enrichment_applied.json", "public": true }
+      ],
+      "errors": ["EnrichmentBlocked"],
+      "delegates": []
+    },
+    {
+      "id": "auditor",
+      "sourcePath": "sources/auditor.prose.md",
+      "workspacePath": "workspace/auditor/",
+      "inputs": [
+        { "name": "writes_applied", "from": "service", "sourceNodeId": "writer", "sourceOutput": "writes_applied", "path": "bindings/writer/writes_applied.json" },
+        { "name": "enrichment_applied", "from": "service", "sourceNodeId": "enricher", "sourceOutput": "enrichment_applied", "path": "bindings/enricher/enrichment_applied.json" },
+        { "name": "min_field_coverage", "from": "caller", "path": "bindings/caller/min_field_coverage.md" },
+        { "name": "frame", "from": "caller", "path": "bindings/caller/frame.md" }
+      ],
+      "outputs": [
+        { "name": "report", "workspacePath": "workspace/auditor/report.json", "bindingPath": "bindings/auditor/report.json", "public": true }
+      ],
+      "errors": ["auditor-overload"],
+      "delegates": []
+    }
+  ],
+  "executionOrder": [
+    { "nodeId": "writer", "dependsOn": ["caller"] },
+    { "nodeId": "enricher", "dependsOn": ["writer", "caller"] },
+    { "nodeId": "auditor", "dependsOn": ["writer", "enricher", "caller"] }
+  ],
+  "environment": [],
+  "tools": [
+    { "kind": "mcp", "name": "frame-layoffs-2026", "requiredBy": ["writer", "enricher", "auditor"] },
+    { "kind": "cli", "name": "curl", "requiredBy": ["enricher", "auditor"] }
+  ],
+  "warnings": [
+    "Subset of parent system src/curate.prose.md — refresh + discover phases were omitted. The parent system's ### Ensures clauses about `refreshed`, `status_transitions`, and `added ≥ min_new_entities` are partially or fully unsatisfied by design.",
+    "No dedicated curate-lite.prose.md source exists; the manifest was backfilled after execution to document the actual graph that ran. Future runs of this shape should author a kind: system source so Forme can wire it pre-execution instead of post-hoc."
+  ],
+  "trace": {
+    "vm_log": "vm.log.md",
+    "upstream_runs": [
+      {
+        "run_id": "20260526-124729-7f9757",
+        "root": "layoffs-discover",
+        "status": "complete-shortfall (14 of 15 min_candidates)",
+        "consumed_via": "bindings/caller/upstream_discover_run.md and bindings/caller/new_candidates.json (14 rows filtered from the upstream extractor's 18-candidate output by the upstream dedup service's freshness + frame-existing checks)"
+      }
+    ]
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "planned_at": "2026-05-26",
+  "freshness_window": {
+    "start": "2026-05-12",
+    "end": "2026-05-26",
+    "days": 14,
+    "rationale": "Canonical 14-day discover window per program spec. Frame's most-recent date_announced is 2026-05-12 (61 entities total), so the window picks up exactly where the existing corpus ends — no overlap waste, no gap."
+  },
+  "min_queries": 4,
+  "queries": [
+    {
+      "id": "q1-exa-news-broad",
+      "tool": "exa_search",
+      "slice": "semantic-news-broad",
+      "params": {
+        "query": "company announces layoffs workforce reduction May 2026",
+        "category": "news",
+        "startPublishedDate": "2026-05-12",
+        "endPublishedDate": "2026-05-26",
+        "numResults": 10
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "Broad semantic news sweep for company×layoff announcements in the 14-day window. Exa's neural news category is the highest-recall single query per dollar for discover."
+    },
+    {
+      "id": "q2-exa-warn-8k",
+      "tool": "exa_search",
+      "slice": "semantic-warn-8k",
+      "params": {
+        "query": "WARN notice filing 8-K SEC workforce reduction layoffs",
+        "category": "news",
+        "startPublishedDate": "2026-05-12",
+        "endPublishedDate": "2026-05-26",
+        "numResults": 10
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "Authoritative-filing slice — surfaces WARN Act notices and 8-K disclosures, which are the highest-tier sources for layoff_count and date_announced per the authoritative source rule."
+    },
+    {
+      "id": "q3-exa-ai-restructure",
+      "tool": "exa_search",
+      "slice": "semantic-ai-restructure",
+      "params": {
+        "query": "AI restructuring layoffs automation 2026",
+        "category": "news",
+        "startPublishedDate": "2026-05-12",
+        "endPublishedDate": "2026-05-26",
+        "numResults": 10
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "Targets the dominant 2026 layoff reason enum value (ai-restructuring). Complements the broad sweep with a reason-stated semantic angle that often catches mid-size tech/AI cuts the broad query misses."
+    },
+    {
+      "id": "q4-twitter-official",
+      "tool": "twitter_search",
+      "slice": "social-official-posts",
+      "params": {
+        "query": "(layoffs OR \"job cuts\" OR \"workforce reduction\") -filter:retweets lang:en since:2026-05-12 until:2026-05-26",
+        "queryType": "Latest",
+        "cursor": ""
+      },
+      "est_cost_usd": 0.01,
+      "rationale": "First-party corroboration slice — CEO/company posts on X. Authority tier 2 (primary) when a CEO names a headcount. Date operators scope to the freshness window."
+    }
+  ],
+  "estimated_total_cost_usd": 0.04,
+  "budget_ceiling_usd": 0.20,
+  "headroom_usd": 0.16,
+  "tools_used": ["exa_search", "twitter_search"],
+  "distinct_slices": [
+    "semantic-news-broad",
+    "semantic-warn-8k",
+    "semantic-ai-restructure",
+    "social-official-posts"
+  ],
+  "two_tool_minimum_satisfied": true,
+  "min_queries_satisfied": true,
+  "notes": "All 4 queries use only chosen_tools (exa_search, twitter_search). 3 exa slices + 1 twitter slice = 4 distinct slices across 2 tools. Freshness window explicit in every query (exa via startPublishedDate/endPublishedDate, twitter via since:/until: operators). Headroom of $0.16 left under the $0.20 ceiling — caller can request additional slices (semantic-memo-style, semantic-ceo-statement) without exceeding budget if needed downstream."
+}

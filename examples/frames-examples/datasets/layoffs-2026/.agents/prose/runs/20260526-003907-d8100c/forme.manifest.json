@@ -1,0 +1,153 @@
+{
+  "id": "layoffs-discover",
+  "systemName": "layoffs-discover",
+  "sourcePath": ".agents/prose/src/discover.prose.md",
+  "runId": "20260526-003907-d8100c",
+  "caller": {
+    "requires": [
+      { "name": "frame", "description": "path to the frame directory", "default": ".", "value": "." },
+      { "name": "budget_usd", "description": "ceiling for pay_tool spend this run", "default": 0.75, "value": 0.20 },
+      { "name": "min_candidates", "description": "target deduped candidate count", "default": 15, "value": 15 },
+      { "name": "min_queries", "description": "minimum distinct search queries", "default": 4, "value": 4 },
+      { "name": "freshness_days", "description": "freshness window in days", "default": 14, "value": 14 },
+      { "name": "queries", "description": "optional caller-provided query list", "optional": true, "value": null }
+    ],
+    "returns": [
+      { "name": "candidates", "source": "dedup", "description": "workspace/discover/candidates.json — array of candidate rows" },
+      { "name": "spent_usd", "source": "searcher", "description": "total settled USDC reported in run trace" }
+    ]
+  },
+  "graph": [
+    {
+      "id": "tool-picker",
+      "sourcePath": "sources/tool-picker.prose.md",
+      "workspacePath": "workspace/tool-picker/",
+      "inputs": [
+        { "name": "frame", "from": "caller", "sourceOutput": "frame", "path": "bindings/caller/frame.md" }
+      ],
+      "outputs": [
+        {
+          "name": "chosen_tools",
+          "workspacePath": "workspace/tool-picker/chosen_tools.json",
+          "bindingPath": "bindings/tool-picker/chosen_tools.json",
+          "public": true
+        }
+      ],
+      "errors": [
+        { "name": "NoCatalogTool", "description": "no candidate from manifest is resolvable AND payable" }
+      ],
+      "delegates": []
+    },
+    {
+      "id": "query-planner",
+      "sourcePath": "sources/query-planner.prose.md",
+      "workspacePath": "workspace/query-planner/",
+      "inputs": [
+        { "name": "chosen_tools", "from": "service", "sourceNodeId": "tool-picker", "sourceOutput": "chosen_tools", "path": "bindings/tool-picker/chosen_tools.json" },
+        { "name": "frame", "from": "caller", "sourceOutput": "frame", "path": "bindings/caller/frame.md" },
+        { "name": "freshness_days", "from": "caller", "sourceOutput": "freshness_days", "path": "bindings/caller/freshness_days.md" },
+        { "name": "min_queries", "from": "caller", "sourceOutput": "min_queries", "path": "bindings/caller/min_queries.md" },
+        { "name": "budget_usd", "from": "caller", "sourceOutput": "budget_usd", "path": "bindings/caller/budget_usd.md" }
+      ],
+      "outputs": [
+        {
+          "name": "queries",
+          "workspacePath": "workspace/query-planner/queries.json",
+          "bindingPath": "bindings/query-planner/queries.json",
+          "public": true
+        }
+      ],
+      "errors": [],
+      "delegates": []
+    },
+    {
+      "id": "searcher",
+      "sourcePath": "sources/searcher.prose.md",
+      "workspacePath": "workspace/searcher/",
+      "inputs": [
+        { "name": "queries", "from": "service", "sourceNodeId": "query-planner", "sourceOutput": "queries", "path": "bindings/query-planner/queries.json" },
+        { "name": "budget_usd", "from": "caller", "sourceOutput": "budget_usd", "path": "bindings/caller/budget_usd.md" }
+      ],
+      "outputs": [
+        {
+          "name": "raw_results",
+          "workspacePath": "workspace/searcher/raw_results.json",
+          "bindingPath": "bindings/searcher/raw_results.json",
+          "public": true
+        },
+        {
+          "name": "spent_usd",
+          "workspacePath": "workspace/searcher/spent_usd.md",
+          "bindingPath": "bindings/searcher/spent_usd.md",
+          "public": true
+        }
+      ],
+      "errors": [
+        { "name": "BudgetExceeded", "description": "next call would push spent_usd past budget_usd" },
+        { "name": "WalletNotReady", "description": "no configured wallet for required rails" },
+        { "name": "AllCallsFailed", "description": "every planned call failed with no settlement" }
+      ],
+      "delegates": []
+    },
+    {
+      "id": "extractor",
+      "sourcePath": "sources/extractor.prose.md",
+      "workspacePath": "workspace/extractor/",
+      "inputs": [
+        { "name": "raw_results", "from": "service", "sourceNodeId": "searcher", "sourceOutput": "raw_results", "path": "bindings/searcher/raw_results.json" },
+        { "name": "frame", "from": "caller", "sourceOutput": "frame", "path": "bindings/caller/frame.md" }
+      ],
+      "outputs": [
+        {
+          "name": "candidates_unfiltered",
+          "workspacePath": "workspace/extractor/candidates_unfiltered.json",
+          "bindingPath": "bindings/extractor/candidates_unfiltered.json",
+          "public": true
+        }
+      ],
+      "errors": [],
+      "delegates": []
+    },
+    {
+      "id": "dedup",
+      "sourcePath": "sources/dedup.prose.md",
+      "workspacePath": "workspace/dedup/",
+      "inputs": [
+        { "name": "candidates_unfiltered", "from": "service", "sourceNodeId": "extractor", "sourceOutput": "candidates_unfiltered", "path": "bindings/extractor/candidates_unfiltered.json" },
+        { "name": "min_candidates", "from": "caller", "sourceOutput": "min_candidates", "path": "bindings/caller/min_candidates.md" },
+        { "name": "frame", "from": "caller", "sourceOutput": "frame", "path": "bindings/caller/frame.md" }
+      ],
+      "outputs": [
+        {
+          "name": "candidates",
+          "workspacePath": "workspace/discover/candidates.json",
+          "bindingPath": "bindings/discover/candidates.json",
+          "public": true,
+          "conditional": "when len(final_candidates) ≥ min_candidates"
+        },
+        {
+          "name": "shortfall",
+          "workspacePath": "workspace/discover/shortfall.md",
+          "bindingPath": "bindings/discover/shortfall.md",
+          "public": true,
+          "conditional": "when len(final_candidates) < min_candidates"
+        }
+      ],
+      "errors": [],
+      "delegates": []
+    }
+  ],
+  "executionOrder": [
+    { "nodeId": "tool-picker", "dependsOn": ["caller"] },
+    { "nodeId": "query-planner", "dependsOn": ["tool-picker", "caller"] },
+    { "nodeId": "searcher", "dependsOn": ["query-planner", "caller"] },
+    { "nodeId": "extractor", "dependsOn": ["searcher", "caller"] },
+    { "nodeId": "dedup", "dependsOn": ["extractor", "caller"] }
+  ],
+  "environment": [],
+  "tools": [
+    { "kind": "mcp", "name": "pay", "requiredBy": ["tool-picker", "searcher"] },
+    { "kind": "mcp", "name": "frame-layoffs-2026", "requiredBy": ["dedup"] }
+  ],
+  "warnings": []
+}

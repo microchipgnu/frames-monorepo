@@ -1,0 +1,108 @@
+{
+  "id": "layoffs-discover",
+  "systemName": "layoffs-discover",
+  "sourcePath": "root.prose.md",
+  "caller": {
+    "requires": [
+      { "name": "frame", "description": "path to the frame directory" },
+      { "name": "budget_usd", "description": "ceiling for pay_tool spend this run" },
+      { "name": "min_candidates", "description": "target deduped candidate count" },
+      { "name": "min_queries", "description": "minimum distinct search queries the searcher must run" },
+      { "name": "freshness_days", "description": "surface announcements within last N days" },
+      { "name": "queries", "description": "optional caller-provided query list", "optional": true }
+    ],
+    "returns": [
+      { "name": "candidates", "source": "dedup" }
+    ]
+  },
+  "graph": [
+    {
+      "id": "tool-picker",
+      "sourcePath": "sources/tool-picker.prose.md",
+      "workspacePath": "workspace/tool-picker/",
+      "inputs": [
+        { "name": "frame", "from": "caller", "sourceNodeId": "caller", "sourceOutput": "frame", "path": "bindings/caller/frame.md" }
+      ],
+      "outputs": [
+        { "name": "chosen_tools", "workspacePath": "workspace/tool-picker/chosen_tools.json", "bindingPath": "bindings/tool-picker/chosen_tools.json", "public": true }
+      ],
+      "errors": ["NoCatalogTool"],
+      "delegates": []
+    },
+    {
+      "id": "query-planner",
+      "sourcePath": "sources/query-planner.prose.md",
+      "workspacePath": "workspace/query-planner/",
+      "inputs": [
+        { "name": "chosen_tools", "from": "service", "sourceNodeId": "tool-picker", "sourceOutput": "chosen_tools", "path": "bindings/tool-picker/chosen_tools.json" },
+        { "name": "frame", "from": "caller", "sourceNodeId": "caller", "sourceOutput": "frame", "path": "bindings/caller/frame.md" },
+        { "name": "freshness_days", "from": "caller", "sourceNodeId": "caller", "sourceOutput": "freshness_days", "path": "bindings/caller/freshness_days.md" },
+        { "name": "min_queries", "from": "caller", "sourceNodeId": "caller", "sourceOutput": "min_queries", "path": "bindings/caller/min_queries.md" },
+        { "name": "budget_usd", "from": "caller", "sourceNodeId": "caller", "sourceOutput": "budget_usd", "path": "bindings/caller/budget_usd.md" },
+        { "name": "queries", "from": "caller", "sourceNodeId": "caller", "sourceOutput": "queries", "path": "bindings/caller/queries.md", "optional": true }
+      ],
+      "outputs": [
+        { "name": "queries", "workspacePath": "workspace/query-planner/queries.json", "bindingPath": "bindings/query-planner/queries.json", "public": true }
+      ],
+      "errors": [],
+      "delegates": []
+    },
+    {
+      "id": "searcher",
+      "sourcePath": "sources/searcher.prose.md",
+      "workspacePath": "workspace/searcher/",
+      "inputs": [
+        { "name": "queries", "from": "service", "sourceNodeId": "query-planner", "sourceOutput": "queries", "path": "bindings/query-planner/queries.json" },
+        { "name": "budget_usd", "from": "caller", "sourceNodeId": "caller", "sourceOutput": "budget_usd", "path": "bindings/caller/budget_usd.md" }
+      ],
+      "outputs": [
+        { "name": "raw_results", "workspacePath": "workspace/searcher/raw_results.json", "bindingPath": "bindings/searcher/raw_results.json", "public": true },
+        { "name": "spent_usd", "workspacePath": "workspace/searcher/spent_usd.md", "bindingPath": "bindings/searcher/spent_usd.md", "public": true }
+      ],
+      "errors": ["BudgetExceeded", "WalletNotReady", "AllCallsFailed"],
+      "delegates": []
+    },
+    {
+      "id": "extractor",
+      "sourcePath": "sources/extractor.prose.md",
+      "workspacePath": "workspace/extractor/",
+      "inputs": [
+        { "name": "raw_results", "from": "service", "sourceNodeId": "searcher", "sourceOutput": "raw_results", "path": "bindings/searcher/raw_results.json" },
+        { "name": "frame", "from": "caller", "sourceNodeId": "caller", "sourceOutput": "frame", "path": "bindings/caller/frame.md" }
+      ],
+      "outputs": [
+        { "name": "candidates_unfiltered", "workspacePath": "workspace/extractor/candidates_unfiltered.json", "bindingPath": "bindings/extractor/candidates_unfiltered.json", "public": true }
+      ],
+      "errors": [],
+      "delegates": []
+    },
+    {
+      "id": "dedup",
+      "sourcePath": "sources/dedup.prose.md",
+      "workspacePath": "workspace/dedup/",
+      "inputs": [
+        { "name": "candidates_unfiltered", "from": "service", "sourceNodeId": "extractor", "sourceOutput": "candidates_unfiltered", "path": "bindings/extractor/candidates_unfiltered.json" },
+        { "name": "min_candidates", "from": "caller", "sourceNodeId": "caller", "sourceOutput": "min_candidates", "path": "bindings/caller/min_candidates.md" },
+        { "name": "frame", "from": "caller", "sourceNodeId": "caller", "sourceOutput": "frame", "path": "bindings/caller/frame.md" }
+      ],
+      "outputs": [
+        { "name": "candidates", "workspacePath": "workspace/dedup/candidates.json", "bindingPath": "bindings/dedup/candidates.json", "public": true }
+      ],
+      "errors": [],
+      "delegates": []
+    }
+  ],
+  "executionOrder": [
+    { "nodeId": "tool-picker", "dependsOn": ["caller"] },
+    { "nodeId": "query-planner", "dependsOn": ["tool-picker", "caller"] },
+    { "nodeId": "searcher", "dependsOn": ["query-planner", "caller"] },
+    { "nodeId": "extractor", "dependsOn": ["searcher", "caller"] },
+    { "nodeId": "dedup", "dependsOn": ["extractor", "caller"] }
+  ],
+  "environment": [],
+  "tools": [
+    { "kind": "mcp", "name": "pay", "requiredBy": ["tool-picker", "searcher"] },
+    { "kind": "mcp", "name": "frame-layoffs-2026", "requiredBy": ["dedup"] }
+  ],
+  "warnings": []
+}

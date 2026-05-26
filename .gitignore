@@ -22,7 +22,12 @@ dist/
 # wrangler local state (miniflare KV/cache)
 .wrangler/
 
-# OpenProse: gitignore the heavy active scratch (top-level workspace/ holds
-# HTML body caches and per-service intermediates). KEEP .prose/runs/ tracked
-# — the per-run trace is ~24-72KB each, makes git history the audit ledger.
+# OpenProse (per-dataset attached root at .agents/prose/):
+#  - workspace/ holds heavy active scratch (HTML body caches, per-service
+#    intermediates). Ignored.
+#  - .agents/prose/runs/ is the per-run trace (~24-72KB each). Tracked —
+#    git history is the audit ledger.
+#  - .agents/prose/deps/ holds installed deps. Ignored (regenerable from
+#    prose.lock).
 **/datasets/*/workspace/
+**/datasets/*/.agents/prose/deps/

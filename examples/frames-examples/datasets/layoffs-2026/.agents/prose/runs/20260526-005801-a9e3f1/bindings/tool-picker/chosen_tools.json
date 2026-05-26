@@ -1,0 +1,31 @@
+{
+  "two_tool_minimum_satisfied": true,
+  "wallets_observed": {
+    "base": "0xBd9EB8899d7207bEB35A140010E154438a25E55f",
+    "solana-mainnet": "AyyQz8tScHpiAh7S3v8XXhxHbfvfSiErLGur11SmegRc"
+  },
+  "chosen": [
+    {
+      "rank": 1,
+      "name": "exa_search",
+      "role": "semantic web discovery — broad layoff announcements + freshness checks",
+      "price_hint_usd": 0.01,
+      "rails": ["base/USDC via x402v2 (locked)"],
+      "rationale": "Locked & ready. Best recall for semantic queries (the schema's primary discovery channel)."
+    },
+    {
+      "rank": 2,
+      "name": "twitter_search",
+      "role": "social — CEO/official company posts (authority_tier 2)",
+      "price_hint_usd": 0.01,
+      "rails": ["base/USDC via x402v2 (locked)"],
+      "rationale": "Locked & ready. Captures authoritative CEO posts that pre-date news cycles."
+    }
+  ],
+  "rejected": [
+    { "name": "serper_news", "reason": "not installed in tools.lock — would require an add_tool call & spend before any discovery; deferred to next run" },
+    { "name": "reddit_search", "reason": "not installed in tools.lock — same reason as serper_news; tier-5 signal anyway" },
+    { "name": "firecrawl_scrape", "reason": "scrape role, not discovery — per tool-picker contract, firecrawl is out of role for discover" }
+  ],
+  "notes": "Prior 3 runs hit opaque agentwallet 500s on base/USDC despite multi-rail descriptors being fetched. The chosen rail is unchanged because the pay→agentwallet boundary still hard-picks base/USDC even when the runtime rail-loop iterates accepts[]. See project_pay_multirail_dispatch."
+}

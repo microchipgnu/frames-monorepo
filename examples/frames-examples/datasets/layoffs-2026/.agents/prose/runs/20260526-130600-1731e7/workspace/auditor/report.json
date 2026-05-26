@@ -1,0 +1,147 @@
+{
+  "added": 14,
+  "refreshed": 0,
+  "enriched": 7,
+  "deprecated": 2,
+  "sources_attached": 0,
+  "spent_usd": 0.00,
+  "rejected_by_auditor": [
+    {
+      "fact_id": "11268938-7468-4991-9acc-fa3013ea735a",
+      "entity_id": "intuit-2026-05-20",
+      "field": "layoff_count",
+      "value": 3000,
+      "source_url": "https://www.stocktitan.net/sec-filings/INTU/8-k-intuit-inc-reports-material-event-b23073259896.html",
+      "reason": "layoff_count value 3000 does not appear verbatim on the cited StockTitan page (page confirms only '17% of full-time employees' / 'Workforce reduction 17%'); absolute number was inferred from headcount math, not directly stated by the cited source"
+    },
+    {
+      "fact_id": "fc793aee-fa15-4e7f-949b-d8df0ddd9c6d",
+      "entity_id": "gitlab-2026-05-12",
+      "field": "reason_excerpt",
+      "value": "Authoring code by hand may be going away.",
+      "source_url": "https://x.com/LayoffAI/status/2054260651338748038",
+      "reason": "reason_excerpt cannot be verified on cited X/LayoffAI tweet (JS-rendered, no static text retrievable); enricher confirmed phrase absent from the official GitLab 8-K letter from CEO Will Staples. Tier-5 aggregator tweet without verifiable substantiation."
+    }
+  ],
+  "disputed": [
+    {
+      "entity_id": "meta-2026-05-20",
+      "field": "layoff_count",
+      "conflicting_values": [
+        {"value": 8000, "source": "https://www.theverge.com/tech/935163/meta-layoffs-ai-investment-offset-memo", "excerpt": "8,000 staffers are reportedly affected, around 10 percent of the company"},
+        {"value": 7900, "source": "https://economictimes.indiatimes.com/news/international/us/meta-layoffs-2026-why-zuckerbergs-ai-bet-is-eliminating-7900-jobs-and-what-it-means-for-every-tech-worker/articleshow/131226173.cms", "excerpt": "Meta Layoffs 2026: Why Zuckerberg's AI bet is eliminating 7,900 jobs"}
+      ],
+      "resolution": "set status=disputed; both URLs remain attached as evidence; neither layoff_count fact deprecated",
+      "set_fact_id": "799924a7-e544-4a47-9799-49752876d364"
+    },
+    {
+      "entity_id": "linkedin-2026-05-13",
+      "field": "layoff_count",
+      "conflicting_values": [
+        {"value": 875, "source": "https://x.com/LayoffAI/status/2054573253621145854", "excerpt": "@LayoffAI: 875 cuts (~5%) (per discover/candidate notes)"},
+        {"value": 600, "source": "https://x.com/JimChuong/status/2057126551590744575", "excerpt": "@JimChuong: 600 with July 13 effective date impacting Bay Area engineering/product/marketing (per discover/candidate notes)"}
+      ],
+      "resolution": "set status=disputed; both tier-5 social sources kept attached as evidence; no clean verbatim quote available, so reason_excerpt was not modified",
+      "set_fact_id": "ab4b0767-8a50-4822-a04f-89b762426778"
+    }
+  ],
+  "under_covered_entities": [
+    {
+      "entity_id": "clickup-2026-05-23",
+      "field_coverage": 0.571,
+      "facts_set_current": 8,
+      "denominator": 14,
+      "missing_fields": ["layoff_count", "reason_excerpt", "ceo_name", "warn_filing_url", "official_statement_url", "social_signal"],
+      "reason": "Private company with single Indian-press source (Economic Times); only percentage given (22%), no absolute count; CA EDD WARN portal scanned by enricher with no ClickUp 2026 entry; no clickup.com first-party press release surfaced."
+    },
+    {
+      "entity_id": "panera-2026-05-20",
+      "field_coverage": 0.538,
+      "facts_set_current": 7,
+      "denominator": 13,
+      "missing_fields": ["company_domain", "layoff_percentage", "reason_excerpt", "warn_filing_url", "official_statement_url", "social_signal"],
+      "reason": "Private (JAB Holdings subsidiary); only warntracker.com aggregator source; OH (West Chester/Butler) + MD (Jessup) state WARN portals not directly retrieved within enricher's time budget; no first-party Panera press release."
+    },
+    {
+      "entity_id": "ssp-america-2026-05-19",
+      "field_coverage": 0.538,
+      "facts_set_current": 7,
+      "denominator": 13,
+      "missing_fields": ["company_domain", "layoff_percentage", "reason_excerpt", "warn_filing_url", "official_statement_url", "social_signal"],
+      "reason": "Subsidiary of SSP Group plc (LSE) — not a separate SEC filer; CA EDD WARN xlsx mentions an unrelated 2025-07 SSP America/Intel Tipton record; the May 19 Sacramento layoff has not yet propagated to CA EDD data (typical 30-60 day lag); no first-party press release."
+    },
+    {
+      "entity_id": "elior-2026-05-17",
+      "field_coverage": 0.538,
+      "facts_set_current": 7,
+      "denominator": 13,
+      "missing_fields": ["company_domain", "layoff_percentage", "reason_excerpt", "warn_filing_url", "official_statement_url", "social_signal"],
+      "reason": "French parent (Elior Group SA, Euronext Paris) — no US SEC filing; WI WARN portal not directly queried; warntracker.com aggregator is the only attached evidence; no first-party elior.com press release surfaced."
+    },
+    {
+      "entity_id": "diamond-transportation-services-2026-05-12",
+      "field_coverage": 0.538,
+      "facts_set_current": 7,
+      "denominator": 13,
+      "missing_fields": ["company_domain", "layoff_percentage", "reason_excerpt", "warn_filing_url", "official_statement_url", "social_signal"],
+      "reason": "Subsidiary of National Express / WeDriveU (UK-listed parent) — not a US SEC filer; MD WARN portal not directly fetched; Strauss Borrelli class-action notice is the only source — actually substantiates the 571 layoff_count verbatim but provides no first-party Diamond Transportation statement."
+    },
+    {
+      "entity_id": "gitlab-2026-05-12",
+      "field_coverage": 0.562,
+      "facts_set_current": 9,
+      "denominator": 16,
+      "missing_fields": ["layoff_count", "layoff_percentage", "total_workforce_before", "reason_excerpt", "ceo_name", "affected_teams", "official_statement_url"],
+      "reason": "Tier-5 social-only (X/LayoffAI tweets); GTLB 8-K confirmed by enricher but the CEO's voluntary-separation letter does not disclose a headcount; reason_excerpt was deprecated by auditor for non-verifiable provenance; coverage dropped below threshold after deprecation. GitLab plans to disclose headcount on June 2 earnings call."
+    }
+  ],
+  "status_transitions": [
+    {
+      "entity_id": "meta-2026-05-20",
+      "from": "announced",
+      "to": "disputed",
+      "reason": "cross-source conflict on layoff_count (8000 vs 7900) between Verge and Economic Times"
+    },
+    {
+      "entity_id": "linkedin-2026-05-13",
+      "from": "announced",
+      "to": "disputed",
+      "reason": "cross-source conflict on layoff_count (875 vs 600) between @LayoffAI and @JimChuong tweets; tier-5 only, no corroborating tier-1"
+    }
+  ],
+  "audit_stats": {
+    "facts_audited": 136,
+    "facts_fetched": 12,
+    "facts_trusted_unfetched": 122,
+    "facts_deprecated": 2,
+    "disputed_resolutions": 2,
+    "rejection_rate_pct": 1.47,
+    "auditor_overload": false
+  },
+  "fetched_urls": [
+    {"url": "https://www.theverge.com/tech/935163/meta-layoffs-ai-investment-offset-memo", "http": 200, "verified": "reason_excerpt verbatim, '8,000' present, '10 percent' present"},
+    {"url": "https://blogs.cisco.com/news/our-path-forward", "http": 200, "verified": "reason_excerpt verbatim, '4,000' / '5 percent' present, Chuck Robbins byline confirmed"},
+    {"url": "https://www.stocktitan.net/sec-filings/INTU/8-k-intuit-inc-reports-material-event-b23073259896.html", "http": 200, "verified": "reason_excerpt 'faster, leaner, and more focused' verbatim; '17%' present; '3,000' NOT present → deprecated"},
+    {"url": "https://www.calcalistech.com/ctechnews/article/b1oebi11xge", "http": 200, "verified": "'1,000 jobs', '20%', '5,277' workforce all present"},
+    {"url": "https://economictimes.indiatimes.com/news/new-updates/us-company-clickup-lays-off-22-workforce-but-ceo-says-bigger-rewards-await-those-who-master-ai/articleshow/131276511.cms", "http": 200, "verified": "'22%' verbatim, ClickUp, AI-driven operations confirmed"},
+    {"url": "https://www.warntracker.com/layoff/panera-2026-05-20", "http": 200, "verified": "'188 Workers', West Chester/Butler OH (70), Jessup MD (118), May 20 effective"},
+    {"url": "https://www.warntracker.com/layoff/ssp-america-2026-05-19", "http": 200, "verified": "'44 Workers', Sacramento CA, May 19 effective"},
+    {"url": "https://www.warntracker.com/layoff/elior-2026-05-17", "http": 200, "verified": "'155 Workers', Oshkosh WI, May 17 effective"},
+    {"url": "https://straussborrelli.com/2026/05/14/diamond-transportation-services-maryland-warn-act-investigation/", "http": 200, "verified": "'571 employees' verbatim, 'Landover, Maryland', 'May 12, 2026' all present"},
+    {"url": "https://last10k.com/sec-filings/mgnx/0001125345-26-000040.htm", "http": 200, "verified": "'Bora', '140 employees', 'May 13, 2026' all present"},
+    {"url": "https://economictimes.indiatimes.com/news/international/us/meta-layoffs-2026-why-zuckerbergs-ai-bet-is-eliminating-7900-jobs-and-what-it-means-for-every-tech-worker/articleshow/131226173.cms", "http": 200, "verified": "'7,900 jobs' present → conflict with Verge's 8,000 → disputed"},
+    {"url": "https://x.com/LayoffAI/status/2054260651338748038", "http": 200, "verified": "JS-only shell, no static content retrievable; cannot verify reason_excerpt → deprecated"}
+  ],
+  "x_urls_unverifiable": [
+    {"url": "https://x.com/LayoffAI/status/2054573253621145854", "reason": "X.com requires JS to render tweet content; static curl returns shell only. Trust based on candidate notes + tier-5 marking."},
+    {"url": "https://x.com/WallStRollup/status/2055278096631181533", "reason": "Same — Starbucks 300 / tier-5 / kept based on discover notes."},
+    {"url": "https://x.com/Nicolascole77/status/2054902676035678613", "reason": "Same — Upwork 25% / tier-5 / kept; enricher confirmed 24% from official Upwork 8-K (~minor delta)."},
+    {"url": "https://x.com/JimChuong/status/2057126551590744575", "reason": "Same — used for LinkedIn dispute documentation per candidate notes."}
+  ],
+  "trust_chain_notes": [
+    "Per criteria, SEC EDGAR 8-K URLs set by the enricher are trusted (intuit, cisco, macrogenics, starbucks, upwork, gitlab sec_filing_url).",
+    "warntracker.com is a DOL-WARN-records aggregator (gov-data passthrough), not a derivative aggregator like layoffs.fyi — treated as tier-4 acceptable per discover-pass marking.",
+    "X.com URLs cannot be re-fetched as text via curl due to JS rendering. For tier-5 social claims, the discover candidate notes are treated as auditor's secondary evidence."
+  ],
+  "notes": "Curate-lite run on top of discover 20260526-124729-7f9757. Auditor fetched 12 primary-source URLs covering all non-X/non-SEC primary sources; 1 deprecation for missing-value-on-page (intuit layoff_count), 1 deprecation for unverifiable tier-5 reason_excerpt (gitlab). Two disputed resolutions applied (meta 8000 vs 7900; linkedin 875 vs 600). Six entities under 0.6 coverage threshold — five are private subsidiaries with no first-party press, one is GitLab pending headcount disclosure at June 2 earnings call. Rejection rate 1.47% — no auditor-overload signal."
+}
