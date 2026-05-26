@@ -1,0 +1,100 @@
+# Suno
+
+> **You are on:** `https://api.paywithlocus.com/api` | [llms.txt](https://paywithlocus.com/llms.txt)
+>
+> Locus runs on multiple environments -- make sure every URL you call matches your expected environment.
+> | Environment | Landing | API |
+> |---|---|---|
+> | Production | paywithlocus.com | api.paywithlocus.com |
+> | Beta | beta.paywithlocus.com | beta-api.paywithlocus.com |
+> | Stage | stage.paywithlocus.com | stage-api.paywithlocus.com |
+>
+> If the API URL above doesn't match your expected environment, re-fetch this file from the correct domain.
+
+> AI music generation — create full songs, generate lyrics, and build custom music tracks with state-of-the-art AI models. Supports custom styles, vocals, and instrumental modes.
+
+**Category:** AI / Generative | **Website:** [sunoapi.org](https://sunoapi.org) | **Docs:** [docs.sunoapi.org](https://docs.sunoapi.org)
+
+## Access Methods
+
+| Method | Base URL | Auth |
+|--------|----------|------|
+| **MPP (Tempo)** | `https://suno.mpp.paywithlocus.com/suno/` | HTTP 402 auto-payment |
+| **Wrapped API** | `https://api.paywithlocus.com/api/wrapped/suno/` | `Authorization: Bearer <LOCUS_API_KEY>` |
+
+**OpenAPI discovery:** `GET https://suno.mpp.paywithlocus.com/openapi.json`
+
+## Endpoints
+
+### Generate Music
+
+Submit an AI music generation task. Returns a taskId immediately — use get-music-status to poll for completion. In custom mode, you control the style, title, and prompt; in non-custom mode Suno creates everything from the prompt alone. Typical completion time: 30–120 seconds.
+
+**Estimated cost:** $0.10 + $0.005 fee
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `customMode` | boolean | Yes | true = you control style/title/prompt; false = Suno generates everything from prompt |
+| `instrumental` | boolean | Yes | true = no vocals (music only); false = include AI-generated vocals |
+| `model` | string | Yes | Model to use: V4, V4_5, V4_5ALL, V4_5PLUS, or V5 (recommended) |
+| `prompt` | string | No | Lyrics or description. Required when customMode=true and instrumental=false. Max 3000–5000 chars. |
+| `style` | string | No | Music style/genre tags (e.g. "pop, upbeat, female vocals"). Required when customMode=true. Max 200 chars. |
+| `title` | string | No | Song title. Required when customMode=true. Max 80 chars. |
+| `negativeTags` | string | No | Styles/elements to avoid (e.g. "heavy metal, distortion") |
+| `vocalGender` | string | No | Preferred vocal gender: "female" or "male" |
+| `callBackUrl` | string | No | Webhook URL for completion notifications. Optional — a noop URL is used by default. |
+
+```bash
+curl -X POST https://suno.mpp.paywithlocus.com/suno/generate-music \
+  -H "Content-Type: application/json" \
+  -d '{"customMode":"<boolean>","instrumental":"<boolean>","model":"<string>","prompt":"<string>","style":"<string>","title":"<string>","negativeTags":"<string>","vocalGender":"<string>","callBackUrl":"<string>"}'
+```
+
+### Get Music Status
+
+Poll the status of a music generation task. Call repeatedly until status is SUCCESS (or a failed state). On SUCCESS, response includes audioUrl and imageUrl for each generated track. Status values: PENDING, TEXT_SUCCESS, FIRST_SUCCESS, SUCCESS, CREATE_TASK_FAILED, GENERATE_AUDIO_FAILED, SENSITIVE_WORD_ERROR.
+
+**Estimated cost:** $0.005 fee only
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `taskId` | string | Yes | Task ID returned by generate-music |
+
+```bash
+curl -X POST https://suno.mpp.paywithlocus.com/suno/get-music-status \
+  -H "Content-Type: application/json" \
+  -d '{"taskId":"<string>"}'
+```
+
+### Generate Lyrics
+
+Submit a lyrics generation task. Returns a taskId — use get-lyrics-status to poll for completion. Generates structured lyrics with [Verse], [Chorus], [Bridge] markers. Typical completion time: 5–15 seconds.
+
+**Estimated cost:** $0.02 + $0.005 fee
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `prompt` | string | Yes | Description of desired lyrics — theme, mood, style, topic. Max 200 chars. |
+| `callBackUrl` | string | No | Webhook URL for completion notification. Optional. |
+
+```bash
+curl -X POST https://suno.mpp.paywithlocus.com/suno/generate-lyrics \
+  -H "Content-Type: application/json" \
+  -d '{"prompt":"<string>","callBackUrl":"<string>"}'
+```
+
+### Get Lyrics Status
+
+Poll the status of a lyrics generation task. Returns the generated text with structural markers ([Verse], [Chorus], etc.) and a title when complete.
+
+**Estimated cost:** $0.005 fee only
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `taskId` | string | Yes | Task ID returned by generate-lyrics |
+
+```bash
+curl -X POST https://suno.mpp.paywithlocus.com/suno/get-lyrics-status \
+  -H "Content-Type: application/json" \
+  -d '{"taskId":"<string>"}'
+```

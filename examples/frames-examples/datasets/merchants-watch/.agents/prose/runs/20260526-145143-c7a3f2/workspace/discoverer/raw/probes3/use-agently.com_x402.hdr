@@ -1,0 +1,21 @@
+HTTP/2 404 
+accept-ranges: bytes
+access-control-allow-origin: *
+age: 258231
+cache-control: public, max-age=0, must-revalidate
+content-disposition: inline; filename="404"
+content-security-policy: default-src 'self';    script-src 'self' 'unsafe-eval' 'unsafe-inline' https://use-agently.com https://va.vercel-scripts.com https://www.googletagmanager.com https://www.google-analytics.com;    style-src 'self' 'unsafe-inline';    img-src 'self' blob: data: https://*.walletconnect.com https://www.google-analytics.com https://www.googletagmanager.com;    connect-src 'self' https://explorer-api.walletconnect.com https://*.walletconnect.com https://*.walletconnect.org wss://*.walletconnect.com wss://*.walletconnect.org https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net;    frame-src 'self';    object-src 'none';    frame-ancestors 'none';    upgrade-insecure-requests;
+content-type: text/html; charset=utf-8
+date: Tue, 26 May 2026 15:06:51 GMT
+etag: "ebb3cf6abbdd34f626921616e641be76"
+last-modified: Sat, 23 May 2026 15:22:59 GMT
+referrer-policy: no-referrer
+server: Vercel
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-matched-path: /404
+x-vercel-cache: HIT
+x-vercel-id: cdg1::4p5gk-1779808011149-433acf29f838
+content-length: 45336
+

@@ -1,0 +1,11 @@
+HTTP/2 404 
+date: Tue, 26 May 2026 15:06:37 GMT
+content-type: application/json
+rndr-id: 7f924a7a-672e-4245
+server: cloudflare
+vary: Accept-Encoding
+x-render-origin-server: uvicorn
+cf-cache-status: DYNAMIC
+cf-ray: a01daf4e8ed1e3c8-LIS
+alt-svc: h3=":443"; ma=86400
+

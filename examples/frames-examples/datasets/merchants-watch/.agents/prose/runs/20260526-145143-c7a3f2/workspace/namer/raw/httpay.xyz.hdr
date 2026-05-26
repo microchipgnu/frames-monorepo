@@ -1,0 +1,29 @@
+HTTP/2 200 
+accept-ranges: bytes
+access-control-allow-origin: *
+age: 0
+cache-control: public, max-age=0
+content-type: text/html; charset=utf-8
+cross-origin-opener-policy: same-origin
+cross-origin-resource-policy: same-origin
+date: Tue, 26 May 2026 14:59:54 GMT
+etag: W/"4894-1668f272800"
+last-modified: Sat, 20 Oct 2018 01:46:40 GMT
+origin-agent-cluster: ?1
+ratelimit-limit: 100
+ratelimit-policy: 100;w=900
+ratelimit-remaining: 99
+ratelimit-reset: 900
+referrer-policy: no-referrer
+server: Vercel
+strict-transport-security: max-age=31536000; includeSubDomains
+x-content-type-options: nosniff
+x-dns-prefetch-control: off
+x-download-options: noopen
+x-frame-options: SAMEORIGIN
+x-permitted-cross-domain-policies: none
+x-vercel-cache: MISS
+x-vercel-id: cdg1::iad1::2cm8x-1779807594238-400ff4c50b41
+x-xss-protection: 0
+content-length: 18580
+

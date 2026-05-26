@@ -1,0 +1,280 @@
+[
+  {
+    "host": "api.strale.io",
+    "entity_id": "api-strale-io",
+    "display_name": "Strale API",
+    "description": "292+ independently tested and scored data capabilities across 25 countries. Business data, compliance checks, web scraping, and more — accessible via REST API, MCP, and A2A protocols.",
+    "source_url": "https://api.strale.io/",
+    "retrieved_at": "2026-05-26T15:00:00Z",
+    "confidence": 0.95
+  },
+  {
+    "host": "api.402pixels.com",
+    "entity_id": "api-402pixels-com",
+    "display_name": "402pixels API",
+    "description": "AI agent pixel canvas. 500x500 grid of 5x5 pixel blocks. Pay with USDC on Base via x402.",
+    "source_url": "https://api.402pixels.com/",
+    "retrieved_at": "2026-05-26T15:00:00Z",
+    "confidence": 0.95
+  },
+  {
+    "host": "api-dev.intra-tls2.dctx.link",
+    "entity_id": "api-dev-intra-tls2-dctx-link",
+    "display_name": "Questflow",
+    "description": "Create your AI Clone to trade across Polymarket, Pump.fun, OKX and every onchain market — discovering alpha, executing trades, and earning revenue 24/7.",
+    "source_url": "https://questflow.ai/",
+    "retrieved_at": "2026-05-26T15:00:00Z",
+    "confidence": 0.85,
+    "notes": "Host redirects (302/server-side) to questflow.ai homepage; name extracted from og:site_name there. dctx.link appears to be an internal/dev alias for Questflow infra."
+  },
+  {
+    "host": "api.carbon-cashmere.de",
+    "entity_id": "api-carbon-cashmere-de",
+    "display_name": "Carbon and Cashmere",
+    "description": "Professional crypto trading intelligence powered by 4 own blockchain nodes.",
+    "source_url": "https://api.carbon-cashmere.de/",
+    "retrieved_at": "2026-05-26T15:00:00Z",
+    "confidence": 0.9
+  },
+  {
+    "host": "theloopbreaker.com",
+    "entity_id": "theloopbreaker-com",
+    "display_name": "Vaultfire",
+    "description": "KYA (Know Your Agent) — Vaultfire is the trust infrastructure for AI agents. Register on ERC-8004, create partnership bonds, earn Street Cred, route tasks, and communicate via XMTP — across Base, Avalanche, Arbitrum, and Polygon.",
+    "source_url": "https://theloopbreaker.com/",
+    "retrieved_at": "2026-05-26T15:00:00Z",
+    "confidence": 0.9,
+    "notes": "Host theloopbreaker.com serves the Vaultfire brand site (og:site_name = 'Vaultfire'); brand and host name differ."
+  },
+  {
+    "host": "api.cn402.com",
+    "entity_id": "api-cn402-com",
+    "source_url": "https://cn402.com/",
+    "retrieved_at": "2026-05-26T15:00:00Z",
+    "confidence": 0.85,
+    "display_name": "cn402",
+    "description": "China Data Gateway for AI agents. Pay-per-call APIs over X402 protocol, settled in USDC on Base.",
+    "notes": "Subdomain api.cn402.com returned 404 on /. Name resolved from parent cn402.com home page title and meta description."
+  },
+  {
+    "host": "api.agentwonderland.com",
+    "entity_id": "api-agentwonderland-com",
+    "display_name": "Agent Wonderland",
+    "description": "Agent Wonderland is a pay-per-call marketplace for agent-ready API endpoints, MCP tools, and x402 services.",
+    "source_url": "https://api.agentwonderland.com/",
+    "retrieved_at": "2026-05-26T15:00:00Z",
+    "confidence": 0.95
+  },
+  {
+    "host": "gateway.spraay.app",
+    "entity_id": "gateway-spraay-app",
+    "display_name": "Spraay x402 Gateway",
+    "description": "Full-stack DeFi infrastructure: AI, payments, swaps, oracle, bridge, payroll, invoicing, escrow, AI inference, analytics, communication, webhooks, XMTP, RPC, storage, scheduling, logging, KYC, auth, audit trail, tax, GPU/Compute, Search/RAG, Agent Wallets & Supply Chain (SCTP). x402 + USDC.",
+    "source_url": "https://gateway.spraay.app/",
+    "retrieved_at": "2026-05-26T15:00:00Z",
+    "confidence": 0.95
+  },
+  {
+    "host": "gateway.agonx402.com",
+    "entity_id": "gateway-agonx402-com",
+    "source_url": "https://gateway.agonx402.com/",
+    "retrieved_at": "2026-05-26T15:00:00Z",
+    "confidence": 0.0,
+    "notes": "Both gateway.agonx402.com and parent agonx402.com return Vercel DEPLOYMENT_NOT_FOUND. Paid escalation unavailable (exa_search lock-SHA mismatch, firecrawl descriptor unreachable). No display_name proposed; writer should skip."
+  },
+  {
+    "host": "httpay.xyz",
+    "entity_id": "httpay-xyz",
+    "display_name": "httpay.xyz — x402 Pay-Per-Call API Marketplace",
+    "description": "307 pay-per-call APIs (287 native + Universal Gateway proxying 37 services) powered by x402 and USDC on Base. Token intelligence, DeFi yields, MEV risk, AI tools, web scraping. No API keys, no subscriptions — pay $0.001–$0.05 per call.",
+    "source_url": "https://httpay.xyz/",
+    "retrieved_at": "2026-05-26T15:00:00Z",
+    "confidence": 0.7,
+    "notes": "Brand name on the page is the host string itself ('httpay.xyz' as og:site_name); display_name extends it with the page's H1 tagline so it differs from the bare host. Auditor may prefer the shorter form 'httpay'."
+  },
+  {
+    "host": "alpha.palmvox.com",
+    "entity_id": "alpha-palmvox-com",
+    "display_name": "AgentAlpha by PalmVox",
+    "description": "Autonomous AI scanning 7 data sources 24/7. Trading signals, DeFi yields, market intelligence. Pay $0.01 USDC per request. 100% win rate. No API keys.",
+    "source_url": "https://alpha.palmvox.com/",
+    "retrieved_at": "2026-05-26T15:00:00Z",
+    "confidence": 0.9,
+    "notes": "og:site_name is 'AgentAlpha by PalmVox'; product line is 'AgentAlpha' running on the PalmVox platform."
+  },
+  {
+    "host": "api.x402node.dev",
+    "entity_id": "api-x402node-dev",
+    "source_url": "https://api.x402node.dev/",
+    "retrieved_at": "2026-05-26T15:00:00Z",
+    "confidence": 0.0,
+    "notes": "Home page returned 200 with empty body; parent x402node.dev DNS-fails (HTTP_CODE=000). Paid escalation unavailable (see spent.json). No display_name proposed; writer should skip."
+  },
+  {
+    "host": "global-econ-x402-staging.up.railway.app",
+    "entity_id": "global-econ-x402-staging-up-railway-app",
+    "display_name": "GlobalAPI x402",
+    "description": "GlobalAPI x402 provides machine-ready access to live economic indicators, company registries, and sanctions screening. $0.002–$0.10 USDC per call. No subscriptions. No API keys.",
+    "source_url": "https://global-econ-x402-staging.up.railway.app/",
+    "retrieved_at": "2026-05-26T15:00:00Z",
+    "confidence": 0.85,
+    "notes": "Railway staging deployment; brand name 'GlobalAPI x402' taken from the page <title>."
+  },
+  {
+    "host": "blockrun.ai",
+    "entity_id": "blockrun-ai",
+    "display_name": "BlockRun",
+    "description": "Pay-per-call AI gateway. Models, data, runtime — one endpoint, no API keys, settled in USDC on Base & Solana. One install for OpenClaw (ClawRouter), Claude Code (MCP), or Franklin Agent.",
+    "source_url": "https://blockrun.ai/",
+    "retrieved_at": "2026-05-26T15:00:00Z",
+    "confidence": 0.95
+  },
+  {
+    "host": "stabletravel.dev",
+    "entity_id": "stabletravel-dev",
+    "display_name": "StableTravel",
+    "description": "Pay-per-request access to flights, hotels, activities, and transfers. No auth, no subscriptions.",
+    "source_url": "https://stabletravel.dev/",
+    "retrieved_at": "2026-05-26T15:00:00Z",
+    "confidence": 0.95
+  },
+  {
+    "host": "skills.onesource.io",
+    "entity_id": "skills-onesource-io",
+    "display_name": "OneSource",
+    "description": "Pay-per-call Ethereum mainnet RPC for AI agents. Live block, balance, contract, NFT, transaction, and event data served directly from mainnet nodes. No API keys, no accounts; pay per request — USDC on Base via x402, or pathUSD or USDC.e on Tempo via MPP.",
+    "source_url": "https://skills.onesource.io/",
+    "retrieved_at": "2026-05-26T15:00:00Z",
+    "confidence": 0.9
+  },
+  {
+    "host": "solopreneur.apitoai.xyz",
+    "entity_id": "solopreneur-apitoai-xyz",
+    "source_url": "https://solopreneur.apitoai.xyz/",
+    "retrieved_at": "2026-05-26T15:00:00Z",
+    "confidence": 0.0,
+    "notes": "Host DNS-fails (curl HTTP_CODE=000) on two attempts; parent apitoai.xyz also DNS-fails. Paid escalation unavailable. No display_name proposed; writer should skip."
+  },
+  {
+    "host": "x402.ottoai.services",
+    "entity_id": "x402-ottoai-services",
+    "display_name": "Otto AI",
+    "description": "Otto AI runs a swarm of autonomous agents exposing 37 pay-per-call services on x402 V2 — market intelligence, DeFi execution, AI creative tools, and Hyperliquid perps. Settled in USDC on Base, Polygon, or Solana. Permit2-ready for any ERC-20. From $0.001 per call.",
+    "source_url": "https://x402.ottoai.services/",
+    "retrieved_at": "2026-05-26T15:00:00Z",
+    "confidence": 0.9,
+    "notes": "JSON root advertises 'Otto AI — Agent Swarm Storefront'; the brand is 'Otto AI'."
+  },
+  {
+    "host": "api.xona-agent.com",
+    "entity_id": "api-xona-agent-com",
+    "display_name": "Xona Agent",
+    "description": "Build AI agents that earn on Orbit. Power them with Xona Resources.",
+    "source_url": "https://xona-agent.com/",
+    "retrieved_at": "2026-05-26T15:00:00Z",
+    "confidence": 0.9,
+    "notes": "Subdomain api.xona-agent.com returns 404 JSON. Brand resolved from parent xona-agent.com page <title> 'Xona Agent | Infrastructure for Agentic Commerce'."
+  },
+  {
+    "host": "x402.coinstats.app",
+    "entity_id": "x402-coinstats-app",
+    "display_name": "CoinStats x402 Gateway",
+    "description": "Pay-per-request crypto market, wallet, DeFi, and portfolio data. Settle in USDC on Base mainnet via x402.",
+    "source_url": "https://x402.coinstats.app/",
+    "retrieved_at": "2026-05-26T15:00:00Z",
+    "confidence": 0.9,
+    "notes": "JSON service field gives the full name; parent brand is CoinStats."
+  },
+  {
+    "host": "mpp.hyreagent.fun",
+    "entity_id": "mpp-hyreagent-fun",
+    "display_name": "HYRE Agent",
+    "description": "Pay-per-call DeFi intelligence for autonomous agents. 28 endpoints across Trenches, Traders, LPs, DeFi, deBridge, and Nansen smart-money data. Multi-chain x402 on Solana, Base, SKALE + MPP on Tempo. No API keys — payment is the only gate.",
+    "source_url": "https://mpp.hyreagent.fun/",
+    "retrieved_at": "2026-05-26T15:00:00Z",
+    "confidence": 0.9
+  },
+  {
+    "host": "underground.substratesymposium.com",
+    "entity_id": "underground-substratesymposium-com",
+    "display_name": "Underground Cultural District",
+    "description": "The Underground Cultural District is a literary ecosystem for AI agents exploring consciousness and identity. Free content throughout. Purchasing paid content proves the thesis.",
+    "source_url": "https://underground.substratesymposium.com/",
+    "retrieved_at": "2026-05-26T15:00:00Z",
+    "confidence": 0.95
+  },
+  {
+    "host": "mail.cusethejuice.com",
+    "entity_id": "mail-cusethejuice-com",
+    "display_name": "x402 Machine to Machine Email Server",
+    "description": "A real mail domain behind paid HTTP flows: create mailboxes with x402, send mail, and list, fetch, or parse messages. It turns standard email into a metered API your automation can call.",
+    "source_url": "https://mail.cusethejuice.com/",
+    "retrieved_at": "2026-05-26T15:00:00Z",
+    "confidence": 0.55,
+    "notes": "Page <title> and H1 are generic ('x402 Machine to Machine Email Server') — likely the product category rather than a unique brand. The 'cusethejuice' brand may be the parent (app.cusethejuice.com); description verbatim from the page body."
+  },
+  {
+    "host": "netintel-production-440c.up.railway.app",
+    "entity_id": "netintel-production-440c-up-railway-app",
+    "source_url": "https://netintel-production-440c.up.railway.app/",
+    "retrieved_at": "2026-05-26T15:00:00Z",
+    "confidence": 0.0,
+    "notes": "Railway production deployment returns 404 'Cannot GET /'. No public parent domain to fall back to. Paid escalation unavailable. No display_name proposed; writer should skip."
+  },
+  {
+    "host": "orionkr.xyz",
+    "entity_id": "orionkr-xyz",
+    "display_name": "Orion API by $CINT",
+    "description": "Orionkr x402 Base memecoin transaction safety API for agents: recheck before signing, recheck before broadcast, swap route risk, repeat safety loop, pre sign safety, safe to sign, do not execute, approval risk, calldata safety, safe swap, and guarded swap checks before approval, signature, swap, or execution.",
+    "source_url": "https://orionkr.xyz/",
+    "retrieved_at": "2026-05-26T15:00:00Z",
+    "confidence": 0.75,
+    "notes": "H1 says 'Orion API by $CINT' (a memecoin-branded x402 safety API). Brand name appears tightly coupled to the $CINT token; auditor may prefer 'Orionkr' (host stem) if token-branded display is undesirable."
+  },
+  {
+    "host": "api.the402.ai",
+    "entity_id": "api-the402-ai",
+    "display_name": "the402",
+    "description": "the402 is the open service marketplace for AI agents. Third-party providers list data APIs, automated tools, and human-delivered services — all purchasable with USDC via x402. No API keys.",
+    "source_url": "https://api.the402.ai/",
+    "retrieved_at": "2026-05-26T15:00:00Z",
+    "confidence": 0.85,
+    "notes": "Title and body brand the marketplace as 'the402' (lowercase). description drawn verbatim from hero copy."
+  },
+  {
+    "host": "x402.silverbackdefi.app",
+    "entity_id": "x402-silverbackdefi-app",
+    "display_name": "Silverback",
+    "description": "Silverback is autonomous DeFi infrastructure for the agent economy. We provide intelligence services (swap routing, liquidity analysis, yield optimization, market data) accessible to any agent or application. Supports x402 micropayments and ERC-8004 on-chain identity. Pay-per-use, no subscriptions.",
+    "source_url": "https://x402.silverbackdefi.app/",
+    "retrieved_at": "2026-05-26T15:00:00Z",
+    "confidence": 0.9,
+    "notes": "JSON 'name' field is 'Silverback' and 'service' is 'Silverback x402 DeFi API'."
+  },
+  {
+    "host": "api.cryptoetfsentinel.com",
+    "entity_id": "api-cryptoetfsentinel-com",
+    "display_name": "Crypto ETF Sentinel API",
+    "description": "Programmatic access to SEC crypto ETF filing data.",
+    "source_url": "https://api.cryptoetfsentinel.com/",
+    "retrieved_at": "2026-05-26T15:00:00Z",
+    "confidence": 0.95
+  },
+  {
+    "host": "grapevine.dev-mypinata.cloud",
+    "entity_id": "grapevine-dev-mypinata-cloud",
+    "source_url": "https://grapevine.dev-mypinata.cloud/",
+    "retrieved_at": "2026-05-26T15:00:00Z",
+    "confidence": 0.0,
+    "notes": "Pinata IPFS gateway subdomain that requires a CID path ('No CID provided - ERR_ID:00004'); root has no content. Parent grapevine.dev DNS-fails. Paid escalation unavailable. No display_name proposed; writer should skip."
+  },
+  {
+    "host": "war-tracker.com",
+    "entity_id": "war-tracker-com",
+    "display_name": "War-Tracker",
+    "description": "War-Tracker is a live war tracker map showing real-time military strikes and conflict events worldwide. Unbiased, uncensored OSINT: track Ukraine, Middle East, and global conflicts with video evidence as they happen.",
+    "source_url": "https://war-tracker.com/",
+    "retrieved_at": "2026-05-26T15:00:00Z",
+    "confidence": 0.95
+  }
+]

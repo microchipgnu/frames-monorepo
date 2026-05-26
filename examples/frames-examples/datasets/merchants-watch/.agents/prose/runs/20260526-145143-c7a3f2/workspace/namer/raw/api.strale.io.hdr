@@ -1,0 +1,25 @@
+HTTP/2 200 
+access-control-allow-origin: *
+cache-control: public, max-age=3600
+content-security-policy: default-src 'none'; frame-ancestors 'none'
+content-type: application/json
+date: Tue, 26 May 2026 14:59:49 GMT
+link: </.well-known/agent-card.json>; rel="agent-card"
+permissions-policy: camera=(), microphone=(), geolocation=()
+referrer-policy: strict-origin-when-cross-origin
+server: railway-edge
+strale-version: 2026-02-26
+strict-transport-security: max-age=63072000; includeSubDomains
+vary: Accept
+x-content-type-options: nosniff
+x-credits-info: Authenticate to see usage. GET /v1/wallet/balance for current balance.
+x-frame-options: DENY
+x-railway-edge: railway/europe-west4-drams3a
+x-railway-request-id: GYCvgKdFTPuUihcIw9P4nw
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+x-ratelimit-reset: 1779807649
+x-request-id: 0d243ed4-5286-4768-9986-831e1cdb6c10
+x-xss-protection: 0
+content-length: 4704
+

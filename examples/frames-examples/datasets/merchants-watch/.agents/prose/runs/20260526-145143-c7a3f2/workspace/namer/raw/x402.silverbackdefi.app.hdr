@@ -1,0 +1,20 @@
+HTTP/2 200 
+date: Tue, 26 May 2026 15:00:04 GMT
+content-type: application/json; charset=utf-8
+cache-control: public, max-age=10, stale-while-revalidate=5
+etag: W/"286-iL9lFEScPymSXM7ySmq8Z8gmRvY"
+rndr-id: cbeb2291-33f6-4d44
+server: cloudflare
+vary: Accept-Encoding
+x-erc8004-agent-id: 1156
+x-erc8004-agent-registry: eip155:8453:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432
+x-erc8004-endpoint: /
+x-erc8004-feedback-link: https://silverbackdefi.app/feedback
+x-erc8004-reputation-registry: 0x8004BAa17C55a88189AE136b182e5fdA19dE9b63
+x-erc8004-tag1: defi
+x-powered-by: Express
+x-render-origin-server: Render
+cf-cache-status: DYNAMIC
+cf-ray: a01da5b7dfcd58fc-LIS
+alt-svc: h3=":443"; ma=86400
+

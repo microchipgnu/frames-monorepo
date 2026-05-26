@@ -1,0 +1,23 @@
+HTTP/2 302 
+content-length: 0
+location: https://www.bananacrystal.com/.well-known/x402
+date: Tue, 26 May 2026 15:06:54 GMT
+x-cache: Miss from cloudfront
+via: 1.1 2a98588b705af83b40a9d403874d5470.cloudfront.net (CloudFront)
+x-amz-cf-pop: LIS50-P2
+alt-svc: h3=":443"; ma=86400
+x-amz-cf-id: T_BdOPn4AWB9KIiVw1vm-9H0ekyPxJBPbpWRpgXD3Lbcks2LiPpW6A==
+
+HTTP/2 404 
+date: Tue, 26 May 2026 15:06:56 GMT
+content-type: text/html; charset=UTF-8
+server: Apache
+x-powered-by: PHP/7.4.13
+vary: Accept-Encoding,Cookie
+expires: Wed, 11 Jan 1984 05:00:00 GMT
+cache-control: must-revalidate
+permissions-policy: private-state-token-redemption=(self "https://www.google.com" "https://www.gstatic.com" "https://recaptcha.net" "https://challenges.cloudflare.com" "https://hcaptcha.com"), private-state-token-issuance=(self "https://www.google.com" "https://www.gstatic.com" "https://recaptcha.net" "https://challenges.cloudflare.com" "https://hcaptcha.com")
+link: <https://www.bananacrystal.com/wp-json/>; rel="https://api.w.org/"
+x-frame-options: SAMEORIGIN
+last-modified: Tue, 26 May 2026 15:06:55 GMT
+

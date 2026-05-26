@@ -1,0 +1,21 @@
+{
+  "budget_usd_allocated": 0.12,
+  "spent_usd": 0.0,
+  "calls": [],
+  "paid_tools_attempted": [
+    {
+      "tool": "exa_search",
+      "result": "client_error",
+      "error_kind": "unknown",
+      "message": "Lock entry SHA mismatch — catalog reports in_sync but pay_tool client canonicalizer computed a different SHA. No payment was attempted.",
+      "billed": false
+    },
+    {
+      "tool": "firecrawl_scrape",
+      "result": "unreachable_at_drift_check",
+      "message": "check_descriptor_drift reports 'Cannot canonicalize undefined' for the locked descriptor. Tool not invoked.",
+      "billed": false
+    }
+  ],
+  "notes": "Paid escalation path is currently broken (see pay multi-rail dispatch gap in project memory). Falling back to free-only namer for unresolved hosts."
+}

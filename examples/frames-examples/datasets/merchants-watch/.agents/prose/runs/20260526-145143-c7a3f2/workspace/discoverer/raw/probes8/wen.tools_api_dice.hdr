@@ -1,0 +1,28 @@
+HTTP/2 308 
+cache-control: public, max-age=0, must-revalidate
+content-type: text/plain
+date: Tue, 26 May 2026 15:09:40 GMT
+location: https://www.wen.tools/api/dice
+refresh: 0;url=https://www.wen.tools/api/dice
+server: Vercel
+strict-transport-security: max-age=63072000
+x-vercel-id: cdg1::vgfgz-1779808180993-d4899c9f38a2
+
+HTTP/2 200 
+accept-ranges: bytes
+access-control-allow-origin: *
+age: 66197
+cache-control: public, max-age=0, must-revalidate
+content-disposition: inline; filename="index.html"
+content-type: text/html; charset=utf-8
+cross-origin-embedder-policy: credentialless
+cross-origin-opener-policy: same-origin
+date: Tue, 26 May 2026 15:09:41 GMT
+etag: "7e3e55083c9d98c66fdd649dfabc5dd1"
+last-modified: Mon, 25 May 2026 20:46:23 GMT
+server: Vercel
+strict-transport-security: max-age=63072000
+x-vercel-cache: HIT
+x-vercel-id: cdg1::vfs4x-1779808181130-936ea9d46504
+content-length: 10100
+

@@ -1,0 +1,12 @@
+HTTP/2 405 
+server: nginx
+date: Tue, 26 May 2026 15:06:34 GMT
+content-type: text/html
+content-length: 150
+cache-control: no-store, no-cache, must-revalidate
+x-content-type-options: nosniff
+referrer-policy: strict-origin-when-cross-origin
+content-security-policy: default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval'; frame-ancestors 'self';
+pragma: no-cache
+expires: 0
+

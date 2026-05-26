@@ -1,0 +1,11 @@
+HTTP/2 308 
+cache-control: public, max-age=0, must-revalidate
+content-type: text/plain
+date: Tue, 26 May 2026 15:05:40 GMT
+location: https://www.wen.tools/echo
+refresh: 0;url=https://www.wen.tools/echo
+server: Vercel
+strict-transport-security: max-age=63072000
+x-vercel-id: cdg1::nww6c-1779807940171-089fec572934
+
+Redirecting...

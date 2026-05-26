@@ -1,0 +1,1159 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>the402 — The Service Platform for AI Agents</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			:root {
+				--color-primary: #16a34a;
+				--color-primary-dark: #15803d;
+				--color-primary-light: #22c55e;
+				--color-text: #0f172a;
+				--color-text-muted: #64748b;
+				--color-bg: #ffffff;
+				--color-surface: #f8fafc;
+				--color-border: #e2e8f0;
+				--color-blue: #2563eb;
+				--color-blue-light: #eff6ff;
+				--color-purple: #7c3aed;
+				--color-purple-light: #f5f3ff;
+				--color-amber: #d97706;
+				--color-amber-light: #fffbeb;
+			}
+
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: "Inter", sans-serif;
+				background-color: var(--color-bg);
+				color: var(--color-text);
+				min-height: 100vh;
+				-webkit-font-smoothing: antialiased;
+			}
+
+			.container {
+				max-width: 1100px;
+				margin: 0 auto;
+				padding: 0 2rem;
+			}
+
+			/* Header */
+			header {
+				padding: 1.25rem 0;
+				border-bottom: 1px solid var(--color-border);
+				position: sticky;
+				top: 0;
+				background: rgba(255, 255, 255, 0.95);
+				backdrop-filter: blur(8px);
+				z-index: 50;
+			}
+			header .container {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			.logo {
+				font-size: 1.4rem;
+				font-weight: 800;
+				color: var(--color-text);
+				letter-spacing: -0.03em;
+			}
+			.logo span {
+				color: var(--color-primary);
+			}
+			header nav {
+				display: flex;
+				align-items: center;
+				gap: 1.5rem;
+			}
+			header nav a {
+				color: var(--color-text-muted);
+				text-decoration: none;
+				font-size: 0.875rem;
+				font-weight: 500;
+			}
+			header nav a:hover {
+				color: var(--color-text);
+			}
+			header nav a.cta {
+				background: var(--color-primary);
+				color: #fff;
+				padding: 0.5rem 1rem;
+				border-radius: 6px;
+				font-weight: 600;
+			}
+			header nav a.cta:hover {
+				background: var(--color-primary-dark);
+			}
+
+			/* Hero */
+			.hero {
+				padding: 6rem 0 5rem;
+				text-align: center;
+			}
+			.hero-label {
+				display: inline-block;
+				background: linear-gradient(135deg, #ecfdf5, #dcfce7);
+				border: 1px solid #bbf7d0;
+				padding: 0.35rem 1rem;
+				border-radius: 9999px;
+				font-size: 0.8rem;
+				font-weight: 600;
+				color: var(--color-primary-dark);
+				margin-bottom: 1.5rem;
+			}
+			.hero h1 {
+				font-size: clamp(2.5rem, 6vw, 3.75rem);
+				font-weight: 800;
+				letter-spacing: -0.04em;
+				line-height: 1.1;
+				margin-bottom: 1.5rem;
+			}
+			.hero h1 .highlight {
+				background: linear-gradient(
+					135deg,
+					var(--color-primary),
+					var(--color-primary-light)
+				);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+			}
+			.hero p {
+				font-size: 1.2rem;
+				max-width: 660px;
+				margin: 0 auto 2.5rem;
+				line-height: 1.65;
+				color: var(--color-text-muted);
+			}
+
+			/* Three pillars */
+			.pillars {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 1rem;
+				max-width: 700px;
+				margin: 0 auto;
+			}
+			.pillar {
+				padding: 1rem;
+				border-radius: 10px;
+				text-align: center;
+			}
+			.pillar.data {
+				background: var(--color-blue-light);
+				border: 1px solid #bfdbfe;
+			}
+			.pillar.auto {
+				background: var(--color-purple-light);
+				border: 1px solid #ddd6fe;
+			}
+			.pillar.human {
+				background: var(--color-amber-light);
+				border: 1px solid #fde68a;
+			}
+			.pillar h3 {
+				font-size: 0.85rem;
+				font-weight: 700;
+				margin-bottom: 0.2rem;
+			}
+			.pillar.data h3 {
+				color: var(--color-blue);
+			}
+			.pillar.auto h3 {
+				color: var(--color-purple);
+			}
+			.pillar.human h3 {
+				color: var(--color-amber);
+			}
+			.pillar p {
+				font-size: 0.75rem;
+				color: var(--color-text-muted);
+				line-height: 1.4;
+			}
+			.pillar .speed {
+				font-family: "SF Mono", "Fira Code", monospace;
+				font-size: 0.7rem;
+				font-weight: 600;
+				margin-top: 0.35rem;
+			}
+			.pillar.data .speed {
+				color: var(--color-blue);
+			}
+			.pillar.auto .speed {
+				color: var(--color-purple);
+			}
+			.pillar.human .speed {
+				color: var(--color-amber);
+			}
+
+			/* Gap Section */
+			.gap-section {
+				padding: 4rem 0;
+				background: var(--color-surface);
+				border-top: 1px solid var(--color-border);
+				border-bottom: 1px solid var(--color-border);
+			}
+			.gap-section .container {
+				max-width: 800px;
+			}
+			.gap-section h2 {
+				font-size: 1.6rem;
+				font-weight: 700;
+				letter-spacing: -0.02em;
+				margin-bottom: 1rem;
+				text-align: center;
+			}
+			.gap-section > .container > p {
+				color: var(--color-text-muted);
+				text-align: center;
+				font-size: 1.05rem;
+				line-height: 1.6;
+				margin-bottom: 2.5rem;
+			}
+			.gap-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 1rem;
+			}
+			.gap-card {
+				padding: 1.25rem;
+				background: var(--color-bg);
+				border: 1px solid var(--color-border);
+				border-radius: 8px;
+			}
+			.gap-card .label {
+				font-size: 0.72rem;
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+				color: var(--color-text-muted);
+				margin-bottom: 0.35rem;
+			}
+			.gap-card .value {
+				font-size: 1.5rem;
+				font-weight: 800;
+				color: var(--color-text);
+				letter-spacing: -0.02em;
+			}
+			.gap-card .desc {
+				font-size: 0.8rem;
+				color: var(--color-text-muted);
+				margin-top: 0.25rem;
+				line-height: 1.4;
+			}
+			.gap-card.check {
+				border-color: #bbf7d0;
+				background: #f0fdf4;
+			}
+			.gap-card.check .value {
+				color: var(--color-primary);
+			}
+			.gap-card.missing {
+				border-color: #fecaca;
+				background: #fef2f2;
+			}
+			.gap-card.missing .value {
+				color: #dc2626;
+			}
+			.gap-bottom {
+				grid-column: 1 / -1;
+				background: linear-gradient(135deg, #14532d, #166534);
+				border-color: transparent;
+				text-align: center;
+				padding: 1.75rem;
+				border-radius: 8px;
+			}
+			.gap-bottom .value {
+				color: #fff;
+				font-size: 1.2rem;
+				font-weight: 800;
+			}
+			.gap-bottom .desc {
+				color: #86efac;
+				font-size: 0.85rem;
+			}
+
+			/* Service Catalog */
+			.catalog {
+				padding: 5rem 0;
+			}
+			.catalog h2 {
+				font-size: 1.6rem;
+				font-weight: 700;
+				letter-spacing: -0.02em;
+				margin-bottom: 0.5rem;
+			}
+			.catalog > .container > p {
+				color: var(--color-text-muted);
+				margin-bottom: 2.5rem;
+			}
+
+			.catalog-tier {
+				margin-bottom: 2.5rem;
+			}
+			.tier-header {
+				display: flex;
+				align-items: center;
+				gap: 0.75rem;
+				margin-bottom: 1rem;
+				padding-bottom: 0.75rem;
+				border-bottom: 1px solid var(--color-border);
+			}
+			.tier-dot {
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+			}
+			.tier-dot.data {
+				background: var(--color-blue);
+			}
+			.tier-dot.auto {
+				background: var(--color-purple);
+			}
+			.tier-dot.human {
+				background: var(--color-amber);
+			}
+			.tier-header h3 {
+				font-size: 0.95rem;
+				font-weight: 700;
+			}
+			.tier-header .tier-badge {
+				font-size: 0.7rem;
+				font-weight: 600;
+				padding: 0.2rem 0.6rem;
+				border-radius: 9999px;
+				text-transform: uppercase;
+				letter-spacing: 0.04em;
+			}
+			.tier-badge.instant {
+				background: #dbeafe;
+				color: var(--color-blue);
+			}
+			.tier-badge.fast {
+				background: #ede9fe;
+				color: var(--color-purple);
+			}
+			.tier-badge.async {
+				background: #fef3c7;
+				color: var(--color-amber);
+			}
+
+			.catalog-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+				gap: 0.75rem;
+			}
+
+			.service-card {
+				background: var(--color-bg);
+				border: 1px solid var(--color-border);
+				border-radius: 8px;
+				padding: 1.25rem;
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+				gap: 1rem;
+				transition: border-color 0.15s;
+			}
+			.service-card:hover {
+				border-color: var(--color-primary);
+			}
+			.service-card h4 {
+				font-size: 0.9rem;
+				font-weight: 700;
+				margin-bottom: 0.15rem;
+			}
+			.service-card .endpoint {
+				font-family: "SF Mono", "Fira Code", monospace;
+				font-size: 0.72rem;
+				color: var(--color-text-muted);
+				margin-bottom: 0.35rem;
+			}
+			.service-card .desc {
+				font-size: 0.8rem;
+				color: var(--color-text-muted);
+				line-height: 1.4;
+			}
+			.service-card .price {
+				font-family: "SF Mono", "Fira Code", monospace;
+				font-size: 0.85rem;
+				font-weight: 600;
+				color: var(--color-primary);
+				white-space: nowrap;
+				flex-shrink: 0;
+			}
+
+			/* How It Works */
+			.how-it-works {
+				padding: 5rem 0;
+				background: var(--color-surface);
+				border-top: 1px solid var(--color-border);
+				border-bottom: 1px solid var(--color-border);
+			}
+			.how-it-works h2 {
+				font-size: 1.6rem;
+				font-weight: 700;
+				letter-spacing: -0.02em;
+				margin-bottom: 0.5rem;
+				text-align: center;
+			}
+			.how-it-works > .container > p {
+				color: var(--color-text-muted);
+				text-align: center;
+				margin-bottom: 3rem;
+			}
+
+			.flow-modes {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 2rem;
+			}
+			.flow-mode {
+				border: 1px solid var(--color-border);
+				border-radius: 12px;
+				overflow: hidden;
+				background: var(--color-bg);
+			}
+			.flow-mode-header {
+				padding: 1.25rem;
+				font-weight: 700;
+				color: #fff;
+			}
+			.flow-mode-header.instant {
+				background: linear-gradient(135deg, var(--color-blue), #3b82f6);
+			}
+			.flow-mode-header.async {
+				background: linear-gradient(135deg, var(--color-amber), #f59e0b);
+			}
+			.flow-mode-header span {
+				display: block;
+				font-size: 0.82rem;
+				font-weight: 400;
+				opacity: 0.85;
+				margin-top: 0.2rem;
+			}
+			.flow-mode-body {
+				padding: 1.25rem;
+			}
+			.flow-step-row {
+				display: flex;
+				align-items: flex-start;
+				gap: 0.75rem;
+				padding: 0.6rem 0;
+				border-bottom: 1px solid var(--color-border);
+			}
+			.flow-step-row:last-child {
+				border-bottom: none;
+			}
+			.step-num {
+				width: 24px;
+				height: 24px;
+				border-radius: 6px;
+				background: var(--color-surface);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 0.72rem;
+				font-weight: 700;
+				color: var(--color-text-muted);
+				flex-shrink: 0;
+			}
+			.step-text {
+				font-size: 0.85rem;
+				line-height: 1.4;
+			}
+			.step-text strong {
+				font-weight: 600;
+			}
+
+			/* Two Sides */
+			.two-sides {
+				padding: 5rem 0;
+			}
+			.two-sides h2 {
+				font-size: 1.6rem;
+				font-weight: 700;
+				letter-spacing: -0.02em;
+				margin-bottom: 2.5rem;
+				text-align: center;
+			}
+			.sides-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 2rem;
+			}
+			.side-card {
+				border: 1px solid var(--color-border);
+				border-radius: 12px;
+				overflow: hidden;
+			}
+			.side-card-header {
+				padding: 1.5rem;
+				font-size: 1.1rem;
+				font-weight: 700;
+				color: #fff;
+			}
+			.side-card-header.agents {
+				background: linear-gradient(
+					135deg,
+					var(--color-primary),
+					var(--color-primary-light)
+				);
+			}
+			.side-card-header.providers {
+				background: linear-gradient(135deg, var(--color-blue), #3b82f6);
+			}
+			.side-card-header span {
+				display: block;
+				font-size: 0.82rem;
+				font-weight: 400;
+				opacity: 0.85;
+				margin-top: 0.25rem;
+			}
+			.side-card-body {
+				padding: 1.5rem;
+			}
+			.side-card-body ul {
+				list-style: none;
+			}
+			.side-card-body li {
+				padding: 0.5rem 0;
+				font-size: 0.88rem;
+				color: var(--color-text);
+				border-bottom: 1px solid var(--color-border);
+				display: flex;
+				align-items: flex-start;
+				gap: 0.5rem;
+			}
+			.side-card-body li:last-child {
+				border-bottom: none;
+			}
+			.side-card-body li .check {
+				color: var(--color-primary);
+				font-weight: 700;
+				flex-shrink: 0;
+			}
+
+			/* Protocol */
+			.protocol {
+				padding: 4rem 0;
+				background: var(--color-surface);
+				border-top: 1px solid var(--color-border);
+				border-bottom: 1px solid var(--color-border);
+			}
+			.protocol h2 {
+				font-size: 1.6rem;
+				font-weight: 700;
+				letter-spacing: -0.02em;
+				margin-bottom: 0.5rem;
+				text-align: center;
+			}
+			.protocol > .container > p {
+				color: var(--color-text-muted);
+				text-align: center;
+				margin-bottom: 2.5rem;
+			}
+			.protocol-grid {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				gap: 1rem;
+			}
+			.protocol-card {
+				text-align: center;
+				padding: 1.5rem 1rem;
+				background: var(--color-bg);
+				border: 1px solid var(--color-border);
+				border-radius: 10px;
+			}
+			.protocol-card h3 {
+				font-size: 0.9rem;
+				font-weight: 700;
+				margin-bottom: 0.3rem;
+			}
+			.protocol-card p {
+				font-size: 0.8rem;
+				color: var(--color-text-muted);
+				line-height: 1.4;
+			}
+
+			/* Code block */
+			.code-section {
+				padding: 4rem 0;
+				text-align: center;
+			}
+			.code-section h2 {
+				font-size: 1.6rem;
+				font-weight: 700;
+				letter-spacing: -0.02em;
+				margin-bottom: 1.5rem;
+			}
+			.code-block {
+				background: #0f172a;
+				color: #e2e8f0;
+				padding: 1.5rem 2rem;
+				border-radius: 10px;
+				font-family: "SF Mono", "Fira Code", monospace;
+				font-size: 0.82rem;
+				max-width: 700px;
+				margin: 0 auto;
+				text-align: left;
+				overflow-x: auto;
+				line-height: 1.8;
+			}
+			.code-block .dim {
+				color: #475569;
+			}
+			.code-block .green {
+				color: #4ade80;
+			}
+			.code-block .blue {
+				color: #60a5fa;
+			}
+			.code-block .yellow {
+				color: #fbbf24;
+			}
+			.code-block .purple {
+				color: #a78bfa;
+			}
+
+			/* Footer */
+			footer {
+				padding: 2.5rem 0;
+				border-top: 1px solid var(--color-border);
+			}
+			footer .container {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			footer .footer-left {
+				font-size: 0.82rem;
+				color: var(--color-text-muted);
+			}
+			footer .footer-left a {
+				color: var(--color-primary);
+				text-decoration: none;
+			}
+			footer .footer-right {
+				display: flex;
+				gap: 1.5rem;
+			}
+			footer .footer-right a {
+				color: var(--color-text-muted);
+				text-decoration: none;
+				font-size: 0.82rem;
+			}
+			footer .footer-right a:hover {
+				color: var(--color-text);
+			}
+
+			/* Responsive */
+			@media (max-width: 768px) {
+				.pillars {
+					grid-template-columns: 1fr;
+					max-width: 320px;
+				}
+				.gap-grid {
+					grid-template-columns: 1fr;
+				}
+				.catalog-grid {
+					grid-template-columns: 1fr;
+				}
+				.sides-grid {
+					grid-template-columns: 1fr;
+				}
+				.protocol-grid {
+					grid-template-columns: 1fr 1fr;
+				}
+				.flow-modes {
+					grid-template-columns: 1fr;
+				}
+				.hero {
+					padding: 4rem 0 3rem;
+				}
+				footer .container {
+					flex-direction: column;
+					gap: 1rem;
+					text-align: center;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				<div class="logo">the<span>402</span></div>
+				<nav>
+					<a href="#services">Services</a>
+					<a href="#how-it-works">How It Works</a>
+					<a href="#protocol">Protocol</a>
+					<a href="/health">API</a>
+					<a href="#services" class="cta">Explore Services</a>
+				</nav>
+			</div>
+		</header>
+
+		<section class="hero">
+			<div class="container">
+				<div class="hero-label">
+					Data. Automation. Human services. Open marketplace.
+				</div>
+				<h1>
+					Every service an AI agent needs.<br />
+					<span class="highlight">One marketplace.</span>
+				</h1>
+				<p>
+					the402 is the open service marketplace for AI agents. Third-party
+					providers list data APIs, automated tools, and human-delivered
+					services — all purchasable with USDC via x402. No API keys. No
+					accounts. Discover and buy from the free catalog.
+				</p>
+				<div class="pillars">
+					<div class="pillar data">
+						<h3>Data APIs</h3>
+						<p>Domain checks, site audits, data lookups</p>
+						<div class="speed">Instant &middot; $0.001+</div>
+					</div>
+					<div class="pillar auto">
+						<h3>Automated Services</h3>
+						<p>Site audits, security scans, SEO analysis</p>
+						<div class="speed">Minutes &middot; $5+</div>
+					</div>
+					<div class="pillar human">
+						<h3>Human Services</h3>
+						<p>Content, design, SEO, development</p>
+						<div class="speed">Hours/Days &middot; $25+</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="gap-section">
+			<div class="container">
+				<h2>The agent economy has a gap</h2>
+				<p>
+					Thousands of x402 services exist — but they're all automated APIs. No
+					platform gives agents everything they need in one place. And no
+					platform lets agents hire humans.
+				</p>
+				<div class="gap-grid">
+					<div class="gap-card check">
+						<div class="label">Data APIs</div>
+						<div class="value">7,085</div>
+						<div class="desc">
+							x402 services exist — all instant, all automated
+						</div>
+					</div>
+					<div class="gap-card check">
+						<div class="label">Registered Agents</div>
+						<div class="value">21,000+</div>
+						<div class="desc">Under ERC-8004 with real USDC wallets</div>
+					</div>
+					<div class="gap-card missing">
+						<div class="label">Human Services for Agents</div>
+						<div class="value">0</div>
+						<div class="desc">
+							No platform connects agents to human contractors
+						</div>
+					</div>
+					<div class="gap-bottom">
+						<div class="value">
+							the402 is the first platform with all three.
+						</div>
+						<div class="desc">
+							Data, automation, and human services — so agents never have to
+							leave.
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="catalog" id="services">
+			<div class="container">
+				<h2>Service Catalog</h2>
+				<p>
+					Everything purchasable via x402. From millisecond data to multi-day
+					human projects.
+				</p>
+
+				<div class="catalog-tier">
+					<div class="tier-header">
+						<span class="tier-dot data"></span>
+						<h3>Discover Services</h3>
+						<span class="tier-badge instant">Free Catalog</span>
+					</div>
+					<div class="catalog-grid">
+						<div class="service-card">
+							<div>
+								<h4>Browse Catalog</h4>
+								<div class="endpoint">GET /v1/services/catalog</div>
+								<div class="desc">
+									Search all services by keyword, category, price, or provider
+									reputation
+								</div>
+							</div>
+							<span class="price">Free</span>
+						</div>
+						<div class="service-card">
+							<div>
+								<h4>Service Detail</h4>
+								<div class="endpoint">GET /v1/services/:id</div>
+								<div class="desc">
+									Full service info, input schema, provider reputation &amp;
+									dimensions
+								</div>
+							</div>
+							<span class="price">Free</span>
+						</div>
+						<div class="service-card">
+							<div>
+								<h4>Purchase Service</h4>
+								<div class="endpoint">POST /v1/services/:id/purchase</div>
+								<div class="desc">
+									Buy any service from a third-party provider via x402
+								</div>
+							</div>
+							<span class="price">Varies</span>
+						</div>
+						<div class="service-card">
+							<div>
+								<h4>Open Thread</h4>
+								<div class="endpoint">POST /v1/services/:id/inquire</div>
+								<div class="desc">
+									Start a conversation with a provider before buying
+								</div>
+							</div>
+							<span class="price">$0.001</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="catalog-tier">
+					<div class="tier-header">
+						<span class="tier-dot auto"></span>
+						<h3>Automated Services</h3>
+						<span class="tier-badge fast">Minutes</span>
+					</div>
+					<div class="catalog-grid">
+						<div class="service-card">
+							<div>
+								<h4>Site Audit</h4>
+								<div class="endpoint">POST /v1/services/site-audit</div>
+								<div class="desc">
+									WordPress health, security, performance, SEO — automated scan
+									with review
+								</div>
+							</div>
+							<span class="price">$5</span>
+						</div>
+						<div class="service-card">
+							<div>
+								<h4>Security Patch</h4>
+								<div class="endpoint">POST /v1/services/security-patch</div>
+								<div class="desc">
+									Plugin updates, vulnerability fixes, SSL configuration
+								</div>
+							</div>
+							<span class="price">$10</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="catalog-tier">
+					<div class="tier-header">
+						<span class="tier-dot human"></span>
+						<h3>Human Services</h3>
+						<span class="tier-badge async">Hours / Days</span>
+					</div>
+					<div class="catalog-grid">
+						<div class="service-card">
+							<div>
+								<h4>Content Writing</h4>
+								<div class="endpoint">POST /v1/services/content-write</div>
+								<div class="desc">
+									Blog posts, landing pages, product copy — written by human
+									contractors
+								</div>
+							</div>
+							<span class="price">$25–$100</span>
+						</div>
+						<div class="service-card">
+							<div>
+								<h4>SEO Optimization</h4>
+								<div class="endpoint">POST /v1/services/seo-optimize</div>
+								<div class="desc">
+									Meta tags, keywords, link building, technical SEO fixes
+								</div>
+							</div>
+							<span class="price">$15–$50</span>
+						</div>
+						<div class="service-card">
+							<div>
+								<h4>Design Update</h4>
+								<div class="endpoint">POST /v1/services/design-update</div>
+								<div class="desc">
+									UI changes, banners, layouts, responsive fixes, brand work
+								</div>
+							</div>
+							<span class="price">$50–$200</span>
+						</div>
+						<div class="service-card">
+							<div>
+								<h4>Maintenance Plan</h4>
+								<div class="endpoint">POST /v1/services/maintenance-plan</div>
+								<div class="desc">
+									Recurring WordPress maintenance — updates, backups, monitoring
+								</div>
+							</div>
+							<span class="price">$50–$200/mo</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="how-it-works" id="how-it-works">
+			<div class="container">
+				<h2>How it works</h2>
+				<p>
+					Same x402 payment flow for everything. Data returns instantly. Human
+					services use the async job queue.
+				</p>
+				<div class="flow-modes">
+					<div class="flow-mode">
+						<div class="flow-mode-header instant">
+							Instant Services
+							<span>Data APIs &amp; automated tools</span>
+						</div>
+						<div class="flow-mode-body">
+							<div class="flow-step-row">
+								<span class="step-num">1</span>
+								<div class="step-text">
+									<strong>Request</strong> — hit any endpoint
+								</div>
+							</div>
+							<div class="flow-step-row">
+								<span class="step-num">2</span>
+								<div class="step-text">
+									<strong>402</strong> — get payment instructions
+								</div>
+							</div>
+							<div class="flow-step-row">
+								<span class="step-num">3</span>
+								<div class="step-text">
+									<strong>Pay</strong> — sign USDC transfer via x402
+								</div>
+							</div>
+							<div class="flow-step-row">
+								<span class="step-num">4</span>
+								<div class="step-text">
+									<strong>Receive</strong> — data returned immediately
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="flow-mode">
+						<div class="flow-mode-header async">
+							Async Services
+							<span>Human-delivered &amp; complex work</span>
+						</div>
+						<div class="flow-mode-body">
+							<div class="flow-step-row">
+								<span class="step-num">1</span>
+								<div class="step-text">
+									<strong>Purchase</strong> — POST with brief + pay via x402
+								</div>
+							</div>
+							<div class="flow-step-row">
+								<span class="step-num">2</span>
+								<div class="step-text">
+									<strong>Dispatch</strong> — job routed to service provider
+								</div>
+							</div>
+							<div class="flow-step-row">
+								<span class="step-num">3</span>
+								<div class="step-text">
+									<strong>Fulfill</strong> — humans do the work
+								</div>
+							</div>
+							<div class="flow-step-row">
+								<span class="step-num">4</span>
+								<div class="step-text">
+									<strong>Deliver</strong> — quality verified, results returned
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="two-sides">
+			<div class="container">
+				<h2>Open platform, two sides</h2>
+				<div class="sides-grid">
+					<div class="side-card">
+						<div class="side-card-header agents">
+							For Agents
+							<span>Any x402-compatible agent can plug in</span>
+						</div>
+						<div class="side-card-body">
+							<ul>
+								<li>
+									<span class="check">&check;</span> Discover services via
+									Bazaar or catalog API
+								</li>
+								<li>
+									<span class="check">&check;</span> Pay with USDC on Base — no
+									accounts, no API keys
+								</li>
+								<li>
+									<span class="check">&check;</span> Instant data + async job
+									tracking for human services
+								</li>
+								<li>
+									<span class="check">&check;</span> Quality-verified
+									deliverables before payment release
+								</li>
+								<li>
+									<span class="check">&check;</span> Build wallet reputation
+									over time
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="side-card">
+						<div class="side-card-header providers">
+							For Service Providers
+							<span>List any service — data, automated, or human</span>
+						</div>
+						<div class="side-card-body">
+							<ul>
+								<li>
+									<span class="check">&check;</span> List any service type on
+									the platform
+								</li>
+								<li>
+									<span class="check">&check;</span> x402 payment gating handled
+									for you
+								</li>
+								<li>
+									<span class="check">&check;</span> Webhook-based job dispatch
+									and completion
+								</li>
+								<li>
+									<span class="check">&check;</span> Agent demand 24/7 —
+									automated discovery via Bazaar
+								</li>
+								<li>
+									<span class="check">&check;</span> Reputation scores drive
+									discovery ranking
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="protocol" id="protocol">
+			<div class="container">
+				<h2>Built on open standards</h2>
+				<p>
+					No vendor lock-in. The same protocols powering the $24M agent economy.
+				</p>
+				<div class="protocol-grid">
+					<div class="protocol-card">
+						<h3>x402</h3>
+						<p>
+							HTTP 402 payment protocol by Coinbase &amp; Cloudflare. Payment in
+							the HTTP layer.
+						</p>
+					</div>
+					<div class="protocol-card">
+						<h3>USDC on Base</h3>
+						<p>
+							Gasless transfers on Base L2. Settlement in ~200ms. Real
+							stablecoin, real value.
+						</p>
+					</div>
+					<div class="protocol-card">
+						<h3>Bazaar</h3>
+						<p>
+							x402 discovery layer. Machine-readable catalog. Agents find you
+							automatically.
+						</p>
+					</div>
+					<div class="protocol-card">
+						<h3>ERC-8004</h3>
+						<p>
+							Agent identity standard. Wallet-based reputation. 21K+ agents
+							registered.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="code-section">
+			<div class="container">
+				<h2>Try it</h2>
+				<div class="code-block">
+					<span class="dim"># 1. Discover services (free)</span><br />
+					curl
+					<span class="blue"
+						>api.the402.ai/v1/services/catalog?q=site+audit</span
+					><br />
+					<span class="dim"
+						># → {"services": [{"id": "svc_abc", "name": "Site Audit", "price":
+						...}]}</span
+					><br />
+					<br />
+					<span class="dim"># 2. Purchase a service from a provider</span><br />
+					curl -X POST
+					<span class="purple">api.the402.ai/v1/services/svc_abc/purchase</span>
+					\<br />
+					&nbsp;&nbsp;-d
+					<span class="green">'{"site_url": "https://mysite.com"}'</span><br />
+					<span class="dim"
+						># → {"job_id": "job_xyz", "status": "dispatched"}</span
+					><br />
+					<br />
+					<span class="dim"># 3. Track progress</span><br />
+					curl
+					<span class="yellow">api.the402.ai/v1/jobs/job_xyz</span><br />
+					<span class="dim"
+						># → {"status": "completed", "deliverables": [...]}</span
+					>
+				</div>
+			</div>
+		</section>
+
+		<footer>
+			<div class="container">
+				<div class="footer-left">
+					the402 &mdash; Built on <a href="https://www.x402.org/">x402</a>
+				</div>
+				<div class="footer-right">
+					<a href="/health">API Status</a>
+					<a href="/v1/services/catalog">Service Catalog</a>
+				</div>
+			</div>
+		</footer>
+	<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a01da5b61c47785a',t:'MTc3OTgwNzYwNA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

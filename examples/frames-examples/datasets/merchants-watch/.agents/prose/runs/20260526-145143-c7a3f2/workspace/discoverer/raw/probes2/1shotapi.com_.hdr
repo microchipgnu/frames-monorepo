@@ -1,0 +1,11 @@
+HTTP/2 200 
+date: Tue, 26 May 2026 15:06:23 GMT
+content-type: text/html; charset=utf-8
+link: </.well-known/oauth-protected-resource>; rel="oauth-protected-resource"; type="application/json", </.well-known/openid-configuration>; rel="openid-configuration"; type="application/json", </.well-known/mcp/server-card.json>; rel="mcp-server-card"; type="application/json", </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json", </openrpc/openrpc.json>; rel="service-desc"; type="application/openrpc+json", </openapi/m2mGatewaySpec.yaml>; rel="service-desc"; type="application/yaml", </docs/api-reference/public-relayer>; rel="service-doc"; type="text/html", </docs/api-reference/dev-platform>; rel="service-doc"; type="text/html", </llms.txt>; rel="describedby"; type="text/plain", </llms-full.txt>; rel="describedby"; type="text/plain"
+vary: RSC, Accept
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=0eGX4Ha1bl784B25s8COn%2F7PH2EpNVPqIWMbeEf3LyK6RbN8Zopsj%2BIfoWw%2BgvwioNZBtooZcFfTAf0VAqm6UwDr5AEk3DgCUDmhRnk89PEcy7hRYdfvTf9Fst1KgJZYfy5pbDHBZG7%2F2Iw%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: cloudflare
+cf-ray: a01daefa4ff7d8ff-MAD
+alt-svc: h3=":443"; ma=86400
+

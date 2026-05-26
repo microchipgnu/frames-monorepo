@@ -1,0 +1,12 @@
+HTTP/2 200 
+date: Tue, 26 May 2026 15:00:00 GMT
+content-type: application/json
+content-length: 431
+strict-transport-security: max-age=15552000
+x-content-type-options: nosniff
+vary: accept-encoding
+set-cookie: __cf_bm=Eihtbd2sj1mom7cqWEFICsc9UFZHQJOsBKgMDji1bTI-1779807599.93222-1.0.1.1-vH9KoYF8vlBwI1cU1VoKKcO5Utzz1kvcFD8VYNXgGcOAXgVSazjGlOJ92sRcFQbKiqOkeEi1tNmqMVZarnKfkhCAleqbNOQBLTvBiqy55JHCPTKDSU4Y2VtqbskTbs_o; HttpOnly; SameSite=None; Secure; Path=/; Domain=coinstats.app; Expires=Tue, 26 May 2026 15:30:00 GMT
+server: cloudflare
+cf-ray: a01da59b9a8211e6-LIS
+alt-svc: h3=":443"; ma=86400
+

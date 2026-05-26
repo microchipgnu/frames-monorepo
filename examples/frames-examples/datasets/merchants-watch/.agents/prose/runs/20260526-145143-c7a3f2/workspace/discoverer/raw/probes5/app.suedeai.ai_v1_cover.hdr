@@ -1,0 +1,23 @@
+HTTP/2 402 
+cache-control: no-store
+cf-cache-status: DYNAMIC
+cf-ray: a01db14aefe15dcd-CDG
+content-security-policy: frame-ancestors 'self' https://app.suedeai.ai https://www.app.suedeai.ai
+content-type: application/json
+date: Tue, 26 May 2026 15:07:58 GMT
+payment-reference: 4e67f6d9297f42fb8a1d8e04273240fd
+payment-required: eyJ4NDAyVmVyc2lvbiI6IDIsICJlcnJvciI6ICJQQVlNRU5ULVNJR05BVFVSRSBoZWFkZXIgaXMgcmVxdWlyZWQiLCAicmVzb3VyY2UiOiB7InVybCI6ICJodHRwczovL2FwcC5zdWVkZWFpLmFpL3YxL2NvdmVyIiwgImRlc2NyaXB0aW9uIjogIkdlbmVyYXRlIGEgc3R5bGlzdGljIGNvdmVyIChyZS1pbWFnaW5pbmcpIG9mIGFuIGV4aXN0aW5nIFN1ZWRlIHRyYWNrLiIsICJtaW1lVHlwZSI6ICJhcHBsaWNhdGlvbi9qc29uIn0sICJhY2NlcHRzIjogW3sic2NoZW1lIjogImV4YWN0IiwgIm5ldHdvcmsiOiAiZWlwMTU1Ojg0NTMiLCAiYW1vdW50IjogIjQwMDAwMCIsICJhc3NldCI6ICIweDgzMzU4OWZDRDZlRGI2RTA4ZjRjN0MzMkQ0ZjcxYjU0YmRBMDI5MTMiLCAicGF5VG8iOiAiMHhiNWEwNTQ2NjcxMmZkNWJjZGYyODgzZjQzY0M2QjE3OTk0MjgwMzJkIiwgIm1heFRpbWVvdXRTZWNvbmRzIjogMzAwLCAiZXh0cmEiOiB7Im5hbWUiOiAiVVNEIENvaW4iLCAidmVyc2lvbiI6ICIyIn0sICJyZXNvdXJjZSI6ICJodHRwczovL2FwcC5zdWVkZWFpLmFpL3YxL2NvdmVyIiwgImRlc2NyaXB0aW9uIjogIkdlbmVyYXRlIGEgc3R5bGlzdGljIGNvdmVyIChyZS1pbWFnaW5pbmcpIG9mIGFuIGV4aXN0aW5nIFN1ZWRlIHRyYWNrLiIsICJtaW1lVHlwZSI6ICJhcHBsaWNhdGlvbi9qc29uIn1dfQ==
+rndr-id: 17454575-9f23-4a9e
+server: Vercel
+strict-transport-security: max-age=63072000
+vary: Accept-Encoding
+x-frame-options: SAMEORIGIN
+x-payment-network: base
+x-payment-recipient: 0xb5a05466712fd5bcdf2883f43cC6B1799428032d
+x-payment-reference: 4e67f6d9297f42fb8a1d8e04273240fd
+x-payment-required: true
+x-render-origin-server: uvicorn
+x-robots-tag: noindex, nofollow
+x-vercel-cache: MISS
+x-vercel-id: cdg1::2cm8x-1779808078502-c4c04f3d249e
+

@@ -1,0 +1,282 @@
+[
+  {
+    "host": "hub.atxp.ai",
+    "entity_id": "hub-atxp-ai",
+    "category": "finance",
+    "category_source": "claude_inferred",
+    "source_url": "https://hub.atxp.ai/",
+    "retrieved_at": "2026-05-26T15:06:35Z",
+    "confidence": 0.7,
+    "evidence_phrase": "ATXP gives AI agents identity, payments, communication, and tools."
+  },
+  {
+    "host": "stablestudio.dev",
+    "entity_id": "stablestudio-dev",
+    "category": "media",
+    "category_source": "claude_inferred",
+    "source_url": "https://stablestudio.dev/",
+    "retrieved_at": "2026-05-26T15:06:35Z",
+    "confidence": 0.95,
+    "evidence_phrase": "Stable Studio - AI Image and Video Generation powered by Micropayments"
+  },
+  {
+    "host": "pay.aisa.one",
+    "entity_id": "pay-aisa-one",
+    "category": "ai_ml",
+    "category_source": "claude_inferred",
+    "source_url": "https://pay.aisa.one/",
+    "retrieved_at": "2026-05-26T15:06:35Z",
+    "confidence": 0.85,
+    "evidence_phrase": "AIsa is the capability layer for the agentic economy: model gateway, composable skills, and infrastructure for AI agents."
+  },
+  {
+    "host": "api.deepnets.ai",
+    "entity_id": "api-deepnets-ai",
+    "category": "finance",
+    "category_source": "claude_inferred",
+    "source_url": "https://api.deepnets.ai/openapi.json",
+    "retrieved_at": "2026-05-26T15:06:35Z",
+    "confidence": 0.85,
+    "evidence_phrase": "Solana trading intelligence API for traders and trading agents."
+  },
+  {
+    "host": "staging.deepnets.ai",
+    "entity_id": "staging-deepnets-ai",
+    "category": "finance",
+    "category_source": "claude_inferred",
+    "source_url": "https://staging.deepnets.ai/",
+    "retrieved_at": "2026-05-26T15:06:35Z",
+    "confidence": 0.85,
+    "evidence_phrase": "Deepnets: Solana trading intelligence — token safety, holder graphs, funding-network detection, social research, watchlist, trending feed. For traders and trading agents."
+  },
+  {
+    "host": "content.hugen.tokyo",
+    "entity_id": "content-hugen-tokyo",
+    "category": "data",
+    "category_source": "claude_inferred",
+    "source_url": "https://content.hugen.tokyo/openapi.json",
+    "retrieved_at": "2026-05-26T15:06:35Z",
+    "confidence": 0.8,
+    "evidence_phrase": "Extract, summarize, and analyze web content in one call."
+  },
+  {
+    "host": "defi.hugen.tokyo",
+    "entity_id": "defi-hugen-tokyo",
+    "category": "finance",
+    "category_source": "claude_inferred",
+    "source_url": "https://defi.hugen.tokyo/openapi.json",
+    "retrieved_at": "2026-05-26T15:06:35Z",
+    "confidence": 0.9,
+    "evidence_phrase": "26 DeFi security and data endpoints — token audits, bridge routing, protocol analytics."
+  },
+  {
+    "host": "domain.hugen.tokyo",
+    "entity_id": "domain-hugen-tokyo",
+    "category": "security",
+    "category_source": "claude_inferred",
+    "source_url": "https://domain.hugen.tokyo/openapi.json",
+    "retrieved_at": "2026-05-26T15:06:35Z",
+    "confidence": 0.85,
+    "evidence_phrase": "7 domain intelligence checks in one API — WHOIS, DNS, SSL, tech stack, security headers, subdomains, redirects."
+  },
+  {
+    "host": "gotobi.hugen.tokyo",
+    "entity_id": "gotobi-hugen-tokyo",
+    "category": "finance",
+    "category_source": "claude_inferred",
+    "source_url": "https://gotobi.hugen.tokyo/openapi.json",
+    "retrieved_at": "2026-05-26T15:06:35Z",
+    "confidence": 0.85,
+    "evidence_phrase": "The only programmatic source for Japanese FX gotobi (五十日) dates."
+  },
+  {
+    "host": "intel.hugen.tokyo",
+    "entity_id": "intel-hugen-tokyo",
+    "category": "finance",
+    "category_source": "claude_inferred",
+    "source_url": "https://intel.hugen.tokyo/openapi.json",
+    "retrieved_at": "2026-05-26T15:06:35Z",
+    "confidence": 0.8,
+    "evidence_phrase": "AI-synthesized due diligence reports for crypto assets."
+  },
+  {
+    "host": "mailcheck.hugen.tokyo",
+    "entity_id": "mailcheck-hugen-tokyo",
+    "category": "data",
+    "category_source": "claude_inferred",
+    "source_url": "https://mailcheck.hugen.tokyo/openapi.json",
+    "retrieved_at": "2026-05-26T15:06:35Z",
+    "confidence": 0.65,
+    "evidence_phrase": "6 email validation checks in one call — syntax, MX records, disposable detection (5,000+ domains), free provider, role-based, and typo suggestion."
+  },
+  {
+    "host": "scout.hugen.tokyo",
+    "entity_id": "scout-hugen-tokyo",
+    "category": "search",
+    "category_source": "claude_inferred",
+    "source_url": "https://scout.hugen.tokyo/openapi.json",
+    "retrieved_at": "2026-05-26T15:06:35Z",
+    "confidence": 0.95,
+    "evidence_phrase": "Search 19+ platforms in a single API call: Reddit, Hacker News, GitHub, Stack Overflow, arXiv, npm, PyPI, X/Twitter, YouTube, Product Hunt, Dev.to, Qiita, Zenn, Semantic Scholar, GitLab, Hashnode, Lobsters, Lemmy, and x402 Bazaar."
+  },
+  {
+    "host": "tick.hugen.tokyo",
+    "entity_id": "tick-hugen-tokyo",
+    "category": "finance",
+    "category_source": "claude_inferred",
+    "source_url": "https://tick.hugen.tokyo/openapi.json",
+    "retrieved_at": "2026-05-26T15:06:35Z",
+    "confidence": 0.95,
+    "evidence_phrase": "Multi-source aggregated FX Best Bid/Ask from multiple institutional LPs."
+  },
+  {
+    "host": "mpp.hyreagent.fun",
+    "entity_id": "mpp-hyreagent-fun",
+    "category": "finance",
+    "category_source": "claude_inferred",
+    "source_url": "https://mpp.hyreagent.fun/",
+    "retrieved_at": "2026-05-26T15:06:35Z",
+    "confidence": 0.9,
+    "evidence_phrase": "Pay-per-call DeFi intelligence for autonomous agents. 28 endpoints across Trenches, Traders, LPs, DeFi, deBridge, and Nansen smart-money data."
+  },
+  {
+    "host": "coingecko.mpp.paywithlocus.com",
+    "entity_id": "coingecko-mpp-paywithlocus-com",
+    "category": "data",
+    "category_source": "claude_inferred",
+    "source_url": "https://paywithlocus.com/mpp/coingecko.md",
+    "retrieved_at": "2026-05-26T15:06:35Z",
+    "confidence": 0.85,
+    "evidence_phrase": "Cryptocurrency market data — prices, charts, market cap, exchanges, trending coins, global stats, NFTs, derivatives, and on-chain data."
+  },
+  {
+    "host": "financial-analyst.ai",
+    "entity_id": "financial-analyst-ai",
+    "category": "finance",
+    "category_source": "claude_inferred",
+    "source_url": "https://financial-analyst.ai/",
+    "retrieved_at": "2026-05-26T15:06:35Z",
+    "confidence": 0.97,
+    "evidence_phrase": "Institutional-grade financial analysis for AI agents. Rigorous underwriting, returns modeling, and investment analysis across asset classes."
+  },
+  {
+    "host": "financial-analyst-api-production-b81a.up.railway.app",
+    "entity_id": "financial-analyst-api-production-b81a-up-railway-app",
+    "category": "finance",
+    "category_source": "claude_inferred",
+    "source_url": "https://financial-analyst-api-production-b81a.up.railway.app/",
+    "retrieved_at": "2026-05-26T15:06:35Z",
+    "confidence": 0.97,
+    "evidence_phrase": "Institutional-grade financial analysis for AI agents. Rigorous underwriting, returns modeling, and investment analysis across asset classes."
+  },
+  {
+    "host": "suno.mpp.paywithlocus.com",
+    "entity_id": "suno-mpp-paywithlocus-com",
+    "category": "media",
+    "category_source": "claude_inferred",
+    "source_url": "https://paywithlocus.com/mpp/suno.md",
+    "retrieved_at": "2026-05-26T15:06:35Z",
+    "confidence": 0.95,
+    "evidence_phrase": "AI music generation — create full songs, generate lyrics, and build custom music tracks with state-of-the-art AI models."
+  },
+  {
+    "host": "fal.mpp.tempo.xyz",
+    "entity_id": "fal-mpp-tempo-xyz",
+    "category": "media",
+    "category_source": "claude_inferred",
+    "source_url": "https://fal.ai/",
+    "retrieved_at": "2026-05-26T15:06:35Z",
+    "confidence": 0.85,
+    "evidence_phrase": "Generative AI | Run Image, Video, 3D and Audio Models | fal.ai"
+  },
+  {
+    "host": "mpp.api.agentmail.to",
+    "entity_id": "mpp-api-agentmail-to",
+    "category": "messaging",
+    "category_source": "claude_inferred",
+    "source_url": "https://mpp.api.agentmail.to/",
+    "retrieved_at": "2026-05-26T15:06:35Z",
+    "confidence": 0.95,
+    "evidence_phrase": "AgentMail is the email inbox API for AI agents."
+  },
+  {
+    "host": "brave.mpp.paywithlocus.com",
+    "entity_id": "brave-mpp-paywithlocus-com",
+    "category": "search",
+    "category_source": "claude_inferred",
+    "source_url": "https://paywithlocus.com/mpp/brave.md",
+    "retrieved_at": "2026-05-26T15:06:35Z",
+    "confidence": 0.95,
+    "evidence_phrase": "Independent web search — web, news, images, videos, AI answers, and LLM context."
+  },
+  {
+    "host": "megapot.mpp.paysponge.com",
+    "entity_id": "megapot-mpp-paysponge-com",
+    "category": "shopping",
+    "category_source": "claude_inferred",
+    "source_url": "https://megapot.mpp.paysponge.com/",
+    "retrieved_at": "2026-05-26T15:06:35Z",
+    "confidence": 0.6,
+    "evidence_phrase": "Purchase Megapot tickets via x402"
+  },
+  {
+    "host": "apibase.pro",
+    "entity_id": "apibase-pro",
+    "category": "devtools",
+    "category_source": "claude_inferred",
+    "source_url": "https://apibase.pro/",
+    "retrieved_at": "2026-05-26T15:06:35Z",
+    "confidence": 0.75,
+    "evidence_phrase": "APIbase.pro — Best unified API gateway, compare 618 tools at pay-per-call pricing"
+  },
+  {
+    "host": "exa.mpp.tempo.xyz",
+    "entity_id": "exa-mpp-tempo-xyz",
+    "category": "search",
+    "category_source": "claude_inferred",
+    "source_url": "https://exa.mpp.tempo.xyz/search",
+    "retrieved_at": "2026-05-26T15:06:35Z",
+    "confidence": 0.9,
+    "evidence_phrase": "Payment is required (Search the web)."
+  },
+  {
+    "host": "surf.cascade.fyi",
+    "entity_id": "surf-cascade-fyi",
+    "category": "search",
+    "category_source": "claude_inferred",
+    "source_url": "https://surf.cascade.fyi/llms.txt",
+    "retrieved_at": "2026-05-26T15:06:35Z",
+    "confidence": 0.8,
+    "evidence_phrase": "Pay-per-use research and inference API for AI agents. Twitter, Reddit, GitHub, web data, and LLM chat completions with x402 micropayments."
+  },
+  {
+    "host": "apollo.mpp.paywithlocus.com",
+    "entity_id": "apollo-mpp-paywithlocus-com",
+    "category": "data",
+    "category_source": "claude_inferred",
+    "source_url": "https://paywithlocus.com/mpp/apollo.md",
+    "retrieved_at": "2026-05-26T15:06:35Z",
+    "confidence": 0.8,
+    "evidence_phrase": "People and company enrichment, lead search, and sales intelligence with 275M+ contacts."
+  },
+  {
+    "host": "clado.mpp.paywithlocus.com",
+    "entity_id": "clado-mpp-paywithlocus-com",
+    "category": "search",
+    "category_source": "claude_inferred",
+    "source_url": "https://paywithlocus.com/mpp/clado.md",
+    "retrieved_at": "2026-05-26T15:06:35Z",
+    "confidence": 0.7,
+    "evidence_phrase": "People search, LinkedIn enrichment, and deep research for lead generation."
+  },
+  {
+    "host": "tavily.mpp.paywithlocus.com",
+    "entity_id": "tavily-mpp-paywithlocus-com",
+    "category": "search",
+    "category_source": "claude_inferred",
+    "source_url": "https://paywithlocus.com/mpp/tavily.md",
+    "retrieved_at": "2026-05-26T15:06:35Z",
+    "confidence": 0.95,
+    "evidence_phrase": "AI-optimized web search, content extraction, site mapping, and crawling API."
+  }
+]

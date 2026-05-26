@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@frames-ag/frame": "^0.2.0",
+    "better-sqlite3": "^12.10.0",
     "viem": "^2.48.11"
   },
   "devDependencies": {

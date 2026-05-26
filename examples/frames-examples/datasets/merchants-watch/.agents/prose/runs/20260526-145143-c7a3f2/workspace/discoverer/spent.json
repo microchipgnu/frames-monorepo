@@ -1,0 +1,40 @@
+{
+  "budget_usd": 0.20,
+  "spent_usd": 0.03,
+  "remaining_usd": 0.17,
+  "calls": [
+    {
+      "tool": "exa_search",
+      "query": "x402 API merchant accepts USDC (category=company)",
+      "via": "descriptor_url (local-name had Lock-SHA mismatch in pay_tool)",
+      "cost": 0.01,
+      "ts": "2026-05-26T15:02:35Z",
+      "txHash": "3npmguajUNbouMYFu1My8KEjrQjsFRLebcPmvapUFkeMaM2psLtfTa4NgtYyKFB1EF5u48xNCurKNKJJRwvpz8od"
+    },
+    {
+      "tool": "twitter_search",
+      "query": "\"just shipped\" x402 (queryType=Latest)",
+      "via": "local_name + descriptor_url (two calls, second after fix)",
+      "cost": 0.02,
+      "ts": "2026-05-26T15:04:12Z"
+    },
+    {
+      "tool": "exa_search",
+      "query": "x402 endpoint USDC API launch 2026 agent payments (category=company)",
+      "via": "local_name",
+      "cost": 0.01,
+      "ts": "2026-05-26T15:05:44Z",
+      "txHash": "2yYWZYA79uQcXR7UDZjcGpXy5N3kiLJYRNuDu376a4hPFhYMTXEeGF52fhZmS9tZfnhr1xEwtyBEfepod9UPDkbZ"
+    }
+  ],
+  "skipped_paid_tools": [
+    {
+      "tool": "serper_news",
+      "reason": "descriptor returns network='(missing)' from catalog — no_wallet_for_network error; unreachable via check_descriptor_drift"
+    },
+    {
+      "tool": "firecrawl_scrape",
+      "reason": "unreachable via check_descriptor_drift (Cannot canonicalize undefined)"
+    }
+  ]
+}

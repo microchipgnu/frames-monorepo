@@ -1,0 +1,9 @@
+HTTP/2 307 
+cache-control: public, max-age=0, must-revalidate
+content-type: text/plain
+date: Tue, 26 May 2026 15:06:24 GMT
+location: https://www.sapiom.ai/.well-known/x402
+server: Vercel
+strict-transport-security: max-age=63072000
+x-vercel-id: cdg1::8jvjq-1779807984880-be0d1e6ba602
+

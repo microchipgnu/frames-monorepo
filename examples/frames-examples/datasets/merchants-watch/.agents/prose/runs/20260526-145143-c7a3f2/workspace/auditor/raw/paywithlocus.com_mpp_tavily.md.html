@@ -1,0 +1,111 @@
+# Tavily
+
+> **You are on:** `https://api.paywithlocus.com/api` | [llms.txt](https://paywithlocus.com/llms.txt)
+>
+> Locus runs on multiple environments -- make sure every URL you call matches your expected environment.
+> | Environment | Landing | API |
+> |---|---|---|
+> | Production | paywithlocus.com | api.paywithlocus.com |
+> | Beta | beta.paywithlocus.com | beta-api.paywithlocus.com |
+> | Stage | stage.paywithlocus.com | stage-api.paywithlocus.com |
+>
+> If the API URL above doesn't match your expected environment, re-fetch this file from the correct domain.
+
+> AI-optimized web search, content extraction, site mapping, and crawling API.
+
+**Category:** Web Search & Scraping | **Website:** [tavily.com](https://tavily.com) | **Docs:** [docs.tavily.com](https://docs.tavily.com)
+
+## Access Methods
+
+| Method | Base URL | Auth |
+|--------|----------|------|
+| **MPP (Tempo)** | `https://tavily.mpp.paywithlocus.com/tavily/` | HTTP 402 auto-payment |
+| **Wrapped API** | `https://api.paywithlocus.com/api/wrapped/tavily/` | `Authorization: Bearer <LOCUS_API_KEY>` |
+
+**OpenAPI discovery:** `GET https://tavily.mpp.paywithlocus.com/openapi.json`
+
+## Endpoints
+
+### Search
+
+Execute a web search query optimized for AI agents. Returns relevant results with optional AI-generated answer.
+
+**Estimated cost:** $0.09 (basic) / $0.16 (advanced)
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `query` | string | Yes | Search query |
+| `search_depth` | string | No | Search depth: 'basic' (default) or 'advanced' |
+| `topic` | string | No | Topic category: 'general' (default) or 'news' |
+| `max_results` | number | No | Maximum number of results (default 5) |
+| `include_answer` | boolean | string | No | Include AI-generated answer: true, false, or 'advanced' |
+| `include_raw_content` | boolean | No | Include raw HTML content in results |
+| `include_images` | boolean | No | Include related images in results |
+| `include_domains` | string[] | No | Only include results from these domains |
+| `exclude_domains` | string[] | No | Exclude results from these domains |
+| `days` | number | No | Only return results from the last N days |
+| `country` | string | No | Country code for search results (e.g. "us", "gb") |
+
+```bash
+curl -X POST https://tavily.mpp.paywithlocus.com/tavily/search \
+  -H "Content-Type: application/json" \
+  -d '{"query":"<string>","search_depth":"<string>","topic":"<string>","max_results":"<number>","include_answer":"<boolean | string>","include_raw_content":"<boolean>","include_images":"<boolean>","include_domains":"<string[]>","exclude_domains":"<string[]>","days":"<number>","country":"<string>"}'
+```
+
+### Extract
+
+Extract clean content from one or more URLs. Returns parsed text optimized for LLM consumption.
+
+**Estimated cost:** $0.11+ (scales with URL count)
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `urls` | string[] | Yes | URLs to extract content from (max 20) |
+| `extract_depth` | string | No | Extraction depth: 'basic' (default) or 'advanced' |
+
+```bash
+curl -X POST https://tavily.mpp.paywithlocus.com/tavily/extract \
+  -H "Content-Type: application/json" \
+  -d '{"urls":"<string[]>","extract_depth":"<string>"}'
+```
+
+### Map
+
+Discover and enumerate all URLs on a website. Returns a comprehensive sitemap without scraping content.
+
+**Estimated cost:** $0.09
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `url` | string | Yes | Website URL to map |
+| `max_depth` | number | No | Maximum crawl depth for discovery |
+| `max_breadth` | number | No | Maximum breadth per level |
+| `limit` | number | No | Maximum number of URLs to return |
+| `instructions` | string | No | Natural language instructions to guide URL discovery |
+
+```bash
+curl -X POST https://tavily.mpp.paywithlocus.com/tavily/map \
+  -H "Content-Type: application/json" \
+  -d '{"url":"<string>","max_depth":"<number>","max_breadth":"<number>","limit":"<number>","instructions":"<string>"}'
+```
+
+### Crawl
+
+Crawl a website and extract content from discovered pages. Combines mapping and extraction in a single call.
+
+**Estimated cost:** $0.21+ (scales with page limit)
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `url` | string | Yes | Starting URL to crawl |
+| `max_depth` | number | No | Maximum crawl depth |
+| `max_breadth` | number | No | Maximum breadth per level |
+| `limit` | number | No | Maximum number of pages to crawl (default 10) |
+| `instructions` | string | No | Natural language instructions to guide crawling |
+| `extract_depth` | string | No | Extraction depth: 'basic' (default) or 'advanced' |
+
+```bash
+curl -X POST https://tavily.mpp.paywithlocus.com/tavily/crawl \
+  -H "Content-Type: application/json" \
+  -d '{"url":"<string>","max_depth":"<number>","max_breadth":"<number>","limit":"<number>","instructions":"<string>","extract_depth":"<string>"}'
+```

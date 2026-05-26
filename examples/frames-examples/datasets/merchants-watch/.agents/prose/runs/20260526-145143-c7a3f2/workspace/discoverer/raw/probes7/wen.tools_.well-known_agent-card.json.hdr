@@ -1,0 +1,28 @@
+HTTP/2 308 
+cache-control: public, max-age=0, must-revalidate
+content-type: text/plain
+date: Tue, 26 May 2026 15:08:56 GMT
+location: https://www.wen.tools/.well-known/agent-card.json
+refresh: 0;url=https://www.wen.tools/.well-known/agent-card.json
+server: Vercel
+strict-transport-security: max-age=63072000
+x-vercel-id: cdg1::rb45p-1779808136184-d95c2fafe353
+
+HTTP/2 200 
+accept-ranges: bytes
+access-control-allow-origin: *
+age: 66153
+cache-control: public, max-age=0, must-revalidate
+content-disposition: inline; filename="index.html"
+content-type: text/html; charset=utf-8
+cross-origin-embedder-policy: credentialless
+cross-origin-opener-policy: same-origin
+date: Tue, 26 May 2026 15:08:56 GMT
+etag: "7e3e55083c9d98c66fdd649dfabc5dd1"
+last-modified: Mon, 25 May 2026 20:46:23 GMT
+server: Vercel
+strict-transport-security: max-age=63072000
+x-vercel-cache: HIT
+x-vercel-id: cdg1::9xjqm-1779808136387-77966855926e
+content-length: 10100
+

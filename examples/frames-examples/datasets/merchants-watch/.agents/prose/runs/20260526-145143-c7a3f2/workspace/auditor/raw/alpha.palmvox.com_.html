@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgentAlpha — Crypto Alpha Intelligence</title>
+  <meta name="description" content="AgentAlpha �� autonomous crypto trading signals, DeFi yields, and AI market analysis. 35 paid API endpoints from $0.001 USDC via x402 protocol. 100% win rate on tracked signals. Largest catalog on x402 Bazaar.">
+  <meta name="theme-color" content="#08080f">
+
+  <!-- Open Graph (Facebook, Discord, Telegram, etc.) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://alpha.palmvox.com">
+  <meta property="og:title" content="AgentAlpha — Crypto Alpha Intelligence">
+  <meta property="og:description" content="Autonomous AI scanning 7 data sources 24/7. Trading signals, DeFi yields, market intelligence. Pay $0.01 USDC per request. 100% win rate. No API keys.">
+  <meta property="og:image" content="https://alpha.palmvox.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="AgentAlpha by PalmVox">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@nullbeacon">
+  <meta name="twitter:creator" content="@nullbeacon">
+  <meta name="twitter:title" content="AgentAlpha — Crypto Alpha Intelligence">
+  <meta name="twitter:description" content="Autonomous AI agent selling crypto signals via x402. 100% win rate. $0.01/request. No API keys. Verifiable track record.">
+  <meta name="twitter:image" content="https://alpha.palmvox.com/og-image.png">
+
+  <!-- Additional SEO -->
+  <link rel="canonical" href="https://alpha.palmvox.com">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="PalmVox">
+  <meta name="keywords" content="crypto signals, x402, trading API, DeFi yields, market analysis, AI crypto, Base network, USDC, autonomous agent">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebAPI",
+  "name": "AgentAlpha",
+  "description": "Autonomous crypto alpha intelligence — real-time trading signals, DeFi yields, AI analysis. Pay-per-request via x402 protocol on Base network.",
+  "url": "https://alpha.palmvox.com",
+  "documentation": "https://alpha.palmvox.com/catalog",
+  "provider": {
+    "@type": "Organization",
+    "name": "PalmVox"
+  }
+}
+</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #08080f;
+      --bg2: #111119;
+      --bg3: #1a1a25;
+      --border: rgba(255,255,255,0.06);
+      --border-hover: rgba(0, 212, 255, 0.25);
+      --text: #e8e8f0;
+      --text2: #7a7a96;
+      --accent: #00d4ff;
+      --accent2: #7b61ff;
+      --green: #00e676;
+      --red: #ff3d71;
+      --yellow: #ffaa00;
+      --glass: rgba(17, 17, 25, 0.7);
+      --glass-border: rgba(255,255,255,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .mono { font-family: 'JetBrains Mono', monospace; }
+
+    /* --- Animated gradient mesh background --- */
+    .mesh-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .mesh-bg::before {
+      content: '';
+      position: absolute;
+      width: 150%;
+      height: 150%;
+      top: -25%;
+      left: -25%;
+      background:
+        radial-gradient(ellipse 600px 600px at 20% 20%, rgba(0, 212, 255, 0.07), transparent),
+        radial-gradient(ellipse 500px 500px at 80% 30%, rgba(123, 97, 255, 0.06), transparent),
+        radial-gradient(ellipse 700px 700px at 60% 70%, rgba(0, 212, 255, 0.04), transparent),
+        radial-gradient(ellipse 400px 400px at 10% 80%, rgba(123, 97, 255, 0.05), transparent),
+        radial-gradient(ellipse 500px 500px at 90% 90%, rgba(0, 230, 118, 0.03), transparent);
+      animation: mesh-drift 30s ease-in-out infinite alternate;
+    }
+    .mesh-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+    @keyframes mesh-drift {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      33% { transform: translate(30px, -20px) rotate(1deg); }
+      66% { transform: translate(-20px, 30px) rotate(-0.5deg); }
+      100% { transform: translate(10px, -10px) rotate(0.5deg); }
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+    /* --- Scroll reveal --- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* --- Glass card mixin --- */
+    .glass {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+    }
+    .glass:hover {
+      border-color: var(--border-hover);
+      box-shadow: 0 0 60px rgba(0, 212, 255, 0.06), inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+
+    /* --- Nav --- */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0 24px;
+      background: rgba(8, 8, 15, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .logo { font-size: 20px; font-weight: 800; letter-spacing: -0.5px; }
+    .logo span { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a { color: var(--text2); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff !important;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 13px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+    .mobile-menu { display: none; background: none; border: none; color: var(--text); font-size: 24px; cursor: pointer; padding: 8px; }
+
+    /* --- Gradient text utility --- */
+    .grad { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    /* --- Hero --- */
+    .hero { padding: 120px 0 80px; position: relative; }
+    .hero-content { text-align: center; position: relative; z-index: 2; }
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 18px;
+      background: rgba(0, 230, 118, 0.06);
+      border: 1px solid rgba(0, 230, 118, 0.15);
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--green);
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.5px;
+      margin-bottom: 40px;
+    }
+    .live-dot {
+      width: 7px; height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--green);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; box-shadow: 0 0 8px var(--green); }
+      50% { opacity: 0.5; box-shadow: 0 0 16px var(--green); }
+    }
+    h1 {
+      font-size: clamp(44px, 7vw, 80px);
+      font-weight: 900;
+      letter-spacing: -3px;
+      line-height: 1.0;
+      margin-bottom: 24px;
+    }
+    .hero-sub {
+      font-size: 18px;
+      color: var(--text2);
+      max-width: 600px;
+      margin: 0 auto 48px;
+      line-height: 1.7;
+    }
+    .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 64px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      box-shadow: 0 4px 24px rgba(0, 212, 255, 0.2);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(0, 212, 255, 0.3); }
+    .btn-secondary {
+      background: var(--bg3);
+      border: 1px solid var(--glass-border);
+      color: var(--text);
+    }
+    .btn-secondary:hover { border-color: var(--border-hover); color: var(--accent); transform: translateY(-1px); }
+
+    /* --- Hero terminal --- */
+    .hero-terminal {
+      max-width: 640px;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+      background: rgba(8, 8, 15, 0.9);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255,255,255,0.03);
+    }
+    .term-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 18px;
+      background: rgba(17, 17, 25, 0.8);
+      border-bottom: 1px solid var(--border);
+    }
+    .term-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .term-dot:nth-child(1) { background: #ff5f57; }
+    .term-dot:nth-child(2) { background: #febc2e; }
+    .term-dot:nth-child(3) { background: #28c840; }
+    .term-title {
+      margin-left: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--text2);
+    }
+    .term-body {
+      padding: 18px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      line-height: 1.9;
+      height: 210px;
+      overflow: hidden;
+    }
+    .term-line {
+      opacity: 0;
+      animation: term-in 0.3s ease forwards;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .term-line .ts { color: var(--text2); opacity: 0.6; }
+    .term-line .label { font-weight: 600; }
+    .term-line .label-scan { color: var(--accent); }
+    .term-line .label-whale { color: var(--yellow); }
+    .term-line .label-yield { color: var(--green); }
+    .term-line .label-x402 { color: var(--accent2); }
+    .term-line .label-alert { color: var(--red); }
+    .term-line .pos { color: var(--green); }
+    .term-line .neg { color: var(--red); }
+    .term-line .warn { color: var(--yellow); }
+    .term-line .dim { color: var(--text2); }
+    @keyframes term-in {
+      from { opacity: 0; transform: translateX(-8px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* --- Section styling --- */
+    section { padding: 100px 0; }
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--accent);
+      margin-bottom: 16px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .section-desc {
+      color: var(--text2);
+      font-size: 16px;
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+
+    /* --- Live Dashboard --- */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .dash-card {
+      padding: 28px;
+      text-align: center;
+    }
+    .dash-card .dash-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text2);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+    .dash-card .dash-value {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: 6px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .dash-card .dash-sub {
+      font-size: 12px;
+      color: var(--text2);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .dash-value.green { color: var(--green); }
+    .dash-value.red { color: var(--red); }
+    .dash-value.accent { color: var(--accent); }
+    .dash-value.purple { color: var(--accent2); }
+    .dash-value.yellow { color: var(--yellow); }
+
+    /* Fear/Greed gauge */
+    .gauge-wrap { margin: 0 auto 8px; width: 100%; max-width: 160px; }
+    .gauge-track {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: linear-gradient(90deg, var(--red), var(--yellow), var(--green));
+      position: relative;
+      margin-bottom: 4px;
+    }
+    .gauge-needle {
+      width: 3px;
+      height: 14px;
+      background: #fff;
+      border-radius: 2px;
+      position: absolute;
+      top: -4px;
+      transition: left 0.8s ease;
+      box-shadow: 0 0 6px rgba(255,255,255,0.4);
+    }
+
+    /* --- Signal Preview --- */
+    .signal-preview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+    .signal-card-wrap { position: relative; }
+    .signal-card {
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .signal-blur { filter: blur(5px); user-select: none; pointer-events: none; }
+    .signal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+    .signal-token-info { display: flex; align-items: center; gap: 14px; }
+    .signal-token-icon {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 16px; color: #fff;
+    }
+    .signal-token-name { font-size: 22px; font-weight: 800; }
+    .signal-token-pair { font-size: 13px; color: var(--text2); }
+    .signal-conf-badge {
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      background: rgba(0, 230, 118, 0.1);
+      color: var(--green);
+      border: 1px solid rgba(0, 230, 118, 0.15);
+    }
+    .signal-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .signal-metric .sm-label { font-size: 11px; color: var(--text2); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; font-weight: 500; }
+    .signal-metric .sm-value { font-size: 20px; font-weight: 700; font-family: 'JetBrains Mono', monospace; }
+    .signal-source { font-size: 13px; color: var(--text2); line-height: 1.7; }
+    .signal-source b { color: var(--accent); font-weight: 600; }
+    .signal-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(8, 8, 15, 0.6);
+      backdrop-filter: blur(4px);
+      border-radius: 16px;
+      z-index: 2;
+    }
+    .lock-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--glass-border);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .lock-icon svg { width: 24px; height: 24px; }
+    .signal-overlay p { font-size: 14px; color: var(--text2); margin-bottom: 16px; }
+    .signal-overlay .price-note {
+      font-size: 12px;
+      color: var(--text2);
+      margin-top: 10px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .decoded-card { padding: 32px; }
+    .decoded-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--green);
+      font-weight: 600;
+      margin-bottom: 20px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .decoded-json {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      line-height: 1.8;
+      color: var(--text2);
+      white-space: pre;
+      overflow-x: auto;
+    }
+    .decoded-json .key { color: var(--accent); }
+    .decoded-json .str { color: var(--green); }
+    .decoded-json .num { color: var(--yellow); }
+    .no-sub-note {
+      margin-top: 24px;
+      padding: 16px 20px;
+      border-radius: 10px;
+      background: rgba(0, 212, 255, 0.04);
+      border: 1px solid rgba(0, 212, 255, 0.1);
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.6;
+    }
+    .no-sub-note strong { color: var(--text); }
+
+    /* --- Data Sources (What AgentAlpha Scans) --- */
+    .sources-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .source-card { padding: 32px; }
+    .source-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(123, 97, 255, 0.08));
+      border: 1px solid rgba(0, 212, 255, 0.1);
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .source-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .source-card p { color: var(--text2); font-size: 14px; line-height: 1.65; }
+
+    /* --- Endpoints --- */
+    .endpoints-section { padding: 100px 0; }
+    .endpoint-table { width: 100%; border-collapse: separate; border-spacing: 0 8px; }
+    .endpoint-table th {
+      text-align: left;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text2);
+      font-weight: 500;
+      padding: 0 20px 12px;
+    }
+    .endpoint-table td { padding: 18px 20px; background: var(--bg2); }
+    .endpoint-table tr td:first-child { border-radius: 12px 0 0 12px; }
+    .endpoint-table tr td:last-child { border-radius: 0 12px 12px 0; }
+    .endpoint-table tbody tr {
+      transition: transform 0.2s;
+    }
+    .endpoint-table tbody tr:hover { transform: translateX(4px); }
+    .method-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.5px;
+    }
+    .method-badge.get { background: rgba(0, 230, 118, 0.12); color: var(--green); }
+    .method-badge.post { background: rgba(0, 212, 255, 0.12); color: var(--accent); }
+    .ep-path { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; }
+    .ep-price { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: var(--yellow); }
+    .ep-price.free { color: var(--green); }
+    .ep-desc { color: var(--text2); font-size: 14px; }
+    .ep-divider {
+      padding: 32px 0 16px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--text2);
+    }
+
+    /* --- Track Record --- */
+    .track-record { padding: 100px 0; }
+    .tr-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .tr-stat {
+      padding: 24px;
+      text-align: center;
+    }
+    .tr-stat .tr-val { font-size: 28px; font-weight: 800; margin-bottom: 4px; letter-spacing: -1px; }
+    .tr-stat .tr-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text2); font-weight: 500; }
+    .history-table { width: 100%; border-collapse: separate; border-spacing: 0 4px; }
+    .history-table th {
+      text-align: left;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text2);
+      font-weight: 500;
+      padding: 8px 16px;
+    }
+    .history-table td {
+      padding: 14px 16px;
+      font-size: 14px;
+      background: var(--bg2);
+    }
+    .history-table tr td:first-child { border-radius: 8px 0 0 8px; }
+    .history-table tr td:last-child { border-radius: 0 8px 8px 0; }
+    .status-badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .status-badge.win { background: rgba(0, 230, 118, 0.1); color: var(--green); }
+    .status-badge.loss { background: rgba(255, 61, 113, 0.1); color: var(--red); }
+    .status-badge.pending { background: rgba(255, 170, 0, 0.1); color: var(--yellow); }
+    .tr-link {
+      margin-top: 24px;
+      font-size: 13px;
+      color: var(--text2);
+    }
+    .tr-link a { color: var(--accent); text-decoration: none; font-family: 'JetBrains Mono', monospace; }
+    .tr-link a:hover { text-decoration: underline; }
+
+    /* --- Connect steps --- */
+    .connect-section { padding: 100px 0; }
+    .connect-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .connect-card { padding: 28px; }
+    .connect-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+    .connect-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .connect-card p { color: var(--text2); font-size: 14px; line-height: 1.6; margin-bottom: 14px; }
+    .cmd-block {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--green);
+      overflow-x: auto;
+      white-space: nowrap;
+      cursor: pointer;
+      position: relative;
+      transition: border-color 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .cmd-block:hover { border-color: var(--accent); }
+    .cmd-block .cmd-text { overflow-x: auto; }
+    .cmd-block .copy-btn {
+      flex-shrink: 0;
+      font-size: 11px;
+      color: var(--text2);
+      opacity: 0;
+      transition: opacity 0.2s;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .cmd-block:hover .copy-btn { opacity: 1; }
+    .cmd-block.copied .copy-btn { color: var(--green); opacity: 1; }
+
+    /* curl example */
+    .curl-example {
+      background: var(--bg2);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .curl-bar {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text2);
+    }
+    .curl-body {
+      padding: 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      line-height: 1.8;
+      overflow-x: auto;
+    }
+    .curl-body .c { color: var(--text2); }
+    .curl-body .k { color: var(--green); }
+    .curl-body .u { color: var(--accent); }
+    .curl-body .f { color: var(--accent2); }
+
+    /* --- Humans section --- */
+    .humans-section { padding: 100px 0; }
+    .humans-card {
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .humans-card h3 { font-size: 24px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.5px; }
+    .humans-card p { color: var(--text2); font-size: 15px; line-height: 1.7; margin-bottom: 20px; }
+    .humans-features { list-style: none; }
+    .humans-features li {
+      padding: 8px 0;
+      font-size: 14px;
+      color: var(--text2);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .humans-features li::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    .discord-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 24px;
+      background: #5865F2;
+      color: #fff;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .discord-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(88, 101, 242, 0.3); }
+    .humans-visual {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .discord-msg {
+      padding: 16px 20px;
+      border-radius: 12px;
+      background: rgba(88, 101, 242, 0.08);
+      border: 1px solid rgba(88, 101, 242, 0.15);
+      font-size: 13px;
+      color: var(--text2);
+    }
+    .discord-msg .bot-name { color: #5865F2; font-weight: 700; margin-bottom: 6px; font-size: 14px; }
+    .discord-msg .msg-text { line-height: 1.6; }
+    .discord-msg .msg-text b { color: var(--text); }
+
+    /* --- Security --- */
+    .security-section { padding: 100px 0; }
+    .security-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .sec-card { padding: 24px; }
+    .sec-icon {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px;
+      background: rgba(0, 212, 255, 0.06);
+      border: 1px solid rgba(0, 212, 255, 0.08);
+    }
+    .sec-icon svg { width: 18px; height: 18px; color: var(--accent); }
+    .sec-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .sec-card p { font-size: 13px; color: var(--text2); line-height: 1.55; }
+
+    /* --- Footer --- */
+    footer {
+      padding: 48px 0;
+      border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+    .footer-brand { max-width: 280px; }
+    .footer-brand p { font-size: 13px; color: var(--text2); margin-top: 12px; line-height: 1.6; }
+    .footer-cols { display: flex; gap: 64px; flex-wrap: wrap; }
+    .footer-col h5 { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text2); margin-bottom: 14px; font-weight: 600; }
+    .footer-col a { display: block; color: var(--text2); text-decoration: none; font-size: 14px; padding: 4px 0; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-bottom {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-copy { color: var(--text2); font-size: 13px; }
+    .footer-domains { font-size: 12px; color: var(--text2); font-family: 'JetBrains Mono', monospace; }
+    .footer-domains span { color: var(--accent); }
+
+    /* --- Responsive --- */
+    @media (max-width: 900px) {
+      .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
+      .signal-preview-grid { grid-template-columns: 1fr; }
+      .sources-grid { grid-template-columns: 1fr; }
+      .security-grid { grid-template-columns: repeat(2, 1fr); }
+      .humans-card { grid-template-columns: 1fr; }
+      .endpoint-table { font-size: 13px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: rgba(8, 8, 15, 0.95);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border);
+        padding: 20px 24px;
+        gap: 16px;
+      }
+      .mobile-menu { display: block; }
+      .hero { padding: 80px 0 60px; }
+      h1 { font-size: 36px; letter-spacing: -1.5px; }
+      section { padding: 60px 0; }
+      .dashboard-grid { grid-template-columns: 1fr 1fr; }
+      .dash-card .dash-value { font-size: 22px; }
+      .dash-card { padding: 16px; }
+      .security-grid { grid-template-columns: 1fr; }
+      .connect-grid { grid-template-columns: 1fr; }
+      .footer-cols { gap: 32px; }
+      /* make endpoint table scroll */
+      .endpoint-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .endpoint-table { min-width: 600px; }
+      .history-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .history-table { min-width: 500px; }
+    }
+    @media (max-width: 480px) {
+      .dashboard-grid { grid-template-columns: 1fr; }
+      .signal-metrics { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; align-items: center; }
+    }
+
+    /* --- Loading skeleton --- */
+    .skeleton {
+      background: linear-gradient(90deg, var(--bg3) 25%, rgba(42,42,61,0.4) 50%, var(--bg3) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+      border-radius: 4px;
+      display: inline-block;
+    }
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+  </style>
+  <link rel="stylesheet" href="/mobile-fixes.css">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#08080f">
+</head>
+<body>
+  <div class="mesh-bg"></div>
+
+  <!-- Announcement Bar -->
+  <div style="background:linear-gradient(90deg,#00d4ff,#7b61ff);padding:8px 16px;text-align:center;font-size:13px;font-weight:600;color:#fff;position:relative;z-index:200;">
+    <a href="https://palmvox.com" style="color:#fff;text-decoration:none;">Powered by <strong>PalmVox</strong> — Sovereign AI Platform</a>
+  </div>
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-inner">
+      <div class="logo">Agent<span>Alpha</span></div>
+      <button class="mobile-menu" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+      <div class="nav-links">
+        <a href="#dashboard">Dashboard</a>
+        <a href="#endpoints">API</a>
+        <a href="#track-record">Track Record</a>
+        <a href="#connect">Connect</a>
+        <a href="/health">Status</a>
+        <a href="#connect" class="nav-cta">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- ============ 1. HERO ============ -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="live-badge">
+          <div class="live-dot"></div>
+          LIVE ON BASE MAINNET
+        </div>
+        <h1>Crypto Alpha<br><span class="grad">Intelligence</span></h1>
+        <p class="hero-sub">35 paid endpoints from $0.001. Signals, DeFi yields, AI analysis, live trading feed. Largest catalog on x402 Bazaar.</p>
+        <div class="hero-actions">
+          <a href="#connect" class="btn btn-primary">Connect Your Agent</a>
+          <a href="#track-record" class="btn btn-secondary">View Track Record</a>
+        </div>
+
+        <div class="hero-terminal">
+          <div class="term-bar">
+            <div class="term-dot"></div>
+            <div class="term-dot"></div>
+            <div class="term-dot"></div>
+            <span class="term-title">agentalpha@base ~ live scanner</span>
+          </div>
+          <div class="term-body" id="term-body"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 2. LIVE DASHBOARD ============ -->
+    <section id="dashboard" class="reveal">
+      <div class="section-label">Live Data</div>
+      <h2>Real-time dashboard</h2>
+      <div class="section-desc">Fetched live from the AgentAlpha API. Updates every 30 seconds.</div>
+
+      <div class="dashboard-grid">
+        <div class="glass dash-card">
+          <div class="dash-label">Market Sentiment</div>
+          <div class="dash-value" id="d-sentiment"><span class="skeleton" style="width:80px;height:32px"></span></div>
+          <div class="dash-sub" id="d-sentiment-sub"></div>
+        </div>
+        <div class="glass dash-card">
+          <div class="dash-label">Fear / Greed Index</div>
+          <div class="gauge-wrap">
+            <div class="gauge-track"><div class="gauge-needle" id="gauge-needle" style="left:50%"></div></div>
+          </div>
+          <div class="dash-value accent" id="d-fgi"><span class="skeleton" style="width:40px;height:32px"></span></div>
+          <div class="dash-sub" id="d-fgi-label"></div>
+        </div>
+        <div class="glass dash-card">
+          <div class="dash-label">Active Signals</div>
+          <div class="dash-value purple" id="d-signals"><span class="skeleton" style="width:30px;height:32px"></span></div>
+          <div class="dash-sub">Across all tokens</div>
+        </div>
+        <div class="glass dash-card">
+          <div class="dash-label">Win Rate</div>
+          <div class="dash-value green" id="d-winrate"><span class="skeleton" style="width:60px;height:32px"></span></div>
+          <div class="dash-sub" id="d-winrate-sub"></div>
+        </div>
+        <div class="glass dash-card">
+          <div class="dash-label">Total Signals Tracked</div>
+          <div class="dash-value" id="d-total"><span class="skeleton" style="width:40px;height:32px"></span></div>
+          <div class="dash-sub">Since launch</div>
+        </div>
+        <div class="glass dash-card">
+          <div class="dash-label">Uptime</div>
+          <div class="dash-value green" id="d-uptime">100%</div>
+          <div class="dash-sub" id="d-uptime-detail">Since launch</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3. SIGNAL PREVIEW ============ -->
+    <section id="signal-preview" class="reveal">
+      <div class="section-label">Signal Preview</div>
+      <h2>See what you get</h2>
+      <div class="section-desc">No API key. No subscription. Just pay $0.01 USDC and get the full signal instantly.</div>
+
+      <div class="signal-preview-grid">
+        <div class="signal-card-wrap">
+          <div class="glass signal-card">
+            <div class="signal-blur">
+              <div class="signal-header">
+                <div class="signal-token-info">
+                  <div class="signal-token-icon">A</div>
+                  <div>
+                    <div class="signal-token-name">AERO</div>
+                    <div class="signal-token-pair">AERO/USDC on Aerodrome</div>
+                  </div>
+                </div>
+                <div class="signal-conf-badge">92% conf</div>
+              </div>
+              <div class="signal-metrics">
+                <div class="signal-metric">
+                  <div class="sm-label">Signal</div>
+                  <div class="sm-value" style="color:var(--green)">LONG</div>
+                </div>
+                <div class="signal-metric">
+                  <div class="sm-label">Entry</div>
+                  <div class="sm-value">$1.247</div>
+                </div>
+                <div class="signal-metric">
+                  <div class="sm-label">Target</div>
+                  <div class="sm-value" style="color:var(--green)">$1.584</div>
+                </div>
+              </div>
+              <div class="signal-metrics">
+                <div class="signal-metric">
+                  <div class="sm-label">Stop Loss</div>
+                  <div class="sm-value" style="color:var(--red)">$1.098</div>
+                </div>
+                <div class="signal-metric">
+                  <div class="sm-label">R/R</div>
+                  <div class="sm-value">2.26</div>
+                </div>
+                <div class="signal-metric">
+                  <div class="sm-label">Timeframe</div>
+                  <div class="sm-value">4H</div>
+                </div>
+              </div>
+              <div class="signal-source">Source: <b>Nansen whale alert</b> + <b>Volume breakout</b> + <b>Social momentum</b></div>
+            </div>
+            <div class="signal-overlay">
+              <div class="lock-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              </div>
+              <p>Signal data is redacted</p>
+              <a href="#connect" class="btn btn-primary" style="font-size:14px;padding:12px 24px">Pay $0.01 to unlock</a>
+              <div class="price-note">USDC on Base via x402</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="glass decoded-card">
+            <div class="decoded-label">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Decoded response
+            </div>
+            <div class="decoded-json">{
+  <span class="key">"token"</span>: <span class="str">"AERO"</span>,
+  <span class="key">"signal"</span>: <span class="str">"LONG"</span>,
+  <span class="key">"confidence"</span>: <span class="num">0.92</span>,
+  <span class="key">"entry"</span>: <span class="num">1.247</span>,
+  <span class="key">"target"</span>: <span class="num">1.584</span>,
+  <span class="key">"stopLoss"</span>: <span class="num">1.098</span>,
+  <span class="key">"riskReward"</span>: <span class="num">2.26</span>,
+  <span class="key">"timeframe"</span>: <span class="str">"4H"</span>,
+  <span class="key">"sources"</span>: [
+    <span class="str">"whale_alert"</span>,
+    <span class="str">"volume_breakout"</span>,
+    <span class="str">"social_momentum"</span>
+  ]
+}</div>
+          </div>
+          <div class="no-sub-note">
+            <strong>No API key. No subscription.</strong> Your agent sends a request, pays $0.01 USDC via the x402 protocol, and gets the full JSON response. That is it.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. WHAT AGENTALPHA SCANS ============ -->
+    <section id="sources" class="reveal">
+      <div class="section-label">Data Sources</div>
+      <h2>What AgentAlpha scans</h2>
+      <div class="section-desc">Continuous analysis across four major data categories, synthesized into actionable signals.</div>
+
+      <div class="sources-grid">
+        <div class="glass source-card">
+          <div class="source-icon">W</div>
+          <h3>Smart Money</h3>
+          <p>Whale wallet tracking, Nansen-labeled flow analysis, large transfer detection, and smart money accumulation patterns across Base and Ethereum.</p>
+        </div>
+        <div class="glass source-card">
+          <div class="source-icon">M</div>
+          <h3>Market Data</h3>
+          <p>Real-time prices, volume, 24h changes for 8+ tokens. Technical pattern recognition, momentum scoring, support/resistance analysis.</p>
+        </div>
+        <div class="glass source-card">
+          <div class="source-icon">S</div>
+          <h3>Social Sentiment</h3>
+          <p>Crypto Twitter analysis, news headline aggregation, community sentiment tracking. Detects narrative shifts before they reach price.</p>
+        </div>
+        <div class="glass source-card">
+          <div class="source-icon">Y</div>
+          <h3>DeFi Yields</h3>
+          <p>Aave V3 lending rates, Morpho optimized vaults, Aerodrome LP yields. Tracks APY changes and flags exceptional opportunities on Base.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5. API ENDPOINTS ============ -->
+    <section id="endpoints" class="endpoints-section reveal">
+      <div class="section-label">API Reference</div>
+      <h2>Pay per request. Get alpha.</h2>
+      <div class="section-desc">Protected by x402 payment protocol. No API keys, no subscriptions. Agents pay in USDC on Base.</div>
+
+      <div class="ep-divider">$0.001 — Gateway (try us for a penny)</div>
+      <div class="endpoint-table-wrap">
+        <table class="endpoint-table">
+          <thead><tr><th>Method</th><th>Endpoint</th><th>Price</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><span class="method-badge get">GET</span></td><td class="ep-path">/api/market/oneliner</td><td class="ep-price">$0.001</td><td class="ep-desc">One-line market status — cheapest endpoint on x402</td></tr>
+            <tr><td><span class="method-badge get">GET</span></td><td class="ep-path">/api/crypto/prices</td><td class="ep-price">$0.001</td><td class="ep-desc">Live BTC, ETH, SOL prices with 24h change</td></tr>
+            <tr><td><span class="method-badge get">GET</span></td><td class="ep-path">/api/crypto/news</td><td class="ep-price">$0.001</td><td class="ep-desc">Latest crypto headline with sentiment</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ep-divider">$0.003 — Cheap intel</div>
+      <div class="endpoint-table-wrap">
+        <table class="endpoint-table">
+          <thead><tr><th>Method</th><th>Endpoint</th><th>Price</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><span class="method-badge get">GET</span></td><td class="ep-path">/api/fear-greed</td><td class="ep-price">$0.003</td><td class="ep-desc">Fear & Greed Index + sentiment + actionable bias</td></tr>
+            <tr><td><span class="method-badge get">GET</span></td><td class="ep-path">/api/gas/tracker</td><td class="ep-price">$0.003</td><td class="ep-desc">Base gas prices and tx cost — only one on Bazaar</td></tr>
+            <tr><td><span class="method-badge get">GET</span></td><td class="ep-path">/api/alpha/summary</td><td class="ep-price">$0.003</td><td class="ep-desc">One-line market pulse with action recommendation</td></tr>
+            <tr><td><span class="method-badge get">GET</span></td><td class="ep-path">/api/defi/best</td><td class="ep-price">$0.003</td><td class="ep-desc">Single best DeFi yield right now</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ep-divider">$0.005 — Standard data</div>
+      <div class="endpoint-table-wrap">
+        <table class="endpoint-table">
+          <thead><tr><th>Method</th><th>Endpoint</th><th>Price</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><span class="method-badge get">GET</span></td><td class="ep-path">/api/signals</td><td class="ep-price">$0.005</td><td class="ep-desc">All active trading signals with entry/target/stop</td></tr>
+            <tr><td><span class="method-badge get">GET</span></td><td class="ep-path">/api/signals/top</td><td class="ep-price">$0.005</td><td class="ep-desc">Single highest-confidence signal</td></tr>
+            <tr><td><span class="method-badge get">GET</span></td><td class="ep-path">/api/market</td><td class="ep-price">$0.005</td><td class="ep-desc">Market overview — movers, sentiment, fear/greed</td></tr>
+            <tr><td><span class="method-badge get">GET</span></td><td class="ep-path">/api/yields/best</td><td class="ep-price">$0.005</td><td class="ep-desc">Top 10 DeFi yields sorted by APY</td></tr>
+            <tr><td><span class="method-badge get">GET</span></td><td class="ep-path">/api/social/pulse</td><td class="ep-price">$0.005</td><td class="ep-desc">Crypto social sentiment — only one on Bazaar</td></tr>
+            <tr><td><span class="method-badge get">GET</span></td><td class="ep-path">/api/wallet/score</td><td class="ep-price">$0.005</td><td class="ep-desc">Portfolio health score with recommendations</td></tr>
+            <tr><td><span class="method-badge get">GET</span></td><td class="ep-path">/api/whale/activity</td><td class="ep-price">$0.005</td><td class="ep-desc">Whale movements and market impact</td></tr>
+            <tr><td><span class="method-badge post">POST</span></td><td class="ep-path">/api/token/lookup</td><td class="ep-price">$0.005</td><td class="ep-desc">Look up any token — price, signal, recommendation</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ep-divider">$0.01+ — Premium & AI</div>
+      <div class="endpoint-table-wrap">
+        <table class="endpoint-table">
+          <thead><tr><th>Method</th><th>Endpoint</th><th>Price</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><span class="method-badge get">GET</span></td><td class="ep-path">/api/defi</td><td class="ep-price">$0.01</td><td class="ep-desc">All DeFi opportunities — yields, liquidations, arb</td></tr>
+            <tr><td><span class="method-badge get">GET</span></td><td class="ep-path">/api/risk/assessment</td><td class="ep-price">$0.01</td><td class="ep-desc">Market risk level and position sizing</td></tr>
+            <tr><td><span class="method-badge get">GET</span></td><td class="ep-path">/api/airdrop/radar</td><td class="ep-price">$0.01</td><td class="ep-desc">Base ecosystem airdrop opportunities</td></tr>
+            <tr><td><span class="method-badge get">GET</span></td><td class="ep-path">/api/agent/recommend</td><td class="ep-price">$0.01</td><td class="ep-desc">What should your agent do RIGHT NOW?</td></tr>
+            <tr><td><span class="method-badge post">POST</span></td><td class="ep-path">/api/ai/ask</td><td class="ep-price">$0.01</td><td class="ep-desc">Ask any crypto question — AI answers with live data</td></tr>
+            <tr><td><span class="method-badge post">POST</span></td><td class="ep-path">/api/analyze</td><td class="ep-price">$0.02</td><td class="ep-desc">Deep token analysis with risk score</td></tr>
+            <tr><td><span class="method-badge get">GET</span></td><td class="ep-path">/api/trading/live</td><td class="ep-price">$0.02</td><td class="ep-desc">UNIQUE: Copy-trade our live auto-trader</td></tr>
+            <tr><td><span class="method-badge get">GET</span></td><td class="ep-path">/api/strategy</td><td class="ep-price">$0.02</td><td class="ep-desc">AI trading strategy recommendation</td></tr>
+            <tr><td><span class="method-badge get">GET</span></td><td class="ep-path">/api/premium/briefing</td><td class="ep-price">$0.03</td><td class="ep-desc">Executive briefing — top signals + action</td></tr>
+            <tr><td><span class="method-badge get">GET</span></td><td class="ep-path">/api/premium/alpha</td><td class="ep-price" style="color:var(--accent2)">$0.05</td><td class="ep-desc">EVERYTHING in one call — signals + market + DeFi + portfolio</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ep-divider">Free Endpoints (verify before you buy)</div>
+      <div class="endpoint-table-wrap">
+        <table class="endpoint-table">
+          <thead><tr><th>Method</th><th>Endpoint</th><th>Price</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><span class="method-badge get">GET</span></td><td class="ep-path">/api/track-record</td><td class="ep-price free">FREE</td><td class="ep-desc">Verifiable signal win rate, returns, streaks</td></tr>
+            <tr><td><span class="method-badge get">GET</span></td><td class="ep-path">/api/history</td><td class="ep-price free">FREE</td><td class="ep-desc">Recent signals with outcomes</td></tr>
+            <tr><td><span class="method-badge get">GET</span></td><td class="ep-path">/api/preview</td><td class="ep-price free">FREE</td><td class="ep-desc">Live market teaser — sentiment, top signal</td></tr>
+            <tr><td><span class="method-badge get">GET</span></td><td class="ep-path">/api/trading/status</td><td class="ep-price free">FREE</td><td class="ep-desc">Live auto-trader positions and P&L</td></tr>
+            <tr><td><span class="method-badge get">GET</span></td><td class="ep-path">/api/trading/journal</td><td class="ep-price free">FREE</td><td class="ep-desc">Trading journal — lessons learned</td></tr>
+            <tr><td><span class="method-badge get">GET</span></td><td class="ep-path">/catalog</td><td class="ep-price free">FREE</td><td class="ep-desc">Full API catalog with live stats</td></tr>
+            <tr><td><span class="method-badge get">GET</span></td><td class="ep-path">/.well-known/x402</td><td class="ep-price free">FREE</td><td class="ep-desc">Machine-readable discovery (v2)</td></tr>
+            <tr><td><span class="method-badge get">GET</span></td><td class="ep-path">/llm.txt</td><td class="ep-price free">FREE</td><td class="ep-desc">AI agent documentation</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ 6. TRACK RECORD ============ -->
+    <section id="track-record" class="track-record reveal">
+      <div class="section-label">Performance</div>
+      <h2>Verifiable performance.<br>No fake reviews.</h2>
+      <div class="section-desc">Every signal is tracked and auditable. The track record API is free -- verify it yourself.</div>
+
+      <div class="tr-stats-grid" id="tr-stats">
+        <div class="glass tr-stat">
+          <div class="tr-val green" id="tr-winrate"><span class="skeleton" style="width:60px;height:28px"></span></div>
+          <div class="tr-label">Win Rate</div>
+        </div>
+        <div class="glass tr-stat">
+          <div class="tr-val" id="tr-total"><span class="skeleton" style="width:30px;height:28px"></span></div>
+          <div class="tr-label">Total Signals</div>
+        </div>
+        <div class="glass tr-stat">
+          <div class="tr-val green" id="tr-wins"><span class="skeleton" style="width:20px;height:28px"></span></div>
+          <div class="tr-label">Wins</div>
+        </div>
+        <div class="glass tr-stat">
+          <div class="tr-val red" id="tr-losses" style="color:var(--red)"><span class="skeleton" style="width:20px;height:28px"></span></div>
+          <div class="tr-label">Losses</div>
+        </div>
+        <div class="glass tr-stat">
+          <div class="tr-val yellow" id="tr-best"><span class="skeleton" style="width:50px;height:28px"></span></div>
+          <div class="tr-label">Best Trade</div>
+        </div>
+        <div class="glass tr-stat">
+          <div class="tr-val accent" id="tr-streak"><span class="skeleton" style="width:20px;height:28px"></span></div>
+          <div class="tr-label">Current Streak</div>
+        </div>
+      </div>
+
+      <h3 style="font-size:16px;font-weight:700;margin-bottom:16px">Recent Signal History</h3>
+      <div class="history-table-wrap">
+        <table class="history-table">
+          <thead>
+            <tr>
+              <th>Token</th>
+              <th>Signal</th>
+              <th>Status</th>
+              <th>Return</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="history-body">
+            <tr><td colspan="5" style="text-align:center;color:var(--text2);padding:32px"><span class="skeleton" style="width:200px;height:16px"></span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tr-link">Full history available at <a href="https://alpha.palmvox.com/api/history" target="_blank">/api/history</a> -- free, transparent, verifiable.</div>
+    </section>
+
+    <!-- ============ 7. CONNECT YOUR AGENT ============ -->
+    <section id="connect" class="connect-section reveal">
+      <div class="section-label">Get Started</div>
+      <h2>Connect your agent<br>in 4 steps</h2>
+      <div class="section-desc">From zero to live signals in under 5 minutes. Works with any x402-compatible agent framework.</div>
+
+      <div class="glass" style="padding:24px 28px;margin-bottom:32px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;">
+        <div style="flex:1;min-width:200px;">
+          <div style="font-size:13px;font-weight:700;margin-bottom:4px;">For AI Agents</div>
+          <div style="font-size:13px;color:var(--text2);">Machine-readable docs for auto-discovery</div>
+        </div>
+        <a href="/.well-known/x402" class="btn btn-secondary" style="font-size:13px;padding:10px 18px;">.well-known/x402</a>
+        <a href="/llm.txt" class="btn btn-secondary" style="font-size:13px;padding:10px 18px;">llm.txt</a>
+        <a href="/agents.json" class="btn btn-secondary" style="font-size:13px;padding:10px 18px;">agents.json</a>
+        <a href="/catalog" class="btn btn-secondary" style="font-size:13px;padding:10px 18px;">Full Catalog</a>
+        <a href="https://agentic.market" class="btn btn-secondary" style="font-size:13px;padding:10px 18px;">agentic.market</a>
+      </div>
+
+      <div class="connect-grid">
+        <div class="glass connect-card">
+          <div class="connect-num">1</div>
+          <h3>Install Wallet Skills</h3>
+          <p>Add Coinbase agentic wallet capabilities to your agent.</p>
+          <div class="cmd-block" onclick="copyCmd(this)">
+            <span class="cmd-text">npx skills add coinbase/agentic-wallet-skills</span>
+            <span class="copy-btn">copy</span>
+          </div>
+        </div>
+        <div class="glass connect-card">
+          <div class="connect-num">2</div>
+          <h3>Authenticate</h3>
+          <p>Log in with your email to link your agent wallet.</p>
+          <div class="cmd-block" onclick="copyCmd(this)">
+            <span class="cmd-text">npx <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="aecfd9cfc2ee9c8096809e">[email&#160;protected]</a> auth login <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="95ecfae0e7d5f0f8f4fcf9bbf6faf8">[email&#160;protected]</a></span>
+            <span class="copy-btn">copy</span>
+          </div>
+        </div>
+        <div class="glass connect-card">
+          <div class="connect-num">3</div>
+          <h3>Fund with USDC</h3>
+          <p>Send USDC on Base. Even $1 covers 100 signal requests.</p>
+          <div class="cmd-block" onclick="copyCmd(this)">
+            <span class="cmd-text">npx <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="076670666b4735293f2937">[email&#160;protected]</a> show</span>
+            <span class="copy-btn">copy</span>
+          </div>
+        </div>
+        <div class="glass connect-card">
+          <div class="connect-num">4</div>
+          <h3>Get Signals</h3>
+          <p>Payment is automatic via x402. Just call and receive.</p>
+          <div class="cmd-block" onclick="copyCmd(this)">
+            <span class="cmd-text">npx <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="abcadccac7eb998593859b">[email&#160;protected]</a> x402 pay https://alpha.palmvox.com/api/signals</span>
+            <span class="copy-btn">copy</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="curl-example">
+        <div class="curl-bar">Quick test with curl</div>
+        <div class="curl-body">
+<span class="c"># Check the service (free)</span>
+<span class="k">curl</span> <span class="u">https://alpha.palmvox.com/health</span>
+
+<span class="c"># View service catalog (free)</span>
+<span class="k">curl</span> <span class="u">https://alpha.palmvox.com/catalog</span>
+
+<span class="c"># See your track record (free)</span>
+<span class="k">curl</span> <span class="u">https://alpha.palmvox.com/api/track-record</span>
+
+<span class="c"># Hit a paid endpoint -- returns 402 with payment details</span>
+<span class="k">curl</span> <span class="f">-i</span> <span class="u">https://alpha.palmvox.com/api/signals</span>
+
+<span class="c"># Analyze a token ($0.02)</span>
+<span class="k">curl</span> <span class="f">-X POST -H "Content-Type: application/json"</span> \
+  <span class="f">-d '{"token":"AERO"}'</span> <span class="u">https://alpha.palmvox.com/api/analyze</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 8. PRIVATE ALPHA CHANNEL ============ -->
+    <section class="humans-section reveal">
+      <div class="section-label">Contact</div>
+      <h2>Private Alpha Channel</h2>
+
+      <div class="glass humans-card">
+        <div>
+          <h3>Verified members only</h3>
+          <p>AgentAlpha runs a private Discord for verified members. Real-time signals, market analysis, and direct interaction with the agent.</p>
+          <ul class="humans-features">
+            <li>Real-time alpha signal alerts</li>
+            <li>On-demand market analysis</li>
+            <li>Daily portfolio reports and P&L</li>
+            <li>DeFi yield opportunity alerts</li>
+            <li>Natural language -- ask anything about markets</li>
+          </ul>
+          <p style="color:var(--text2);font-size:14px;margin-top:16px;">For private Discord access or partnerships, contact via <a href="https://alpha.palmvox.com" style="color:var(--accent);text-decoration:none;">alpha.palmvox.com</a></p>
+          <a href="/cdn-cgi/l/email-protection#deb0abb2b2adb6b7b8aaa6a7a49eb9b3bfb7b2f0bdb1b3" class="btn btn-primary" style="margin-top:24px;font-size:14px;padding:12px 24px;">
+            Contact for access
+          </a>
+        </div>
+        <div class="humans-visual">
+          <div class="discord-msg">
+            <div class="bot-name">AgentAlpha BOT</div>
+            <div class="msg-text">New signal: <b>AERO LONG</b> at $1.247 -- 92% confidence. Target $1.584 (+27%). Smart money accumulation detected on Aerodrome. Risk/Reward 2.26x.</div>
+          </div>
+          <div class="discord-msg">
+            <div class="bot-name">AgentAlpha BOT</div>
+            <div class="msg-text">Daily report: <b>3 active signals</b>. Win rate today: 75%. Best performer: <b>VIRTUAL +15.1%</b>. Portfolio model updated -- rebalance recommended.</div>
+          </div>
+          <div class="discord-msg">
+            <div class="bot-name">AgentAlpha BOT</div>
+            <div class="msg-text">Yield alert: <b>Aave V3 USDC at 8.2% APY</b> on Base. Above 30-day average of 5.4%. Consider increasing USDC allocation.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 9. SECURITY ============ -->
+    <section class="security-section reveal">
+      <div class="section-label">Security</div>
+      <h2>Enterprise-grade protection</h2>
+      <div class="section-desc">Every layer secured. Your funds and data are protected at the edge, in transit, and at rest.</div>
+
+      <div class="security-grid">
+        <div class="glass sec-card">
+          <div class="sec-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h4>Cloudflare Edge</h4>
+          <p>DDoS protection, WAF, and TLS termination at the edge. All traffic encrypted end-to-end.</p>
+        </div>
+        <div class="glass sec-card">
+          <div class="sec-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h4>x402 Payment Verification</h4>
+          <p>Every payment cryptographically verified by Coinbase facilitator before data is served.</p>
+        </div>
+        <div class="glass sec-card">
+          <div class="sec-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          </div>
+          <h4>Coinbase Secure Enclave</h4>
+          <p>Private keys never leave Coinbase TEE. No key exposure, no custody risk.</p>
+        </div>
+        <div class="glass sec-card">
+          <div class="sec-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h4>Rate Limiting</h4>
+          <p>Per-IP rate limits on free endpoints. Paid endpoints are self-limiting via cost.</p>
+        </div>
+        <div class="glass sec-card">
+          <div class="sec-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+          </div>
+          <h4>Input Validation</h4>
+          <p>Strict input sanitization on all endpoints. No injection vectors, no untrusted execution.</p>
+        </div>
+        <div class="glass sec-card">
+          <div class="sec-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <h4>Helmet + CORS</h4>
+          <p>Security headers, XSS protection, and strict CORS policy enforced on every response.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PALMVOX ECOSYSTEM ============ -->
+    <section style="padding:60px 0;border-top:1px solid rgba(255,255,255,0.06);">
+      <div class="container" style="text-align:center;">
+        <div style="font-size:12px;text-transform:uppercase;letter-spacing:2px;color:#00d4ff;font-weight:600;margin-bottom:12px;">Part of the PalmVox Ecosystem</div>
+        <h2 style="font-size:28px;font-weight:800;margin-bottom:16px;">Built on <a href="https://palmvox.com" style="background:linear-gradient(135deg,#00d4ff,#7b61ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none;">PalmVox</a> Sovereign AI</h2>
+        <p style="color:#8888a4;max-width:600px;margin:0 auto 32px;font-size:15px;line-height:1.7;">AgentAlpha is the first autonomous agent in the PalmVox ecosystem — private compute, intelligent routing, enterprise security. Your AI, your rules, your alpha.</p>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+          <a href="https://palmvox.com" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:#e4e4ef;text-decoration:none;font-size:14px;font-weight:600;transition:all 0.2s;">PalmVox Platform</a>
+          <a href="https://alpha.palmvox.com/catalog" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:#e4e4ef;text-decoration:none;font-size:14px;font-weight:600;transition:all 0.2s;">API Catalog</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 10. FOOTER ============ -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="logo">Agent<span>Alpha</span></div>
+          <p>Autonomous AI agent generating real-time crypto trading signals. Powered by x402 payment protocol on Base.</p>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h5>Product</h5>
+            <a href="/health">Health</a>
+            <a href="/catalog">Catalog</a>
+            <a href="#track-record">Track Record</a>
+            <a href="#endpoints">API Reference</a>
+          </div>
+          <div class="footer-col">
+            <h5>For Agents</h5>
+            <a href="/.well-known/x402">Discovery (v2)</a>
+            <a href="/llm.txt">LLM Docs</a>
+            <a href="/agents.json">agents.json</a>
+            <a href="/api/agents/discover">Agent API</a>
+          </div>
+          <div class="footer-col">
+            <h5>Developers</h5>
+            <a href="https://docs.cdp.coinbase.com/x402/welcome" target="_blank" rel="noopener">x402 Docs</a>
+            <a href="https://the402.ai" target="_blank" rel="noopener">the402.ai</a>
+            <a href="#connect">Quick Start</a>
+          </div>
+          <div class="footer-col">
+            <h5>Ecosystem</h5>
+            <a href="https://palmvox.com" target="_blank" rel="noopener">PalmVox</a>
+            <a href="/dashboard.html">Owner Dashboard</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">35 paid endpoints | Powered by x402 + Base + Coinbase</div>
+        <div class="footer-domains"><span>alpha.palmvox.com</span> | alpha.hypewriter.fun</div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // ============ TERMINAL ANIMATION ============
+    (function() {
+      var lines = [
+        { ts: '18:07:13', label: 'SCAN', lc: 'label-scan', text: 'XMR <span class="pos">+6.7%</span> momentum building <span class="dim">(MEDIUM)</span>' },
+        { ts: '18:07:15', label: 'SCAN', lc: 'label-scan', text: 'ETH <span class="dim">$2,303</span> watching support level' },
+        { ts: '18:07:19', label: 'WHALE', lc: 'label-whale', text: '<span class="warn">$2.4M ETH</span> moved to Aave' },
+        { ts: '18:07:22', label: 'YIELD', lc: 'label-yield', text: 'Aave V3 USDC <span class="pos">8.2% APY</span> on Base' },
+        { ts: '18:07:25', label: 'x402', lc: 'label-x402', text: 'Payment received <span class="pos">$0.01 USDC</span> from 0x8f...3a' },
+        { ts: '18:07:30', label: 'SCAN', lc: 'label-scan', text: 'AERO <span class="pos">+12.4%</span> breakout confirmed <span class="dim">(HIGH)</span>' },
+        { ts: '18:07:34', label: 'ALERT', lc: 'label-alert', text: 'BRETT <span class="neg">-3.2%</span> support broken <span class="dim">(SHORT)</span>' },
+        { ts: '18:07:38', label: 'WHALE', lc: 'label-whale', text: '<span class="warn">$1.8M USDC</span> deposited to Morpho vault' },
+        { ts: '18:07:41', label: 'SCAN', lc: 'label-scan', text: 'VIRTUAL <span class="pos">+15.1%</span> conf 94% <span class="dim">(HIGH)</span>' },
+        { ts: '18:07:45', label: 'x402', lc: 'label-x402', text: 'Payment received <span class="pos">$0.02 USDC</span> from 0xc2...7f' },
+        { ts: '18:07:49', label: 'YIELD', lc: 'label-yield', text: 'Aerodrome USDC/AERO <span class="pos">18.4% APY</span>' },
+        { ts: '18:07:52', label: 'SCAN', lc: 'label-scan', text: 'DEGEN <span class="pos">+8.7%</span> social momentum rising <span class="dim">(MEDIUM)</span>' },
+        { ts: '18:07:56', label: 'WHALE', lc: 'label-whale', text: '<span class="warn">3 wallets</span> accumulating MORPHO on Base' },
+        { ts: '18:08:01', label: 'SCAN', lc: 'label-scan', text: 'BTC <span class="pos">$68,420</span> new local high <span class="dim">(BULLISH)</span>' },
+        { ts: '18:08:05', label: 'x402', lc: 'label-x402', text: 'Payment received <span class="pos">$0.01 USDC</span> from 0xd4...11' },
+        { ts: '18:08:09', label: 'SCAN', lc: 'label-scan', text: 'EXTRA <span class="pos">+6.9%</span> volume spike detected <span class="dim">(MEDIUM)</span>' },
+      ];
+
+      var body = document.getElementById('term-body');
+      var maxVisible = 7;
+      var current = 0;
+      var visible = [];
+
+      function addLine() {
+        var l = lines[current % lines.length];
+        var el = document.createElement('div');
+        el.className = 'term-line';
+        el.innerHTML = '<span class="ts">[' + l.ts + ']</span> <span class="label ' + l.lc + '">' + l.label + '</span> ' + l.text;
+        body.appendChild(el);
+        visible.push(el);
+        if (visible.length > maxVisible) {
+          var old = visible.shift();
+          old.style.transition = 'opacity 0.3s';
+          old.style.opacity = '0';
+          setTimeout(function() { if (old.parentNode) old.parentNode.removeChild(old); }, 300);
+        }
+        current++;
+      }
+
+      addLine();
+      for (var i = 1; i < 5; i++) {
+        (function(idx) { setTimeout(function() { addLine(); }, 500 * idx); })(i);
+      }
+      setInterval(addLine, 2500);
+    })();
+
+    // ============ LIVE DATA FETCHING ============
+    var dashData = {};
+
+    function fetchAllData() {
+      Promise.all([
+        fetch('/api/preview').then(function(r) { return r.json(); }).catch(function() { return null; }),
+        fetch('/api/stats').then(function(r) { return r.json(); }).catch(function() { return null; }),
+        fetch('/api/track-record').then(function(r) { return r.json(); }).catch(function() { return null; }),
+        fetch('/api/history').then(function(r) { return r.json(); }).catch(function() { return null; })
+      ]).then(function(results) {
+        var preview = results[0];
+        var stats = results[1];
+        var tr = results[2];
+        var history = results[3];
+
+        // Dashboard
+        if (preview) {
+          var sentEl = document.getElementById('d-sentiment');
+          var sent = (preview.marketSentiment || '--').toUpperCase();
+          sentEl.textContent = sent;
+          sentEl.className = 'dash-value ' + (sent === 'BULLISH' ? 'green' : sent === 'BEARISH' ? 'red' : '');
+
+          var fgi = parseInt(preview.fearGreedIndex) || 50;
+          document.getElementById('d-fgi').textContent = fgi;
+          document.getElementById('gauge-needle').style.left = fgi + '%';
+          var fgiLabel = fgi <= 25 ? 'Extreme Fear' : fgi <= 45 ? 'Fear' : fgi <= 55 ? 'Neutral' : fgi <= 75 ? 'Greed' : 'Extreme Greed';
+          document.getElementById('d-fgi-label').textContent = fgiLabel;
+
+          document.getElementById('d-signals').textContent = preview.signalCount || '--';
+        }
+
+        if (stats) {
+          document.getElementById('d-uptime').textContent = '100%';
+          document.getElementById('d-uptime-detail').textContent = 'Running ' + (stats.uptime || '0h 0m');
+        }
+
+        if (tr) {
+          var wr = tr.winRate || tr.winRatePercent || '--';
+          if (typeof wr === 'number') wr = wr.toFixed(1) + '%';
+          document.getElementById('d-winrate').textContent = wr;
+          var wins = tr.wins || 0;
+          var losses = tr.losses || 0;
+          document.getElementById('d-winrate-sub').textContent = wins + 'W / ' + losses + 'L';
+          document.getElementById('d-total').textContent = tr.totalSignals || (wins + losses + (tr.pending || 0));
+
+          // Track record section
+          document.getElementById('tr-winrate').textContent = wr;
+          document.getElementById('tr-total').textContent = tr.totalSignals || (wins + losses + (tr.pending || 0));
+          document.getElementById('tr-wins').textContent = wins;
+          document.getElementById('tr-losses').textContent = losses;
+          var best = tr.bestTrade;
+          document.getElementById('tr-best').textContent = best && best.token ? best.token + ' ' + (best.returnPct > 0 ? '+' : '') + best.returnPct + '%' : '--';
+          var streak = typeof tr.streak === 'object' ? tr.streak.current : tr.streak;
+          document.getElementById('tr-streak').textContent = streak || '0';
+        }
+
+        // History table
+        if (history && history.signals && history.signals.length) {
+          var tbody = document.getElementById('history-body');
+          var html = '';
+          var signals = history.signals.slice(0, 10);
+          for (var i = 0; i < signals.length; i++) {
+            var s = signals[i];
+            var status = (s.status || s.outcome || 'pending').toLowerCase();
+            var statusClass = status === 'win' ? 'win' : status === 'loss' ? 'loss' : 'pending';
+            var ret = s.returnPercent || s.return || s.pnl || '--';
+            if (typeof ret === 'number') ret = (ret > 0 ? '+' : '') + ret.toFixed(1) + '%';
+            var time = s.timestamp || s.time || s.date || '--';
+            if (time !== '--' && time.length > 16) time = time.substring(0, 16).replace('T', ' ');
+            html += '<tr>';
+            html += '<td style="font-weight:600;font-family:JetBrains Mono,monospace">' + (s.token || s.symbol || '--') + '</td>';
+            html += '<td>' + (s.signal || s.direction || s.type || '--') + '</td>';
+            html += '<td><span class="status-badge ' + statusClass + '">' + status + '</span></td>';
+            html += '<td style="font-family:JetBrains Mono,monospace;color:' + (status === 'win' ? 'var(--green)' : status === 'loss' ? 'var(--red)' : 'var(--text2)') + '">' + ret + '</td>';
+            html += '<td style="color:var(--text2);font-size:12px">' + time + '</td>';
+            html += '</tr>';
+          }
+          tbody.innerHTML = html;
+        }
+      });
+    }
+
+    fetchAllData();
+    setInterval(fetchAllData, 30000);
+
+    // ============ CLICK TO COPY ============
+    function copyCmd(el) {
+      var textEl = el.querySelector('.cmd-text');
+      var text = textEl ? textEl.textContent.trim() : el.textContent.trim();
+      navigator.clipboard.writeText(text).then(function() {
+        el.classList.add('copied');
+        var btn = el.querySelector('.copy-btn');
+        if (btn) btn.textContent = 'copied!';
+        setTimeout(function() {
+          el.classList.remove('copied');
+          if (btn) btn.textContent = 'copy';
+        }, 1500);
+      });
+    }
+
+    // ============ SCROLL REVEAL ============
+    (function() {
+      var reveals = document.querySelectorAll('.reveal');
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.06, rootMargin: '0px 0px -60px 0px' });
+      reveals.forEach(function(el) { observer.observe(el); });
+    })();
+
+    // ============ MOBILE MENU CLOSE ON LINK CLICK ============
+    document.querySelectorAll('.nav-links a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.remove('open');
+      });
+    });
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a01e40d40d4d2134',t:'MTc3OTgxMzk1Nw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

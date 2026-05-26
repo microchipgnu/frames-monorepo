@@ -1,0 +1,13 @@
+HTTP/2 405 
+cache-control: public, max-age=0, must-revalidate
+content-security-policy: frame-ancestors 'self' https://app.suedeai.ai https://www.app.suedeai.ai
+date: Tue, 26 May 2026 15:05:39 GMT
+server: Vercel
+strict-transport-security: max-age=63072000
+vary: RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch
+x-frame-options: SAMEORIGIN
+x-matched-path: /.well-known/x402
+x-vercel-cache: MISS
+x-vercel-id: cdg1::iad1::gq2ln-1779807938738-30df8ced908d
+content-length: 0
+

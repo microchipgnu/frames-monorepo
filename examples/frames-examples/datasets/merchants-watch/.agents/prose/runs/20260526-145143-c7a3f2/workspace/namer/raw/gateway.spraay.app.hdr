@@ -1,0 +1,12 @@
+HTTP/2 200 
+access-control-expose-headers: X-PAYMENT-RESPONSE,X-MPP-PAYMENT-RESPONSE
+content-type: application/json; charset=utf-8
+date: Tue, 26 May 2026 14:59:53 GMT
+etag: W/"1e38-aqvD6TvCYpjjVDcFUJ9rM90dG/k"
+server: railway-edge
+vary: Origin
+x-powered-by: Express
+x-railway-edge: railway/europe-west4-drams3a
+x-railway-request-id: FFOOUFW-QHKc8Dn0jUJq2g
+content-length: 7736
+

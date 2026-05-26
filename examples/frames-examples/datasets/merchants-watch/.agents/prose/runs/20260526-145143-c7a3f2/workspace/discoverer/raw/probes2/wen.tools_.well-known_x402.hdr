@@ -1,0 +1,10 @@
+HTTP/2 308 
+cache-control: public, max-age=0, must-revalidate
+content-type: text/plain
+date: Tue, 26 May 2026 15:06:18 GMT
+location: https://www.wen.tools/.well-known/x402
+refresh: 0;url=https://www.wen.tools/.well-known/x402
+server: Vercel
+strict-transport-security: max-age=63072000
+x-vercel-id: cdg1::9xjqm-1779807978587-95fff9e9d6ce
+

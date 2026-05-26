@@ -1,0 +1,186 @@
+{
+  "id": "merchants-watch-curate",
+  "systemName": "merchants-watch-curate",
+  "sourcePath": "../../src/curate.prose.md",
+  "pinnedExecution": true,
+  "caller": {
+    "requires": [
+      { "name": "frame", "description": "path to the frame directory" },
+      { "name": "budget_usd", "description": "total USDC ceiling across all pay_tool calls" },
+      { "name": "naming_cap", "description": "max naming_gaps to process per run" },
+      { "name": "category_cap", "description": "max category_gaps to process per run" },
+      { "name": "recognition_cap", "description": "max recognition_gaps to investigate per run" },
+      { "name": "discovery_cap", "description": "max net-new candidates per run" },
+      { "name": "recognition_volume_floor_usd", "description": "only investigate is_recognized=false hosts with combined 30d volume above this" }
+    ],
+    "returns": [
+      { "name": "report", "source": "auditor", "description": "workspace/curate/report.json shaped as { added, named, categorized, recognized, deprecated, sources_attached, spent_usd, rejected_by_auditor, skipped_infra, skipped_mass_lister }" }
+    ]
+  },
+  "graph": [
+    {
+      "id": "inventory",
+      "sourcePath": "sources/inventory.prose.md",
+      "workspacePath": "workspace/inventory/",
+      "inputs": [
+        { "name": "frame", "from": "caller", "path": "bindings/caller/frame.md" },
+        { "name": "naming_cap", "from": "caller", "path": "bindings/caller/naming_cap.md" },
+        { "name": "category_cap", "from": "caller", "path": "bindings/caller/category_cap.md" },
+        { "name": "recognition_cap", "from": "caller", "path": "bindings/caller/recognition_cap.md" },
+        { "name": "recognition_volume_floor_usd", "from": "caller", "path": "bindings/caller/recognition_volume_floor_usd.md" }
+      ],
+      "outputs": [
+        { "name": "queues", "workspacePath": "workspace/inventory/queues.json", "bindingPath": "bindings/inventory/queues.json", "public": true }
+      ],
+      "errors": [],
+      "shape": {
+        "self": ["SQL queries against mcp__frame-merchants-watch__query (mode=sql); emit queues"],
+        "prohibited": ["any frame mutation", "any paid call"]
+      },
+      "delegates": []
+    },
+    {
+      "id": "namer",
+      "sourcePath": "sources/namer.prose.md",
+      "workspacePath": "workspace/namer/",
+      "inputs": [
+        { "name": "hosts", "from": "service", "sourceNodeId": "inventory", "sourceOutput": "queues.naming_gaps", "path": "bindings/inventory/queues.json#naming_gaps" },
+        { "name": "budget_usd", "from": "caller", "path": "bindings/caller/budget_usd.md" },
+        { "name": "frame", "from": "caller", "path": "bindings/caller/frame.md" }
+      ],
+      "outputs": [
+        { "name": "proposals", "workspacePath": "workspace/namer/proposals.json", "bindingPath": "bindings/namer/proposals.json", "public": true }
+      ],
+      "errors": ["NamerBudgetGuard"],
+      "shape": {
+        "self": ["free curl against https://<host>", "optional one paid tool call per host", "emit proposals"],
+        "prohibited": ["any direct frame mutation", "more than ONE paid call per host"]
+      },
+      "delegates": []
+    },
+    {
+      "id": "categorizer",
+      "sourcePath": "sources/categorizer.prose.md",
+      "workspacePath": "workspace/categorizer/",
+      "inputs": [
+        { "name": "hosts", "from": "service", "sourceNodeId": "inventory", "sourceOutput": "queues.category_gaps", "path": "bindings/inventory/queues.json#category_gaps" },
+        { "name": "budget_usd", "from": "caller", "path": "bindings/caller/budget_usd.md" },
+        { "name": "frame", "from": "caller", "path": "bindings/caller/frame.md" }
+      ],
+      "outputs": [
+        { "name": "proposals", "workspacePath": "workspace/categorizer/proposals.json", "bindingPath": "bindings/categorizer/proposals.json", "public": true }
+      ],
+      "errors": ["CategorizerBudgetGuard"],
+      "shape": {
+        "self": ["free curl against https://<host>", "optional one paid tool call per host", "emit proposals"],
+        "prohibited": ["any direct frame mutation", "more than ONE paid call per host", "proposing a category not in the schema enum"]
+      },
+      "delegates": []
+    },
+    {
+      "id": "recognizer",
+      "sourcePath": "sources/recognizer.prose.md",
+      "workspacePath": "workspace/recognizer/",
+      "inputs": [
+        { "name": "hosts", "from": "service", "sourceNodeId": "inventory", "sourceOutput": "queues.recognition_gaps", "path": "bindings/inventory/queues.json#recognition_gaps" },
+        { "name": "budget_usd", "from": "caller", "path": "bindings/caller/budget_usd.md" },
+        { "name": "frame", "from": "caller", "path": "bindings/caller/frame.md" }
+      ],
+      "outputs": [
+        { "name": "proposals", "workspacePath": "workspace/recognizer/proposals.json", "bindingPath": "bindings/recognizer/proposals.json", "public": true }
+      ],
+      "errors": ["RecognizerBudgetGuard"],
+      "shape": {
+        "self": ["free home-page fetch", "optional exa_search (category=company)", "optional twitter_search for operator handle", "optional firecrawl_scrape for about/team/press page", "emit recognition proposals with sources"],
+        "prohibited": ["any direct frame mutation", "more than 3 paid calls per host"]
+      },
+      "delegates": []
+    },
+    {
+      "id": "discoverer",
+      "sourcePath": "sources/discoverer.prose.md",
+      "workspacePath": "workspace/discoverer/",
+      "inputs": [
+        { "name": "budget_usd", "from": "caller", "path": "bindings/caller/budget_usd.md" },
+        { "name": "discovery_cap", "from": "caller", "path": "bindings/caller/discovery_cap.md" },
+        { "name": "frame", "from": "caller", "path": "bindings/caller/frame.md" }
+      ],
+      "outputs": [
+        { "name": "candidates", "workspacePath": "workspace/discoverer/candidates.json", "bindingPath": "bindings/discoverer/candidates.json", "public": true }
+      ],
+      "errors": ["DiscovererBudgetGuard", "AllQueriesEmpty"],
+      "shape": {
+        "self": ["paid search queries", "free probe of each candidate host", "emit new-entity candidates"],
+        "prohibited": ["any frame mutation", "proposing candidates whose host already exists in inventory.existing_hosts", "proposing without a 402 probe"]
+      },
+      "delegates": [],
+      "implicitDependencies": ["inventory"],
+      "sideChannelInputs": [
+        { "name": "existing_hosts", "from": "service", "sourceNodeId": "inventory", "sourceOutput": "queues.existing_hosts", "path": "bindings/inventory/queues.json#existing_hosts", "rationale": "Author's pinned execution does not pass queues to discoverer, but its contract requires dedup against existing_hosts. Provided as side-channel; discoverer reads from sibling binding." }
+      ]
+    },
+    {
+      "id": "writer",
+      "sourcePath": "sources/writer.prose.md",
+      "workspacePath": "workspace/writer/",
+      "inputs": [
+        { "name": "name_proposals", "from": "service", "sourceNodeId": "namer", "sourceOutput": "proposals", "path": "bindings/namer/proposals.json" },
+        { "name": "category_proposals", "from": "service", "sourceNodeId": "categorizer", "sourceOutput": "proposals", "path": "bindings/categorizer/proposals.json" },
+        { "name": "recognition_proposals", "from": "service", "sourceNodeId": "recognizer", "sourceOutput": "proposals", "path": "bindings/recognizer/proposals.json" },
+        { "name": "new_candidates", "from": "service", "sourceNodeId": "discoverer", "sourceOutput": "candidates", "path": "bindings/discoverer/candidates.json" },
+        { "name": "frame", "from": "caller", "path": "bindings/caller/frame.md" }
+      ],
+      "outputs": [
+        { "name": "writes_applied", "workspacePath": "workspace/writer/writes_applied.json", "bindingPath": "bindings/writer/writes_applied.json", "public": true }
+      ],
+      "errors": ["MergeConflict"],
+      "shape": {
+        "self": ["mcp__frame-merchants-watch__add_entity_with_facts / set_facts / attach_evidence"],
+        "prohibited": ["any paid call", "any write without source", "any write to deterministic fields owned by scripts/merge.ts"]
+      },
+      "delegates": []
+    },
+    {
+      "id": "auditor",
+      "sourcePath": "sources/auditor.prose.md",
+      "workspacePath": "workspace/auditor/",
+      "inputs": [
+        { "name": "writes_applied", "from": "service", "sourceNodeId": "writer", "sourceOutput": "writes_applied", "path": "bindings/writer/writes_applied.json" },
+        { "name": "frame", "from": "caller", "path": "bindings/caller/frame.md" }
+      ],
+      "outputs": [
+        { "name": "report", "workspacePath": "workspace/curate/report.json", "bindingPath": "bindings/auditor/report.json", "public": true }
+      ],
+      "errors": ["AuditorOverload"],
+      "shape": {
+        "self": ["free curl re-fetch of every source URL", "verify", "emit deprecate_fact for failures", "assemble report"],
+        "prohibited": ["any paid call", "any set_fact (other than no-op re-attach when source URL is wrong but the value is supported on a corrected URL)"]
+      },
+      "delegates": []
+    }
+  ],
+  "executionOrder": [
+    { "step": 1, "nodeId": "inventory", "dependsOn": ["caller"] },
+    { "step": 2, "parallel": ["namer", "categorizer", "recognizer", "discoverer"], "dependsOn": ["inventory"] },
+    { "step": 3, "nodeId": "writer", "dependsOn": ["namer", "categorizer", "recognizer", "discoverer"] },
+    { "step": 4, "nodeId": "auditor", "dependsOn": ["writer"] }
+  ],
+  "environment": [],
+  "tools": [
+    { "kind": "mcp", "name": "pay", "requiredBy": ["namer", "categorizer", "recognizer", "discoverer"] },
+    { "kind": "mcp", "name": "frame-merchants-watch", "requiredBy": ["inventory", "writer", "auditor"] },
+    { "kind": "cli", "name": "curl", "requiredBy": ["namer", "categorizer", "recognizer", "discoverer", "auditor"] }
+  ],
+  "warnings": [
+    {
+      "code": "pinned-execution-data-gap",
+      "node": "discoverer",
+      "message": "Pinned ### Execution does not pass inventory.queues.existing_hosts to discoverer, but the discoverer contract requires dedup against existing_hosts. Side-channel binding provided; spawn prompt will surface the path. Author may want to amend the execution block."
+    },
+    {
+      "code": "wallet-balance-unknown",
+      "node": "(system)",
+      "message": "mcp__pay__wallet_status reports configured wallets on base + solana-mainnet but USDC=? (probe did not resolve a number). Operator confirmed proceed full run; per-service budget guards and the BudgetExceeded gate handle real exhaustion."
+    }
+  ]
+}

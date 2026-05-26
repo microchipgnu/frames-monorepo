@@ -1,0 +1,11 @@
+HTTP/2 200 
+date: Tue, 26 May 2026 15:00:00 GMT
+content-type: text/html; charset=UTF-8
+access-control-allow-origin: *
+access-control-expose-headers: PAYMENT-REQUIRED,X-PAYMENT-RESPONSE
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=5zczlrcoHGoCIyEdZBxto2%2FXvCHlS6u2YVpwRn9EklwfGPoFksNWFfeiBDXbSW3xDdHeDm7WHY2rhHjnZb1rm%2F%2BJvfqYfRwZPrzCnc%2FaOiXRIph537H2Zo3PN6xV1zXJdjX1Pu8P5mP%2FEPgM1aUJKQ%3D%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: cloudflare
+cf-ray: a01da59d5c70f3fc-MAD
+alt-svc: h3=":443"; ma=86400
+

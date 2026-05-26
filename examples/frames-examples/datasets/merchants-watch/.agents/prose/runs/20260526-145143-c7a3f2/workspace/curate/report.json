@@ -1,0 +1,194 @@
+{
+  "system": "merchants-watch-curate",
+  "run_id": "20260526-145143-c7a3f2",
+  "state": "complete",
+  "completed_at": "2026-05-26T16:49:34Z",
+  "added": 3,
+  "named": 29,
+  "categorized": 57,
+  "recognized": 9,
+  "deprecated": 23,
+  "sources_attached": 0,
+  "spent_usd": 0.19,
+  "rejected_by_auditor": {
+    "total": 23,
+    "by_reason": {
+      "source_404": 2,
+      "value_not_in_source": 4,
+      "off_host_required": 0,
+      "paraphrased": 13,
+      "infra_host": 4,
+      "category_not_in_enum": 0
+    }
+  },
+  "skipped_infra": [
+    "financial-analyst-api-production-b81a-up-railway-app",
+    "global-econ-x402-staging-up-railway-app"
+  ],
+  "skipped_mass_lister": [],
+  "deprecations": [
+    {
+      "fact_id": "fd29c3b9-6dbe-4163-8e0c-c6733d958c4b",
+      "entity_id": "agentworld-me",
+      "field": "description",
+      "reason": "paraphrased",
+      "source_url": "https://agentworld.me/openapi.json"
+    },
+    {
+      "fact_id": "597fa9c5-8bc7-45bb-b08d-334023d217c1",
+      "entity_id": "api-deepnets-ai",
+      "field": "category",
+      "reason": "value_not_in_source",
+      "source_url": "https://api.deepnets.ai/"
+    },
+    {
+      "fact_id": "98a84503-e7c1-4c47-9d20-0258f240fbfb",
+      "entity_id": "api-deepnets-ai",
+      "field": "description",
+      "reason": "paraphrased",
+      "source_url": "https://api.deepnets.ai/"
+    },
+    {
+      "fact_id": "e93d0e71-d6ab-409d-aea4-c9cef8dd7d47",
+      "entity_id": "api-oatp-cc",
+      "field": "description",
+      "reason": "paraphrased",
+      "source_url": "https://oatp.cc/"
+    },
+    {
+      "fact_id": "971a988d-f36b-4630-b39b-7b420594eab2",
+      "entity_id": "api-trustboost-dev",
+      "field": "description",
+      "reason": "paraphrased",
+      "source_url": "https://api.trustboost.dev/sanitize"
+    },
+    {
+      "fact_id": "c7229278-a8c5-4b09-8615-43da8b2b591d",
+      "entity_id": "api-trustboost-dev",
+      "field": "display_name",
+      "reason": "value_not_in_source",
+      "source_url": "https://api.trustboost.dev/sanitize"
+    },
+    {
+      "fact_id": "1727bc95-6605-4290-b8ae-82f26e693bcc",
+      "entity_id": "app-suedeai-ai",
+      "field": "description",
+      "reason": "paraphrased",
+      "source_url": "https://app.suedeai.ai/.well-known/x402"
+    },
+    {
+      "fact_id": "5a5d268b-9bd7-45fd-abda-9206c838691a",
+      "entity_id": "app-suedeai-ai",
+      "field": "display_name",
+      "reason": "value_not_in_source",
+      "source_url": "https://app.suedeai.ai/.well-known/x402"
+    },
+    {
+      "fact_id": "fe284f13-3604-4fc8-9d20-d6e67ab2bdfa",
+      "entity_id": "blockrun-ai",
+      "field": "description",
+      "reason": "paraphrased",
+      "source_url": "https://blockrun.ai/"
+    },
+    {
+      "fact_id": "7fc6018a-9614-48e5-9e04-6bd2055315dc",
+      "entity_id": "exa-mpp-tempo-xyz",
+      "field": "category",
+      "reason": "source_404",
+      "source_url": "https://exa.mpp.tempo.xyz/search"
+    },
+    {
+      "fact_id": "a24eda82-7afd-469b-92d2-8e569955594c",
+      "entity_id": "exa-mpp-tempo-xyz",
+      "field": "category_source",
+      "reason": "source_404",
+      "source_url": "https://exa.mpp.tempo.xyz/search"
+    },
+    {
+      "fact_id": "f9ffea79-3e3f-439d-959b-2cfdfbfeca91",
+      "entity_id": "financial-analyst-api-production-b81a-up-railway-app",
+      "field": "category",
+      "reason": "infra_host",
+      "source_url": "https://financial-analyst-api-production-b81a.up.railway.app/"
+    },
+    {
+      "fact_id": "7dee36b6-bee9-4b8c-8a10-8772fb3f0fe5",
+      "entity_id": "financial-analyst-api-production-b81a-up-railway-app",
+      "field": "category_source",
+      "reason": "infra_host",
+      "source_url": "https://financial-analyst-api-production-b81a.up.railway.app/"
+    },
+    {
+      "fact_id": "c7ea6ff4-3ecd-4ed3-bf17-bbf0f8e62b49",
+      "entity_id": "global-econ-x402-staging-up-railway-app",
+      "field": "description",
+      "reason": "infra_host",
+      "source_url": "https://global-econ-x402-staging.up.railway.app/"
+    },
+    {
+      "fact_id": "7e3a144e-4372-4a8d-b9a0-6c66a81b705b",
+      "entity_id": "global-econ-x402-staging-up-railway-app",
+      "field": "display_name",
+      "reason": "infra_host",
+      "source_url": "https://global-econ-x402-staging.up.railway.app/"
+    },
+    {
+      "fact_id": "32e11497-ace0-47e1-bf5f-8d1ccfeb5c73",
+      "entity_id": "httpay-xyz",
+      "field": "description",
+      "reason": "paraphrased",
+      "source_url": "https://httpay.xyz/"
+    },
+    {
+      "fact_id": "f4e12b03-56dd-479e-8b0a-1dbbb00482dd",
+      "entity_id": "mpp-hyreagent-fun",
+      "field": "description",
+      "reason": "paraphrased",
+      "source_url": "https://mpp.hyreagent.fun/"
+    },
+    {
+      "fact_id": "49485c00-c760-496c-acb6-5754202b861e",
+      "entity_id": "staging-deepnets-ai",
+      "field": "description",
+      "reason": "paraphrased",
+      "source_url": "https://staging.deepnets.ai/"
+    },
+    {
+      "fact_id": "8f5fb9ab-61bc-41d5-9902-4bdac785199f",
+      "entity_id": "staging-deepnets-ai",
+      "field": "display_name",
+      "reason": "value_not_in_source",
+      "source_url": "https://staging.deepnets.ai/"
+    },
+    {
+      "fact_id": "7acbe9ac-3edc-4100-a1fb-b0067618a7c6",
+      "entity_id": "x402-api-aubr-ai",
+      "field": "description",
+      "reason": "paraphrased",
+      "source_url": "https://x402-api.aubr.ai/"
+    },
+    {
+      "fact_id": "7f684c4c-cef6-48a8-9827-a6de02c480d9",
+      "entity_id": "x402-clashofcoins-com",
+      "field": "description",
+      "reason": "paraphrased",
+      "source_url": "https://x402.clashofcoins.com/"
+    },
+    {
+      "fact_id": "44e25579-dc8f-46d7-a0dc-83a05c74d4ce",
+      "entity_id": "x402-slinkylayer-ai",
+      "field": "description",
+      "reason": "paraphrased",
+      "source_url": "https://slinkylayer.ai/"
+    },
+    {
+      "fact_id": "43e7cacf-d8a8-4259-89d7-eee74997a0b6",
+      "entity_id": "x402-twit-sh",
+      "field": "description",
+      "reason": "paraphrased",
+      "source_url": "https://twit.sh/"
+    }
+  ],
+  "curate_success_rate": 0.8562,
+  "recommend_action": "continue"
+}

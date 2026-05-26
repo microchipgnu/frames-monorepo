@@ -1,0 +1,144 @@
+# Brave Search
+
+> **You are on:** `https://api.paywithlocus.com/api` | [llms.txt](https://paywithlocus.com/llms.txt)
+>
+> Locus runs on multiple environments -- make sure every URL you call matches your expected environment.
+> | Environment | Landing | API |
+> |---|---|---|
+> | Production | paywithlocus.com | api.paywithlocus.com |
+> | Beta | beta.paywithlocus.com | beta-api.paywithlocus.com |
+> | Stage | stage.paywithlocus.com | stage-api.paywithlocus.com |
+>
+> If the API URL above doesn't match your expected environment, re-fetch this file from the correct domain.
+
+> Independent web search — web, news, images, videos, AI answers, and LLM context. Privacy-first search from a large independent index.
+
+**Category:** Search | **Website:** [brave.com/search](https://brave.com/search) | **Docs:** [api.search.brave.com/app/#/documentation](https://api.search.brave.com/app/#/documentation)
+
+## Access Methods
+
+| Method | Base URL | Auth |
+|--------|----------|------|
+| **MPP (Tempo)** | `https://brave.mpp.paywithlocus.com/brave/` | HTTP 402 auto-payment |
+| **Wrapped API** | `https://api.paywithlocus.com/api/wrapped/brave/` | `Authorization: Bearer <LOCUS_API_KEY>` |
+
+**OpenAPI discovery:** `GET https://brave.mpp.paywithlocus.com/openapi.json`
+
+## Endpoints
+
+### Web Search
+
+Search the web from Brave's large independent index. Returns web results, discussions, FAQ, infobox, news, and videos.
+
+**Estimated cost:** $0.035
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `q` | string | Yes | Search query (max 400 chars, 50 words) |
+| `count` | number | No | Results to return (1-20, default 20) |
+| `offset` | number | No | Page offset (0-9) |
+| `country` | string | No | 2-letter country code (default: US) |
+| `search_lang` | string | No | Language code (default: en) |
+| `freshness` | string | No | "pd" (24h), "pw" (7d), "pm" (31d), "py" (365d), or date range |
+| `safesearch` | string | No | "off", "moderate" (default), "strict" |
+| `result_filter` | string | No | Comma-separated: web, news, videos, discussions, faq, infobox |
+| `summary` | boolean | No | Enable summary generation |
+
+```bash
+curl -X POST https://brave.mpp.paywithlocus.com/brave/web-search \
+  -H "Content-Type: application/json" \
+  -d '{"q":"<string>","count":"<number>","offset":"<number>","country":"<string>","search_lang":"<string>","freshness":"<string>","safesearch":"<string>","result_filter":"<string>","summary":"<boolean>"}'
+```
+
+### News Search
+
+Search news content from a large independent index.
+
+**Estimated cost:** $0.035
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `q` | string | Yes | Search query |
+| `count` | number | No | Results (1-50, default 20) |
+| `freshness` | string | No | "pd", "pw", "pm", "py", or date range |
+| `country` | string | No | Country code |
+
+```bash
+curl -X POST https://brave.mpp.paywithlocus.com/brave/news-search \
+  -H "Content-Type: application/json" \
+  -d '{"q":"<string>","count":"<number>","freshness":"<string>","country":"<string>"}'
+```
+
+### Image Search
+
+Find images from a large independent index.
+
+**Estimated cost:** $0.035
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `q` | string | Yes | Search query |
+| `count` | number | No | Results (1-200, default 50) |
+| `safesearch` | string | No | "off" or "strict" (default) |
+
+```bash
+curl -X POST https://brave.mpp.paywithlocus.com/brave/image-search \
+  -H "Content-Type: application/json" \
+  -d '{"q":"<string>","count":"<number>","safesearch":"<string>"}'
+```
+
+### Video Search
+
+Search video content from a large independent index.
+
+**Estimated cost:** $0.035
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `q` | string | Yes | Search query |
+| `count` | number | No | Results (1-50, default 20) |
+| `freshness` | string | No | "pd", "pw", "pm", "py", or date range |
+
+```bash
+curl -X POST https://brave.mpp.paywithlocus.com/brave/video-search \
+  -H "Content-Type: application/json" \
+  -d '{"q":"<string>","count":"<number>","freshness":"<string>"}'
+```
+
+### LLM Context
+
+Pre-extracted web content optimized for AI agents, LLM grounding, and RAG pipelines.
+
+**Estimated cost:** $0.035
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `q` | string | Yes | Search query |
+| `maximum_number_of_tokens` | number | No | Max tokens (1024-32768, default 8192) |
+| `maximum_number_of_urls` | number | No | Max URLs (1-50, default 20) |
+| `freshness` | string | No | "pd", "pw", "pm", "py", or date range |
+
+```bash
+curl -X POST https://brave.mpp.paywithlocus.com/brave/llm-context \
+  -H "Content-Type: application/json" \
+  -d '{"q":"<string>","maximum_number_of_tokens":"<number>","maximum_number_of_urls":"<number>","freshness":"<string>"}'
+```
+
+### AI Answers
+
+AI-generated answers backed by real-time web search and verifiable sources. OpenAI-compatible chat format.
+
+**Estimated cost:** $0.085
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `messages` | array | Yes | Chat messages array [{role, content}] |
+| `model` | string | No | "brave" or "brave-pro" (default) |
+| `stream` | boolean | No | Stream response (default: false) |
+| `max_completion_tokens` | number | No | Max output tokens |
+
+```bash
+curl -X POST https://brave.mpp.paywithlocus.com/brave/answers \
+  -H "Content-Type: application/json" \
+  -d '{"messages":"<array>","model":"<string>","stream":"<boolean>","max_completion_tokens":"<number>"}'
+```

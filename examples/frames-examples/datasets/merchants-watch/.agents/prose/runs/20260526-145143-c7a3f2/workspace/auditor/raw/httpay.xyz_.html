@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>httpay.xyz — 307 Pay-Per-Call APIs via x402 on Base | No API Keys</title>
+<meta name="description" content="307 pay-per-call APIs (287 native + Universal Gateway proxying 37 services) powered by x402 and USDC on Base. Token intelligence, DeFi yields, MEV risk, AI tools, web scraping. No API keys, no subscriptions — pay $0.001–$0.05 per call.">
+<meta name="keywords" content="x402, USDC, Base, micropayments, pay-per-call API, crypto API, DeFi API, token intelligence, MEV risk, AI agent API, web scraping API, no API key, no signup API, MCP server">
+<link rel="sitemap" type="application/xml" href="https://httpay.xyz/sitemap.xml">
+
+<!-- LLM/AI Agent Discovery -->
+<!-- llms.txt: https://httpay.xyz/llms.txt -->
+<!-- llms-full.txt: https://httpay.xyz/llms-full.txt -->
+<!-- OpenAPI: https://httpay.xyz/openapi.yaml -->
+<!-- AI Plugin: https://httpay.xyz/.well-known/ai-plugin.json -->
+<!-- Agents: https://httpay.xyz/agents.json -->
+<!-- MCP: npx @httpay/mcp -->
+<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM context (concise)">
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM context (full)">
+<link rel="alternate" type="application/json" href="/agents.json" title="Agent discovery manifest">
+<link rel="alternate" type="application/yaml" href="/openapi.yaml" title="OpenAPI spec">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="httpay.xyz — 307 Pay-Per-Call APIs via x402 on Base">
+<meta property="og:description" content="307 pay-per-call APIs (287 native + Gateway for 37 services). Token intelligence, DeFi yields, MEV risk, AI tools, web scraping. No API keys — pay $0.001–$0.05 USDC per call.">
+<meta property="og:url" content="https://httpay.xyz/">
+<meta property="og:image" content="https://httpay.xyz/og-image.png">
+<meta property="og:site_name" content="httpay.xyz">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="httpay.xyz — 307 Pay-Per-Call APIs via x402 on Base">
+<meta name="twitter:description" content="307 pay-per-call APIs. No API keys. Pay USDC per call via x402 on Base. Token intel, DeFi, MEV risk, AI tools & more. MCP: npx @httpay/mcp">
+<meta name="twitter:image" content="https://httpay.xyz/og-image.png">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://httpay.xyz">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "applicationCategory": "DeveloperApplication",
+    "name": "httpay.xyz — x402 Pay-Per-Call API Marketplace",
+    "description": "307 pay-per-call APIs for AI agents and developers. 287 native endpoints (token intelligence, DeFi, MEV risk, AI tools, web scraping) plus a Universal Gateway proxying 37 major services. Pay with USDC on Base via the x402 protocol — no API keys, no subscriptions.",
+    "url": "https://httpay.xyz",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0.001",
+      "priceCurrency": "USD",
+      "description": "Pay-per-call pricing from $0.001 USDC per API request"
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "httpay.xyz",
+      "url": "https://httpay.xyz"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebAPI",
+    "name": "httpay.xyz API Marketplace",
+    "description": "307 pay-per-call APIs powered by x402 and USDC on Base. Covers token intelligence, DeFi yields, MEV risk, smart-money profiling, gas optimization, web scraping, AI tools, and more.",
+    "url": "https://httpay.xyz",
+    "documentation": "https://httpay.xyz/endpoints",
+    "provider": {
+      "@type": "Organization",
+      "name": "httpay.xyz",
+      "url": "https://httpay.xyz"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0.001",
+      "priceCurrency": "USD",
+      "description": "Pay-per-call pricing from $0.001 USDC"
+    },
+    "keywords": "x402, USDC, Base, pay-per-call API, crypto API, DeFi API, MEV, token intelligence, AI agent API, no API key"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "httpay.xyz", "item": "https://httpay.xyz" }
+    ]
+  }
+]
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a0a;color:#e0e0e0;line-height:1.6}
+a{color:#58a6ff;text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:960px;margin:0 auto;padding:48px 24px}
+
+/* Hero */
+.hero{text-align:center;margin-bottom:64px}
+.badge{display:inline-block;background:rgba(88,166,255,0.15);color:#58a6ff;padding:4px 14px;border-radius:20px;font-size:13px;font-weight:600;margin-bottom:16px}
+.badge.mcp{background:rgba(188,140,255,0.15);color:#bc8cff;margin-left:8px;cursor:pointer}
+h1{font-size:56px;font-weight:800;background:linear-gradient(135deg,#58a6ff,#bc8cff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-2px;margin-bottom:8px}
+.tagline{font-size:20px;color:#8b949e;font-weight:500}
+
+/* Stats row */
+.stats{display:flex;justify-content:center;gap:48px;margin:40px 0}
+.stat .num{font-size:36px;font-weight:800;color:#58a6ff}
+.stat .label{font-size:13px;color:#8b949e;text-transform:uppercase;letter-spacing:1px}
+.stat{text-align:center}
+
+/* Pricing */
+.pricing{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:48px 0}
+.tier{text-align:center;padding:24px 16px;border-radius:12px;border:1px solid #21262d;background:rgba(255,255,255,0.02)}
+.tier.highlight{border-color:rgba(88,166,255,0.4);background:rgba(88,166,255,0.05)}
+.tier .price{font-size:28px;font-weight:800;color:#58a6ff;margin-bottom:4px}
+.tier .tier-name{font-size:15px;font-weight:700;margin-bottom:6px;color:#e0e0e0}
+.tier .tier-desc{font-size:13px;color:#8b949e}
+
+/* Featured endpoints */
+.section-title{font-size:24px;font-weight:700;margin-bottom:24px;text-align:center}
+.featured{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:64px}
+.feat{padding:20px;border-radius:12px;border:1px solid #30363d;background:linear-gradient(135deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))}
+.feat .label-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.feat .emoji{font-size:22px}
+.feat h3{font-size:16px;font-weight:700}
+.feat .price-tag{margin-left:auto;font-size:12px;font-weight:600;color:#58a6ff;background:rgba(88,166,255,0.12);padding:2px 8px;border-radius:10px}
+.feat p{font-size:14px;color:#8b949e}
+.feat code{font-size:12px;color:#bc8cff;background:rgba(188,140,255,0.1);padding:1px 6px;border-radius:4px}
+.new-badge{font-size:10px;font-weight:700;color:#0a0a0a;background:#58a6ff;padding:1px 6px;border-radius:6px;text-transform:uppercase}
+
+/* Try it */
+.try-section{margin-bottom:64px}
+.try-step{margin-bottom:24px}
+.try-step .step-num{display:inline-block;width:28px;height:28px;line-height:28px;text-align:center;border-radius:50%;background:#58a6ff;color:#0a0a0a;font-weight:700;font-size:14px;margin-right:10px}
+.try-step .step-label{font-size:16px;font-weight:600}
+.try-step .step-desc{font-size:14px;color:#8b949e;margin:4px 0 8px 38px}
+pre{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:16px;overflow-x:auto;font-size:13px;line-height:1.5;color:#c9d1d9;margin-left:38px}
+pre .comment{color:#8b949e}
+
+/* How it works */
+.how{display:flex;gap:24px;margin-bottom:64px}
+.how-card{flex:1;padding:24px;border-radius:12px;border:1px solid #30363d;text-align:center}
+.how-card.machines{border-color:rgba(88,166,255,0.3);background:rgba(88,166,255,0.04)}
+.how-card.humans{border-color:rgba(188,140,255,0.3);background:rgba(188,140,255,0.04)}
+.how-card .icon{font-size:36px;margin-bottom:8px}
+.how-card h3{font-size:18px;font-weight:700;margin-bottom:4px}
+.how-card .proto{font-size:14px;font-weight:600;color:#58a6ff;margin-bottom:8px}
+.how-card.humans .proto{color:#bc8cff}
+.how-card p{font-size:14px;color:#8b949e}
+
+/* Categories */
+.categories{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:64px}
+.cat{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(255,255,255,0.03);border:1px solid #21262d;border-radius:8px;font-size:14px;font-weight:500}
+.cat .emoji{font-size:18px}
+
+/* Live Proof */
+.proof{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin:0 0 48px;padding:20px 24px;border-radius:12px;border:1px solid rgba(88,200,120,0.3);background:rgba(88,200,120,0.04)}
+.proof-item{display:flex;align-items:center;gap:8px;font-size:14px;color:#8b949e}
+.proof-item .dot{width:8px;height:8px;border-radius:50%;background:#58c878;flex-shrink:0;box-shadow:0 0 6px rgba(88,200,120,0.6)}
+.proof-item strong{color:#e0e0e0}
+.proof-title{text-align:center;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#58c878;margin-bottom:10px}
+
+/* Starter Bundle CTA */
+.bundle-cta{margin:0 0 48px;padding:28px 32px;border-radius:16px;border:2px solid rgba(88,166,255,0.4);background:linear-gradient(135deg,rgba(88,166,255,0.07),rgba(188,140,255,0.07));text-align:center}
+.bundle-cta h3{font-size:22px;font-weight:800;margin-bottom:8px;background:linear-gradient(135deg,#58a6ff,#bc8cff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.bundle-cta p{font-size:15px;color:#8b949e;margin-bottom:16px}
+.bundle-cta .bundle-steps{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:20px}
+.bundle-cta .bundle-step{font-size:13px;color:#c9d1d9;display:flex;align-items:center;gap:6px}
+.bundle-cta .bundle-step span{color:#58a6ff;font-weight:700}
+.bundle-code{display:inline-block;font-size:13px;color:#bc8cff;background:rgba(188,140,255,0.1);border:1px solid rgba(188,140,255,0.25);padding:10px 20px;border-radius:8px;font-family:monospace;line-height:1.5}
+
+/* Footer */
+.footer{text-align:center;padding-top:32px;border-top:1px solid #21262d;color:#8b949e;font-size:14px}
+.footer a{color:#58a6ff}
+
+@media(max-width:700px){
+  .pricing{grid-template-columns:repeat(2,1fr)}
+  .featured{grid-template-columns:1fr}
+  .how{flex-direction:column}
+  .categories{grid-template-columns:1fr 1fr}
+  h1{font-size:36px}
+  .stats{gap:24px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Hero -->
+  <div class="hero">
+    <span class="badge">x402 Protocol</span>
+    <a href="https://www.npmjs.com/package/@httpay/mcp" target="_blank"><span class="badge mcp">🔌 MCP Server</span></a>
+    <h1>httpay.xyz — x402 Pay-Per-Call API Marketplace</h1>
+    <p class="tagline">Pay per call. No API keys. No subscriptions.</p>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat"><div class="num">307</div><div class="label">Endpoints</div></div>
+    <div class="stat"><div class="num">9</div><div class="label">Categories</div></div>
+    <div class="stat"><div class="num">$0.001</div><div class="label">Starting Price</div></div>
+  </div>
+
+  <!-- Live Proof -->
+  <div class="proof">
+    <div style="width:100%" class="proof-title">🟢 Real payments. Live now.</div>
+    <div class="proof-item"><div class="dot"></div><strong>307 endpoints</strong>&nbsp;live on Base</div>
+    <div class="proof-item"><div class="dot"></div><strong>2 external wallets</strong>&nbsp;already paying</div>
+    <div class="proof-item"><div class="dot"></div><strong>Real USDC transactions</strong>&nbsp;on-chain</div>
+    <div class="proof-item"><div class="dot"></div>Listed on <strong>Bazaar marketplace</strong></div>
+  </div>
+
+  <!-- Pricing Tiers -->
+  <div class="pricing">
+    <div class="tier">
+      <div class="tier-name">Fun</div>
+      <div class="price">$0.001</div>
+      <div class="tier-desc">Jokes, generators, roasts, memes</div>
+    </div>
+    <div class="tier">
+      <div class="tier-name">Utility</div>
+      <div class="price">$0.005</div>
+      <div class="tier-desc">DNS, geo, crypto prices, news</div>
+    </div>
+    <div class="tier highlight">
+      <div class="tier-name">Data</div>
+      <div class="price">$0.01</div>
+      <div class="tier-desc">Web scrape, contract analysis</div>
+    </div>
+    <div class="tier">
+      <div class="tier-name">Premium</div>
+      <div class="price">$0.05</div>
+      <div class="tier-desc">AI models, image gen, sentiment</div>
+    </div>
+  </div>
+
+  <!-- Featured Endpoints -->
+  <h2 class="section-title">⚡ High-Value Endpoints</h2>
+  <div class="featured">
+    <div class="feat">
+      <div class="label-row">
+        <span class="emoji">🌐</span>
+        <h3>/api/web-scrape</h3>
+        <span class="new-badge">New</span>
+        <span class="price-tag">$0.01</span>
+      </div>
+      <p>Fetch readable content from any URL. Returns clean text — perfect for AI agents.</p>
+      <code>?url=https://example.com</code>
+    </div>
+    <div class="feat">
+      <div class="label-row">
+        <span class="emoji">📰</span>
+        <h3>/api/news/crypto</h3>
+        <span class="new-badge">New</span>
+        <span class="price-tag">$0.005</span>
+      </div>
+      <p>Aggregated crypto headlines from CoinDesk, The Defiant, and more. Live RSS feeds.</p>
+    </div>
+    <div class="feat">
+      <div class="label-row">
+        <span class="emoji">🏦</span>
+        <h3>/api/yield-finder</h3>
+        <span class="new-badge">New</span>
+        <span class="price-tag">$0.02</span>
+      </div>
+      <p>Find the best DeFi yield opportunities across protocols and chains.</p>
+    </div>
+    <div class="feat">
+      <div class="label-row">
+        <span class="emoji">📊</span>
+        <h3>/api/twitter-sentiment</h3>
+        <span class="new-badge">New</span>
+        <span class="price-tag">$0.02</span>
+      </div>
+      <p>Approximate Twitter/X sentiment for any query. Great for market mood analysis.</p>
+      <code>?query=ethereum</code>
+    </div>
+  </div>
+
+  <!-- Try It -->
+  <h2 class="section-title">🚀 Try It — The 402 Flow</h2>
+  <div class="try-section">
+    <div class="try-step">
+      <span class="step-num">1</span>
+      <span class="step-label">Call any endpoint</span>
+      <div class="step-desc">You'll get back HTTP 402 with payment details.</div>
+<pre>curl -s https://httpay.xyz/api/news/crypto
+<span class="comment"># → 402 { "x402Version": 1, "accepts": [{ "maxAmountRequired": "5000", ... }] }</span></pre>
+    </div>
+    <div class="try-step">
+      <span class="step-num">2</span>
+      <span class="step-label">Pay with the x402 header</span>
+      <div class="step-desc">Sign a USDC payment and include it as a header. The x402 SDK handles this.</div>
+<pre><span class="comment"># Using the x402 SDK (Node.js):</span>
+import { withPayment } from "x402-fetch";
+const response = await withPayment(
+  fetch("https://httpay.xyz/api/news/crypto"),
+  wallet
+);</pre>
+    </div>
+    <div class="try-step">
+      <span class="step-num">3</span>
+      <span class="step-label">Get your data</span>
+      <div class="step-desc">Payment settles on Base L2. You get the response instantly.</div>
+<pre><span class="comment"># → 200 { headlines: [...], source: "CoinDesk, The Defiant, ..." }</span></pre>
+    </div>
+  </div>
+
+  <!-- How It Works -->
+  <div class="how">
+    <div class="how-card machines">
+      <div class="icon">🤖</div>
+      <h3>For Machines</h3>
+      <div class="proto">x402 Protocol</div>
+      <p>HTTP 402 + crypto payments. Agents pay per API call with USDC on Base. No keys, no OAuth.</p>
+    </div>
+
+  </div>
+
+  <!-- All Categories -->
+  <h2 class="section-title">All Categories</h2>
+  <div class="categories">
+    <div class="cat"><span class="emoji">🧠</span> AI & Language Models</div>
+    <div class="cat"><span class="emoji">🖼️</span> Image Generation</div>
+    <div class="cat"><span class="emoji">🔍</span> Web Search & Scraping</div>
+    <div class="cat"><span class="emoji">💱</span> Crypto & Finance</div>
+    <div class="cat"><span class="emoji">🌐</span> DNS & Domains</div>
+    <div class="cat"><span class="emoji">📍</span> Geo & Location</div>
+    <div class="cat"><span class="emoji">🔐</span> Identity & Auth</div>
+    <div class="cat"><span class="emoji">🛠️</span> Utilities</div>
+    <div class="cat"><span class="emoji">📊</span> Data & Analytics</div>
+  </div>
+
+  <!-- MCP Section -->
+  <div style="text-align:center;margin-bottom:48px;padding:28px 32px;border:1px solid rgba(188,140,255,0.4);border-radius:16px;background:rgba(188,140,255,0.05)">
+    <h3 style="font-size:20px;font-weight:800;margin-bottom:8px">🔌 MCP Server — One Command</h3>
+    <p style="font-size:15px;color:#8b949e;margin-bottom:16px">Give Claude, Cursor, or any MCP-compatible agent instant access to 307 pay-per-call APIs. No configuration needed.</p>
+    <div style="display:inline-block;font-size:15px;color:#bc8cff;background:rgba(188,140,255,0.1);border:1px solid rgba(188,140,255,0.3);padding:10px 24px;border-radius:8px;font-family:monospace;margin-bottom:12px">npx @httpay/mcp</div>
+    <p style="font-size:13px;color:#8b949e">Drop this in your <code style="color:#bc8cff;background:rgba(188,140,255,0.1);padding:1px 6px;border-radius:4px">mcp.json</code> — agents start calling and paying automatically.</p>
+  </div>
+
+  <!-- Starter Bundle CTA -->
+  <div class="bundle-cta">
+    <h3>⚡ Try 10 calls for $0.01</h3>
+    <p>No signup. No API keys. Just send USDC on Base and start calling instantly.</p>
+    <div class="bundle-steps">
+      <div class="bundle-step"><span>①</span> Get a Base wallet (Coinbase, MetaMask)</div>
+      <div class="bundle-step"><span>②</span> Add a few cents of USDC</div>
+      <div class="bundle-step"><span>③</span> Call any endpoint — it pays itself</div>
+    </div>
+    <div class="bundle-code">npx @httpay/mcp<br><span style="color:#8b949e;font-size:12px"># or curl https://httpay.xyz/api/joke &rarr; pay the 402 &rarr; profit</span></div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>The API economy, without the friction.</p>
+    <p style="margin-top:8px"><a href="https://github.com/VVtech/httpay" target="_blank">GitHub</a> · <a href="/endpoints">All 307 Endpoints</a> · <a href="/gateway">Gateway</a> · <a href="/compare">Compare</a> · Built by <a href="https://x.com/Alfredz0x" target="_blank">@Alfredz0x</a></p>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+HTTP/2 200 
+server: nginx
+date: Tue, 26 May 2026 14:59:50 GMT
+content-type: application/json
+content-length: 466
+vary: Accept-Encoding
+x-request-id: 74ac7411-cfb0-4497-93ba-06ffac865f1c
+x-response-time: 1ms
+cache-control: public, max-age=60
+strict-transport-security: max-age=31536000; includeSubDomains
+x-content-type-options: nosniff
+x-frame-options: DENY
+permissions-policy: camera=(), microphone=(), geolocation=()
+referrer-policy: strict-origin-when-cross-origin
+

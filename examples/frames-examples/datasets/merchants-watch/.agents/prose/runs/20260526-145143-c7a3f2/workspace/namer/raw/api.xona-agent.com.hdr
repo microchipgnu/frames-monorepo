@@ -1,0 +1,23 @@
+HTTP/2 404 
+date: Tue, 26 May 2026 14:59:59 GMT
+content-type: application/json; charset=utf-8
+content-length: 45
+server: cloudflare
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+x-powered-by: Express
+vary: Origin
+access-control-allow-credentials: true
+access-control-expose-headers: WWW-Authenticate,Payment-Receipt,Mcp-Session-Id,X-PAYMENT-RESPONSE,PAYMENT-REQUIRED,AMP-Version,AMP-Pricing,AMP-Recipient,AMP-Program,AMP-Network,AMP-Balance
+content-security-policy: default-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'
+x-frame-options: DENY
+x-content-type-options: nosniff
+x-xss-protection: 1; mode=block
+referrer-policy: strict-origin-when-cross-origin
+permissions-policy: camera=(), microphone=(), geolocation=()
+etag: W/"2d-cNj29RQ25Pprcj6a6edy/V2YndQ"
+cf-cache-status: DYNAMIC
+strict-transport-security: max-age=15552000; includeSubDomains; preload
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=4YfRR90yKheMpa2Vcs5ZOjKK1BrmlDUPZSVJ1J1FpyPkHi1Q9Jai5ymCFBH8wzcqWcw6hcCRMX47AwCugT%2FcQ6vtCxZa6pe9eViDJI0r8BNcZN9I6A8EZnafFCrgEsgQGy56L%2BEdjn9RGw8F31%2FkiUE%3D"}]}
+cf-ray: a01da59779bd5910-LIS
+alt-svc: h3=":443"; ma=86400
+

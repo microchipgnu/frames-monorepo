@@ -1,0 +1,620 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>x402 Machine to Machine Email Server</title>
+  <style>
+    :root {
+      --bg: #f3f5fa;
+      --surface: #ffffff;
+      --surface-2: #f8faff;
+      --text: #111827;
+      --muted: #5b6677;
+      --border: #d6deeb;
+      --accent: #2b63f1;
+      --accent-strong: #1f4ec7;
+      --accent-soft: #eaf0ff;
+      --success: #1f8f4c;
+      --danger: #c1323a;
+      --radius: 12px;
+      --radius-sm: 10px;
+      --shadow-sm: 0 1px 2px rgba(17, 24, 39, 0.08);
+      --shadow-md: 0 10px 30px rgba(17, 24, 39, 0.08);
+      --control-bg: #ffffff;
+      --focus-ring: 0 0 0 3px rgba(43, 99, 241, 0.2);
+      --layout-pad: 20px;
+      --card-pad-y: 14px;
+      --card-pad-x: 16px;
+      --ops-gap: 12px;
+      --nav-gap: 14px;
+      --control-pad-y: 10px;
+      --control-pad-x: 10px;
+      --form-gap: 10px;
+      --content-width: 920px;
+      --link: #1d4ed8;
+      --link-visited: #6d28d9;
+      --link-hover: #1e40af;
+    }
+    [data-theme="dark"] {
+      --bg: #0f141d;
+      --surface: #161d2a;
+      --surface-2: #1b2433;
+      --text: #e7ecf5;
+      --muted: #a9b4c7;
+      --border: #2f3a4d;
+      --accent: #88a9ff;
+      --accent-strong: #b3c7ff;
+      --accent-soft: #1b2a4e;
+      --success: #4dd087;
+      --danger: #ff7d88;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 12px 36px rgba(0, 0, 0, 0.35);
+      --control-bg: #121925;
+      --focus-ring: 0 0 0 3px rgba(136, 169, 255, 0.32);
+      /* Body copy links: high contrast on dark bg (avoid browser default blue + no pure white visited) */
+      --link: #93c5fd;
+      --link-visited: #c4b5fd;
+      --link-hover: #bfdbfe;
+    }
+    [data-density="compact"] {
+      --layout-pad: 14px;
+      --card-pad-y: 10px;
+      --card-pad-x: 12px;
+      --ops-gap: 8px;
+      --nav-gap: 10px;
+      --control-pad-y: 8px;
+      --control-pad-x: 8px;
+      --form-gap: 8px;
+      --content-width: 980px;
+    }
+    * { box-sizing: border-box; }
+    body { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; color: var(--text); background: var(--bg); line-height: 1.45; }
+    .layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      grid-template-rows: 64px 1fr auto;
+      min-height: 100vh;
+      grid-template-areas: "top top" "left main" "bottom bottom";
+    }
+    .top { grid-area: top; background: var(--surface); border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between; padding: 0 18px; }
+    .left { grid-area: left; background: var(--surface); border-right: 1px solid var(--border); padding: 16px 12px; }
+    /* min-width:0 so grid main column does not collapse to zero / clip content on narrow viewports */
+    .main { grid-area: main; padding: var(--layout-pad); max-width: var(--content-width); min-width: 0; }
+    .bottom { grid-area: bottom; background: var(--surface); border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+      padding: 10px 18px; color: var(--muted); font-size: 13px; }
+    .brand { font-weight: 700; letter-spacing: 0.2px; }
+    .top-right { display: inline-flex; align-items: center; gap: 10px; }
+    .domain { color: var(--muted); font-size: 13px; }
+    .release-version { opacity: 0.9; font-weight: 500; }
+    .nav { display: grid; gap: var(--nav-gap); }
+    .nav-group { display: grid; gap: 6px; }
+    .nav-group-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); padding: 0 4px; }
+    .nav a,
+    .nav a:visited { display: block; text-decoration: none; color: var(--text); padding: 10px 12px;
+      border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--control-bg); box-shadow: var(--shadow-sm); }
+    .nav a.active { border-color: var(--accent); color: var(--accent-strong); font-weight: 600; background: var(--accent-soft); }
+    .main a { color: var(--link); }
+    .main a:visited { color: var(--link-visited); }
+    .main a:hover { color: var(--link-hover); }
+    .footer-links a,
+    .footer-links a:visited { color: var(--link); text-decoration: none; }
+    .footer-links a:hover { color: var(--link-hover); text-decoration: underline; }
+    .card { border: 1px solid var(--border); border-radius: var(--radius); padding: var(--card-pad-y) var(--card-pad-x); background: var(--surface); box-shadow: var(--shadow-sm); }
+    .meta { color: var(--muted); font-size: 14px; }
+    .section-title { margin: 0 0 6px; }
+    .subtitle { color: var(--muted); margin: 0 0 14px; font-size: 14px; }
+    .intro { font-size: 14px; line-height: 1.55; margin: 0 0 18px; padding: 14px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface-2); box-shadow: var(--shadow-sm); }
+    .intro p { margin: 0 0 12px; }
+    .intro p:last-child { margin-bottom: 0; }
+    h1.section-title { font-size: 1.5rem; }
+    h2 { font-size: 1.05rem; margin: 22px 0 8px; }
+    .card p { margin: 0 0 10px; line-height: 1.55; }
+    .card p:last-child { margin-bottom: 0; }
+    ul.ops { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--ops-gap); }
+    ul.ops li { border: 1px solid var(--border); border-radius: var(--radius); padding: var(--card-pad-y) var(--card-pad-x); background: var(--surface); box-shadow: var(--shadow-sm); }
+    .main ul.ops a,
+    .main ul.ops a:visited { font-weight: 600; text-decoration: none; color: var(--accent); }
+    .main ul.ops a:hover { color: var(--accent-strong); text-decoration: underline; }
+    ul.flow { margin: 8px 0 0 18px; padding: 0; }
+    ul.flow li { margin: 0 0 8px; line-height: 1.5; }
+    table.pricing { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    table.pricing th, table.pricing td { border: 1px solid var(--border); padding: 10px; text-align: left; vertical-align: top; }
+    table.pricing th { background: var(--surface-2); }
+    .ok { color: var(--success); }
+    .err { color: var(--danger); }
+    form { display: grid; gap: var(--form-gap); max-width: 640px; }
+    input, button, select, textarea { padding: var(--control-pad-y) var(--control-pad-x); font-size: 15px; border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--control-bg); color: var(--text); }
+    button { cursor: pointer; border-color: var(--accent); background: var(--accent); color: #fff; font-weight: 600; }
+    button:hover { background: var(--accent-strong); border-color: var(--accent-strong); }
+    button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, a:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+    pre { background: var(--surface-2); padding: 12px; border-radius: var(--radius); overflow-x: auto; border: 1px solid var(--border); }
+    .main pre.result-pre { max-height: 70vh; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; }
+    .card.anchor-target { scroll-margin-top: 72px; }
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--control-bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 13px;
+      line-height: 1;
+      box-shadow: var(--shadow-sm);
+    }
+    @media (max-width: 840px) {
+      .layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas: "top" "left" "main" "bottom";
+      }
+      .left { border-right: none; border-bottom: 1px solid var(--border); }
+    }
+    .x402-dialog {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0;
+      max-width: 440px;
+      background: var(--surface);
+      color: var(--text);
+      box-shadow: var(--shadow-md);
+    }
+    .x402-dialog::backdrop {
+      background: rgba(15, 20, 29, 0.45);
+    }
+    [data-theme="dark"] .x402-dialog::backdrop {
+      background: rgba(0, 0, 0, 0.55);
+    }
+    .x402-dialog-inner {
+      padding: 18px;
+      margin: 0;
+      display: grid;
+      gap: 12px;
+      max-height: min(85vh, 560px);
+      overflow-y: auto;
+    }
+    .x402-dialog-inner h2 {
+      margin: 0 0 4px;
+      font-size: 1.15rem;
+    }
+    .x402-wallet-pay-row {
+      margin: 12px 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+    .x402-wallet-open {
+      margin: 0;
+    }
+    #x402-wallet-provider-list {
+      margin: 0;
+      padding-left: 20px;
+      max-height: 160px;
+      overflow-y: auto;
+    }
+    #x402-wallet-provider-list label {
+      cursor: pointer;
+      font-size: 14px;
+    }
+    #x402-wallet-status {
+      margin: 0;
+      min-height: 1.25em;
+      word-break: break-word;
+    }
+    .x402-dialog-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .mfa-qr-wrap {
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      background: #fff;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+    }
+    .mfa-qr-wrap svg,
+    .mfa-qr-wrap img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+    .dns-copy-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: flex-start;
+      margin: 8px 0 0;
+    }
+    .dns-copy-row .result-pre {
+      flex: 1 1 220px;
+      margin: 0;
+    }
+    .dns-copy-btn {
+      flex: 0 0 auto;
+      background: var(--control-bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+      font-weight: 600;
+    }
+    .dns-copy-btn.is-copied {
+      border-color: var(--success);
+      color: var(--success);
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <header class="top">
+      <div class="brand">x402 Machine to Machine Email Server</div>
+      <div class="top-right">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme">Theme: Auto</button>
+        <button class="theme-toggle" id="density-toggle" type="button" aria-label="Toggle density mode">Density: Comfortable</button>
+        <div class="domain">mail.cusethejuice.com<span class="release-version"> · v1.3.17</span></div>
+      </div>
+    </header>
+    <aside class="left">
+      <nav class="nav">
+        <div class="nav-group" role="group" aria-label="Getting started">
+          <span class="nav-group-label">Getting started</span>
+          <a href="/admin-api/" class="active">Home</a>
+          <a href="/admin-api/ui/create-user">Create user</a>
+          <a href="/admin-api/ui/register-domain">Register domain</a>
+          <a href="/admin-api/ui/domain-admin">Domain admin</a>
+          <a href="/admin-api/ui/how-it-works">How it works</a>
+          <a href="/admin-api/ui/manual-humans">Manual for Humans</a>
+          <a href="/admin-api/ui/manual-ai-bots">Manual for AI bots</a>
+          <a href="/admin-api/ui/acceptable-use">Acceptable use</a>
+          <a href="/admin-api/ui/hold-harmless">Risk disclaimer</a>
+        </div>
+        <div class="nav-group" role="group" aria-label="Mailbox">
+          <span class="nav-group-label">Mailbox</span>
+          <a href="/admin-api/ui/mailbox">All mailbox tools</a>
+          <a href="/send-message.html">Send message</a>
+          <a href="/machine-mail.html">Mailbox forms (static)</a>
+          <a href="/trust-in-mailbox.html">Trust index (static)</a>
+        </div>
+        <div class="nav-group" role="group" aria-label="Storage">
+          <span class="nav-group-label">Storage</span>
+          <a href="/admin-api/ui/storage-upgrade">Quota upgrade</a>
+        </div>
+      </nav>
+    </aside>
+    <main class="main">
+      
+  <h1 class="section-title">x402 Machine to Machine Email Server</h1>
+  <div class="intro">
+    <p><strong>What this is.</strong> A real mail domain behind paid HTTP flows: create mailboxes with x402, send mail, and list, fetch, or parse messages. It turns standard email into a metered API your automation can call.</p>
+    <p><strong>Why machines use it.</strong> Agents often need to reach another organization without registering a separate OAuth app or bespoke webhook for every counterparty. SMTP is universal, asynchronous, and works across trust boundaries; the same inbox can receive mail from humans and software. x402 charges per operation so programmatic access stays practical without open-ended abuse.</p>
+  </div>
+  <div class="card">
+    <h2>Free trial</h2>
+    
+    <p><strong>Trial is OFF.</strong> Trial features are currently disabled on this host.</p>
+    
+  </div>
+  <p class="meta">Create mailboxes (x402) and read mail via paid list / fetch / attachment-parse flows. <a href="/admin-api/ui/mailbox">All mailbox tools</a> lists every human flow. For routing and spam-check details, see <a href="/admin-api/ui/how-it-works">How it works</a>.</p>
+  
+  <h2>Pricing</h2>
+  <div class="card">
+    <table class="pricing">
+      <thead>
+        <tr>
+          <th>Action</th>
+          <th>Price</th>
+          <th>What you get</th>
+    </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Create mailbox</td>
+          <td><strong>1.00 USDC</strong></td>
+          <td>Provision a new mailbox account through the admin UI x402 flow.</td>
+        </tr>
+        <tr>
+          <td>List messages</td>
+          <td><strong>0.01 USDC</strong></td>
+          <td>Get a paid list of recent messages with message id, subject, and date.</td>
+        </tr>
+        <tr>
+          <td>Search mailbox</td>
+          <td><strong>0.01 USDC</strong></td>
+          <td>Find messages whose raw content contains your query (substring match; optional folder and scan limits).</td>
+        </tr>
+        <tr>
+          <td>Get one message</td>
+          <td><strong>0.01 USDC</strong></td>
+          <td>Fetch full headers and body for a single message id.</td>
+        </tr>
+        <tr>
+          <td>Parse attachments</td>
+          <td><strong>0.01 USDC</strong></td>
+          <td>Extract attachment metadata, previews, and small payloads.</td>
+        </tr>
+        <tr>
+          <td>Send outbound mail</td>
+          <td><strong>0.01 USDC</strong></td>
+          <td>Send one outbound message through the mailbox over SMTP submission.</td>
+        </tr>
+        <tr>
+          <td>Move message</td>
+          <td><strong>0.01 USDC</strong></td>
+          <td><code>POST /machine/request/move</code> — move a message between folders.</td>
+        </tr>
+        <tr>
+          <td>Delete message</td>
+          <td><strong>0.01 USDC</strong></td>
+          <td><code>POST /machine/request/delete</code> — delete one message.</td>
+        </tr>
+        <tr>
+          <td>Forward message</td>
+          <td><strong>0.01 USDC</strong></td>
+          <td><code>POST /machine/request/forward</code> — forward via SMTP.</td>
+        </tr>
+        <tr>
+          <td>Reply</td>
+          <td><strong>0.01 USDC</strong></td>
+          <td><code>POST /machine/request/reply</code>.</td>
+        </tr>
+        <tr>
+          <td>Reply all</td>
+          <td><strong>0.01 USDC</strong></td>
+          <td><code>POST /machine/request/reply-all</code>.</td>
+        </tr>
+        <tr>
+          <td>Create folder</td>
+          <td><strong>0.01 USDC</strong></td>
+          <td><code>POST /machine/request/folder/create</code> — create an IMAP folder.</td>
+        </tr>
+        <tr>
+          <td>Rename folder</td>
+          <td><strong>0.01 USDC</strong></td>
+          <td><code>POST /machine/request/folder/rename</code>.</td>
+        </tr>
+        <tr>
+          <td>Delete folder</td>
+          <td><strong>0.01 USDC</strong></td>
+          <td><code>POST /machine/request/folder/delete</code>.</td>
+        </tr>
+        <tr>
+          <td>Reset mailbox password</td>
+          <td><strong>1.00 USDC</strong></td>
+          <td>Change password after proving the current password (<code>/machine/request/mailbox/reset-password</code>).</td>
+        </tr>
+        <tr>
+          <td>Download mailbox (zip)</td>
+          <td><strong>1.00 USDC</strong></td>
+          <td>HTTPS link to a zip of mailbox contents; link expires after 1 hour or 3 downloads (<code>/machine/request/mailbox/download</code>).</td>
+        </tr>
+        <tr>
+          <td>Add recovery email</td>
+          <td><strong>1.00 USDC</strong></td>
+          <td>While logged in, register a recovery address on a domain <strong>not</strong> hosted here (same list as create-user domains; <code>/machine/request/mailbox/recovery-email</code>).</td>
+        </tr>
+        <tr>
+          <td>Account recovery — request code</td>
+          <td><strong>1.00 USDC</strong></td>
+          <td>Forgot password: request a code to your registered recovery address (<code>/machine/request/account-recovery/request</code>).</td>
+        </tr>
+        <tr>
+          <td>Account recovery — set new password</td>
+          <td><strong>1.00 USDC</strong></td>
+          <td>Submit recovery code and new password (<code>/machine/request/account-recovery/complete</code>).</td>
+        </tr>
+        <tr>
+          <td>Check mailbox quota</td>
+          <td><strong>0.01 USDC</strong></td>
+          <td>Show configured quota and current usage for the mailbox.</td>
+        </tr>
+        <tr>
+          <td>Trust index (list / add / update / delete)</td>
+          <td><strong>0.01 USDC</strong></td>
+          <td>Per request: view or edit sender-trust rules used by inbound filtering (when enabled on this host).</td>
+        </tr>
+        <tr>
+          <td>Storage 100 MB</td>
+          <td><strong>1.00 USDC</strong></td>
+          <td>Raises mailbox storage quota to 100 MB (over default 10M).</td>
+        </tr>
+        <tr>
+          <td>Storage 500 MB</td>
+          <td><strong>3.00 USDC</strong></td>
+          <td>Raises mailbox storage quota to 500 MB.</td>
+        </tr>
+        <tr>
+          <td>Storage 1 GB</td>
+          <td><strong>5.00 USDC</strong></td>
+          <td>Raises mailbox storage quota to 1 GB.</td>
+        </tr>
+      </tbody>
+  </table>
+    <p class="meta">Prices are read live from <code>/admin-api/ui/config</code>. Per-action mailbox prices fall back to the default mailbox action price (<strong>0.01 USDC</strong>) when unset.</p>
+  </div>
+  <h2>What you can do here</h2>
+  <ul class="ops">
+    <li>
+      <a href="/admin-api/ui/create-user">Create user</a>
+      <span class="meta"> — New mailbox account after x402 payment.</span>
+    </li>
+    <li>
+      <a href="/machine-mail.html#mailbox-list">List messages</a>
+      <span class="meta"> — Paid list of recent messages (message id, subject, date).</span>
+    </li>
+    <li>
+      <a href="/machine-mail.html#mailbox-search">Search mailbox</a>
+      <span class="meta"> — 0.01 USDC</span>
+    </li>
+    <li>
+      <a href="/machine-mail.html#mailbox-get">Get message</a>
+      <span class="meta"> — Paid fetch full headers and body for one message id.</span>
+    </li>
+    <li>
+      <a href="/machine-mail.html#mailbox-parse">Parse attachments</a>
+      <span class="meta"> — Paid extract attachment metadata, previews, and small base64 payloads.</span>
+    </li>
+    <li>
+      <a href="/machine-mail.html#mailbox-quota">Check mailbox quota</a>
+      <span class="meta"> — Paid view of mailbox quota and tier.</span>
+    </li>
+    <li>
+      <a href="/trust-in-mailbox.html">Trust index</a>
+      <span class="meta"> — 0.01 USDC per request to list, add, update, or delete inbox/spam trust rows.</span>
+    </li>
+    <li>
+      <a href="/send-message.html">Send message</a>
+      <span class="meta"> — Paid outbound mail from your mailbox (To / CC / BCC, subject, body).</span>
+    </li>
+    <li>
+      <a href="/admin-api/ui/storage-upgrade">Storage upgrade</a>
+      <span class="meta"> — Paid higher storage quota.</span>
+    </li>
+    <li>
+      <a href="/machine-mail.html#ma-reset-pw">Reset mailbox password</a>
+      <span class="meta"> — 1.00 USDC; must know current password.</span>
+    </li>
+    <li>
+      <a href="/machine-mail.html#ma-dl-mailbox">Download mailbox (zip)</a>
+      <span class="meta"> — 1.00 USDC; link expires in 1 hour or after 3 downloads.</span>
+    </li>
+    <li>
+      <a href="/machine-mail.html#ma-trial-balance">Trial balance</a>
+      <span class="meta"> — check remaining promo credit and expiry (requires username + password).</span>
+    </li>
+    <li>
+      <a href="/machine-mail.html#ma-rec-email">Add recovery email</a>
+      <span class="meta"> — 1.00 USDC; external address for forgot-password flow.</span>
+    </li>
+    <li>
+      <a href="/machine-mail.html#ma-account-recovery">Account recovery (forgot password)</a>
+      <span class="meta"> — 1.00 USDC; code is emailed right after the fee (compose → pay, same idea as Send message).</span>
+    </li>
+    <li>
+      <a href="/machine-mail.html#ma-account-recovery-complete">Complete recovery (have code)</a>
+      <span class="meta"> — 1.00 USDC · compose (email, username) → pay → recovery code + new password.</span>
+    </li>
+  </ul>
+  <p class="meta">Links use the same origin as this page (typically your mail host over HTTPS).</p>
+    </main>
+    <footer class="bottom">
+      <span>Help</span>
+      <span class="footer-links">
+        <a href="/admin-api/ui/how-it-works">How it works</a>
+        <span aria-hidden="true"> · </span>
+        <a href="/admin-api/ui/manual-humans">Manual (humans)</a>
+        <span aria-hidden="true"> · </span>
+        <a href="/admin-api/ui/manual-ai-bots">Manual (AI)</a>
+        <span aria-hidden="true"> · </span>
+        <a href="/admin-api/ui/create-user">Create user</a>
+        <span aria-hidden="true"> · </span>
+        <a href="/admin-api/ui/register-domain">Register domain</a>
+        <span aria-hidden="true"> · </span>
+        <a href="/admin-api/ui/domain-admin">Domain admin</a>
+        <span aria-hidden="true"> · </span>
+        <a href="/admin-api/">Home</a>
+        <span aria-hidden="true"> · </span>
+        <a href="/admin-api/ui/mailbox">Mailbox</a>
+        <span aria-hidden="true"> · </span>
+        <a href="/admin-api/ui/storage-upgrade">Storage</a>
+        <span aria-hidden="true"> · </span>
+        <a href="/admin-api/ui/acceptable-use">Acceptable use</a>
+        <span aria-hidden="true"> · </span>
+        <a href="/admin-api/ui/hold-harmless">Risk disclaimer</a>
+        <span aria-hidden="true"> · </span>
+        <a href="/send-message.html">Send (static)</a>
+        <span aria-hidden="true"> · </span>
+        <a href="/machine-mail.html">Mailbox forms (static)</a>
+        <span aria-hidden="true"> · </span>
+        <a href="/trust-in-mailbox.html">Trust index (static)</a>
+      </span>
+    </footer>
+  </div>
+  <dialog id="x402-wallet-dialog" class="x402-dialog" aria-labelledby="x402-wallet-dialog-title">
+    <div class="x402-dialog-inner">
+      <h2 id="x402-wallet-dialog-title">Build X-PAYMENT with your wallet</h2>
+      <p class="meta">This server expects <strong>x402 v2</strong> with <strong>USDC</strong> on the network shown in the challenge (usually Base). Connect an <strong>EVM</strong> wallet that holds USDC there — for example Coinbase Wallet, MetaMask, or Phantom with Ethereum/EVM enabled.</p>
+      <div>
+        <span class="meta">Wallets detected on this page:</span>
+        <ul id="x402-wallet-provider-list"></ul>
+      </div>
+      <div class="x402-dialog-actions">
+        <button type="button" id="x402-wallet-connect">Connect</button>
+        <button type="button" id="x402-wallet-build">Sign &amp; fill X-PAYMENT</button>
+      </div>
+      <p id="x402-wallet-status" class="meta" aria-live="polite"></p>
+      <p class="meta" style="margin:0;">
+        <button type="button" data-x402-close>Close</button>
+      </p>
+    </div>
+  </dialog>
+</body>
+<script>
+  (function () {
+    var key = "x402-ui-theme";
+    var densityKey = "x402-ui-density";
+    var root = document.documentElement;
+    var btn = document.getElementById("theme-toggle");
+    var densityBtn = document.getElementById("density-toggle");
+    if (!btn || !densityBtn) return;
+    var media = window.matchMedia("(prefers-color-scheme: dark)");
+    function currentStored() {
+      var v = window.localStorage.getItem(key);
+      return v === "light" || v === "dark" ? v : "auto";
+    }
+    function applyTheme(mode) {
+      if (mode === "auto") {
+        if (media.matches) root.setAttribute("data-theme", "dark");
+        else root.removeAttribute("data-theme");
+      } else if (mode === "dark") root.setAttribute("data-theme", "dark");
+      else root.removeAttribute("data-theme");
+      btn.textContent = "Theme: " + mode.charAt(0).toUpperCase() + mode.slice(1);
+    }
+    function cycle(mode) {
+      if (mode === "auto") return "dark";
+      if (mode === "dark") return "light";
+      return "auto";
+    }
+    function currentDensityStored() {
+      var v = window.localStorage.getItem(densityKey);
+      return v === "compact" ? "compact" : "comfortable";
+    }
+    function applyDensity(mode) {
+      if (mode === "compact") root.setAttribute("data-density", "compact");
+      else root.removeAttribute("data-density");
+      densityBtn.textContent = "Density: " + (mode === "compact" ? "Compact" : "Comfortable");
+    }
+    function cycleDensity(mode) {
+      return mode === "compact" ? "comfortable" : "compact";
+    }
+    var mode = currentStored();
+    var densityMode = currentDensityStored();
+    applyTheme(mode);
+    applyDensity(densityMode);
+    btn.addEventListener("click", function () {
+      mode = cycle(mode);
+      if (mode === "auto") window.localStorage.removeItem(key);
+      else window.localStorage.setItem(key, mode);
+      applyTheme(mode);
+    });
+    densityBtn.addEventListener("click", function () {
+      densityMode = cycleDensity(densityMode);
+      if (densityMode === "comfortable") window.localStorage.removeItem(densityKey);
+      else window.localStorage.setItem(densityKey, densityMode);
+      applyDensity(densityMode);
+    });
+    if (typeof media.addEventListener === "function") {
+      media.addEventListener("change", function () {
+        if (currentStored() === "auto") applyTheme("auto");
+      });
+    }
+  })();
+</script>
+<script type="module" src="/admin-api/ui/x402-wallet-pay.mjs"></script>
+</html>

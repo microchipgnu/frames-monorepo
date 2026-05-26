@@ -1,0 +1,17 @@
+HTTP/2 200 
+age: 0
+cache-control: private, no-cache, no-store, max-age=0, must-revalidate
+content-type: text/html; charset=utf-8
+date: Tue, 26 May 2026 14:59:51 GMT
+permissions-policy: interest-cohort=()
+referrer-policy: strict-origin-when-cross-origin
+server: Vercel
+strict-transport-security: max-age=63072000
+vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-matched-path: /
+x-powered-by: Next.js
+x-vercel-cache: MISS
+x-vercel-id: cdg1::iad1::vgfgz-1779807591080-0339a11bf297
+

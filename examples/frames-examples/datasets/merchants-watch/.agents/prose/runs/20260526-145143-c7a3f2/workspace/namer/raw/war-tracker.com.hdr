@@ -1,0 +1,19 @@
+HTTP/2 200 
+date: Tue, 26 May 2026 15:00:06 GMT
+content-type: text/html
+cache-control: public, max-age=300, s-maxage=300
+x-xss-protection: 1; mode=block
+x-frame-options: SAMEORIGIN
+x-content-type-options: nosniff
+last-modified: Wed, 20 May 2026 16:33:21 GMT
+link: </x402.json>; rel="payment"; type="application/json", </api/v1/openapi.json>; rel="service-desc"; type="application/json", </api/v1/docs>; rel="service-doc"; type="text/html", </api/v1/redoc>; rel="service-doc"; type="text/html", </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json", </llms.txt>; rel="describedby"; type="text/plain", </sitemap.xml>; rel="sitemap"; type="application/xml", </healthz>; rel="status"; type="application/json"
+server: cloudflare
+vary: Accept-Encoding
+cf-cache-status: REVALIDATED
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=w6xMJDe54KiLbH%2FPOS12hjWfbs27Se%2BvAeeAdXnHLDs6lgE9eCw%2BeVsIK0triER231WdZOMygBSfVGTATjQFKGQboIDZhmC%2BBKI%2FKxFHiYxtKVunJV1LyIOncex0LVtJjvPOPPDRZUjEeMPiKQ%3D%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+expect-ct: max-age=86400, enforce
+referrer-policy: same-origin
+cf-ray: a01da5c1eb22eeea-LIS
+alt-svc: h3=":443"; ma=86400
+

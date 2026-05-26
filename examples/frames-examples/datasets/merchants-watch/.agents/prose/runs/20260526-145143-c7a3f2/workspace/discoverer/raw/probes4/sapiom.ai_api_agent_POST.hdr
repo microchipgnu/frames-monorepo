@@ -1,0 +1,26 @@
+HTTP/2 307 
+cache-control: public, max-age=0, must-revalidate
+content-type: text/plain
+date: Tue, 26 May 2026 15:07:40 GMT
+location: https://www.sapiom.ai/api/agent
+server: Vercel
+strict-transport-security: max-age=63072000
+x-vercel-id: cdg1::9qmq5-1779808060157-78076b9361f2
+
+HTTP/2 404 
+accept-ranges: bytes
+access-control-allow-origin: *
+age: 25323
+cache-control: public, max-age=0, must-revalidate
+content-disposition: inline; filename="404"
+content-type: text/html; charset=utf-8
+date: Tue, 26 May 2026 15:07:40 GMT
+etag: "c6a0e2891dfaa97bbc99165752e0f3cd"
+last-modified: Tue, 26 May 2026 08:05:36 GMT
+server: Vercel
+strict-transport-security: max-age=63072000
+x-matched-path: /404
+x-vercel-cache: HIT
+x-vercel-id: cdg1::992nr-1779808060304-c340eee51334
+content-length: 8488
+

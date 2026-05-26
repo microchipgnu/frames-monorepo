@@ -1,0 +1,13 @@
+HTTP/2 404 
+cache-control: no-store
+content-security-policy: frame-ancestors 'self' https://app.suedeai.ai https://www.app.suedeai.ai
+content-type: application/json
+date: Tue, 26 May 2026 15:06:40 GMT
+server: Vercel
+strict-transport-security: max-age=63072000
+vary: RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch
+x-frame-options: SAMEORIGIN
+x-matched-path: /api/[...path]
+x-vercel-cache: MISS
+x-vercel-id: cdg1::iad1::wstvr-1779808000734-40cb5675008a
+

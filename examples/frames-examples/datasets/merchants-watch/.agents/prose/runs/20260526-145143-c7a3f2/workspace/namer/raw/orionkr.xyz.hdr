@@ -1,0 +1,13 @@
+HTTP/2 200 
+access-control-allow-headers: Content-Type, Authorization, X-API-Key, X-PAYMENT
+access-control-allow-methods: GET, POST, OPTIONS
+access-control-allow-origin: *
+access-control-expose-headers: X-PAYMENT-RESPONSE, PAYMENT-REQUIRED
+alt-svc: h3=":443"; ma=2592000
+content-type: text/html; charset=utf-8
+date: Tue, 26 May 2026 15:00:03 GMT
+etag: W/"ec3-XQ9fbV9gau/s8+aZZ06i6FYlVmg"
+server: Caddy
+x-powered-by: Express
+content-length: 3779
+

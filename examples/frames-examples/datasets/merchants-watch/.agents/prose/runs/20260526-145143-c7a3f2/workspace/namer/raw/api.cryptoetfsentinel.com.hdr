@@ -1,0 +1,8 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Tue, 26 May 2026 15:00:05 GMT
+Content-Type: application/json
+Content-Length: 344
+Connection: keep-alive
+Content-Security-Policy: default-src 'none'; frame-ancestors 'none'
+

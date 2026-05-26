@@ -1,0 +1,81 @@
+# Surf
+
+> Pay-per-use research and inference API for AI agents. Twitter, Reddit, GitHub, web data, and LLM chat completions with x402 micropayments.
+
+Base URL: https://surf.cascade.fyi
+Payment: USDC on Base, Solana, or Tempo via x402/MPP. No API keys needed.
+Marketplace: https://surf.cascade.fyi
+
+## Overview
+
+13 endpoints: /api/v1/twitter/{search,tweet,user}, /api/v1/reddit/{search,post,subreddit,user}, /api/v1/github/{search,get,snapshot}, /api/v1/web/{search,crawl} (GET + POST), /api/v1/inference/v1/chat/completions (POST, OpenAI-compatible, streaming supported). Model list at /api/v1/inference/v1/models. MCP server at /mcp with optional ?tools= filter. Every endpoint accepts an x402 or MPP wallet payment, or a Surf API key / OAuth token charged to your account.
+
+## Payment Flow
+
+All paid endpoints return HTTP 402 with payment instructions on first request.
+Use `npx x402-proxy` to handle payment automatically:
+
+1. Install: `npm i -g x402-proxy` (or use `npx` directly)
+2. Check wallet: `npx x402-proxy wallet`
+3. Make requests - payment is handled transparently on 402 responses
+
+Supported networks: Base (EVM), Solana, Tempo (MPP).
+Force a specific network: `npx x402-proxy --network base ...` or `--network solana`.
+
+## Try It
+
+    npx x402-proxy https://surf.cascade.fyi/api/v1/twitter/user/cascade_fyi
+
+    npx x402-proxy https://surf.cascade.fyi/api/v1/reddit/search/x402+protocol
+
+    npx x402-proxy https://surf.cascade.fyi/api/v1/web/crawl/https://x402.org
+
+    npx x402-proxy --method POST --header "Content-Type: application/json" --body '{"model":"moonshotai/kimi-k2.5","messages":[{"role":"user","content":"Hello"}]}' https://surf.cascade.fyi/api/v1/inference/v1/chat/completions
+
+## Endpoints
+
+| Method | Path | Price | Description |
+| --- | --- | --- | --- |
+| POST | /api/v1/twitter/search | $0.005 | Search Twitter with advanced operators |
+| POST | /api/v1/twitter/tweet | $0.005 | Fetch a tweet with thread context and optional replies/quotes |
+| POST | /api/v1/twitter/user | $0.005 | Fetch a user profile with recent tweets |
+| POST | /api/v1/reddit/search | $0.005 | Search Reddit posts |
+| POST | /api/v1/reddit/post | $0.005 | Fetch a Reddit post with comments |
+| POST | /api/v1/reddit/subreddit | $0.005 | Fetch subreddit info and top posts |
+| POST | /api/v1/reddit/user | $0.005 | Fetch a Reddit user profile with recent posts and comments |
+| POST | /api/v1/web/search | $0.01 | Web search powered by Exa |
+| POST | /api/v1/web/crawl | $0.002 | Crawl web pages and extract content |
+| POST | /api/v1/github/search | $0.002 | Search GitHub repositories and conversations |
+| POST | /api/v1/github/get | $0.002 | Fetch GitHub repository data (repo, readme, files, commits, PRs, issues) |
+| POST | /api/v1/github/snapshot | $0.005 | Generate or retrieve a downloadable repository snapshot bundle |
+| GET | /api/v1/twitter/user/:ref | $0.005 | Fetch a user profile with recent tweets (GET shorthand) |
+| GET | /api/v1/twitter/tweet/:ref | $0.005 | Fetch a tweet with thread context (GET shorthand) |
+| GET | /api/v1/twitter/search/:query | $0.005 | Search Twitter (GET shorthand) |
+| GET | /api/v1/reddit/post/:ref | $0.005 | Fetch a Reddit post with comments (GET shorthand) |
+| GET | /api/v1/reddit/subreddit/:name | $0.005 | Fetch subreddit info and posts (GET shorthand) |
+| GET | /api/v1/reddit/user/:ref | $0.005 | Fetch Reddit user profile (GET shorthand) |
+| GET | /api/v1/reddit/search/:query | $0.005 | Search Reddit (GET shorthand) |
+| GET | /api/v1/web/search/:query | $0.01 | Web search (GET shorthand) |
+| GET | /api/v1/web/crawl/* | $0.002 | Crawl a web page (GET shorthand) |
+| POST | /api/v1/amazon/search | $0.005 | Search Amazon by keyword or browse bestsellers by category slug |
+| POST | /api/v1/amazon/product | $0.01 | Fetch live Amazon product detail (buybox + full offer listing + embedded top reviews) by ASIN |
+| POST | /api/v1/youtube/subtitles | $0.01 | Fetch YouTube subtitles/transcript (VTT) by 11-char video_id; returns a presigned download URL to the .vtt file |
+| POST | /api/v1/inference/v1/messages | async ctx=>{const body=await ctx.adapter.getBody?.();return`$${computeInferencePrice(body??{})}`} | Anthropic Messages API compatible LLM inference (streaming supported) |
+| POST | /api/v1/inference/v1/chat/completions | dynamic | LLM chat completion (OpenAI-compatible, streaming supported) |
+
+## MCP (Model Context Protocol)
+
+This service is available as an MCP server for AI agents:
+
+    npx x402-proxy mcp https://surf.cascade.fyi/mcp
+
+List available tools:
+
+    npx @modelcontextprotocol/inspector --cli npx x402-proxy mcp https://surf.cascade.fyi/mcp --method tools/list
+
+## Links
+
+- [OpenAPI Spec](https://surf.cascade.fyi/openapi.json)
+- [API Reference](https://surf.cascade.fyi/docs)
+- [Surf Marketplace](https://surf.cascade.fyi)
+- [x402 Protocol](https://x402.org)

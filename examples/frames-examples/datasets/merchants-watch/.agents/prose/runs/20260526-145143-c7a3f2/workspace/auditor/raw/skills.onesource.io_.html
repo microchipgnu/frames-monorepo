@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OneSource - Pay-per-call Ethereum RPC for Agents</title>
+<meta name="description" content="Pay-per-call Ethereum mainnet RPC for AI agents. Live block, balance, contract, NFT, transaction, and event data served directly from mainnet nodes. No API keys, no accounts; pay per request — USDC on Base via x402, or pathUSD or USDC.e on Tempo via MPP.">
+<meta property="og:title" content="OneSource - Pay-per-call Ethereum RPC for Agents">
+<meta property="og:description" content="Pay-per-call Ethereum mainnet RPC for AI agents. Live block, balance, contract, NFT, transaction, and event data served directly from mainnet nodes. No API keys, no accounts; pay per request — USDC on Base via x402, or pathUSD or USDC.e on Tempo via MPP.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<style>
+:root { color-scheme: light dark; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; max-width: 42rem; margin: 4rem auto; padding: 0 1.5rem; line-height: 1.55; }
+h1 { margin-bottom: 0.25rem; }
+p.tagline { color: #666; margin-top: 0; }
+code { background: rgba(127,127,127,0.15); padding: 0.1em 0.35em; border-radius: 4px; font-size: 0.9em; }
+ul { padding-left: 1.25rem; }
+li { margin: 0.25rem 0; }
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<h1>OneSource</h1>
+<p class="tagline">Pay-per-call Ethereum RPC for AI agents.</p>
+
+<p>Every endpoint proxies a single live RPC call - balances, blocks, receipts, events, ENS, contract and NFT introspection - returning fresh data from Ethereum mainnet. No API keys, no accounts. Pay per request: USDC on Base via <a href="https://docs.cdp.coinbase.com/x402/welcome">x402</a>, or pathUSD or USDC.e on Tempo via <a href="https://mpp.dev">MPP</a>.</p>
+
+<h2>Discover</h2>
+<ul>
+<li><a href="/openapi.json">/openapi.json</a> - full OpenAPI 3.1 spec with per-endpoint pricing, input/output schemas, and x-bazaar discovery metadata</li>
+<li><a href="/.well-known/x402">/.well-known/x402</a> - x402 discovery fallback document</li>
+<li><a href="/api/pricing">/api/pricing</a> - flat list of endpoints and per-call USDC cost</li>
+<li><a href="/api/networks">/api/networks</a> - supported networks (ethereum, sepolia, avax)</li>
+</ul>
+
+<h2>Try it</h2>
+<p>Using <a href="https://agentcash.dev">AgentCash</a> (handles both x402 and MPP):</p>
+<p><code>npx agentcash try https://skills.onesource.io</code></p>
+
+<p>Or call directly with <a href="https://www.npmjs.com/package/@x402/fetch">@x402/fetch</a> for x402, or <a href="https://github.com/tempoxyz/mpp-go">mpp-go</a> for MPP - either client handles the 402 payment flow automatically.</p>
+</body>
+</html>

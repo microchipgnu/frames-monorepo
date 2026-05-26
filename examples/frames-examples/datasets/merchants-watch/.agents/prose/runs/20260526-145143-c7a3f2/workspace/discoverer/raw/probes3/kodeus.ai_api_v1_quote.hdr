@@ -1,0 +1,20 @@
+HTTP/2 404 
+age: 536488
+cache-control: private,no-cache,no-store,max-age=0,must-revalidate
+cache-status: "Next.js"; hit
+cache-status: "Netlify Durable"; fwd=bypass
+cache-status: "Netlify Edge"; fwd=miss
+content-type: text/html; charset=utf-8
+date: Tue, 26 May 2026 15:06:53 GMT
+etag: "e9874qebgsar8"
+netlify-vary: query=__nextDataReq|_rsc,header=x-nextjs-data|x-next-debug-logging|next-router-prefetch|next-router-segment-prefetch|next-router-state-tree|next-url|rsc|accept-encoding,cookie=__prerender_bypass|__next_preview_data
+server: Netlify
+strict-transport-security: max-age=31536000
+vary: rsc,next-router-state-tree,next-router-prefetch,next-router-segment-prefetch,Accept-Encoding
+x-content-type-options: nosniff
+x-nextjs-date: Tue, 26 May 2026 15:06:53 GMT
+x-nextjs-prerender: 1, 1
+x-nextjs-stale-time: 300
+x-nf-request-id: 01KSJD62SVGG8MEJDNXFADP055
+x-powered-by: Next.js
+

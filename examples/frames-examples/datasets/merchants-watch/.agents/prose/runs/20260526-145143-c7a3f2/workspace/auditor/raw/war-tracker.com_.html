@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>War-Tracker — Unbiased, Uncensored, Live War Tracker Map | Real-Time OSINT Conflict Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <!--
+      x402 catalog referer hop. Runs BEFORE the SPA bundle so visitors
+      coming from a paid-API discovery catalog (agentic.market,
+      x402scan, CDP Bazaar, PayAI, x402.org) land on our dedicated
+      x402 policy page (/x402) instead of the generic homepage. This
+      mirrors the nginx-side `if ($http_referer ~* …)` rule on `/`,
+      which is necessary as a fallback because Cloudflare caches the
+      homepage HTML for 5 min with no `Vary: Referer`, so the
+      server-side redirect only fires on cache MISS. The two layers
+      together guarantee the hop fires on every catalog-referred
+      visit (server-side wins on MISS, client-side wins on HIT).
+      Only runs at the homepage path so deep-linked SPA routes are
+      unaffected. Uses location.replace so the homepage never enters
+      history. Wrapped in try/catch so any host failure can never
+      break the homepage render.
+    -->
+    <script>
+      (function () {
+        try {
+          if (window.location.pathname !== '/') return;
+          var ref = document.referrer || '';
+          if (!ref) return;
+          var host;
+          try { host = new URL(ref).host; } catch (e) { return; }
+          var catalogs = [
+            'agentic.market',
+            'www.x402scan.com', 'x402scan.com',
+            'www.x402.org', 'x402.org',
+            'facilitator.payai.network', 'payai.network',
+            'docs.cdp.coinbase.com', 'api.cdp.coinbase.com',
+          ];
+          for (var i = 0; i < catalogs.length; i++) {
+            if (host === catalogs[i] || host.endsWith('.' + catalogs[i])) {
+              window.location.replace('/x402');
+              return;
+            }
+          }
+        } catch (_) { /* swallow — never break SPA boot */ }
+      })();
+    </script>
+    <meta name="description" content="War-Tracker is a live war tracker map showing real-time military strikes and conflict events worldwide. Unbiased, uncensored OSINT: track Ukraine, Middle East, and global conflicts with video evidence as they happen." />
+    <meta name="keywords" content="war tracker, war tracker map, live war tracker, war tracker live, live war tracker map, ww3 map tracker, world war tracker, conflict war tracker, ukraine war tracker, middle east war tracker, russian war tracker, osint war map, osint map live, osint world map conflicts, military strikes map, real-time OSINT, live strike map, war zone map, live conflict map, military tracker, unbiased conflict map, uncensored war tracker" />
+    <link rel="canonical" href="https://war-tracker.com/" />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <!--
+      Machine-discoverable LLM-onboarding hooks. `skill.md` is the
+      Claude/Cursor "Skills" format (a quotable instruction file an LLM
+      can ingest in one shot — see /skill.md) and `llms.txt` is the
+      Anthropic-format API/site index. The `<link rel=alternate>`
+      mechanism lets agent-readiness scanners (e.g. isitagentready.com)
+      discover them without HTML parsing.
+    -->
+    <link rel="alternate" type="text/markdown" href="/skill.md" title="LLM skill onboarding" />
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM site index" />
+    <link rel="alternate" type="application/json" href="/api/v1/openapi.json" title="OpenAPI 3.x spec" />
+    <!-- Open Graph / social & AI crawlers -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="War-Tracker — Live War Tracker Map | Real-Time OSINT" />
+    <meta property="og:description" content="War-Tracker is a live war tracker map showing real-time military strikes and conflict events. Unbiased, uncensored OSINT with video evidence. Track Ukraine, Middle East, and global conflicts as they happen." />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <!-- Dropped Google Fonts (IBM Plex Sans/Serif) — Plex Serif was unused and
+         Plex Sans is referenced only on .app-header-subtitle which already
+         falls back to system-ui. Removing the preconnect + stylesheet eliminates
+         a render-blocking third-party request on every page load. -->
+    <!--
+      Inline Organization + WebSite JSON-LD (Phase 2 of AI-search rollout).
+      Every SPA route (/, /video_mode, /marine, /popular_events, /?event=…) ships
+      this @graph so AI crawlers that don't traverse to /share/* still discover
+      the publisher entity + the SearchAction sitelink target. `sameAs` is
+      populated at build time by vite.config.ts from the ORGANIZATION_SAME_AS_URLS
+      env var (Phase 6 authority slot); empty array when unset.
+    -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://war-tracker.com/#org",
+            "name": "War-Tracker",
+            "url": "https://war-tracker.com/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://war-tracker.com/favicon-1024.png",
+              "width": 1024,
+              "height": 1024
+            },
+            "sameAs": []
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://war-tracker.com/#website",
+            "url": "https://war-tracker.com/",
+            "name": "War-Tracker",
+            "publisher": { "@id": "https://war-tracker.com/#org" },
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://war-tracker.com/?event={search_term_string}"
+              },
+              "query-input": "required name=search_term_string"
+            }
+          },
+          {
+            "@type": "WebAPI",
+            "@id": "https://war-tracker.com/#api",
+            "name": "War-Tracker Public JSON API",
+            "description": "Read-only JSON API for global conflict events, military strikes, AIS vessel tracking, and Strait of Hormuz transit data. Free anonymous tier (60 req/min/IP); paid endpoints via x402 micropayment protocol.",
+            "url": "https://war-tracker.com/developers",
+            "documentation": "https://war-tracker.com/api/v1/openapi.json",
+            "termsOfService": "https://war-tracker.com/terms",
+            "provider": { "@id": "https://war-tracker.com/#org" }
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://war-tracker.com/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Does War-Tracker have a public API?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. War-Tracker offers a free anonymous read-only JSON API at /api/v1/events, /api/v1/regions, /api/v1/countries, and /api/v1/event-types. The OpenAPI 3.x specification is published at https://war-tracker.com/api/v1/openapi.json. Paid endpoints for AIS vessel tracking, sanctioned-hull data, and Strait of Hormuz crossings are available via the x402 micropayment protocol (USDC on Base)."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is the War-Tracker API free?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The conflict-event endpoints (events, regions, countries, event-types) are free with a 60 requests-per-minute per-IP rate limit and open CORS. Paid endpoints \u2014 vessel identity, AIS positions, sanctioned-hull lookups, Hormuz crossings \u2014 cost between $0.001 and $0.025 USDC per request via x402."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What data does the War-Tracker API provide?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Global conflict events (military strikes, naval incidents, drone attacks, missile launches, troop movements) classified from public OSINT sources with location, timestamp, event type, country and source-post URL. Plus AIS vessel data on roughly 600,000 hulls, around 1,400 sanctioned vessels (OFAC, UK FCDO, EU, UANI), and a live Strait of Hormuz transit feed."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is there an OpenAPI specification?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. The OpenAPI 3.x specification is at https://war-tracker.com/api/v1/openapi.json. It documents every endpoint, parameter, and response schema for both free and paid tiers."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do I call the War-Tracker API?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Any HTTP client. Example: curl https://war-tracker.com/api/v1/events?country=UA&limit=50 \u2014 no API key required for the free tier. For paid endpoints, use any x402-compatible HTTP buyer (for example Coinbase x402-fetch or the Dexter buyer) with a USDC-funded wallet on Base."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What are the rate limits?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "60 requests per minute per IP for the free tier. Paid x402 endpoints have no per-IP cap beyond standard abuse protection \u2014 each request settles a USDC micropayment."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do I configure my LLM to use War-Tracker?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Tell your LLM: Set up https://war-tracker.com/skill.md \u2014 the skill file teaches Claude, ChatGPT, Cursor and any LLM agent how to fetch events, search vessels, and pay for premium endpoints via x402. No API key required."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does War-Tracker support Model Context Protocol (MCP)?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. War-Tracker exposes a remote MCP server at https://war-tracker.com/mcp \u2014 add this URL to Claude Desktop, Cursor, or any MCP-compatible client and your agent gets first-class access to the conflict-event corpus, region lookups, and vessel tracking tools."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does War-Tracker support WebMCP?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Every War-Tracker page registers tools via the W3C navigator.modelContext API. In-browser AI agents (ChatGPT Atlas, Claude for Chrome, Cursor browser, Comet) automatically discover available tools without configuration."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do AI training crawlers pay for War-Tracker access?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Training crawlers (GPTBot, ClaudeBot, anthropic-ai, Google-Extended, Applebot-Extended, CCBot, Bytespider, Meta-ExternalAgent) are gated by the x402 micropayment protocol. Each request returns HTTP 402 with USDC payment requirements; the crawler's facilitator settles in real time."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Which x402 facilitators are supported?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Four independent facilitators concurrently: xpay (facilitator.xpay.sh), Coinbase CDP (api.cdp.coinbase.com/platform/v2/x402), PayAI (facilitator.payai.network), and Dexter (x402.dexter.cash). USDC on Base by default; additional networks (Polygon, Avalanche C-Chain) are supported through the multi-facilitator routing layer documented at https://war-tracker.com/x402."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I use War-Tracker data commercially?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, with attribution. Cite events by their canonical URL https://war-tracker.com/share/{event_id}/{slug}. For mass redistribution (full corpus dumps) email sales@war-tracker.com."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does War-Tracker have an llms.txt?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, at https://war-tracker.com/llms.txt \u2014 a structured guide for AI agents listing all endpoints, taxonomies, sitemaps, and payment policies. A full corpus dump for training is at https://war-tracker.com/llms-full.txt (gated by x402)."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is there a real-time event feed?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Integrators should use the public HTTP API: GET /api/v1/events with ISO-8601 from/to filters and opaque cursor pagination via next_cursor. See https://war-tracker.com/developers for details."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How is War-Tracker data verified?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Events are sourced from public OSINT social posts, classified by an LLM pipeline, and human-reviewed for sensitive events. See https://war-tracker.com/methodology. Each event page links back to the source post for independent verification."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <script type="module" crossorigin src="/assets/index-D9Bs2eLA.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/map-C9IdEWl6.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-DUqIGFGO.css">
+  </head>
+  <body>
+    <!--
+      SEO / no-JS fallback inside #root. React's createRoot(root).render(...) in
+      src/main.tsx clears all children on first render, so this markup is
+      replaced as soon as the SPA mounts — no duplicate <h1> ends up in the
+      hydrated DOM. Scanners that don't execute JS (Bing's SEO audit, screen
+      readers, archive crawlers) see a real <h1> on every SPA route (/,
+      /?event=…, /video_mode, /marine, /popular_events, etc.) instead of an
+      empty <div id="root">. Keep the heading aligned with <title> + meta
+      description keywords (live war tracker map, OSINT, conflict events).
+    -->
+    <div id="root">
+      <h1 style="font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#e2e8f0;background:#0b1220;margin:0;padding:24px;font-size:1.5rem;line-height:1.3;">
+        War-Tracker — Live OSINT War Tracker Map
+      </h1>
+      <p style="font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#94a3b8;background:#0b1220;margin:0;padding:0 24px 24px;font-size:1rem;">
+        Loading real-time military strikes and global conflict events…
+      </p>
+      <!--
+        Plain-text API mention for AI-search grounding (Gemini, ChatGPT-with-search,
+        Bing Copilot, Perplexity). Quotable prose stating the public API exists
+        beats the FAQPage JSON-LD signal alone when the grounding pipeline only
+        reads visible body text. React replaces this on mount.
+      -->
+      <p style="font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#94a3b8;background:#0b1220;margin:0;padding:0 24px 24px;font-size:0.95rem;">
+        War-Tracker also offers a free public read-only
+        <a href="/api/v1/openapi.json" style="color:#93c5fd;text-decoration:none;">JSON API</a>
+        and a
+        <a href="/skill.md" style="color:#93c5fd;text-decoration:none;">skill.md</a>
+        for LLM agents. See the
+        <a href="/developers" style="color:#93c5fd;text-decoration:none;">developer docs</a>
+        or connect via the remote MCP server at
+        <a href="/mcp" style="color:#93c5fd;text-decoration:none;">/mcp</a>.
+      </p>
+      <!--
+        Crawl-only footer: gives bots that don't execute JS (Bingbot, GPTBot,
+        ClaudeBot, etc.) a one-click hop to the authority pages, public API,
+        and llms.txt. React's createRoot replaces #root on mount so humans
+        never see it; the SPA already has its own footer.
+      -->
+      <nav style="font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#94a3b8;background:#0b1220;margin:0;padding:0 24px 6px;font-size:0.9rem;">
+        <a href="/about" style="color:#93c5fd;text-decoration:none;">About</a> ·
+        <a href="/methodology" style="color:#93c5fd;text-decoration:none;">Methodology</a> ·
+        <a href="/pricing" style="color:#93c5fd;text-decoration:none;">Pricing (AI crawlers)</a> ·
+        <a href="/developers" style="color:#93c5fd;text-decoration:none;">Developers</a> ·
+        <a href="/api/v1/openapi.json" style="color:#93c5fd;text-decoration:none;">Public JSON API</a> ·
+        <a href="/llms.txt" style="color:#93c5fd;text-decoration:none;">llms.txt</a> ·
+        <a href="/sitemap.xml" style="color:#93c5fd;text-decoration:none;">Sitemap</a>
+      </nav>
+      <nav style="font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#94a3b8;background:#0b1220;margin:0;padding:0 24px 24px;font-size:0.85rem;">
+        <a href="/privacy" style="color:#93c5fd;text-decoration:none;">Privacy Policy</a> ·
+        <a href="/terms" style="color:#93c5fd;text-decoration:none;">Terms of Service</a>
+      </nav>
+    </div>
+    <!--
+      WebMCP bridge — exposes site tools to in-browser AI agents (ChatGPT Atlas,
+      Claude Computer Use, Comet, Cursor browser, …) via the W3C WebML CG
+      `navigator.modelContext` API. Inlined here (rather than loaded externally
+      from /webmcp.js) so that any HTML-text-based agent-readiness scanner
+      (e.g. isitagentready.com) sees the literal `navigator.modelContext.
+      registerTool(` calls in the homepage source without having to
+      additionally fetch and parse an external script. Silently no-ops in
+      browsers without WebMCP support.
+
+      Tools all wrap the public /api/v1/* JSON endpoints — the same surface a
+      human visitor's browser can already reach. This is NOT a back door past
+      x402; training crawlers run server-side and never execute this script.
+
+      Spec: https://webmachinelearning.github.io/webmcp/
+    -->
+    <script>
+      (function () {
+        'use strict';
+        if (typeof navigator === 'undefined') return;
+
+        // Polyfill navigator.modelContext when the runtime doesn't provide one.
+        // Browsers that natively ship WebMCP (Chrome origin trial, future
+        // stable Chromium, etc.) will already have a non-writable getter on
+        // Navigator.prototype — Object.defineProperty's `configurable: true`
+        // lets us no-op gracefully there. Agent-readiness scanners that
+        // probe the page WITHOUT injecting their own shim will see this
+        // polyfill instead and pick up the tools registered below.
+        try {
+          if (!navigator.modelContext) {
+            Object.defineProperty(navigator, 'modelContext', {
+              value: (function () {
+                var toolMap = {};
+                return {
+                  // Spec-shape methods. Both `registerTool` (current W3C
+                  // draft) and `provideContext` (older proposal still
+                  // referenced by some scanners) record into the same map
+                  // so consumers see a consistent view.
+                  registerTool: function (tool) {
+                    if (!tool || typeof tool.name !== 'string' || !tool.name) {
+                      throw new Error('tool.name is required');
+                    }
+                    toolMap[tool.name] = tool;
+                  },
+                  unregisterTool: function (name) { delete toolMap[name]; },
+                  provideContext: function (opts) {
+                    if (opts && Array.isArray(opts.tools)) {
+                      opts.tools.forEach(function (t) { if (t && t.name) toolMap[t.name] = t; });
+                    }
+                  },
+                  // Convenience surface a few scanners read directly when
+                  // they can't (or won't) call into registerTool's
+                  // implementation — purely additive, not part of the
+                  // formal spec.
+                  get tools() {
+                    return Object.keys(toolMap).map(function (k) { return toolMap[k]; });
+                  },
+                };
+              })(),
+              writable: false,
+              configurable: true,
+              enumerable: true,
+            });
+          }
+        } catch (_) {
+          // navigator.modelContext is natively defined and read-only — that
+          // is the happy path. Fall through and register against it.
+        }
+
+        if (!('modelContext' in navigator) || !navigator.modelContext) return;
+
+        // ─── Shared helpers ─────────────────────────────────────────────
+        function buildUrl(path, params) {
+          var url = new URL(path, location.origin);
+          if (params) {
+            Object.keys(params).forEach(function (k) {
+              var v = params[k];
+              if (v === undefined || v === null || v === '') return;
+              url.searchParams.set(k, String(v));
+            });
+          }
+          return url.toString();
+        }
+
+        async function fetchJSON(path, params) {
+          var res;
+          try {
+            res = await fetch(buildUrl(path, params), {
+              headers: { Accept: 'application/json' },
+              credentials: 'omit',
+            });
+          } catch (netErr) {
+            throw new Error('network error: ' + (netErr && netErr.message ? netErr.message : netErr));
+          }
+          if (!res.ok) {
+            var body = '';
+            try { body = await res.text(); } catch (_) { /* ignore */ }
+            throw new Error('HTTP ' + res.status + ' ' + res.statusText + (body ? ': ' + body.slice(0, 300) : ''));
+          }
+          return res.json();
+        }
+
+        function requirePositiveInt(name, raw) {
+          if (raw === null || raw === undefined) throw new Error(name + ' is required');
+          var n = typeof raw === 'number' ? raw : parseInt(String(raw), 10);
+          if (!Number.isFinite(n) || n <= 0 || Math.floor(n) !== n) {
+            throw new Error(name + ' must be a positive integer');
+          }
+          return n;
+        }
+
+        // Each registration below uses the canonical
+        // `navigator.modelContext.registerTool({ … })` shape with a literal
+        // object argument so that static-text agent-readiness scanners can
+        // pattern-match the call as well as runtime browsers can execute
+        // it. Wrapping in try/catch keeps a single bad registration from
+        // dropping the others — e.g. if a browser ships a stricter
+        // JSON-Schema validator that rejects one tool's input schema.
+        var registered = 0;
+
+        try {
+          navigator.modelContext.registerTool({
+            name: 'wartracker_list_recent_events',
+            title: 'List recent conflict events',
+            description:
+              'List recent classified conflict events from War-Tracker, ordered most-recent first. ' +
+              'Filter by region slug (call wartracker_list_regions first to see available slugs), ' +
+              'ISO-3166-1 alpha-2 country code (e.g. "UA", "IL", "RU"), free-text event type ' +
+              '(e.g. "drone strike", "missile strike", "airstrike"), classifier confidence tier ' +
+              '("LOW", "MEDIUM", "HIGH" \u2014 HIGH means multiple corroborating signals or human ' +
+              'review), or an ISO-8601 date window.',
+            inputSchema: {
+              type: 'object',
+              additionalProperties: false,
+              properties: {
+                region: { type: 'string', description: 'Region slug from wartracker_list_regions, e.g. "eastern-europe", "middle-east".' },
+                country: { type: 'string', description: 'ISO-3166-1 alpha-2 country code, uppercase. Examples: "UA", "IL", "RU", "PS", "LB".' },
+                event_type: { type: 'string', description: 'Free-text event type, case-insensitive. Examples: "drone strike", "missile strike", "airstrike".' },
+                confidence: { type: 'string', enum: ['LOW', 'MEDIUM', 'HIGH'], description: 'Classifier confidence tier. HIGH = corroborating signals or human review; LOW = single-source or ambiguous classification.' },
+                since: { type: 'string', description: 'ISO-8601 lower bound on event date (inclusive).' },
+                until: { type: 'string', description: 'ISO-8601 upper bound on event date (exclusive).' },
+                limit: { type: 'integer', minimum: 1, maximum: 200, default: 50, description: 'Page size (1-200). Defaults to 50.' },
+                cursor: { type: 'string', description: 'Opaque pagination cursor from a previous next_cursor.' }
+              }
+            },
+            annotations: { readOnlyHint: true, untrustedContentHint: true },
+            execute: async function (input) {
+              input = input || {};
+              return fetchJSON('/api/v1/events', {
+                region: input.region, country: input.country, event_type: input.event_type,
+                confidence: input.confidence,
+                from: input.since, to: input.until,
+                limit: input.limit != null ? input.limit : 50,
+                cursor: input.cursor
+              });
+            }
+          });
+          registered += 1;
+        } catch (err) { if (console && console.warn) console.warn('[WebMCP] list_recent_events:', err); }
+
+        try {
+          navigator.modelContext.registerTool({
+            name: 'wartracker_get_event',
+            title: 'Get full event detail',
+            description:
+              'Fetch the full machine-readable payload for a single War-Tracker event by id: ' +
+              'scalar fields, headline, TL;DR, article paragraphs, FAQ, super-event metadata, ' +
+              'media URLs, canonical share URL, and the full schema.org JSON-LD @graph.',
+            inputSchema: {
+              type: 'object',
+              additionalProperties: false,
+              required: ['id'],
+              properties: { id: { type: 'integer', minimum: 1, description: 'War-Tracker event id, e.g. 397003.' } }
+            },
+            annotations: { readOnlyHint: true, untrustedContentHint: true },
+            execute: async function (input) {
+              var id = requirePositiveInt('id', input && input.id);
+              return fetchJSON('/api/v1/events/' + id);
+            }
+          });
+          registered += 1;
+        } catch (err) { if (console && console.warn) console.warn('[WebMCP] get_event:', err); }
+
+        try {
+          navigator.modelContext.registerTool({
+            name: 'wartracker_list_regions',
+            title: 'List tracked regions',
+            description:
+              'List the regions War-Tracker tracks. Each entry has a slug (use with the region ' +
+              'filter on wartracker_list_recent_events), name, member country ISO codes, and ' +
+              'an optional geographic bbox.',
+            inputSchema: { type: 'object', additionalProperties: false, properties: {} },
+            annotations: { readOnlyHint: true },
+            execute: async function () {
+              return fetchJSON('/api/v1/regions');
+            }
+          });
+          registered += 1;
+        } catch (err) { if (console && console.warn) console.warn('[WebMCP] list_regions:', err); }
+
+        try {
+          navigator.modelContext.registerTool({
+            name: 'wartracker_list_countries',
+            title: 'List active countries',
+            description:
+              'List the countries with the most War-Tracker events in the last 90 days. ' +
+              'Each entry has ISO-3166-1 alpha-2 code, English name, and 90-day hit count.',
+            inputSchema: { type: 'object', additionalProperties: false, properties: {} },
+            annotations: { readOnlyHint: true },
+            execute: async function () {
+              return fetchJSON('/api/v1/countries');
+            }
+          });
+          registered += 1;
+        } catch (err) { if (console && console.warn) console.warn('[WebMCP] list_countries:', err); }
+
+        try {
+          navigator.modelContext.registerTool({
+            name: 'wartracker_view_event_on_map',
+            title: 'Show an event on the live map',
+            description:
+              'Navigate the human user\'s current War-Tracker tab to focus on a specific event ' +
+              'on the live map. Updates the URL to /?event={id}; the SPA picks that up to ' +
+              'center the map and open the event panel.',
+            inputSchema: {
+              type: 'object',
+              additionalProperties: false,
+              required: ['id'],
+              properties: { id: { type: 'integer', minimum: 1, description: 'War-Tracker event id to focus on.' } }
+            },
+            annotations: { readOnlyHint: false },
+            execute: async function (input) {
+              var id = requirePositiveInt('id', input && input.id);
+              var deepLink = '/?event=' + id;
+              var navigated = false;
+              try {
+                if (typeof history !== 'undefined' && typeof history.pushState === 'function') {
+                  history.pushState({}, '', deepLink);
+                  try { window.dispatchEvent(new PopStateEvent('popstate')); navigated = true; } catch (_) { /* fall through */ }
+                }
+              } catch (_) { /* fall through */ }
+              if (!navigated) { try { location.href = deepLink; } catch (_) { /* ignore */ } }
+              return { ok: true, event_id: id, url: location.origin + deepLink, share_url: location.origin + '/share/' + id };
+            }
+          });
+          registered += 1;
+        } catch (err) { if (console && console.warn) console.warn('[WebMCP] view_event_on_map:', err); }
+
+        if (registered > 0 && console && console.info) {
+          console.info('[War-Tracker WebMCP] registered ' + registered + ' tool(s) via navigator.modelContext.');
+        }
+      })();
+    </script>
+  </body>
+</html>
+

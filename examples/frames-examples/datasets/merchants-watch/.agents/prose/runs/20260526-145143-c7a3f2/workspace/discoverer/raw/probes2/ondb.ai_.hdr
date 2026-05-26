@@ -1,0 +1,15 @@
+HTTP/2 200 
+content-type: text/html
+content-length: 30754
+date: Tue, 26 May 2026 15:06:19 GMT
+cache-control: public, max-age=0, s-maxage=31536000
+server: AmazonS3
+accept-ranges: bytes
+etag: "6768d110a0b7d11462ff590a83a16448"
+last-modified: Thu, 30 Apr 2026 13:26:24 GMT
+x-cache: Miss from cloudfront
+via: 1.1 4caf89d9551581434521ab922bf19f74.cloudfront.net (CloudFront)
+x-amz-cf-pop: LIS50-P2
+alt-svc: h3=":443"; ma=86400
+x-amz-cf-id: GtipV1yH58JazoKFAM8ZPJUpVa8b6_e-wqjD5E00WJLeZ5T8OJMBfg==
+

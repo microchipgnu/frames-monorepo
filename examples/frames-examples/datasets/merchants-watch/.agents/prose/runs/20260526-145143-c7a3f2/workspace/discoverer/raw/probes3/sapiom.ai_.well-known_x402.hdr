@@ -1,0 +1,26 @@
+HTTP/2 307 
+cache-control: public, max-age=0, must-revalidate
+content-type: text/plain
+date: Tue, 26 May 2026 15:07:09 GMT
+location: https://www.sapiom.ai/.well-known/x402
+server: Vercel
+strict-transport-security: max-age=63072000
+x-vercel-id: cdg1::gjjd6-1779808029323-8fe685b9ada1
+
+HTTP/2 404 
+accept-ranges: bytes
+access-control-allow-origin: *
+age: 25293
+cache-control: public, max-age=0, must-revalidate
+content-disposition: inline; filename="404"
+content-type: text/html; charset=utf-8
+date: Tue, 26 May 2026 15:07:09 GMT
+etag: "c6a0e2891dfaa97bbc99165752e0f3cd"
+last-modified: Tue, 26 May 2026 08:05:36 GMT
+server: Vercel
+strict-transport-security: max-age=63072000
+x-matched-path: /404
+x-vercel-cache: HIT
+x-vercel-id: cdg1::ld6nf-1779808029560-910f0f80bc8b
+content-length: 8488
+

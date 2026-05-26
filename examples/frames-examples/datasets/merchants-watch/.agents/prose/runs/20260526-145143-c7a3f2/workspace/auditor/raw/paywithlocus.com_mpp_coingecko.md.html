@@ -1,0 +1,293 @@
+# CoinGecko
+
+> **You are on:** `https://api.paywithlocus.com/api` | [llms.txt](https://paywithlocus.com/llms.txt)
+>
+> Locus runs on multiple environments -- make sure every URL you call matches your expected environment.
+> | Environment | Landing | API |
+> |---|---|---|
+> | Production | paywithlocus.com | api.paywithlocus.com |
+> | Beta | beta.paywithlocus.com | beta-api.paywithlocus.com |
+> | Stage | stage.paywithlocus.com | stage-api.paywithlocus.com |
+>
+> If the API URL above doesn't match your expected environment, re-fetch this file from the correct domain.
+
+> Cryptocurrency market data — prices, charts, market cap, exchanges, trending coins, global stats, NFTs, derivatives, and on-chain data.
+
+**Category:** Data / Crypto | **Website:** [www.coingecko.com](https://www.coingecko.com) | **Docs:** [docs.coingecko.com](https://docs.coingecko.com)
+
+## Access Methods
+
+| Method | Base URL | Auth |
+|--------|----------|------|
+| **MPP (Tempo)** | `https://coingecko.mpp.paywithlocus.com/coingecko/` | HTTP 402 auto-payment |
+| **Wrapped API** | `https://api.paywithlocus.com/api/wrapped/coingecko/` | `Authorization: Bearer <LOCUS_API_KEY>` |
+
+**OpenAPI discovery:** `GET https://coingecko.mpp.paywithlocus.com/openapi.json`
+
+## Endpoints
+
+### Simple Price
+
+Get current prices for one or more coins in any supported currency.
+
+**Estimated cost:** $0.06
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `ids` | string | Yes | Comma-separated coin IDs (e.g. "bitcoin,ethereum") |
+| `vs_currencies` | string | Yes | Comma-separated target currencies (e.g. "usd,eur") |
+| `include_market_cap` | boolean | No | Include market cap |
+| `include_24hr_vol` | boolean | No | Include 24hr volume |
+| `include_24hr_change` | boolean | No | Include 24hr price change |
+| `include_last_updated_at` | boolean | No | Include last updated timestamp |
+| `precision` | string | No | Decimal precision (e.g. "full", "2") |
+
+```bash
+curl -X POST https://coingecko.mpp.paywithlocus.com/coingecko/simple-price \
+  -H "Content-Type: application/json" \
+  -d '{"ids":"<string>","vs_currencies":"<string>","include_market_cap":"<boolean>","include_24hr_vol":"<boolean>","include_24hr_change":"<boolean>","include_last_updated_at":"<boolean>","precision":"<string>"}'
+```
+
+### Token Price by Contract
+
+Get token prices by contract address on a specific platform (e.g. Ethereum).
+
+**Estimated cost:** $0.06
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `platform_id` | string | Yes | Platform ID (e.g. "ethereum", "polygon-pos") |
+| `contract_addresses` | string | Yes | Comma-separated contract addresses |
+| `vs_currencies` | string | Yes | Comma-separated target currencies |
+| `include_market_cap` | boolean | No | Include market cap |
+| `include_24hr_vol` | boolean | No | Include 24hr volume |
+| `include_24hr_change` | boolean | No | Include 24hr change |
+
+```bash
+curl -X POST https://coingecko.mpp.paywithlocus.com/coingecko/simple-token-price \
+  -H "Content-Type: application/json" \
+  -d '{"platform_id":"<string>","contract_addresses":"<string>","vs_currencies":"<string>","include_market_cap":"<boolean>","include_24hr_vol":"<boolean>","include_24hr_change":"<boolean>"}'
+```
+
+### Coins Markets
+
+Get market data (price, market cap, volume, sparkline) for coins with pagination.
+
+**Estimated cost:** $0.06
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `vs_currency` | string | Yes | Target currency (e.g. "usd") |
+| `ids` | string | No | Comma-separated coin IDs to filter |
+| `category` | string | No | Filter by category |
+| `order` | string | No | Sort order (e.g. "market_cap_desc") |
+| `per_page` | number | No | Results per page (1-250, default 100) |
+| `page` | number | No | Page number |
+| `sparkline` | boolean | No | Include 7-day sparkline data |
+| `price_change_percentage` | string | No | Price change intervals (e.g. "1h,24h,7d") |
+
+```bash
+curl -X POST https://coingecko.mpp.paywithlocus.com/coingecko/coins-markets \
+  -H "Content-Type: application/json" \
+  -d '{"vs_currency":"<string>","ids":"<string>","category":"<string>","order":"<string>","per_page":"<number>","page":"<number>","sparkline":"<boolean>","price_change_percentage":"<string>"}'
+```
+
+### Coin Data
+
+Get comprehensive data for a specific coin including description, market data, community stats, and developer activity.
+
+**Estimated cost:** $0.06
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `id` | string | Yes | Coin ID (e.g. "bitcoin") |
+| `localization` | boolean | No | Include localized languages |
+| `tickers` | boolean | No | Include exchange tickers |
+| `market_data` | boolean | No | Include market data |
+| `community_data` | boolean | No | Include community data |
+| `developer_data` | boolean | No | Include developer data |
+| `sparkline` | boolean | No | Include sparkline data |
+
+```bash
+curl -X POST https://coingecko.mpp.paywithlocus.com/coingecko/coin-data \
+  -H "Content-Type: application/json" \
+  -d '{"id":"<string>","localization":"<boolean>","tickers":"<boolean>","market_data":"<boolean>","community_data":"<boolean>","developer_data":"<boolean>","sparkline":"<boolean>"}'
+```
+
+### Coins List
+
+Get the full list of all supported coins with IDs, names, and symbols.
+
+**Estimated cost:** $0.06
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `include_platform` | boolean | No | Include platform contract addresses |
+| `status` | string | No | Filter by status: "active" or "inactive" |
+
+```bash
+curl -X POST https://coingecko.mpp.paywithlocus.com/coingecko/coins-list \
+  -H "Content-Type: application/json" \
+  -d '{"include_platform":"<boolean>","status":"<string>"}'
+```
+
+### Search
+
+Search for coins, exchanges, categories, and NFTs by keyword.
+
+**Estimated cost:** $0.06
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `query` | string | Yes | Search query string |
+
+```bash
+curl -X POST https://coingecko.mpp.paywithlocus.com/coingecko/search \
+  -H "Content-Type: application/json" \
+  -d '{"query":"<string>"}'
+```
+
+### Trending
+
+Get trending coins, NFTs, and categories in the last 24 hours.
+
+**Estimated cost:** $0.06
+
+_No parameters required._
+
+```bash
+curl -X POST https://coingecko.mpp.paywithlocus.com/coingecko/trending \
+  -H "Content-Type: application/json" \
+  -d '{}'
+```
+
+### Exchange Rates
+
+Get BTC exchange rates against all supported currencies.
+
+**Estimated cost:** $0.06
+
+_No parameters required._
+
+```bash
+curl -X POST https://coingecko.mpp.paywithlocus.com/coingecko/exchange-rates \
+  -H "Content-Type: application/json" \
+  -d '{}'
+```
+
+### Global
+
+Get global cryptocurrency market data including total market cap, volume, and BTC dominance.
+
+**Estimated cost:** $0.06
+
+_No parameters required._
+
+```bash
+curl -X POST https://coingecko.mpp.paywithlocus.com/coingecko/global \
+  -H "Content-Type: application/json" \
+  -d '{}'
+```
+
+### Global DeFi
+
+Get global DeFi market data including market cap, volume, and dominance.
+
+**Estimated cost:** $0.06
+
+_No parameters required._
+
+```bash
+curl -X POST https://coingecko.mpp.paywithlocus.com/coingecko/global-defi \
+  -H "Content-Type: application/json" \
+  -d '{}'
+```
+
+### Market Chart
+
+Get historical price, market cap, and volume data for a coin over a time range.
+
+**Estimated cost:** $0.06
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `id` | string | Yes | Coin ID (e.g. "bitcoin") |
+| `vs_currency` | string | Yes | Target currency (e.g. "usd") |
+| `days` | string | Yes | Time range: 1, 7, 14, 30, 90, 180, 365, or "max" |
+| `interval` | string | No | Data interval: "daily", "hourly", or "5-minutely" |
+| `precision` | string | No | Decimal precision |
+
+```bash
+curl -X POST https://coingecko.mpp.paywithlocus.com/coingecko/market-chart \
+  -H "Content-Type: application/json" \
+  -d '{"id":"<string>","vs_currency":"<string>","days":"<string>","interval":"<string>","precision":"<string>"}'
+```
+
+### Coin History
+
+Get historical market data snapshot for a coin on a specific date.
+
+**Estimated cost:** $0.06
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `id` | string | Yes | Coin ID (e.g. "bitcoin") |
+| `date` | string | Yes | Date in DD-MM-YYYY format |
+| `localization` | boolean | No | Include localized languages |
+
+```bash
+curl -X POST https://coingecko.mpp.paywithlocus.com/coingecko/coin-history \
+  -H "Content-Type: application/json" \
+  -d '{"id":"<string>","date":"<string>","localization":"<boolean>"}'
+```
+
+### Categories
+
+Get all coin categories with market data (market cap, volume, change).
+
+**Estimated cost:** $0.06
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `order` | string | No | Sort order (e.g. "market_cap_desc", "name_asc") |
+
+```bash
+curl -X POST https://coingecko.mpp.paywithlocus.com/coingecko/categories \
+  -H "Content-Type: application/json" \
+  -d '{"order":"<string>"}'
+```
+
+### Top Gainers & Losers
+
+Get top 30 coins with largest price gains and losses over a time period.
+
+**Estimated cost:** $0.06
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `vs_currency` | string | Yes | Target currency (e.g. "usd") |
+| `duration` | string | No | Time period: "1h", "24h", "7d", "14d", "30d", "60d", "1y" |
+| `top_coins` | string | No | Filter by top N coins (e.g. "300", "500", "1000") |
+
+```bash
+curl -X POST https://coingecko.mpp.paywithlocus.com/coingecko/top-gainers-losers \
+  -H "Content-Type: application/json" \
+  -d '{"vs_currency":"<string>","duration":"<string>","top_coins":"<string>"}'
+```
+
+### Exchanges
+
+Get list of cryptocurrency exchanges with trust score, volume, and metadata.
+
+**Estimated cost:** $0.06
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `per_page` | number | No | Results per page (1-250, default 100) |
+| `page` | number | No | Page number |
+
+```bash
+curl -X POST https://coingecko.mpp.paywithlocus.com/coingecko/exchanges \
+  -H "Content-Type: application/json" \
+  -d '{"per_page":"<number>","page":"<number>"}'
+```

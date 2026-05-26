@@ -1,0 +1,142 @@
+{
+  "budget_usd": 0.30,
+  "spent_usd": 0.16,
+  "remaining_usd": 0.14,
+  "calls": [
+    {
+      "tool": "twitter_search",
+      "query": "from:BlockRunAI",
+      "host": "blockrun.ai",
+      "amount_usd": 0.01,
+      "ts": "2026-05-26T15:04:00Z",
+      "outcome": "verified-active"
+    },
+    {
+      "tool": "twitter_search",
+      "query": "from:clashofcoins",
+      "host": "x402.clashofcoins.com",
+      "amount_usd": 0.01,
+      "ts": "2026-05-26T15:04:20Z",
+      "outcome": "verified-active"
+    },
+    {
+      "tool": "twitter_search",
+      "query": "from:oatp_ai",
+      "host": "api.oatp.cc",
+      "amount_usd": 0.01,
+      "ts": "2026-05-26T15:04:30Z",
+      "outcome": "below-follower-bar-but-active"
+    },
+    {
+      "tool": "twitter_search",
+      "query": "from:hyre_agent",
+      "host": "mpp.hyreagent.fun",
+      "amount_usd": 0.01,
+      "ts": "2026-05-26T15:04:40Z",
+      "outcome": "verified-active"
+    },
+    {
+      "tool": "twitter_search",
+      "query": "from:SlinkyLayer",
+      "host": "x402.slinkylayer.ai",
+      "amount_usd": 0.01,
+      "ts": "2026-05-26T15:04:50Z",
+      "outcome": "verified-active"
+    },
+    {
+      "tool": "twitter_search",
+      "query": "from:twitdotsh",
+      "host": "x402.twit.sh",
+      "amount_usd": 0.01,
+      "ts": "2026-05-26T15:04:24Z",
+      "outcome": "operator-handle-silent"
+    },
+    {
+      "tool": "exa_search",
+      "query": "OATP open agent transaction protocol oatp.cc Solana",
+      "host": "api.oatp.cc",
+      "amount_usd": 0.01,
+      "ts": "2026-05-26T15:04:49Z",
+      "outcome": "no-direct-hit"
+    },
+    {
+      "tool": "exa_search",
+      "query": "Deepnets.ai Solana trading intelligence x402",
+      "host": "api.deepnets.ai",
+      "amount_usd": 0.01,
+      "ts": "2026-05-26T15:04:53Z",
+      "outcome": "no-direct-hit"
+    },
+    {
+      "tool": "exa_search",
+      "query": "aubr.ai AUBRAI x402",
+      "host": "x402-api.aubr.ai",
+      "amount_usd": 0.01,
+      "ts": "2026-05-26T15:04:58Z",
+      "outcome": "direct-hit-aubr-ai"
+    },
+    {
+      "tool": "exa_search",
+      "query": "hugen.tokyo AI agent API platform",
+      "host": "content.hugen.tokyo",
+      "amount_usd": 0.01,
+      "ts": "2026-05-26T15:05:02Z",
+      "outcome": "no-direct-hit"
+    },
+    {
+      "tool": "twitter_search",
+      "query": "aubr.ai",
+      "host": "x402-api.aubr.ai",
+      "amount_usd": 0.01,
+      "ts": "2026-05-26T15:05:18Z",
+      "outcome": "found-@Aubrai_-9942-followers"
+    },
+    {
+      "tool": "twitter_search",
+      "query": "deepnets.ai OR Deepnets.ai",
+      "host": "api.deepnets.ai",
+      "amount_usd": 0.01,
+      "ts": "2026-05-26T15:05:36Z",
+      "outcome": "found-deepnets_ai-handle"
+    },
+    {
+      "tool": "twitter_search",
+      "query": "hugen.tokyo",
+      "host": "content.hugen.tokyo",
+      "amount_usd": 0.01,
+      "ts": "2026-05-26T15:05:45Z",
+      "outcome": "no-operator-match"
+    },
+    {
+      "tool": "twitter_search",
+      "query": "oatp.cc OR open agent transaction protocol",
+      "host": "api.oatp.cc",
+      "amount_usd": 0.01,
+      "ts": "2026-05-26T15:05:50Z",
+      "outcome": "third-party-endorsement-found"
+    },
+    {
+      "tool": "twitter_search",
+      "query": "from:deepnets_ai",
+      "host": "api.deepnets.ai",
+      "amount_usd": 0.01,
+      "ts": "2026-05-26T15:06:26Z",
+      "outcome": "verified-active-453fl"
+    },
+    {
+      "tool": "twitter_search",
+      "query": "twit.sh OR twitdotsh",
+      "host": "x402.twit.sh",
+      "amount_usd": 0.01,
+      "ts": "2026-05-26T15:06:32Z",
+      "outcome": "external-mentions-found"
+    }
+  ],
+  "summary": {
+    "total_calls": 16,
+    "exa_search_calls": 4,
+    "twitter_search_calls": 12,
+    "firecrawl_calls": 0,
+    "budget_remaining_pct": 47
+  }
+}

@@ -1,0 +1,26 @@
+HTTP/2 307 
+cache-control: public, max-age=0, must-revalidate
+content-type: text/plain
+date: Tue, 26 May 2026 15:09:26 GMT
+location: https://www.sapiom.ai/.well-known/agent-card.json
+server: Vercel
+strict-transport-security: max-age=63072000
+x-vercel-id: cdg1::fnbx9-1779808166562-c179d12e8223
+
+HTTP/2 404 
+accept-ranges: bytes
+access-control-allow-origin: *
+age: 25430
+cache-control: public, max-age=0, must-revalidate
+content-disposition: inline; filename="404"
+content-type: text/html; charset=utf-8
+date: Tue, 26 May 2026 15:09:26 GMT
+etag: "c6a0e2891dfaa97bbc99165752e0f3cd"
+last-modified: Tue, 26 May 2026 08:05:36 GMT
+server: Vercel
+strict-transport-security: max-age=63072000
+x-matched-path: /404
+x-vercel-cache: HIT
+x-vercel-id: cdg1::g9n67-1779808166694-de31ad253973
+content-length: 8488
+

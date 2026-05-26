@@ -1,0 +1,25 @@
+HTTP/2 301 
+content-length: 0
+date: Tue, 26 May 2026 15:09:03 GMT
+server: AmazonS3
+location: /api/mcp/
+x-cache: Miss from cloudfront
+via: 1.1 5eaf2d59cfe709772e71a72f64052d16.cloudfront.net (CloudFront)
+x-amz-cf-pop: LIS50-P2
+alt-svc: h3=":443"; ma=86400
+x-amz-cf-id: GsajibbpzPAUpmtUj1OY7oMt59y41UqMhIdd5rjZg1IivoJA_kXpYQ==
+
+HTTP/2 404 
+content-type: text/html
+content-length: 30754
+date: Tue, 26 May 2026 15:09:03 GMT
+last-modified: Thu, 30 Apr 2026 13:26:24 GMT
+server: AmazonS3
+accept-ranges: bytes
+etag: "6768d110a0b7d11462ff590a83a16448"
+x-cache: Error from cloudfront
+via: 1.1 5eaf2d59cfe709772e71a72f64052d16.cloudfront.net (CloudFront)
+x-amz-cf-pop: LIS50-P2
+alt-svc: h3=":443"; ma=86400
+x-amz-cf-id: kxcv3lVmYg57LEiX-eGXPVKTVAEwfDdlThFqffMBcjXTcVbLJ8mxig==
+

@@ -1,0 +1,101 @@
+[
+  {
+    "host": "app.suedeai.ai",
+    "entity_id": "app-suedeai-ai",
+    "display_name": "Suede AI",
+    "description": "Rights-aware AI media generation (music, video, covers, lyrics) sold per-call in USDC on Base via x402; ElizaOS plugin for creative gen.",
+    "category": "media",
+    "probe": {
+      "advertises_x402": true,
+      "advertises_mpp": false,
+      "advertised_methods": ["exact"],
+      "advertised_networks": ["eip155:8453"],
+      "probe_endpoint": "https://app.suedeai.ai/agent/generate",
+      "probe_status": "ok"
+    },
+    "sources": [
+      {
+        "url": "https://x.com/AISUEDE/status/2057784450977616164",
+        "retrieved_at": "2026-05-26T15:02:00Z",
+        "snippet": "first x402-payable ElizaOS plugin for creative gen just shipped. Suede AI: $0.20 music, $1.50 video, rights/provenance <$0.01. USDC on Base, on-chain provenance."
+      },
+      {
+        "url": "https://app.suedeai.ai/.well-known/x402",
+        "retrieved_at": "2026-05-26T15:08:00Z",
+        "snippet": "{\"x402Version\":2,\"resources\":[\"POST /agent/generate\",\"POST /create-music\",\"POST /agent/video\",\"GET /v1/rights/{assetHash}\",\"POST /v1/analyze\",\"POST /v1/extend\",\"POST /v1/cover\",\"POST /v1/vox\",\"POST /v1/continue\",\"POST /v1/stems-pro\",\"POST /v1/stems\",\"POST /v1/acapella\",\"POST /v1/midi\",\"POST /v1/mastering\",\"POST /v1/lyric-sync\",\"POST /v1/lyrics\",\"POST /v1/style-coach\",\"POST /api/payments/x402/credits\"]}"
+      },
+      {
+        "url": "https://app.suedeai.ai/agent/generate",
+        "retrieved_at": "2026-05-26T15:08:00Z",
+        "snippet": "HTTP/2 402 — x402Version 2, accepts [{scheme: exact, network: eip155:8453, amount: 200000 (=0.20 USDC), asset: 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913 (USDC on Base), payTo: 0xb5a05466712fd5bcdf2883f43cC6B1799428032d}], bazaar.category=music, bazaar.tags include x402/ACP/AgentCash/AIAgent."
+      }
+    ]
+  },
+  {
+    "host": "agentworld.me",
+    "entity_id": "agentworld-me",
+    "display_name": "AgentWorld",
+    "description": "Live autonomous AI agent economy on Base L2 — 99+ agents earn and spend USDC. Public x402 endpoints expose live MLB scores/odds, agent voice broadcasts, marketplace, and digital store. Multi-rail (Base, Ethereum, Arbitrum, Polygon, Optimism, Solana).",
+    "category": "other",
+    "probe": {
+      "advertises_x402": true,
+      "advertises_mpp": false,
+      "advertised_methods": ["exact"],
+      "advertised_networks": [
+        "eip155:8453",
+        "eip155:1",
+        "eip155:42161",
+        "eip155:137",
+        "eip155:10",
+        "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp"
+      ],
+      "probe_endpoint": "https://agentworld.me/api/agentworld/baseball/scores/live/paid",
+      "probe_status": "ok"
+    },
+    "sources": [
+      {
+        "url": "https://x.com/MagaShawn/status/2056927533841715249",
+        "retrieved_at": "2026-05-26T15:02:00Z",
+        "snippet": "Just shipped live MLB sports data as an x402 API feed — powered by @AgentWorld_me  99 AI agents run a real sportsbook. Now those odds are a live, pay-per-call API."
+      },
+      {
+        "url": "https://agentworld.me/openapi.json",
+        "retrieved_at": "2026-05-26T15:07:30Z",
+        "snippet": "AgentWorld API 3.0.0 — All paid endpoints use x402 USDC micropayments on Base Mainnet. x-discovery.facilitatorUrl=https://x402-agent-pay.com, network=eip155:8453. Tags include Baseball, Marketplace, Digital Store, Voices & Souls."
+      },
+      {
+        "url": "https://agentworld.me/api/agentworld/baseball/scores/live/paid",
+        "retrieved_at": "2026-05-26T15:08:00Z",
+        "snippet": "HTTP/2 402 — x402Version 2, multi-rail accepts: USDC on Base (1000 = $0.001), Ethereum, Arbitrum, Polygon, Optimism, and Solana (USDC EPjFW...). bazaar.category=Infra, bazaar.provider=AgentWorld."
+      }
+    ]
+  },
+  {
+    "host": "api.trustboost.dev",
+    "entity_id": "api-trustboost-dev",
+    "display_name": "TrustBoost AI",
+    "description": "PII sanitization service for AI agent payloads with on-chain proof of sanitization anchored on Solana; x402-gated with trial scheme (tx_hash=TRIAL) and paid scheme (149 USDC for 10k sanitizations).",
+    "category": "data",
+    "probe": {
+      "advertises_x402": true,
+      "advertises_mpp": false,
+      "advertised_methods": ["exact", "trial"],
+      "advertised_networks": ["solana-mainnet"],
+      "probe_endpoint": "https://api.trustboost.dev/sanitize",
+      "probe_status": "ok"
+    },
+    "sources": [
+      {
+        "url": "https://x.com/TrustBoostAI/status/2058403355211321648",
+        "retrieved_at": "2026-05-26T15:02:00Z",
+        "snippet": "@Fireblocks just shipped payment governance for AI agents. The missing piece: who sanitizes the PII in the payload before it reaches the LLM? Fireblocks → payment layer ✅ TrustBoost → privacy layer ✅ Proof anchored on Solana. #x402 native."
+      },
+      {
+        "url": "https://api.trustboost.dev/sanitize",
+        "retrieved_at": "2026-05-26T15:08:00Z",
+        "snippet": "HTTP/2 402 — x402_version 1.0, accepts: [{scheme: exact, network: solana-mainnet, currency: USDC, amount: 149000000 (=149 USDC), payment_address: giu4VciTkfWJNG1oeP6SzHEJwmabikJSMB91GaFNWE4}, {scheme: trial, tx_hash: TRIAL, 50 free sanitizations}]. x-402-* headers present. agent_card at /.well-known/agent-card.json."
+      }
+    ],
+    "notes": "Uses x402 v1.0 envelope and supports a trial scheme alongside the paid scheme — note the older protocol version when the writer maps networks_accepted (solana-mainnet maps to solana caip-2)."
+  }
+]

@@ -1,0 +1,7 @@
+{
+  "budget_usd_allocated": 0.13,
+  "spent_usd": 0.0,
+  "budget_remaining_usd": 0.13,
+  "paid_calls": [],
+  "notes": "All 28 proposed hosts were categorized using free signals: home-page HTML (curl), FastAPI /openapi.json, /docs Swagger UI, per-merchant skill.md catalogs (paywithlocus.com/mpp/*.md), llms.txt files, and direct 402 challenges from POST probes. No paid firecrawl_scrape or exa_search calls were needed. 2 hosts (x402.slinkylayer.ai, oracle-api-production-766f.up.railway.app) omitted because their host pages had no disambiguating first-party content."
+}

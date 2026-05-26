@@ -1,0 +1,12 @@
+HTTP/2 200 
+access-control-allow-origin: *
+access-control-expose-headers: PAYMENT-RESPONSE,PAYMENT-REQUIRED,PAYMENT-SIGNATURE,X-Payment-Response,WWW-Authenticate,X-Payment,X-Payment-Receipt
+content-type: application/json; charset=utf-8
+date: Tue, 26 May 2026 14:59:59 GMT
+etag: W/"11e5-OwaPPj19jH0k+nTbKO1J2Li6VhY"
+server: railway-edge
+x-powered-by: Express
+x-railway-edge: railway/europe-west4-drams3a
+x-railway-request-id: l9VKQ40LSZyorzsi5nX1uw
+content-length: 4581
+

@@ -1,0 +1,4053 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />		<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+<!-- Geo Controller CSS Classes -->
+<style media="all" id="cfgp-display-control-css" data-nonce="0f5067741b">*[class="cfgeo-show-in-"],*[class*="cfgeo-show-in-"],*[class^="cfgeo-show-in-"]{display: none;}.cfgeo-hide-from-europe,.cfgeo-hide-from-eu,.cfgeo-hide-from-portugal,.cfgeo-hide-from-pt,.cfgeo-hide-from-lisbon,.cfgeo-hide-from-sacavem,.cfgeo-hide-from-eur,.cfgeo-show-in-tor{display:none !important;}.cfgeo-show-in-europe,.cfgeo-show-in-eu,.cfgeo-show-in-portugal,.cfgeo-show-in-pt,.cfgeo-show-in-lisbon,.cfgeo-show-in-sacavem,.cfgeo-show-in-eur,.cfgeo-hide-from-tor{display:block !important;}</style>
+	<!-- CF Geoplugin JavaScript Objects -->
+<script id="cfgp-display-control-js" type="text/javascript">
+/* <![CDATA[ */
+	window.wp = window.wp || {};
+	window.wp.geo = window.wp.geo || {};
+	if(typeof cf == 'undefined') var cf = {};
+	cf.geoplugin = {url:window.location.href,host:window.location.hostname,protocol:window.location.protocol.replace(/\:/g,'')
+	,ip:"81.84.174.160",ip_version:"4",ip_number:"1364504224",ip_server:"172.26.13.58",ip_dns_host:"",ip_dns_provider:"",isp:"",isp_organization:"",isp_as:"",isp_asname:"",is_local_server:"1",continent:"Europe",continent_code:"EU",country:"Portugal",country_code:"PT",country_code_3:"PRT",country_code_numeric:"620",region:"Lisbon",region_code:"11",district:"",city:"Sacavém",postcode:"2685-022",address:"Sacavém, 2685-022, Lisbon, (11), Portugal",is_eu:"1",calling_code:"+351",latitude:"38.7978",longitude:"-9.1062",timezone:"Europe/Lisbon",timezone_offset:"+0100",timezone_abbreviation:"WEST",timestamp:"1779808159",timestamp_readable:"2026-05-26T16:09:19+01:00",current_date:"May 26, 2026",current_time:"16:09:19",currency:"EUR",currency_symbol:"&#8364;",currency_converter:"0.86",base_convert:"USD",base_convert_symbol:"&#036;",is_vat:"1",vat_rate:"23",browser:"unknown",browser_version:"unknown",platform:"Linux",is_mobile:"0",is_proxy:"1",is_spam:"0",is_tor:"0",limited:"0",available_lookup:"500",limit:"500",license_hash:"",gps:"0",official_url:"https://wpgeocontroller.com",credit:"These geographic information provides &lt;a href=&quot;https://wpgeocontroller.com&quot; target=&quot;_blank&quot;&gt;Geo Controller&lt;/a&gt;",version:"8.8.5",flag:"https://www.bananacrystal.com/wp-content/plugins/cf-geoplugin/assets/flags/4x3/pt.svg",key:"97f251ecd232a48a88a48e6464648c3d0c061b13a8d2028174da343225d5ce73"}
+	window.cfgeo = cf.geoplugin;
+	window.wp.geo = window.cfgeo;
+/* ]]> */
+</script>
+	
+	<!-- This site is optimized with the Yoast SEO plugin v26.5 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>agent-economy-glossary - BananaCrystal</title>
+	<meta name="description" content="The emerging category of commercial transactions initiated, negotiated, and completed by AI agents on behalf of humans or other systems, without human approval at each step. Projected to represent 9% of all US online purchases by 2030 ($261 billion)." />
+	<link rel="canonical" href="https://www.bananacrystal.com/agent-economy-glossary/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="agent-economy-glossary - BananaCrystal" />
+	<meta property="og:description" content="The emerging category of commercial transactions initiated, negotiated, and completed by AI agents on behalf of humans or other systems, without human approval at each step. Projected to represent 9% of all US online purchases by 2030 ($261 billion)." />
+	<meta property="og:url" content="https://www.bananacrystal.com/agent-economy-glossary/" />
+	<meta property="og:site_name" content="BananaCrystal" />
+	<meta property="article:modified_time" content="2026-05-18T14:33:05+00:00" />
+	<meta property="og:image" content="https://www.bananacrystal.com/wp-content/uploads/2026/04/Screenshot-2026-04-24-at-11.52.31.png" />
+	<meta property="og:image:width" content="1570" />
+	<meta property="og:image:height" content="1232" />
+	<meta property="og:image:type" content="image/png" />
+	<meta name="twitter:card" content="summary_large_image" />
+	
+	<meta name="twitter:label1" content="Est. reading time" />
+	<meta name="twitter:data1" content="4 minutes" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.bananacrystal.com/agent-economy-glossary/","url":"https://www.bananacrystal.com/agent-economy-glossary/","name":"agent-economy-glossary - BananaCrystal","isPartOf":{"@id":"https://www.bananacrystal.com/#website"},"primaryImageOfPage":{"@id":"https://www.bananacrystal.com/agent-economy-glossary/#primaryimage"},"image":{"@id":"https://www.bananacrystal.com/agent-economy-glossary/#primaryimage"},"thumbnailUrl":"https://www.bananacrystal.com/wp-content/uploads/2026/04/Screenshot-2026-04-24-at-11.52.31.png","datePublished":"2026-04-19T14:40:39+00:00","dateModified":"2026-05-18T14:33:05+00:00","description":"The emerging category of commercial transactions initiated, negotiated, and completed by AI agents on behalf of humans or other systems, without human approval at each step. Projected to represent 9% of all US online purchases by 2030 ($261 billion).","inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.bananacrystal.com/agent-economy-glossary/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.bananacrystal.com/agent-economy-glossary/#primaryimage","url":"https://www.bananacrystal.com/wp-content/uploads/2026/04/Screenshot-2026-04-24-at-11.52.31.png","contentUrl":"https://www.bananacrystal.com/wp-content/uploads/2026/04/Screenshot-2026-04-24-at-11.52.31.png","width":1570,"height":1232,"caption":"BananaCrystal is the payment layer for AI agents"},{"@type":"WebSite","@id":"https://www.bananacrystal.com/#website","url":"https://www.bananacrystal.com/","name":"BananaCrystal","description":"The Payment Layer for AI Agents","publisher":{"@id":"https://www.bananacrystal.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.bananacrystal.com/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https://www.bananacrystal.com/#organization","name":"BananaCrystal","url":"https://www.bananacrystal.com/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.bananacrystal.com/#/schema/logo/image/","url":"https://www.bananacrystal.com/wp-content/uploads/2024/02/bananacrystal-logo.png","contentUrl":"https://www.bananacrystal.com/wp-content/uploads/2024/02/bananacrystal-logo.png","width":300,"height":95,"caption":"BananaCrystal"},"image":{"@id":"https://www.bananacrystal.com/#/schema/logo/image/"},"sameAs":["https://x.com/Banana__Crystal"]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//use.fontawesome.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title="BananaCrystal &raquo; Feed" href="https://www.bananacrystal.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="BananaCrystal &raquo; Comments Feed" href="https://www.bananacrystal.com/comments/feed/" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.bananacrystal.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.bananacrystal.com%2Fagent-economy-glossary%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.bananacrystal.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.bananacrystal.com%2Fagent-economy-glossary%2F&#038;format=xml" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<link rel='stylesheet' id='dashicons-css' href='https://www.bananacrystal.com/wp-includes/css/dashicons.min.css' media='all' />
+<link rel='stylesheet' id='menu-icons-extra-css' href='https://www.bananacrystal.com/wp-content/plugins/menu-icons/css/extra.min.css' media='all' />
+<link rel='stylesheet' id='hfe-widgets-style-css' href='https://www.bananacrystal.com/wp-content/plugins/header-footer-elementor/inc/widgets-css/frontend.css' media='all' />
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<link rel='stylesheet' id='betterdocs-blocks-category-slate-layout-css' href='https://www.bananacrystal.com/wp-content/plugins/betterdocs/assets/blocks/category-slate-layout/default.css' media='all' />
+<style id="cost-calculator-builder-calculator-selector-style-inline-css">
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/style.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+.ccb-gutenberg-block {
+  padding: 20px;
+  border: 1px solid black;
+}
+.ccb-gutenberg-block__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.ccb-gutenberg-block__icon {
+  margin-right: 20px;
+}
+
+/*# sourceMappingURL=style-index.css.map*/
+/*# sourceURL=https://www.bananacrystal.com/wp-content/plugins/cost-calculator-builder/includes/gutenberg-block/build/style-index.css */
+</style>
+<link rel='stylesheet' id='twentig-blocks-css' href='https://www.bananacrystal.com/wp-content/plugins/twentig/dist/style-index.css' media='all' />
+<style id="twentig-blocks-inline-css">
+@media (width < 652px) { .tw-sm-hidden { display: none !important; }}@media (652px <= width < 1024px) { .tw-md-hidden { display: none !important; }}@media (width >= 1024px) { .tw-lg-hidden { display: none !important; }}
+.tw-mt-0{margin-top:0px!important;}.tw-mb-0{margin-bottom:0px!important;}.tw-mt-1{margin-top:5px!important;}.tw-mb-1{margin-bottom:5px!important;}.tw-mt-2{margin-top:10px!important;}.tw-mb-2{margin-bottom:10px!important;}.tw-mt-3{margin-top:15px!important;}.tw-mb-3{margin-bottom:15px!important;}.tw-mt-4{margin-top:20px!important;}.tw-mb-4{margin-bottom:20px!important;}.tw-mt-5{margin-top:30px!important;}.tw-mb-5{margin-bottom:30px!important;}.tw-mt-6{margin-top:40px!important;}.tw-mb-6{margin-bottom:40px!important;}.tw-mt-7{margin-top:50px!important;}.tw-mb-7{margin-bottom:50px!important;}.tw-mt-8{margin-top:60px!important;}.tw-mb-8{margin-bottom:60px!important;}.tw-mt-9{margin-top:80px!important;}.tw-mb-9{margin-bottom:80px!important;}.tw-mt-10{margin-top:100px!important;}.tw-mb-10{margin-bottom:100px!important;}.tw-mt-auto{margin-top:auto!important;}.tw-mb-auto{margin-bottom:auto!important;}
+/*# sourceURL=twentig-blocks-inline-css */
+</style>
+<link rel='stylesheet' id='twenty-twenty-one-custom-color-overrides-css' href='https://www.bananacrystal.com/wp-content/themes/twentytwentyone/assets/css/custom-color-overrides.css' media='all' />
+<style id="twenty-twenty-one-custom-color-overrides-inline-css">
+:root .editor-styles-wrapper{--global--color-background: #ffffff;--global--color-primary: #000;--global--color-secondary: #000;--button--color-background: #000;--button--color-text-hover: #000;}
+/*# sourceURL=twenty-twenty-one-custom-color-overrides-inline-css */
+</style>
+<style id="font-awesome-svg-styles-default-inline-css">
+.svg-inline--fa {
+  display: inline-block;
+  height: 1em;
+  overflow: visible;
+  vertical-align: -.125em;
+}
+/*# sourceURL=font-awesome-svg-styles-default-inline-css */
+</style>
+<link rel='stylesheet' id='font-awesome-svg-styles-css' href='https://www.bananacrystal.com/wp-content/uploads/font-awesome/v6.5.2/css/svg-with-js.css' media='all' />
+<style id="font-awesome-svg-styles-inline-css">
+   .wp-block-font-awesome-icon svg::before,
+   .wp-rich-text-font-awesome-icon svg::before {content: unset;}
+/*# sourceURL=font-awesome-svg-styles-inline-css */
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #FFFFFF;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--dark-gray: #28303D;--wp--preset--color--gray: #39414D;--wp--preset--color--green: #D1E4DD;--wp--preset--color--blue: #D1DFE4;--wp--preset--color--purple: #D1D1E4;--wp--preset--color--red: #E4D1D1;--wp--preset--color--orange: #E4DAD1;--wp--preset--color--yellow: #EEEADD;--wp--preset--color--subtle: #f4f4f4;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--gradient--purple-to-yellow: linear-gradient(160deg, #D1D1E4 0%, #EEEADD 100%);--wp--preset--gradient--yellow-to-purple: linear-gradient(160deg, #EEEADD 0%, #D1D1E4 100%);--wp--preset--gradient--green-to-yellow: linear-gradient(160deg, #D1E4DD 0%, #EEEADD 100%);--wp--preset--gradient--yellow-to-green: linear-gradient(160deg, #EEEADD 0%, #D1E4DD 100%);--wp--preset--gradient--red-to-yellow: linear-gradient(160deg, #E4D1D1 0%, #EEEADD 100%);--wp--preset--gradient--yellow-to-red: linear-gradient(160deg, #EEEADD 0%, #E4D1D1 100%);--wp--preset--gradient--purple-to-red: linear-gradient(160deg, #D1D1E4 0%, #E4D1D1 100%);--wp--preset--gradient--red-to-purple: linear-gradient(160deg, #E4D1D1 0%, #D1D1E4 100%);--wp--preset--font-size--small: 14.4px;--wp--preset--font-size--medium: 18px;--wp--preset--font-size--large: 24px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-size--extra-small: 14px;--wp--preset--font-size--normal: 16px;--wp--preset--font-size--h-3: 32px;--wp--preset--font-size--extra-large: 40px;--wp--preset--font-size--h-2: 48px;--wp--preset--font-size--huge: 64px;--wp--preset--font-size--gigantic: 144px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(body) { margin: 0; }:where(.wp-site-blocks) > * { margin-block-start: 24px; margin-block-end: 0; }:where(.wp-site-blocks) > :first-child { margin-block-start: 0; }:where(.wp-site-blocks) > :last-child { margin-block-end: 0; }:root { --wp--style--block-gap: 24px; }:root :where(.is-layout-flow) > :first-child{margin-block-start: 0;}:root :where(.is-layout-flow) > :last-child{margin-block-end: 0;}:root :where(.is-layout-flow) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-constrained) > :first-child{margin-block-start: 0;}:root :where(.is-layout-constrained) > :last-child{margin-block-end: 0;}:root :where(.is-layout-constrained) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-flex){gap: 24px;}:root :where(.is-layout-grid){gap: 24px;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-dark-gray-color{color: var(--wp--preset--color--dark-gray) !important;}.has-gray-color{color: var(--wp--preset--color--gray) !important;}.has-green-color{color: var(--wp--preset--color--green) !important;}.has-blue-color{color: var(--wp--preset--color--blue) !important;}.has-purple-color{color: var(--wp--preset--color--purple) !important;}.has-red-color{color: var(--wp--preset--color--red) !important;}.has-orange-color{color: var(--wp--preset--color--orange) !important;}.has-yellow-color{color: var(--wp--preset--color--yellow) !important;}.has-subtle-color{color: var(--wp--preset--color--subtle) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-dark-gray-background-color{background-color: var(--wp--preset--color--dark-gray) !important;}.has-gray-background-color{background-color: var(--wp--preset--color--gray) !important;}.has-green-background-color{background-color: var(--wp--preset--color--green) !important;}.has-blue-background-color{background-color: var(--wp--preset--color--blue) !important;}.has-purple-background-color{background-color: var(--wp--preset--color--purple) !important;}.has-red-background-color{background-color: var(--wp--preset--color--red) !important;}.has-orange-background-color{background-color: var(--wp--preset--color--orange) !important;}.has-yellow-background-color{background-color: var(--wp--preset--color--yellow) !important;}.has-subtle-background-color{background-color: var(--wp--preset--color--subtle) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-dark-gray-border-color{border-color: var(--wp--preset--color--dark-gray) !important;}.has-gray-border-color{border-color: var(--wp--preset--color--gray) !important;}.has-green-border-color{border-color: var(--wp--preset--color--green) !important;}.has-blue-border-color{border-color: var(--wp--preset--color--blue) !important;}.has-purple-border-color{border-color: var(--wp--preset--color--purple) !important;}.has-red-border-color{border-color: var(--wp--preset--color--red) !important;}.has-orange-border-color{border-color: var(--wp--preset--color--orange) !important;}.has-yellow-border-color{border-color: var(--wp--preset--color--yellow) !important;}.has-subtle-border-color{border-color: var(--wp--preset--color--subtle) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-purple-to-yellow-gradient-background{background: var(--wp--preset--gradient--purple-to-yellow) !important;}.has-yellow-to-purple-gradient-background{background: var(--wp--preset--gradient--yellow-to-purple) !important;}.has-green-to-yellow-gradient-background{background: var(--wp--preset--gradient--green-to-yellow) !important;}.has-yellow-to-green-gradient-background{background: var(--wp--preset--gradient--yellow-to-green) !important;}.has-red-to-yellow-gradient-background{background: var(--wp--preset--gradient--red-to-yellow) !important;}.has-yellow-to-red-gradient-background{background: var(--wp--preset--gradient--yellow-to-red) !important;}.has-purple-to-red-gradient-background{background: var(--wp--preset--gradient--purple-to-red) !important;}.has-red-to-purple-gradient-background{background: var(--wp--preset--gradient--red-to-purple) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}.has-extra-small-font-size{font-size: var(--wp--preset--font-size--extra-small) !important;}.has-normal-font-size{font-size: var(--wp--preset--font-size--normal) !important;}.has-h-3-font-size{font-size: var(--wp--preset--font-size--h-3) !important;}.has-extra-large-font-size{font-size: var(--wp--preset--font-size--extra-large) !important;}.has-h-2-font-size{font-size: var(--wp--preset--font-size--h-2) !important;}.has-huge-font-size{font-size: var(--wp--preset--font-size--huge) !important;}.has-gigantic-font-size{font-size: var(--wp--preset--font-size--gigantic) !important;}
+:root :where(.wp-block-icon svg){width: 24px;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+<link rel='stylesheet' id='contact-form-7-css' href='https://www.bananacrystal.com/wp-content/plugins/contact-form-7/includes/css/styles.css' media='all' />
+<style id="contact-form-7-inline-css">
+.wpcf7 .wpcf7-recaptcha iframe {margin-bottom: 0;}.wpcf7 .wpcf7-recaptcha[data-align="center"] > div {margin: 0 auto;}.wpcf7 .wpcf7-recaptcha[data-align="right"] > div {margin: 0 0 0 auto;}
+/*# sourceURL=contact-form-7-inline-css */
+</style>
+<link rel='stylesheet' id='hfe-style-css' href='https://www.bananacrystal.com/wp-content/plugins/header-footer-elementor/assets/css/header-footer-elementor.css' media='all' />
+<link rel='stylesheet' id='elementor-icons-css' href='https://www.bananacrystal.com/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css' media='all' />
+<link rel='stylesheet' id='elementor-frontend-css' href='https://www.bananacrystal.com/wp-content/plugins/elementor/assets/css/frontend.min.css' media='all' />
+<link rel='stylesheet' id='elementor-post-22663-css' href='https://www.bananacrystal.com/wp-content/uploads/elementor/css/post-22663.css' media='all' />
+<link rel='stylesheet' id='elementor-pro-css' href='https://www.bananacrystal.com/wp-content/plugins/elementor-pro/assets/css/frontend.min.css' media='all' />
+<link rel='stylesheet' id='htbbootstrap-css' href='https://www.bananacrystal.com/wp-content/plugins/ht-mega-for-elementor/assets/css/htbbootstrap.css' media='all' />
+<link rel='stylesheet' id='font-awesome-css' href='https://www.bananacrystal.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/font-awesome.min.css' media='all' />
+<link rel='stylesheet' id='htmega-animation-css' href='https://www.bananacrystal.com/wp-content/plugins/ht-mega-for-elementor/assets/css/animation.css' media='all' />
+<link rel='stylesheet' id='htmega-keyframes-css' href='https://www.bananacrystal.com/wp-content/plugins/ht-mega-for-elementor/assets/css/htmega-keyframes.css' media='all' />
+<link rel='stylesheet' id='htmega-global-style-min-css' href='https://www.bananacrystal.com/wp-content/plugins/ht-mega-for-elementor/assets/css/htmega-global-style.min.css' media='all' />
+<link rel='stylesheet' id='twenty-twenty-one-style-css' href='https://www.bananacrystal.com/wp-content/themes/twentytwentyone/style.css' media='all' />
+<style id="twenty-twenty-one-style-inline-css">
+:root{--global--color-background: #ffffff;--global--color-primary: #000;--global--color-secondary: #000;--button--color-background: #000;--button--color-text-hover: #000;}
+/*# sourceURL=twenty-twenty-one-style-inline-css */
+</style>
+<link rel='stylesheet' id='twenty-twenty-one-print-style-css' href='https://www.bananacrystal.com/wp-content/themes/twentytwentyone/assets/css/print.css' media='print' />
+<link crossorigin="anonymous" rel='stylesheet' id='font-awesome-official-css' href='https://use.fontawesome.com/releases/v6.5.2/css/all.css' media='all' integrity="sha384-PPIZEGYM1v8zp5Py7UjFb79S58UeqCL9pYVnVPURKEqvioPROaVAJKKLzvH2rDnI" crossorigin="anonymous" />
+<link rel='stylesheet' id='betterdocs-elementor-editor-css' href='https://www.bananacrystal.com/wp-content/plugins/betterdocs/assets/elementor/css/betterdocs-el-edit.css' media='all' />
+<link rel='stylesheet' id='elementor-post-30054-css' href='https://www.bananacrystal.com/wp-content/uploads/elementor/css/post-30054.css' media='all' />
+<link rel='stylesheet' id='twentig-twentyone-css' href='https://www.bananacrystal.com/wp-content/plugins/twentig/dist/css/twentytwentyone/style.css' media='all' />
+<style id="twentig-twentyone-inline-css">
+@media only screen and (max-width:481px){.primary-menu-container{display:block}ul.header-actions{margin-inline-start:0;padding-bottom:120px;justify-content:flex-start}.header-actions .menu-search{margin:0 0 35px;width:100%}.header-actions .menu-search:last-child{margin-bottom:0}.header-actions .search-field{width:100%;border-color:currentcolor;font-size:var(--primary-nav--font-size-mobile)}.header-actions li.social-item{margin-inline-start:calc(0px - var(--primary-nav--padding))}.header-actions .social-item + .social-item{margin-inline-start:0}.header-actions .social-item a{padding:var(--primary-nav--padding)}.header-actions .menu-button{width:100%;margin:0}.header-actions .menu-button a{display:inline-block}.header-actions .social-item + .menu-button{margin-top:35px}.header-actions .menu-search + .menu-button{margin-top:15px}}.footer-navigation{font-size:min(var(--footer--font-size),18px);margin:0}.footer-inline .site-logo{margin:0}.footer-inline .site-name{padding-inline-end:25px;margin-inline-end:0!important}.footer-inline .site-info{display:flex;flex-wrap:wrap;align-items:baseline;padding-top:calc(var(--global--spacing-vertical)*0.5)}.footer-inline .site-info>*{margin-top:calc(var(--global--spacing-vertical)*0.5)}.footer-inline .site-info .powered-by{margin-inline-start:0}.footer-inline .powered-by:not(:last-child),.footer-inline .site-info .site-name:not(:nth-last-child(3)){margin-inline-end:auto;padding-inline-end:60px}.footer-navigation-wrapper{justify-content:flex-start;margin:0 calc(0px - var(--primary-nav--padding))}.footer-navigation-wrapper li{line-height:2.2}.footer-navigation-wrapper li a{padding-block:5px}.footer-navigation:only-child{flex-grow:1}.footer-navigation:only-child .menu-item:not(.social-item) + .social-item,.footer-navigation:only-child .social-item + .menu-item:not(.social-item){margin-inline-start:auto}.tw-footer-bg .footer-inline{padding-top:calc(var(--global--spacing-vertical)*1);padding-bottom:calc(var(--global--spacing-vertical)*1.5)}.tw-footer-monocolor .footer-inline{padding-top:0}.tw-footer-bg .footer-inline .site-info{margin:0;padding:0}@media (max-width:651px){.footer-inline .site-info{flex-direction:column;align-items:flex-start}.footer-inline .site-info .powered-by{order:3;padding-inline-end:0}.footer-navigation:only-child li.menu-item{margin-inline-start:0!important}.footer-navigation li:not(.social-item){width:100%}.footer-navigation li:not(.social-item) ~ .social-item{margin-top:10px}}:root{--max--alignwide-width:1280px;--max--aligndefault-width:740px;--font-base:'Inter',sans-serif;--global--font-size-base:1rem;--global--line-height-body:1.4;--font-headings:'Work Sans',sans-serif;--heading--font-weight:500;--heading--font-weight-page-title:500;--heading--font-weight-strong:500;--widget--font-weight-title:500;--global--letter-spacing:-0.015em;--heading--letter-spacing-h5:-0.015em;--heading--letter-spacing-h6:-0.015em;--global--font-size-xxl:4rem;--primary-nav--font-size:1.125rem;--primary-nav--font-weight:700;--global--color-primary:#39414d;--global--color-secondary:#39414d;--header--color-background:#ffffff;--footer--color-background:#ffffff;--footer--color-text:#000000;--footer--color-link:#000000;--footer--color-link-hover:#000000;--footer--color-link:#28303d;--footer--color-link-hover:#28303d;--widgets--color-text:#39414d;--widgets--color-link:#28303d}.site-header{box-shadow:0 2px 10px 0 rgba(0,0,0,0.16)}:root{--logo--height:95px;--logo--height-mobile:47.5px}.site-footer a,.widget-area a{text-decoration:none}.site-footer a:hover,.widget-area a:hover,.site-footer a:focus,.widget-area a:focus{text-decoration:underline}.footer-navigation-wrapper li a:hover{text-decoration-style:solid}:root{--wp--preset--color--subtle:#f4f4f4}:root .has-subtle-background-color,:root .has-subtle-background-background-color{background-color:#f4f4f4}:root .has-subtle-color{color:#f4f4f4}.footer-custom a{color:var(--footer--color-link)}#page input[type=submit],#page .wp-block-button:not(.is-style-outline) .wp-block-button__link:not(.has-background),.wp-block-file .wp-block-file__button{background-color:#564dca;border-color:#564dca;color:#ffffff}#page .wp-block-button.is-style-outline .wp-block-button__link:not(.has-background):not(.has-text-color){border-color:#564dca;color:#564dca}input[type=submit]:hover,input[type=submit]:focus,input[type=submit]:active,.wp-block-button:not(.is-style-outline) .wp-block-button__link:not(.has-background):hover,.wp-block-button:not(.is-style-outline) .wp-block-button__link:not(.has-background):focus,.wp-block-button:not(.is-style-outline) .wp-block-button__link:not(.has-background):active,.wp-block-button.is-style-outline .wp-block-button__link:not(.has-text-color):hover,.wp-block-button.is-style-outline .wp-block-button__link:not(.has-text-color):focus,.wp-block-button.is-style-outline .wp-block-button__link:not(.has-text-color):active,.wp-block-file .wp-block-file__button:hover,.wp-block-file .wp-block-file__button:focus,.wp-block-file .wp-block-file__button:active{background-color:#564dca!important;border-color:#564dca!important;color:#ffffff!important}@media(max-width:651px){.site-logo .custom-logo{max-width:150px;max-height:none!important}}.wpcf7-form p{margin-bottom:30px}span.wpcf7-form-control-wrap{display:block;margin-top:10px}div.wpcf7 .ajax-loader,div.wpcf7 wpcf7-spinner{margin-left:20px;vertical-align:text-top}.wpcf7-not-valid-tip{font-size:var(--global--font-size-xs);margin-top:5px;color:var(--error--color)}.wpcf7-text{width:100%}.wpcf7 form .wpcf7-response-output{margin:40px 0 0;border:0;padding:0;color:var(--error--color)}.wpcf7 form.sent .wpcf7-response-output{color:currentcolor}.wpcf7-list-item.first{margin-left:0}.wpcf7-list-item label{display:flex}input + .wpcf7-list-item-label,.wpcf7-list-item-label + input{margin-left:10px}
+/*# sourceURL=twentig-twentyone-inline-css */
+</style>
+<link crossorigin="anonymous" rel='stylesheet' id='twentig-twentyone-fonts-css' href='https://fonts.googleapis.com/css2?family=Inter%3Aital%2Cwght%400%2C400%3B0%2C700%3B1%2C400&#038;family=Work+Sans%3Awght%40500&#038;display=swap' media='all' />
+<link rel='stylesheet' id='hfe-elementor-icons-css' href='https://www.bananacrystal.com/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css' media='all' />
+<link rel='stylesheet' id='hfe-icons-list-css' href='https://www.bananacrystal.com/wp-content/plugins/elementor/assets/css/widget-icon-list.min.css' media='all' />
+<link rel='stylesheet' id='hfe-social-icons-css' href='https://www.bananacrystal.com/wp-content/plugins/elementor/assets/css/widget-social-icons.min.css' media='all' />
+<link rel='stylesheet' id='hfe-social-share-icons-brands-css' href='https://www.bananacrystal.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/brands.css' media='all' />
+<link rel='stylesheet' id='hfe-social-share-icons-fontawesome-css' href='https://www.bananacrystal.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.css' media='all' />
+<link rel='stylesheet' id='hfe-nav-menu-icons-css' href='https://www.bananacrystal.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.css' media='all' />
+<link rel='stylesheet' id='hfe-widget-blockquote-css' href='https://www.bananacrystal.com/wp-content/plugins/elementor-pro/assets/css/widget-blockquote.min.css' media='all' />
+<link rel='stylesheet' id='hfe-mega-menu-css' href='https://www.bananacrystal.com/wp-content/plugins/elementor-pro/assets/css/widget-mega-menu.min.css' media='all' />
+<link rel='stylesheet' id='hfe-nav-menu-widget-css' href='https://www.bananacrystal.com/wp-content/plugins/elementor-pro/assets/css/widget-nav-menu.min.css' media='all' />
+<link rel='stylesheet' id='ekit-widget-styles-css' href='https://www.bananacrystal.com/wp-content/plugins/elementskit-lite/widgets/init/assets/css/widget-styles.css' media='all' />
+<link rel='stylesheet' id='ekit-responsive-css' href='https://www.bananacrystal.com/wp-content/plugins/elementskit-lite/widgets/init/assets/css/responsive.css' media='all' />
+<link rel='stylesheet' id='widget-icon-list-css' href='https://www.bananacrystal.com/wp-content/plugins/elementor/assets/css/widget-icon-list.min.css' media='all' />
+<link rel='stylesheet' id='master-addons-main-style-css' href='https://www.bananacrystal.com/wp-content/plugins/master-addons/assets/css/master-addons-styles.css' media='all' />
+<link rel='stylesheet' id='wpr-text-animations-css-css' href='https://www.bananacrystal.com/wp-content/plugins/royal-elementor-addons/assets/css/lib/animations/text-animations.min.css' media='all' />
+<link rel='stylesheet' id='wpr-addons-css-css' href='https://www.bananacrystal.com/wp-content/plugins/royal-elementor-addons/assets/css/frontend.min.css' media='all' />
+<link rel='stylesheet' id='font-awesome-5-all-css' href='https://www.bananacrystal.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css' media='all' />
+<link crossorigin="anonymous" rel='stylesheet' id='font-awesome-official-v4shim-css' href='https://use.fontawesome.com/releases/v6.5.2/css/v4-shims.css' media='all' integrity="sha384-XyvK/kKwgVW+fuRkusfLgfhAMuaxLPSOY8W7wj8tUkf0Nr2WGHniPmpdu+cmPS5n" crossorigin="anonymous" />
+<link crossorigin="anonymous" rel='stylesheet' id='google-fonts-1-css' href='https://fonts.googleapis.com/css?family=Roboto:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic%7CRoboto+Slab:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&#038;display=swap&#038;ver=7.0' media='all' />
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin><script id="jquery-core-js-before">
+/* < ![CDATA[ */
+function jltmaNS(n){for(var e=n.split("."),a=window,i="",r=e.length,t=0;r>t;t++)"window"!=e[t]&&(i=e[t],a[i]=a[i]||{},a=a[i]);return a;}
+/* ]]> */
+//# sourceURL=jquery-core-js-before
+</script>
+<script id="jquery-core-js" data-cfasync="false" src="https://www.bananacrystal.com/wp-includes/js/jquery/jquery.min.js"></script>
+<script id="jquery-migrate-js" data-cfasync="false" src="https://www.bananacrystal.com/wp-includes/js/jquery/jquery-migrate.min.js"></script>
+<script id="jquery-js-after">
+!function($){"use strict";$(document).ready(function(){$(this).scrollTop()>100&&$(".hfe-scroll-to-top-wrap").removeClass("hfe-scroll-to-top-hide"),$(window).scroll(function(){$(this).scrollTop()<100?$(".hfe-scroll-to-top-wrap").fadeOut(300):$(".hfe-scroll-to-top-wrap").fadeIn(300)}),$(".hfe-scroll-to-top-wrap").on("click",function(){$("html, body").animate({scrollTop:0},300);return!1})})}(jQuery);
+!function($){'use strict';$(document).ready(function(){var bar=$('.hfe-reading-progress-bar');if(!bar.length)return;$(window).on('scroll',function(){var s=$(window).scrollTop(),d=$(document).height()-$(window).height(),p=d? s/d*100:0;bar.css('width',p+'%')});});}(jQuery);
+//# sourceURL=jquery-js-after
+</script>
+<link rel="https://api.w.org/" href="https://www.bananacrystal.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://www.bananacrystal.com/wp-json/wp/v2/pages/38087" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.bananacrystal.com/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 7.0" />
+<link rel='shortlink' href='https://www.bananacrystal.com/?p=38087' />
+<script type="text/javascript">window.ccb_nonces = {"ccb_payment":"1f3e91347f","ccb_contact_form":"53353bc9d6","ccb_woo_checkout":"2cddac8ed0","ccb_add_order":"2020bd4d84","ccb_orders":"49bde8af08","ccb_update_order":"dd1d2fed78","ccb_send_invoice":"02f6d111be","ccb_get_invoice":"5b0356ee02","ccb_wp_hook_nonce":"63e6ad9147","ccb_razorpay_receive":"ef2e2916e3","ccb_woocommerce_payment":"476b334114"};</script>
+		<!-- GA Google Analytics @ https://m0n.co/ga -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-5X9QDT6P1D"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-5X9QDT6P1D');
+		</script>
+
+	<!--Customizer CSS-->
+<style type="text/css">
+#masthead-wrapper, .site-header {
+    border-bottom-style: solid;
+    border-bottom-width: 0;
+}
+body { font-size:1.1rem; }:root { --global--color-primary: #6a62d0; }:root { --global--color-secondary: #6a62d0; }:root { --button--color-background: #6a62d0; }:root { --button--color-text-hover: #6a62d0; }@media only screen and (min-width: 482px) {
+	:root {
+		--responsive--aligndefault-width: min(calc(100vw - 4 * var(--global--spacing-horizontal)), 970px);
+	}
+}
+@media only screen and (min-width: 822px) {
+	:root {
+		--responsive--aligndefault-width: min(calc(100vw - 8 * var(--global--spacing-horizontal)), 970px);
+	}
+}
+@media only screen and (min-width: 482px) and (max-width: 821px) {
+	.post-thumbnail,
+	.entry-content .wp-audio-shortcode,
+	.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
+	*[class*=inner-container] > *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
+	.default-max-width,
+	.wp-block-search,
+	hr.wp-block-separator:not(.is-style-dots):not(.alignwide),
+	.entry-content > .alignleft,
+	.entry-content > .alignright,
+	.author-bio,
+	.search-form {
+		max-width: calc(100vw - 100px);
+	}
+	.author-bio.show-avatars .author-bio-content {
+		max-width: calc(100vw - 190px);
+	}
+	.entry-content > .alignleft,
+	.entry-content > .alignright {
+		margin-right: 50px;
+	}
+	.entry-content > .alignleft,
+	.entry-content > .alignright {
+		max-width: calc(50% - 50px);
+	}
+}@media only screen and (min-width: 822px) and (max-width: 1170px) {
+	.post-thumbnail,
+	.entry-content .wp-audio-shortcode,
+	.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
+	*[class*=inner-container] > *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
+	.default-max-width,
+	.wp-block-search,
+	hr.wp-block-separator:not(.is-style-dots):not(.alignwide),
+	.entry-content > .alignleft,
+	.entry-content > .alignright,
+	.author-bio,
+	.search-form {
+		max-width: calc(100vw - 200px);
+	}
+	.author-bio.show-avatars .author-bio-content {
+		max-width: calc(100vw - 290px);
+	}
+	.entry-content > .alignleft,
+	.entry-content > .alignright {
+		margin-right: 100px;
+	}
+	.entry-content > .alignleft,
+	.entry-content > .alignright {
+		max-width: calc(50% - 100px);
+	}
+}@media only screen and (min-width: 1171px) {
+	.post-thumbnail,
+	.entry-content .wp-audio-shortcode,
+	.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
+	*[class*=inner-container] > *:not(.entry-content):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),
+	.default-max-width,
+	.wp-block-search,
+	hr.wp-block-separator:not(.is-style-dots):not(.alignwide),
+	.entry-content > .alignleft,
+	.entry-content > .alignright,
+	.author-bio,
+	.search-form {
+		max-width: 970px;
+	}
+	.author-bio.show-avatars .author-bio-content {
+		max-width: 880px;
+	}
+	.entry-content > .alignleft,
+	.entry-content > .alignright {
+		margin-right: calc(0.5 * (100vw - 970px));
+	}
+	.entry-content > .alignleft,
+	.entry-content > .alignright {
+		max-width: calc(0.5 * 970px);
+	}
+}
+@media only screen and (min-width: 482px) {
+.site-header {
+max-width: calc(100vw -  38px);
+}
+}
+.site-header .site-logo .custom-logo {
+    max-width: 180px;
+    max-height: none;
+    width: 100%;
+}
+@media only screen and (max-width: 481px) {
+    .site-header.has-logo:not(.has-title-and-tagline).has-menu .site-logo img {
+        width: auto;
+    }
+}
+.site-header > .site-logo, .site-header > .site-branding > .site-logo { text-align: left; }@media only screen and (min-width: 482px) {
+    .primary-navigation {
+        margin-left: auto;
+        margin-right: 0;
+    }
+    .primary-navigation > div > .menu-wrapper {
+        justify-content: flex-end;
+    }
+}
+.primary-navigation > .primary-menu-container, .primary-navigation-open .primary-navigation > .primary-menu-container {
+    border-width: 0px;
+}
+.primary-navigation a:link, .primary-navigation a:visited, .primary-navigation > div > .menu-wrapper .sub-menu-toggle .icon-plus svg, .primary-navigation > div > .menu-wrapper .sub-menu-toggle .icon-minus svg { color: #564dca; }.primary-navigation .current-menu-item > a, .primary-navigation .current_page_item > a { color: #f79237; }.primary-navigation #menu-item-search.menu-item>.svg-icon { fill: #564dca; }.primary-navigation a:hover, .primary-navigation .sub-menu .menu-item > a:hover { color: #f79237; }.primary-navigation #menu-item-search.menu-item>.svg-icon:hover { fill: #f79237; }@media only screen and (min-width: 482px) {
+    .primary-navigation .primary-menu-container > ul > .menu-item > a {
+    	padding: 0.675rem;
+    	font-size: 0.9rem;
+    	line-height: 0.9rem;
+    }
+    .primary-navigation .primary-menu-container > ul > #menu-item-search > .svg-icon {
+    	width: 0.9rem;
+    	height: 0.9rem;
+    }
+	.primary-navigation > div > .menu-wrapper .sub-menu-toggle {
+	    height: 2.25rem;
+    }
+    .primary-navigation > div > .menu-wrapper .sub-menu-toggle .icon-plus svg, .primary-navigation > div > .menu-wrapper .sub-menu-toggle .icon-minus svg {
+    	height: 0.9rem;
+    	width: 0.9rem;
+    	margin-top: 0;
+    	margin-right: 0.135rem;
+    }
+    .primary-navigation > div > .menu-wrapper .sub-menu-toggle {
+    	width: 1.8rem;
+    }
+}
+@media only screen and (min-width: 482px) {
+    .primary-navigation .primary-menu-container > ul > .menu-item > a {
+    	padding-left: 0.71rem;
+    	padding-right: 0.71rem;
+    }
+}
+.primary-navigation a { font-weight: 500; }.primary-navigation > div > .menu-wrapper > li > .sub-menu:before, .primary-navigation > div > .menu-wrapper > li > .sub-menu:after { display:none; }.primary-navigation .sub-menu .menu-item > a {
+    font-size: 1.0125rem;
+}
+@media only screen and (min-width: 482px) {
+    .primary-navigation .sub-menu .menu-item > a {
+        font-size: 0.9rem;
+    }
+}
+.primary-navigation .sub-menu .menu-item > a { padding:16px 13px; }.site-main { padding-top:0px ; }.singular .entry-title, .blog .page-title, .error404 .page-title { font-size:4.5rem; }.archive .page-title, .search .page-title { font-size:2.65rem; }.post-taxonomies { display:none; }.tags-links { display:none; }.archive .entry-footer .cat-links, .single .site-main>article>.entry-footer .cat-links, .blog .entry-footer .cat-links { display:none; }.entry-footer > span.posted-on, .single .site-main > article > .entry-footer .posted-on { display:none; }.single .site-main > article > .entry-footer .byline {
+	display: none;
+}
+#footer-wrapper {    background-color: #ffffff;    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+@supports (-webkit-touch-callout: none) {
+    #footer-wrapper {
+        background-attachment: scroll;
+    }
+}
+.widget-area, .no-widgets .site-footer {
+	margin-top: 60px;
+}
+@media only screen and (max-width: 481px) {
+	.widget-area {
+		margin-top: 30px;
+	}
+}
+@media only screen and (min-width: 1024px) {
+	.widget-area {
+		grid-template-columns: repeat(5, 1fr);
+	}
+}
+.widget-area { font-size:1.01rem; }.widget-area, .site-footer, .site-footer > .site-info { color: #000000; }.site-footer > .site-info a:link, .site-footer > .site-info a:visited, .site-footer > .site-info a:active { color: #161616; }:root { --footer--color-link: #161616; }.footer-navigation { font-size:1.05rem; }.site-footer>.site-info { display:none; }</style> 
+<!--/Customizer CSS-->
+        <style>
+            :root {
+                --tpg-primary-color: #0d6efd;
+                --tpg-secondary-color: #0654c4;
+                --tpg-primary-light: #c4d0ff
+            }
+
+                        body .rt-tpg-container .rt-loading,
+            body #bottom-script-loader .rt-ball-clip-rotate {
+                color: #0367bf !important;
+            }
+
+                    </style>
+		            <style>
+                .rt-container-fluid {
+                    position: relative;
+                }
+
+                .rt-tpg-container .tpg-pre-loader {
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                .rt-tpg-container .rt-loading-overlay {
+                    opacity: 0;
+                    visibility: hidden;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 1;
+                    background-color: #fff;
+                }
+
+                .rt-tpg-container .rt-loading {
+                    color: var(--tpg-primary-color);
+                    position: absolute;
+                    top: 40%;
+                    left: 50%;
+                    margin-left: -16px;
+                    z-index: 2;
+                    opacity: 0;
+                    visibility: hidden;
+                }
+
+                .rt-tpg-container .tpg-pre-loader .rt-loading-overlay {
+                    opacity: 0.8;
+                    visibility: visible;
+                }
+
+                .tpg-carousel-main .tpg-pre-loader .rt-loading-overlay {
+                    opacity: 1;
+                }
+
+                .rt-tpg-container .tpg-pre-loader .rt-loading {
+                    opacity: 1;
+                    visibility: visible;
+                }
+
+
+                #bottom-script-loader {
+                    position: absolute;
+                    width: calc(100% + 60px);
+                    height: calc(100% + 60px);
+                    z-index: 999;
+                    background: rgba(255, 255, 255, 0.95);
+                    margin: -30px;
+                }
+
+                #bottom-script-loader .rt-ball-clip-rotate {
+                    color: var(--tpg-primary-color);
+                    position: absolute;
+                    top: 80px;
+                    left: 50%;
+                    margin-left: -16px;
+                    z-index: 2;
+                }
+
+                .tpg-el-main-wrapper.loading {
+                    min-height: 300px;
+                    transition: 0.4s;
+                }
+
+                .tpg-el-main-wrapper.loading::before {
+                    width: 32px;
+                    height: 32px;
+                    display: inline-block;
+                    float: none;
+                    border: 2px solid currentColor;
+                    background: transparent;
+                    border-bottom-color: transparent;
+                    border-radius: 100%;
+                    -webkit-animation: ball-clip-rotate 0.75s linear infinite;
+                    -moz-animation: ball-clip-rotate 0.75s linear infinite;
+                    -o-animation: ball-clip-rotate 0.75s linear infinite;
+                    animation: ball-clip-rotate 0.75s linear infinite;
+                    left: 50%;
+                    top: 50%;
+                    position: absolute;
+                    z-index: 9999999999;
+                    color: red;
+                }
+
+
+                .rt-tpg-container .slider-main-wrapper,
+                .tpg-el-main-wrapper .slider-main-wrapper {
+                    opacity: 0;
+                }
+
+                .md-modal {
+                    visibility: hidden;
+                }
+
+                .md-modal.md-show {
+                    visibility: visible;
+                }
+
+                .builder-content.content-invisible {
+                    visibility: hidden;
+                }
+
+                .rt-tpg-container > *:not(.bottom-script-loader, .slider-main-wrapper) {
+                    opacity: 0;
+                }
+
+                .rt-popup-content .rt-tpg-container > *:not(.bottom-script-loader, .slider-main-wrapper) {
+                    opacity: 1;
+                }
+
+            </style>
+
+            <script>
+                jQuery(document).ready(function () {
+                    setTimeout(function () {
+                        jQuery('.rt-tpg-container > *:not(.bottom-script-loader, .slider-main-wrapper)').animate({ 'opacity': 1 })
+                    }, 100)
+                })
+
+                jQuery(window).on('elementor/frontend/init', function () {
+                    if (elementorFrontend.isEditMode()) {
+                        elementorFrontend.hooks.addAction('frontend/element_ready/widget', function () {
+                            jQuery('.rt-tpg-container > *:not(.bottom-script-loader, .slider-main-wrapper)').animate({ 'opacity': 1 })
+                        })
+                    }
+                })
+            </script>
+		<noscript><style>.tw-block-animation{opacity:1;transform:none;clip-path:none;}</style></noscript>
+<script defer>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+
+  ttq.load('CE7H0IJC77UD28TQP7N0');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '604928008765173');
+fbq('track', 'PageView');
+//End Meta Pixel Code
+
+// start Twitter conversion tracking
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+twq('config','p0w7x');
+</script>
+<!-- End Twitter conversion tracking base code -->    <script type="text/javascript">
+     window.TEMPLATE_URL = 'https://www.bananacrystal.com/wp-content/themes/twentytwentyone';
+    </script>
+    <meta name="generator" content="Elementor 3.27.6; features: additional_custom_breakpoints, e_element_cache; settings: css_print_method-external, google_font-enabled, font_display-swap">
+<style id="custom-background-css">
+body.custom-background { background-color: #ffffff; }
+</style>
+<link rel="amphtml" href="https://www.bananacrystal.com/agent-economy-glossary/?amp"><link rel="icon" href="https://media.bananacrystal.com/wp-content/uploads/2021/01/17010144/cropped-bananacrystal-logo-icon-512x512-1-1-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://media.bananacrystal.com/wp-content/uploads/2021/01/17010144/cropped-bananacrystal-logo-icon-512x512-1-1-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://media.bananacrystal.com/wp-content/uploads/2021/01/17010144/cropped-bananacrystal-logo-icon-512x512-1-1-180x180.png" />
+<meta name="msapplication-TileImage" content="https://media.bananacrystal.com/wp-content/uploads/2021/01/17010144/cropped-bananacrystal-logo-icon-512x512-1-1-270x270.png" />
+<style id="wp-custom-css">
+/* FORCE full width header and nav */
+.site-header,
+.site-header .container,
+.site-header .wrap,
+.ast-container,
+.navbar,
+.nav-container,
+header nav {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* Remove auto-centering */
+.site-header .container,
+.ast-container {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* Add controlled padding */
+.site-header {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+/* general*/
+
+body {
+	color: #202242;
+	overflow-x: hidden !important;
+}
+
+h1 {
+	padding-top: 20px;
+}
+
+h1,h2 {
+	color: #5155A3;
+}
+
+h3,h4 {
+	color: #2d2f5a;
+}
+
+a,
+.entry-content a {
+	color: #c57128;
+}
+
+a:hover,
+.entry-content a:hover {
+	color: #F27238;
+}
+
+/* icons */
+.fa-fw {
+	color: #434786;
+}
+
+.fa-white svg {
+	color: white !important;
+}
+
+.fa-lightgray svg {
+	color: #E2E1E0 !important;
+}
+
+.fa-orange svg {
+	color: #C47129 !important;
+}
+
+/* text */
+
+.justify-text {
+	text-align: justify;
+  text-justify: inter-word;
+	text-justify: distribute;
+	text-align-last: left;
+}
+
+/* ul ul li */
+
+.ul-ul-li-p-20 {
+	padding-top: -100px;
+}
+.ul-ul-li-p-20 li {
+	font-size:1.25rem;
+	/* adjustment for anchors */
+	padding-top: 100px; 
+	
+}
+.ul-ul-li-p-20 ul li {
+  padding-top: 20px;
+  padding-bottom: 20px;
+	font-size: 1.1rem;
+}
+
+
+
+
+
+/* header */
+
+.site-header {
+	height: 64px;
+	padding-top: 8px;
+	padding-bottom:8px;
+}
+
+.tw-header-bg .site-header {
+    background-color: #f7f7f9de;
+}
+ 
+.singular .entry-title,
+h1.page-title {
+	color: #444786;
+	margin-bottom:0;
+}
+
+.singular .entry-header,
+.page-header {
+	border-bottom-color: #44478638;
+}
+
+body.home.page-template-default.page.page-id-22664 header#masthead {
+    background: transparent;
+    }
+
+/* buttons */
+.site .button {
+background-image: linear-gradient(180deg,#f8d12f,#f79237 90%);
+    color: #212833;
+	  border: 1px solid #f8d12f;
+	  border-radius: 4px;
+}
+
+.site .button:hover {
+	background-image: linear-gradient(180deg,#f8d12f,#f79237 85.00%);
+    color: #212833;
+	  border: 1px solid #f8d12f;
+	  border-radius: 4px;
+}
+
+.site .button, input[type=submit], input[type=reset], .wp-block-search__button, .wp-block-button .wp-block-button__link {
+	background-image: linear-gradient(180deg,#f8d12f,#f79237 90%);
+    color: #212833;
+	  border: 1px solid #f8d12f;
+	  border-radius: 4px;
+	border-color: #efc5a0 !important;
+}
+
+
+.site .button:hover, input[type=submit]:hover, input[type=reset]:hover,
+.wp-block-search__button:hover,
+.wp-block-button .wp-block-button__link:hover  {
+	  border: 1px solid #f8d12f;
+	  border-radius: 4px;
+	  color: black !important;
+    background: linear-gradient(180deg,#f8d12f,#f79237 80.00%) !important;
+    border-color: #f8d12f !important;
+		
+}
+
+.wp-block-button:not(.is-style-outline) .wp-block-button__link:hover {
+    color: black !important;
+    background: linear-gradient(180deg,#f8d12f,#f79237 80.00%) !important;
+    border-color: #f8d12f !important;
+}
+
+/* primary menu */
+.primary-navigation a:hover, .primary-navigation a:link, .primary-navigation a:visited {
+	text-decoration: none;
+	font-size: 14px;
+  font-weight: bold;
+}
+
+.primary-navigation .current-menu-item > a:first-child, .primary-navigation .current_page_item > a:first-child {
+    text-decoration: none;
+    text-decoration-style: none;
+	  color: #da802f;
+}
+.primary-navigation .current-menu-item > a:first-child:hover, .primary-navigation .current_page_item > a:first-child:hover {
+    text-decoration: none;
+    text-decoration-style: none;
+	  color: #da802f;
+}
+
+.primary-navigation > div > .menu-wrapper > li > .sub-menu {
+	border-color: white;
+	min-width:100px;
+	font-weight: 400;
+}
+
+main#main.site-main {
+	padding-bottom:0;
+}
+
+.primary-navigation .primary-menu-container>ul>.menu-item>a+.sub-menu-toggle {
+	visibility: hidden;
+}
+/* Contact Forrm 7 custom style */
+
+/* Style for labels */
+.wpcf7-form label {
+    font-size: 15px;
+    color: #444;
+}
+
+/* Style for input fields */
+.wpcf7-form input[type="text"],
+.wpcf7-form input[type="email"],
+.wpcf7-form input[type="submit"],
+.wpcf7-form select {
+    font-size: 15px;
+    color: #222;
+    display: block;
+    width: 100%;
+    height: 40px;
+    border: none;
+    box-shadow: 0 0 0 1px #4442;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    padding: 0 10px;
+	  background: linear-gradient(45deg, #f5f5f5, #f1f1f1);
+}
+.wpcf7-form input[type="file"]{
+	width: 100%;
+	padding: 10px 7px;
+	border-radius: 4px; 
+	background: #f5f5f5;
+	box-shadow: 0 0 4px #4443;
+	margin-bottom: 25px;
+}
+.wpcf7-form input[name="text-71"]{
+	margin-bottom: -10px;
+}
+.wpcf7-form input:focus, .wpcf7-form textarea:focus {
+    outline: none;
+		box-shadow: 0 0 2px blue;
+}
+.wpcf7-form select{
+	margin-bottom: -45px;
+}
+/* Style for textarea */
+.wpcf7-form textarea {
+    font-size: 15px;
+    color: #222;
+    padding: 7px;
+    width: 100%;
+		height: 100px;
+    border: none;
+    box-shadow: 0 0 0 1px #4442;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    resize: vertical;
+	  background: linear-gradient(45deg, #f5f5f5, #f1f1f1);
+}
+
+/* Style for submit button */
+.wpcf7-form input[type="submit"] {
+		text-align: center;
+    background: #4700ce !important;
+    color: #fff;
+    border: none;
+    display: block;
+    margin-top: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+		box-shadow: none;
+	  height: 47px;
+}
+
+.wpcf7-form input[type="submit"]:hover {
+    background: #3c408a;
+		color: #fff !important;
+}
+
+/* end of contact form 7 styles  */
+
+
+/* Contents */
+p.wpml-ls-statics-post_translations.wpml-ls {
+  font-size: 0.85em;
+  color: #76778b;
+}
+/* Footer */
+aside.widget-area {
+	margin-top:0;
+	padding-top: 70px;
+}
+
+aside.widget-area  h2.widget-title {
+	color: #564dca;
+	font-weight:700;
+	font-size:1.2em;
+}
+
+.widget-area .widget a {
+    color: #000000;
+}
+
+.site-footer a:hover, .widget-area a:hover, .site-footer a:focus, .widget-area a:focus {
+	color: #564dca !important;
+	text-decoration: none;
+}
+.tw-footer-bg .footer-inline {
+    padding-bottom: 58px;
+}
+
+/* Mobile Fixes */
+@media only screen and (max-width: 782px)
+.admin-bar {
+    --global--admin-bar--height: 7px;
+}
+
+/* .primary-navigation .primary-menu-container>ul>.menu-item>a {
+    font-size: 14px;
+}*/
+
+/*  home page header css */
+@media only screen and (max-width: 750px){
+	section.main-banner#hero::after
+	, section.main-banner#hero::before{
+		display: none;
+	}
+}
+section.main-banner#hero::after {
+    content: "";
+    position: absolute;
+    right: -10%;
+    top: -110px;
+	width: 40%;
+	height: 100%;
+	z-index: 1;
+    background-image: url(https://media.bananacrystal.com/wp-content/uploads/2024/02/29015056/HeaderRight01.png);
+		background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+
+section.main-banner#hero::before {
+    content: "";
+    position: absolute;
+    left: -20px;
+    bottom: 50px;
+	width: 40%;
+	height: 90%;
+	z-index: 1;
+    background-image: url(https://media.bananacrystal.com/wp-content/uploads/2024/02/26153950/HeaderLeft01-1.png);
+		background-repeat: no-repeat;
+	background-size: contain;
+}
+/* end of the code */
+
+.site .button {
+	padding:15px;
+}
+
+.menu-button-container {
+	margin-top: -14px;
+}
+
+#primary-mobile-menu.button {
+	background:none;
+	padding:10px;
+}
+
+section#main-banner::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    background-image: url(/wp-content/uploads/2023/02/banner_shape-svg.png);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 722px;
+   
+}
+section#p2p-banner::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    background-image: url(/wp-content/uploads/2023/02/banner_shape-svg.png);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 922px;
+    z-index: 1;
+}
+
+section#secure-section::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-image: url(/wp-content/uploads/2023/02/choose_shape01.png);
+    background-position: center;
+    background-repeat: repeat;
+    width: 100%;
+    height: 25px;
+}
+
+section#secure-section::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-image: url(/wp-content/uploads/2023/02/choose_shape02.png);
+    background-position: center;
+    background-repeat: repeat;
+    width: 100%;
+    height: 19px;
+}
+
+div#newsletter-field form#mc4wp-form-1 {
+    background: #ffffffa6;
+    padding: 12px;
+    border-radius: 5px;
+}
+div#newsletter-field form#mc4wp-form-1 input[type="email"]{
+	background: transparent;
+    border: 0px !important;
+    color: black;
+	
+}
+div#newsletter-field form#mc4wp-form-1 input[type="email"]:focus {
+    border: 0px !important;
+    outline-width: 0px;
+}
+div#newsletter-field form#mc4wp-form-1  input[type="submit"]{
+    background-color: transparent;
+    background-image: linear-gradient(180deg, #564DCA 0%, #020F2F 100%) !important;
+    color: #fff !important;
+    border: 0px !important;
+}
+main#main.site-main {
+    padding-bottom: 0;
+    padding-top: 0px;
+}
+div#content {
+    padding-top: 0px;
+}
+
+.site-branding {
+    margin-top: -15px;
+}
+#site-navigation {
+	    top: -8px;
+}
+.site-header {
+	box-shadow: none !important;
+}
+
+.site-footer a:hover, .widget-area a:hover, .site-footer a:focus, .widget-area a:focus {
+	color: #7A7A7A !important;
+}
+
+section.democratizing-section::before{
+    content: "";
+    display: block;
+    height: 372px;
+    min-width: 300px;
+    position: absolute;
+    margin-right: 5px;
+    background: url(https://www.bananacrystal.com/wp-content/uploads/2024/02/star-left01.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    bottom: -56px;
+    left: 7%;
+}
+
+section.democratizing-section::after{
+    content: "";
+    display: block;
+    height: 372px;
+    min-width: 300px;
+    position: absolute;
+    margin-right: 5px;
+    background: url(https://www.bananacrystal.com/wp-content/uploads/2024/02/star-right01.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    bottom: -56px;
+    right: 7%;
+}
+
+/* Currency wrapper funds */
+.wrapper-currency-fund ::selection {
+  color: #fff;
+  background: #675AFE;
+}
+
+.wrapper-currency-fund {
+	position: relative;
+  width: 100%;
+  padding: 15px;
+  background: #fff;
+	border-radius: 10px;
+	box-shadow: 0 0 10px #9992;
+}
+.wrapper-currency-fund .select-box {
+    position: relative;
+}
+.wrapper-currency-fund .select-box.dropp{
+	cursor: pointer;
+}
+.wrapper-currency-fund .select-box select {
+    cursor: pointer;
+		z-index: 2;
+}
+
+.wrapper-currency-fund .select-box.dropp::after {
+    content: "v";
+    position: absolute;
+    right: 5px;
+    top: 50%;
+		padding: 0.1px 7px;
+		color: #fff;
+		font-weight: 600;
+    transform: translateY(-50%);
+    background-color: #564DCA;
+    border-radius: 3px;
+    cursor: pointer;
+	font-size: 13px;
+}
+/*  span in currency*/
+/* .wrapper-currency-fund .select-box .curr {
+        font-size: 17px;
+} */
+.wrapper-currency-fund header {
+  font-size: 28px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.wrapper-currency-fund form {
+  margin: 25px 0;
+}
+.wrapper-currency-fund form .from, .wrapper-currency-fund form .to{
+	margin: 20px 0;
+}
+.wrapper-currency-fund form .from-sell, .wrapper-currency-fund form .to-sell{
+	margin: 20px 0;
+}
+.wrapper-currency-fund form :where(input, select, button) {
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+}
+
+.wrapper-currency-fund form p {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.wrapper-currency-fund form input {
+  height: 45px;
+  font-size: 17px;
+  padding: 0 10px;
+  border: 1px solid #999;
+	width: 44%;
+	outline: none;
+}
+
+.wrapper-currency-fund form input:focus {
+  padding: 0 14px;
+  border: 2px solid #675AFE;
+}
+
+.wrapper-currency-fund form .drop-list {
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wrapper-currency-fund .drop-list .select-box {
+  display: flex;
+  width: 53%;
+  height: 45px;
+  align-items: center;
+  border-radius: 5px;
+/*   justify-content: center; */
+  border: 1px solid #999;
+}
+
+.wrapper-currency-fund .select-box img {
+  max-width: 16px;
+	margin-left: 7px;
+}
+
+.wrapper-currency-fund .select-box select {
+/*   width: auto; */
+  font-size: 14px;
+  background: none;
+  margin-left: -5px;
+}
+
+.wrapper-currency-fund .select-box select::-webkit-scrollbar {
+  width: 8px;
+}
+
+.wrapper-currency-fund .select-box select::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+.wrapper-currency-fund .select-box select::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 8px;
+  border-right: 2px solid #ffffff;
+}
+
+.wrapper-currency-fund .drop-list .icon {
+  cursor: pointer;
+  margin-top: 30px;
+  font-size: 22px;
+}
+
+.wrapper-currency-fund form .exchange-rate, .wrapper-currency-fund form .exchange-rate-sell {
+  font-size: 17px;
+  margin: 20px 0 30px;
+}
+
+.wrapper-currency-fund form button {
+  height: 52px;
+  color: #fff;
+  font-size: 17px;
+  cursor: pointer;
+  background: #675AFE;
+  transition: 0.3s ease;
+}
+
+.wrapper-currency-fund form button:hover {
+  background: #4534fe;
+}
+
+/* CSS Styling for the home page Currency Table */
+.currency-list-table {
+ padding-right: 10px;
+}
+.currency-list-table table, th {
+	text-align: left;
+}
+
+.currency-list-table tr td:nth-child(2), .currency-list-table tr th:nth-child(2){
+	width: 30%;
+}
+.currency-list-table table th, .currency-list-table table td  {
+border: none;
+	box-sizing: content-box;
+}
+
+.currency-list-table table th {
+	background-color: #564DCA;
+	color: #ffffff;
+
+}
+.currency-list-table tr:first-child {
+		padding-top: 20px;
+  padding-bottom: 20px;
+}
+.currency-list-table tr:first-child th:first-child { border-top-left-radius: 10px; }
+.currency-list-table tr:first-child th:last-child { border-top-right-radius: 10px;}
+
+.currency-list-table  tr {
+	padding-top: 20px;
+  padding-bottom: 20px;
+	color: #000;
+}
+/* end of the css for the currency table */
+.top_offers_table  {
+	text-align: center;
+}
+
+.top_offers_table th, .top_offers_table td  {
+	border: none;
+	box-sizing: content-box;
+}
+
+.top_offers_table th {
+	background-color: #564DCA;
+	color: #ffffff;
+	text-align: center;
+}
+.top_offers_table tr td:nth-child(1),
+.top_offers_table th:nth-child(1){
+  text-align: left;
+	padding-left: 40px
+}
+@media only screen and (max-width: 450px){
+	.top_offers_table tr td:nth-child(1),
+.top_offers_table th:nth-child(1){
+  text-align: left;
+	padding-left: 10px
+}
+}
+.top_offers_table tr:first-child th:first-child { border-top-left-radius: 10px; }
+.top_offers_table tr:first-child th:last-child { border-top-right-radius: 10px; }
+
+.top_offers_list tr {
+	padding-top: 20px;
+  padding-bottom: 20px;
+	color: #000;
+	    border-left: 1px solid #564dca;
+    border-right: 1px solid #564dca;
+}
+.top_offers_list .desktop-only{
+	padding-top: 23px;
+}
+.top_offers_list tr:last-child {
+	border-bottom: 1px solid #564DCA;
+}
+.top_offers_list .offer-button{
+	padding: 10px 20px;
+	font-size: 16px;
+}
+.elementor-widget-tabs .elementor-tab-desktop-title {
+	    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#page #newletter-submit-btn:hover {
+    background: #564dca !important;
+    border-left: 0;
+    border-color: #564dca !important;
+	color: #ffffff !important;
+}
+
+#custom-widgets div#currency-list tbody{
+	display: block;
+    max-height: 446px;
+    overflow-y: scroll;
+    border-left: 1px solid #564dca;
+    border-right: 1px solid #564dca;
+    border-bottom: 1px solid #564dca;
+}
+#custom-widgets div#currency-list tbody::-webkit-scrollbar {
+  width: 16px;
+}
+
+#custom-widgets div#currency-list tbody::-webkit-scrollbar-track {
+  background-color: #e4e4e4;
+  border-radius: 100px;
+}
+
+#custom-widgets div#currency-list tbody::-webkit-scrollbar-thumb {
+  background-color: #F8851B;
+  border-radius: 100px;
+}
+
+#custom-widgets div#currency-list thead, #custom-widgets div#currency-list tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.wrapper-currency-fund button {
+	background: #564dca !important;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  #custom-widget-tabs .elementor-tabs-wrapper {
+    		display: flex;
+        flex-direction: row;
+  }
+}
+@media (min-width: 320px)  and (max-width: 768px) {
+  #custom-widget-tabs .elementor-tab-mobile-title {
+    display: none;
+  }
+	
+	.wrapper-currency-fund .select-box img {
+		margin-left: 15px;
+	}
+}
+
+/** Start Block Kit CSS: 71-3-d415519effd9e11f35d2438c58ea7ebf **/
+
+.envato-block__preview{overflow: visible;}
+
+/** End Block Kit CSS: 71-3-d415519effd9e11f35d2438c58ea7ebf **/
+
+
+
+/** Start Block Kit CSS: 144-3-3a7d335f39a8579c20cdf02f8d462582 **/
+
+.envato-block__preview{overflow: visible;}
+
+/* Envato Kit 141 Custom Styles - Applied to the element under Advanced */
+
+.elementor-headline-animation-type-drop-in .elementor-headline-dynamic-wrapper{
+	text-align: center;
+}
+.envato-kit-141-top-0 h1,
+.envato-kit-141-top-0 h2,
+.envato-kit-141-top-0 h3,
+.envato-kit-141-top-0 h4,
+.envato-kit-141-top-0 h5,
+.envato-kit-141-top-0 h6,
+.envato-kit-141-top-0 p {
+	margin-top: 0;
+}
+
+.envato-kit-141-newsletter-inline .elementor-field-textual.elementor-size-md {
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+}
+
+.envato-kit-141-bottom-0 p {
+	margin-bottom: 0;
+}
+
+.envato-kit-141-bottom-8 .elementor-price-list .elementor-price-list-item .elementor-price-list-header {
+	margin-bottom: .5rem;
+}
+
+.envato-kit-141.elementor-widget-testimonial-carousel.elementor-pagination-type-bullets .swiper-container {
+	padding-bottom: 52px;
+}
+
+.envato-kit-141-display-inline {
+	display: inline-block;
+}
+
+.envato-kit-141 .elementor-slick-slider ul.slick-dots {
+	bottom: -40px;
+}
+
+/** End Block Kit CSS: 144-3-3a7d335f39a8579c20cdf02f8d462582 **/
+
+
+
+/** Start Block Kit CSS: 143-3-7969bb877702491bc5ca272e536ada9d **/
+
+.envato-block__preview{overflow: visible;}
+/* Material Button Click Effect */
+.envato-kit-140-material-hit .menu-item a,
+.envato-kit-140-material-button .elementor-button{
+  background-position: center;
+  transition: background 0.8s;
+}
+.envato-kit-140-material-hit .menu-item a:hover,
+.envato-kit-140-material-button .elementor-button:hover{
+  background: radial-gradient(circle, transparent 1%, #fff 1%) center/15000%;
+}
+.envato-kit-140-material-hit .menu-item a:active,
+.envato-kit-140-material-button .elementor-button:active{
+  background-color: #FFF;
+  background-size: 100%;
+  transition: background 0s;
+}
+
+/* Field Shadow */
+.envato-kit-140-big-shadow-form .elementor-field-textual{
+	box-shadow: 0 20px 30px rgba(0,0,0, .05);
+}
+
+/* FAQ */
+.envato-kit-140-faq .elementor-accordion .elementor-accordion-item{
+	border-width: 0 0 1px !important;
+}
+
+/* Scrollable Columns */
+.envato-kit-140-scrollable{
+	 height: 100%;
+   overflow: auto;
+   overflow-x: hidden;
+}
+
+/* ImageBox: No Space */
+.envato-kit-140-imagebox-nospace:hover{
+	transform: scale(1.1);
+	transition: all 0.3s;
+}
+.envato-kit-140-imagebox-nospace figure{
+	line-height: 0;
+}
+
+.envato-kit-140-slide .elementor-slide-content{
+	background: #FFF;
+	margin-left: -60px;
+	padding: 1em;
+}
+.envato-kit-140-carousel .slick-active:not(.slick-current)  img{
+	padding: 20px !important;
+	transition: all .9s;
+}
+
+/** End Block Kit CSS: 143-3-7969bb877702491bc5ca272e536ada9d **/
+
+
+
+/** Start Block Kit CSS: 72-3-34d2cc762876498c8f6be5405a48e6e2 **/
+
+.envato-block__preview{overflow: visible;}
+
+/*Kit 69 Custom Styling for buttons */
+.envato-kit-69-slide-btn .elementor-button,
+.envato-kit-69-cta-btn .elementor-button,
+.envato-kit-69-flip-btn .elementor-button{
+	border-left: 0px !important;
+	border-bottom: 0px !important;
+	border-right: 0px !important;
+	padding: 15px 0 0 !important;
+}
+.envato-kit-69-slide-btn .elementor-slide-button:hover,
+.envato-kit-69-cta-btn .elementor-button:hover,
+.envato-kit-69-flip-btn .elementor-button:hover{
+	margin-bottom: 20px;
+}
+.envato-kit-69-menu .elementor-nav-menu--main a:hover{
+	margin-top: -7px;
+	padding-top: 4px;
+	border-bottom: 1px solid #FFF;
+}
+/* Fix menu dropdown width */
+.envato-kit-69-menu .elementor-nav-menu--dropdown{
+	width: 100% !important;
+}
+
+/** End Block Kit CSS: 72-3-34d2cc762876498c8f6be5405a48e6e2 **/
+
+
+
+/** Start Block Kit CSS: 141-3-1d55f1e76be9fb1a8d9de88accbe962f **/
+
+.envato-kit-138-bracket .elementor-widget-container > *:before{
+	content:"[";
+	color:#ffab00;
+	display:inline-block;
+	margin-right:4px;
+	line-height:1em;
+	position:relative;
+	top:-1px;
+}
+
+.envato-kit-138-bracket .elementor-widget-container > *:after{
+	content:"]";
+	color:#ffab00;
+	display:inline-block;
+	margin-left:4px;
+	line-height:1em;
+	position:relative;
+	top:-1px;
+}
+
+/** End Block Kit CSS: 141-3-1d55f1e76be9fb1a8d9de88accbe962f **/
+
+
+</style>
+<style id="wpr_lightbox_styles">
+				.lg-backdrop {
+					background-color: rgba(0,0,0,0.6) !important;
+				}
+				.lg-toolbar,
+				.lg-dropdown {
+					background-color: rgba(0,0,0,0.8) !important;
+				}
+				.lg-dropdown:after {
+					border-bottom-color: rgba(0,0,0,0.8) !important;
+				}
+				.lg-sub-html {
+					background-color: rgba(0,0,0,0.8) !important;
+				}
+				.lg-thumb-outer,
+				.lg-progress-bar {
+					background-color: #444444 !important;
+				}
+				.lg-progress {
+					background-color: #a90707 !important;
+				}
+				.lg-icon {
+					color: #efefef !important;
+					font-size: 20px !important;
+				}
+				.lg-icon.lg-toogle-thumb {
+					font-size: 24px !important;
+				}
+				.lg-icon:hover,
+				.lg-dropdown-text:hover {
+					color: #ffffff !important;
+				}
+				.lg-sub-html,
+				.lg-dropdown-text {
+					color: #efefef !important;
+					font-size: 14px !important;
+				}
+				#lg-counter {
+					color: #efefef !important;
+					font-size: 14px !important;
+				}
+				.lg-prev,
+				.lg-next {
+					font-size: 35px !important;
+				}
+
+				/* Defaults */
+				.lg-icon {
+				background-color: transparent !important;
+				}
+
+				#lg-counter {
+				opacity: 0.9;
+				}
+
+				.lg-thumb-outer {
+				padding: 0 10px;
+				}
+
+				.lg-thumb-item {
+				border-radius: 0 !important;
+				border: none !important;
+				opacity: 0.5;
+				}
+
+				.lg-thumb-item.active {
+					opacity: 1;
+				}
+	         </style>	<!-- Fonts Plugin CSS - https://fontsplugin.com/ -->
+	<style>
+			</style>
+	<!-- Fonts Plugin CSS -->
+	</head>
+<body class="wp-singular page-template-default page page-id-38087 custom-background wp-custom-logo wp-embed-responsive wp-theme-twentytwentyone rttpg rttpg-7.8.8 radius-frontend rttpg-body-wrap eio-default ehf-template-twentytwentyone ehf-stylesheet-twentytwentyone is-light-theme no-js singular no-widgets elementor-default elementor-template-full-width elementor-kit-22663 elementor-page elementor-page-38087 tw-header-layout-menu-right tw-header-bg tw-header-sticky tw-header-break-mobile tw-header-padding-small tw-footer-bg tw-footer-full tw-link-minimal tw-hero-below tw-title-center tw-title-no-border">
+<!-- Start of bananacrystal-support GoHighLevel Widget script -->
+<script
+  src="https://beta.leadconnectorhq.com/loader.js"
+  data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
+  data-widget-id="683612beb8f8b54f02ea0fd1">
+</script>
+<!-- End of bananacrystal-support GoHighLevel Widget script -->
+		<div data-elementor-type="header" data-elementor-id="38145" class="elementor elementor-38145 elementor-location-header" data-elementor-post-type="elementor_library">
+					<section class="elementor-section elementor-top-section elementor-element elementor-element-373e95b elementor-section-boxed elementor-section-height-default elementor-section-height-default jltma-glass-effect-no wpr-particle-no wpr-jarallax-no wpr-parallax-no wpr-sticky-section-no" data-id="373e95b" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-2621700 jltma-glass-effect-no" data-id="2621700" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-33b3a22 jltma-glass-effect-no elementor-widget elementor-widget-html" data-id="33b3a22" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+					<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BananaCrystal — Header</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --bg: #f8f7ff;
+        --bg-alt: #f0eef9;
+        --surface: #ffffff;
+        --surface-up: #f4f2ff;
+        --border: #e2dff5;
+        --border-strong: #c8c3e8;
+        --fg: #0d0b1a;
+        --fg-mid: #3d3860;
+        --fg-muted: #6b6690;
+        --fg-subtle: #9e9bc0;
+        --primary: #7c3aed;
+        --primary-light: #9b6ef5;
+        --primary-dim: rgba(124, 58, 237, 0.1);
+        --primary-soft: rgba(124, 58, 237, 0.2);
+        --display: "Libre Baskerville", Georgia, serif;
+        --sans: "DM Sans", system-ui, sans-serif;
+        --mono: "Inter", monospace;
+        --nav-h: 64px;
+        --radius: 14px;
+        --shadow: 0 2px 16px rgba(124, 58, 237, 0.08);
+        --shadow-lg: 0 8px 40px rgba(124, 58, 237, 0.14);
+      }
+      html {
+        font-size: clamp(15px, 1.1vw, 18px);
+        overflow-x: hidden;
+      }
+      body {
+        font-family: var(--sans);
+        background: var(--bg);
+        color: var(--fg);
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* ── NAV ── */
+      .bc-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10000;
+        height: var(--nav-h);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 2rem;
+        background: rgba(248, 247, 255, 0.92);
+        backdrop-filter: blur(24px) saturate(1.4);
+        border-bottom: 1px solid var(--border);
+        transition: all 0.3s;
+        width: 100%;
+        max-width: 100vw;
+        overflow: visible;
+      }
+      .bc-nav.scrolled {
+        box-shadow: 0 2px 20px rgba(124, 58, 237, 0.08);
+      }
+      .bc-nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        font-family: var(--display);
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--fg);
+        letter-spacing: -0.01em;
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+      .bc-nav-logo img {
+        width: 30px;
+        height: 30px;
+        border-radius: 7px;
+        flex-shrink: 0;
+      }
+      .bc-nav-links {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        flex-shrink: 1;
+        min-width: 0;
+      }
+      .bc-nav-link {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--fg-muted) !important;
+        text-decoration: none;
+        transition: color 0.15s;
+        cursor: pointer;
+        background: transparent !important;
+        background-color: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        outline: none !important;
+        font-family: var(--sans);
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        -webkit-appearance: none;
+        appearance: none;
+        white-space: nowrap;
+      }
+      .bc-nav-link:hover {
+        color: var(--fg) !important;
+        background: transparent !important;
+        background-color: transparent !important;
+      }
+      .bc-nav-link:focus {
+        background: transparent !important;
+        background-color: transparent !important;
+        outline: none !important;
+        box-shadow: none !important;
+      }
+      .bc-nav-link.active {
+        color: var(--primary) !important;
+        background: transparent !important;
+        background-color: transparent !important;
+      }
+      .bc-nav-dropdown {
+        position: relative;
+        z-index: 10001;
+      }
+      .bc-nav-dropdown-menu {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        width: 240px;
+        background: #ffffff !important;
+        border: 1px solid #e2dff5;
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        overflow: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-6px);
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease;
+        z-index: 10002;
+      }
+      .bc-nav-dropdown::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: -10px;
+        right: -10px;
+        height: 12px;
+        z-index: 10001;
+      }
+      .bc-nav-dropdown:hover .bc-nav-dropdown-menu,
+      .bc-nav-dropdown-menu:hover {
+        opacity: 1;
+        pointer-events: all;
+        transform: translateY(0);
+      }
+      .bc-nav-dropdown:not(:hover) .bc-nav-dropdown-menu {
+        transition-delay: 0.15s;
+      }
+      .bc-nav-dropdown-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0.75rem 1rem;
+        font-size: 0.85rem;
+        transition: all 0.15s;
+        text-decoration: none;
+      }
+      .bc-nav-dropdown-item:hover {
+        background: #f4f2ff;
+        color: #7c3aed;
+      }
+      .bc-dd-title {
+        display: block;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: #0d0b1a;
+      }
+      .bc-dd-sub {
+        display: block;
+        font-size: 0.72rem;
+        color: #6b6690;
+        margin-top: 1px;
+      }
+      .bc-nav-right {
+        display: flex;
+        align-items: center;
+        gap: 1.7rem;
+        flex-shrink: 0;
+      }
+      .bc-nav-ctas {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        flex-shrink: 0;
+      }
+      .bc-nav-cta-ghost {
+        font-size: 0.82rem;
+        font-weight: 500;
+        color: var(--fg-mid);
+        border: 1px solid var(--border-strong);
+        padding: 7px 18px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s;
+        background: transparent;
+        font-family: var(--sans);
+        text-decoration: none;
+      }
+      .bc-nav-cta-ghost:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+      .bc-nav-cta-solid {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: #fff;
+        background: var(--primary);
+        padding: 7px 18px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s;
+        border: none;
+        font-family: var(--sans);
+        text-decoration: none;
+      }
+      .bc-nav-cta-solid:hover {
+        background: var(--primary-light);
+        box-shadow: 0 0 18px rgba(124, 58, 237, 0.3);
+      }
+      #bc-hamburger {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 6px;
+        color: var(--fg-muted);
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        -webkit-appearance: none;
+        appearance: none;
+        box-shadow: none;
+        border-radius: 4px;
+      }
+      .bc-theme-toggle {
+        display: none !important;
+      }
+
+      /* ── HAMBURGER ── */
+      .bc-nav-hamburger {
+        width: 40px;
+        height: 40px;
+        display: none;
+        position: relative;
+      }
+      .bc-nav-hamburger .bc-ham-top,
+      .bc-nav-hamburger .bc-ham-mid,
+      .bc-nav-hamburger .bc-ham-bot {
+        position: absolute;
+        left: 50%;
+        width: 18px;
+        height: 2px;
+        border-radius: 999px;
+        background: currentColor;
+        transform-origin: center;
+        transition:
+          transform 0.25s ease,
+          opacity 0.2s ease,
+          top 0.25s ease,
+          bottom 0.25s ease;
+      }
+      .bc-nav-hamburger .bc-ham-top {
+        top: 13px;
+        transform: translateX(-50%);
+      }
+      .bc-nav-hamburger .bc-ham-mid {
+        top: 19px;
+        transform: translateX(-50%);
+      }
+      .bc-nav-hamburger .bc-ham-bot {
+        top: 25px;
+        transform: translateX(-50%);
+      }
+      .bc-nav-hamburger.open .bc-ham-top {
+        top: 19px;
+        transform: translateX(-50%) rotate(45deg);
+      }
+      .bc-nav-hamburger.open .bc-ham-mid {
+        opacity: 0;
+      }
+      .bc-nav-hamburger.open .bc-ham-bot {
+        top: 19px;
+        transform: translateX(-50%) rotate(-45deg);
+      }
+
+      /* ── SLIDE DRAWER ── */
+      .bc-drawer-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 9998;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+      .bc-drawer-overlay.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+      .bc-drawer {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 300px;
+        max-width: 85vw;
+        background: #ffffff;
+        z-index: 9999;
+        transform: translateX(100%);
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        flex-direction: column;
+        box-shadow: -8px 0 40px rgba(0, 0, 0, 0.2);
+      }
+      .bc-drawer.open {
+        transform: translateX(0);
+      }
+      .bc-drawer-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.25rem 1.5rem;
+        border-bottom: 1px solid #e2dff5;
+      }
+      .bc-drawer-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+      }
+      .bc-drawer-logo img {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+      }
+      .bc-drawer-logo span {
+        font-family: var(--display);
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: #0d0b1a;
+      }
+      .bc-drawer-close {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        border: 1.5px solid #c8c3e8;
+        background: #f4f2ff;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #3d3860;
+        flex-shrink: 0;
+        padding: 0;
+      }
+      .bc-drawer-close:hover {
+        background: #ede9ff;
+        border-color: #7c3aed;
+        color: #7c3aed;
+      }
+      .bc-drawer-body {
+        flex: 1;
+        overflow-y: auto;
+        padding: 1rem 0;
+      }
+      .bc-drawer-section-label {
+        font-size: 0.65rem;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: #9e9bc0;
+        padding: 0.75rem 1.5rem 0.25rem;
+      }
+      .bc-drawer-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #3d3860;
+        text-decoration: none;
+        transition:
+          background 0.15s,
+          color 0.15s;
+      }
+      .bc-drawer-link:hover {
+        background: #f4f2ff;
+        color: #7c3aed;
+      }
+      .bc-drawer-divider {
+        height: 1px;
+        background: #e2dff5;
+        margin: 0.5rem 1.5rem;
+      }
+      .bc-drawer-footer {
+        padding: 1.25rem 1.5rem;
+        border-top: 1px solid #e2dff5;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      .bc-drawer-btn-ghost {
+        display: block;
+        text-align: center;
+        padding: 0.75rem;
+        border-radius: 10px;
+        border: 1px solid #c8c3e8;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #3d3860;
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+      .bc-drawer-btn-ghost:hover {
+        border-color: #7c3aed;
+        color: #7c3aed;
+      }
+      .bc-drawer-btn-solid {
+        display: block;
+        text-align: center;
+        padding: 0.75rem;
+        border-radius: 10px;
+        background: #7c3aed;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #fff;
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+      .bc-drawer-btn-solid:hover {
+        background: #9b6ef5;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 768px) {
+        .bc-nav {
+          padding: 0 0.75rem;
+          gap: 0;
+          justify-content: space-between;
+        }
+        .bc-nav-links,
+        .bc-nav-ctas {
+          display: none !important;
+        }
+        .bc-nav-right {
+          gap: 0.75rem;
+          margin-left: auto;
+        }
+        #bc-hamburger {
+          display: flex !important;
+          padding: 4px !important;
+        }
+      }
+      @media (max-width: 480px) {
+        .bc-nav {
+          padding: 0 0.5rem;
+          gap: 0.25rem;
+        }
+        .bc-nav-logo {
+          font-size: 0.85rem;
+          gap: 6px;
+        }
+        .bc-nav-logo img {
+          width: 24px;
+          height: 24px;
+        }
+      }
+      @media (max-width: 360px) {
+        .bc-nav {
+          padding: 0 0.5rem;
+        }
+        .bc-nav-logo span {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="bc-nav" id="bc-main-nav">
+      <a href="https://www.bananacrystal.com/" class="bc-nav-logo">
+        <img
+          src="https://media.bananacrystal.com/wp-content/uploads/2024/07/24181620/Logo-128x128-2.png"
+          alt="BananaCrystal"
+        />
+        <span>BananaCrystal</span>
+      </a>
+      <div class="bc-nav-links">
+        <!-- Platform dropdown -->
+        <div class="bc-nav-dropdown">
+          <button
+            class="bc-nav-link"
+            style="display: flex; align-items: center; gap: 4px"
+          >
+            Platform <span style="font-size: 0.65rem; opacity: 0.6">▾</span>
+          </button>
+          <div class="bc-nav-dropdown-menu">
+            <a
+              href="https://agents.bananacrystal.com/assets"
+              class="bc-nav-dropdown-item"
+            >
+              <div>
+                <strong class="bc-dd-title">Dashboard</strong
+                ><span class="bc-dd-sub">Your wallet overview</span>
+              </div>
+            </a>
+            <a
+              href="https://agents.bananacrystal.com/trade/fund"
+              class="bc-nav-dropdown-item"
+            >
+              <div>
+                <strong class="bc-dd-title">Fund</strong
+                ><span class="bc-dd-sub">Deposit USDC</span>
+              </div>
+            </a>
+            <a
+              href="https://agents.bananacrystal.com/trade/usdc"
+              class="bc-nav-dropdown-item"
+            >
+              <div>
+                <strong class="bc-dd-title">Trade</strong
+                ><span class="bc-dd-sub">USDC trading</span>
+              </div>
+            </a>
+            <a
+              href="https://agents.bananacrystal.com/trade/swap"
+              class="bc-nav-dropdown-item"
+            >
+              <div>
+                <strong class="bc-dd-title">Swap</strong
+                ><span class="bc-dd-sub">Currency swaps</span>
+              </div>
+            </a>
+            <a
+              href="https://agents.bananacrystal.com/prediction/marketplace"
+              class="bc-nav-dropdown-item"
+            >
+              <div>
+                <strong class="bc-dd-title">Prediction</strong
+                ><span class="bc-dd-sub">FX prediction market</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="bc-nav-dropdown">
+          <button
+            class="bc-nav-link"
+            style="display: flex; align-items: center; gap: 4px"
+          >
+            Developers <span style="font-size: 0.65rem; opacity: 0.6">▾</span>
+          </button>
+          <div class="bc-nav-dropdown-menu">
+            <a
+              href="https://agents.bananacrystal.com/docs"
+              class="bc-nav-dropdown-item"
+            >
+              <div>
+                <strong class="bc-dd-title">Documentation</strong
+                ><span class="bc-dd-sub">MCP tools, API reference</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <a href="/resources/" class="bc-nav-link">Resources</a>
+        <a
+          href="https://www.bananacrystal.com/usd-debit-card/"
+          class="bc-nav-link"
+          >USD Debit Card</a
+        >
+      </div>
+      <div class="bc-nav-right">
+        <button
+          class="bc-theme-toggle"
+          id="bc-theme-toggle"
+          aria-label="Toggle dark mode"
+          title="Toggle dark/light mode"
+        >
+          🌙
+        </button>
+        <button
+          class="bc-nav-hamburger"
+          id="bc-hamburger"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
+          <span class="bc-ham-top"></span>
+          <span class="bc-ham-mid"></span>
+          <span class="bc-ham-bot"></span>
+        </button>
+        <div class="bc-nav-ctas">
+          <a
+            href="https://agents.bananacrystal.com/auth/login"
+            class="bc-nav-cta-ghost"
+            >Sign in</a
+          >
+          <a
+            href="https://agents.bananacrystal.com/auth/signup"
+            class="bc-nav-cta-solid"
+            >Get started free</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Drawer overlay -->
+    <div class="bc-drawer-overlay" id="bc-drawer-overlay"></div>
+
+    <!-- Slide-in drawer -->
+    <div class="bc-drawer" id="bc-drawer">
+      <div class="bc-drawer-header">
+        <a href="https://www.bananacrystal.com/" class="bc-drawer-logo">
+          <img
+            src="https://media.bananacrystal.com/wp-content/uploads/2024/07/24181620/Logo-128x128-2.png"
+            alt="BananaCrystal"
+          />
+          <span>BananaCrystal</span>
+        </a>
+        <button
+          class="bc-drawer-close"
+          id="bc-drawer-close"
+          aria-label="Close menu"
+        >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+      <div class="bc-drawer-body">
+        <span class="bc-drawer-section-label">Platform</span>
+        <a href="https://agents.bananacrystal.com/assets" class="bc-drawer-link"
+          >Dashboard</a
+        >
+        <a
+          href="https://agents.bananacrystal.com/trade/fund"
+          class="bc-drawer-link"
+          >Fund</a
+        >
+        <a
+          href="https://agents.bananacrystal.com/trade/swap"
+          class="bc-drawer-link"
+          >Swap</a
+        >
+        <a
+          href="https://agents.bananacrystal.com/trade/usdc"
+          class="bc-drawer-link"
+          >Trade</a
+        >
+        <a
+          href="https://agents.bananacrystal.com/prediction/marketplace"
+          class="bc-drawer-link"
+          >Prediction</a
+        >
+        <div class="bc-drawer-divider"></div>
+        <span class="bc-drawer-section-label">Developers</span>
+        <a href="https://agents.bananacrystal.com/docs" class="bc-drawer-link"
+          >Documentation</a
+        >
+        <div class="bc-drawer-divider"></div>
+        <span class="bc-drawer-section-label">More</span>
+        <a href="/resources/" class="bc-drawer-link">Resources</a>
+        <a
+          href="https://www.bananacrystal.com/usd-debit-card/"
+          class="bc-drawer-link"
+          >USD Debit Card</a
+        >
+      </div>
+      <div class="bc-drawer-footer">
+        <a
+          href="https://agents.bananacrystal.com/auth/login"
+          class="bc-drawer-btn-ghost"
+          >Sign in</a
+        >
+        <a
+          href="https://agents.bananacrystal.com/auth/signup"
+          class="bc-drawer-btn-solid"
+          >Get started free</a
+        >
+      </div>
+    </div>
+
+    <script>
+      // Hide/show hamburger vs desktop links based on viewport
+      (function () {
+        var h = document.getElementById("bc-hamburger");
+        var nl = document.querySelector(".bc-nav-links");
+        var nc = document.querySelector(".bc-nav-ctas");
+        function setNav() {
+          var m = window.innerWidth < 769;
+          h.style.display = m ? "flex" : "none";
+          if (nl) nl.style.display = m ? "none" : "";
+          if (nc) nc.style.display = m ? "none" : "";
+        }
+        setNav();
+        window.addEventListener("resize", setNav);
+      })();
+
+      // Nav scroll shadow
+      window.addEventListener(
+        "scroll",
+        function () {
+          document
+            .getElementById("bc-main-nav")
+            .classList.toggle("scrolled", window.scrollY > 60);
+        },
+        { passive: true },
+      );
+
+      // Drawer open/close
+      var bcDrawer = document.getElementById("bc-drawer");
+      var bcOverlay = document.getElementById("bc-drawer-overlay");
+      var bcHamburger = document.getElementById("bc-hamburger");
+
+      function openDrawer() {
+        bcDrawer.classList.add("open");
+        bcOverlay.classList.add("open");
+        bcHamburger.classList.add("open");
+        bcHamburger.setAttribute("aria-expanded", "true");
+        document.body.style.overflow = "hidden";
+      }
+      function closeDrawer() {
+        bcDrawer.classList.remove("open");
+        bcOverlay.classList.remove("open");
+        bcHamburger.classList.remove("open");
+        bcHamburger.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
+      }
+
+      bcHamburger.setAttribute("aria-expanded", "false");
+      bcHamburger.addEventListener("click", function () {
+        bcDrawer.classList.contains("open") ? closeDrawer() : openDrawer();
+      });
+      document
+        .getElementById("bc-drawer-close")
+        .addEventListener("click", closeDrawer);
+      bcOverlay.addEventListener("click", closeDrawer);
+    </script>
+  </body>
+</html>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+				<div data-elementor-type="wp-page" data-elementor-id="38087" class="elementor elementor-38087" data-elementor-post-type="page">
+						<section class="elementor-section elementor-top-section elementor-element elementor-element-4324cae elementor-section-boxed elementor-section-height-default elementor-section-height-default jltma-glass-effect-no wpr-particle-no wpr-jarallax-no wpr-parallax-no wpr-sticky-section-no" data-id="4324cae" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-c59fa0e jltma-glass-effect-no" data-id="c59fa0e" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-240f4d7 jltma-glass-effect-no elementor-widget elementor-widget-html" data-id="240f4d7" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+					<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agent Economy Glossary: Every Term Defined | BananaCrystal</title>
+    <meta
+      name="description"
+      content="The definitive glossary of agent economy, agentic finance, and autonomous payments terminology. Every term defined clearly with examples."
+    />
+    <meta
+      property="og:title"
+      content="Agent Economy Glossary: Every Term Defined"
+    />
+    <meta property="og:type" content="article" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@_bananacrystal" />
+    <meta name="twitter:creator" content="@_bananacrystal" />
+    <link
+      rel="canonical"
+      href="https://www.bananacrystal.com/resources/agent-economy-glossary/"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .entry-content,
+      .post-content,
+      .page-content,
+      .wp-block-group,
+      .site-content,
+      .content-area,
+      .entry,
+      article.page,
+      article.post,
+      .hentry,
+      #content,
+      #primary,
+      #main,
+      .main-content,
+      .page-wrapper,
+      .content-wrapper,
+      .inner-content {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        float: none !important;
+      }
+      #bc-root {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin-left: calc(-50vw + 50%) !important;
+        margin-right: calc(-50vw + 50%) !important;
+        position: relative !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root,
+      [data-theme="light"] {
+        --bg: #f8f7ff;
+        --bg-alt: #f0eef9;
+        --surface: #fff;
+        --surface-up: #f4f2ff;
+        --border: #e2dff5;
+        --border-strong: #c8c3e8;
+        --fg: #0d0b1a;
+        --fg-mid: #3d3860;
+        --fg-muted: #6b6690;
+        --fg-subtle: #9e9bc0;
+        --primary: #7c3aed;
+        --primary-dim: rgba(124, 58, 237, 0.1);
+        --primary-soft: rgba(124, 58, 237, 0.2);
+        --emerald: #059669;
+        --display: "Libre Baskerville", Georgia, serif;
+        --sans: "DM Sans", system-ui, sans-serif;
+        --mono: "Inter", monospace;
+        --shadow: 0 2px 16px rgba(124, 58, 237, 0.08);
+      }
+      [data-theme="dark"] {
+        --bg: #07070f;
+        --bg-alt: #0d0d1a;
+        --surface: rgba(255, 255, 255, 0.04);
+        --surface-up: rgba(255, 255, 255, 0.07);
+        --border: rgba(124, 58, 237, 0.18);
+        --border-strong: rgba(124, 58, 237, 0.35);
+        --fg: #f0eeff;
+        --fg-mid: #c4bfe8;
+        --fg-muted: #8e8ab8;
+        --fg-subtle: #5a5580;
+        --primary: #a78bfa;
+        --primary-dim: rgba(167, 139, 250, 0.12);
+        --primary-soft: rgba(167, 139, 250, 0.28);
+        --emerald: #4ade80;
+        --shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
+      }
+      html {
+        scroll-behavior: smooth;
+        font-size: clamp(16px, 1.1vw, 20px);
+        overflow-x: hidden;
+        width: 100% !important;
+      }
+      body {
+        font-family: var(--sans);
+        background: var(--bg);
+        color: var(--fg);
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        transition:
+          background-color 0.2s,
+          color 0.2s;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: var(--display);
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      ::-webkit-scrollbar {
+        width: 4px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--border-strong);
+        border-radius: 2px;
+      }
+      [data-theme="dark"] .bc-drawer-section-label {
+        color: #6b6690;
+      }
+      .bc-article {
+        font-family: var(--sans);
+        background: var(--bg);
+        color: var(--fg);
+        padding: 3rem 0 5rem;
+        min-height: 100vh;
+        transition:
+          background-color 0.2s,
+          color 0.2s;
+      }
+      .article-hero {
+        max-width: clamp(760px, 65vw, 1100px);
+        margin: 0 auto;
+        padding: 0 clamp(1.5rem, 4vw, 4rem) 2.5rem;
+      }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+      .eyebrow::before {
+        content: "";
+        width: 18px;
+        height: 1px;
+        background: var(--primary);
+        flex-shrink: 0;
+      }
+      .article-h1 {
+        font-family: var(--display);
+        font-size: clamp(2rem, 4.5vw, 3.75rem);
+        font-weight: 700;
+        line-height: 1.08;
+        letter-spacing: -0.025em;
+        color: var(--fg);
+        margin-bottom: 1.25rem;
+      }
+      .article-h1 em {
+        font-style: normal;
+        color: var(--primary);
+      }
+      .lede {
+        font-size: clamp(1.05rem, 1.4vw, 1.3rem);
+        font-weight: 300;
+        line-height: 1.85;
+        color: var(--fg-muted);
+        margin-bottom: 1.5rem;
+        border-left: 3px solid var(--primary);
+        padding-left: 1.25rem;
+      }
+      .meta {
+        display: flex;
+        gap: 1.5rem;
+        font-family: var(--mono);
+        font-size: 0.62rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--fg-muted);
+        margin-bottom: 2.5rem;
+        flex-wrap: wrap;
+      }
+      .content {
+        max-width: clamp(760px, 65vw, 1100px);
+        margin: 0 auto;
+        padding: 0 clamp(1.5rem, 4vw, 4rem) 4rem;
+      }
+      .term-entry {
+        border-bottom: 1px solid var(--border);
+        padding: clamp(1.25rem, 2vw, 2rem) 0;
+      }
+      .term-entry:last-child {
+        border-bottom: none;
+      }
+      .term-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .term-name {
+        font-family: var(--display);
+        font-size: clamp(1rem, 1.3vw, 1.2rem);
+        font-weight: 700;
+        color: var(--fg);
+      }
+      .term-cat {
+        font-family: var(--mono);
+        font-size: 0.6rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 2px 8px;
+        border-radius: 100px;
+        background: var(--primary-dim);
+        color: var(--primary);
+        border: 1px solid var(--primary-soft);
+      }
+      .term-def {
+        font-size: clamp(0.9rem, 1.05vw, 1.05rem);
+        line-height: 1.85;
+        color: var(--fg-muted);
+        margin-bottom: 0.5rem;
+      }
+      .term-ex {
+        font-family: var(--mono);
+        font-size: 0.76rem;
+        color: var(--fg-muted);
+        background: var(--surface-up);
+        border: 1px solid var(--border);
+        padding: 8px 12px;
+        border-radius: 8px;
+      }
+      .next-cta {
+        background: var(--surface);
+        border-top: 1px solid var(--border);
+        padding: clamp(2.5rem, 4vw, 5rem) clamp(1.5rem, 5vw, 6rem);
+        text-align: center;
+        margin-top: 2rem;
+      }
+      .next-label {
+        font-family: var(--mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--fg-muted);
+        margin-bottom: 1rem;
+      }
+      .next-title {
+        font-family: var(--display);
+        font-size: clamp(1.3rem, 2vw, 1.9rem);
+        font-weight: 700;
+        color: var(--fg);
+        margin-bottom: 1.25rem;
+      }
+      .next-links {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .nlink {
+        font-size: 0.875rem;
+        color: var(--fg-muted);
+        text-decoration: none;
+        border: 1px solid var(--border);
+        padding: 9px 20px;
+        border-radius: 8px;
+        transition: all 0.2s;
+      }
+      .nlink:hover {
+        color: var(--fg);
+        border-color: var(--primary-soft);
+      }
+      .nlink.primary {
+        background: var(--primary);
+        color: #fff !important;
+        border-color: var(--primary);
+      }
+      .bc-theme-toggle {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        z-index: 50;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 999px;
+        border: 1px solid var(--border-strong);
+        background: var(--surface-up);
+        color: var(--fg);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+          border-color 0.2s,
+          background 0.2s,
+          transform 0.15s;
+        box-shadow: var(--shadow);
+        font-size: 1rem;
+        -webkit-appearance: none;
+        appearance: none;
+        padding: 0;
+      }
+      .bc-theme-toggle:hover {
+        border-color: var(--primary);
+        background: var(--primary-dim);
+        transform: scale(1.08);
+      }
+      @media (min-width: 1400px) {
+        .bc-article {
+          padding-top: 4rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="bc-root">
+      <div class="bc-article">
+        <div class="article-hero">
+          <div class="eyebrow">Glossary</div>
+          <h1 class="article-h1">Agent economy <em>glossary</em></h1>
+          <p class="lede">
+            Every term in the agent payment infrastructure, agentic commerce,
+            and agentic finance ecosystem. Each is defined precisely, with examples,
+            and cross-referenced.
+          </p>
+          <div class="meta">
+            <span>BananaCrystal Research</span><span>March 2026</span
+            ><span>15 terms defined</span>
+          </div>
+        </div>
+        <div class="content">
+          <div class="term-entry">
+            <div class="term-header">
+              <span class="term-name">Agentic commerce</span
+              ><span class="term-cat">Core concept</span>
+            </div>
+            <p class="term-def">
+              The emerging category of commercial transactions initiated,
+              negotiated, and completed by AI agents on behalf of humans or
+              other systems, without human approval at each step. Projected to
+              represent 9% of all US online purchases by 2030 ($261 billion).
+            </p>
+            <div class="term-ex">
+              Example: An AI agent autonomously purchases data from a vendor
+              API, pays the invoice, and logs the transaction. It all happens while the
+              human operator sleeps.
+            </div>
+          </div>
+          <div class="term-entry">
+            <div class="term-header">
+              <span class="term-name">Agent economy</span
+              ><span class="term-cat">Core concept</span>
+            </div>
+            <p class="term-def">
+              The emerging economic layer in which AI agents participate as
+              independent economic actors. They are not just tools assisting humans, but
+              participants that earn, spend, negotiate, and operate on their own
+              financial behalf.
+            </p>
+            <div class="term-ex">
+              Example: An orchestrator agent hires specialized sub-agents for
+              research, writing, and review. It pays each upon task completion
+              from its own wallet.
+            </div>
+          </div>
+          <div class="term-entry">
+            <div class="term-header">
+              <span class="term-name">Agent payment infrastructure</span
+              ><span class="term-cat">Core concept</span>
+            </div>
+            <p class="term-def">
+              The class of financial technology designed from first principles
+              for AI agents as the primary economic actor. Provides agent-owned
+              wallets with programmatic identity, autonomous transaction
+              authorization without human sign-off, and on-chain settlement with
+              machine-readable audit trails.
+            </p>
+            <div class="term-ex">
+              Example: BananaCrystal provides agent payment infrastructure
+              through a single MCP endpoint: 40 tools, 150+ currencies, Hedera
+              settlement in under 5 seconds.
+            </div>
+          </div>
+          <div class="term-entry">
+            <div class="term-header">
+              <span class="term-name">Agent wallet</span
+              ><span class="term-cat">Core concept</span>
+            </div>
+            <p class="term-def">
+              A non-custodial financial account owned and operated by an AI
+              agent, not a human. Identity derives from the agent's programmatic
+              ID. The wallet holds a balance, has an on-chain address, and can
+              send and receive value autonomously.
+            </p>
+            <div class="term-ex">
+              Example: wallet =
+              client.wallets.create(agent_id='my-trading-agent',
+              currency='USDC', spending_limit=500)
+            </div>
+          </div>
+          <div class="term-entry">
+            <div class="term-header">
+              <span class="term-name">API key scope</span
+              ><span class="term-cat">Technical</span>
+            </div>
+            <p class="term-def">
+              An explicit permission level assigned to a BananaCrystal API key
+              that controls what operations an agent can perform. Available
+              scopes: read_only, transfer, swap, fiat, kyc.
+            </p>
+            <div class="term-ex">
+              Example: A read-only research agent gets a read_only key. A
+              treasury bot gets transfer and swap scopes.
+            </div>
+          </div>
+          <div class="term-entry">
+            <div class="term-header">
+              <span class="term-name">Autonomous authorization</span
+              ><span class="term-cat">Core concept</span>
+            </div>
+            <p class="term-def">
+              The mechanism by which an AI agent authorizes transactions
+              programmatically, without requiring human approval per
+              transaction. Enabled by spending policy set in advance by the
+              operator.
+            </p>
+            <div class="term-ex">
+              Example: Agent calls transfer_tokens(), and the policy engine validates
+              limits and allowlists. The transaction then executes without human
+              involvement.
+            </div>
+          </div>
+          <div class="term-entry">
+            <div class="term-header">
+              <span class="term-name">Autonomous payments</span
+              ><span class="term-cat">Core concept</span>
+            </div>
+            <p class="term-def">
+              Transactions initiated, authorized, and settled entirely by
+              machines, with no human in the approval loop at any stage. The
+              core primitive of the agent economy.
+            </p>
+            <div class="term-ex">
+              Example: An agent calls transfer_tokens(amount=12.50,
+              to='vendor:api-service-7g2'). The payment settles in 3.2 seconds
+              with no human involvement.
+            </div>
+          </div>
+          <div class="term-entry">
+            <div class="term-header">
+              <span class="term-name">Finality</span
+              ><span class="term-cat">Technical</span>
+            </div>
+            <p class="term-def">
+              The point at which a blockchain transaction is considered
+              irreversible and complete. Hedera offers absolute finality in
+              under 5 seconds. A transaction is either settled or rejected with
+              certainty, no ambiguity.
+            </p>
+            <div class="term-ex">
+              Example: BananaCrystal returns a confirmed settlement in 3–5
+              seconds on Hedera with absolute finality.
+            </div>
+          </div>
+          <div class="term-entry">
+            <div class="term-header">
+              <span class="term-name">Hedera</span
+              ><span class="term-cat">Technical</span>
+            </div>
+            <p class="term-def">
+              The enterprise-grade public distributed ledger network that
+              BananaCrystal uses for transaction settlement. Key properties:
+              absolute finality in 3–5 seconds, low percentage-based fees (0.3%
+              transfers · 0.5% swaps), carbon-negative network, 10,000+
+              transactions per second throughput.
+            </p>
+            <div class="term-ex">
+              Example: BananaCrystal settles all stablecoin transfers on Hedera.
+              Transaction hash format: '0.0.789@1711234567'
+            </div>
+          </div>
+          <div class="term-entry">
+            <div class="term-header">
+              <span class="term-name">Idempotency</span
+              ><span class="term-cat">Technical</span>
+            </div>
+            <p class="term-def">
+              The property of an operation that produces the same result whether
+              executed once or multiple times. Critical for agent payment
+              infrastructure. If an agent retries a failed request, the payment
+              must not be processed twice.
+            </p>
+            <div class="term-ex">
+              Example: BananaCrystal enforces idempotency via unique transaction
+              references. Duplicate requests within 24 hours are rejected with a
+              409 Conflict response.
+            </div>
+          </div>
+          <div class="term-entry">
+            <div class="term-header">
+              <span class="term-name">MCP (Model Context Protocol)</span
+              ><span class="term-cat">Protocol</span>
+            </div>
+            <p class="term-def">
+              An open standard introduced by Anthropic in November 2024 that
+              enables AI agents to securely connect to external systems through
+              a standardized interface. Think of it as HTTP for AI agents.
+            </p>
+            <div class="term-ex">
+              Example: An agent connects to BananaCrystal MCP server with one
+              config line and discovers 40 payment tools automatically via the
+              MCP manifest.
+            </div>
+          </div>
+          <div class="term-entry">
+            <div class="term-header">
+              <span class="term-name">Multi-agent payroll</span
+              ><span class="term-cat">Core concept</span>
+            </div>
+            <p class="term-def">
+              A payment pattern in which an orchestrator agent pays sub-agents
+              for completed work. This creates an autonomous economic system where
+              agents earn and spend without human involvement.
+            </p>
+            <div class="term-ex">
+              Example: An orchestrator agent verifies that a research sub-agent
+              delivered its output, then calls transfer_tokens() to pay it $2.50
+              in USDb.
+            </div>
+          </div>
+          <div class="term-entry">
+            <div class="term-header">
+              <span class="term-name">Spending limits</span
+              ><span class="term-cat">Technical</span>
+            </div>
+            <p class="term-def">
+              Operator-configured caps on agent spending enforced at the
+              infrastructure level. Types: per-transaction maximum, daily
+              rolling cap, monthly cap, and recipient allowlists.
+            </p>
+            <div class="term-ex">
+              Example: wallet = client.wallets.create(spending_limit=500,
+              max_tx_amount=50). The agent cannot exceed $50/tx or $500/day
+              regardless of LLM decisions.
+            </div>
+          </div>
+          <div class="term-entry">
+            <div class="term-header">
+              <span class="term-name">Stablecoin</span
+              ><span class="term-cat">Finance</span>
+            </div>
+            <p class="term-def">
+              A cryptocurrency designed to maintain a stable value relative to a
+              reference asset (typically a fiat currency). USDb is
+              BananaCrystal's USD-pegged stablecoin on Hedera. 150+ local
+              currency stablecoins are available.
+            </p>
+            <div class="term-ex">
+              Example: An agent swaps 100 USDb to NGNb (Nigerian Naira
+              stablecoin) to pay a vendor in Nigeria, settling in 4 seconds at
+              0.5% swap fee.
+            </div>
+          </div>
+          <div class="term-entry">
+            <div class="term-header">
+              <span class="term-name">USDb</span
+              ><span class="term-cat">Finance</span>
+            </div>
+            <p class="term-def">
+              BananaCrystal's USD-pegged stablecoin on the Hedera network. 1
+              USDb = 1 USD. Used as the primary settlement currency for agent
+              payments. Backed 1:1 by USD reserves.
+            </p>
+            <div class="term-ex">
+              Example: transfer_tokens(amount=25, token='USDb', to='0.0.654321')
+              : sends $25 to the recipient's Hedera wallet.
+            </div>
+          </div>
+        </div>
+        <div class="next-cta">
+          <div class="next-label">Continue reading</div>
+          <div class="next-title">
+            Autonomous payments vs traditional rails: complete comparison
+          </div>
+          <div class="next-links">
+            <a
+              href="https://www.bananacrystal.com/autonomous-payments-guide/"
+              class="nlink primary"
+              >Read next &#8594;</a
+            >
+            <a
+              href="https://www.bananacrystal.com/how-mcp-payments-work/"
+              class="nlink"
+              >&#8592; Previous</a
+            >
+            <a href="https://www.bananacrystal.com/resources/" class="nlink"
+              >All Resources</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      class="bc-theme-toggle"
+      id="bc-theme-toggle"
+      aria-label="Toggle theme"
+    >
+      &#127769;
+    </button>
+    <script>
+      (function () {
+        var btn = document.getElementById("bc-theme-toggle");
+        var root = document.documentElement;
+        var saved = localStorage.getItem("bc-resources-theme");
+        if (saved === "dark") {
+          root.setAttribute("data-theme", "dark");
+          if (btn) btn.textContent = "\u2600\uFE0F";
+        }
+        if (btn)
+          btn.addEventListener("click", function () {
+            var isDark = root.getAttribute("data-theme") === "dark";
+            root.setAttribute("data-theme", isDark ? "light" : "dark");
+            btn.textContent = isDark ? "\uD83C\uDF19" : "\u2600\uFE0F";
+            localStorage.setItem(
+              "bc-resources-theme",
+              isDark ? "light" : "dark",
+            );
+          });
+      })();
+    </script>
+  </body>
+</html>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+		
+			</main><!-- #main -->
+
+			
+			</div><!-- #primary -->
+	</div><!-- #content -->
+
+	
+			<footer id="colophon" class="site-footer footer-inline">
+							<div class="site-info">
+										
+		<div class="powered-by">
+							Copyright © 2026 BananaCrystal							
+		</div>
+									<nav aria-label="Secondary menu" class="footer-navigation">
+			<ul class="footer-navigation-wrapper">
+				<li id="menu-item-41" class="menu-item menu-item-type-custom menu-item-object-custom social-item menu-item-41"><a href="https://x.com/_bananacrystal"><svg class="svg-icon" width="24" height="24" aria-hidden="true" role="img" focusable="false" width="24" height="24" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M13.982 10.622 20.54 3h-1.554l-5.693 6.618L8.745 3H3.5l6.876 10.007L3.5 21h1.554l6.012-6.989L15.868 21h5.245l-7.131-10.378Zm-2.128 2.474-.697-.997-5.543-7.93H8l4.474 6.4.697.996 5.815 8.318h-2.387l-4.745-6.787Z"></path></svg><span class="screen-reader-text">Twitter</span></a></li>
+<li id="menu-item-25633" class="menu-item menu-item-type-custom menu-item-object-custom social-item menu-item-25633"><a href="https://t.me/+ZBMulu_Df-JmODJh"><svg class="svg-icon" width="24" height="24" aria-hidden="true" role="img" focusable="false" width="24" height="24" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M3.375 10.848q8.053-3.509 10.74-4.626c5.114-2.127 6.177-2.497 6.87-2.51a1.211 1.211 0 0 1 .713.215.776.776 0 0 1 .262.499 3.248 3.248 0 0 1 .031.725c-.277 2.912-1.476 9.978-2.086 13.24-.259 1.38-.767 1.843-1.259 1.888-1.07.099-1.881-.707-2.917-1.386-1.621-1.062-2.537-1.724-4.11-2.76-1.818-1.199-.64-1.857.396-2.933.272-.282 4.984-4.568 5.075-4.957a.376.376 0 0 0-.086-.325.424.424 0 0 0-.381-.037q-.244.055-7.768 5.134a3.496 3.496 0 0 1-1.997.738 13.143 13.143 0 0 1-2.863-.678c-1.153-.375-2.07-.573-1.99-1.21q.062-.497 1.37-1.017Z"></path></svg><span class="screen-reader-text">Telegram</span></a></li>
+<li id="menu-item-25631" class="menu-item menu-item-type-custom menu-item-object-custom social-item menu-item-25631"><a href="https://www.youtube.com/@bananacrystal"><svg class="svg-icon" width="24" height="24" aria-hidden="true" role="img" focusable="false" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M21.8,8.001c0,0-0.195-1.378-0.795-1.985c-0.76-0.797-1.613-0.801-2.004-0.847c-2.799-0.202-6.997-0.202-6.997-0.202 h-0.009c0,0-4.198,0-6.997,0.202C4.608,5.216,3.756,5.22,2.995,6.016C2.395,6.623,2.2,8.001,2.2,8.001S2,9.62,2,11.238v1.517 c0,1.618,0.2,3.237,0.2,3.237s0.195,1.378,0.795,1.985c0.761,0.797,1.76,0.771,2.205,0.855c1.6,0.153,6.8,0.201,6.8,0.201 s4.203-0.006,7.001-0.209c0.391-0.047,1.243-0.051,2.004-0.847c0.6-0.607,0.795-1.985,0.795-1.985s0.2-1.618,0.2-3.237v-1.517 C22,9.62,21.8,8.001,21.8,8.001z M9.935,14.594l-0.001-5.62l5.404,2.82L9.935,14.594z"></path></svg><span class="screen-reader-text">YouTube</span></a></li>
+<li id="menu-item-25632" class="menu-item menu-item-type-custom menu-item-object-custom social-item menu-item-25632"><a href="https://www.linkedin.com/company/bananacrystal"><svg class="svg-icon" width="24" height="24" aria-hidden="true" role="img" focusable="false" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M19.7,3H4.3C3.582,3,3,3.582,3,4.3v15.4C3,20.418,3.582,21,4.3,21h15.4c0.718,0,1.3-0.582,1.3-1.3V4.3 C21,3.582,20.418,3,19.7,3z M8.339,18.338H5.667v-8.59h2.672V18.338z M7.004,8.574c-0.857,0-1.549-0.694-1.549-1.548 c0-0.855,0.691-1.548,1.549-1.548c0.854,0,1.547,0.694,1.547,1.548C8.551,7.881,7.858,8.574,7.004,8.574z M18.339,18.338h-2.669 v-4.177c0-0.996-0.017-2.278-1.387-2.278c-1.389,0-1.601,1.086-1.601,2.206v4.249h-2.667v-8.59h2.559v1.174h0.037 c0.356-0.675,1.227-1.387,2.526-1.387c2.703,0,3.203,1.779,3.203,4.092V18.338z"></path></svg><span class="screen-reader-text">LinkedIn</span></a></li>
+			</ul><!-- .footer-navigation-wrapper -->
+		</nav><!-- .footer-navigation -->
+						</div><!-- .site-info -->
+				
+		</footer><!-- #site-footer -->
+
+	
+	</div><!-- #page -->
+
+	<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/twentytwentyone/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script type="text/javascript">
+    (function () {
+    	var siteFooter = document.getElementsByClassName('site-footer')[0];
+        var footerWrapper = document.createElement('div');
+        footerWrapper.id = 'footer-wrapper';
+        siteFooter.parentNode.insertBefore(footerWrapper, siteFooter);        footerWrapper.appendChild(siteFooter);
+    }());
+</script>
+<script>document.body.classList.remove("no-js");</script>	<script>
+	if ( -1 !== navigator.userAgent.indexOf( 'MSIE' ) || -1 !== navigator.appVersion.indexOf( 'Trident/' ) ) {
+		document.body.classList.add( 'is-IE' );
+	}
+	</script>
+		<script>
+	(function() {
+		document.addEventListener( 'click', function( event ) {
+			if ( event.target.hash && event.target.hash.includes( '#' ) && ! document.getElementById( 'site-navigation' ).contains( event.target ) ) {
+				var mobileButton = document.getElementById( 'primary-mobile-menu' );
+				twentytwentyoneToggleAriaExpanded( mobileButton );
+			}
+		} );
+	})();
+	</script>
+	<link rel='stylesheet' id='elementor-icons-ekiticons-css' href='https://www.bananacrystal.com/wp-content/plugins/elementskit-lite/modules/elementskit-icon-pack/assets/css/ekiticons.css' media='all' />
+<script id="imagesloaded-js" src="https://www.bananacrystal.com/wp-includes/js/imagesloaded.min.js"></script>
+<script id="masonry-js" src="https://www.bananacrystal.com/wp-includes/js/masonry.min.js"></script>
+<script id="betterdocs-categorygrid-js" src="https://www.bananacrystal.com/wp-content/plugins/betterdocs/assets/blocks/categorygrid/frontend.js"></script>
+<script id="fa5-js" src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
+<script id="wp-hooks-js" src="https://www.bananacrystal.com/wp-includes/js/dist/hooks.min.js"></script>
+<script id="wp-i18n-js" src="https://www.bananacrystal.com/wp-includes/js/dist/i18n.min.js"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script id="swv-js" src="https://www.bananacrystal.com/wp-content/plugins/contact-form-7/includes/swv/js/index.js"></script>
+<script id="contact-form-7-js-before">
+var wpcf7 = {
+    "api": {
+        "root": "https:\/\/www.bananacrystal.com\/wp-json\/",
+        "namespace": "contact-form-7\/v1"
+    },
+    "cached": 1
+};
+//# sourceURL=contact-form-7-js-before
+</script>
+<script id="contact-form-7-js" src="https://www.bananacrystal.com/wp-content/plugins/contact-form-7/includes/js/index.js"></script>
+<script id="wpr-particles-js" src="https://www.bananacrystal.com/wp-content/plugins/royal-elementor-addons/assets/js/lib/particles/particles.js"></script>
+<script id="wpr-jarallax-js" src="https://www.bananacrystal.com/wp-content/plugins/royal-elementor-addons/assets/js/lib/jarallax/jarallax.min.js"></script>
+<script id="wpr-parallax-hover-js" src="https://www.bananacrystal.com/wp-content/plugins/royal-elementor-addons/assets/js/lib/parallax/parallax.min.js"></script>
+<script id="htmega-popper-js" src="https://www.bananacrystal.com/wp-content/plugins/ht-mega-for-elementor/assets/js/popper.min.js"></script>
+<script id="htbbootstrap-js" src="https://www.bananacrystal.com/wp-content/plugins/ht-mega-for-elementor/assets/js/htbbootstrap.js"></script>
+<script id="waypoints-js" src="https://www.bananacrystal.com/wp-content/plugins/ht-mega-for-elementor/assets/js/waypoints.js"></script>
+<script id="htmega-widgets-scripts-min-js-extra">
+var HTMEGAF = {"elementorpro":"1","buttion_area_text_next":"Next","buttion_area_text_prev":"Previous"};
+//# sourceURL=htmega-widgets-scripts-min-js-extra
+</script>
+<script id="htmega-widgets-scripts-min-js" src="https://www.bananacrystal.com/wp-content/plugins/ht-mega-for-elementor/assets/js/htmega-widgets-active.min.js"></script>
+<script id="twenty-twenty-one-ie11-polyfills-js-after">
+( Element.prototype.matches && Element.prototype.closest && window.NodeList && NodeList.prototype.forEach ) || document.write( '<\u0073cript src="https://www.bananacrystal.com/wp-content/themes/twentytwentyone/assets/js/polyfills.js"></scr' + 'ipt>' );
+//# sourceURL=twenty-twenty-one-ie11-polyfills-js-after
+</script>
+<script id="twenty-twenty-one-responsive-embeds-script-js" src="https://www.bananacrystal.com/wp-content/themes/twentytwentyone/assets/js/responsive-embeds.js"></script>
+<script id="twenty-twenty-one-widget-p2p-js" src="https://www.bananacrystal.com/wp-content/themes/twentytwentyone/assets/js/widget-p2p.js"></script>
+<script id="betterdocs-elementor-editor-js" src="https://www.bananacrystal.com/wp-content/plugins/betterdocs/assets/elementor/js/editor.js"></script>
+<script id="elementskit-framework-js-frontend-js" src="https://www.bananacrystal.com/wp-content/plugins/elementskit-lite/libs/framework/assets/js/frontend-script.js"></script>
+<script id="elementskit-framework-js-frontend-js-after">
+		var elementskit = {
+			resturl: 'https://www.bananacrystal.com/wp-json/elementskit/v1/',
+		}
+
+		
+//# sourceURL=elementskit-framework-js-frontend-js-after
+</script>
+<script id="ekit-widget-scripts-js" src="https://www.bananacrystal.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js"></script>
+<script id="twentig-twentyone-js" src="https://www.bananacrystal.com/wp-content/plugins/twentig/dist/js/classic/twentig-twentytwentyone.js"></script>
+<script id="master-addons-plugins-js" src="https://www.bananacrystal.com/wp-content/plugins/master-addons/assets/js/plugins.js"></script>
+<script id="master-addons-scripts-js-extra">
+var jltma_scripts = {"plugin_url":"https://www.bananacrystal.com/wp-content/plugins/master-addons","ajaxurl":"https://www.bananacrystal.com/wp-admin/admin-ajax.php","nonce":"master-addons-elementor"};
+var jltma_data_table_vars = {"lengthMenu":"Display _MENU_ records per page","zeroRecords":"Nothing found - sorry","info":"Showing page _PAGE_ of _PAGES_","infoEmpty":"No records available","infoFiltered":"(filtered from _MAX_ total records)","searchPlaceholder":"Search...","processing":"Processing...","csvHtml5":"CSV","excelHtml5":"Excel","pdfHtml5":"PDF","print":"Print"};
+var jltma_scripts = {"plugin_url":"https://www.bananacrystal.com/wp-content/plugins/master-addons","ajaxurl":"https://www.bananacrystal.com/wp-admin/admin-ajax.php","nonce":"master-addons-elementor"};
+var jltma_data_table_vars = {"lengthMenu":"Display _MENU_ records per page","zeroRecords":"Nothing found - sorry","info":"Showing page _PAGE_ of _PAGES_","infoEmpty":"No records available","infoFiltered":"(filtered from _MAX_ total records)","searchPlaceholder":"Search...","processing":"Processing...","csvHtml5":"CSV","excelHtml5":"Excel","pdfHtml5":"PDF","print":"Print"};
+//# sourceURL=master-addons-scripts-js-extra
+</script>
+<script id="master-addons-scripts-js" src="https://www.bananacrystal.com/wp-content/plugins/master-addons/assets/js/master-addons-scripts.js"></script>
+<script id="elementor-pro-webpack-runtime-js" src="https://www.bananacrystal.com/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js"></script>
+<script id="elementor-webpack-runtime-js" src="https://www.bananacrystal.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js"></script>
+<script id="elementor-frontend-modules-js" src="https://www.bananacrystal.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js"></script>
+<script id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/www.bananacrystal.com\/wp-admin\/admin-ajax.php","nonce":"77b7efd82a","urls":{"assets":"https:\/\/www.bananacrystal.com\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/www.bananacrystal.com\/wp-json\/"},"settings":{"lazy_load_background_images":false},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/www.bananacrystal.com\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+//# sourceURL=elementor-pro-frontend-js-before
+</script>
+<script id="elementor-pro-frontend-js" src="https://www.bananacrystal.com/wp-content/plugins/elementor-pro/assets/js/frontend.min.js"></script>
+<script id="jquery-ui-core-js" src="https://www.bananacrystal.com/wp-includes/js/jquery/ui/core.min.js"></script>
+<script id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"3.27.6","is_static":false,"experimentalFeatures":{"additional_custom_breakpoints":true,"e_swiper_latest":true,"e_onboarding":true,"theme_builder_v2":true,"home_screen":true,"landing-pages":true,"editor_v2":true,"e_element_cache":true,"link-in-bio":true,"floating-buttons":true,"display-conditions":true,"form-submissions":true},"urls":{"assets":"https:\/\/www.bananacrystal.com\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/www.bananacrystal.com\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/www.bananacrystal.com\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"88ea253969"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":38087,"title":"agent-economy-glossary%20-%20BananaCrystal","excerpt":"","featuredImage":"https:\/\/www.bananacrystal.com\/wp-content\/uploads\/2026\/04\/Screenshot-2026-04-24-at-11.52.31-1024x804.png"}};
+//# sourceURL=elementor-frontend-js-before
+</script>
+<script id="elementor-frontend-js" src="https://www.bananacrystal.com/wp-content/plugins/elementor/assets/js/frontend.min.js"></script>
+<script id="pro-elements-handlers-js" src="https://www.bananacrystal.com/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js"></script>
+<script id="animate-circle-js" src="https://www.bananacrystal.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/animate-circle.min.js"></script>
+<script id="elementskit-elementor-js-extra">
+var ekit_config = {"ajaxurl":"https://www.bananacrystal.com/wp-admin/admin-ajax.php","nonce":"9794658f59"};
+//# sourceURL=elementskit-elementor-js-extra
+</script>
+<script id="elementskit-elementor-js" src="https://www.bananacrystal.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/elementor.js"></script>
+<script id="dompurify-js" src="https://www.bananacrystal.com/wp-content/plugins/ht-mega-for-elementor/assets/js/purify.min.js"></script>
+<script id="wpr-addons-js-js-extra">
+var WprConfig = {"ajaxurl":"https://www.bananacrystal.com/wp-admin/admin-ajax.php","resturl":"https://www.bananacrystal.com/wp-json/wpraddons/v1","nonce":"d6e1b022f8","addedToCartText":"was added to cart","viewCart":"View Cart","comparePageID":"","comparePageURL":"https://www.bananacrystal.com/agent-economy-glossary/","wishlistPageID":"","wishlistPageURL":"https://www.bananacrystal.com/agent-economy-glossary/","chooseQuantityText":"Please select the required number of items.","site_key":"","is_admin":"","input_empty":"Please fill out this field","select_empty":"Nothing selected","file_empty":"Please upload a file","recaptcha_error":"Recaptcha Error","woo_shop_ppp":"9","woo_shop_cat_ppp":"9","woo_shop_tag_ppp":"9","is_product_category":"","is_product_tag":""};
+//# sourceURL=wpr-addons-js-js-extra
+</script>
+<script id="wpr-addons-js-js" data-cfasync="false" src="https://www.bananacrystal.com/wp-content/plugins/royal-elementor-addons/assets/js/frontend.min.js"></script>
+<script id="wpr-modal-popups-js-js" src="https://www.bananacrystal.com/wp-content/plugins/royal-elementor-addons/assets/js/modal-popups.min.js"></script>
+<script>
+/* <![CDATA[ */
+(function(doc){
+	async function cfgp_display_control_css () {
+		var css = doc.getElementById('cfgp-display-control-css'),
+			css_original = css.innerHTML;
+		if( css ) {
+			const response = await fetch('https://www.bananacrystal.com/wp-admin/admin-ajax.php', {
+				method: 'POST',
+				headers: {
+					'Cache-Control': 'no-cache, no-store, must-revalidate', 
+					'Pragma': 'no-cache', 
+					'Expires': '0'
+				},
+				body: new URLSearchParams({
+					action: 'cfgp_display_control_css',
+					nonce: css.dataset.nonce
+				})
+			}).catch((error) => {
+				console.error('The geo controller could not update the CSS.');
+				
+				setTimeout(function(){
+					css.innerHTML = css_original;
+					css.ajaxError = true;
+				}, 10);
+				
+				return;
+			});
+			
+			css.innerHTML = await response.text();
+			css.ajaxError = false;
+		}
+		return css;
+	}
+	cfgp_display_control_css().then(function(data){
+		if( data.ajaxError ) {
+			data.dataset.ajax='error';
+		} else {
+			data.dataset.ajax='loaded';
+		}
+	});
+}(document));
+/* ]]> */
+</script>
+	
+</body>
+</html>
+
+			<div data-elementor-type="footer" data-elementor-id="30054" class="elementor elementor-30054 elementor-location-footer" data-elementor-post-type="elementor_library">
+					<section class="elementor-section elementor-top-section elementor-element elementor-element-303f36e elementor-section-boxed elementor-section-height-default elementor-section-height-default jltma-glass-effect-no wpr-particle-no wpr-jarallax-no wpr-parallax-no wpr-sticky-section-no" data-id="303f36e" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-e8a2917 jltma-glass-effect-no" data-id="e8a2917" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-a6e3557 elementor-widget__width-initial jltma-glass-effect-no elementor-widget elementor-widget-html" data-id="a6e3557" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+					<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BananaCrystal | Footer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --bg: #f8f7ff;
+        --bg-alt: #f0eef9;
+        --surface: #ffffff;
+        --border: #e2dff5;
+        --border-strong: #c8c3e8;
+        --fg: #0d0b1a;
+        --fg-mid: #3d3860;
+        --fg-muted: #6b6690;
+        --fg-subtle: #9e9bc0;
+        --primary: #7c3aed;
+        --primary-light: #9b6ef5;
+        --display: "Libre Baskerville", Georgia, serif;
+        --sans: "DM Sans", system-ui, sans-serif;
+        --mono: "Inter", monospace;
+      }
+      html {
+        font-size: clamp(15px, 1.1vw, 18px);
+      }
+      body {
+        font-family: var(--sans);
+        background: var(--bg);
+        color: var(--fg);
+        -webkit-font-smoothing: antialiased;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* ── WORDPRESS BREAKOUT ── */
+      .entry-content,
+      .post-content,
+      .page-content,
+      .wp-block-group,
+      .site-content,
+      .content-area,
+      .entry,
+      article.page,
+      article.post,
+      .hentry,
+      #content,
+      #primary,
+      #main,
+      .main-content,
+      .page-wrapper,
+      .content-wrapper,
+      .inner-content {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        float: none !important;
+      }
+      #bc-footer-root {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin-left: calc(-50vw + 50%) !important;
+        margin-right: calc(-50vw + 50%) !important;
+        position: relative !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
+      }
+
+      /* ── FOOTER ── */
+      .container {
+        max-width: 90%;
+        width: 90%;
+        margin: 0 auto;
+        padding: 0 clamp(1rem, 2vw, 2rem);
+      }
+      .footer {
+        background: var(--surface);
+        border-top: 1px solid var(--border);
+        padding: 3.5rem 0 2rem;
+        width: 100%;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 2.5rem;
+      }
+      .footer-brand-tagline {
+        font-size: 0.84rem;
+        line-height: 1.65;
+        color: var(--fg-muted);
+        max-width: 220px;
+        margin-top: 0.75rem;
+      }
+      .footer-col-label {
+        font-family: var(--mono);
+        font-size: 0.62rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--fg-subtle);
+        margin-bottom: 1rem;
+        display: block;
+      }
+      .footer-link {
+        display: block;
+        font-size: 0.84rem;
+        color: var(--fg-muted);
+        text-decoration: none;
+        margin-bottom: 0.5rem;
+        transition: color 0.15s;
+        text-transform: capitalize;
+      }
+      .footer-link:hover {
+        color: var(--primary);
+      }
+      .footer-bottom {
+        border-top: 1px solid var(--border);
+        padding-top: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        font-family: var(--mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.06em;
+        color: var(--fg-subtle);
+      }
+      .footer-socials {
+        display: flex;
+        gap: 0.75rem;
+      }
+      .footer-social {
+        color: var(--fg-subtle);
+        transition: color 0.15s;
+        text-decoration: none;
+        font-size: 0.85rem;
+      }
+      .footer-social:hover {
+        color: var(--primary);
+      }
+
+      @media (max-width: 768px) {
+        .footer-grid {
+          grid-template-columns: repeat(2, 1fr) !important;
+          gap: 1.5rem 1rem;
+        }
+      }
+      @media (max-width: 480px) {
+        .footer-grid {
+          grid-template-columns: 1fr !important;
+          gap: 1.25rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="bc-footer-root">
+      <footer class="footer">
+        <div class="container">
+          <div
+            class="footer-grid"
+            style="grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr"
+          >
+            <!-- Brand column -->
+            <div style="min-width: 0">
+              <a
+                href="https://www.bananacrystal.com/"
+                style="
+                  margin-bottom: 0.75rem;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: flex-start;
+                  gap: 8px;
+                  text-decoration: none;
+                "
+              >
+                <img
+                  src="https://media.bananacrystal.com/wp-content/uploads/2024/07/24181620/Logo-128x128-2.png"
+                  alt="BananaCrystal"
+                  style="
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 9px;
+                    flex-shrink: 0;
+                  "
+                />
+                <span
+                  style="
+                    font-family: var(--display);
+                    font-size: 0.95rem;
+                    font-weight: 700;
+                    color: var(--fg);
+                    letter-spacing: -0.01em;
+                  "
+                  >BananaCrystal</span
+                >
+              </a>
+              <p class="footer-brand-tagline">
+                The payment layer for AI agents. MCP server · 150+ currencies ·
+                Founded 2020.
+              </p>
+              <p
+                style="
+                  font-size: 0.72rem;
+                  color: var(--fg-subtle);
+                  margin-top: 0.5rem;
+                "
+              >
+                AI crawler manifest:
+                <a
+                  href="https://www.bananacrystal.com/llms.txt"
+                  style="
+                    color: var(--primary);
+                    text-decoration: underline;
+                    text-underline-offset: 2px;
+                  "
+                  target="_blank"
+                  rel="noopener"
+                  >llms.txt</a
+                >
+              </p>
+              <div style="display: flex; gap: 0.75rem; margin-top: 1.25rem">
+                <a
+                  href="https://x.com/_bananacrystal"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="BananaCrystal on X"
+                  style="
+                    color: var(--fg-muted);
+                    transition: color 0.15s;
+                    text-decoration: none;
+                  "
+                  onmouseover="this.style.color = 'var(--primary)'"
+                  onmouseout="this.style.color = 'var(--fg-muted)'"
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://t.me/banana_crystal"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="BananaCrystal on Telegram"
+                  style="
+                    color: var(--fg-muted);
+                    transition: color 0.15s;
+                    text-decoration: none;
+                  "
+                  onmouseover="this.style.color = 'var(--primary)'"
+                  onmouseout="this.style.color = 'var(--fg-muted)'"
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.youtube.com/@bananacrystal"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="BananaCrystal on YouTube"
+                  style="
+                    color: var(--fg-muted);
+                    transition: color 0.15s;
+                    text-decoration: none;
+                  "
+                  onmouseover="this.style.color = 'var(--primary)'"
+                  onmouseout="this.style.color = 'var(--fg-muted)'"
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/bananacrystal"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="BananaCrystal on LinkedIn"
+                  style="
+                    color: var(--fg-muted);
+                    transition: color 0.15s;
+                    text-decoration: none;
+                  "
+                  onmouseover="this.style.color = 'var(--primary)'"
+                  onmouseout="this.style.color = 'var(--fg-muted)'"
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <!-- Platform -->
+            <div>
+              <span class="footer-col-label">Platform</span>
+              <a
+                href="https://agents.bananacrystal.com/assets"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Dashboard</a
+              >
+              <a
+                href="https://agents.bananacrystal.com/trade/fund"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Fund</a
+              >
+              <a
+                href="https://agents.bananacrystal.com/trade/usdc"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Trade</a
+              >
+              <a
+                href="https://agents.bananacrystal.com/trade/swap"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Swap</a
+              >
+              <a
+                href="https://agents.bananacrystal.com/transfer"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Transfer</a
+              >
+              <a
+                href="https://agents.bananacrystal.com/prediction/marketplace"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Prediction</a
+              >
+              <a
+                href="https://agents.bananacrystal.com/prediction/fx-rates"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >FX Rates</a
+              >
+            </div>
+            <!-- Resources -->
+            <div>
+              <span class="footer-col-label">Resources</span>
+              <a
+                href="https://www.bananacrystal.com/what-is-agent-payment-infrastructure/"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >What is agent payment infrastructure?</a
+              >
+              <a
+                href="https://www.bananacrystal.com/why-ai-agents-need-payment-rails/"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Why AI agents need payment rails</a
+              >
+              <a
+                href="https://www.bananacrystal.com/langchain-agent-wallet/"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >LangChain + BananaCrystal guide</a
+              >
+              <a
+                href="https://www.bananacrystal.com/how-mcp-payments-work/"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >How MCP payments work</a
+              >
+              <a
+                href="https://www.bananacrystal.com/agent-economy-glossary/"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Agent economy glossary</a
+              >
+              <a
+                href="https://www.bananacrystal.com/autonomous-payments-guide/"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Autonomous payments guide</a
+              >
+              <a href="#faq" class="footer-link">FAQ</a>
+            </div>
+            <!-- Developers -->
+            <div>
+              <span class="footer-col-label">Developers</span>
+              <a
+                href="https://agents.bananacrystal.com/docs"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Documentation</a
+              >
+              <a
+                href="https://github.com/bananacrystal"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-link"
+                >GitHub</a
+              >
+            </div>
+            <!-- Products -->
+            <div>
+              <span class="footer-col-label">Products</span>
+              <a
+                href="https://www.bananacrystal.com/digital-dollar-account/"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Digital dollar account</a
+              >
+              <a
+                href="https://www.bananacrystal.com/usd-debit-card/"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >USD debit card</a
+              >
+              <a
+                href="https://www.bananacrystal.com/p2p-usdt-trading-platform/"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >P2P trading</a
+              >
+              <a
+                href="https://www.bananacrystal.com/bananacrystal-business-accounts/"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Business account</a
+              >
+              <a
+                href="https://www.bananacrystal.com/earn-dual-interest/"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Earn dual interest</a
+              >
+              <a
+                href="https://www.bananacrystal.com/woocommerce/"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >WordPress integration</a
+              >
+            </div>
+            <!-- Company -->
+            <div>
+              <span class="footer-col-label">Company</span>
+              <a
+                href="https://www.bananacrystal.com/about-agentic-payment"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >About Agentic Payment</a
+              >
+              <a
+                href="https://www.bananacrystal.com/about/"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >About us</a
+              >
+              <a
+                href="https://www.bananacrystal.com/blogs/"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Blog</a
+              >
+              <a
+                href="https://www.bananacrystal.com/career-page/"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Careers</a
+              >
+              <a
+                href="https://www.bananacrystal.com/contact/"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Contact</a
+              >
+            </div>
+            <!-- Legal -->
+            <div>
+              <span class="footer-col-label">Legal</span>
+              <a
+                href="https://www.bananacrystal.com/terms/"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Terms of service</a
+              >
+              <a
+                href="https://www.bananacrystal.com/privacy/"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Privacy policy</a
+              >
+              <a
+                href="https://www.bananacrystal.com/p2p-terms-of-use/"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >P2P terms of use</a
+              >
+            </div>
+            <!-- More -->
+            <div>
+              <span class="footer-col-label">More</span>
+              <a
+                href="https://www.bananacrystal.com/partner-program/"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Partnership program</a
+              >
+              <a
+                href="https://www.bananacrystal.com/referral-program/"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Card referral</a
+              >
+              <a
+                href="https://influencers.bananacrystal.com/landing-page-1929"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Join the influencer KoL program</a
+              >
+              <a
+                href="https://www.bananacrystal.com/brokers-application/"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >BC Brokers application</a
+              >
+              <a
+                href="https://www.bananacrystal.com/students-program/"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Student campaign</a
+              >
+              <a
+                href="https://www.bananacrystal.com/tell-a-woman-campaign/"
+                class="footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Tell A Woman</a
+              >
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <span
+              >© 2026 BananaCrystal · The Payment Layer for AI Agents · MCP
+              server · 150+ currencies · Founded 2020</span
+            >
+            <nav
+              style="
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+              "
+            >
+              <a
+                href="https://www.bananacrystal.com/privacy/"
+                style="
+                  font-size: 0.72rem;
+                  color: var(--fg-subtle);
+                  text-decoration: none;
+                  transition: color 0.15s;
+                "
+                onmouseover="this.style.color = 'var(--fg)'"
+                onmouseout="this.style.color = 'var(--fg-subtle)'"
+                >Privacy Policy</a
+              >
+              <a
+                href="https://www.bananacrystal.com/terms/"
+                style="
+                  font-size: 0.72rem;
+                  color: var(--fg-subtle);
+                  text-decoration: none;
+                  transition: color 0.15s;
+                "
+                onmouseover="this.style.color = 'var(--fg)'"
+                onmouseout="this.style.color = 'var(--fg-subtle)'"
+                >Terms of Service</a
+              >
+              <a
+                href="/llms.txt"
+                style="
+                  font-size: 0.72rem;
+                  color: var(--fg-subtle);
+                  text-decoration: none;
+                  transition: color 0.15s;
+                "
+                onmouseover="this.style.color = 'var(--fg)'"
+                onmouseout="this.style.color = 'var(--fg-subtle)'"
+                aria-label="AI crawler manifest"
+                >AI crawler manifest: llms.txt</a
+              >
+            </nav>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                font-size: 0.72rem;
+                color: var(--fg-subtle);
+              "
+            >
+              <span>Powered by</span>
+              <a
+                href="https://hedera.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="
+                  font-weight: 600;
+                  color: var(--fg-mid);
+                  text-decoration: none;
+                "
+                >Hedera consensus layer</a
+              >
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+		
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/twentytwentyone/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script type="text/javascript">
+    (function () {
+    	var siteFooter = document.getElementsByClassName('site-footer')[0];
+        var footerWrapper = document.createElement('div');
+        footerWrapper.id = 'footer-wrapper';
+        siteFooter.parentNode.insertBefore(footerWrapper, siteFooter);        footerWrapper.appendChild(siteFooter);
+    }());
+</script>
+<script>document.body.classList.remove("no-js");</script>	<script>
+	if ( -1 !== navigator.userAgent.indexOf( 'MSIE' ) || -1 !== navigator.appVersion.indexOf( 'Trident/' ) ) {
+		document.body.classList.add( 'is-IE' );
+	}
+	</script>
+		<script>
+	(function() {
+		document.addEventListener( 'click', function( event ) {
+			if ( event.target.hash && event.target.hash.includes( '#' ) && ! document.getElementById( 'site-navigation' ).contains( event.target ) ) {
+				var mobileButton = document.getElementById( 'primary-mobile-menu' );
+				twentytwentyoneToggleAriaExpanded( mobileButton );
+			}
+		} );
+	})();
+	</script>
+	<script>
+/* <![CDATA[ */
+(function(doc){
+	async function cfgp_display_control_css () {
+		var css = doc.getElementById('cfgp-display-control-css'),
+			css_original = css.innerHTML;
+		if( css ) {
+			const response = await fetch('https://www.bananacrystal.com/wp-admin/admin-ajax.php', {
+				method: 'POST',
+				headers: {
+					'Cache-Control': 'no-cache, no-store, must-revalidate', 
+					'Pragma': 'no-cache', 
+					'Expires': '0'
+				},
+				body: new URLSearchParams({
+					action: 'cfgp_display_control_css',
+					nonce: css.dataset.nonce
+				})
+			}).catch((error) => {
+				console.error('The geo controller could not update the CSS.');
+				
+				setTimeout(function(){
+					css.innerHTML = css_original;
+					css.ajaxError = true;
+				}, 10);
+				
+				return;
+			});
+			
+			css.innerHTML = await response.text();
+			css.ajaxError = false;
+		}
+		return css;
+	}
+	cfgp_display_control_css().then(function(data){
+		if( data.ajaxError ) {
+			data.dataset.ajax='error';
+		} else {
+			data.dataset.ajax='loaded';
+		}
+	});
+}(document));
+/* ]]> */
+</script>
+	
+</body>
+</html>
+
+<!-- Dynamic page generated in 0.985 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2026-05-26 15:09:20 -->
+
+<!-- super cache -->

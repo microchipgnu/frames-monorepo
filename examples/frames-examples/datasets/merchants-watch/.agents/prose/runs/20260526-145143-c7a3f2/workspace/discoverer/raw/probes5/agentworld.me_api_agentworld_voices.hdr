@@ -1,0 +1,13 @@
+HTTP/2 405 
+server: nginx
+date: Tue, 26 May 2026 15:08:00 GMT
+content-type: text/html; charset=utf-8
+content-length: 153
+allow: HEAD, OPTIONS, GET
+access-control-allow-origin: *
+access-control-allow-headers: Content-Type
+access-control-allow-methods: GET,POST,OPTIONS
+cache-control: no-store
+access-control-allow-origin: *
+access-control-allow-headers: Content-Type, Authorization, X-Payment, Payment-Signature, X-Payment-Signature, X-Payment-Response, X-Payment-Receipt
+

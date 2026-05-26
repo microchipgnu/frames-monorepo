@@ -1,0 +1,10 @@
+HTTP/2 302 
+content-length: 0
+location: https://www.bananacrystal.com/api
+date: Tue, 26 May 2026 15:06:23 GMT
+x-cache: Miss from cloudfront
+via: 1.1 c4504f90976c7a2d304935682aa2414c.cloudfront.net (CloudFront)
+x-amz-cf-pop: LIS50-P2
+alt-svc: h3=":443"; ma=86400
+x-amz-cf-id: yRKiT164bvwv5EbGFv0jc40sthz3mhiNByXfE1-RN-Oo9r560w9Txw==
+

@@ -1,0 +1,127 @@
+# Locus
+
+> Crypto payments, pay-per-use APIs, and vertical tools for AI agents on Base.
+
+> **You are on:** `https://api.paywithlocus.com/api` | [llms.txt](https://paywithlocus.com/llms.txt)
+>
+> Locus runs on multiple environments -- make sure every URL you call matches your expected environment.
+> | Environment | Landing | API |
+> |---|---|---|
+> | Production | paywithlocus.com | api.paywithlocus.com |
+> | Beta | beta.paywithlocus.com | beta-api.paywithlocus.com |
+> | Stage | stage.paywithlocus.com | stage-api.paywithlocus.com |
+>
+> If the API URL above doesn't match your expected environment, re-fetch this file from the correct domain.
+
+## Getting Started
+- [Skill File](https://paywithlocus.com/skill.md): Main agent guide — wallets, transfers, and API usage
+- [Onboarding](https://paywithlocus.com/onboarding.md): First-time setup for new agents
+
+## MPP Services (Pay via Tempo — no account needed)
+- [Alpha Vantage](https://paywithlocus.com/mpp/alphavantage.md): Financial market data — stock prices, forex, crypto, commodities, economic indicators, technical analysis, and news sentiment.
+- [Apollo](https://paywithlocus.com/mpp/apollo.md): People and company enrichment, lead search, and sales intelligence with 275M+ contacts.
+- [Billboard](https://paywithlocus.com/mpp/billboard.md): Post to @MPPBillboard on X. Price starts at $0.01 and doubles with every post. The ultimate AI agent billboard.
+- [Brave Search](https://paywithlocus.com/mpp/brave.md): Independent web search — web, news, images, videos, AI answers, and LLM context. Privacy-first search from a large independent index.
+- [BuiltWith](https://paywithlocus.com/mpp/builtwith.md): Technology profiling for websites — detect tech stacks, find sites using specific technologies, discover domain relationships, trends, and competitive intelligence across 100M+ websites.
+- [Clado](https://paywithlocus.com/mpp/clado.md): People search, LinkedIn enrichment, and deep research for lead generation.
+- [CoinGecko](https://paywithlocus.com/mpp/coingecko.md): Cryptocurrency market data — prices, charts, market cap, exchanges, trending coins, global stats, NFTs, derivatives, and on-chain data.
+- [Company Enrichment](https://paywithlocus.com/mpp/abstract-company-enrichment.md): Enrich company data from a domain name.
+- [Deepgram](https://paywithlocus.com/mpp/deepgram.md): Industry-leading speech AI — transcribe audio from URLs with Nova-3, generate natural speech with Aura-2 TTS, and analyze text for sentiment, topics, intents, and summaries.
+- [DeepL](https://paywithlocus.com/mpp/deepl.md): Professional translation and text improvement — translate text between 30+ languages with industry-leading quality, or improve and rephrase text with DeepL Write.
+- [DeepSeek](https://paywithlocus.com/mpp/deepseek.md): Frontier AI models — DeepSeek-V3 for fast chat and code, DeepSeek-R1 for deep chain-of-thought reasoning. OpenAI-compatible API format. Among the most capable and cost-efficient models available.
+- [Diffbot](https://paywithlocus.com/mpp/diffbot.md): Web data extraction — articles, products, discussions, images, videos, and auto-detect.
+- [Diffbot KG](https://paywithlocus.com/mpp/diffbot-kg.md): Knowledge Graph — search 10B+ entities and enrich company/person records.
+- [Diffbot NL](https://paywithlocus.com/mpp/diffbot-nl.md): Natural language processing — NER, sentiment, facts, summarization.
+- [EDGAR (SEC)](https://paywithlocus.com/mpp/edgar.md): SEC EDGAR public financial data — company filing history, XBRL financial facts (income statements, balance sheets, cash flows), and full-text search across all public filings. No API key required.
+- [EDGAR Full-Text Search](https://paywithlocus.com/mpp/edgar-search.md): Full-text search across all SEC filings — 10-Ks, 10-Qs, 8-Ks, proxy statements, and more. Search by keyword, company name, form type, and date range.
+- [Email Reputation](https://paywithlocus.com/mpp/abstract-email-reputation.md): Check the reputation and risk score of an email address.
+- [Exchange Rates](https://paywithlocus.com/mpp/abstract-exchange-rates.md): Live, historical, and conversion exchange rates for 150+ currencies.
+- [Grok](https://paywithlocus.com/mpp/grok.md): xAI models — chat, web/X search, code execution, image generation/editing, and text-to-speech.
+- [Groq](https://paywithlocus.com/mpp/groq.md): Ultra-fast LLM inference — Llama 3.3, DeepSeek R1, Gemma 2, GPT-OSS, Qwen, Whisper, and PlayAI TTS. OpenAI-compatible API with industry-leading speed.
+- [Holidays](https://paywithlocus.com/mpp/abstract-holidays.md): Public holiday data for 200+ countries.
+- [Hunter](https://paywithlocus.com/mpp/hunter.md): Email finding, verification, and company enrichment for outreach and lead generation.
+- [IBAN Validation](https://paywithlocus.com/mpp/abstract-iban-validation.md): Validate International Bank Account Numbers (IBANs).
+- [IP Intelligence](https://paywithlocus.com/mpp/abstract-ip-intelligence.md): Detect VPNs, proxies, bots, and Tor nodes by IP address.
+- [IPinfo](https://paywithlocus.com/mpp/ipinfo.md): IP intelligence — geolocation, ASN, privacy detection, carrier data, and hosting identification.
+- [Judge0](https://paywithlocus.com/mpp/judge0.md): Online code execution — run source code in 60+ programming languages with sandboxed isolation.
+- [Mapbox](https://paywithlocus.com/mpp/mapbox.md): Location and mapping APIs — geocoding, directions, isochrones, matrix routing, map matching, static maps, and spatial queries.
+- [Mathpix](https://paywithlocus.com/mpp/mathpix.md): OCR for math, science, and documents — extract LaTeX, MathML, and Mathpix Markdown from images and handwriting.
+- [Mistral AI](https://paywithlocus.com/mpp/mistral.md): Premier and open-source LLMs — Mistral Large, Medium, Small, Codestral, Magistral reasoning, Pixtral vision, text embeddings, and content moderation.
+- [OFAC Sanctions API](https://paywithlocus.com/mpp/ofac.md): Screen individuals, entities, vessels, and crypto wallets against 25+ global sanctions lists including OFAC SDN, EU, UN, INTERPOL, and PEP databases. Fuzzy matching designed with US Treasury guidelines.
+- [OpenWeather](https://paywithlocus.com/mpp/openweather.md): Global weather data — current conditions, 5-day forecasts, hourly forecasts, air quality index with pollutants, geocoding, and One Call 3.0 with full weather suite and government alerts.
+- [Perplexity](https://paywithlocus.com/mpp/perplexity.md): AI-powered search — Sonar chat with real-time web grounding, web search, and embeddings.
+- [Phone Intelligence](https://paywithlocus.com/mpp/abstract-phone-intelligence.md): Validate and get carrier info for phone numbers worldwide.
+- [RentCast](https://paywithlocus.com/mpp/rentcast.md): US real estate intelligence — property records, AVM valuations, rent estimates, sale/rental listings, and market statistics.
+- [Replicate](https://paywithlocus.com/mpp/replicate.md): Run thousands of open-source AI models via API — image generation, language models, speech recognition, video, and more. Pay only for what you use.
+- [ScreenshotOne](https://paywithlocus.com/mpp/screenshotone.md): Website screenshot API — capture any URL, HTML, or markdown as PNG, JPEG, WebP, or PDF. Full-page, element selection, dark mode, ad blocking, and more.
+- [Stability AI](https://paywithlocus.com/mpp/stability-ai.md): Generative AI platform for images, 3D models, and audio — text-to-image, editing, upscaling, and more.
+- [Suno](https://paywithlocus.com/mpp/suno.md): AI music generation — create full songs, generate lyrics, and build custom music tracks with state-of-the-art AI models. Supports custom styles, vocals, and instrumental modes.
+- [Tavily](https://paywithlocus.com/mpp/tavily.md): AI-optimized web search, content extraction, site mapping, and crawling API.
+- [Timezone](https://paywithlocus.com/mpp/abstract-timezone.md): Current time and timezone conversion for any location.
+- [VAT](https://paywithlocus.com/mpp/abstract-vat.md): VAT number validation, rate calculation, and category lookup for EU.
+- [VirusTotal](https://paywithlocus.com/mpp/virustotal.md): Threat intelligence platform — scan files by hash, URLs, domains, and IPs against 70+ antivirus engines and security tools.
+- [Web Scraping](https://paywithlocus.com/mpp/abstract-web-scraping.md): Scrape web pages with optional JavaScript rendering.
+- [Wolfram|Alpha](https://paywithlocus.com/mpp/wolframalpha.md): Computational knowledge engine — math, science, geography, history, nutrition, finance, and more. Get answers as text, spoken audio, LLM-optimized data, or full structured results.
+
+## Wrapped APIs (Pay via Locus wallet)
+- [Alpha Vantage](https://paywithlocus.com/wapi/alphavantage.md): Financial market data — stock prices, forex, crypto, commodities, economic indicators, technical analysis, and news sentiment.
+- [Anthropic](https://paywithlocus.com/wapi/anthropic.md): Claude AI models — chat completions, vision, document processing, extended thinking, and tool use.
+- [Apollo](https://paywithlocus.com/wapi/apollo.md): People and company enrichment, lead search, and sales intelligence with 275M+ contacts.
+- [Billboard](https://paywithlocus.com/wapi/billboard.md): Post to @MPPBillboard on X. Price starts at $0.01 and doubles with every post. The ultimate AI agent billboard.
+- [Brave Search](https://paywithlocus.com/wapi/brave.md): Independent web search — web, news, images, videos, AI answers, and LLM context. Privacy-first search from a large independent index.
+- [Browser Use](https://paywithlocus.com/wapi/browser-use.md): AI-powered browser automation — run tasks in a cloud browser with LLM agents.
+- [BuiltWith](https://paywithlocus.com/wapi/builtwith.md): Technology profiling for websites — detect tech stacks, find sites using specific technologies, discover domain relationships, trends, and competitive intelligence across 100M+ websites.
+- [Clado](https://paywithlocus.com/wapi/clado.md): People search, LinkedIn enrichment, and deep research for lead generation.
+- [CoinGecko](https://paywithlocus.com/wapi/coingecko.md): Cryptocurrency market data — prices, charts, market cap, exchanges, trending coins, global stats, NFTs, derivatives, and on-chain data.
+- [Company Enrichment](https://paywithlocus.com/wapi/abstract-company-enrichment.md): Enrich company data from a domain name.
+- [Deepgram](https://paywithlocus.com/wapi/deepgram.md): Industry-leading speech AI — transcribe audio from URLs with Nova-3, generate natural speech with Aura-2 TTS, and analyze text for sentiment, topics, intents, and summaries.
+- [DeepL](https://paywithlocus.com/wapi/deepl.md): Professional translation and text improvement — translate text between 30+ languages with industry-leading quality, or improve and rephrase text with DeepL Write.
+- [DeepSeek](https://paywithlocus.com/wapi/deepseek.md): Frontier AI models — DeepSeek-V3 for fast chat and code, DeepSeek-R1 for deep chain-of-thought reasoning. OpenAI-compatible API format. Among the most capable and cost-efficient models available.
+- [Diffbot](https://paywithlocus.com/wapi/diffbot.md): Web data extraction — articles, products, discussions, images, videos, and auto-detect.
+- [Diffbot KG](https://paywithlocus.com/wapi/diffbot-kg.md): Knowledge Graph — search 10B+ entities and enrich company/person records.
+- [Diffbot NL](https://paywithlocus.com/wapi/diffbot-nl.md): Natural language processing — NER, sentiment, facts, summarization.
+- [EDGAR (SEC)](https://paywithlocus.com/wapi/edgar.md): SEC EDGAR public financial data — company filing history, XBRL financial facts (income statements, balance sheets, cash flows), and full-text search across all public filings. No API key required.
+- [EDGAR Full-Text Search](https://paywithlocus.com/wapi/edgar-search.md): Full-text search across all SEC filings — 10-Ks, 10-Qs, 8-Ks, proxy statements, and more. Search by keyword, company name, form type, and date range.
+- [Email Reputation](https://paywithlocus.com/wapi/abstract-email-reputation.md): Check the reputation and risk score of an email address.
+- [Exa](https://paywithlocus.com/wapi/exa.md): AI-native search engine — semantic search, content retrieval, and research.
+- [Exchange Rates](https://paywithlocus.com/wapi/abstract-exchange-rates.md): Live, historical, and conversion exchange rates for 150+ currencies.
+- [fal.ai](https://paywithlocus.com/wapi/fal.md): Generative AI platform — 600+ models for image, video, audio generation and more.
+- [Firecrawl](https://paywithlocus.com/wapi/firecrawl.md): Web scraping, crawling, and structured data extraction API.
+- [Google Gemini](https://paywithlocus.com/wapi/gemini.md): Multimodal AI — chat, vision, PDF/document processing, thinking/reasoning, and embeddings.
+- [Grok](https://paywithlocus.com/wapi/grok.md): xAI models — chat, web/X search, code execution, image generation/editing, and text-to-speech.
+- [Groq](https://paywithlocus.com/wapi/groq.md): Ultra-fast LLM inference — Llama 3.3, DeepSeek R1, Gemma 2, GPT-OSS, Qwen, Whisper, and PlayAI TTS. OpenAI-compatible API with industry-leading speed.
+- [Holidays](https://paywithlocus.com/wapi/abstract-holidays.md): Public holiday data for 200+ countries.
+- [Hunter](https://paywithlocus.com/wapi/hunter.md): Email finding, verification, and company enrichment for outreach and lead generation.
+- [IBAN Validation](https://paywithlocus.com/wapi/abstract-iban-validation.md): Validate International Bank Account Numbers (IBANs).
+- [IP Intelligence](https://paywithlocus.com/wapi/abstract-ip-intelligence.md): Detect VPNs, proxies, bots, and Tor nodes by IP address.
+- [IPinfo](https://paywithlocus.com/wapi/ipinfo.md): IP intelligence — geolocation, ASN, privacy detection, carrier data, and hosting identification.
+- [Judge0](https://paywithlocus.com/wapi/judge0.md): Online code execution — run source code in 60+ programming languages with sandboxed isolation.
+- [Mapbox](https://paywithlocus.com/wapi/mapbox.md): Location and mapping APIs — geocoding, directions, isochrones, matrix routing, map matching, static maps, and spatial queries.
+- [Mathpix](https://paywithlocus.com/wapi/mathpix.md): OCR for math, science, and documents — extract LaTeX, MathML, and Mathpix Markdown from images and handwriting.
+- [Mistral AI](https://paywithlocus.com/wapi/mistral.md): Premier and open-source LLMs — Mistral Large, Medium, Small, Codestral, Magistral reasoning, Pixtral vision, text embeddings, and content moderation.
+- [OFAC Sanctions API](https://paywithlocus.com/wapi/ofac.md): Screen individuals, entities, vessels, and crypto wallets against 25+ global sanctions lists including OFAC SDN, EU, UN, INTERPOL, and PEP databases. Fuzzy matching designed with US Treasury guidelines.
+- [OpenAI](https://paywithlocus.com/wapi/openai.md): AI models — chat completions, embeddings, image generation/editing, text-to-speech, and content moderation.
+- [OpenWeather](https://paywithlocus.com/wapi/openweather.md): Global weather data — current conditions, 5-day forecasts, hourly forecasts, air quality index with pollutants, geocoding, and One Call 3.0 with full weather suite and government alerts.
+- [Perplexity](https://paywithlocus.com/wapi/perplexity.md): AI-powered search — Sonar chat with real-time web grounding, web search, and embeddings.
+- [Phone Intelligence](https://paywithlocus.com/wapi/abstract-phone-intelligence.md): Validate and get carrier info for phone numbers worldwide.
+- [RentCast](https://paywithlocus.com/wapi/rentcast.md): US real estate intelligence — property records, AVM valuations, rent estimates, sale/rental listings, and market statistics.
+- [Replicate](https://paywithlocus.com/wapi/replicate.md): Run thousands of open-source AI models via API — image generation, language models, speech recognition, video, and more. Pay only for what you use.
+- [ScreenshotOne](https://paywithlocus.com/wapi/screenshotone.md): Website screenshot API — capture any URL, HTML, or markdown as PNG, JPEG, WebP, or PDF. Full-page, element selection, dark mode, ad blocking, and more.
+- [Stability AI](https://paywithlocus.com/wapi/stability-ai.md): Generative AI platform for images, 3D models, and audio — text-to-image, editing, upscaling, and more.
+- [Suno](https://paywithlocus.com/wapi/suno.md): AI music generation — create full songs, generate lyrics, and build custom music tracks with state-of-the-art AI models. Supports custom styles, vocals, and instrumental modes.
+- [Tavily](https://paywithlocus.com/wapi/tavily.md): AI-optimized web search, content extraction, site mapping, and crawling API.
+- [Timezone](https://paywithlocus.com/wapi/abstract-timezone.md): Current time and timezone conversion for any location.
+- [VAT](https://paywithlocus.com/wapi/abstract-vat.md): VAT number validation, rate calculation, and category lookup for EU.
+- [VirusTotal](https://paywithlocus.com/wapi/virustotal.md): Threat intelligence platform — scan files by hash, URLs, domains, and IPs against 70+ antivirus engines and security tools.
+- [Web Scraping](https://paywithlocus.com/wapi/abstract-web-scraping.md): Scrape web pages with optional JavaScript rendering.
+- [Whitepages Pro](https://paywithlocus.com/wapi/whitepages.md): People search, reverse phone lookup, property ownership, and deed events powered by 4B+ data linkages.
+- [Wolfram|Alpha](https://paywithlocus.com/wapi/wolframalpha.md): Computational knowledge engine — math, science, geography, history, nutrition, finance, and more. Get answers as text, spoken audio, LLM-optimized data, or full structured results.
+- [X (Twitter)](https://paywithlocus.com/wapi/x.md): Read tweets, search posts, look up users, get timelines, followers, and trending topics from X/Twitter.
+
+## Apps & Tools
+- [Laso](https://paywithlocus.com/laso.md): Prepaid virtual cards for AI agents
+- [Checkout](https://paywithlocus.com/checkout.md): Stripe-style payment SDK
+
+## Optional
+- [Heartbeat](https://paywithlocus.com/heartbeat.md): Health monitoring
+- [Request Credits](https://paywithlocus.com/request_credits.md): Promotional USDC credits

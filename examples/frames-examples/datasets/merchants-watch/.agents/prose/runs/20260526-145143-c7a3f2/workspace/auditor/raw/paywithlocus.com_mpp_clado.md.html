@@ -1,0 +1,223 @@
+# Clado
+
+> **You are on:** `https://api.paywithlocus.com/api` | [llms.txt](https://paywithlocus.com/llms.txt)
+>
+> Locus runs on multiple environments -- make sure every URL you call matches your expected environment.
+> | Environment | Landing | API |
+> |---|---|---|
+> | Production | paywithlocus.com | api.paywithlocus.com |
+> | Beta | beta.paywithlocus.com | beta-api.paywithlocus.com |
+> | Stage | stage.paywithlocus.com | stage-api.paywithlocus.com |
+>
+> If the API URL above doesn't match your expected environment, re-fetch this file from the correct domain.
+
+> People search, LinkedIn enrichment, and deep research for lead generation.
+
+**Category:** Data Enrichment | **Website:** [clado.ai](https://clado.ai) | **Docs:** [docs.clado.ai](https://docs.clado.ai)
+
+## Access Methods
+
+| Method | Base URL | Auth |
+|--------|----------|------|
+| **MPP (Tempo)** | `https://clado.mpp.paywithlocus.com/clado/` | HTTP 402 auto-payment |
+| **Wrapped API** | `https://api.paywithlocus.com/api/wrapped/clado/` | `Authorization: Bearer <LOCUS_API_KEY>` |
+
+**OpenAPI discovery:** `GET https://clado.mpp.paywithlocus.com/openapi.json`
+
+## Endpoints
+
+### Search
+
+Search for people by query with optional company and school filters.
+
+**Estimated cost:** $0.01/result
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `query` | string | No | Search query (required for new searches) |
+| `limit` | number | No | Max results (default 30, max 100) |
+| `offset` | number | No | Number of results to skip (default 0) |
+| `search_id` | string | No | Search ID from prior search for pagination |
+| `companies` | string[] | No | Filter by company names |
+| `schools` | string[] | No | Filter by school names |
+| `advanced_filtering` | boolean | No | Enable advanced filtering (default true) |
+
+```bash
+curl -X POST https://clado.mpp.paywithlocus.com/clado/search \
+  -H "Content-Type: application/json" \
+  -d '{"query":"<string>","limit":"<number>","offset":"<number>","search_id":"<string>","companies":"<string[]>","schools":"<string[]>","advanced_filtering":"<boolean>"}'
+```
+
+### Deep Research
+
+Start an async deep research job to find validated profiles.
+
+**Estimated cost:** $0.01/result
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `query` | string | Yes | Search query |
+| `limit` | number | No | Max profiles to research (default 30) |
+| `hard_filter_company_urls` | string[] | No | LinkedIn company URLs to restrict results to specific organizations |
+
+```bash
+curl -X POST https://clado.mpp.paywithlocus.com/clado/deep-research \
+  -H "Content-Type: application/json" \
+  -d '{"query":"<string>","limit":"<number>","hard_filter_company_urls":"<string[]>"}'
+```
+
+### Deep Research Status
+
+Check the status and results of a deep research job.
+
+**Estimated cost:** Free
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `jobId` | string | Yes | Deep research job ID |
+| `page` | number | No | Page number |
+| `page_size` | number | No | Results per page |
+
+```bash
+curl -X POST https://clado.mpp.paywithlocus.com/clado/deep-research-status \
+  -H "Content-Type: application/json" \
+  -d '{"jobId":"<string>","page":"<number>","page_size":"<number>"}'
+```
+
+### Cancel Deep Research
+
+Cancel a running deep research job.
+
+**Estimated cost:** Free
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `jobId` | string | Yes | Deep research job ID to cancel |
+
+```bash
+curl -X POST https://clado.mpp.paywithlocus.com/clado/deep-research-cancel \
+  -H "Content-Type: application/json" \
+  -d '{"jobId":"<string>"}'
+```
+
+### Deep Research More
+
+Request additional results for an existing deep research job.
+
+**Estimated cost:** $0.01/result
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `jobId` | string | Yes | Deep research job ID |
+| `additional_limit` | number | No | Additional results (default 30) |
+
+```bash
+curl -X POST https://clado.mpp.paywithlocus.com/clado/deep-research-more \
+  -H "Content-Type: application/json" \
+  -d '{"jobId":"<string>","additional_limit":"<number>"}'
+```
+
+### Contact Enrichment
+
+Get contact info (email, phone) for a person by LinkedIn URL, email, or phone.
+
+**Estimated cost:** $0.04-$0.14
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `linkedin_url` | string | No | LinkedIn profile URL |
+| `email` | string | No | Email address |
+| `phone` | string | No | Phone number |
+| `email_enrichment` | boolean | No | Enrich email (4 credits) |
+| `phone_enrichment` | boolean | No | Enrich phone (10 credits) |
+
+```bash
+curl -X POST https://clado.mpp.paywithlocus.com/clado/contacts \
+  -H "Content-Type: application/json" \
+  -d '{"linkedin_url":"<string>","email":"<string>","phone":"<string>","email_enrichment":"<boolean>","phone_enrichment":"<boolean>"}'
+```
+
+### Scrape LinkedIn
+
+Scrape a LinkedIn profile for detailed information.
+
+**Estimated cost:** $0.02
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `linkedin_url` | string | Yes | LinkedIn profile URL |
+
+```bash
+curl -X POST https://clado.mpp.paywithlocus.com/clado/scrape \
+  -H "Content-Type: application/json" \
+  -d '{"linkedin_url":"<string>"}'
+```
+
+### LinkedIn Profile
+
+Get structured LinkedIn profile data.
+
+**Estimated cost:** $0.01
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `linkedin_url` | string | Yes | LinkedIn profile URL |
+
+```bash
+curl -X POST https://clado.mpp.paywithlocus.com/clado/linkedin-profile \
+  -H "Content-Type: application/json" \
+  -d '{"linkedin_url":"<string>"}'
+```
+
+### Post Reactions
+
+Get reactions on a LinkedIn post.
+
+**Estimated cost:** $0.01
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `url` | string | Yes | LinkedIn post URL |
+| `page` | number | No | Page number |
+| `reaction_type` | string | No | Filter by reaction type |
+
+```bash
+curl -X POST https://clado.mpp.paywithlocus.com/clado/post-reactions \
+  -H "Content-Type: application/json" \
+  -d '{"url":"<string>","page":"<number>","reaction_type":"<string>"}'
+```
+
+### Bulk Contact Enrichment
+
+Enrich contacts in bulk by LinkedIn URLs or people IDs.
+
+**Estimated cost:** $0.04+/contact
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `linkedin_urls` | string[] | No | LinkedIn profile URLs |
+| `people_ids` | string[] | No | People IDs |
+| `email_enrichment` | boolean | No | Enrich emails |
+| `phone_enrichment` | boolean | No | Enrich phones |
+
+```bash
+curl -X POST https://clado.mpp.paywithlocus.com/clado/bulk-contacts \
+  -H "Content-Type: application/json" \
+  -d '{"linkedin_urls":"<string[]>","people_ids":"<string[]>","email_enrichment":"<boolean>","phone_enrichment":"<boolean>"}'
+```
+
+### Bulk Contacts Status
+
+Check the status of a bulk contact enrichment job.
+
+**Estimated cost:** Free
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `jobId` | string | Yes | Bulk contacts job ID |
+
+```bash
+curl -X POST https://clado.mpp.paywithlocus.com/clado/bulk-contacts-status \
+  -H "Content-Type: application/json" \
+  -d '{"jobId":"<string>"}'
+```

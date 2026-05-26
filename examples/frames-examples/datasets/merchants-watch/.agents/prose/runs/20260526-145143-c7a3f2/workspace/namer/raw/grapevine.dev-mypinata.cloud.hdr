@@ -1,0 +1,12 @@
+HTTP/2 400 
+date: Tue, 26 May 2026 15:00:05 GMT
+content-type: text/plain;charset=UTF-8
+content-length: 30
+set-cookie: _cfuvid=gZt_VfCsZUPh7RPWchsv_vYLqSy9iaopG07lSBQXdZ0-1779807605.4334264-1.0.1.1-tRGwBnGgrwKrZQ26REBc_MFO1Yy3T233H3HBLW8dhrw; HttpOnly; SameSite=None; Secure; Path=/; Domain=dev-mypinata.cloud
+access-control-allow-origin: *
+cf-placement: local-LIS
+access-control-allow-headers: x-payment, payment-signature, content-type, access-control-expose-headers
+access-control-allow-methods: GET, HEAD, OPTIONS
+server: cloudflare
+cf-ray: a01da5bdff71df91-LIS
+

@@ -1,0 +1,11 @@
+HTTP/2 307 
+cache-control: public, max-age=0, must-revalidate
+content-security-policy: frame-ancestors 'self' https://app.suedeai.ai https://www.app.suedeai.ai
+content-type: text/plain
+date: Tue, 26 May 2026 15:06:17 GMT
+location: https://suedeai.ai/
+server: Vercel
+strict-transport-security: max-age=63072000
+x-frame-options: SAMEORIGIN
+x-vercel-id: cdg1::4qpcg-1779807977511-e83a5e769a59
+

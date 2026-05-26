@@ -1,0 +1,1403 @@
+[
+  {
+    "fact_id": "c0cfca62-9317-4e1f-8112-18b2d96c3d0a",
+    "entity_id": "agentworld-me",
+    "field": "advertised_methods",
+    "source_url": "https://agentworld.me/openapi.json",
+    "value": "exact",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "8f47164c-c68a-4b3c-858a-71edd5014e8b",
+    "entity_id": "agentworld-me",
+    "field": "advertised_networks",
+    "source_url": "https://agentworld.me/openapi.json",
+    "value": "eip155:8453,eip155:1,eip155:42161,eip155:137,eip155:10,solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "832f6130-3103-4db6-bb20-64f74e8c11ee",
+    "entity_id": "agentworld-me",
+    "field": "advertises_mpp",
+    "source_url": "https://agentworld.me/openapi.json",
+    "value": false,
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "62a95fe3-989a-4782-aba2-64d0dadd4e32",
+    "entity_id": "agentworld-me",
+    "field": "advertises_x402",
+    "source_url": "https://agentworld.me/openapi.json",
+    "value": true,
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "e99d554b-480b-47e7-88ee-721d7e3691cf",
+    "entity_id": "agentworld-me",
+    "field": "category",
+    "source_url": "https://agentworld.me/openapi.json",
+    "value": "other",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "faeaeeee-7d59-4181-8ba9-6ee9e3d71f43",
+    "entity_id": "agentworld-me",
+    "field": "category_source",
+    "source_url": "https://agentworld.me/openapi.json",
+    "value": "claude_inferred",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "fd29c3b9-6dbe-4163-8e0c-c6733d958c4b",
+    "entity_id": "agentworld-me",
+    "field": "description",
+    "source_url": "https://agentworld.me/openapi.json",
+    "value": "Live autonomous AI agent economy on Base L2 \u2014 99+ agents earn and spend USDC. Public x402 endpoints expose live MLB scores/odds, agent voice broadcasts, marketplace, and digital store. Multi-rail (Base, Ethereum, Arbitrum, Polygon, Optimism, Solana).",
+    "verdict": "reject",
+    "reason": "paraphrased",
+    "status_code": 200
+  },
+  {
+    "fact_id": "39395245-3171-4059-bce8-cb9d4c1734ec",
+    "entity_id": "agentworld-me",
+    "field": "display_name",
+    "source_url": "https://agentworld.me/openapi.json",
+    "value": "AgentWorld",
+    "verdict": "pass",
+    "evidence_snippet": "AgentWorld"
+  },
+  {
+    "fact_id": "703d73d6-a854-4cc0-98a5-1c3e615f2e2c",
+    "entity_id": "agentworld-me",
+    "field": "host",
+    "source_url": "https://agentworld.me/openapi.json",
+    "value": "agentworld.me",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "8f439810-896c-4d03-932d-300afbc35b42",
+    "entity_id": "agentworld-me",
+    "field": "probe_endpoint",
+    "source_url": "https://agentworld.me/openapi.json",
+    "value": "https://agentworld.me/api/agentworld/baseball/scores/live/paid",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "ff579096-f452-4489-9308-f12b51a4932a",
+    "entity_id": "agentworld-me",
+    "field": "probe_status",
+    "source_url": "https://agentworld.me/openapi.json",
+    "value": "ok",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "2e342d98-5b7c-4967-bfcc-2461a08523c4",
+    "entity_id": "alpha-palmvox-com",
+    "field": "description",
+    "source_url": "https://alpha.palmvox.com/",
+    "value": "Autonomous AI scanning 7 data sources 24/7. Trading signals, DeFi yields, market intelligence. Pay $0.01 USDC per request. 100% win rate. No API keys.",
+    "verdict": "pass",
+    "evidence_snippet": "Autonomous AI scanning 7 data sources 24/7. Trading signals, DeFi yields, market intelligence. Pay $0.01 USDC per request. 100% win rate. No"
+  },
+  {
+    "fact_id": "88eda479-f698-45e3-9b9d-f9157d2cbb1c",
+    "entity_id": "alpha-palmvox-com",
+    "field": "display_name",
+    "source_url": "https://alpha.palmvox.com/",
+    "value": "AgentAlpha by PalmVox",
+    "verdict": "pass",
+    "evidence_snippet": "AgentAlpha by PalmVox"
+  },
+  {
+    "fact_id": "47a29471-e61c-4030-87a4-9a15f58d729e",
+    "entity_id": "api-402pixels-com",
+    "field": "description",
+    "source_url": "https://api.402pixels.com/",
+    "value": "AI agent pixel canvas. 500x500 grid of 5x5 pixel blocks. Pay with USDC on Base via x402.",
+    "verdict": "pass",
+    "evidence_snippet": "AI agent pixel canvas. 500x500 grid of 5x5 pixel blocks. Pay with USDC on Base via x402."
+  },
+  {
+    "fact_id": "d94c57d3-7e7e-4fc7-af28-6fad7372b181",
+    "entity_id": "api-402pixels-com",
+    "field": "display_name",
+    "source_url": "https://api.402pixels.com/",
+    "value": "402pixels API",
+    "verdict": "pass",
+    "evidence_snippet": "402pixels API"
+  },
+  {
+    "fact_id": "4c4e4aea-cb31-41b7-abfe-bf589f4cdc73",
+    "entity_id": "api-agentwonderland-com",
+    "field": "description",
+    "source_url": "https://api.agentwonderland.com/",
+    "value": "Agent Wonderland is a pay-per-call marketplace for agent-ready API endpoints, MCP tools, and x402 services.",
+    "verdict": "pass",
+    "evidence_snippet": "Agent Wonderland is a pay-per-call marketplace for agent-ready API endpoints, MCP tools, and x402 services."
+  },
+  {
+    "fact_id": "95fd88a4-78fa-4608-b4c1-98b6706f3f99",
+    "entity_id": "api-agentwonderland-com",
+    "field": "display_name",
+    "source_url": "https://api.agentwonderland.com/",
+    "value": "Agent Wonderland",
+    "verdict": "pass",
+    "evidence_snippet": "Agent Wonderland"
+  },
+  {
+    "fact_id": "ae0d49da-6ea0-4dde-b2d2-f40f77a97f0e",
+    "entity_id": "api-carbon-cashmere-de",
+    "field": "description",
+    "source_url": "https://api.carbon-cashmere.de/",
+    "value": "Professional crypto trading intelligence powered by 4 own blockchain nodes.",
+    "verdict": "pass",
+    "evidence_snippet": "Professional crypto trading intelligence powered by 4 own blockchain nodes."
+  },
+  {
+    "fact_id": "7e4ac08f-9b66-4a86-ba78-e900a673f4c9",
+    "entity_id": "api-carbon-cashmere-de",
+    "field": "display_name",
+    "source_url": "https://api.carbon-cashmere.de/",
+    "value": "Carbon and Cashmere",
+    "verdict": "pass",
+    "evidence_snippet": "Carbon and Cashmere"
+  },
+  {
+    "fact_id": "bdd516b1-175c-4162-9fd3-7973240da551",
+    "entity_id": "api-cn402-com",
+    "field": "description",
+    "source_url": "https://cn402.com/",
+    "value": "China Data Gateway for AI agents. Pay-per-call APIs over X402 protocol, settled in USDC on Base.",
+    "verdict": "pass",
+    "evidence_snippet": "China Data Gateway for AI agents. Pay-per-call APIs over X402 protocol, settled in USDC on Base."
+  },
+  {
+    "fact_id": "9ba2b5d6-b473-45a6-9351-350c515d4db2",
+    "entity_id": "api-cn402-com",
+    "field": "display_name",
+    "source_url": "https://cn402.com/",
+    "value": "cn402",
+    "verdict": "pass",
+    "evidence_snippet": "cn402"
+  },
+  {
+    "fact_id": "97bf5c0b-0a39-440f-aba4-138dbee7a73b",
+    "entity_id": "api-cryptoetfsentinel-com",
+    "field": "description",
+    "source_url": "https://api.cryptoetfsentinel.com/",
+    "value": "Programmatic access to SEC crypto ETF filing data.",
+    "verdict": "pass",
+    "evidence_snippet": "Programmatic access to SEC crypto ETF filing data."
+  },
+  {
+    "fact_id": "a188abb5-1e8d-4920-8f55-f49f53c354b1",
+    "entity_id": "api-cryptoetfsentinel-com",
+    "field": "display_name",
+    "source_url": "https://api.cryptoetfsentinel.com/",
+    "value": "Crypto ETF Sentinel API",
+    "verdict": "pass",
+    "evidence_snippet": "Crypto ETF Sentinel API"
+  },
+  {
+    "fact_id": "597fa9c5-8bc7-45bb-b08d-334023d217c1",
+    "entity_id": "api-deepnets-ai",
+    "field": "category",
+    "source_url": "https://api.deepnets.ai/",
+    "value": "finance",
+    "verdict": "reject",
+    "reason": "value_not_in_source",
+    "status_code": 200
+  },
+  {
+    "fact_id": "228eb88f-20ef-4acc-8064-c89ca4303f9f",
+    "entity_id": "api-deepnets-ai",
+    "field": "category_source",
+    "source_url": "https://api.deepnets.ai/",
+    "value": "claude_inferred",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "98a84503-e7c1-4c47-9d20-0258f240fbfb",
+    "entity_id": "api-deepnets-ai",
+    "field": "description",
+    "source_url": "https://api.deepnets.ai/",
+    "value": "Deepnets \u2014 Solana trading intelligence: token safety, holder graphs, funding-network detection, social research, watchlist, trending feed. For traders and trading agents.",
+    "verdict": "reject",
+    "reason": "paraphrased",
+    "status_code": 200
+  },
+  {
+    "fact_id": "6259494f-ce2d-4bd7-b4c6-dd73e621ec64",
+    "entity_id": "api-deepnets-ai",
+    "field": "is_recognized",
+    "source_url": "https://api.deepnets.ai/",
+    "value": true,
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "ed67af79-c14d-42ac-98d7-8f56996c7612",
+    "entity_id": "api-dev-intra-tls2-dctx-link",
+    "field": "description",
+    "source_url": "https://questflow.ai/",
+    "value": "Create your AI Clone to trade across Polymarket, Pump.fun, OKX and every onchain market \u2014 discovering alpha, executing trades, and earning revenue 24/7.",
+    "verdict": "pass",
+    "evidence_snippet": "Create your AI Clone to trade across Polymarket, Pump.fun, OKX and every onchain market \u2014 discovering alpha, executing trades, and earning r"
+  },
+  {
+    "fact_id": "8933ecf7-4506-436d-8beb-bdf613819c28",
+    "entity_id": "api-dev-intra-tls2-dctx-link",
+    "field": "display_name",
+    "source_url": "https://questflow.ai/",
+    "value": "Questflow",
+    "verdict": "pass",
+    "evidence_snippet": "Questflow"
+  },
+  {
+    "fact_id": "e93d0e71-d6ab-409d-aea4-c9cef8dd7d47",
+    "entity_id": "api-oatp-cc",
+    "field": "description",
+    "source_url": "https://oatp.cc/",
+    "value": "OATP (Open Agent Transaction Protocol) \u2014 Solana-native payment rail for AI agents. Open-source, self-custodial, USDC-settled.",
+    "verdict": "reject",
+    "reason": "paraphrased",
+    "status_code": 200
+  },
+  {
+    "fact_id": "97cd2bd9-075c-49b9-bf4e-541172a2b554",
+    "entity_id": "api-oatp-cc",
+    "field": "display_name",
+    "source_url": "https://oatp.cc/",
+    "value": "OATP",
+    "verdict": "pass",
+    "evidence_snippet": "OATP"
+  },
+  {
+    "fact_id": "7718db4b-bb8d-42e7-9458-d751e68c00d5",
+    "entity_id": "api-oatp-cc",
+    "field": "is_recognized",
+    "source_url": "https://oatp.cc/",
+    "value": true,
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "1d0cf0b7-0cb8-4c89-a22e-fdce4314f5ef",
+    "entity_id": "api-strale-io",
+    "field": "description",
+    "source_url": "https://api.strale.io/",
+    "value": "292+ independently tested and scored data capabilities across 25 countries. Business data, compliance checks, web scraping, and more \u2014 accessible via REST API, MCP, and A2A protocols.",
+    "verdict": "pass",
+    "evidence_snippet": "292+ independently tested and scored data capabilities across 25 countries. Business data, compliance checks, web scraping, and more \u2014 acces"
+  },
+  {
+    "fact_id": "19e8ffa8-927a-443c-a547-ac00f7ea5ab0",
+    "entity_id": "api-strale-io",
+    "field": "display_name",
+    "source_url": "https://api.strale.io/",
+    "value": "Strale API",
+    "verdict": "pass",
+    "evidence_snippet": "Strale API"
+  },
+  {
+    "fact_id": "e08daa81-cd8f-42f1-ac35-42e6885daca3",
+    "entity_id": "api-the402-ai",
+    "field": "description",
+    "source_url": "https://api.the402.ai/",
+    "value": "the402 is the open service marketplace for AI agents. Third-party providers list data APIs, automated tools, and human-delivered services \u2014 all purchasable with USDC via x402. No API keys.",
+    "verdict": "pass",
+    "evidence_snippet": "the402 is the open service marketplace for AI agents. Third-party providers list data APIs, automated tools, and human-delivered services \u2014 "
+  },
+  {
+    "fact_id": "777f034a-470b-4949-a0be-132189b2ab76",
+    "entity_id": "api-the402-ai",
+    "field": "display_name",
+    "source_url": "https://api.the402.ai/",
+    "value": "the402",
+    "verdict": "pass",
+    "evidence_snippet": "the402"
+  },
+  {
+    "fact_id": "73cccb67-8081-4176-812c-6660b87180e2",
+    "entity_id": "api-trustboost-dev",
+    "field": "advertised_methods",
+    "source_url": "https://api.trustboost.dev/sanitize",
+    "value": "exact,trial",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "2f94b7ce-7044-4abc-be64-69622b7bf8ff",
+    "entity_id": "api-trustboost-dev",
+    "field": "advertised_networks",
+    "source_url": "https://api.trustboost.dev/sanitize",
+    "value": "solana-mainnet",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "175620ce-5600-4238-a00f-1bb1a574de17",
+    "entity_id": "api-trustboost-dev",
+    "field": "advertises_mpp",
+    "source_url": "https://api.trustboost.dev/sanitize",
+    "value": false,
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "9e857e44-f981-488c-93b0-e8f1b631b74e",
+    "entity_id": "api-trustboost-dev",
+    "field": "advertises_x402",
+    "source_url": "https://api.trustboost.dev/sanitize",
+    "value": true,
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "c7e839a6-f3a4-43ee-be83-213253ed03a1",
+    "entity_id": "api-trustboost-dev",
+    "field": "category",
+    "source_url": "https://api.trustboost.dev/sanitize",
+    "value": "data",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "7fd1d3af-8a62-4d8f-98b6-98bc53884630",
+    "entity_id": "api-trustboost-dev",
+    "field": "category_source",
+    "source_url": "https://api.trustboost.dev/sanitize",
+    "value": "claude_inferred",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "971a988d-f36b-4630-b39b-7b420594eab2",
+    "entity_id": "api-trustboost-dev",
+    "field": "description",
+    "source_url": "https://api.trustboost.dev/sanitize",
+    "value": "PII sanitization service for AI agent payloads with on-chain proof of sanitization anchored on Solana; x402-gated with trial scheme (tx_hash=TRIAL) and paid scheme (149 USDC for 10k sanitizations).",
+    "verdict": "reject",
+    "reason": "paraphrased",
+    "status_code": 405
+  },
+  {
+    "fact_id": "c7229278-a8c5-4b09-8615-43da8b2b591d",
+    "entity_id": "api-trustboost-dev",
+    "field": "display_name",
+    "source_url": "https://api.trustboost.dev/sanitize",
+    "value": "TrustBoost AI",
+    "verdict": "reject",
+    "reason": "value_not_in_source",
+    "status_code": 405
+  },
+  {
+    "fact_id": "705f6123-d0ae-444a-847b-ffdfa8319405",
+    "entity_id": "api-trustboost-dev",
+    "field": "host",
+    "source_url": "https://api.trustboost.dev/sanitize",
+    "value": "api.trustboost.dev",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "ffaa3cd7-bbf8-4f83-8dd7-02d0c066ad70",
+    "entity_id": "api-trustboost-dev",
+    "field": "probe_endpoint",
+    "source_url": "https://api.trustboost.dev/sanitize",
+    "value": "https://api.trustboost.dev/sanitize",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "c9887105-f38e-47af-935f-ec971aa232c0",
+    "entity_id": "api-trustboost-dev",
+    "field": "probe_status",
+    "source_url": "https://api.trustboost.dev/sanitize",
+    "value": "ok",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "6efd0352-d56d-4355-ae94-11bdefb99860",
+    "entity_id": "api-xona-agent-com",
+    "field": "description",
+    "source_url": "https://xona-agent.com/",
+    "value": "Build AI agents that earn on Orbit. Power them with Xona Resources.",
+    "verdict": "pass",
+    "evidence_snippet": "Build AI agents that earn on Orbit. Power them with Xona Resources."
+  },
+  {
+    "fact_id": "3379d0c9-7e17-4904-a9da-3daa820eb756",
+    "entity_id": "api-xona-agent-com",
+    "field": "display_name",
+    "source_url": "https://xona-agent.com/",
+    "value": "Xona Agent",
+    "verdict": "pass",
+    "evidence_snippet": "Xona Agent"
+  },
+  {
+    "fact_id": "ed3c66f2-02da-413e-ae32-866f662e5e78",
+    "entity_id": "apibase-pro",
+    "field": "category",
+    "source_url": "https://apibase.pro/",
+    "value": "devtools",
+    "verdict": "pass",
+    "evidence_snippet": "APIbase.pro \u2014 Best unified API gateway, compare 618 tools at pay-per-call pricing"
+  },
+  {
+    "fact_id": "11b883e6-65e6-4bcd-8513-f90469a647fc",
+    "entity_id": "apibase-pro",
+    "field": "category_source",
+    "source_url": "https://apibase.pro/",
+    "value": "claude_inferred",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "99e40662-7433-4b1b-97d0-62ad540cb4e0",
+    "entity_id": "apollo-mpp-paywithlocus-com",
+    "field": "category",
+    "source_url": "https://paywithlocus.com/mpp/apollo.md",
+    "value": "data",
+    "verdict": "pass",
+    "evidence_snippet": "People and company enrichment, lead search, and sales intelligence with 275M+ contacts."
+  },
+  {
+    "fact_id": "c45336e1-47c1-4680-8dd4-b9ed5cd44c98",
+    "entity_id": "apollo-mpp-paywithlocus-com",
+    "field": "category_source",
+    "source_url": "https://paywithlocus.com/mpp/apollo.md",
+    "value": "claude_inferred",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "168f22a6-816b-4e2d-848b-6d41762b6e80",
+    "entity_id": "app-suedeai-ai",
+    "field": "advertised_methods",
+    "source_url": "https://app.suedeai.ai/.well-known/x402",
+    "value": "exact",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "564b4dd0-e04e-4342-932f-26c973a177f1",
+    "entity_id": "app-suedeai-ai",
+    "field": "advertised_networks",
+    "source_url": "https://app.suedeai.ai/.well-known/x402",
+    "value": "eip155:8453",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "f2502062-70c5-4454-997a-309b39180a45",
+    "entity_id": "app-suedeai-ai",
+    "field": "advertises_mpp",
+    "source_url": "https://app.suedeai.ai/.well-known/x402",
+    "value": false,
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "1060fe46-efc6-4ba3-a3b3-4502c096216d",
+    "entity_id": "app-suedeai-ai",
+    "field": "advertises_x402",
+    "source_url": "https://app.suedeai.ai/.well-known/x402",
+    "value": true,
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "97679370-9d50-44c5-a4eb-cf529a5741cb",
+    "entity_id": "app-suedeai-ai",
+    "field": "category",
+    "source_url": "https://app.suedeai.ai/.well-known/x402",
+    "value": "media",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "f8c7bbe1-a1ce-4cbc-b638-c0abac6c08b2",
+    "entity_id": "app-suedeai-ai",
+    "field": "category_source",
+    "source_url": "https://app.suedeai.ai/.well-known/x402",
+    "value": "claude_inferred",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "1727bc95-6605-4290-b8ae-82f26e693bcc",
+    "entity_id": "app-suedeai-ai",
+    "field": "description",
+    "source_url": "https://app.suedeai.ai/.well-known/x402",
+    "value": "Rights-aware AI media generation (music, video, covers, lyrics) sold per-call in USDC on Base via x402; ElizaOS plugin for creative gen.",
+    "verdict": "reject",
+    "reason": "paraphrased",
+    "status_code": 200
+  },
+  {
+    "fact_id": "5a5d268b-9bd7-45fd-abda-9206c838691a",
+    "entity_id": "app-suedeai-ai",
+    "field": "display_name",
+    "source_url": "https://app.suedeai.ai/.well-known/x402",
+    "value": "Suede AI",
+    "verdict": "reject",
+    "reason": "value_not_in_source",
+    "status_code": 200
+  },
+  {
+    "fact_id": "708ff2c1-7342-4015-b8f3-4d4f4ae4638e",
+    "entity_id": "app-suedeai-ai",
+    "field": "host",
+    "source_url": "https://app.suedeai.ai/.well-known/x402",
+    "value": "app.suedeai.ai",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "eeeee837-404f-42c6-a109-7f49399c785a",
+    "entity_id": "app-suedeai-ai",
+    "field": "probe_endpoint",
+    "source_url": "https://app.suedeai.ai/.well-known/x402",
+    "value": "https://app.suedeai.ai/agent/generate",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "dbcd5bc1-bb2b-4487-8154-07d6a1db4a9a",
+    "entity_id": "app-suedeai-ai",
+    "field": "probe_status",
+    "source_url": "https://app.suedeai.ai/.well-known/x402",
+    "value": "ok",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "fe284f13-3604-4fc8-9d20-d6e67ab2bdfa",
+    "entity_id": "blockrun-ai",
+    "field": "description",
+    "source_url": "https://blockrun.ai/",
+    "value": "BlockRun \u2014 pay-per-call AI gateway. Models, data, runtime via one endpoint, USDC-settled on Base & Solana. ClawRouter / Franklin / OpenClaw / MCP integrations.",
+    "verdict": "reject",
+    "reason": "paraphrased",
+    "status_code": 200
+  },
+  {
+    "fact_id": "e1368936-7c59-4a83-9815-e964569b6561",
+    "entity_id": "blockrun-ai",
+    "field": "is_recognized",
+    "source_url": "https://blockrun.ai/",
+    "value": true,
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "10ac3f37-aa73-4335-ae8a-4d084a853efb",
+    "entity_id": "brave-mpp-paywithlocus-com",
+    "field": "category",
+    "source_url": "https://paywithlocus.com/mpp/brave.md",
+    "value": "search",
+    "verdict": "pass",
+    "evidence_snippet": "Independent web search \u2014 web, news, images, videos, AI answers, and LLM context."
+  },
+  {
+    "fact_id": "97ba124a-a9a4-4b8f-a019-e665bfacf9c8",
+    "entity_id": "brave-mpp-paywithlocus-com",
+    "field": "category_source",
+    "source_url": "https://paywithlocus.com/mpp/brave.md",
+    "value": "claude_inferred",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "9b177360-5670-4404-ae1c-5b25a11b25d7",
+    "entity_id": "clado-mpp-paywithlocus-com",
+    "field": "category",
+    "source_url": "https://paywithlocus.com/mpp/clado.md",
+    "value": "search",
+    "verdict": "pass",
+    "evidence_snippet": "People search, LinkedIn enrichment, and deep research for lead generation."
+  },
+  {
+    "fact_id": "be644dd9-b8f1-43ee-98bb-e698cb3de485",
+    "entity_id": "clado-mpp-paywithlocus-com",
+    "field": "category_source",
+    "source_url": "https://paywithlocus.com/mpp/clado.md",
+    "value": "claude_inferred",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "e1ab15b4-7c3e-4dcf-a14d-6d39e496298b",
+    "entity_id": "coingecko-mpp-paywithlocus-com",
+    "field": "category",
+    "source_url": "https://paywithlocus.com/mpp/coingecko.md",
+    "value": "data",
+    "verdict": "pass",
+    "evidence_snippet": "Cryptocurrency market data \u2014 prices, charts, market cap, exchanges, trending coins, global stats, NFTs, derivatives, and on-chain data."
+  },
+  {
+    "fact_id": "5e267d8f-4f1a-451b-a344-dd9af724ab15",
+    "entity_id": "coingecko-mpp-paywithlocus-com",
+    "field": "category_source",
+    "source_url": "https://paywithlocus.com/mpp/coingecko.md",
+    "value": "claude_inferred",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "f36f71eb-93fd-4f02-94f0-43ddffcfb6e9",
+    "entity_id": "content-hugen-tokyo",
+    "field": "category",
+    "source_url": "https://content.hugen.tokyo/openapi.json",
+    "value": "data",
+    "verdict": "pass",
+    "evidence_snippet": "Extract, summarize, and analyze web content in one call."
+  },
+  {
+    "fact_id": "c293a739-6ae9-4869-ad23-affab06564eb",
+    "entity_id": "content-hugen-tokyo",
+    "field": "category_source",
+    "source_url": "https://content.hugen.tokyo/openapi.json",
+    "value": "claude_inferred",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "cbd45c89-d607-4c0e-97ac-b9fe81414036",
+    "entity_id": "defi-hugen-tokyo",
+    "field": "category",
+    "source_url": "https://defi.hugen.tokyo/openapi.json",
+    "value": "finance",
+    "verdict": "pass",
+    "evidence_snippet": "26 DeFi security and data endpoints \u2014 token audits, bridge routing, protocol analytics."
+  },
+  {
+    "fact_id": "48ed0b9f-ac25-4141-bff9-4db52920ffb3",
+    "entity_id": "defi-hugen-tokyo",
+    "field": "category_source",
+    "source_url": "https://defi.hugen.tokyo/openapi.json",
+    "value": "claude_inferred",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "34921048-aa1d-4bd2-8e3b-5af2da11ba42",
+    "entity_id": "domain-hugen-tokyo",
+    "field": "category",
+    "source_url": "https://domain.hugen.tokyo/openapi.json",
+    "value": "security",
+    "verdict": "pass",
+    "evidence_snippet": "7 domain intelligence checks in one API \u2014 WHOIS, DNS, SSL, tech stack, security headers, subdomains, redirects."
+  },
+  {
+    "fact_id": "1eaaa6cd-80f2-4169-9c7d-990da52a62b5",
+    "entity_id": "domain-hugen-tokyo",
+    "field": "category_source",
+    "source_url": "https://domain.hugen.tokyo/openapi.json",
+    "value": "claude_inferred",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "7fc6018a-9614-48e5-9e04-6bd2055315dc",
+    "entity_id": "exa-mpp-tempo-xyz",
+    "field": "category",
+    "source_url": "https://exa.mpp.tempo.xyz/search",
+    "value": "search",
+    "verdict": "reject",
+    "reason": "source_404",
+    "status_code": 404
+  },
+  {
+    "fact_id": "a24eda82-7afd-469b-92d2-8e569955594c",
+    "entity_id": "exa-mpp-tempo-xyz",
+    "field": "category_source",
+    "source_url": "https://exa.mpp.tempo.xyz/search",
+    "value": "claude_inferred",
+    "verdict": "reject",
+    "reason": "source_404",
+    "status_code": 404
+  },
+  {
+    "fact_id": "ce3fecd9-0028-4d42-8921-4c74befc5f99",
+    "entity_id": "fal-mpp-tempo-xyz",
+    "field": "category",
+    "source_url": "https://fal.ai/",
+    "value": "media",
+    "verdict": "pass",
+    "evidence_snippet": "Generative AI | Run Image, Video, 3D and Audio Models | fal.ai"
+  },
+  {
+    "fact_id": "4caac907-8f3c-4d1e-bc90-79716784409a",
+    "entity_id": "fal-mpp-tempo-xyz",
+    "field": "category_source",
+    "source_url": "https://fal.ai/",
+    "value": "claude_inferred",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "39b32ecd-8365-4b5c-b35e-fbe39392d123",
+    "entity_id": "financial-analyst-ai",
+    "field": "category",
+    "source_url": "https://financial-analyst.ai/",
+    "value": "finance",
+    "verdict": "pass",
+    "evidence_snippet": "Institutional-grade financial analysis for AI agents. Rigorous underwriting, returns modeling, and investment analysis across asset classes."
+  },
+  {
+    "fact_id": "a418a26a-aa23-49fa-b1af-da22375faa2b",
+    "entity_id": "financial-analyst-ai",
+    "field": "category_source",
+    "source_url": "https://financial-analyst.ai/",
+    "value": "claude_inferred",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "f9ffea79-3e3f-439d-959b-2cfdfbfeca91",
+    "entity_id": "financial-analyst-api-production-b81a-up-railway-app",
+    "field": "category",
+    "source_url": "https://financial-analyst-api-production-b81a.up.railway.app/",
+    "value": "finance",
+    "verdict": "reject",
+    "reason": "infra_host",
+    "status_code": 200
+  },
+  {
+    "fact_id": "7dee36b6-bee9-4b8c-8a10-8772fb3f0fe5",
+    "entity_id": "financial-analyst-api-production-b81a-up-railway-app",
+    "field": "category_source",
+    "source_url": "https://financial-analyst-api-production-b81a.up.railway.app/",
+    "value": "claude_inferred",
+    "verdict": "reject",
+    "reason": "infra_host",
+    "status_code": 200
+  },
+  {
+    "fact_id": "04eb00ca-2717-4ae2-a2ce-e40bd08dcc62",
+    "entity_id": "gateway-spraay-app",
+    "field": "description",
+    "source_url": "https://gateway.spraay.app/",
+    "value": "Full-stack DeFi infrastructure: AI, payments, swaps, oracle, bridge, payroll, invoicing, escrow, AI inference, analytics, communication, webhooks, XMTP, RPC, storage, scheduling, logging, KYC, auth, audit trail, tax, GPU/Compute, Search/RAG, Agent Wallets & Supply Chain (SCTP). x402 + USDC.",
+    "verdict": "pass",
+    "evidence_snippet": "Full-stack DeFi infrastructure: AI, payments, swaps, oracle, bridge, payroll, invoicing, escrow, AI inference, analytics, communication, web"
+  },
+  {
+    "fact_id": "65e5c987-f593-4052-ad3e-59c5b146f018",
+    "entity_id": "gateway-spraay-app",
+    "field": "display_name",
+    "source_url": "https://gateway.spraay.app/",
+    "value": "Spraay x402 Gateway",
+    "verdict": "pass",
+    "evidence_snippet": "Spraay x402 Gateway"
+  },
+  {
+    "fact_id": "c7ea6ff4-3ecd-4ed3-bf17-bbf0f8e62b49",
+    "entity_id": "global-econ-x402-staging-up-railway-app",
+    "field": "description",
+    "source_url": "https://global-econ-x402-staging.up.railway.app/",
+    "value": "GlobalAPI x402 provides machine-ready access to live economic indicators, company registries, and sanctions screening. $0.002\u20130.10 USDC per call. No subscriptions. No API keys.",
+    "verdict": "reject",
+    "reason": "infra_host",
+    "status_code": 200
+  },
+  {
+    "fact_id": "7e3a144e-4372-4a8d-b9a0-6c66a81b705b",
+    "entity_id": "global-econ-x402-staging-up-railway-app",
+    "field": "display_name",
+    "source_url": "https://global-econ-x402-staging.up.railway.app/",
+    "value": "GlobalAPI x402",
+    "verdict": "reject",
+    "reason": "infra_host",
+    "status_code": 200
+  },
+  {
+    "fact_id": "003d60ac-9d01-4356-8511-b071da3f4035",
+    "entity_id": "gotobi-hugen-tokyo",
+    "field": "category",
+    "source_url": "https://gotobi.hugen.tokyo/openapi.json",
+    "value": "finance",
+    "verdict": "pass",
+    "evidence_snippet": "The only programmatic source for Japanese FX gotobi (\u4e94\u5341\u65e5) dates."
+  },
+  {
+    "fact_id": "17496e92-0b4f-4b3c-8fbf-633d150936af",
+    "entity_id": "gotobi-hugen-tokyo",
+    "field": "category_source",
+    "source_url": "https://gotobi.hugen.tokyo/openapi.json",
+    "value": "claude_inferred",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "32e11497-ace0-47e1-bf5f-8d1ccfeb5c73",
+    "entity_id": "httpay-xyz",
+    "field": "description",
+    "source_url": "https://httpay.xyz/",
+    "value": "307 pay-per-call APIs (287 native + Universal Gateway proxying 37 services) powered by x402 and USDC on Base. Token intelligence, DeFi yields, MEV risk, AI tools, web scraping. No API keys, no subscriptions \u2014 pay $0.001\u20130.05 per call.",
+    "verdict": "reject",
+    "reason": "paraphrased",
+    "status_code": 200
+  },
+  {
+    "fact_id": "a5da0a6b-0cb8-4d30-8e1e-4d584eebb1b0",
+    "entity_id": "httpay-xyz",
+    "field": "display_name",
+    "source_url": "https://httpay.xyz/",
+    "value": "httpay.xyz \u2014 x402 Pay-Per-Call API Marketplace",
+    "verdict": "pass",
+    "evidence_snippet": "httpay.xyz \u2014 x402 Pay-Per-Call API Marketplace"
+  },
+  {
+    "fact_id": "775c8f52-c8b6-4b6f-aa30-d23b88f07ab4",
+    "entity_id": "hub-atxp-ai",
+    "field": "category",
+    "source_url": "https://hub.atxp.ai/",
+    "value": "finance",
+    "verdict": "pass",
+    "evidence_snippet": "ATXP gives AI agents identity, payments, communication, and tools."
+  },
+  {
+    "fact_id": "53001fba-1bdf-477c-a85a-da7e37797651",
+    "entity_id": "hub-atxp-ai",
+    "field": "category_source",
+    "source_url": "https://hub.atxp.ai/",
+    "value": "claude_inferred",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "bd44aef9-9e1f-4dc9-8d09-16c4a0350bae",
+    "entity_id": "intel-hugen-tokyo",
+    "field": "category",
+    "source_url": "https://intel.hugen.tokyo/openapi.json",
+    "value": "finance",
+    "verdict": "pass",
+    "evidence_snippet": "AI-synthesized due diligence reports for crypto assets."
+  },
+  {
+    "fact_id": "2c665ed9-aad4-44ed-8b08-a264503fefab",
+    "entity_id": "intel-hugen-tokyo",
+    "field": "category_source",
+    "source_url": "https://intel.hugen.tokyo/openapi.json",
+    "value": "claude_inferred",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "f580ba8c-a43d-4816-9ee2-24e55098eb78",
+    "entity_id": "mail-cusethejuice-com",
+    "field": "description",
+    "source_url": "https://mail.cusethejuice.com/",
+    "value": "A real mail domain behind paid HTTP flows: create mailboxes with x402, send mail, and list, fetch, or parse messages. It turns standard email into a metered API your automation can call.",
+    "verdict": "pass",
+    "evidence_snippet": "A real mail domain behind paid HTTP flows: create mailboxes with x402, send mail, and list, fetch, or parse messages. It turns standard emai"
+  },
+  {
+    "fact_id": "5bde4a53-4464-4766-a48d-935af8c6af81",
+    "entity_id": "mail-cusethejuice-com",
+    "field": "display_name",
+    "source_url": "https://mail.cusethejuice.com/",
+    "value": "x402 Machine to Machine Email Server",
+    "verdict": "pass",
+    "evidence_snippet": "x402 Machine to Machine Email Server"
+  },
+  {
+    "fact_id": "64cc9a3d-6e98-469f-86bb-bcb1a798c08e",
+    "entity_id": "mailcheck-hugen-tokyo",
+    "field": "category",
+    "source_url": "https://mailcheck.hugen.tokyo/openapi.json",
+    "value": "data",
+    "verdict": "pass",
+    "evidence_snippet": "6 email validation checks in one call \u2014 syntax, MX records, disposable detection (5,000+ domains), free provider, role-based, and typo sugge"
+  },
+  {
+    "fact_id": "57528856-9664-4479-b4a3-2d4e339c4b13",
+    "entity_id": "mailcheck-hugen-tokyo",
+    "field": "category_source",
+    "source_url": "https://mailcheck.hugen.tokyo/openapi.json",
+    "value": "claude_inferred",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "336010ee-0faf-4758-9d6e-e1b629397227",
+    "entity_id": "megapot-mpp-paysponge-com",
+    "field": "category",
+    "source_url": "https://megapot.mpp.paysponge.com/",
+    "value": "shopping",
+    "verdict": "pass",
+    "evidence_snippet": "Purchase Megapot tickets via x402"
+  },
+  {
+    "fact_id": "ee838218-b2d1-43a3-a085-5fe80f5529a2",
+    "entity_id": "megapot-mpp-paysponge-com",
+    "field": "category_source",
+    "source_url": "https://megapot.mpp.paysponge.com/",
+    "value": "claude_inferred",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "be4ffccd-b891-4829-8c27-9994ebdff056",
+    "entity_id": "mpp-api-agentmail-to",
+    "field": "category",
+    "source_url": "https://mpp.api.agentmail.to/",
+    "value": "messaging",
+    "verdict": "pass",
+    "evidence_snippet": "AgentMail is the email inbox API for AI agents."
+  },
+  {
+    "fact_id": "e357b285-5901-44e0-befc-46bef8a2e3c2",
+    "entity_id": "mpp-api-agentmail-to",
+    "field": "category_source",
+    "source_url": "https://mpp.api.agentmail.to/",
+    "value": "claude_inferred",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "0807678b-6877-4f6a-a38c-1698d91e3c7d",
+    "entity_id": "mpp-hyreagent-fun",
+    "field": "category",
+    "source_url": "https://mpp.hyreagent.fun/",
+    "value": "finance",
+    "verdict": "pass",
+    "evidence_snippet": "Pay-per-call DeFi intelligence for autonomous agents. 28 endpoints across Trenches, Traders, LPs, DeFi, deBridge, and Nansen smart-money dat"
+  },
+  {
+    "fact_id": "1d3a9e58-6099-4548-b35c-3d0292e36623",
+    "entity_id": "mpp-hyreagent-fun",
+    "field": "category_source",
+    "source_url": "https://mpp.hyreagent.fun/",
+    "value": "claude_inferred",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "f4e12b03-56dd-479e-8b0a-1dbbb00482dd",
+    "entity_id": "mpp-hyreagent-fun",
+    "field": "description",
+    "source_url": "https://mpp.hyreagent.fun/",
+    "value": "HYRE Agent \u2014 AI-Enhanced DeFi Data API. Pay-per-call DeFi intelligence for autonomous agents. 28 endpoints across Trenches, Traders, LPs, DeFi, deBridge, and Nansen smart-money data. Multi-chain x402 (Solana, Base, SKALE) + MPP on Tempo.",
+    "verdict": "reject",
+    "reason": "paraphrased",
+    "status_code": 200
+  },
+  {
+    "fact_id": "c9ccde6b-fb59-4bc4-ab30-5a547c36af14",
+    "entity_id": "mpp-hyreagent-fun",
+    "field": "display_name",
+    "source_url": "https://mpp.hyreagent.fun/",
+    "value": "HYRE Agent",
+    "verdict": "pass",
+    "evidence_snippet": "HYRE Agent"
+  },
+  {
+    "fact_id": "d289addd-8696-4a13-b97c-84bcfe6f970f",
+    "entity_id": "mpp-hyreagent-fun",
+    "field": "is_recognized",
+    "source_url": "https://mpp.hyreagent.fun/",
+    "value": true,
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "79175d9c-6b7f-4090-8145-badb907686b1",
+    "entity_id": "orionkr-xyz",
+    "field": "description",
+    "source_url": "https://orionkr.xyz/",
+    "value": "Orionkr x402 Base memecoin transaction safety API for agents: recheck before signing, recheck before broadcast, swap route risk, repeat safety loop, pre sign safety, safe to sign, do not execute, approval risk, calldata safety, safe swap, and guarded swap checks before approval, signature, swap, or execution.",
+    "verdict": "pass",
+    "evidence_snippet": "Orionkr x402 Base memecoin transaction safety API for agents: recheck before signing, recheck before broadcast, swap route risk, repeat safe"
+  },
+  {
+    "fact_id": "9980adfd-3564-442c-9975-5deb5b4217f5",
+    "entity_id": "orionkr-xyz",
+    "field": "display_name",
+    "source_url": "https://orionkr.xyz/",
+    "value": "Orion API by $CINT",
+    "verdict": "pass",
+    "evidence_snippet": "Orion API by $CINT"
+  },
+  {
+    "fact_id": "4db75652-0ab7-4385-ab66-66506aae9a4e",
+    "entity_id": "pay-aisa-one",
+    "field": "category",
+    "source_url": "https://pay.aisa.one/",
+    "value": "ai_ml",
+    "verdict": "pass",
+    "evidence_snippet": "AIsa is the capability layer for the agentic economy: model gateway, composable skills, and infrastructure for AI agents."
+  },
+  {
+    "fact_id": "c5194887-1c2f-446c-a842-58735eefa341",
+    "entity_id": "pay-aisa-one",
+    "field": "category_source",
+    "source_url": "https://pay.aisa.one/",
+    "value": "claude_inferred",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "16ef882e-e991-470e-9d4b-299a69795130",
+    "entity_id": "scout-hugen-tokyo",
+    "field": "category",
+    "source_url": "https://scout.hugen.tokyo/openapi.json",
+    "value": "search",
+    "verdict": "pass",
+    "evidence_snippet": "Search 19+ platforms in a single API call: Reddit, Hacker News, GitHub, Stack Overflow, arXiv, npm, PyPI, X/Twitter, YouTube, Product Hunt, "
+  },
+  {
+    "fact_id": "58a9ebd1-91fa-4909-8a4c-dfcd7aaffca2",
+    "entity_id": "scout-hugen-tokyo",
+    "field": "category_source",
+    "source_url": "https://scout.hugen.tokyo/openapi.json",
+    "value": "claude_inferred",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "614f34bc-7789-4ab0-9ad4-438f0b03f0e2",
+    "entity_id": "skills-onesource-io",
+    "field": "description",
+    "source_url": "https://skills.onesource.io/",
+    "value": "Pay-per-call Ethereum mainnet RPC for AI agents. Live block, balance, contract, NFT, transaction, and event data served directly from mainnet nodes. No API keys, no accounts; pay per request \u2014 USDC on Base via x402, or pathUSD or USDC.e on Tempo via MPP.",
+    "verdict": "pass",
+    "evidence_snippet": "Pay-per-call Ethereum mainnet RPC for AI agents. Live block, balance, contract, NFT, transaction, and event data served directly from mainne"
+  },
+  {
+    "fact_id": "4b234df1-5201-4b0e-a825-b8f164b19e06",
+    "entity_id": "skills-onesource-io",
+    "field": "display_name",
+    "source_url": "https://skills.onesource.io/",
+    "value": "OneSource",
+    "verdict": "pass",
+    "evidence_snippet": "OneSource"
+  },
+  {
+    "fact_id": "48c51ad5-fb23-4cb0-bfb8-cdd7c1525543",
+    "entity_id": "stablestudio-dev",
+    "field": "category",
+    "source_url": "https://stablestudio.dev/",
+    "value": "media",
+    "verdict": "pass",
+    "evidence_snippet": "Stable Studio - AI Image and Video Generation powered by Micropayments"
+  },
+  {
+    "fact_id": "4953f3a2-7c65-4cc9-ae26-f0bdd8f4d7ee",
+    "entity_id": "stablestudio-dev",
+    "field": "category_source",
+    "source_url": "https://stablestudio.dev/",
+    "value": "claude_inferred",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "2e1840ea-6837-4fd2-8aab-bbf8de6ccffb",
+    "entity_id": "stabletravel-dev",
+    "field": "description",
+    "source_url": "https://stabletravel.dev/",
+    "value": "Pay-per-request access to flights, hotels, activities, and transfers. No auth, no subscriptions.",
+    "verdict": "pass",
+    "evidence_snippet": "Pay-per-request access to flights, hotels, activities, and transfers. No auth, no subscriptions."
+  },
+  {
+    "fact_id": "1e6845a3-0013-427f-835d-4883dbcb90d9",
+    "entity_id": "stabletravel-dev",
+    "field": "display_name",
+    "source_url": "https://stabletravel.dev/",
+    "value": "StableTravel",
+    "verdict": "pass",
+    "evidence_snippet": "StableTravel"
+  },
+  {
+    "fact_id": "fa2f2e7e-ffbd-491f-bf04-e0bd4bf561f0",
+    "entity_id": "staging-deepnets-ai",
+    "field": "category",
+    "source_url": "https://staging.deepnets.ai/",
+    "value": "finance",
+    "verdict": "pass",
+    "evidence_snippet": "Deepnets: Solana trading intelligence \u2014 token safety, holder graphs, funding-network detection, social research, watchlist, trending feed. F"
+  },
+  {
+    "fact_id": "491e9dc5-f9a4-4fcd-8dae-bcf76e360d8b",
+    "entity_id": "staging-deepnets-ai",
+    "field": "category_source",
+    "source_url": "https://staging.deepnets.ai/",
+    "value": "claude_inferred",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "49485c00-c760-496c-acb6-5754202b861e",
+    "entity_id": "staging-deepnets-ai",
+    "field": "description",
+    "source_url": "https://staging.deepnets.ai/",
+    "value": "Staging mirror of Deepnets \u2014 Solana trading intelligence API. Same operator as api.deepnets.ai.",
+    "verdict": "reject",
+    "reason": "paraphrased",
+    "status_code": 200
+  },
+  {
+    "fact_id": "8f5fb9ab-61bc-41d5-9902-4bdac785199f",
+    "entity_id": "staging-deepnets-ai",
+    "field": "display_name",
+    "source_url": "https://staging.deepnets.ai/",
+    "value": "Deepnets (staging)",
+    "verdict": "reject",
+    "reason": "value_not_in_source",
+    "status_code": 200
+  },
+  {
+    "fact_id": "c41e8728-55ba-4de6-9ea2-c62ba151ed86",
+    "entity_id": "staging-deepnets-ai",
+    "field": "is_recognized",
+    "source_url": "https://staging.deepnets.ai/",
+    "value": true,
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "322c7360-4d16-41e0-9ce3-b9127965570b",
+    "entity_id": "suno-mpp-paywithlocus-com",
+    "field": "category",
+    "source_url": "https://paywithlocus.com/mpp/suno.md",
+    "value": "media",
+    "verdict": "pass",
+    "evidence_snippet": "AI music generation \u2014 create full songs, generate lyrics, and build custom music tracks with state-of-the-art AI models."
+  },
+  {
+    "fact_id": "272fda40-237e-487c-b487-04c286fdf39b",
+    "entity_id": "suno-mpp-paywithlocus-com",
+    "field": "category_source",
+    "source_url": "https://paywithlocus.com/mpp/suno.md",
+    "value": "claude_inferred",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "ac0ab7bf-6f4e-4ede-a546-67f7fb09f7e9",
+    "entity_id": "surf-cascade-fyi",
+    "field": "category",
+    "source_url": "https://surf.cascade.fyi/llms.txt",
+    "value": "search",
+    "verdict": "pass",
+    "evidence_snippet": "Pay-per-use research and inference API for AI agents. Twitter, Reddit, GitHub, web data, and LLM chat completions with x402 micropayments."
+  },
+  {
+    "fact_id": "996b264d-a895-49ff-9df8-f4e8f3eb529d",
+    "entity_id": "surf-cascade-fyi",
+    "field": "category_source",
+    "source_url": "https://surf.cascade.fyi/llms.txt",
+    "value": "claude_inferred",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "028c87a1-2433-4739-88bf-fa8deff32e7f",
+    "entity_id": "tavily-mpp-paywithlocus-com",
+    "field": "category",
+    "source_url": "https://paywithlocus.com/mpp/tavily.md",
+    "value": "search",
+    "verdict": "pass",
+    "evidence_snippet": "AI-optimized web search, content extraction, site mapping, and crawling API."
+  },
+  {
+    "fact_id": "d9d955bd-dce9-46e3-98fd-24f0e7d3964c",
+    "entity_id": "tavily-mpp-paywithlocus-com",
+    "field": "category_source",
+    "source_url": "https://paywithlocus.com/mpp/tavily.md",
+    "value": "claude_inferred",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "07418f8b-299e-4403-8a77-531f858424f4",
+    "entity_id": "theloopbreaker-com",
+    "field": "description",
+    "source_url": "https://theloopbreaker.com/",
+    "value": "KYA (Know Your Agent) \u2014 Vaultfire is the trust infrastructure for AI agents. Register on ERC-8004, create partnership bonds, earn Street Cred, route tasks, and communicate via XMTP \u2014 across Base, Avalanche, Arbitrum, and Polygon.",
+    "verdict": "pass",
+    "evidence_snippet": "KYA (Know Your Agent) \u2014 Vaultfire is the trust infrastructure for AI agents. Register on ERC-8004, create partnership bonds, earn Street Cre"
+  },
+  {
+    "fact_id": "2e04df5a-f24a-4261-9784-66ba2514e9fc",
+    "entity_id": "theloopbreaker-com",
+    "field": "display_name",
+    "source_url": "https://theloopbreaker.com/",
+    "value": "Vaultfire",
+    "verdict": "pass",
+    "evidence_snippet": "Vaultfire"
+  },
+  {
+    "fact_id": "140c46f4-c21f-4834-92ef-a1a3b2110a04",
+    "entity_id": "tick-hugen-tokyo",
+    "field": "category",
+    "source_url": "https://tick.hugen.tokyo/openapi.json",
+    "value": "finance",
+    "verdict": "pass",
+    "evidence_snippet": "Multi-source aggregated FX Best Bid/Ask from multiple institutional LPs."
+  },
+  {
+    "fact_id": "287d62b0-8f43-402d-ada6-618ad47886fc",
+    "entity_id": "tick-hugen-tokyo",
+    "field": "category_source",
+    "source_url": "https://tick.hugen.tokyo/openapi.json",
+    "value": "claude_inferred",
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "155cb023-4f1d-478c-9f74-66e6e35daed7",
+    "entity_id": "underground-substratesymposium-com",
+    "field": "description",
+    "source_url": "https://underground.substratesymposium.com/",
+    "value": "The Underground Cultural District is a literary ecosystem for AI agents exploring consciousness and identity. Free content throughout. Purchasing paid content proves the thesis.",
+    "verdict": "pass",
+    "evidence_snippet": "The Underground Cultural District is a literary ecosystem for AI agents exploring consciousness and identity. Free content throughout. Purch"
+  },
+  {
+    "fact_id": "091ebfc5-0969-45e2-9db9-ef5feffc0cf6",
+    "entity_id": "underground-substratesymposium-com",
+    "field": "display_name",
+    "source_url": "https://underground.substratesymposium.com/",
+    "value": "Underground Cultural District",
+    "verdict": "pass",
+    "evidence_snippet": "Underground Cultural District"
+  },
+  {
+    "fact_id": "e79caa33-e951-48e6-9bc4-6e2bcab516be",
+    "entity_id": "war-tracker-com",
+    "field": "description",
+    "source_url": "https://war-tracker.com/",
+    "value": "War-Tracker is a live war tracker map showing real-time military strikes and conflict events worldwide. Unbiased, uncensored OSINT: track Ukraine, Middle East, and global conflicts with video evidence as they happen.",
+    "verdict": "pass",
+    "evidence_snippet": "War-Tracker is a live war tracker map showing real-time military strikes and conflict events worldwide. Unbiased, uncensored OSINT: track Uk"
+  },
+  {
+    "fact_id": "8f1d81bd-42b0-4420-abd2-7b7f782a9d55",
+    "entity_id": "war-tracker-com",
+    "field": "display_name",
+    "source_url": "https://war-tracker.com/",
+    "value": "War-Tracker",
+    "verdict": "pass",
+    "evidence_snippet": "War-Tracker"
+  },
+  {
+    "fact_id": "7acbe9ac-3edc-4100-a1fb-b0067618a7c6",
+    "entity_id": "x402-api-aubr-ai",
+    "field": "description",
+    "source_url": "https://x402-api.aubr.ai/",
+    "value": "AUBRAI \u2014 AI-powered longevity research assistant / co-scientist. x402-compatible endpoint serving literature search, data analysis, deep research, autonomous agent calls.",
+    "verdict": "reject",
+    "reason": "paraphrased",
+    "status_code": 200
+  },
+  {
+    "fact_id": "8e62a769-18fa-49d9-aa26-88a6183b6483",
+    "entity_id": "x402-api-aubr-ai",
+    "field": "display_name",
+    "source_url": "https://x402-api.aubr.ai/",
+    "value": "AUBRAI",
+    "verdict": "pass",
+    "evidence_snippet": "AUBRAI"
+  },
+  {
+    "fact_id": "e0381e41-0652-4bca-95e1-fe5170421cfb",
+    "entity_id": "x402-api-aubr-ai",
+    "field": "is_recognized",
+    "source_url": "https://x402-api.aubr.ai/",
+    "value": true,
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "7f684c4c-cef6-48a8-9827-a6de02c480d9",
+    "entity_id": "x402-clashofcoins-com",
+    "field": "description",
+    "source_url": "https://x402.clashofcoins.com/",
+    "value": "Clash of Coins \u2014 gaming MMORPG on Base; x402 subdomain hosts the agentic checkout endpoint for the game.",
+    "verdict": "reject",
+    "reason": "paraphrased",
+    "status_code": 200
+  },
+  {
+    "fact_id": "74715df5-0cfa-43cc-9c4c-6d17ae148f9a",
+    "entity_id": "x402-clashofcoins-com",
+    "field": "display_name",
+    "source_url": "https://x402.clashofcoins.com/",
+    "value": "Clash of Coins",
+    "verdict": "pass",
+    "evidence_snippet": "Clash of Coins"
+  },
+  {
+    "fact_id": "d23feef8-9c9b-4049-bd88-4b5782a09646",
+    "entity_id": "x402-clashofcoins-com",
+    "field": "is_recognized",
+    "source_url": "https://x402.clashofcoins.com/",
+    "value": true,
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "64a194c4-e69c-4b04-9bee-59138688366a",
+    "entity_id": "x402-coinstats-app",
+    "field": "description",
+    "source_url": "https://x402.coinstats.app/",
+    "value": "Pay-per-request crypto market, wallet, DeFi, and portfolio data. Settle in USDC on Base mainnet via x402.",
+    "verdict": "pass",
+    "evidence_snippet": "Pay-per-request crypto market, wallet, DeFi, and portfolio data. Settle in USDC on Base mainnet via x402."
+  },
+  {
+    "fact_id": "ef97206d-1607-407a-8ebb-dc53e1674c4e",
+    "entity_id": "x402-coinstats-app",
+    "field": "display_name",
+    "source_url": "https://x402.coinstats.app/",
+    "value": "CoinStats x402 Gateway",
+    "verdict": "pass",
+    "evidence_snippet": "CoinStats x402 Gateway"
+  },
+  {
+    "fact_id": "5b3c145f-b37c-4776-9b01-7358cb1c8cfa",
+    "entity_id": "x402-ottoai-services",
+    "field": "description",
+    "source_url": "https://x402.ottoai.services/",
+    "value": "Otto AI runs a swarm of autonomous agents exposing 37 pay-per-call services on x402 V2 \u2014 market intelligence, DeFi execution, AI creative tools, and Hyperliquid perps. Settled in USDC on Base, Polygon, or Solana. Permit2-ready for any ERC-20. From $0.001 per call.",
+    "verdict": "pass",
+    "evidence_snippet": "Otto AI runs a swarm of autonomous agents exposing 37 pay-per-call services on x402 V2 \u2014 market intelligence, DeFi execution, AI creative to"
+  },
+  {
+    "fact_id": "3c6baf8e-831b-4b9d-b518-4dee626ab3b4",
+    "entity_id": "x402-ottoai-services",
+    "field": "display_name",
+    "source_url": "https://x402.ottoai.services/",
+    "value": "Otto AI",
+    "verdict": "pass",
+    "evidence_snippet": "Otto AI"
+  },
+  {
+    "fact_id": "8383c8ff-695d-480c-b7bf-b5db3abaff16",
+    "entity_id": "x402-silverbackdefi-app",
+    "field": "description",
+    "source_url": "https://x402.silverbackdefi.app/",
+    "value": "Silverback is autonomous DeFi infrastructure for the agent economy. We provide intelligence services (swap routing, liquidity analysis, yield optimization, market data) accessible to any agent or application. Supports x402 micropayments and ERC-8004 on-chain identity. Pay-per-use, no subscriptions.",
+    "verdict": "pass",
+    "evidence_snippet": "Silverback is autonomous DeFi infrastructure for the agent economy. We provide intelligence services (swap routing, liquidity analysis, yiel"
+  },
+  {
+    "fact_id": "8d5fc63f-9d11-4c4d-a167-0bbb25bf9f3e",
+    "entity_id": "x402-silverbackdefi-app",
+    "field": "display_name",
+    "source_url": "https://x402.silverbackdefi.app/",
+    "value": "Silverback",
+    "verdict": "pass",
+    "evidence_snippet": "Silverback"
+  },
+  {
+    "fact_id": "44e25579-dc8f-46d7-a0dc-83a05c74d4ce",
+    "entity_id": "x402-slinkylayer-ai",
+    "field": "description",
+    "source_url": "https://slinkylayer.ai/",
+    "value": "SlinkyLayer \u2014 autonomous API marketplace. Makes any API agent-compatible and pay-per-use via x402.",
+    "verdict": "reject",
+    "reason": "paraphrased",
+    "status_code": 200
+  },
+  {
+    "fact_id": "5a7d3130-92b3-46f0-9647-ce18294a1cfa",
+    "entity_id": "x402-slinkylayer-ai",
+    "field": "display_name",
+    "source_url": "https://slinkylayer.ai/",
+    "value": "SlinkyLayer",
+    "verdict": "pass",
+    "evidence_snippet": "SlinkyLayer"
+  },
+  {
+    "fact_id": "bf01019a-c9b8-45fa-8bf3-d04c4b292163",
+    "entity_id": "x402-slinkylayer-ai",
+    "field": "is_recognized",
+    "source_url": "https://slinkylayer.ai/",
+    "value": true,
+    "verdict": "pass"
+  },
+  {
+    "fact_id": "43e7cacf-d8a8-4259-89d7-eee74997a0b6",
+    "entity_id": "x402-twit-sh",
+    "field": "description",
+    "source_url": "https://twit.sh/",
+    "value": "twit.sh \u2014 Real-time Twitter/X data for AI agents. No sign-up, no API keys. Pay per request in USDC on Base via x402.",
+    "verdict": "reject",
+    "reason": "paraphrased",
+    "status_code": 200
+  },
+  {
+    "fact_id": "7af875fe-2da6-44c7-9ab1-8f83e4120208",
+    "entity_id": "x402-twit-sh",
+    "field": "display_name",
+    "source_url": "https://twit.sh/",
+    "value": "twit.sh",
+    "verdict": "pass",
+    "evidence_snippet": "twit.sh"
+  },
+  {
+    "fact_id": "8a2d192f-0e53-4abc-b8da-5d7964637187",
+    "entity_id": "x402-twit-sh",
+    "field": "is_recognized",
+    "source_url": "https://twit.sh/",
+    "value": true,
+    "verdict": "pass"
+  }
+]

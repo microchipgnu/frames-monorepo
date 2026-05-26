@@ -1,0 +1,28 @@
+HTTP/2 200 
+date: Tue, 26 May 2026 14:59:55 GMT
+content-type: text/html; charset=utf-8
+accept-ranges: bytes
+access-control-expose-headers: X-Payment
+cache-control: public, max-age=0
+content-security-policy: default-src 'self';script-src 'self' 'unsafe-inline' 'unsafe-eval';script-src-attr 'unsafe-inline';style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;font-src 'self' https://fonts.gstatic.com;img-src 'self' data: https:;connect-src 'self' https://alpha.hypewriter.fun https://alpha.palmvox.com;base-uri 'self';form-action 'self';frame-ancestors 'self';object-src 'none';upgrade-insecure-requests
+cross-origin-opener-policy: same-origin
+cross-origin-resource-policy: same-origin
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=qoJfuKIXRJDrmhvukUe7tka1ULUvzpwrvQgQ%2BjbBYxLyG9VG5roWWw2skwDYeevZA5GU7iZMkpAe5iuuspdsJ5Ta%2BL0plqtSeuZJEcPOjTID0jlsWa%2F0kEGj3kcYxE3VmrlYljCOa2wU%2ByL0BO5pMQ%3D%3D"}]}
+last-modified: Wed, 22 Apr 2026 06:37:39 GMT
+origin-agent-cluster: ?1
+referrer-policy: no-referrer
+strict-transport-security: max-age=2592000; includeSubDomains; preload
+vary: Origin
+x-content-type-options: nosniff
+x-dns-prefetch-control: off
+x-download-options: noopen
+x-frame-options: SAMEORIGIN
+x-permitted-cross-domain-policies: none
+x-xss-protection: 0
+cf-cache-status: DYNAMIC
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+speculation-rules: "/cdn-cgi/speculation"
+server: cloudflare
+cf-ray: a01da57a396c2aba-MAD
+alt-svc: h3=":443"; ma=86400
+

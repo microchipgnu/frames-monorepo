@@ -1,0 +1,20 @@
+HTTP/2 404 
+accept-ranges: bytes
+access-control-allow-origin: *
+age: 27219
+cache-control: public, max-age=0, must-revalidate
+content-disposition: inline; filename="404"
+content-security-policy: frame-ancestors 'self' https://app.suedeai.ai https://www.app.suedeai.ai
+content-type: text/html; charset=utf-8
+date: Tue, 26 May 2026 15:06:40 GMT
+etag: "8d5087fe06608b8e53790f626ffc3099"
+last-modified: Tue, 26 May 2026 07:33:01 GMT
+server: Vercel
+strict-transport-security: max-age=63072000
+x-frame-options: SAMEORIGIN
+x-matched-path: /404
+x-next-error-status: 404
+x-vercel-cache: HIT
+x-vercel-id: cdg1::rb45p-1779808000538-45bb30f0b5bf
+content-length: 35385
+

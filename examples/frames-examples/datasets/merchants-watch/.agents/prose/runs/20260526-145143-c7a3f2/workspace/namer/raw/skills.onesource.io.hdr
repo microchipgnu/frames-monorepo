@@ -1,0 +1,6 @@
+HTTP/2 200 
+date: Tue, 26 May 2026 14:59:58 GMT
+content-type: text/html; charset=utf-8
+cache-control: max-age=300
+link: </openapi.json>; rel="service-desc"
+

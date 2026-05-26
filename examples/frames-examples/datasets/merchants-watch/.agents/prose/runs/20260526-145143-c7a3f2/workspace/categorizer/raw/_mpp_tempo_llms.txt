@@ -1,0 +1,33 @@
+# Tempo MPP Proxy
+
+> Pay-per-use API proxy for external services with the [Machine Payments Protocol](https://mpp.dev/llms.txt). Quickstart: https://mpp.dev/quickstart/client
+
+## Services
+
+- Alchemy: Blockchain data platform with JSON-RPC and NFT APIs across 80+ chains.
+- Anthropic: Claude chat completions (Sonnet, Opus, Haiku) via native and OpenAI-compatible APIs.
+- AviationStack: Real-time and historical flight tracking, airports, airlines, and schedules.
+- Cloud VM: Cloud infrastructure for deploying hosted agents.
+- Code Storage: Create paid Git repositories on Code Storage. Returns authenticated clone URLs.
+- Debug: Test service for verifying error reporting.
+- Exa: AI-powered web search, content retrieval, and answers.
+- fal.ai (queue): Async access to Fal video models via the Fal queue API. Submit returns immediately; poll status and fetch result through this proxy.
+- fal.ai: Image, video, and audio generation with 600+ models (Flux, SD, Recraft, Grok, Veo, Seedance).
+- Firecrawl: Web scraping, crawling, and structured data extraction for LLMs.
+- FlightAPI: Real-time flight prices, tracking, and airport schedules from 700+ airlines.
+- Google Gemini: Gemini text generation, Veo video, and Nano Banana image generation with model-tier pricing.
+- GoFlightLabs: Real-time flight tracking, prices, schedules, and airline data.
+- Google Maps: Google Maps Platform — geocoding, directions, places, routes, tiles, weather, air quality, and more.
+- KicksDB: Sneaker & streetwear market data — prices, sales history, and availability from StockX, GOAT, and more.
+- Modal: Serverless GPU compute for sandboxed code execution and AI/ML workloads.
+- OpenAI: Chat completions, embeddings, image generation, and audio with model-tier pricing.
+- OpenRouter: Unified API for 100+ LLMs with live per-model pricing.
+- Oxylabs: Web scraping API with geo-targeting by country, state, and city. Fetch any public URL with JavaScript rendering support.
+- Parallel: Web search, page extraction, and web-grounded chat completions.
+- Tempo RPC: Tempo blockchain JSON-RPC access (mainnet and testnet).
+- SerpApi: Google Flights search — real-time prices, schedules, and booking options.
+- SpyFu: Competitor keyword research — SEO rankings, PPC ads, ad history, and domain analytics.
+- Object Storage: S3/R2-compatible object storage with dynamic per-size pricing.
+- 2Captcha: CAPTCHA solving API — reCAPTCHA, Turnstile, hCaptcha, image captchas, and more.
+
+[OpenAPI discovery](/openapi.json)

@@ -1,0 +1,22 @@
+HTTP/2 308 
+cache-control: public, max-age=0, must-revalidate
+content-type: text/plain
+date: Tue, 26 May 2026 15:06:43 GMT
+location: https://www.wen.tools/api/v1/quote
+refresh: 0;url=https://www.wen.tools/api/v1/quote
+server: Vercel
+strict-transport-security: max-age=63072000
+x-vercel-id: cdg1::x649w-1779808003981-f977d3f046cf
+
+HTTP/2 405 
+cache-control: public, max-age=0, must-revalidate
+content-disposition: inline; filename="index.html"
+content-type: text/html; charset=utf-8
+cross-origin-embedder-policy: credentialless
+cross-origin-opener-policy: same-origin
+date: Tue, 26 May 2026 15:06:44 GMT
+server: Vercel
+strict-transport-security: max-age=63072000
+x-vercel-cache: BYPASS
+x-vercel-id: cdg1::q5hrb-1779808004126-5280295cb058
+

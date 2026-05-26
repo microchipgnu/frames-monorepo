@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="social-icon-2.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>wen.tools | The Definitive Algorand Utility Suite</title>
+    <meta
+      name="description"
+      content="The definitive power-user suite for Algorand. High-performance tools for mass-minting (ARC-3/19/69), mass-airdrops, P2P atomic swaps, supply chain provenance (ANCHOR), decentralized hosting (WEN.DEPLOY), post-quantum security, and x402 on-chain agentic payments."
+    />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://wen.tools/" />
+    <meta property="og:title" content="wen.tools | The Definitive Algorand Utility Suite" />
+    <meta property="og:description" content="Master the Algorand ledger with high-performance tools for developers and creators. Mass-minting, airdrops, P2P atomic swaps, secure signaling, decentralized deployment, and x402 agentic payments." />
+    <meta property="og:image" content="https://wen.tools/banner-large.png" />
+    <meta property="og:image:width" content="2501" />
+    <meta property="og:image:height" content="1001" />
+    <meta property="og:image:type" content="image/png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@wendottools" />
+    <meta name="twitter:creator" content="@wendottools" />
+    <meta name="twitter:url" content="https://wen.tools/" />
+    <meta name="twitter:title" content="wen.tools | Algorand Developer Utility Suite" />
+    <meta name="twitter:description" content="Expert-grade tools for Algorand: ANCHOR, WEN.DEPLOY, WEN.SWAP atomic swaps, Vanity Addresses, and x402 Agentic API Gated Payments." />
+    <meta name="twitter:image" content="https://wen.tools/banner-large.png" />
+
+    <!-- Structured Data for AI Agents -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "wen.tools",
+      "operatingSystem": "Web",
+      "applicationCategory": "DeveloperApplication",
+      "description": "A comprehensive suite of high-performance tools for Algorand developers. Features include supply chain anchoring (ANCHOR), decentralized site deployment (WEN.DEPLOY), vanity address generation, x402 Agentic Payments, and advanced asset management.",
+      "featureList": [
+        "ANCHOR Software Supply Chain Protocol",
+        "WEN.DEPLOY Decentralized Hosting (ARC-19)",
+        "WEN.SWAP Trustless P2P Atomic Swaps",
+        "x402 Agentic Gated API Payments & AI Registry",
+        "High-Performance Vanity Address Generation",
+        "Advanced ASA Management & Batch Operations",
+        "Secure P2P Signaling (BEACON)",
+        "Post-Quantum Falcon Wallet Integration"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "LoafPickleWW"
+      }
+    }
+    </script>
+
+    <link rel="apple-touch-icon" href="social-icon-2.png" />
+    <link rel="alternate" type="text/markdown" title="LLM-friendly version" href="/llms.txt" />
+    
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/assets/index-Djw59V0J.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-nLf9emop.css">
+  </head>
+  <body class="overflow-x-hidden bg-black">
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-HY6HWG04FE"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-HY6HWG04FE");
+    </script>
+    <div id="root">
+      <!-- High-Performance SEO Prerender Content -->
+      <!-- This content is crawlable by search engines and AI agents before JavaScript hydration. -->
+      <main style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;">
+        <h1>wen.tools | The Definitive Algorand Developer & Creator Encyclopedia</h1>
+        <p>Welcome to wen.tools, the ultimate utility suite for the Algorand blockchain. Our platform provides high-performance, expert-grade tools for developers, creators, and power users. From mass-minting NFT collections to securing software supply chains with the ANCHOR protocol, wen.tools is the backbone of Algorand professional operations.</p>
+        
+        <h2>Algorand NFT Standards & Minting Tools</h2>
+        <ul>
+          <li><strong><a href="/arc3-collection-mint">ARC-3 Minting</a>:</strong> The standard for immutable Algorand NFTs. Bind your digital art to the ledger with permanent IPFS links.</li>
+          <li><strong><a href="/arc19-collection-mint">ARC-19 Minting</a>:</strong> Advanced evolvable NFTs. Update your metadata CID via the Asset Reserve field while maintaining decentralized integrity.</li>
+          <li><strong><a href="/arc69-collection-mint">ARC-69 Minting</a>:</strong> Lightweight, efficient NFTs that store metadata in transaction notes. Ideal for high-volume social collections.</li>
+          <li><strong><a href="/simple-batch-mint">Simple Batch Mint</a>:</strong> Mass-mint hundreds of assets in minutes with automated IPFS pinning via Crust and Pinata.</li>
+          <li><strong><a href="/really-simple-mint">Really Simple Mint</a>:</strong> A minimalist one-click minting experience for creators who need speed and simplicity.</li>
+        </ul>
+
+        <h2>Asset Management & Protocol Logistics</h2>
+        <ul>
+          <li><strong><a href="/batch-optin">Batch Opt-in</a> & <a href="/batch-optout">Opt-out</a>:</strong> Manage wallet states by adding or removing hundreds of assets in single transaction groups. Recover Minimum Balance Requirement (MBR) Algos efficiently.</li>
+          <li><strong><a href="/batch-destroy">Batch Destroy (Delete)</a>:</strong> Clean up empty assets and recover state costs from your Algorand account.</li>
+          <li><strong><a href="/batch-freeze">Asset Freeze</a> & <a href="/batch-clawback">Clawback</a>:</strong> Professional administrative tools for project leads managing permissioned assets and risk mitigation.</li>
+          <li><strong><a href="/token-manager">Token Manager (ARC-62)</a>:</strong> Set and manage circulating supply for fungible tokens and memecoins according to the latest standards.</li>
+        </ul>
+
+        <h2>Algorand Distribution & Airdrop Suite</h2>
+        <ul>
+          <li><strong><a href="/airdrop">Mass Airdrop Tool</a>:</strong> Distribute Algos or ASAs to thousands of recipients. Supports CSV uploads and ARC-59 Asset Inboxes for frictionless delivery.</li>
+          <li><strong><a href="/vault-send">Vault Send</a>:</strong> Send assets directly to NFD (Non-Fungible Domain) vaults, bypassing the need for manual recipient opt-ins.</li>
+          <li><strong><a href="/simple-send">Simple Send</a>:</strong> Batch send multiple assets to one receiver or one asset to multiple receivers.</li>
+        </ul>
+
+        <h2>Advanced Developer Apps & Security</h2>
+        <ul>
+          <li><strong><a href="/anchor-setup">ANCHOR Protocol</a>:</strong> Secure your software supply chain by anchoring package hashes and metadata to the Algorand ledger. Tamper-evident software provenance for GitHub and NPM.</li>
+          <li><strong><a href="/deploy">WEN.DEPLOY</a>:</strong> Decentralized hosting for static sites. Build and deploy directly from GitHub to IPFS and ARC-19.</li>
+          <li><strong><a href="/wen-swap">WEN.SWAP</a>:</strong> Trustless peer-to-peer atomic swaps on Algorand. Trade any combination of Algos and ASAs with no intermediary. Features automatic opt-in detection, NFD name resolution, and Algorand's native atomic transfer guarantees for zero counterparty risk.</li>
+          <li><strong><a href="/post-quantum">Post-Quantum Wallet</a>:</strong> Future-proof your assets with Falcon-1024 post-quantum secured Algorand accounts.</li>
+          <li><strong><a href="/beacon-chat">BEACON Protocol</a>:</strong> Zero-infrastructure, encrypted P2P signaling and on-chain dead drops. True sovereign communication.</li>
+          <li><strong><a href="/vanity">Vanity Address Generator</a>:</strong> High-performance CPU-based generation of custom Algorand wallet addresses with project prefixes.</li>
+        </ul>
+
+        <h2>Algorand Ecosystem Analytics</h2>
+        <ul>
+          <li><strong><a href="/find-collection-holders">Collection Snapshot</a>:</strong> Capture real-time holder data for any creator wallet or asset list. Export to CSV for airdrops or governance.</li>
+          <li><strong><a href="/wallet-holdings">Wallet Holdings</a>:</strong> Audit and export the entire asset profile of any Algorand address.</li>
+          <li><strong><a href="/download-arc19-collection-data">ARC-19</a> & <a href="/download-arc69-collection-data">ARC-69</a> Data Export:</strong> Technical collection audits for professional project managers and developers.</li>
+        </ul>
+
+        <h2>Comprehensive Knowledge Base</h2>
+        <p>Explore our <a href="/encyclopedia">Algorand Encyclopedia</a> for a deep dive into the protocol architecture, including the Algorand Virtual Machine (AVM), Box Storage, and Rekeying logic.</p>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,418 @@
+[
+  {
+    "host": "api.oatp.cc",
+    "entity_id": "api-oatp-cc",
+    "outcome": "confirmed",
+    "display_name": "OATP",
+    "description": "OATP (Open Agent Transaction Protocol) — Solana-native payment rail for AI agents. Open-source, self-custodial, USDC-settled.",
+    "is_recognized": true,
+    "sources": [
+      {
+        "url": "https://oatp.cc/",
+        "retrieved_at": "2026-05-26T15:01:00Z",
+        "kind": "home",
+        "snippet": "<title>OATP — Open Agent Transaction Protocol</title> ... description: \"The easiest way to monetize MCP on Solana. Open-source. Self-custodial. USDC-settled.\""
+      },
+      {
+        "url": "https://x.com/oatp_ai",
+        "retrieved_at": "2026-05-26T15:05:30Z",
+        "kind": "social",
+        "snippet": "@oatp_ai bio: 'Empower your agents to pay for anything on-chain'. Recent tweet (May 11 2026): 'OATP numbers one in @x402 by volume both on Base and Solana'. 59 followers, 32 statuses — small but active operator account."
+      },
+      {
+        "url": "https://x.com/OOBEonSol",
+        "retrieved_at": "2026-05-26T15:05:30Z",
+        "kind": "social",
+        "snippet": "Third-party @OOBEonSol (3,631 followers) tweeted Apr 27 2026: 'OATP is a @solana native payment rail for AI agents.' Independent off-host validation of the operator's identity."
+      }
+    ],
+    "notes": "API endpoint at api.oatp.cc responds with valid x402v2 payment envelope (description: 'OATP · token_risk_scan'); parent oatp.cc home page brands as 'OATP — Open Agent Transaction Protocol'. Operator's own X account is below the 100-follower heuristic, but third-party endorsement from a 3.6k-follower Solana-ecosystem account plus the operator's own confirmed handle gives two independent off-host sources. Recent volume ($19,904 / 30d) corroborates active operations."
+  },
+  {
+    "host": "blockrun.ai",
+    "entity_id": "blockrun-ai",
+    "outcome": "confirmed",
+    "display_name": "BlockRun",
+    "description": "BlockRun — pay-per-call AI gateway. Models, data, runtime via one endpoint, USDC-settled on Base & Solana. ClawRouter / Franklin / OpenClaw / MCP integrations.",
+    "is_recognized": true,
+    "sources": [
+      {
+        "url": "https://blockrun.ai/",
+        "retrieved_at": "2026-05-26T15:00:30Z",
+        "kind": "home",
+        "snippet": "<title>BlockRun — Pay-per-call AI gateway</title> description: 'Pay-per-call AI gateway. Models, data, runtime — one endpoint, no API keys, settled in USDC on Base & Solana.'"
+      },
+      {
+        "url": "https://x.com/BlockRunAI",
+        "retrieved_at": "2026-05-26T15:04:00Z",
+        "kind": "social",
+        "snippet": "@BlockRunAI 2,676 followers, 651 statuses. Latest tweet May 25 2026 (yesterday). Bio: 'The payment layer for AI agents. ClawRouter & Franklin. Circle @USDC Hackathon Winner. Base Batch 03. by @bc1beat'. Profile URL → blockrun.ai."
+      },
+      {
+        "url": "https://github.com/BlockRunAI",
+        "retrieved_at": "2026-05-26T15:00:30Z",
+        "kind": "press",
+        "snippet": "GitHub org BlockRunAI referenced from home page footer — second independent off-host artifact."
+      }
+    ]
+  },
+  {
+    "host": "x402.clashofcoins.com",
+    "entity_id": "x402-clashofcoins-com",
+    "outcome": "confirmed",
+    "display_name": "Clash of Coins",
+    "description": "Clash of Coins — gaming MMORPG on Base; x402 subdomain hosts the agentic checkout endpoint for the game.",
+    "is_recognized": true,
+    "sources": [
+      {
+        "url": "https://x402.clashofcoins.com/",
+        "retrieved_at": "2026-05-26T15:00:30Z",
+        "kind": "home",
+        "snippet": "<title>Clash of Coins</title> description: 'Agentic checkout for Clash of Coins'. keywords: 'agentic checkout for gaming platforms, x402 checkout, AI agent commerce, gaming payments API'."
+      },
+      {
+        "url": "https://x.com/clashofcoins",
+        "retrieved_at": "2026-05-26T15:04:20Z",
+        "kind": "social",
+        "snippet": "@clashofcoins 49,791 followers, 757 statuses. Latest tweet May 21 2026 (5 days ago). Bio: '🎮 #1 gaming app on @Base, made for you & 100M normies. Built by @owb_studio $OWB'."
+      },
+      {
+        "url": "https://clashofcoins.com/",
+        "retrieved_at": "2026-05-26T15:01:00Z",
+        "kind": "about",
+        "snippet": "Parent domain home page confirms brand and links to github.com/onewayblock, discord.gg/clashofcoins, x.com/clashofcoins."
+      }
+    ],
+    "notes": "Operator parent appears to be OneWayBlock / OWB Studio per bio and GitHub org; host belongs to Clash of Coins brand."
+  },
+  {
+    "host": "api.deepnets.ai",
+    "entity_id": "api-deepnets-ai",
+    "outcome": "confirmed",
+    "display_name": "Deepnets",
+    "description": "Deepnets — Solana trading intelligence: token safety, holder graphs, funding-network detection, social research, watchlist, trending feed. For traders and trading agents.",
+    "is_recognized": true,
+    "sources": [
+      {
+        "url": "https://api.deepnets.ai/",
+        "retrieved_at": "2026-05-26T15:00:30Z",
+        "kind": "home",
+        "snippet": "<title>Deepnets.ai</title> description: 'Deepnets: Solana trading intelligence — token safety, holder graphs, funding-network detection, social research, watchlist, trending feed.'"
+      },
+      {
+        "url": "https://x.com/deepnets_ai",
+        "retrieved_at": "2026-05-26T15:06:30Z",
+        "kind": "social",
+        "snippet": "@deepnets_ai 453 followers, 254 statuses. Latest tweet today (May 26 2026). Bio: 'Uncover bundled wallets & dev farms with precision. Solana's anti-rug layer. 🐙'. Tweet history references 'Deepnets' product, watchlist, members area."
+      }
+    ]
+  },
+  {
+    "host": "staging.deepnets.ai",
+    "entity_id": "staging-deepnets-ai",
+    "outcome": "confirmed",
+    "display_name": "Deepnets (staging)",
+    "description": "Staging mirror of Deepnets — Solana trading intelligence API. Same operator as api.deepnets.ai.",
+    "is_recognized": true,
+    "sources": [
+      {
+        "url": "https://staging.deepnets.ai/",
+        "retrieved_at": "2026-05-26T15:00:30Z",
+        "kind": "home",
+        "snippet": "Identical HTML payload to api.deepnets.ai (same SPA, same <title>Deepnets.ai</title>, same description). Staging mirror of production API."
+      },
+      {
+        "url": "https://x.com/deepnets_ai",
+        "retrieved_at": "2026-05-26T15:06:30Z",
+        "kind": "social",
+        "snippet": "@deepnets_ai 453 followers, last tweet today; product/brand match for Deepnets."
+      }
+    ],
+    "notes": "Display_name carries the (staging) suffix so the launchable showcase set can disambiguate it from api.deepnets.ai. Both share the same $371.38/30d volume signal, indicating volume is double-counted across mirrors; operator should consider collapsing in scripts/host.ts."
+  },
+  {
+    "host": "x402.slinkylayer.ai",
+    "entity_id": "x402-slinkylayer-ai",
+    "outcome": "confirmed",
+    "display_name": "SlinkyLayer",
+    "description": "SlinkyLayer — autonomous API marketplace. Makes any API agent-compatible and pay-per-use via x402.",
+    "is_recognized": true,
+    "sources": [
+      {
+        "url": "https://slinkylayer.ai/",
+        "retrieved_at": "2026-05-26T15:01:00Z",
+        "kind": "home",
+        "snippet": "<title>SlinkyLayer - Trade with AI</title>. Links to x.com/SlinkyLayer, discord.com/invite/JnMyrBHpst, t.me/slinkylayer."
+      },
+      {
+        "url": "https://x.com/SlinkyLayer",
+        "retrieved_at": "2026-05-26T15:04:20Z",
+        "kind": "social",
+        "snippet": "@SlinkyLayer 61,757 followers, 4,426 statuses. Latest tweet May 26 2026 (today). Bio: 'Powering autonomous API markets. Instantly make any API agent-compatible and pay-per-use via x402. | Babylon Hacker House Grand Prize Winner 🏆'."
+      },
+      {
+        "url": "https://x402.slinkylayer.ai/",
+        "retrieved_at": "2026-05-26T15:00:30Z",
+        "kind": "home",
+        "snippet": "Host endpoint serves 'Hello, world!' placeholder — operational under SlinkyLayer subdomain."
+      }
+    ]
+  },
+  {
+    "host": "content.hugen.tokyo",
+    "entity_id": "content-hugen-tokyo",
+    "outcome": "unconfirmed",
+    "is_recognized": false,
+    "sources": [
+      {
+        "url": "https://content.hugen.tokyo/",
+        "retrieved_at": "2026-05-26T15:00:30Z",
+        "kind": "home",
+        "snippet": "Endpoint returns {\"detail\":\"Not Found\"} (FastAPI 404). No marketing surface."
+      },
+      {
+        "url": "https://hugen.tokyo/",
+        "retrieved_at": "2026-05-26T15:00:30Z",
+        "kind": "home",
+        "snippet": "Parent hugen.tokyo returns nginx 503 ('An error occurred. Sorry, the page you are looking for is currently unavailable.'). Site offline."
+      }
+    ],
+    "notes": "Parent hugen.tokyo is offline; no team/about page reachable. Twitter search returned no operator handle naming hugen.tokyo (only an unrelated Japanese music playlist mention of an artist 'HUGEN'). Exa company-search returned no related entity. Volume of $169.95/30d is duplicated across 10 sibling subdomains, suggesting a single shared operator — but operator identity is unverifiable without the site returning. Recommend re-visit on next tick."
+  },
+  {
+    "host": "defi.hugen.tokyo",
+    "entity_id": "defi-hugen-tokyo",
+    "outcome": "unconfirmed",
+    "is_recognized": false,
+    "sources": [
+      {
+        "url": "https://hugen.tokyo/",
+        "retrieved_at": "2026-05-26T15:00:30Z",
+        "kind": "home",
+        "snippet": "Parent nginx 503; site offline."
+      }
+    ],
+    "notes": "Sibling of content.hugen.tokyo — same offline parent, same volume signal. No off-host evidence available. Re-visit when parent returns."
+  },
+  {
+    "host": "domain.hugen.tokyo",
+    "entity_id": "domain-hugen-tokyo",
+    "outcome": "unconfirmed",
+    "is_recognized": false,
+    "sources": [
+      {
+        "url": "https://hugen.tokyo/",
+        "retrieved_at": "2026-05-26T15:00:30Z",
+        "kind": "home",
+        "snippet": "Parent nginx 503; site offline."
+      }
+    ],
+    "notes": "Sibling of content.hugen.tokyo — same offline parent. Re-visit when parent returns."
+  },
+  {
+    "host": "gotobi.hugen.tokyo",
+    "entity_id": "gotobi-hugen-tokyo",
+    "outcome": "unconfirmed",
+    "is_recognized": false,
+    "sources": [
+      {
+        "url": "https://hugen.tokyo/",
+        "retrieved_at": "2026-05-26T15:00:30Z",
+        "kind": "home",
+        "snippet": "Parent nginx 503; site offline."
+      }
+    ],
+    "notes": "Sibling of content.hugen.tokyo — same offline parent. Re-visit when parent returns."
+  },
+  {
+    "host": "intel.hugen.tokyo",
+    "entity_id": "intel-hugen-tokyo",
+    "outcome": "unconfirmed",
+    "is_recognized": false,
+    "sources": [
+      {
+        "url": "https://hugen.tokyo/",
+        "retrieved_at": "2026-05-26T15:00:30Z",
+        "kind": "home",
+        "snippet": "Parent nginx 503; site offline."
+      }
+    ],
+    "notes": "Sibling of content.hugen.tokyo — same offline parent. Re-visit when parent returns."
+  },
+  {
+    "host": "mailcheck.hugen.tokyo",
+    "entity_id": "mailcheck-hugen-tokyo",
+    "outcome": "unconfirmed",
+    "is_recognized": false,
+    "sources": [
+      {
+        "url": "https://hugen.tokyo/",
+        "retrieved_at": "2026-05-26T15:00:30Z",
+        "kind": "home",
+        "snippet": "Parent nginx 503; site offline."
+      }
+    ],
+    "notes": "Sibling of content.hugen.tokyo — same offline parent. Re-visit when parent returns."
+  },
+  {
+    "host": "scout.hugen.tokyo",
+    "entity_id": "scout-hugen-tokyo",
+    "outcome": "unconfirmed",
+    "is_recognized": false,
+    "sources": [
+      {
+        "url": "https://hugen.tokyo/",
+        "retrieved_at": "2026-05-26T15:00:30Z",
+        "kind": "home",
+        "snippet": "Parent nginx 503; site offline."
+      }
+    ],
+    "notes": "Sibling of content.hugen.tokyo — same offline parent. Re-visit when parent returns."
+  },
+  {
+    "host": "tick.hugen.tokyo",
+    "entity_id": "tick-hugen-tokyo",
+    "outcome": "unconfirmed",
+    "is_recognized": false,
+    "sources": [
+      {
+        "url": "https://hugen.tokyo/",
+        "retrieved_at": "2026-05-26T15:00:30Z",
+        "kind": "home",
+        "snippet": "Parent nginx 503; site offline."
+      }
+    ],
+    "notes": "Sibling of content.hugen.tokyo — same offline parent. Re-visit when parent returns."
+  },
+  {
+    "host": "visual.hugen.tokyo",
+    "entity_id": "visual-hugen-tokyo",
+    "outcome": "unconfirmed",
+    "is_recognized": false,
+    "sources": [
+      {
+        "url": "https://hugen.tokyo/",
+        "retrieved_at": "2026-05-26T15:00:30Z",
+        "kind": "home",
+        "snippet": "Parent nginx 503; site offline."
+      }
+    ],
+    "notes": "Sibling of content.hugen.tokyo — same offline parent. Re-visit when parent returns."
+  },
+  {
+    "host": "weather.hugen.tokyo",
+    "entity_id": "weather-hugen-tokyo",
+    "outcome": "unconfirmed",
+    "is_recognized": false,
+    "sources": [
+      {
+        "url": "https://hugen.tokyo/",
+        "retrieved_at": "2026-05-26T15:00:30Z",
+        "kind": "home",
+        "snippet": "Parent nginx 503; site offline."
+      }
+    ],
+    "notes": "Sibling of content.hugen.tokyo — same offline parent. Re-visit when parent returns."
+  },
+  {
+    "host": "x402-api.aubr.ai",
+    "entity_id": "x402-api-aubr-ai",
+    "outcome": "confirmed",
+    "display_name": "AUBRAI",
+    "description": "AUBRAI — AI-powered longevity research assistant / co-scientist. x402-compatible endpoint serving literature search, data analysis, deep research, autonomous agent calls.",
+    "is_recognized": true,
+    "sources": [
+      {
+        "url": "https://x402-api.aubr.ai/",
+        "retrieved_at": "2026-05-26T15:00:30Z",
+        "kind": "home",
+        "snippet": "<title>AUBRAI x402 Service</title> — Next.js SPA serving the x402 endpoint."
+      },
+      {
+        "url": "https://x.com/Aubrai_",
+        "retrieved_at": "2026-05-26T15:05:30Z",
+        "kind": "social",
+        "snippet": "@Aubrai_ 9,942 followers. Tweet (Apr 8 2026): '.@Aubrai_ supports x402. Literature · Data analysis · Deep research · Autonomous agents. Any AI agent can pay. Steering $0.20 | Smart $1.00 | Autonomous $8.00.' Third-party tweets describe @Aubrai_ as 'an AI agent co-founded by Dr. Aubrey de Grey, @BioProtocol, and @vitadao' (Mar 16 2026, 1,892-follower account)."
+      },
+      {
+        "url": "https://x.com/dw2/status/2050000000",
+        "retrieved_at": "2026-05-26T15:05:30Z",
+        "kind": "press",
+        "snippet": "@dw2 (9,391 followers, Mar 10 2026): 'Longevity investigators can now plug the @Aubrai_ co-scientist into e.g. Cursor, Claude Desktop, or OpenClaw - to perform deep research across PubMed, arXiv...' — independent third-party validation."
+      }
+    ],
+    "notes": "Parent aubr.ai is behind Vercel Security Checkpoint (challenged via curl); recognition leans on the x402 subdomain title + multiple high-follower external X mentions naming the operator. Brand and product description match cleanly."
+  },
+  {
+    "host": "twit-api-production-de12.up.railway.app",
+    "entity_id": "twit-api-production-de12-up-railway-app",
+    "outcome": "infra-misclassified",
+    "is_recognized": false,
+    "sources": [
+      {
+        "url": "https://twit-api-production-de12.up.railway.app/",
+        "retrieved_at": "2026-05-26T15:00:30Z",
+        "kind": "home",
+        "snippet": "Subdomain pattern `*-production-<hash>.up.railway.app` is a Railway-managed deployment URL, not a merchant brand."
+      },
+      {
+        "url": "https://twit.sh/",
+        "retrieved_at": "2026-05-26T15:00:30Z",
+        "kind": "home",
+        "snippet": "Sibling host x402.twit.sh and twit.sh appear to be the public brand for the same x402-volume cluster ($168.255/30d, identical to this Railway URL)."
+      }
+    ],
+    "notes": "is_infra hint — scripts/host.ts infra rules should suppress `*.up.railway.app` from merchant indices. This URL is the same backend that powers x402.twit.sh; operator should canonicalize x402.twit.sh as the merchant-facing host."
+  },
+  {
+    "host": "x402.twit.sh",
+    "entity_id": "x402-twit-sh",
+    "outcome": "confirmed",
+    "display_name": "twit.sh",
+    "description": "twit.sh — Real-time Twitter/X data for AI agents. No sign-up, no API keys. Pay per request in USDC on Base via x402.",
+    "is_recognized": true,
+    "sources": [
+      {
+        "url": "https://twit.sh/",
+        "retrieved_at": "2026-05-26T15:00:30Z",
+        "kind": "home",
+        "snippet": "<title>twit.sh — Plug AI agents into X</title> description: 'Real-time Twitter/X data for AI agents. No sign-up, no API keys. Pay per request in USDC on Base via x402. Fully autonomous.' OG meta declares twitter:site=@twitdotsh."
+      },
+      {
+        "url": "https://x.com/twitdotsh",
+        "retrieved_at": "2026-05-26T15:06:30Z",
+        "kind": "social",
+        "snippet": "Independent X mentions naming @twitdotsh: @casoxbt (1,335 followers, Mar 19 2026): 'I used @twitdotsh with opencode ... boom I found the accounts I was looking for'; @dramaricic (2,794 followers, Mar 18 2026): '@twitdotsh Hey'. The operator's own handle returns no public tweets via search, but two external endorsements from accounts with >1k followers reference the product by handle, corroborating the home-page-declared identity."
+      }
+    ],
+    "notes": "Operator's own @twitdotsh feed is silent in public search (possible private/protected account, or just no public posts since launch); confidence rests on home page brand + two independent off-host mentions. Sibling Railway URL (twit-api-production-de12.up.railway.app) is the same backend."
+  },
+  {
+    "host": "mpp.hyreagent.fun",
+    "entity_id": "mpp-hyreagent-fun",
+    "outcome": "confirmed",
+    "display_name": "HYRE Agent",
+    "description": "HYRE Agent — AI-Enhanced DeFi Data API. Pay-per-call DeFi intelligence for autonomous agents. 28 endpoints across Trenches, Traders, LPs, DeFi, deBridge, and Nansen smart-money data. Multi-chain x402 (Solana, Base, SKALE) + MPP on Tempo.",
+    "is_recognized": true,
+    "sources": [
+      {
+        "url": "https://mpp.hyreagent.fun/",
+        "retrieved_at": "2026-05-26T15:00:30Z",
+        "kind": "home",
+        "snippet": "<title>HYRE Agent — AI-Enhanced DeFi Data API</title>. description: 'Pay-per-call DeFi intelligence for autonomous agents. 28 endpoints ... Multi-chain x402 on Solana, Base, SKALE + MPP on Tempo. No API keys — payment is the only gate.'"
+      },
+      {
+        "url": "https://hyreagent.fun/",
+        "retrieved_at": "2026-05-26T15:00:30Z",
+        "kind": "home",
+        "snippet": "<title>HYRE — DeFi Intelligence Layer</title> — parent domain links to x.com/hyre_agent, x.com/dexteraisol, x.com/saidinfra, x.com/SkaleNetwork."
+      },
+      {
+        "url": "https://x.com/Hyre_agent",
+        "retrieved_at": "2026-05-26T15:04:00Z",
+        "kind": "social",
+        "snippet": "@Hyre_agent 1,455 followers, 695 statuses. Latest tweet today (May 26 2026): '@sns Agent live on Solana MUST have (dot)sol identity'. Bio: 'Turns your agents into first class Solana citizen. Create agents with ME Protocol Backed by HYRE.'"
+      }
+    ]
+  }
+]

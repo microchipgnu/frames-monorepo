@@ -1,0 +1,183 @@
+# Apollo
+
+> **You are on:** `https://api.paywithlocus.com/api` | [llms.txt](https://paywithlocus.com/llms.txt)
+>
+> Locus runs on multiple environments -- make sure every URL you call matches your expected environment.
+> | Environment | Landing | API |
+> |---|---|---|
+> | Production | paywithlocus.com | api.paywithlocus.com |
+> | Beta | beta.paywithlocus.com | beta-api.paywithlocus.com |
+> | Stage | stage.paywithlocus.com | stage-api.paywithlocus.com |
+>
+> If the API URL above doesn't match your expected environment, re-fetch this file from the correct domain.
+
+> People and company enrichment, lead search, and sales intelligence with 275M+ contacts.
+
+**Category:** Data Enrichment | **Website:** [www.apollo.io](https://www.apollo.io) | **Docs:** [docs.apollo.io](https://docs.apollo.io)
+
+## Access Methods
+
+| Method | Base URL | Auth |
+|--------|----------|------|
+| **MPP (Tempo)** | `https://apollo.mpp.paywithlocus.com/apollo/` | HTTP 402 auto-payment |
+| **Wrapped API** | `https://api.paywithlocus.com/api/wrapped/apollo/` | `Authorization: Bearer <LOCUS_API_KEY>` |
+
+**OpenAPI discovery:** `GET https://apollo.mpp.paywithlocus.com/openapi.json`
+
+## Endpoints
+
+### People Enrichment
+
+Enrich a person with contact info, employment history, and firmographic data.
+
+**Estimated cost:** $0.008-$0.043
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `first_name` | string | No | First name |
+| `last_name` | string | No | Last name |
+| `email` | string | No | Email address |
+| `linkedin_url` | string | No | LinkedIn profile URL |
+| `organization_name` | string | No | Current company name |
+| `domain` | string | No | Current company domain |
+| `id` | string | No | Apollo person ID |
+| `reveal_personal_emails` | boolean | No | Include personal emails in results |
+| `reveal_phone_number` | boolean | No | Include phone numbers (+$0.035) |
+
+```bash
+curl -X POST https://apollo.mpp.paywithlocus.com/apollo/people-enrichment \
+  -H "Content-Type: application/json" \
+  -d '{"first_name":"<string>","last_name":"<string>","email":"<string>","linkedin_url":"<string>","organization_name":"<string>","domain":"<string>","id":"<string>","reveal_personal_emails":"<boolean>","reveal_phone_number":"<boolean>"}'
+```
+
+### Bulk People Enrichment
+
+Enrich up to 10 people in a single request.
+
+**Estimated cost:** $0.008-$0.043/person
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `details` | object[] | Yes | Array of person identifiers (max 10). Each object can have: first_name, last_name, email, linkedin_url, organization_name, domain |
+| `reveal_phone_number` | boolean | No | Include phone numbers for all (+$0.035/person) |
+| `reveal_personal_emails` | boolean | No | Include personal emails for all |
+
+```bash
+curl -X POST https://apollo.mpp.paywithlocus.com/apollo/bulk-people-enrichment \
+  -H "Content-Type: application/json" \
+  -d '{"details":"<object[]>","reveal_phone_number":"<boolean>","reveal_personal_emails":"<boolean>"}'
+```
+
+### Organization Enrichment
+
+Get company data including industry, employee count, funding, revenue, and tech stack.
+
+**Estimated cost:** $0.008
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `domain` | string | No | Company domain |
+| `organization_name` | string | No | Company name |
+| `id` | string | No | Apollo organization ID |
+
+```bash
+curl -X POST https://apollo.mpp.paywithlocus.com/apollo/org-enrichment \
+  -H "Content-Type: application/json" \
+  -d '{"domain":"<string>","organization_name":"<string>","id":"<string>"}'
+```
+
+### Bulk Organization Enrichment
+
+Enrich up to 10 organizations by domain in a single request.
+
+**Estimated cost:** $0.008/org
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `domains` | string[] | Yes | Array of company domains (max 10), e.g. ["anthropic.com", "openai.com"] |
+
+```bash
+curl -X POST https://apollo.mpp.paywithlocus.com/apollo/bulk-org-enrichment \
+  -H "Content-Type: application/json" \
+  -d '{"domains":"<string[]>"}'
+```
+
+### People Search
+
+Search for people by job title, location, company, seniority, and more. Returns profile data but not contact details (use enrichment for emails/phones).
+
+**Estimated cost:** $0.005
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `q_keywords` | string | No | Keywords to search for |
+| `person_titles` | string[] | No | Job titles to filter by |
+| `person_locations` | string[] | No | Locations to filter by |
+| `q_organization_domains` | string[] | No | Company domains to filter by |
+| `organization_ids` | string[] | No | Apollo organization IDs to filter by |
+| `person_seniorities` | string[] | No | Seniority levels: founder, c_suite, partner, vp, head, director, manager, senior, entry, intern |
+| `per_page` | number | No | Results per page (max 100, default 25) |
+| `page` | number | No | Page number (max 500) |
+
+```bash
+curl -X POST https://apollo.mpp.paywithlocus.com/apollo/people-search \
+  -H "Content-Type: application/json" \
+  -d '{"q_keywords":"<string>","person_titles":"<string[]>","person_locations":"<string[]>","q_organization_domains":"<string[]>","organization_ids":"<string[]>","person_seniorities":"<string[]>","per_page":"<number>","page":"<number>"}'
+```
+
+### Organization Search
+
+Search for companies by name, industry, location, size, revenue, and more.
+
+**Estimated cost:** $0.005
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `q_keywords` | string | No | Keywords to search for |
+| `q_organization_name` | string | No | Organization name to search |
+| `organization_industry_tag_ids` | string[] | No | Industry tag IDs to filter by |
+| `organization_locations` | string[] | No | Locations to filter by |
+| `q_organization_keyword_tags` | string[] | No | Keyword tags to filter by |
+| `organization_num_employees_ranges` | string[] | No | Employee count ranges (e.g., "1,10", "11,50", "51,200") |
+| `per_page` | number | No | Results per page (max 100, default 25) |
+| `page` | number | No | Page number (max 500) |
+
+```bash
+curl -X POST https://apollo.mpp.paywithlocus.com/apollo/org-search \
+  -H "Content-Type: application/json" \
+  -d '{"q_keywords":"<string>","q_organization_name":"<string>","organization_industry_tag_ids":"<string[]>","organization_locations":"<string[]>","q_organization_keyword_tags":"<string[]>","organization_num_employees_ranges":"<string[]>","per_page":"<number>","page":"<number>"}'
+```
+
+### Organization Job Postings
+
+Get current job postings for a company — useful for identifying hiring signals.
+
+**Estimated cost:** $0.005
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `organization_id` | string | Yes | Apollo organization ID |
+
+```bash
+curl -X POST https://apollo.mpp.paywithlocus.com/apollo/job-postings \
+  -H "Content-Type: application/json" \
+  -d '{"organization_id":"<string>"}'
+```
+
+### News Articles Search
+
+Find recent news articles connected to organizations in Apollo's database. Requires organization IDs (get them from org-search or org-enrichment first).
+
+**Estimated cost:** $0.005
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `organization_ids` | string[] | Yes | Apollo organization IDs to find news for |
+| `per_page` | number | No | Results per page (default 25) |
+| `page` | number | No | Page number |
+
+```bash
+curl -X POST https://apollo.mpp.paywithlocus.com/apollo/news-search \
+  -H "Content-Type: application/json" \
+  -d '{"organization_ids":"<string[]>","per_page":"<number>","page":"<number>"}'
+```

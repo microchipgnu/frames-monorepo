@@ -1,0 +1,12 @@
+[
+  {
+    "host": "x402.slinkylayer.ai",
+    "entity_id": "x402-slinkylayer-ai",
+    "reason": "Free curl on https://x402.slinkylayer.ai/ returns only the literal string 'Hello, world!' — no description, no llms.txt, no OpenAPI, no docs. POST probes to /predict, /signal, /ai, /generate all return {\"error\":{\"message\":\"Not Found\"}}. Parent slinkylayer.ai positions as 'Trade with AI — Predicting market moves with adaptive intelligence' but that signal is on a different host; using it would mis-attribute the evidence. Omit and retry next tick with a refined probe path."
+  },
+  {
+    "host": "oracle-api-production-766f.up.railway.app",
+    "entity_id": "oracle-api-production-766f-up-railway-app",
+    "reason": "Generic Railway deploy. GET / returns '404 Not Found'; GET /health returns {\"status\":\"ok\",\"service\":\"oracle-api\"}. Tried /docs, /openapi.json, /oracle, /price, /tick, /quote, /symbols, /ohlc, /api, /v1, /info, /.well-known/x402 — all 404. The bare string 'oracle-api' is too generic to disambiguate (could be data, finance, or compute). No first-party evidence found; omit and retry next tick after probing the upstream entity owner."
+  }
+]
