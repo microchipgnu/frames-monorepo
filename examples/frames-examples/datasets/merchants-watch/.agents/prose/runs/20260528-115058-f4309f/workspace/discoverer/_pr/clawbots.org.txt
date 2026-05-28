@@ -1,0 +1,6 @@
+PATH /api/x402 -> 307
+PATH /x402 -> 307
+PATH /api/pay -> 307
+PATH /api -> 307
+PATH /.well-known/x402 -> 307
+PATH / -> 307

@@ -1,0 +1,42 @@
+[
+  {
+    "host": "revettr.com",
+    "entity_id": "revettr-com",
+    "display_name": "Revettr",
+    "description": "Counterparty risk score \u2014 send wallet, domain, IP, or company name",
+    "category": "risk-intelligence",
+    "probe": {
+      "advertises_x402": true,
+      "advertises_mpp": true,
+      "advertised_methods": [
+        "exact",
+        "tempo"
+      ],
+      "advertised_networks": [
+        "Base",
+        "Tempo",
+        "Stellar"
+      ],
+      "probe_endpoint": "https://revettr.com/v1/waitlist"
+    },
+    "probe_status": "ok",
+    "sources": [
+      {
+        "type": "twitter_search",
+        "query": "\"just shipped\" x402",
+        "note": "surfaced revettr.com host ref in tweet hits"
+      },
+      {
+        "type": "well_known",
+        "url": "https://revettr.com/.well-known/x402",
+        "note": "x402 discovery doc lists resources: POST /v1/score, POST /v1/waitlist"
+      },
+      {
+        "type": "probe_402",
+        "url": "https://revettr.com/v1/waitlist",
+        "note": "POST {} returned 402 with x402 v2 payment-required envelope (Base/USDC payTo 0x4dD9B71c475d2Fa87B58b0DEdCCaf45A77eB6f9e), WWW-Authenticate Payment method=tempo chain_id=4217, and x-stellar-payment-required (stellar:testnet)"
+      }
+    ],
+    "notes": "Multi-protocol merchant: advertises x402 (Base/USDC) + MPP (tempo/Tempo chain 4217, currency pathUSD) + Stellar simultaneously. /v1/score has a free tier; /v1/waitlist is payment-gated. Discoverer writes naming/recognition + advertises_* only; scrape phase will fill deterministic facts."
+  }
+]

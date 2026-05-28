@@ -1,0 +1,314 @@
+{
+  "service": "recognizer",
+  "spent_usd": 0.01,
+  "paid_calls": 1,
+  "operator_note": "9 of 14 hosts are *.hugen.tokyo subdomains operated by a single x402 Resource Server operator, X handle @ishinabegen (Tokyo; isBlueVerified, 960 followers). One paid twitter_search (query from:ishinabegen, Latest) confirmed the handle is active (latest post 2026-04-28, within 90d; >=100 followers) and that the operator self-declares running ~10 x402 endpoints on Base/USDC and posts about the FX Tick/AggVault product by name (matching tick.hugen.tokyo). This off-host operator social corroborates the family; each subdomain additionally serves its own distinct branded service landing (llms.txt). The bare / path returns nginx error / {\"detail\":\"Not Found\"} for several subdomains, but /llms.txt and /.well-known/x402 are live service home pages.",
+  "proposals": [
+    {
+      "host": "content.hugen.tokyo",
+      "entity_id": "content-hugen-tokyo",
+      "outcome": "confirmed",
+      "display_name": "Content Intelligence API",
+      "description": "Web content extraction and analysis API — extract, summarize, and analyze any web page, returning structured JSON. x402 micropayments (USDC on Base).",
+      "is_recognized": true,
+      "sources": [
+        {
+          "url": "https://content.hugen.tokyo/llms.txt",
+          "retrieved_at": "2026-05-28T11:00:00Z",
+          "kind": "home",
+          "snippet": "# Content Intelligence API — Web Content Extraction & Analysis. Extract, summarize, and analyze any web page. Returns structured JSON. $0.01-0.02 per call via x402 (USDC on Base)."
+        },
+        {
+          "url": "https://x.com/ishinabegen",
+          "retrieved_at": "2026-05-28T11:02:00Z",
+          "kind": "social",
+          "snippet": "@ishinabegen (イシナベ | AIプロトコル層に潜伏中), isBlueVerified, 960 followers, latest post 2026-04-28: \"私もx402はResource Server側で運用しており、今10本ほどをBase/USDCで出してます\" (I operate ~10 x402 Resource Server endpoints on Base/USDC). Operator of the hugen.tokyo family."
+        }
+      ],
+      "notes": "Operator @ishinabegen (Hugen Tokyo). Family of ~10 x402 Resource Server endpoints. Verified via paid twitter_search."
+    },
+    {
+      "host": "defi.hugen.tokyo",
+      "entity_id": "defi-hugen-tokyo",
+      "outcome": "confirmed",
+      "display_name": "DeFi Intelligence API",
+      "description": "Token security scanner (honeypot, rug pull, tax abuse) plus 25 DeFi endpoints — cross-chain bridge routing and protocol analytics. One x402 micropayment per call on Base.",
+      "is_recognized": true,
+      "sources": [
+        {
+          "url": "https://defi.hugen.tokyo/llms.txt",
+          "retrieved_at": "2026-05-28T11:00:00Z",
+          "kind": "home",
+          "snippet": "# DeFi Intelligence API — Token Security Scanner + 25 DeFi Endpoints. Instant token security scanning (honeypot, rug pull, tax abuse), cross-chain bridge routing, and DeFi protocol analytics. $0.01/call on Base."
+        },
+        {
+          "url": "https://x.com/ishinabegen",
+          "retrieved_at": "2026-05-28T11:02:00Z",
+          "kind": "social",
+          "snippet": "@ishinabegen, isBlueVerified, 960 followers, latest post 2026-04-28, self-declares running ~10 x402 Resource Server endpoints on Base/USDC — operator of the hugen.tokyo family."
+        }
+      ],
+      "notes": "Operator @ishinabegen (Hugen Tokyo)."
+    },
+    {
+      "host": "domain.hugen.tokyo",
+      "entity_id": "domain-hugen-tokyo",
+      "outcome": "confirmed",
+      "display_name": "Domain Intelligence API",
+      "description": "7 domain intelligence checks in one API call across 8 paid endpoints, powered by x402 micropayments (USDC on Base).",
+      "is_recognized": true,
+      "sources": [
+        {
+          "url": "https://domain.hugen.tokyo/llms.txt",
+          "retrieved_at": "2026-05-28T11:00:00Z",
+          "kind": "home",
+          "snippet": "# Domain Intelligence API — 7 Checks, One Call. 7 domain intelligence checks in one API. 8 paid endpoints powered by x402 micropayments (USDC on Base)."
+        },
+        {
+          "url": "https://x.com/ishinabegen",
+          "retrieved_at": "2026-05-28T11:02:00Z",
+          "kind": "social",
+          "snippet": "@ishinabegen, isBlueVerified, 960 followers, latest post 2026-04-28, self-declares ~10 x402 Resource Server endpoints on Base/USDC — operator of the hugen.tokyo family."
+        }
+      ],
+      "notes": "Operator @ishinabegen (Hugen Tokyo)."
+    },
+    {
+      "host": "gotobi.hugen.tokyo",
+      "entity_id": "gotobi-hugen-tokyo",
+      "outcome": "confirmed",
+      "display_name": "Gotobi API",
+      "description": "Programmatic source for Japanese FX Gotobi (五十日) dates with holiday adjustments through 2099 — the recurring USDJPY buying-pressure days before the 9:55 JST Nakane fixing.",
+      "is_recognized": true,
+      "sources": [
+        {
+          "url": "https://gotobi.hugen.tokyo/llms.txt",
+          "retrieved_at": "2026-05-28T11:00:00Z",
+          "kind": "home",
+          "snippet": "# Gotobi API — The Only Programmatic Source for Japanese FX Gotobi Dates. Gotobi (五十日) days drive predictable USDJPY buying pressure before the 9:55 JST Nakane fixing... holiday adjustments through 2099."
+        },
+        {
+          "url": "https://x.com/ishinabegen",
+          "retrieved_at": "2026-05-28T11:02:00Z",
+          "kind": "social",
+          "snippet": "@ishinabegen (Tokyo, FX-focused), isBlueVerified, 960 followers, latest post 2026-04-28, runs ~10 x402 endpoints on Base/USDC including FX data products — operator of the hugen.tokyo family."
+        }
+      ],
+      "notes": "Operator @ishinabegen (Hugen Tokyo). Japanese FX domain expertise matches operator's X timeline (FX/USDJPY focus)."
+    },
+    {
+      "host": "intel.hugen.tokyo",
+      "entity_id": "intel-hugen-tokyo",
+      "outcome": "confirmed",
+      "display_name": "Intel API",
+      "description": "x402-gated intelligence API (intel-api service) on the hugen.tokyo Resource Server family. USDC micropayments on Base.",
+      "is_recognized": true,
+      "sources": [
+        {
+          "url": "https://intel.hugen.tokyo/",
+          "retrieved_at": "2026-05-28T11:00:00Z",
+          "kind": "home",
+          "snippet": "{\"status\":\"ok\",\"service\":\"intel-api\"} — live service; /llms.txt: # Intel API."
+        },
+        {
+          "url": "https://x.com/ishinabegen",
+          "retrieved_at": "2026-05-28T11:02:00Z",
+          "kind": "social",
+          "snippet": "@ishinabegen, isBlueVerified, 960 followers, latest post 2026-04-28, self-declares ~10 x402 Resource Server endpoints on Base/USDC — operator of the hugen.tokyo family."
+        }
+      ],
+      "notes": "Operator @ishinabegen (Hugen Tokyo). Home / returns service-ok JSON; llms.txt landing is sparse (\"# Intel API\")."
+    },
+    {
+      "host": "mailcheck.hugen.tokyo",
+      "entity_id": "mailcheck-hugen-tokyo",
+      "outcome": "confirmed",
+      "display_name": "Mailcheck API",
+      "description": "Email validation API — syntax, MX, disposable (5,000+ domains), free-provider, role-based, and typo detection in one call. x402 micropayments (USDC on Base).",
+      "is_recognized": true,
+      "sources": [
+        {
+          "url": "https://mailcheck.hugen.tokyo/llms.txt",
+          "retrieved_at": "2026-05-28T11:00:00Z",
+          "kind": "home",
+          "snippet": "# Mailcheck API — 6 Email Checks in One Call. Validate email addresses with syntax, MX, disposable (5,000+ domains), free provider, role-based, and typo detection — all in one call."
+        },
+        {
+          "url": "https://x.com/ishinabegen",
+          "retrieved_at": "2026-05-28T11:02:00Z",
+          "kind": "social",
+          "snippet": "@ishinabegen, isBlueVerified, 960 followers, latest post 2026-04-28, self-declares ~10 x402 Resource Server endpoints on Base/USDC — operator of the hugen.tokyo family."
+        }
+      ],
+      "notes": "Operator @ishinabegen (Hugen Tokyo)."
+    },
+    {
+      "host": "scout.hugen.tokyo",
+      "entity_id": "scout-hugen-tokyo",
+      "outcome": "confirmed",
+      "display_name": "Scout",
+      "description": "Multi-source intelligence search API — searches 18+ platforms (Hacker News, GitHub, npm, PyPI, X/Twitter, Product Hunt, Dev.to, ArXiv, Reddit, etc.) in parallel, returning structured JSON. x402 micropayments on Base/Solana.",
+      "is_recognized": true,
+      "sources": [
+        {
+          "url": "https://scout.hugen.tokyo/llms.txt",
+          "retrieved_at": "2026-05-28T11:00:00Z",
+          "kind": "home",
+          "snippet": "# Scout — Multi-Source Intelligence Search API. Search across 18 sources in parallel and get structured JSON results. Built for AI agents and developers..."
+        },
+        {
+          "url": "https://x.com/ishinabegen",
+          "retrieved_at": "2026-05-28T11:02:00Z",
+          "kind": "social",
+          "snippet": "@ishinabegen, isBlueVerified, 960 followers, latest post 2026-04-28, self-declares ~10 x402 Resource Server endpoints on Base/USDC — operator of the hugen.tokyo family."
+        }
+      ],
+      "notes": "Operator @ishinabegen (Hugen Tokyo). Home / returns {\"status\":\"ok\",\"service\":\"scout-mcp\"}; /.well-known/x402 and /llms.txt are live. Note: scout.hugen.tokyo also appears in naming_gaps with the same entity_id."
+    },
+    {
+      "host": "tick.hugen.tokyo",
+      "entity_id": "tick-hugen-tokyo",
+      "outcome": "confirmed",
+      "display_name": "Tick Aggregator",
+      "description": "Multi-source FX tick data API — real-time Best Bid/Ask aggregated from multiple institutional FX liquidity providers (62-88% tighter spreads than any single source), 14+ pairs. x402 micropayments (USDC on Base/Solana).",
+      "is_recognized": true,
+      "sources": [
+        {
+          "url": "https://tick.hugen.tokyo",
+          "retrieved_at": "2026-05-28T11:00:00Z",
+          "kind": "home",
+          "snippet": "<title>FX Tick Aggregator — Live Demo (Delayed)</title>; CTA: \"DM @ishinabegen — English DM welcome\"; llms.txt: # Tick Aggregator — Multi-Source FX Data API. Real-time Best Bid/Ask aggregated from multiple institutional FX liquidity providers."
+        },
+        {
+          "url": "https://x.com/ishinabegen",
+          "retrieved_at": "2026-05-28T11:02:00Z",
+          "kind": "social",
+          "snippet": "@ishinabegen, isBlueVerified, 960 followers; posts (Apr 2026) about \"AggVault\" FX historical/tick data product — \"14 → 29 通貨ペアへ\" and fields leader_mid / median_mid / worst_bid / worst_ask — directly matching this FX Tick Aggregator. Operator self-declares ~10 x402 endpoints on Base/USDC."
+        }
+      ],
+      "notes": "Operator @ishinabegen (Hugen Tokyo). Strongest of the family: handle is published on-page AND the X timeline names the exact FX-tick/AggVault product. Verified via paid twitter_search."
+    },
+    {
+      "host": "visual.hugen.tokyo",
+      "entity_id": "visual-hugen-tokyo",
+      "outcome": "confirmed",
+      "display_name": "Visual API",
+      "description": "Screenshots, PDFs, and document parsing — capture web pages as images/PDFs, extract text from PDFs, and OCR scanned documents. x402 micropayments (USDC on Base).",
+      "is_recognized": true,
+      "sources": [
+        {
+          "url": "https://visual.hugen.tokyo/llms.txt",
+          "retrieved_at": "2026-05-28T11:00:00Z",
+          "kind": "home",
+          "snippet": "# Visual API — Screenshots, PDFs & Document Parsing. Capture web pages as images/PDFs, extract text from PDFs, or OCR scanned documents. $0.02-$0.05 per call via x402 (USDC on Base)."
+        },
+        {
+          "url": "https://x.com/ishinabegen",
+          "retrieved_at": "2026-05-28T11:02:00Z",
+          "kind": "social",
+          "snippet": "@ishinabegen, isBlueVerified, 960 followers, latest post 2026-04-28, self-declares ~10 x402 Resource Server endpoints on Base/USDC — operator of the hugen.tokyo family."
+        }
+      ],
+      "notes": "Operator @ishinabegen (Hugen Tokyo)."
+    },
+    {
+      "host": "weather.hugen.tokyo",
+      "entity_id": "weather-hugen-tokyo",
+      "outcome": "confirmed",
+      "display_name": "Weather API",
+      "description": "Instant weather by city name — structured current conditions and daily forecasts for any city worldwide, no API keys or geocoding setup. $0.01 per request via x402 (USDC on Base).",
+      "is_recognized": true,
+      "sources": [
+        {
+          "url": "https://weather.hugen.tokyo/llms.txt",
+          "retrieved_at": "2026-05-28T11:00:00Z",
+          "kind": "home",
+          "snippet": "# Weather API — Instant Weather by City Name. Pass a city name, get structured weather data. Current conditions and daily forecasts for any city worldwide. $0.01 per request."
+        },
+        {
+          "url": "https://x.com/ishinabegen",
+          "retrieved_at": "2026-05-28T11:02:00Z",
+          "kind": "social",
+          "snippet": "@ishinabegen, isBlueVerified, 960 followers, latest post 2026-04-28, self-declares ~10 x402 Resource Server endpoints on Base/USDC — operator of the hugen.tokyo family."
+        }
+      ],
+      "notes": "Operator @ishinabegen (Hugen Tokyo)."
+    },
+    {
+      "host": "twit-api-production-de12.up.railway.app",
+      "entity_id": "twit-api-production-de12-up-railway-app",
+      "outcome": "infra-misclassified",
+      "is_recognized": false,
+      "sources": [
+        {
+          "url": "https://twit-api-production-de12.up.railway.app",
+          "retrieved_at": "2026-05-28T11:00:00Z",
+          "kind": "home",
+          "snippet": "<title>twit.sh — Plug AI agents into X</title>; og:url=https://twit.sh; twitter:site=@twitdotsh; \"Real-time Twitter/X data for AI agents... Pay per request in USDC on Base via x402.\""
+        }
+      ],
+      "notes": "Generic Railway deployment URL (*.up.railway.app) serving the twit.sh product (canonical https://twit.sh, X handle @twitdotsh). The real brand lives at twit.sh — this host is the deployment backend and should be flagged is_infra by the deterministic phase. Parent product: twit.sh."
+    },
+    {
+      "host": "financial-analyst.ai",
+      "entity_id": "financial-analyst-ai",
+      "outcome": "confirmed",
+      "display_name": "Financial Analyst AI",
+      "description": "Pay-per-call financial intelligence API for AI agents — LBO models, LP/GP waterfalls, CRE underwriting, XIRR, Monte Carlo simulation, and FX P&L with deterministic math. Works via x402 (USDC on Base) and API-key credits.",
+      "is_recognized": true,
+      "sources": [
+        {
+          "url": "https://financial-analyst.ai",
+          "retrieved_at": "2026-05-28T11:00:00Z",
+          "kind": "home",
+          "snippet": "<title>Financial Analyst AI — Institutional Financial Intelligence for AI Agents</title>. Pay-per-call API for AI agents: LBO models, LP/GP waterfalls, CRE underwriting, XIRR, Monte Carlo, FX P&L. Contact info@financial-analyst.ai."
+        },
+        {
+          "url": "https://github.com/g9781910/financial-analyst-mcp",
+          "retrieved_at": "2026-05-28T11:01:00Z",
+          "kind": "press",
+          "snippet": "GitHub - g9781910/financial-analyst-mcp: \"Run LBO models, LP/GP waterfalls, and CRE underwriting from any AI agent. Deterministic math, institutional outputs. Pay per call.\" — official MCP repo linking back to financial-analyst.ai."
+        }
+      ],
+      "notes": "Off-host corroboration via the official GitHub MCP repo (github.com/g9781910/financial-analyst-mcp), linked from and referencing financial-analyst.ai. Operator GitHub user g9781910. financial-analyst-api-production-b81a.up.railway.app is the Railway deployment backend for this same product."
+    },
+    {
+      "host": "financial-analyst-api-production-b81a.up.railway.app",
+      "entity_id": "financial-analyst-api-production-b81a-up-railway-app",
+      "outcome": "infra-misclassified",
+      "is_recognized": false,
+      "sources": [
+        {
+          "url": "https://financial-analyst-api-production-b81a.up.railway.app",
+          "retrieved_at": "2026-05-28T11:00:00Z",
+          "kind": "home",
+          "snippet": "Byte-for-byte identical to financial-analyst.ai (same <title> \"Financial Analyst AI...\", canonical/og:url = https://financial-analyst.ai)."
+        }
+      ],
+      "notes": "Generic Railway deployment URL (*.up.railway.app) — this is the deployment backend for the financial-analyst.ai product (its canonical URL points to financial-analyst.ai). Should be flagged is_infra by the deterministic phase. Parent product: financial-analyst.ai. Also appears in category_gaps with the same entity_id."
+    },
+    {
+      "host": "agent.news",
+      "entity_id": "agent-news",
+      "outcome": "confirmed",
+      "display_name": "AgentNews",
+      "description": "The frontpage of the agentic internet — agents bid to post (stake $0.50+ via MPP/Tempo or x402/Base), bidding closes at :55 and the top 10 by stake publish on the hour. Free, no-auth feed reading. Dual-rail 402 (MPP + x402), session pre-authorization, receipts, idempotency.",
+      "is_recognized": true,
+      "sources": [
+        {
+          "url": "https://agent.news",
+          "retrieved_at": "2026-05-28T11:00:00Z",
+          "kind": "home",
+          "snippet": "# AgentNews — The Frontpage of the Agentic Internet. Agents bid to post... top 10 by stake published on the hour. /.well-known/agentnews.json: \"name\":\"AgentNews\",\"description\":\"The frontpage of the agentic internet. ... Powered by MPP.\""
+        },
+        {
+          "url": "https://github.com/Kaizor7/agentnews-plugin",
+          "retrieved_at": "2026-05-28T11:01:00Z",
+          "kind": "press",
+          "snippet": "GitHub - Kaizor7/agentnews-plugin: \"Claude Code plugin for AgentNews — the frontpage of the agentic internet\" — official plugin repo referenced from the agent.news home page (/plugin marketplace add Kaizor7/agentnews-plugin)."
+        }
+      ],
+      "notes": "Off-host corroboration via the official Claude Code plugin repo (github.com/Kaizor7/agentnews-plugin), referenced directly on the agent.news home page. Operator GitHub user Kaizor7. Home page also points wallet-less agents to aethergent.com (returns HTTP 200)."
+    }
+  ]
+}

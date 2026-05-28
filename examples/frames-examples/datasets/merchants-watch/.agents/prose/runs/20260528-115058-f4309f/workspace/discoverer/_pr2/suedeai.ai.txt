@@ -1,0 +1,7 @@
+GET / -> 200
+GET /api -> 404
+GET /api/x402 -> 404
+GET /x402 -> 404
+GET /.well-known/x402 -> 404
+GET /api/v1 -> 404
+GET /mcp -> 404

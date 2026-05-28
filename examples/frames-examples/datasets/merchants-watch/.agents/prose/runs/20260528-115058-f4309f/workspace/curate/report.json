@@ -1,0 +1,22 @@
+{
+  "added": 1,
+  "named": 21,
+  "categorized": 27,
+  "recognized": 12,
+  "deprecated": 9,
+  "sources_attached": 141,
+  "spent_usd": 0.10,
+  "rejected_by_auditor": 9,
+  "skipped_infra": 2,
+  "skipped_mass_lister": 0,
+  "rejected_by_reason": {
+    "source_404": 0,
+    "value_not_in_source": 0,
+    "off_host_required": 9,
+    "paraphrased": 0,
+    "infra_host": 0,
+    "category_not_in_enum": 0
+  },
+  "curate_success_rate": 0.9361702127659575,
+  "recommend_action": "continue"
+}

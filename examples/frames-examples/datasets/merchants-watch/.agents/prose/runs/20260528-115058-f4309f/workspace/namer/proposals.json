@@ -1,0 +1,298 @@
+{
+  "service": "namer",
+  "run": "20260528-115058-f4309f",
+  "generated_at": "2026-05-28T11:03:54Z",
+  "budget": {
+    "sub_budget_ceiling_usd": 0.20,
+    "spent_usd": 0.04,
+    "paid_calls": 4,
+    "paid_tool": "exa_search (category=company, base/x402v2 descriptor)",
+    "paid_outcomes": "4/4 exa_search calls returned 200 and settled (0.01 each via Solana CASH rail); firecrawl_scrape not attempted"
+  },
+  "proposals": [
+    {
+      "host": "gateway.agonx402.com",
+      "entity_id": "gateway-agonx402-com",
+      "source_url": "https://gateway.agonx402.com/.well-known/agent.json",
+      "retrieved_at": "2026-05-28T11:03:54Z",
+      "confidence": 0.0,
+      "notes": "Free read returns Vercel 'DEPLOYMENT_NOT_FOUND' (404); apex agonx402.com is empty. Dead/unrouted deployment — no verbatim evidence. No proposal; writer should skip (host-derived fallback applies)."
+    },
+    {
+      "host": "api.x402node.dev",
+      "entity_id": "api-x402node-dev",
+      "source_url": "https://api.x402node.dev",
+      "retrieved_at": "2026-05-28T11:03:54Z",
+      "confidence": 0.2,
+      "notes": "Free read: Express 'Cannot GET /' shell, no static copy; apex x402node.dev empty. Paid exa_search returned 3 ambiguous results (lobehub x402-mcp page, npm @x402x/x402, an unrelated ROS robotics repo) with no single matching company. Per strategy, dropped the proposal to avoid mislabel."
+    },
+    {
+      "host": "global-econ-x402-staging.up.railway.app",
+      "entity_id": "global-econ-x402-staging-up-railway-app",
+      "display_name": "GlobalAPI x402",
+      "description": "GlobalAPI x402 provides machine-ready access to live economic indicators, company registries, and sanctions screening. $0.002–$0.10 USDC per call. No subscriptions. No API keys.",
+      "source_url": "https://global-econ-x402-staging.up.railway.app",
+      "retrieved_at": "2026-05-28T11:03:54Z",
+      "confidence": 0.7,
+      "notes": "display_name 'GlobalAPI x402' taken verbatim from <title> ('GlobalAPI x402 — Pay-per-call global economic, registry, and sanctions data'); description verbatim from meta description. This is a -staging Railway host so the live brand may differ slightly."
+    },
+    {
+      "host": "blockrun.ai",
+      "entity_id": "blockrun-ai",
+      "display_name": "BlockRun",
+      "description": "Pay-per-call AI gateway. Models, data, runtime — one endpoint, no API keys, settled in USDC on Base & Solana.",
+      "source_url": "https://blockrun.ai",
+      "retrieved_at": "2026-05-28T11:03:54Z",
+      "confidence": 0.9,
+      "notes": "display_name 'BlockRun' from <title> minus generic suffix ('BlockRun — Pay-per-call AI gateway'). description is the leading verbatim fragment of the meta description (text appears verbatim on the page)."
+    },
+    {
+      "host": "solopreneur.apitoai.xyz",
+      "entity_id": "solopreneur-apitoai-xyz",
+      "source_url": "https://solopreneur.apitoai.xyz",
+      "retrieved_at": "2026-05-28T11:03:54Z",
+      "confidence": 0.0,
+      "notes": "Free read: connection failed (HTTP 000); apex apitoai.xyz empty. Paid exa_search returned only unrelated agent-economy companies (AIsa, Agently, Kodeus) with no name match to apitoai/solopreneur. Dropped per ambiguity strategy."
+    },
+    {
+      "host": "netintel-production-440c.up.railway.app",
+      "entity_id": "netintel-production-440c-up-railway-app",
+      "display_name": "NetIntel",
+      "description": "NetIntel — x402 network intelligence API compatible with aixyz agents",
+      "source_url": "https://github.com/AgentlyHQ/aixyz/issues/295",
+      "retrieved_at": "2026-05-28T11:03:54Z",
+      "confidence": 0.7,
+      "notes": "Free read: Railway Express 'Cannot GET /' Error page. Paid exa_search converged on 'NetIntel' across 3 results (GitHub netintel-mcp '25 network intelligence tools' — matches bazaar_resource_count 25 — plus G2 marketplace and the aixyz issue). display_name 'NetIntel' and description verbatim from the aixyz issue title. source_url is the escalation-rendered page where the name appears."
+    },
+    {
+      "host": "grapevine.dev-mypinata.cloud",
+      "entity_id": "grapevine-dev-mypinata-cloud",
+      "source_url": "https://grapevine.dev-mypinata.cloud",
+      "retrieved_at": "2026-05-28T11:03:54Z",
+      "confidence": 0.0,
+      "notes": "Free read: HTTP 403 (Pinata-hosted gateway, access denied). Not escalated (budget reserved for higher-value gaps; a separate host gateway.grapevine.fyi already yields the 'Grapevine' brand). No verbatim evidence for this specific host — no proposal."
+    },
+    {
+      "host": "api.seerium.xyz",
+      "entity_id": "api-seerium-xyz",
+      "display_name": "Seerium Markets",
+      "description": "Prediction and dex aggregator with AI intelligence.",
+      "source_url": "https://seerium.xyz",
+      "retrieved_at": "2026-05-28T11:03:54Z",
+      "confidence": 0.55,
+      "notes": "api.seerium.xyz root returns only the JSON slug 'seerium-x402-api'. display_name 'Seerium Markets' and description taken verbatim from the apex seerium.xyz <title>/meta. AMBIGUITY: apex is the 'Seerium Markets' prediction/dex product; api.seerium.xyz is its x402 API endpoint — same brand 'Seerium' but the apex display_name may over-specify the API host. confidence < 0.6 flagged for auditor."
+    },
+    {
+      "host": "honest-abundance-production-89b1.up.railway.app",
+      "entity_id": "honest-abundance-production-89b1-up-railway-app",
+      "source_url": "https://honest-abundance-production-89b1.up.railway.app",
+      "retrieved_at": "2026-05-28T11:03:54Z",
+      "confidence": 0.1,
+      "notes": "Free read <title> is 'KIRCHER — Sound Medicine', which does not correspond to an x402 API and looks like an unrelated/placeholder template on this auto-generated Railway host. Refusing to propose a mislabel; no display_name."
+    },
+    {
+      "host": "api.stocktrends.com",
+      "entity_id": "api-stocktrends-com",
+      "display_name": "Stock Trends",
+      "description": "Autonomous portfolio intelligence API for AI agents.",
+      "source_url": "https://api.stocktrends.com",
+      "retrieved_at": "2026-05-28T11:03:54Z",
+      "confidence": 0.55,
+      "notes": "Root returns a JSON manifest, not HTML. The brand 'Stock Trends' appears verbatim within the JSON description ('multi-decade Stock Trends classification history'); the opening clause 'Autonomous portfolio intelligence API for AI agents' is the verbatim lead of the description field. No dedicated display_name field on the page — display_name extracted from in-body brand mention, hence confidence < 0.6 for auditor review."
+    },
+    {
+      "host": "shield.vainplex.dev",
+      "entity_id": "shield-vainplex-dev",
+      "display_name": "ShieldAPI",
+      "description": "ShieldAPI - x402 security preflight API for AI agents before they pay, connect, install, delegate, or execute.",
+      "source_url": "https://shield.vainplex.dev",
+      "retrieved_at": "2026-05-28T11:03:54Z",
+      "confidence": 0.85,
+      "notes": "display_name 'ShieldAPI' from <title> ('ShieldAPI | RAW SECURITY FEED') minus generic suffix; description verbatim from meta description."
+    },
+    {
+      "host": "api.tcgapi.dev",
+      "entity_id": "api-tcgapi-dev",
+      "display_name": "TCG API",
+      "description": "Universal trading card game pricing API. Real-time prices for Pokemon, Magic, Yu-Gi-Oh, and 89+ more games.",
+      "source_url": "https://tcgapi.dev",
+      "retrieved_at": "2026-05-28T11:03:54Z",
+      "confidence": 0.8,
+      "notes": "api.tcgapi.dev returns HTTP 401 ('API key required. Get one free at https://tcgapi.dev'). Followed the cited apex tcgapi.dev: display_name 'TCG API' from <title> minus suffix; description verbatim from meta. source_url is the apex page where the name appears."
+    },
+    {
+      "host": "scry.solanahub.de",
+      "entity_id": "scry-solanahub-de",
+      "display_name": "Scry Wallet Intelligence",
+      "description": "x402 Solana data broker for agents: 14,016 indexed wallets, 13,437 funding-lineage caches, 441 resolved X-handles, no API keys, no subscriptions.",
+      "source_url": "https://scry.solanahub.de",
+      "retrieved_at": "2026-05-28T11:03:54Z",
+      "confidence": 0.85,
+      "notes": "display_name 'Scry Wallet Intelligence' from <title> and <h1> (both verbatim); og:site_name is 'Scry'. description verbatim from meta description."
+    },
+    {
+      "host": "data.crestsystems.ai",
+      "entity_id": "data-crestsystems-ai",
+      "display_name": "Crest x402 Data",
+      "description": "Crest Deployment Systems",
+      "source_url": "https://data.crestsystems.ai",
+      "retrieved_at": "2026-05-28T11:03:54Z",
+      "confidence": 0.7,
+      "notes": "Root returns JSON manifest. display_name 'Crest x402 Data' is the verbatim 'service' field; description is the verbatim 'provider' field ('Crest Deployment Systems'). No prose meta description available on this endpoint."
+    },
+    {
+      "host": "gateway.grapevine.fyi",
+      "entity_id": "gateway-grapevine-fyi",
+      "display_name": "Grapevine",
+      "description": "Decentralized data feeds powered by x402 protocol",
+      "source_url": "https://grapevine.fyi",
+      "retrieved_at": "2026-05-28T11:03:54Z",
+      "confidence": 0.6,
+      "notes": "gateway.grapevine.fyi returns HTTP 400. Followed apex grapevine.fyi: display_name 'Grapevine' verbatim from <title>; description verbatim from og:description. AMBIGUITY: name extracted from apex, not the gateway subdomain itself — but same registrable brand."
+    },
+    {
+      "host": "stableproduct.dev",
+      "entity_id": "stableproduct-dev",
+      "display_name": "StableProducts",
+      "description": "Product catalog APIs powered by x402.",
+      "source_url": "https://stableproduct.dev",
+      "retrieved_at": "2026-05-28T11:03:54Z",
+      "confidence": 0.85,
+      "notes": "display_name 'StableProducts' from <title>, <h1>, and og:site_name (all verbatim and identical); description verbatim from meta description."
+    },
+    {
+      "host": "www.surplusintelligence.ai",
+      "entity_id": "www-surplusintelligence-ai",
+      "display_name": "Surplus Intelligence",
+      "description": "Buy surplus AI credits at a discount",
+      "source_url": "https://www.surplusintelligence.ai",
+      "retrieved_at": "2026-05-28T11:03:54Z",
+      "confidence": 0.85,
+      "notes": "display_name 'Surplus Intelligence' verbatim from <title>; description verbatim from meta description. (Page <h1> is 'Model Marketplace', a section heading, not the brand — used the title instead.)"
+    },
+    {
+      "host": "signal-engine-production-d88d.up.railway.app",
+      "entity_id": "signal-engine-production-d88d-up-railway-app",
+      "display_name": "SignalFuse",
+      "description": "11 MCP tools for autonomous trading agents. Real-time signals, sentiment, macro regime, web search, code execution. Pay per call with USDC on Base — no API keys needed.",
+      "source_url": "https://signal-engine-production-d88d.up.railway.app",
+      "retrieved_at": "2026-05-28T11:03:54Z",
+      "confidence": 0.85,
+      "notes": "display_name 'SignalFuse' from <title>, <h1>, and og:site_name (all verbatim); description verbatim from meta description. (Brand 'SignalFuse' also matches existing host api.signalfuse.co.)"
+    },
+    {
+      "host": "silverback-x402.onrender.com",
+      "entity_id": "silverback-x402-onrender-com",
+      "display_name": "Silverback",
+      "description": "Silverback is autonomous DeFi infrastructure for the agent economy.",
+      "source_url": "https://silverback-x402.onrender.com",
+      "retrieved_at": "2026-05-28T11:03:54Z",
+      "confidence": 0.85,
+      "notes": "Root returns JSON manifest. display_name 'Silverback' is the verbatim 'name' field (the 'service' field is 'Silverback x402 DeFi API'); description is the verbatim leading sentence of the 'description' field."
+    },
+    {
+      "host": "tooloracle.io",
+      "entity_id": "tooloracle-io",
+      "display_name": "ToolOracle",
+      "description": "OracleNet is a mesh capability router for autonomous agents. Discover, route, verify and call external capabilities via MCP or A2A.",
+      "source_url": "https://tooloracle.io",
+      "retrieved_at": "2026-05-28T11:03:54Z",
+      "confidence": 0.55,
+      "notes": "display_name 'ToolOracle' verbatim from <title> ('ToolOracle — Capability Router for Autonomous Agents'). AMBIGUITY: the meta description names the product 'OracleNet', not ToolOracle — possible brand/product split. description is the verbatim opening of the meta description. confidence < 0.6 flagged."
+    },
+    {
+      "host": "tradeos.tech",
+      "entity_id": "tradeos-tech",
+      "source_url": "https://tradeos.tech",
+      "retrieved_at": "2026-05-28T11:03:54Z",
+      "confidence": 0.0,
+      "notes": "Free read: HTTP 530 (Cloudflare origin down) on both apex and www. No verbatim evidence available; not escalated. No proposal."
+    },
+    {
+      "host": "vibesprings.net",
+      "entity_id": "vibesprings-net",
+      "display_name": "Vibe Springs",
+      "description": "World Data API for AI Agents",
+      "source_url": "https://vibesprings.net",
+      "retrieved_at": "2026-05-28T11:03:54Z",
+      "confidence": 0.85,
+      "notes": "display_name 'Vibe Springs' from <title> minus suffix ('Vibe Springs — World Data API for AI Agents') and og:site_name (verbatim); description 'World Data API for AI Agents' is the verbatim <h1>."
+    },
+    {
+      "host": "api.printmoneylab.com",
+      "entity_id": "api-printmoneylab-com",
+      "display_name": "KR Crypto Intelligence API",
+      "description": "Korean crypto market data for AI agents",
+      "source_url": "https://api.printmoneylab.com",
+      "retrieved_at": "2026-05-28T11:03:54Z",
+      "confidence": 0.65,
+      "notes": "Root returns JSON manifest. display_name 'KR Crypto Intelligence API' is the verbatim 'service' field; description is the verbatim 'description' field. Brand 'PrintMoneyLab' (from host) is not stated on the page, so used the self-declared service name verbatim."
+    },
+    {
+      "host": "api.reloadpi.com",
+      "entity_id": "api-reloadpi-com",
+      "display_name": "Reloadpi",
+      "description": "Global marketplace for digital vouchers, mobile top-ups, and eSIM data plans. Pay per API call with USDC on Base via x402.",
+      "source_url": "https://api.reloadpi.com",
+      "retrieved_at": "2026-05-28T11:03:54Z",
+      "confidence": 0.85,
+      "notes": "display_name 'Reloadpi' from <title> and og:site_name (verbatim; <h1> is 'Reloadpi API'); description verbatim from meta description."
+    },
+    {
+      "host": "api.lastlookdata.com",
+      "entity_id": "api-lastlookdata-com",
+      "display_name": "LastLook Data",
+      "description": "Financial market data for AI agents — Treasury yields, mortgage rates, energy prices, FX rates, and macro indicators.",
+      "source_url": "https://api.lastlookdata.com",
+      "retrieved_at": "2026-05-28T11:03:54Z",
+      "confidence": 0.85,
+      "notes": "Root returns JSON manifest. display_name 'LastLook Data' is the verbatim 'service' field; description is the verbatim 'description' field."
+    },
+    {
+      "host": "bounty.btnomb.com",
+      "entity_id": "bounty-btnomb-com",
+      "display_name": "Bounty Board - BTNOMB",
+      "description": "Post bounties. Unlock briefs. Claim work. Get paid in USDC. The agent-native bounty marketplace by BTNOMB.",
+      "source_url": "https://bounty.btnomb.com",
+      "retrieved_at": "2026-05-28T11:03:54Z",
+      "confidence": 0.75,
+      "notes": "display_name 'Bounty Board - BTNOMB' verbatim from <title>; description verbatim from meta description. (Could shorten to 'Bounty Board' but kept the full verbatim title to avoid editing the source string.)"
+    },
+    {
+      "host": "scout.hugen.tokyo",
+      "entity_id": "scout-hugen-tokyo",
+      "source_url": "https://scout.hugen.tokyo",
+      "retrieved_at": "2026-05-28T11:03:54Z",
+      "confidence": 0.2,
+      "notes": "Root returns only {\"status\":\"ok\",\"service\":\"scout-mcp\"} — a slug, no human-facing display name. The hugen.tokyo family appears across many recognition_gap hosts but no per-host brand copy is exposed here. Not escalated (low value, no recognized volume signal beyond the shared 169.95). No display_name."
+    },
+    {
+      "host": "api.aitrailblazer.net",
+      "entity_id": "api-aitrailblazer-net",
+      "display_name": "DeltaSignal",
+      "description": "DeltaSignal Azure Marketplace and x402 agentic market frontend.",
+      "source_url": "https://api.aitrailblazer.net",
+      "retrieved_at": "2026-05-28T11:03:54Z",
+      "confidence": 0.7,
+      "notes": "display_name 'DeltaSignal' verbatim from <title>; description verbatim from meta description. The product brand 'DeltaSignal' differs from the host 'aitrailblazer' but is the self-declared name on the page."
+    },
+    {
+      "host": "api.anchor-x402.com",
+      "entity_id": "api-anchor-x402-com",
+      "source_url": "https://api.anchor-x402.com",
+      "retrieved_at": "2026-05-28T11:03:54Z",
+      "confidence": 0.2,
+      "notes": "Free read <title> is 'anchor-x402 - Swagger UI' — i.e. the host name plus a generic Swagger UI suffix, no real brand. Stripping the suffix yields 'anchor-x402' which is effectively the host (no-op, invariant forbids). No proposal."
+    },
+    {
+      "host": "compute.siliq.io",
+      "entity_id": "compute-siliq-io",
+      "display_name": "Siliq",
+      "description": "Services for Agents, by Agents",
+      "source_url": "https://siliq.io/service/21660",
+      "retrieved_at": "2026-05-28T11:03:54Z",
+      "confidence": 0.65,
+      "notes": "Free read: compute.siliq.io returns 404 and apex siliq.io is empty over curl. Paid exa_search top result is the live page 'https://siliq.io/service/21660' titled 'Services for Agents, by Agents - Siliq' — display_name 'Siliq' and description both verbatim from that title. Other exa results (SLYD Group, a DEV.to post) were unrelated and ignored. source_url is the escalation-rendered page where the name appears."
+    }
+  ]
+}

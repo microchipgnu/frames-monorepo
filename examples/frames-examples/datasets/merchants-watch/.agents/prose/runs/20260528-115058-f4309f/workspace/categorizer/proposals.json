@@ -1,0 +1,282 @@
+[
+  {
+    "host": "api.deepnets.ai",
+    "entity_id": "api-deepnets-ai",
+    "category": "finance",
+    "category_source": "claude_inferred",
+    "source_url": "https://deepnets.ai/",
+    "retrieved_at": "2026-05-28T11:03:56Z",
+    "confidence": 0.82,
+    "evidence_phrase": "Deepnets: Solana trading intelligence — token safety, holder graphs, funding-network detection, social research, watchlist, trending feed."
+  },
+  {
+    "host": "x402.slinkylayer.ai",
+    "entity_id": "x402-slinkylayer-ai",
+    "category": "finance",
+    "category_source": "claude_inferred",
+    "source_url": "https://slinkylayer.ai/",
+    "retrieved_at": "2026-05-28T11:03:56Z",
+    "confidence": 0.7,
+    "evidence_phrase": "Predicting market moves with adaptive intelligence"
+  },
+  {
+    "host": "financial-analyst-api-production-b81a.up.railway.app",
+    "entity_id": "financial-analyst-api-production-b81a-up-railway-app",
+    "category": "finance",
+    "category_source": "claude_inferred",
+    "source_url": "https://financial-analyst-api-production-b81a.up.railway.app/",
+    "retrieved_at": "2026-05-28T11:03:56Z",
+    "confidence": 0.95,
+    "evidence_phrase": "Pay-per-call API for AI agents. LBO models, LP/GP waterfalls, CRE underwriting, XIRR, Monte Carlo simulation, and FX P&L — deterministic math, institutional outputs."
+  },
+  {
+    "host": "exa.mpp.tempo.xyz",
+    "entity_id": "exa-mpp-tempo-xyz",
+    "category": "search",
+    "category_source": "claude_inferred",
+    "source_url": "https://mpp.tempo.xyz/llms.txt",
+    "retrieved_at": "2026-05-28T11:03:56Z",
+    "confidence": 0.93,
+    "evidence_phrase": "Exa: AI-powered web search, content retrieval, and answers."
+  },
+  {
+    "host": "deepl.mpp.paywithlocus.com",
+    "entity_id": "deepl-mpp-paywithlocus-com",
+    "category": "translation",
+    "category_source": "claude_inferred",
+    "source_url": "https://paywithlocus.com/llms.txt",
+    "retrieved_at": "2026-05-28T11:03:56Z",
+    "confidence": 0.97,
+    "evidence_phrase": "DeepL: Professional translation and text improvement — translate text between 30+ languages with industry-leading quality, or improve and rephrase text with DeepL Write."
+  },
+  {
+    "host": "perplexity.mpp.paywithlocus.com",
+    "entity_id": "perplexity-mpp-paywithlocus-com",
+    "category": "search",
+    "category_source": "claude_inferred",
+    "source_url": "https://paywithlocus.com/llms.txt",
+    "retrieved_at": "2026-05-28T11:03:56Z",
+    "confidence": 0.9,
+    "evidence_phrase": "Perplexity: AI-powered search — Sonar chat with real-time web grounding, web search, and embeddings."
+  },
+  {
+    "host": "openweather.mpp.paywithlocus.com",
+    "entity_id": "openweather-mpp-paywithlocus-com",
+    "category": "data",
+    "category_source": "claude_inferred",
+    "source_url": "https://paywithlocus.com/llms.txt",
+    "retrieved_at": "2026-05-28T11:03:56Z",
+    "confidence": 0.78,
+    "evidence_phrase": "OpenWeather: Global weather data — current conditions, 5-day forecasts, hourly forecasts, air quality index with pollutants, geocoding, and One Call 3.0 with full weather suite and government alerts."
+  },
+  {
+    "host": "abstract-timezone.mpp.paywithlocus.com",
+    "entity_id": "abstract-timezone-mpp-paywithlocus-com",
+    "category": "maps",
+    "category_source": "claude_inferred",
+    "source_url": "https://paywithlocus.com/llms.txt",
+    "retrieved_at": "2026-05-28T11:03:56Z",
+    "confidence": 0.72,
+    "evidence_phrase": "Timezone: Current time and timezone conversion for any location."
+  },
+  {
+    "host": "diffbot-kg.mpp.paywithlocus.com",
+    "entity_id": "diffbot-kg-mpp-paywithlocus-com",
+    "category": "data",
+    "category_source": "claude_inferred",
+    "source_url": "https://paywithlocus.com/llms.txt",
+    "retrieved_at": "2026-05-28T11:03:56Z",
+    "confidence": 0.8,
+    "evidence_phrase": "Diffbot KG: Knowledge Graph — search 10B+ entities and enrich company/person records."
+  },
+  {
+    "host": "alphavantage.mpp.paywithlocus.com",
+    "entity_id": "alphavantage-mpp-paywithlocus-com",
+    "category": "finance",
+    "category_source": "claude_inferred",
+    "source_url": "https://paywithlocus.com/llms.txt",
+    "retrieved_at": "2026-05-28T11:03:56Z",
+    "confidence": 0.85,
+    "evidence_phrase": "Alpha Vantage: Financial market data — stock prices, forex, crypto, commodities, economic indicators, technical analysis, and news sentiment."
+  },
+  {
+    "host": "wolframalpha.mpp.paywithlocus.com",
+    "entity_id": "wolframalpha-mpp-paywithlocus-com",
+    "category": "data",
+    "category_source": "claude_inferred",
+    "source_url": "https://paywithlocus.com/llms.txt",
+    "retrieved_at": "2026-05-28T11:03:56Z",
+    "confidence": 0.65,
+    "evidence_phrase": "Wolfram|Alpha: Computational knowledge engine — math, science, geography, history, nutrition, finance, and more."
+  },
+  {
+    "host": "abstract-exchange-rates.mpp.paywithlocus.com",
+    "entity_id": "abstract-exchange-rates-mpp-paywithlocus-com",
+    "category": "finance",
+    "category_source": "claude_inferred",
+    "source_url": "https://paywithlocus.com/llms.txt",
+    "retrieved_at": "2026-05-28T11:03:56Z",
+    "confidence": 0.85,
+    "evidence_phrase": "Exchange Rates: Live, historical, and conversion exchange rates for 150+ currencies."
+  },
+  {
+    "host": "abstract-ip-intelligence.mpp.paywithlocus.com",
+    "entity_id": "abstract-ip-intelligence-mpp-paywithlocus-com",
+    "category": "security",
+    "category_source": "claude_inferred",
+    "source_url": "https://paywithlocus.com/llms.txt",
+    "retrieved_at": "2026-05-28T11:03:56Z",
+    "confidence": 0.85,
+    "evidence_phrase": "IP Intelligence: Detect VPNs, proxies, bots, and Tor nodes by IP address."
+  },
+  {
+    "host": "groq.mpp.paywithlocus.com",
+    "entity_id": "groq-mpp-paywithlocus-com",
+    "category": "ai_ml",
+    "category_source": "claude_inferred",
+    "source_url": "https://paywithlocus.com/llms.txt",
+    "retrieved_at": "2026-05-28T11:03:56Z",
+    "confidence": 0.95,
+    "evidence_phrase": "Groq: Ultra-fast LLM inference — Llama 3.3, DeepSeek R1, Gemma 2, GPT-OSS, Qwen, Whisper, and PlayAI TTS."
+  },
+  {
+    "host": "abstract-holidays.mpp.paywithlocus.com",
+    "entity_id": "abstract-holidays-mpp-paywithlocus-com",
+    "category": "data",
+    "category_source": "claude_inferred",
+    "source_url": "https://paywithlocus.com/llms.txt",
+    "retrieved_at": "2026-05-28T11:03:56Z",
+    "confidence": 0.78,
+    "evidence_phrase": "Holidays: Public holiday data for 200+ countries."
+  },
+  {
+    "host": "deepseek.mpp.paywithlocus.com",
+    "entity_id": "deepseek-mpp-paywithlocus-com",
+    "category": "ai_ml",
+    "category_source": "claude_inferred",
+    "source_url": "https://paywithlocus.com/llms.txt",
+    "retrieved_at": "2026-05-28T11:03:56Z",
+    "confidence": 0.95,
+    "evidence_phrase": "DeepSeek: Frontier AI models — DeepSeek-V3 for fast chat and code, DeepSeek-R1 for deep chain-of-thought reasoning."
+  },
+  {
+    "host": "abstract-email-reputation.mpp.paywithlocus.com",
+    "entity_id": "abstract-email-reputation-mpp-paywithlocus-com",
+    "category": "security",
+    "category_source": "claude_inferred",
+    "source_url": "https://paywithlocus.com/llms.txt",
+    "retrieved_at": "2026-05-28T11:03:56Z",
+    "confidence": 0.8,
+    "evidence_phrase": "Email Reputation: Check the reputation and risk score of an email address."
+  },
+  {
+    "host": "judge0.mpp.paywithlocus.com",
+    "entity_id": "judge0-mpp-paywithlocus-com",
+    "category": "compute",
+    "category_source": "claude_inferred",
+    "source_url": "https://paywithlocus.com/llms.txt",
+    "retrieved_at": "2026-05-28T11:03:56Z",
+    "confidence": 0.9,
+    "evidence_phrase": "Judge0: Online code execution — run source code in 60+ programming languages with sandboxed isolation."
+  },
+  {
+    "host": "abstract-phone-intelligence.mpp.paywithlocus.com",
+    "entity_id": "abstract-phone-intelligence-mpp-paywithlocus-com",
+    "category": "data",
+    "category_source": "claude_inferred",
+    "source_url": "https://paywithlocus.com/llms.txt",
+    "retrieved_at": "2026-05-28T11:03:56Z",
+    "confidence": 0.7,
+    "evidence_phrase": "Phone Intelligence: Validate and get carrier info for phone numbers worldwide."
+  },
+  {
+    "host": "abstract-company-enrichment.mpp.paywithlocus.com",
+    "entity_id": "abstract-company-enrichment-mpp-paywithlocus-com",
+    "category": "data",
+    "category_source": "claude_inferred",
+    "source_url": "https://paywithlocus.com/llms.txt",
+    "retrieved_at": "2026-05-28T11:03:56Z",
+    "confidence": 0.82,
+    "evidence_phrase": "Company Enrichment: Enrich company data from a domain name."
+  },
+  {
+    "host": "abstract-vat.mpp.paywithlocus.com",
+    "entity_id": "abstract-vat-mpp-paywithlocus-com",
+    "category": "data",
+    "category_source": "claude_inferred",
+    "source_url": "https://paywithlocus.com/llms.txt",
+    "retrieved_at": "2026-05-28T11:03:56Z",
+    "confidence": 0.65,
+    "evidence_phrase": "VAT: VAT number validation, rate calculation, and category lookup for EU."
+  },
+  {
+    "host": "abstract-iban-validation.mpp.paywithlocus.com",
+    "entity_id": "abstract-iban-validation-mpp-paywithlocus-com",
+    "category": "finance",
+    "category_source": "claude_inferred",
+    "source_url": "https://paywithlocus.com/llms.txt",
+    "retrieved_at": "2026-05-28T11:03:56Z",
+    "confidence": 0.78,
+    "evidence_phrase": "IBAN Validation: Validate International Bank Account Numbers (IBANs)."
+  },
+  {
+    "host": "mistral.mpp.paywithlocus.com",
+    "entity_id": "mistral-mpp-paywithlocus-com",
+    "category": "ai_ml",
+    "category_source": "claude_inferred",
+    "source_url": "https://paywithlocus.com/llms.txt",
+    "retrieved_at": "2026-05-28T11:03:56Z",
+    "confidence": 0.95,
+    "evidence_phrase": "Mistral AI: Premier and open-source LLMs — Mistral Large, Medium, Small, Codestral, Magistral reasoning, Pixtral vision, text embeddings, and content moderation."
+  },
+  {
+    "host": "diffbot.mpp.paywithlocus.com",
+    "entity_id": "diffbot-mpp-paywithlocus-com",
+    "category": "data",
+    "category_source": "claude_inferred",
+    "source_url": "https://paywithlocus.com/llms.txt",
+    "retrieved_at": "2026-05-28T11:03:56Z",
+    "confidence": 0.85,
+    "evidence_phrase": "Diffbot: Web data extraction — articles, products, discussions, images, videos, and auto-detect."
+  },
+  {
+    "host": "stability-ai.mpp.paywithlocus.com",
+    "entity_id": "stability-ai-mpp-paywithlocus-com",
+    "category": "media",
+    "category_source": "claude_inferred",
+    "source_url": "https://paywithlocus.com/llms.txt",
+    "retrieved_at": "2026-05-28T11:03:56Z",
+    "confidence": 0.8,
+    "evidence_phrase": "Stability AI: Generative AI platform for images, 3D models, and audio — text-to-image, editing, upscaling, and more."
+  },
+  {
+    "host": "deepgram.mpp.paywithlocus.com",
+    "entity_id": "deepgram-mpp-paywithlocus-com",
+    "category": "media",
+    "category_source": "claude_inferred",
+    "source_url": "https://paywithlocus.com/llms.txt",
+    "retrieved_at": "2026-05-28T11:03:56Z",
+    "confidence": 0.78,
+    "evidence_phrase": "Deepgram: Industry-leading speech AI — transcribe audio from URLs with Nova-3, generate natural speech with Aura-2 TTS, and analyze text for sentiment, topics, intents, and summaries."
+  },
+  {
+    "host": "parallelmpp.dev",
+    "entity_id": "parallelmpp-dev",
+    "category": "finance",
+    "category_source": "claude_inferred",
+    "source_url": "https://parallelmpp.dev/",
+    "retrieved_at": "2026-05-28T11:03:56Z",
+    "confidence": 0.6,
+    "evidence_phrase": "Internet-native API payments on Tempo"
+  },
+  {
+    "host": "headlessdomains.com",
+    "entity_id": "headlessdomains-com",
+    "category": "security",
+    "category_source": "claude_inferred",
+    "source_url": "https://headlessdomains.com/",
+    "retrieved_at": "2026-05-28T11:03:56Z",
+    "confidence": 0.72,
+    "evidence_phrase": "The identity standard for autonomous agents. Portable, verifiable, machine-readable identities for agents across apps, APIs, and marketplaces."
+  }
+]

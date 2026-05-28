@@ -1,0 +1,7 @@
+GET / -> 307
+GET /api -> 307
+GET /api/x402 -> 307
+GET /x402 -> 307
+GET /.well-known/x402 -> 307
+GET /api/v1 -> 307
+GET /mcp -> 307

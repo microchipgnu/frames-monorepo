@@ -1,0 +1,101 @@
+{
+  "service": "auditor",
+  "run": "20260528-115058-f4309f",
+  "generated_at": "2026-05-28T12:05:00Z",
+  "method": "Free curl -sL --max-time 20 re-fetch of every cited source URL; verbatim grep of claimed display_name / description / category-evidence-phrase against page text. No paid calls. Auditor read is canonical.",
+  "totals": {
+    "facts_applied": 141,
+    "verified_clean": 132,
+    "deprecated": 9,
+    "verify_pass_rate": 0.9361702127659575
+  },
+  "rejection_histogram": {
+    "source_404": 0,
+    "value_not_in_source": 0,
+    "off_host_required": 9,
+    "paraphrased": 0,
+    "infra_host": 0,
+    "category_not_in_enum": 0
+  },
+  "added": {
+    "revettr-com": {
+      "verdict": "clean",
+      "source": "https://revettr.com/.well-known/x402 (HTTP 200) + POST /v1/waitlist probe (HTTP 402)",
+      "notes": "well-known doc lists resources POST /v1/score, POST /v1/waitlist. 402 envelope decoded: description 'Counterparty risk score — send wallet, domain, IP, or company name' verbatim; x402 exact/eip155:8453(Base)/USDC; mpp tempo/chain_id 4217(Tempo); stellar:testnet/XLM. Confirms advertises_x402=true, advertises_mpp=true, advertised_methods 'exact,tempo', advertised_networks 'Base,Tempo,Stellar', probe_status 'ok'. display_name 'Revettr' host-derived on a NEW entity (discoverer own observation, allowed)."
+    }
+  },
+  "named": {
+    "all_21_clean": true,
+    "entities": [
+      "global-econ-x402-staging-up-railway-app (GlobalAPI x402)",
+      "netintel-production-440c-up-railway-app (NetIntel; source github.com/AgentlyHQ/aixyz/issues/295 title verbatim)",
+      "api-seerium-xyz (Seerium Markets)",
+      "api-stocktrends-com (Stock Trends)",
+      "shield-vainplex-dev (ShieldAPI)",
+      "api-tcgapi-dev (TCG API)",
+      "scry-solanahub-de (Scry Wallet Intelligence)",
+      "data-crestsystems-ai (Crest x402 Data)",
+      "gateway-grapevine-fyi (Grapevine)",
+      "stableproduct-dev (StableProducts)",
+      "www-surplusintelligence-ai (Surplus Intelligence)",
+      "signal-engine-production-d88d-up-railway-app (SignalFuse)",
+      "silverback-x402-onrender-com (Silverback)",
+      "tooloracle-io (ToolOracle)",
+      "vibesprings-net (Vibe Springs)",
+      "api-printmoneylab-com (KR Crypto Intelligence API)",
+      "api-reloadpi-com (Reloadpi)",
+      "api-lastlookdata-com (LastLook Data)",
+      "bounty-btnomb-com (Bounty Board - BTNOMB)",
+      "api-aitrailblazer-net (DeltaSignal)",
+      "compute-siliq-io (Siliq; source siliq.io/service/21660 title verbatim)"
+    ],
+    "notes": "All 21 display_name + description pairs (42 facts) re-fetched HTTP 200 and matched verbatim against title/meta/h1/JSON-manifest page text. Railway and Render staging hosts serve the live brand copy. NetIntel and Siliq cite escalation-rendered pages (GitHub issue / siliq service page) where the name and description appear verbatim."
+  },
+  "categorized": {
+    "all_27_clean": true,
+    "shared_source_paywithlocus_22": "https://paywithlocus.com/llms.txt (HTTP 200, 18133 bytes). Each MPP entity's category evidence phrase is 'Provider: <verbatim description>'. All 22 verbatim descriptive halves confirmed present on the page (markdown list '[Provider](url): description'). Categories all in enum (translation, search, data, maps, finance, security, ai_ml, compute, media).",
+    "standalone_5": [
+      "exa-mpp-tempo-xyz (search) — mpp.tempo.xyz/llms.txt: 'Exa: AI-powered web search, content retrieval, and answers.' verbatim",
+      "api-deepnets-ai (finance) — deepnets.ai/: 'Solana trading intelligence — token safety, holder graphs, funding-network detection...' verbatim",
+      "x402-slinkylayer-ai (finance) — slinkylayer.ai/: 'Predicting market moves with adaptive intelligence' verbatim",
+      "parallelmpp-dev (finance) — parallelmpp.dev/: 'Internet-native API payments on Tempo' verbatim",
+      "headlessdomains-com (security) — headlessdomains.com/: 'The identity standard for autonomous agents. Portable, verifiable, machine-readable identities...' verbatim"
+    ],
+    "notes": "No category_not_in_enum among applied facts (the discoverer 'risk-intelligence' was already dropped at the writer for revettr). Prior pre-existing 'other' category facts on these entities remain non-deprecated and are not curate writes."
+  },
+  "recognized": {
+    "verified_pages": "All 12 recognition home pages re-fetched HTTP 200; all 12 display_names verbatim-supported on the host page.",
+    "kept_is_recognized_true": [
+      {
+        "entity_id": "tick-hugen-tokyo",
+        "reason": "ADEQUATE off-host naming. tick.hugen.tokyo page itself publishes the operator handle @ishinabegen on-page (verified via curl grep), AND the operator X timeline names the exact FX-tick/AggVault product. Strongest of the hugen family. is_recognized=true KEPT."
+      },
+      {
+        "entity_id": "financial-analyst-ai",
+        "reason": "Genuine off-host corroboration: github.com/g9781910/financial-analyst-mcp (HTTP 200) title verbatim names the product/feature set and links back to financial-analyst.ai. >=2 independent sources, >=1 off-host. KEPT."
+      },
+      {
+        "entity_id": "agent-news",
+        "reason": "Genuine off-host corroboration: github.com/Kaizor7/agentnews-plugin (HTTP 200) title 'Claude Code plugin for AgentNews — the frontpage of the agentic internet' verbatim names the brand; referenced on agent.news home page. >=2 independent sources, >=1 off-host. KEPT."
+      }
+    ],
+    "deprecated_is_recognized_true": [
+      {"entity_id": "content-hugen-tokyo", "fact_id": "c9983a61-efc0-4f19-b8aa-2599ee1a3cd6", "reason": "off_host_required"},
+      {"entity_id": "defi-hugen-tokyo", "fact_id": "fcb45657-7bd5-4a59-81c7-87c52e489218", "reason": "off_host_required"},
+      {"entity_id": "domain-hugen-tokyo", "fact_id": "ab1390c8-d6b8-4e0c-b983-2d9f5c6f96b0", "reason": "off_host_required"},
+      {"entity_id": "gotobi-hugen-tokyo", "fact_id": "df9cced8-ae25-4662-8347-697f1b30dd19", "reason": "off_host_required"},
+      {"entity_id": "intel-hugen-tokyo", "fact_id": "5919cb06-ffe4-44e3-b936-cc3767bb74f1", "reason": "off_host_required"},
+      {"entity_id": "mailcheck-hugen-tokyo", "fact_id": "26abc69d-cc40-4127-9212-acce00ed6fd1", "reason": "off_host_required"},
+      {"entity_id": "scout-hugen-tokyo", "fact_id": "2ff7c1a1-f625-4625-9931-4b8fd4601849", "reason": "off_host_required"},
+      {"entity_id": "visual-hugen-tokyo", "fact_id": "e3c5028b-f233-4ae8-a295-5f6d393b0070", "reason": "off_host_required"},
+      {"entity_id": "weather-hugen-tokyo", "fact_id": "61f5d017-d04c-4e24-8010-e300dc194bd3", "reason": "off_host_required"}
+    ],
+    "hugen_family_canonical_decision": "The 9 deprecated subdomains' only off-host source is the SHARED operator handle x.com/ishinabegen, which corroborates the existence of the hugen.tokyo family operator (paid twitter_search confirmed the handle self-declares ~10 x402 endpoints) but provides NO independent off-host NAMING of each specific subdomain product. None of these 9 pages publishes the operator handle on-page (verified: 'no operator handle on-page' for all 9). Per the off_host_required rule, recognition needs off-host corroboration of the specific recognition; family-level operator corroboration is insufficient per-subdomain. display_name retained for all 9 (home pages support the names verbatim). Only tick.hugen.tokyo had an on-page handle + product-specific timeline match, so its recognition was kept. Additionally, all is_recognized=true facts were applied single-source on the host's own domain (the recognizer's documented off-host sources were not attached to the facts as evidence — evidence table empty), reinforcing the off_host_required reading.",
+    "infra_note": "twit-api-production-de12-up-railway-app and financial-analyst-api-production-b81a-up-railway-app were skipped at the writer as is_infra (*.up.railway.app deployment backends for twit.sh and financial-analyst.ai). Not counted in the 141 applied; counted as skipped_infra=2. No curate writes for these to audit."
+  },
+  "budget": {
+    "auditor_spent_usd": 0,
+    "run_spent_usd": 0.10,
+    "breakdown": "All paid calls were in the propose phase: namer 4x exa_search (0.04), categorizer 1x exa (0.01), recognizer 1x twitter_search (0.01), discoverer 2x exa + 2x twitter (0.04). Auditor itself made zero paid calls — curl/free only."
+  }
+}

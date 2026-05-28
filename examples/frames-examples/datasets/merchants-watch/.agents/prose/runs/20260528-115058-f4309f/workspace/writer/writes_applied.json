@@ -1,0 +1,101 @@
+{
+  "service": "writer",
+  "run": "20260528-115058-f4309f",
+  "generated_at": "2026-05-28T12:20:00Z",
+  "counts": {
+    "added": 1,
+    "named": 21,
+    "categorized": 27,
+    "recognized": 12,
+    "skipped": 4
+  },
+  "added": [
+    {
+      "entity_id": "revettr-com",
+      "fact_ids": [
+        "70b8b0f6-1955-4c57-884b-62dd2819d4b0",
+        "c381d4da-bee0-4d57-a169-63e717828017",
+        "8c9e394a-188b-44f5-bc57-43b7c7c88ff6",
+        "ff0d308a-3d6e-4a1f-ad09-0b4029ca1fcc",
+        "c89814f3-9265-475b-8ddf-8e1c8b746883",
+        "169751c3-93c8-4537-ae50-244b6a20b97c",
+        "e49cc275-1ceb-4aff-b751-598d4ed05980",
+        "72b88930-a920-45d1-97ea-b61623d201db",
+        "4fbdb709-60b5-4efd-9e86-d95e8f958636"
+      ],
+      "note": "host, display_name, description, advertises_x402, advertises_mpp, advertised_methods, advertised_networks, probe_endpoint, probe_status. Discoverer-supplied probe_* allowed on NEW entity (agent's own observation). Category 'risk-intelligence' dropped (not in enum)."
+    }
+  ],
+  "named": [
+    { "entity_id": "global-econ-x402-staging-up-railway-app", "fact_ids": ["b69bdf03-2faa-4bae-8ad3-5f015d9c508b", "12fc4209-5256-41c4-8ee0-5cf3d41ea233"] },
+    { "entity_id": "netintel-production-440c-up-railway-app", "fact_ids": ["cb619bed-b9a6-4f0b-9ff4-05e0ac180fed", "3a8318db-e430-465d-9e2e-5f77dec00626"] },
+    { "entity_id": "api-seerium-xyz", "fact_ids": ["d6ede114-f4d5-43de-9726-f59dc8d86298", "96ab64a4-61f8-4aed-a169-0cee0187984f"] },
+    { "entity_id": "api-stocktrends-com", "fact_ids": ["4474eb5c-5c9b-4544-8b07-517cd060b35d", "be77d1fd-0e3f-4fcb-aada-a8448f5ad977"] },
+    { "entity_id": "shield-vainplex-dev", "fact_ids": ["6a83f7fb-fcf0-4160-a726-4ab5b2678ab7", "1100945e-74cc-4576-b1bd-56d88a960e1a"] },
+    { "entity_id": "api-tcgapi-dev", "fact_ids": ["54d96bfa-ef45-4fdf-b41d-d0fcd3c9bece", "e24136ae-6aa0-42d0-8899-f40edbd64c2d"] },
+    { "entity_id": "scry-solanahub-de", "fact_ids": ["28bbf4a4-2103-454a-944d-436949259dfb", "78870134-6535-4739-8154-0a8e6a76f342"] },
+    { "entity_id": "data-crestsystems-ai", "fact_ids": ["4f4d31a9-dad7-48cd-ab44-f838c703036e", "7fcc60da-e6ef-41ce-a166-2a100b00d2cf"] },
+    { "entity_id": "gateway-grapevine-fyi", "fact_ids": ["d654b850-71ed-49a5-9afd-ce042074d4e4", "ef9aeed4-6e55-45b3-acd8-f4573c6d4e63"] },
+    { "entity_id": "stableproduct-dev", "fact_ids": ["61cd94f7-2b3c-4b20-9e0c-59bb10fc3273", "9d3fd58a-3afb-4529-82dc-c6a0e6943b57"] },
+    { "entity_id": "www-surplusintelligence-ai", "fact_ids": ["77966413-e047-49e8-b77d-9a3ef51a6ad3", "26612b29-dd32-4928-afe6-1a6cd4f1ce12"] },
+    { "entity_id": "signal-engine-production-d88d-up-railway-app", "fact_ids": ["ac329503-e0d5-452a-8820-17b0161e39a2", "c3e21906-9243-467e-b543-a2642c1f8e51"] },
+    { "entity_id": "silverback-x402-onrender-com", "fact_ids": ["56993fc4-72bf-4240-977a-f213df8d6187", "dec9b28d-0ae7-4932-aca3-ac51187f72b9"] },
+    { "entity_id": "tooloracle-io", "fact_ids": ["9db0d05e-240d-4bb1-b5b5-a0852a50be78", "ee8d42f2-abbf-4520-8fd8-c7dc5220491a"] },
+    { "entity_id": "vibesprings-net", "fact_ids": ["6e7c95cd-16f0-40ef-8e38-59af0028cfa1", "f5510a83-a7b1-44f1-a088-ff377ad48054"] },
+    { "entity_id": "api-printmoneylab-com", "fact_ids": ["32fa8f6d-22cc-4470-ae07-6bc071b43072", "b415dd69-d18d-410e-9438-4440a8d8b435"] },
+    { "entity_id": "api-reloadpi-com", "fact_ids": ["b96afecd-91d5-4421-8f40-7cd054b0a093", "edbe5b1f-f859-44a3-b3f1-e7ba068fd871"] },
+    { "entity_id": "api-lastlookdata-com", "fact_ids": ["97d865be-af33-47cd-9379-dcc1116a8632", "43aa643d-e2b5-437d-9d01-189dca324275"] },
+    { "entity_id": "bounty-btnomb-com", "fact_ids": ["c16147c6-8e4e-413c-9116-b3dca6485977", "188e0783-1e4b-4a40-82f7-a76185b30c47"] },
+    { "entity_id": "api-aitrailblazer-net", "fact_ids": ["c213e633-80ad-4ac0-accc-ffe2f8ddccb5", "91e44b20-2f30-4404-81b5-9bc4a226959d"] },
+    { "entity_id": "compute-siliq-io", "fact_ids": ["af65585a-0b91-4866-a9b6-9adad35455b4", "ca961c54-c142-4908-b346-9e9d483a52c1"] }
+  ],
+  "categorized": [
+    { "entity_id": "api-deepnets-ai", "fact_ids": ["1312824a-6da0-4358-8526-808f98daafa7", "467562a4-8803-4747-8fcb-289180d60cfe"] },
+    { "entity_id": "x402-slinkylayer-ai", "fact_ids": ["9cda83d5-e292-4f0a-a089-949bf45828e4", "2dbe504b-26dc-4d2b-8545-6a93db80d18c"] },
+    { "entity_id": "exa-mpp-tempo-xyz", "fact_ids": ["c73d0ba5-625f-4f39-a352-04df39e0fdac", "7d972ca2-6fd6-4e5b-b1c7-dabcf5b9d930"] },
+    { "entity_id": "deepl-mpp-paywithlocus-com", "fact_ids": ["2000df95-70de-42ef-906b-6b4bb18a6741", "991accd8-9820-4dd6-9a7a-83c3db23805b"] },
+    { "entity_id": "perplexity-mpp-paywithlocus-com", "fact_ids": ["c86eef40-3544-4d87-b881-a28f7cbb7de6", "b431a8c8-e48a-453c-b9f5-b2114395d107"] },
+    { "entity_id": "openweather-mpp-paywithlocus-com", "fact_ids": ["d42d3604-0157-4101-8b2e-966a6b371c80", "2e99e448-ce2f-45db-b988-f3a510174e1e"] },
+    { "entity_id": "abstract-timezone-mpp-paywithlocus-com", "fact_ids": ["525e430c-ecf1-4a59-b208-15b368667eb2", "0b3757d1-59e1-47d3-b3a3-4cb9a5619794"] },
+    { "entity_id": "diffbot-kg-mpp-paywithlocus-com", "fact_ids": ["f1e59279-8a12-4df6-a857-98d9682264e1", "71d05ef0-2010-492a-84f0-e5440b25d416"] },
+    { "entity_id": "alphavantage-mpp-paywithlocus-com", "fact_ids": ["b7d0d124-bf30-44e9-b500-3b81d2f213ab", "cb0ec21a-c4c5-475f-b5b0-6bc2b1e06e0e"] },
+    { "entity_id": "wolframalpha-mpp-paywithlocus-com", "fact_ids": ["b6b84223-419c-4fbc-9f70-0e82689ce141", "f881ceae-321c-4c6f-8971-586542a5ae45"] },
+    { "entity_id": "abstract-exchange-rates-mpp-paywithlocus-com", "fact_ids": ["75e18338-b4a5-4b96-aefe-d81807286bcb", "c06d5bcb-8e01-4477-8572-221971cb4261"] },
+    { "entity_id": "abstract-ip-intelligence-mpp-paywithlocus-com", "fact_ids": ["09b4603b-049b-4923-9bcf-ee6af24f766f", "1ccc48f9-d68f-40d4-8ed8-5f705f029c1a"] },
+    { "entity_id": "groq-mpp-paywithlocus-com", "fact_ids": ["e52e07ed-44af-438c-a942-9d64e7a7e482", "f9af78c4-a0d5-4fd0-9bcc-c41a893d75e4"] },
+    { "entity_id": "abstract-holidays-mpp-paywithlocus-com", "fact_ids": ["42d5efbe-4e5a-41a0-9a95-63f3f4e129b9", "e0393286-69d6-4406-9177-19f85e463f05"] },
+    { "entity_id": "deepseek-mpp-paywithlocus-com", "fact_ids": ["3b0bca5e-807b-42bc-bef5-7d2d0b026cb2", "3730181d-f533-4e71-bca3-f21aac89bbec"] },
+    { "entity_id": "abstract-email-reputation-mpp-paywithlocus-com", "fact_ids": ["f2ffb241-da8e-4b23-8325-9d029d70de37", "9a00caf4-b93f-4268-9be5-aab14ed15f65"] },
+    { "entity_id": "judge0-mpp-paywithlocus-com", "fact_ids": ["95b66a93-01ae-4ea1-b59d-fde036c145d5", "b869b54b-686a-44d8-89f8-7edc95c9a21d"] },
+    { "entity_id": "abstract-phone-intelligence-mpp-paywithlocus-com", "fact_ids": ["8ee637c5-2f14-4592-a1c5-f2361e701271", "a02e027d-077a-426e-b7b5-378b02a2d018"] },
+    { "entity_id": "abstract-company-enrichment-mpp-paywithlocus-com", "fact_ids": ["4a1d45af-38b3-40c0-b4cb-c2afc7694897", "d536c1af-bddf-4cd9-ba4a-e06ff86a36b1"] },
+    { "entity_id": "abstract-vat-mpp-paywithlocus-com", "fact_ids": ["b888e027-d50b-481e-b15f-7e0d3f8d4368", "56bd37f5-1bb1-4b37-b8aa-586daba81cfa"] },
+    { "entity_id": "abstract-iban-validation-mpp-paywithlocus-com", "fact_ids": ["56533365-048c-41df-a316-c013b799e92d", "9ec2dcef-21ae-4800-ac50-2d8021439b7a"] },
+    { "entity_id": "mistral-mpp-paywithlocus-com", "fact_ids": ["b418081a-d290-469d-9fdd-014d2405a556", "ac5cb2f8-570b-40ec-bdde-c8a39985d88f"] },
+    { "entity_id": "diffbot-mpp-paywithlocus-com", "fact_ids": ["f560836b-df30-4014-b431-da6a46c16dc9", "662dcbef-0a0c-4e49-baf3-74d09982866f"] },
+    { "entity_id": "stability-ai-mpp-paywithlocus-com", "fact_ids": ["25d0569b-d389-4dea-9769-a2b6d0804a97", "32f54046-dfac-4a4f-ad5e-f121735cf3f6"] },
+    { "entity_id": "deepgram-mpp-paywithlocus-com", "fact_ids": ["ad5f2d2f-1f06-458b-85bf-cfc22800557d", "d7aadcfd-6cbc-4f24-8578-21b7a5b6e69b"] },
+    { "entity_id": "parallelmpp-dev", "fact_ids": ["c409e299-7854-4c72-8e74-2763098544f1", "b579380a-1b76-4a1d-8a81-55630ef87d9b"] },
+    { "entity_id": "headlessdomains-com", "fact_ids": ["b2b50a22-6e67-480e-b354-9064237aa854", "2233b925-b7e6-43ce-b1ef-4defe33cb89d"] }
+  ],
+  "recognized": [
+    { "entity_id": "content-hugen-tokyo", "fact_ids": ["cb5f00e0-c0fb-4424-9e33-0e04d52e8cac", "add49284-a9ce-449c-bcd3-198bdf2bb2b8", "c9983a61-efc0-4f19-b8aa-2599ee1a3cd6"] },
+    { "entity_id": "defi-hugen-tokyo", "fact_ids": ["7e7c7bd8-aa04-4afd-9293-53be63d30eb9", "938560d5-29d3-4e68-ad8f-869ebe628e91", "fcb45657-7bd5-4a59-81c7-87c52e489218"] },
+    { "entity_id": "domain-hugen-tokyo", "fact_ids": ["88d6229f-c0e0-4e62-a7e0-442258083375", "0a26ee01-490e-414a-b7f5-b1af80e1763c", "ab1390c8-d6b8-4e0c-b983-2d9f5c6f96b0"] },
+    { "entity_id": "gotobi-hugen-tokyo", "fact_ids": ["942f8b7f-aa71-47bb-981d-a35f6c93b5a1", "1240939e-1bb1-4f13-a6c5-b258c4e61c5a", "df9cced8-ae25-4662-8347-697f1b30dd19"] },
+    { "entity_id": "intel-hugen-tokyo", "fact_ids": ["7748b8d6-edc2-4983-b109-0320a90c7cc1", "876b21ab-b44b-4f49-9485-5bb8b66a8131", "5919cb06-ffe4-44e3-b936-cc3767bb74f1"] },
+    { "entity_id": "mailcheck-hugen-tokyo", "fact_ids": ["b30a317b-87f7-4f11-8371-058659f0090f", "9461dae9-52ce-44b4-ab8a-5c8a0cadfd69", "26abc69d-cc40-4127-9212-acce00ed6fd1"] },
+    { "entity_id": "scout-hugen-tokyo", "fact_ids": ["d296eb85-4344-4d17-b8b2-910a8e3adc54", "aa91c277-1724-4244-a682-abe037379550", "2ff7c1a1-f625-4625-9931-4b8fd4601849"], "note": "merged: namer had no display_name; recognizer supplied display_name + is_recognized" },
+    { "entity_id": "tick-hugen-tokyo", "fact_ids": ["dd42a9ff-9ba5-4289-bdfb-03c996739d0f", "09dcc115-5c0e-463b-b064-5bacd46a0ff4", "1be026c2-c54f-47b2-8c65-d4aacb04b198"] },
+    { "entity_id": "visual-hugen-tokyo", "fact_ids": ["98a86965-3081-4bc4-b397-783c855c11ff", "2f934c28-e1b1-4844-81a5-19e9b33772a4", "e3c5028b-f233-4ae8-a295-5f6d393b0070"] },
+    { "entity_id": "weather-hugen-tokyo", "fact_ids": ["35de7f6b-6c83-4dbd-bb40-8b83b605b516", "dc2a7f34-9286-4820-9312-58621c8f957a", "61f5d017-d04c-4e24-8010-e300dc194bd3"] },
+    { "entity_id": "financial-analyst-ai", "fact_ids": ["ee8c0c42-61f0-42f3-9aaf-c5b16b002382", "74d13c20-2990-45bd-b836-b40599e2b93d", "e21997e1-c6b3-453a-9ef8-8adce0ac71d2"] },
+    { "entity_id": "agent-news", "fact_ids": ["3353400e-c52d-42e6-8d77-925e3c54064f", "bcb474e1-a048-417b-bd84-0573cd089711", "dddc9709-7b64-4c4d-a5ef-0fb2ea788eae"] }
+  ],
+  "skipped": [
+    { "entity_id": "blockrun-ai", "reason": "name-disagreement-prefer-existing: existing display_name 'BlockRun.AI' (category_source agentic_market) is a real non-host name that disagrees with namer proposal 'BlockRun'; preferred existing per strategy, auditor to decide" },
+    { "entity_id": "twit-api-production-de12-up-railway-app", "reason": "infra-misclassified: *.up.railway.app deployment backend for canonical product twit.sh; operator handles is_infra in scripts/host.ts" },
+    { "entity_id": "financial-analyst-api-production-b81a-up-railway-app", "reason": "infra-misclassified: *.up.railway.app deployment backend for canonical product financial-analyst.ai; recognizer flagged infra, so categorizer 'finance' proposal for this same host also dropped" },
+    { "entity_id": "revettr-com", "reason": "category-out-of-enum: discoverer category 'risk-intelligence' not in enum (ai_ml,data,search,messaging,maps,translation,security,shopping,media,finance,cloud,storage,devtools,compute); entity created without category, scraper/next curate can fill" }
+  ]
+}
