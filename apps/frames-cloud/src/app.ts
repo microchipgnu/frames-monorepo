@@ -111,7 +111,7 @@ function computeRecent(ds: Dataset, limit: number): RecentActivity[] {
   return acts.slice(0, limit);
 }
 
-function entityShape(ent: Entity, include: "none" | "first" | "all" | "history") {
+function entityShape(ent: Entity, include: "fields" | "none" | "first" | "all" | "history") {
   if (include === "history") {
     const history: Record<string, Array<{
       fact_id: string;
@@ -142,6 +142,13 @@ function entityShape(ent: Entity, include: "none" | "first" | "all" | "history")
         }));
     }
     return { entity_id: ent.entity_id, fields: ent.fields, history };
+  }
+  // include=fields: just the projected field values — the smallest payload.
+  // For clients (dashboards) that render only field values and need neither
+  // fact_ids (a tick-runtime concern) nor sources, which they lazy-load per
+  // entity from the single-entity endpoint when needed.
+  if (include === "fields") {
+    return { entity_id: ent.entity_id, fields: ent.fields };
   }
   // Surface current fact_ids per field so external runtimes (tick) can emit
   // fact.deprecated / evidence.attached events without needing to reproject
@@ -286,14 +293,16 @@ async function respondEntities(c: any, user: string, repo: string, framePath: st
   const cursor = decodeCursor(url.searchParams.get("cursor") ?? undefined);
   const filters = parseFilters(url.searchParams);
   const includeRaw = url.searchParams.get("include");
-  const include: "none" | "first" | "all" | "history" =
-    includeRaw === "none"
-      ? "none"
-      : includeRaw === "all"
-        ? "all"
-        : includeRaw === "history"
-          ? "history"
-          : "first";
+  const include: "fields" | "none" | "first" | "all" | "history" =
+    includeRaw === "fields"
+      ? "fields"
+      : includeRaw === "none"
+        ? "none"
+        : includeRaw === "all"
+          ? "all"
+          : includeRaw === "history"
+            ? "history"
+            : "first";
   const { rows, next_cursor, has_more } = paginate(ds.entities.values(), cursor, limit, filters);
   if (next_cursor) {
     const nextUrl = new URL(c.req.url);
