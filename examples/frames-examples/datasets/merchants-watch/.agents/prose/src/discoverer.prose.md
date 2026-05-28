@@ -81,12 +81,26 @@ pay.sh, and mppscan.
 - dedup heuristic: extract every `https?://[host]` reference from
   search hits, canonicalize via `scripts/host.ts:canonicalHost`,
   drop those already in `existing_hosts`, then probe the rest
-- 402 probe: POST `{}` against `https://<host>/api/...` (or the
-  search-hit URL if it looks API-shaped); if the response is 402
-  with an x402 `accepts[]` envelope or `WWW-Authenticate: Payment`
-  header, capture `advertises_x402` / `advertises_mpp` / methods /
-  networks. The probe-402 logic in `scripts/probe-402.ts` is the
-  reference — the discoverer's probe is a one-shot variant of it.
+- 402 probe (two-step — a bare guess never elicits a 402):
+  1. GET `https://<host>/.well-known/x402` (fall back to `/llms.txt`).
+     This discovery doc is served on **GET** (200) and lists the
+     host's real paid resource endpoint(s) + accepted rails. x402
+     resources do NOT 402 on GET, and POSTing the doc path returns
+     404/405 — so GET is for discovery only, never for the challenge.
+  2. **POST** `{}` to the resource endpoint named in the discovery doc
+     (or the search-hit URL if it is already API-shaped). The 402
+     challenge only comes back on POST to the actual resource. If the
+     response is 402 with an x402 `accepts[]` envelope or a
+     `WWW-Authenticate: Payment` header, capture `advertises_x402` /
+     `advertises_mpp` / methods / networks.
+  Guessing generic paths (`/api/x402`, `/x402`, `/api/pay`) with
+  either method is a dead end — they 404/405 (confirmed in run
+  20260528-115058: revettr.com 404'd every guessed POST, then a GET
+  on `/.well-known/x402` surfaced the real endpoint that POST-402'd).
+  The probe-402 logic in `scripts/probe-402.ts` is the reference for
+  parsing the 402 (it POSTs the bazaar's already-known resource URLs);
+  the discoverer adds the `.well-known/x402` GET-discovery step because,
+  unlike the scrape phase, it has no pre-known endpoint path.
 - when the discoverer would emit < 3 candidates, that is fine —
   this slice is incremental signal, not a quota
 
