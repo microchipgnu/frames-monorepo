@@ -111,7 +111,7 @@ function computeRecent(ds: Dataset, limit: number): RecentActivity[] {
   return acts.slice(0, limit);
 }
 
-function entityShape(ent: Entity, include: "first" | "all" | "history") {
+function entityShape(ent: Entity, include: "none" | "first" | "all" | "history") {
   if (include === "history") {
     const history: Record<string, Array<{
       fact_id: string;
@@ -143,14 +143,6 @@ function entityShape(ent: Entity, include: "first" | "all" | "history") {
     }
     return { entity_id: ent.entity_id, fields: ent.fields, history };
   }
-  const evidence: Record<string, Source | Source[]> = {};
-  if (include === "first") {
-    for (const [field, src] of Object.entries(ent.evidence)) evidence[field] = src;
-  } else {
-    for (const [field, fact] of Object.entries(ent.facts)) {
-      evidence[field] = [fact.source, ...fact.evidence];
-    }
-  }
   // Surface current fact_ids per field so external runtimes (tick) can emit
   // fact.deprecated / evidence.attached events without needing to reproject
   // events.ndjson locally. Always present for non-history modes; older clients
@@ -158,6 +150,21 @@ function entityShape(ent: Entity, include: "first" | "all" | "history") {
   const fact_ids: Record<string, string> = {};
   for (const [field, fact] of Object.entries(ent.facts)) {
     fact_ids[field] = fact.fact_id;
+  }
+  // include=none: fields + fact_ids only, no evidence. The per-field source
+  // objects are the bulk of the payload, so omitting them keeps large datasets
+  // small enough to cache at the edge and cheap to ship to clients that
+  // lazy-load sources from the single-entity endpoint on demand.
+  if (include === "none") {
+    return { entity_id: ent.entity_id, fields: ent.fields, fact_ids };
+  }
+  const evidence: Record<string, Source | Source[]> = {};
+  if (include === "first") {
+    for (const [field, src] of Object.entries(ent.evidence)) evidence[field] = src;
+  } else {
+    for (const [field, fact] of Object.entries(ent.facts)) {
+      evidence[field] = [fact.source, ...fact.evidence];
+    }
   }
   return { entity_id: ent.entity_id, fields: ent.fields, fact_ids, evidence };
 }
@@ -279,8 +286,14 @@ async function respondEntities(c: any, user: string, repo: string, framePath: st
   const cursor = decodeCursor(url.searchParams.get("cursor") ?? undefined);
   const filters = parseFilters(url.searchParams);
   const includeRaw = url.searchParams.get("include");
-  const include: "first" | "all" | "history" =
-    includeRaw === "all" ? "all" : includeRaw === "history" ? "history" : "first";
+  const include: "none" | "first" | "all" | "history" =
+    includeRaw === "none"
+      ? "none"
+      : includeRaw === "all"
+        ? "all"
+        : includeRaw === "history"
+          ? "history"
+          : "first";
   const { rows, next_cursor, has_more } = paginate(ds.entities.values(), cursor, limit, filters);
   if (next_cursor) {
     const nextUrl = new URL(c.req.url);
