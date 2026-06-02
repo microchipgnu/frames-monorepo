@@ -636,17 +636,26 @@ async function dispatchViaAgentwallet(
   const { wallet, descriptor, fetchImpl } = input;
   const fetchUrl = `${wallet.baseUrl.replace(/\/$/, "")}/api/wallets/${encodeURIComponent(wallet.username)}/actions/x402/fetch`;
 
-  // The agentwallet API doesn't carry rail selection today — it picks one
-  // based on its own internal defaults. With multi-rail descriptors and pay
-  // looping over options, we attach a `payment_rail` hint telling agentwallet
-  // which rail the dispatcher chose for THIS attempt. Older agentwallet
-  // versions ignore the field (extra body keys are no-op); newer versions
-  // can honor it to actually loop through rails on failure.
+  // Tell agentwallet which rail the dispatcher selected for THIS attempt.
+  // agentwallet's /actions/x402/fetch honors `preferredChain` ('evm' | 'solana'
+  // | 'auto') and `preferredToken`; it does NOT read `payment_rail` (unknown
+  // body keys are stripped by its request schema). Without a `preferredChain`
+  // agentwallet runs `auto` and can pick a different rail than the descriptor
+  // selected (e.g. an MPP/Tempo challenge over an x402 Base/Solana accept).
+  // Translate the descriptor's network into agentwallet's enum so the chosen
+  // chain is the one that actually settles.
+  const preferredChain = toAgentwalletChain(descriptor.payment.network);
   const reqBody: Record<string, unknown> = {
     url: input.url,
     method: input.method,
     body: input.method === "GET" || input.method === "HEAD" ? undefined : input.params,
+    ...(preferredChain !== undefined && { preferredChain }),
+    ...(descriptor.payment.currency !== undefined && {
+      preferredToken: descriptor.payment.currency,
+    }),
   };
+  // Retain the structured rail too — harmless under the current schema (stripped),
+  // and forward-compatible with an agentwallet build that consumes it directly.
   if (descriptor.payment.network) {
     reqBody["payment_rail"] = {
       protocol: descriptor.payment.protocol,
@@ -770,8 +779,27 @@ function mapChainToNetwork(chain: string | undefined): string | undefined {
     "eip155:10": "optimism",
     "eip155:137": "polygon",
     "eip155:42161": "arbitrum",
+    "eip155:4217": "tempo",
+    "eip155:42431": "tempo",
   };
   if (map[chain]) return map[chain];
   if (chain.startsWith("solana:")) return "solana-mainnet";
   return chain;
+}
+
+/**
+ * Map a descriptor `payment.network` to agentwallet's `preferredChain` enum
+ * ('evm' | 'solana'). Returns undefined for networks we can't classify (e.g.
+ * 'tempo') so the caller omits the hint and lets agentwallet default to 'auto'.
+ * Accepts both human network names ("base", "solana-mainnet") and CAIP-2
+ * ("eip155:8453", "solana:5eykt4…").
+ */
+function toAgentwalletChain(
+  network: string | undefined,
+): "evm" | "solana" | undefined {
+  if (!network) return undefined;
+  const n = network.toLowerCase();
+  if (/^solana(\b|[:-])/.test(n)) return "solana";
+  if (/^(eip155:|base|ethereum|optimism|arbitrum|polygon)/.test(n)) return "evm";
+  return undefined;
 }
