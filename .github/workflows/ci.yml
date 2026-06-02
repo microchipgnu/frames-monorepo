@@ -9,6 +9,30 @@ on:
       - main
 
 jobs:
+  # Guard against the "merged a package fix but it never published" failure
+  # mode: every PR that changes a publishable package must carry a changeset.
+  # `changeset status --since` exits non-zero when changed packages have no
+  # changeset (it respects .changeset/config.json `ignore`). For an
+  # intentional no-release change, add an empty changeset:
+  #   bunx changeset add --empty
+  changeset-check:
+    name: Changeset present
+    runs-on: ubuntu-latest
+    # Only on PRs, and skip the release bot's "Version Packages" PR — that PR
+    # legitimately deletes changesets and bumps versions.
+    if: github.event_name == 'pull_request' && github.head_ref != 'changeset-release/main'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: Require a changeset for package changes
+        run: |
+          git fetch origin "${{ github.base_ref }}"
+          bunx changeset status --since="origin/${{ github.base_ref }}"
+
   typecheck:
     name: Typecheck (${{ matrix.package }})
     runs-on: ubuntu-latest
