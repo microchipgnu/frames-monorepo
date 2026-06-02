@@ -28,6 +28,10 @@ jobs:
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
+      # Install so `bunx changeset` resolves the repo's pinned @changesets/cli
+      # bin (matches release.yml); without it bunx tries to fetch a package
+      # literally named "changeset" and errors.
+      - run: bun install --frozen-lockfile
       - name: Require a changeset for package changes
         run: |
           git fetch origin "${{ github.base_ref }}"
