@@ -82,7 +82,16 @@ jobs:
           set -euo pipefail
           git config user.name "catalog-refresh-bot"
           git config user.email "noreply@frames.ag"
-          git add content/ staging/mppscan-cache.json staging/x402scan-cache.json staging/probe-results.json 2>/dev/null || true
+          # `git add` is ATOMIC across pathspecs: if ANY pathspec matches no file
+          # (e.g. staging/*-cache.json, which only exist when their paid scrape
+          # succeeds — mppscan/x402scan routinely 402), the whole add fails and
+          # stages NOTHING, including content/. The old `... 2>/dev/null || true`
+          # swallowed that, so every refresh silently committed nothing for weeks.
+          # Stage content/ unconditionally; add each optional cache only if present.
+          git add content/
+          for f in staging/mppscan-cache.json staging/x402scan-cache.json staging/probe-results.json; do
+            if [ -f "$f" ]; then git add "$f"; fi
+          done
           if git diff --cached --quiet; then
             echo "No changes."
             exit 0
