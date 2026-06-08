@@ -85,6 +85,34 @@ interface SlimToolDescriptor {
   _meta?: { catalog: string };
 }
 
+// A requestBody schema is only worth emitting as `invocation.params_schema` if
+// it actually tells an agent what to send. Some upstream OpenAPI specs declare an
+// EMPTY object schema (`{}` or `{ "type": "object" }` with no properties) for an
+// endpoint that really does take params — shipping that as params_schema is worse
+// than omitting it: a consumer reads `{}` as "no input needed" and then sends
+// garbage / guesses key names. Omit those so the field is absent (= unknown)
+// rather than a misleadingly-empty contract. (#4 stopgap; the real fix is for the
+// source spec to declare its requestBody.)
+export function usefulParamsSchema(schema: unknown): unknown | undefined {
+  if (!schema || typeof schema !== "object") return undefined;
+  const s = schema as Record<string, unknown>;
+  // A $ref or a composition keyword is a real (if indirect) contract.
+  if (s.$ref || s.allOf || s.oneOf || s.anyOf) return schema;
+  // An object schema is useful only if it declares at least one property.
+  if (
+    s.properties &&
+    typeof s.properties === "object" &&
+    Object.keys(s.properties as object).length > 0
+  ) {
+    return schema;
+  }
+  // An array schema with an item shape, or a scalar with an enum, is useful.
+  if (s.type === "array" && s.items) return schema;
+  if (Array.isArray(s.enum) && s.enum.length > 0) return schema;
+  // Otherwise (`{}`, `{ type: "object" }`, etc.) → no usable contract.
+  return undefined;
+}
+
 function deriveAcceptsNetworks(payment: ToolDescriptor["payment"]): string | undefined {
   const networks = new Set<string>();
   if (payment.network) networks.add(payment.network);
@@ -477,7 +505,9 @@ function framesToDescriptors(
       if (!hasX402 && !hasPaymentInfo) continue;
 
       const id = `frames.${slugify(service.slug)}.${m.toLowerCase()}.${slugify(path)}`;
-      const paramsSchema = op.requestBody?.content?.["application/json"]?.schema;
+      const paramsSchema = usefulParamsSchema(
+        op.requestBody?.content?.["application/json"]?.schema,
+      );
       const priceFromOpenApi = priceFromOp(op);
 
       // Build payment in priority order:
@@ -849,4 +879,4 @@ function main() {
   );
 }
 
-main();
+if (import.meta.main) main();
