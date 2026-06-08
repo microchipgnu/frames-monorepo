@@ -12,8 +12,7 @@
   ],
   "invocation": {
     "method": "POST",
-    "url": "https://registry.frames.ag/api/service/near-intents/api/quote",
-    "params_schema": {}
+    "url": "https://registry.frames.ag/api/service/near-intents/api/quote"
   },
   "payment": {
     "protocol": "x402v2",

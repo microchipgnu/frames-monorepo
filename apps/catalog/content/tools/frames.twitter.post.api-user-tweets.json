@@ -15,8 +15,7 @@
   ],
   "invocation": {
     "method": "POST",
-    "url": "https://registry.frames.ag/api/service/twitter/api/user-tweets",
-    "params_schema": {}
+    "url": "https://registry.frames.ag/api/service/twitter/api/user-tweets"
   },
   "payment": {
     "protocol": "x402v2",
