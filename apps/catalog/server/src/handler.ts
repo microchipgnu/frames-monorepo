@@ -193,16 +193,24 @@ function scoreToolMatch(
   t: ToolDescriptor,
   tokens: string[],
   curatedSource: boolean,
+  categoryText = "",
 ): number {
   if (tokens.length === 0) return 1; // no q → everything is tied
   const title = t.title.toLowerCase();
   const desc = (t.description ?? "").toLowerCase();
   const id = t.id.toLowerCase();
+  // Capability tags + the merchant category are first-class match targets (#5):
+  // a query like "fetch user timeline" should land on a tool whose capability is
+  // "user-timeline" or whose category is "social", even when the title is silent.
+  const caps = t.capabilities.join(" ").toLowerCase();
+  const cat = categoryText.toLowerCase();
   let score = 0;
   let hits = 0;
   for (const tok of tokens) {
     let tokenScored = false;
     if (title.includes(tok)) { score += 12; tokenScored = true; }
+    if (caps.includes(tok)) { score += 8; tokenScored = true; }
+    if (cat.includes(tok)) { score += 6; tokenScored = true; }
     if (desc.includes(tok)) { score += 3; tokenScored = true; }
     if (id.includes(tok)) { score += 1; tokenScored = true; }
     if (tokenScored) hits++;
@@ -486,27 +494,52 @@ export function createHandler(deps: HandlerDeps) {
       }
       return true;
     });
-    if (capability) {
-      filtered = filtered.filter((t) => t.capabilities.includes(capability));
-    }
+    // Capability is a SOFT signal (#5): when it exactly matches a tool's tag we
+    // prefer those, but an over-specific capability phrase (e.g. "fetch user
+    // timeline") is folded into the search tokens so it RANKS instead of zeroing
+    // the result set. The old hard `capabilities.includes(capability)` filter
+    // returned nothing whenever the phrase wasn't an exact tag.
+    const capLower = capability?.trim().toLowerCase();
+    const capExact = capLower
+      ? filtered.filter((t) =>
+          t.capabilities.some((cap) => cap.toLowerCase() === capLower),
+        )
+      : [];
 
-    // Score + sort. With no q, score is uniform so cursor pagination still
-    // works (sort is stable on equal score). With q, the highest-scoring
-    // matches come first.
-    const tokens = tokenize(q);
+    // Search tokens come from BOTH q and capability so capability words rank
+    // across title/capabilities/category/description instead of being a hard gate.
+    const tokens = tokenize([q, capability].filter(Boolean).join(" "));
     if (tokens.length > 0) {
-      const scored = filtered
-        .map((t) => {
-          const m = resolveMerchantForHost(t.host, merchantsByHost);
-          const curatedSource =
-            t._meta?.catalog === "mpp" ||
-            t._meta?.catalog === "frames-registry" ||
-            !!m?.is_recognized;
-          return { t, score: scoreToolMatch(t, tokens, curatedSource) };
-        })
-        .filter((x) => x.score > 0);
+      const scoreSet = (set: ToolDescriptor[]) =>
+        set
+          .map((t) => {
+            const m = resolveMerchantForHost(t.host, merchantsByHost);
+            const curatedSource =
+              t._meta?.catalog === "mpp" ||
+              t._meta?.catalog === "frames-registry" ||
+              !!m?.is_recognized;
+            // A tool whose capability tag EXACTLY matches the requested capability
+            // is the strongest signal — boost it to the top of the ranking.
+            const exactBoost =
+              capLower && t.capabilities.some((cap) => cap.toLowerCase() === capLower)
+                ? 20
+                : 0;
+            return {
+              t,
+              score:
+                scoreToolMatch(t, tokens, curatedSource, m?.category) + exactBoost,
+            };
+          })
+          .filter((x) => x.score > 0);
+      // Prefer the exact-capability set; BROADEN to the full signals-filtered set
+      // when the exact tag yields nothing (the over-specific-capability fix).
+      let scored = capExact.length > 0 ? scoreSet(capExact) : [];
+      if (scored.length === 0) scored = scoreSet(filtered);
       scored.sort((a, b) => b.score - a.score || (a.t.id < b.t.id ? -1 : 1));
       filtered = scored.map((x) => x.t);
+    } else if (capExact.length > 0) {
+      // Capability-only browse with an exact tag (no q): restrict to that tag.
+      filtered = capExact;
     }
 
     const { page, nextCursor } = paginate(filtered, cursor, limit, "id");

@@ -12,5 +12,6 @@
     "resolveJsonModule": true,
     "types": ["@cloudflare/workers-types", "node"]
   },
-  "include": ["src/**/*", "deploy/**/*"]
+  "include": ["src/**/*", "deploy/**/*"],
+  "exclude": ["**/*.test.ts"]
 }
