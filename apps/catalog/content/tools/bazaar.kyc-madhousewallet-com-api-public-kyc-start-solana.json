@@ -1,0 +1,48 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.kyc-madhousewallet-com-api-public-kyc-start-solana",
+  "title": "Begin identity verification (Solana). Costs $0.05 USDC. Returns a hosted verific",
+  "description": "Begin identity verification (Solana). Costs $0.05 USDC. Returns a hosted verification URL and the bound wallet address. Open kycUrl in a browser to complete identity verification. Attestation written to SAS automatically.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://kyc.madhousewallet.com/api/public/kyc/start/solana"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "solana-mainnet",
+    "currency": "UNKNOWN",
+    "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "price_hint": "0.05",
+    "pay_to": "72wzSDj6qnGnCpffwJtWJt8cspBQFs9j12gB6YyZJast",
+    "scheme": "exact",
+    "extra": {
+      "feePayer": "BENrLoUbndxoNMUS5JXApGMtNykLjFXXixMtpDwDR9SP"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://kyc.madhousewallet.com/api/public/kyc/start/solana",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "kyc.madhousewallet.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 4,
+    "network_names": "Arbitrum, Base, Polygon, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 11,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "STEP 1 -- Quick check (free): GET /api/public/kyc/verified?wallet=<address>. No payment, no auth. Returns { verified: true/false } from DB. 60 req/min. STEP 2 -- Start KYC: POST /api/public/kyc/start with $0.05 USDC via x402. The paying wallet address is extracted automatically from the x402 payment-signature header -- no request body needed. Response: { kycUrl, walletAddress }. Open kycUrl in a browser to complete identity verification. STEP 3 -- Authoritative status: GET /api/public/kyc/status?wallet=<address> with $0.01 USDC. Cross-checks on-chain for revocation. When verified:true the attestation is valid -- use this to gate access. STEP 4 (optional) -- Sanctions: GET /api/public/kyc/sanctions?wallet=<address> with $0.02 USDC. Returns sanctioned (bool) and match details. No PII is ever returned. Use @x402/fetch (wrapFetchWithPayment) to handle the 402 challenge/response cycle automatically.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

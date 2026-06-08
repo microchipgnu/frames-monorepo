@@ -1,0 +1,65 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.oracle-network-onchain-signal-fly-dev-v1-stablecoin-peg-deviation",
+  "title": "Cross-chain stablecoin peg monitor: current price vs $1 peg deviation for major ",
+  "description": "Cross-chain stablecoin peg monitor: current price vs $1 peg deviation for major USD stablecoins, for AI agents detecting depeg events. Returns top deviations and a depeg band per asset. Source: DeFiLlama stablecoin prices.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://oracle-network-onchain-signal.fly.dev/v1/stablecoin/peg-deviation"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.003",
+    "pay_to": "0xb50092c2961135F66C4c7849D8CbbD1b54A48060",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "resource": "https://oracle-network-onchain-signal.fly.dev/v1/stablecoin/peg-deviation",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.003",
+        "pay_to": "AwkTsoaLjiUgzyNb4X2T9kyKjK6XcBy6DrZ55Vp8biWs",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "Hc3sdEAsCGQcpgfivywog9uwtk8gUBUZgsxdME1EJy88",
+          "resource": "https://oracle-network-onchain-signal.fly.dev/v1/stablecoin/peg-deviation"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://oracle-network-onchain-signal.fly.dev/v1/stablecoin/peg-deviation",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "oracle-network-onchain-signal.fly.dev",
+    "is_active_14d": false,
+    "is_infra": true,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 2,
+    "network_names": "Base, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 50,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

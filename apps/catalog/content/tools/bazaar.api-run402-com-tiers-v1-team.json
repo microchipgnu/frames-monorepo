@@ -1,0 +1,64 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-run402-com-tiers-v1-team",
+  "title": "Set team tier ($20.00 USDC) — auto-detects subscribe/renew/upgrade",
+  "description": "Set team tier ($20.00 USDC) — auto-detects subscribe/renew/upgrade",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.run402.com/tiers/v1/team"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "20",
+    "pay_to": "0x059D091D51a0f011c9872EaA63Df538F5cE15945",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "base-sepolia",
+        "currency": "USDC",
+        "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+        "price_hint": "20",
+        "pay_to": "0x059D091D51a0f011c9872EaA63Df538F5cE15945",
+        "scheme": "exact",
+        "extra": {
+          "name": "USDC",
+          "version": "2"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://api.run402.com/tiers/v1/team",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "api.run402.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": true,
+    "is_mass_lister": false,
+    "category": "cloud",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 34,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Subscribe to a tier (prototype/hobby/team) to unlock project provisioning, then create projects and deploy. Image generation is per-call. See https://run402.com/openapi.json for full endpoint details.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "curated"
+  }
+}

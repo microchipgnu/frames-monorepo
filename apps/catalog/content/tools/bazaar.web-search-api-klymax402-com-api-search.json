@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.web-search-api-klymax402-com-api-search",
+  "title": "Search the web and return structured results",
+  "description": "Search the web and return structured results",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://web-search.api.klymax402.com/api/search"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.003",
+    "pay_to": "0x6E8B64638b24C6D625b045dD353120d850064E2E",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://web-search.api.klymax402.com/api/search",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "web-search.api.klymax402.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 6,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Web search API for AI agents. Structured results with title, URL, snippet. Current news, docs, research. Up to 10 results per query.. Pay-per-call via x402 protocol (USDC on Base).",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

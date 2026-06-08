@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.agents-securelend-ai-api-v1-risk-discovery",
+  "title": "USDC payment required for /api/v1/risk-discovery",
+  "description": "USDC payment required for /api/v1/risk-discovery",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://agents.securelend.ai/api/v1/risk-discovery"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.24",
+    "pay_to": "0x3cf85B14A756F7E1bCD6cE0edD51F3d3DE1C4cAD",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://agents.securelend.ai/api/v1/risk-discovery",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "agents.securelend.ai",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 17,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "All endpoints require payment via MPP or x402. Send a payment credential in the Authorization: Payment header (MPP) or X-PAYMENT header (x402). First request returns a 402 challenge with exact payment requirements. Supports USDC on Base L2 and USD via Stripe. Use Delegare AP2 mandates for scoped agent spending — see https://delegare.dev.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

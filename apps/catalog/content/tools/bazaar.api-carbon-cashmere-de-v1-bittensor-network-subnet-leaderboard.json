@@ -93,25 +93,25 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://api.carbon-cashmere.de/v1/bittensor/network/subnet-leaderboard",
     "x402_version": 2,
     "accept_count": 6
   },
   "_signals": {
     "host": "api.carbon-cashmere.de",
-    "is_active_14d": true,
+    "is_active_14d": false,
     "is_infra": false,
     "is_recognized": false,
     "is_mass_lister": false,
     "category": "other",
-    "network_count": 6,
-    "network_names": "Algorand, Arbitrum, Base, Polygon, Solana, Stellar",
+    "network_count": 7,
+    "network_names": "Algorand, Arbitrum, Base, Polygon, Solana, Stellar, World Chain",
     "listed_on_count": 2,
-    "total_calls_30d": 187,
+    "total_calls_30d": 55,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

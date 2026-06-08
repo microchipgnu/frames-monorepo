@@ -20,7 +20,7 @@
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
     "price_hint": "0.01",
-    "pay_to": "0xD34411a70EffbDd000c529bbF572082ffDcF1794",
+    "pay_to": "0x402c1246842f2CdbC8E0b98A67d7a59aae22b394",
     "scheme": "exact",
     "extra": {
       "name": "USD Coin",
@@ -33,10 +33,10 @@
         "currency": "UNKNOWN",
         "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
         "price_hint": "0.01",
-        "pay_to": "4HVvnhyXTkMnPbMBo9r3kfvYhzW4JSbLGdXg9SkUcVSe",
+        "pay_to": "BACKWH4RoCFWALyGa7bf4F7w7G3d3q1B3T7G1ACox4o2",
         "scheme": "exact",
         "extra": {
-          "feePayer": "8wLKe8H59eni5DmERU27GiRHGnN9fogRoq9yNqyKKNJA"
+          "feePayer": "2wKupLR9q6wXYppw8Gr2NvWxKBUqm4PPJKkQfoxHDBg4"
         }
       },
       {
@@ -45,25 +45,25 @@
         "currency": "UNKNOWN",
         "asset": "0x85889c8c714505E0c94b30fcfcF64fE3Ac8FCb20",
         "price_hint": "0.01",
-        "pay_to": "0xD34411a70EffbDd000c529bbF572082ffDcF1794",
+        "pay_to": "0x402c1246842f2CdbC8E0b98A67d7a59aae22b394",
         "scheme": "exact",
         "extra": {
-          "name": "USD Coin",
-          "version": "1"
+          "name": "Bridged USDC (SKALE Bridge)",
+          "version": "2"
         }
       }
     ]
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://silverback-x402.onrender.com/api/v1/pool-analysis",
     "x402_version": 2,
     "accept_count": 4
   },
   "_signals": {
     "host": "silverback-x402.onrender.com",
-    "is_active_14d": false,
+    "is_active_14d": true,
     "is_infra": false,
     "is_recognized": false,
     "is_mass_lister": false,
@@ -71,10 +71,10 @@
     "network_count": 4,
     "network_names": "Base, Keeta, SKALE Base, Solana",
     "listed_on_count": 2,
-    "total_calls_30d": 0,
+    "total_calls_30d": 7,
     "x402_volume_usd_30d": 0,
     "x_guidance": "# Silverback x402 API — Agent Guide\n\n## Overview\nSilverback provides DeFi intelligence as paid API endpoints using the x402 micropayment protocol. Every endpoint returns JSON. Payments are in USDC on Base, Solana, or SKALE.\n\n## How to call endpoints\n1. Send a request to the endpoint (POST with JSON body, or GET with query params where supported).\n2. You will receive a 402 Payment Required response with an `accepts` array describing payment options.\n3. Pay using x402 protocol (sign a USDC authorization) and resend with the payment proof header.\n4. Receive the JSON response.\n\n## Pricing tiers\n- **Execution** ($0.05): swap\n- **Heavy analysis** ($0.03): technical-analysis, defi-yield, arbitrage-scanner\n- **Intelligence** ($0.02): token-audit, whale-moves, wallet-portfolio\n- **Analysis** ($0.01): pool-analysis, swap-quote, jupiter-quote, holder-analytics\n\n## Common patterns\n- Token identifiers: Use CoinGecko IDs (e.g. \"bitcoin\", \"ethereum\") for market data endpoints, or contract addresses (0x format) for on-chain endpoints.\n- All responses include a `success: boolean` field.\n- Most endpoints accept both GET (query params) and POST (JSON body).\n- Chain defaults to Base (8453) unless specified.\n\n## Payment networks\n- Base (EVM): USDC at 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913\n- Solana: USDC at EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v\n- SKALE Base Hub: USDC (zero gas)\n- $BACK token: Permit2 on Base (15% discount)",
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

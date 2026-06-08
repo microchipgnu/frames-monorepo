@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://public.zapper.xyz/x402/account-identity",
     "x402_version": 2,
     "accept_count": 1
@@ -40,10 +40,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 14777,
+    "total_calls_30d": 78,
     "x402_volume_usd_30d": 0,
     "x_guidance": "All paid endpoints are at POST /x402/{tool}. Send a JSON body with the required fields for the tool. Payment is required via x402 (X-Payment header, Base USDC) or MPP (Authorization: Payment header, Tempo). Available tools: token-price, search, nft-token-metadata, nft-collection-metadata, portfolio-totals, token-balances, defi-balances, nft-balances, historical-token-price, transaction-details, transaction-history, token-holders, token-ranking, nft-ranking, account-identity, general-swap-feed, token-activity-feed.",
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "curated"
   }
 }

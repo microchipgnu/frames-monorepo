@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-production-853c-up-railway-app-v1-repair",
+  "title": "MatrixFold social payload repair API for AI agents. Fix invalid X/Twitter, Linke",
+  "description": "MatrixFold social payload repair API for AI agents. Fix invalid X/Twitter, LinkedIn, and Xiaohongshu post payloads after validation. Returns corrected JSON, validation reports, fixed rule codes, remaining risks, and a machine-readable diff so agents can retry publishing safely.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api-production-853c.up.railway.app/v1/repair"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.006",
+    "pay_to": "0x118FaE85e5E44a92a1A2b3ED1F16DF3ecAB4Ce58",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://api-production-853c.up.railway.app/v1/repair",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "api-production-853c.up.railway.app",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 15,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

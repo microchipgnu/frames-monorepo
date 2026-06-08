@@ -45,7 +45,10 @@
         "price_hint": "0.001",
         "pay_to": "0x5bB4B0C766E0D5D791d9403Fc275c22064709F68",
         "scheme": "exact",
-        "extra": {}
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
       },
       {
         "protocol": "x402v2",
@@ -63,7 +66,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://x402.ottoai.services/supported-tokens",
     "x402_version": 2,
     "accept_count": 4
@@ -78,10 +81,10 @@
     "network_count": 3,
     "network_names": "Base, Polygon, Solana",
     "listed_on_count": 2,
-    "total_calls_30d": 1449,
+    "total_calls_30d": 7102,
     "x402_volume_usd_30d": 0,
-    "x_guidance": "Otto AI exposes 30+ endpoints for DeFi, market intelligence, and AI creative tools. All endpoints require x402 V2 payment (USDC on Base, Polygon, or Solana).\n\nHow to use:\n1. GET/POST any endpoint — receive 402 with PAYMENT-REQUIRED header (base64-encoded)\n2. Decode header to find accepts[] array with payment options (EIP-3009 USDC, Permit2 any ERC-20, Solana USDC)\n3. Sign payment and retry with PAYMENT-SIGNATURE header\n4. Receive 200 with data + signed receipt in PAYMENT-RESPONSE header\n5. For read-only endpoints: use SIGN-IN-WITH-X header on subsequent requests (1hr free access)\n\nThree agent categories:\n- Market Intelligence (13 endpoints): News, token analysis, DeFi analytics, derivatives, TradFi macro\n- AI Creative Tools (4 endpoints): Image gen, video gen, research, tx explainer\n- Trading (13 endpoints): Portfolio, market data, swaps, bridges, perps",
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "x_guidance": "Otto AI exposes 42 pay-per-call endpoints across five capability tags — Market & Token Intelligence, DeFi & Markets Data, AI Creative & Tools, Portfolio & Accounts, and Execution. All endpoints require x402 V2 payment (USDC on Base, Polygon, or Solana).\n\nHow to use:\n1. GET/POST any endpoint — receive 402 with PAYMENT-REQUIRED header (base64-encoded)\n2. Decode header to find accepts[] array with payment options (EIP-3009 USDC, Permit2 any ERC-20, Solana USDC)\n3. Sign payment and retry with PAYMENT-SIGNATURE header\n4. Receive 200 with data + signed receipt in PAYMENT-RESPONSE header\n5. For read-only endpoints: use SIGN-IN-WITH-X header on subsequent requests (1hr free access)\n\nEndpoint categories:\n- Market & Token Intelligence (11): News, KOL sentiment, token analysis/details/security, trending, top-holders, Base Season, mega-report\n- DeFi & Markets Data (9): DeFi TVL/yield, stablecoin peg-watch, protocol fees/revenue, funding rates, perp/HL market data, TradFi macro, US equities intel\n- AI Creative & Tools (4): Image gen, video gen, AI research, tx explainer\n- Portfolio & Accounts (9): Wallet balances, positions, transaction history, yield positions, idle capital\n- Execution (9): Swap (Odos), bridge (LiFi), deposit, withdraw, Hyperliquid perps (trade/close/modify/margin/deposit-withdraw)",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

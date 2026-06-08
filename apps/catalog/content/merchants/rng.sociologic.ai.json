@@ -2,7 +2,7 @@
   "catalog_protocol": "0.0.1",
   "host": "rng.sociologic.ai",
   "display_name": "rng.sociologic.ai",
-  "description": "Generate a cryptographically secure random integer within a range",
+  "description": "Generate cryptographically secure random float(s) between 0 and 1",
   "category": "other",
   "category_source": "none",
   "x_guidance": "Use this API when you need unbiased random numbers, UUIDs, dice rolls, coin flips, array shuffling, or weighted random selection. All endpoints return raw entropy for cryptographic verification. Payment is automatic via x402  - send a request, receive a 402 with payment details, pay USDC on Base, retry with the X-PAYMENT header.",
@@ -27,9 +27,9 @@
   "has_openapi": true,
   "per_route_schemas": 0,
   "mpp_source": "probe",
-  "bazaar_resource_count": 7,
-  "bazaar_last_updated": "2026-05-05T15:44:47.965Z",
-  "total_calls_30d": 33,
+  "bazaar_resource_count": 4,
+  "bazaar_last_updated": "2026-06-02T05:34:13.514Z",
+  "total_calls_30d": 34,
   "tempo_tx_count": 0,
   "tempo_volume_usd": 0,
   "tempo_latest_tx": null,
@@ -48,22 +48,19 @@
   "min_price_usd": 0.01,
   "max_price_usd": 0.02,
   "endpoint_count": 7,
-  "paid_endpoint_count": 7,
+  "paid_endpoint_count": 4,
   "siwx_endpoint_count": 0,
-  "observed_at": "2026-05-13T15:54:06.733Z",
+  "observed_at": "2026-06-08T19:22:53.903Z",
   "evidence": {
     "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=0",
     "agentic_market": "https://api.agentic.market/v1/services/rng-sociologic-ai",
     "probe": "https://rng.sociologic.ai"
   },
   "tools": [
-    "bazaar.rng-sociologic-ai-coin",
     "bazaar.rng-sociologic-ai-dice",
     "bazaar.rng-sociologic-ai-random",
     "bazaar.rng-sociologic-ai-random-int",
-    "bazaar.rng-sociologic-ai-shuffle",
-    "bazaar.rng-sociologic-ai-uuid",
-    "bazaar.rng-sociologic-ai-weighted"
+    "bazaar.rng-sociologic-ai-uuid"
   ],
   "quality": "long-tail"
 }

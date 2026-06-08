@@ -39,7 +39,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://api.messari.io/funding/v1/organizations",
     "x402_version": 2,
     "accept_count": 2
@@ -51,13 +51,13 @@
     "is_recognized": true,
     "is_mass_lister": false,
     "category": "data",
-    "network_count": 2,
-    "network_names": "Base, Solana",
+    "network_count": 3,
+    "network_names": "Base, Solana, X Layer",
     "listed_on_count": 2,
-    "total_calls_30d": 25,
+    "total_calls_30d": 60,
     "x402_volume_usd_30d": 0,
     "x_guidance": "# Messari API\n\nComprehensive crypto data for institutions with pay-per-request x402 access.\n\nhttps://docs.messari.io/api-reference/x402-payments",
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "curated"
   }
 }

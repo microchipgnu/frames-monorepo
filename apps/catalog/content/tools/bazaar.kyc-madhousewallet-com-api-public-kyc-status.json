@@ -1,0 +1,77 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.kyc-madhousewallet-com-api-public-kyc-status",
+  "title": "Look up KYC status for any wallet. Costs $0.01 USDC. Pass ?wallet=0x... to check",
+  "description": "Look up KYC status for any wallet. Costs $0.01 USDC. Pass ?wallet=0x... to check any address, or omit to check the paying wallet itself. Returns verified (bool), chain, attestation details, verificationMethods, and risk score.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://kyc.madhousewallet.com/api/public/kyc/status"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01",
+    "pay_to": "0xf802283ff77D5972FFD109B91B70d34591B5459e",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "polygon",
+        "currency": "USDC",
+        "asset": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "price_hint": "0.01",
+        "pay_to": "0xf802283ff77D5972FFD109B91B70d34591B5459e",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "arbitrum",
+        "currency": "UNKNOWN",
+        "asset": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+        "price_hint": "0.01",
+        "pay_to": "0xf802283ff77D5972FFD109B91B70d34591B5459e",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://kyc.madhousewallet.com/api/public/kyc/status",
+    "x402_version": 2,
+    "accept_count": 3
+  },
+  "_signals": {
+    "host": "kyc.madhousewallet.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 4,
+    "network_names": "Arbitrum, Base, Polygon, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 11,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "STEP 1 -- Quick check (free): GET /api/public/kyc/verified?wallet=<address>. No payment, no auth. Returns { verified: true/false } from DB. 60 req/min. STEP 2 -- Start KYC: POST /api/public/kyc/start with $0.05 USDC via x402. The paying wallet address is extracted automatically from the x402 payment-signature header -- no request body needed. Response: { kycUrl, walletAddress }. Open kycUrl in a browser to complete identity verification. STEP 3 -- Authoritative status: GET /api/public/kyc/status?wallet=<address> with $0.01 USDC. Cross-checks on-chain for revocation. When verified:true the attestation is valid -- use this to gate access. STEP 4 (optional) -- Sanctions: GET /api/public/kyc/sanctions?wallet=<address> with $0.02 USDC. Returns sanctioned (bool) and match details. No PII is ever returned. Use @x402/fetch (wrapFetchWithPayment) to handle the 402 challenge/response cycle automatically.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

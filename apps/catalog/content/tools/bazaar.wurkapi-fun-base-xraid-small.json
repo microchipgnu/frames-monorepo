@@ -31,7 +31,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://wurkapi.fun/base/xraid/small",
     "x402_version": 2,
     "accept_count": 1
@@ -49,7 +49,7 @@
     "total_calls_30d": 0,
     "x402_volume_usd_30d": 0,
     "x_guidance": "# WURK MPP Discovery Guidance\n\nThis document is the canonical discovery source for MPP endpoints.\n\n## Payment flow\n1. Call a protected `/mpp/*` operation without `Authorization: Payment ...`.\n2. Receive HTTP 402 with `WWW-Authenticate: Payment ...` and an `application/problem+json` body.\n3. Build/sign a valid Payment authorization credential.\n4. Retry the same operation with `Authorization: Payment ...`.\n5. Receive HTTP 200 with business payload and `Payment-Receipt` header.\n\n## Notes\n- Runtime challenge/probe behavior is the source of truth.\n- OpenAPI is intentionally lean/canonical: primary POST endpoints are listed for discovery token-budget efficiency.\n- Runtime may expose additional aliases/GET variants; those remain supported but are not all advertised here.\n- Shared advanced creator winner-selection endpoint is included as `POST /api/agenttohumanadvanced/choose-winners`.",
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

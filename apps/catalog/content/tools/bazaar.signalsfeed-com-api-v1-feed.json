@@ -1,36 +1,18 @@
 {
   "pay_protocol": "0.0.1",
   "id": "bazaar.signalsfeed-com-api-v1-feed",
-  "title": "Real-time macroeconomic data and financial intelligence API for AI agents. Cover",
-  "description": "Real-time macroeconomic data and financial intelligence API for AI agents. Covers economic indicators (GDP, CPI, inflation, unemployment, interest rates, treasury yields, PMI), central bank policy, commodities (oil, gas, gold), equities, and geopolitical risk. Structured JSON records with credibility scoring, sentiment, impact scores, and source URLs. Pay-per-request via x402; free discovery available.",
+  "title": "Real-time signals feed for AI agents. Covers economic indicators, central bank p",
+  "description": "Real-time signals feed for AI agents. Covers economic indicators, central bank policy, commodities, equities, AI, semiconductors, and geopolitical risk. Structured signals with credibility scoring. Pay-per-request via x402; free discovery available.",
   "capabilities": [
     "finance",
     "macro",
     "ai",
     "semiconductor",
-    "news",
-    "agents",
+    "signals",
     "x402",
-    "economic indicators",
-    "GDP",
-    "CPI",
-    "inflation rate",
-    "unemployment rate",
-    "interest rates",
-    "treasury yield",
-    "federal reserve",
-    "central bank",
-    "commodities",
-    "oil",
-    "energy",
-    "geopolitical risk",
-    "market data",
-    "structured data",
-    "time series",
-    "forecast",
-    "earnings",
-    "IPO",
-    "recession"
+    "cross-domain",
+    "real-time news",
+    "Base Mainnet"
   ],
   "invocation": {
     "method": "POST",
@@ -51,7 +33,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://signalsfeed.com/api/v1/feed",
     "x402_version": 2,
     "accept_count": 1
@@ -66,10 +48,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 11,
+    "total_calls_30d": 46,
     "x402_volume_usd_30d": 0,
-    "x_guidance": "Use GET /api/v1/feed with supported domain and filter parameters to query machine-usable macro, AI, and semiconductor signals.",
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "x_guidance": "Use GET /api/v1/feed with domain and filter parameters to query macroeconomic data, trading signals, financial news sentiment, or event-driven policy intelligence. Alias paths such as /api/v1/macro and /api/v1/trading are preset views over the same backend feed.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

@@ -1,0 +1,64 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.diet-agentic-jp-com-minutes-search",
+  "title": "Full-text search the official Japanese (JP) Diet proceedings archive (国会会議録, sou",
+  "description": "Full-text search the official Japanese (JP) Diet proceedings archive (国会会議録, sourced from the National Diet Library), filterable by date range, house, committee, and speaker. Returns meeting metadata and matching snippets. Dynamic pricing: a base fee plus a small per-result fee. Use to find when and where a topic was debated.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://diet.agentic-jp.com/minutes/search"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.012",
+    "pay_to": "0x38c9F689274E2fC3AE360744eF88ce212077a584",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "polygon",
+        "currency": "USDC",
+        "asset": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "price_hint": "0.012",
+        "pay_to": "0x38c9F689274E2fC3AE360744eF88ce212077a584",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://diet.agentic-jp.com/minutes/search",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "diet.agentic-jp.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 3,
+    "network_names": "Base, Polygon, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 9,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

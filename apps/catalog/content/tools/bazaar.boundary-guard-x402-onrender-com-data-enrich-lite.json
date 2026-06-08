@@ -1,0 +1,57 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.boundary-guard-x402-onrender-com-data-enrich-lite",
+  "title": "Create a no-secret data enrichment package from caller-supplied public text, URL",
+  "description": "Create a no-secret data enrichment package from caller-supplied public text, URLs, and known fields; return normalized fields, source pack, missing fields, and receipt evidence.",
+  "capabilities": [
+    "agents",
+    "data-enrichment",
+    "lead-enrichment",
+    "search",
+    "source-pack",
+    "no-secret",
+    "sales-intelligence",
+    "receipts",
+    "x402"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://boundary-guard-x402.onrender.com/data-enrich-lite"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.02",
+    "pay_to": "0x4200ab5Af9E541b6A89eb39EeF3140f83D9De8b0",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://boundary-guard-x402.onrender.com/data-enrich-lite",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "boundary-guard-x402.onrender.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 28,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

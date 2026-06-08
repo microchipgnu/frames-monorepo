@@ -29,7 +29,7 @@
   },
   "_meta": {
     "catalog": "mpp",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "nansen:POST:/api/v1/prediction-market/top-holders"
   },
   "_signals": {
@@ -38,14 +38,14 @@
     "is_infra": false,
     "is_recognized": true,
     "is_mass_lister": false,
-    "category": "data",
+    "category": "finance",
     "network_count": 4,
     "network_names": "Base, Solana, Tempo, X Layer",
-    "listed_on_count": 3,
-    "total_calls_30d": 1706,
+    "listed_on_count": 4,
+    "total_calls_30d": 4146,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "curated"
   }
 }

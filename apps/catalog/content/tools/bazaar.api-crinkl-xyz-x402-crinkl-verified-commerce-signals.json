@@ -1,8 +1,8 @@
 {
   "pay_protocol": "0.0.1",
   "id": "bazaar.api-crinkl-xyz-x402-crinkl-verified-commerce-signals",
-  "title": "Verified commerce data API - access privacy-safe aggregate purchase signals for ",
-  "description": "Verified commerce data API - access privacy-safe aggregate purchase signals for retail demand, CPG planning, and campaign measurement.",
+  "title": "Verified purchase data API - access privacy-thresholded commerce signals and pro",
+  "description": "Verified purchase data API - access privacy-thresholded commerce signals and proof-backed shopper activation from rewarded consumer purchase evidence.",
   "capabilities": [
     "unspecified"
   ],
@@ -32,21 +32,21 @@
         "pay_to": "x5VVjKcqcMCdejk39CXJuMxtvEpCvZLMVXFfe2EWA4d",
         "scheme": "exact",
         "extra": {
-          "feePayer": "BFK9TLC3edb13K6v4YyH3DwPb5DSUpkWvb7XnqCL9b4F"
+          "feePayer": "D6ZhtNQ5nT9ZnTHUbqXZsTx5MH2rPFiBBggX4hY1WePM"
         }
       }
     ]
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://api.crinkl.xyz/x402/crinkl-verified-commerce-signals",
     "x402_version": 2,
     "accept_count": 2
   },
   "_signals": {
     "host": "api.crinkl.xyz",
-    "is_active_14d": true,
+    "is_active_14d": false,
     "is_infra": false,
     "is_recognized": false,
     "is_mass_lister": false,
@@ -54,10 +54,10 @@
     "network_count": 2,
     "network_names": "Base, Solana",
     "listed_on_count": 2,
-    "total_calls_30d": 14,
+    "total_calls_30d": 2,
     "x402_volume_usd_30d": 0,
-    "x_guidance": null,
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "x_guidance": "Use the paid x402 GET operations for privacy-thresholded aggregate commerce signals. Start with /x402/crinkl-verified-commerce-signals for provider fit or /x402/category-pulse for demand trend checks. Crinkl does not return raw receipts, wallet histories, line items, or identifiable purchase records.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

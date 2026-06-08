@@ -1,0 +1,59 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.vibesprings-net-api-generate-pdf",
+  "title": "Premium document generation engine. Synthesizes publication-grade, multi-page PD",
+  "description": "Premium document generation engine. Synthesizes publication-grade, multi-page PDFs from structured JSON payloads. Provides 11 professional pre-designed templates: Invoice, Resume, business Report, business Contract, Receipt, generic Document, NDA, Shipping-Label, Certificate, x402-Receipt, and business Proposal. Saves 2,000+ LLM context tokens vs HTML-to-PDF conversion alternatives by eliminating code generation.",
+  "capabilities": [
+    "pdf",
+    "document",
+    "invoice",
+    "report",
+    "nda",
+    "certificate",
+    "shipping-label",
+    "receipt",
+    "proposal",
+    "ai-tools",
+    "contracts"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://vibesprings.net/api/generate-pdf"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.04",
+    "pay_to": "0x38C063312719220c676E988f0DEE14B4ec0e44C8",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://vibesprings.net/api/generate-pdf",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "vibesprings.net",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 91,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

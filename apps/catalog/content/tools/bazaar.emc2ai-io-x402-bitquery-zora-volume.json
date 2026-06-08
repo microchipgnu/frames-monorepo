@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.emc2ai-io-x402-bitquery-zora-volume",
+  "title": "Top Zora Launchpad tokens by trading volume (Base only). (with AI analysis)",
+  "description": "Top Zora Launchpad tokens by trading volume (Base only). (with AI analysis)",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://emc2ai.io/x402/bitquery/zora-volume"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0",
+    "pay_to": "0xc9368b30BD620164FD1a05a5d99dcaf8Ae754775",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://emc2ai.io/x402/bitquery/zora-volume",
+    "x402_version": 1,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "emc2ai.io",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": true,
+    "is_mass_lister": false,
+    "category": "data",
+    "network_count": 3,
+    "network_names": "Base, Lightning, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 35,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Pay-per-call blockchain intelligence via x402 (USDC on Base, eip155:8453). POST a JSON body to any /x402/bitquery/* or /x402/einstein/* endpoint; an unpaid request returns a 402 challenge with payment requirements. Each operation requestBody documents required parameters. Chart-forecast endpoints (tokenchart/ohlcv/candles) add TimesFM+Kronos predictions on the analyzed variant.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "curated"
+  }
+}

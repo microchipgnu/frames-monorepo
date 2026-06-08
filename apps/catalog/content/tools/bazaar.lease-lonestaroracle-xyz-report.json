@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.lease-lonestaroracle-xyz-report",
+  "title": "BLM lease auctions, expiring leases, active lease portfolio analysis — oil/gas, ",
+  "description": "BLM lease auctions, expiring leases, active lease portfolio analysis — oil/gas, geothermal, grazing rights. $0.15/report via x402 on Base.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://lease.lonestaroracle.xyz/report"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.15",
+    "pay_to": "0x52Ab53912D37759B2ad364f22dD06B16714b6C06",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://lease.lonestaroracle.xyz/report",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "lease.lonestaroracle.xyz",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 2,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "LeaseEdge provides Gulf of Mexico oil & gas lease intelligence from BOEM federal data. Track active leases, auction results, block availability, and upcoming sales. $0.15/query via x402 USDC on Base. | Full catalog: lonestaroracle.xyz",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

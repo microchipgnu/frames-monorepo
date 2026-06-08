@@ -1,0 +1,82 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.three-ws-api-x402-mint-to-mesh-batch",
+  "title": "three.ws Mint-to-Mesh (Batch) — resolve 1–10 Solana SPL mints to themed binary g",
+  "description": "three.ws Mint-to-Mesh (Batch) — resolve 1–10 Solana SPL mints to themed binary glTF cubes in a single paid call. Each mint is processed in parallel; per-mint failures (bad mint, RPC unreachable, off-chain metadata 404) report ok:false individually rather than failing the whole batch. Output is base64 JSON-safe GLB bytes ready for Three.js / Babylon.js / model-viewer.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://three.ws/api/x402/mint-to-mesh-batch"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.05",
+    "pay_to": "0x4022de2d36c334e73c7a108805cea11c0564f402",
+    "scheme": "exact",
+    "extra": {
+      "decimals": 6,
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "base",
+        "currency": "USDC",
+        "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "price_hint": "0.05",
+        "pay_to": "0x4022de2d36c334e73c7a108805cea11c0564f402",
+        "scheme": "exact",
+        "extra": {
+          "assetTransferMethod": "permit2",
+          "decimals": 6,
+          "name": "USD Coin",
+          "supportsEip2612": true,
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.05",
+        "pay_to": "wwwPqsM4N7T9J69tB82nLyzxqsH159j4orftLTQfUGV",
+        "scheme": "exact",
+        "extra": {
+          "decimals": 6,
+          "feePayer": "2wKupLR9q6wXYppw8Gr2NvWxKBUqm4PPJKkQfoxHDBg4",
+          "name": "USDC"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://three.ws/api/x402/mint-to-mesh-batch",
+    "x402_version": 2,
+    "accept_count": 3
+  },
+  "_signals": {
+    "host": "three.ws",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 2,
+    "network_names": "Base, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 12,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Use POST /api/mcp to interact with the MCP server. Send a JSON-RPC 2.0 request body. Authenticate with a Bearer access token obtained via OAuth 2.1 at https://three.ws/oauth/authorize, or use a Bearer API key from the dashboard. Available MCP tools: list_my_avatars, get_avatar, search_public_avatars, render_avatar, delete_avatar, validate_model, inspect_model, optimize_model. Paid REST endpoints under /api/x402/* and /api/insights/* settle in USDC over x402 (HTTP 402); pay programmatically with @x402/fetch — no API key required.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

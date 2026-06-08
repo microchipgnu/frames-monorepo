@@ -1,0 +1,113 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.tiresapi-com-api-v1-query",
+  "title": "SQL sandbox over guarded dbo.v_* views (SELECT-only, capped 500 rows, 90s timeou",
+  "description": "SQL sandbox over guarded dbo.v_* views (SELECT-only, capped 500 rows, 90s timeout). Flat $0.020 per call. There is no dbo.v_inventory_history — history rows are dbo.v_inventory_by_day or GET /api/v1/corpus/inventory/history. Use only when no curated answer/corpus tool fits the question.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://tiresapi.com/api/v1/query"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.02",
+    "pay_to": "0xF0d33a22F716dEE8De9AbE980c01162fE2868b31",
+    "scheme": "exact",
+    "extra": {
+      "facilitator": "https://facilitator.xpay.sh",
+      "facilitatorId": "xpay",
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "base",
+        "currency": "USDC",
+        "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "price_hint": "0.02",
+        "pay_to": "0x68e58440756916d739E7949f2a8D32496B31a8De",
+        "scheme": "exact",
+        "extra": {
+          "facilitator": "https://api.cdp.coinbase.com/platform/v2/x402",
+          "facilitatorId": "cdp",
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "arbitrum",
+        "currency": "UNKNOWN",
+        "asset": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+        "price_hint": "0.02",
+        "pay_to": "0x68e58440756916d739E7949f2a8D32496B31a8De",
+        "scheme": "exact",
+        "extra": {
+          "facilitator": "https://api.cdp.coinbase.com/platform/v2/x402",
+          "facilitatorId": "cdp",
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "polygon",
+        "currency": "USDC",
+        "asset": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "price_hint": "0.02",
+        "pay_to": "0x68e58440756916d739E7949f2a8D32496B31a8De",
+        "scheme": "exact",
+        "extra": {
+          "facilitator": "https://api.cdp.coinbase.com/platform/v2/x402",
+          "facilitatorId": "cdp",
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "base",
+        "currency": "USDC",
+        "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "price_hint": "0.02",
+        "pay_to": "0xbab109cB9c5d8CEA5809B59C3Cb7bb4Da54F5314",
+        "scheme": "exact",
+        "extra": {
+          "facilitator": "https://facilitator.payai.network",
+          "facilitatorId": "payai",
+          "name": "USD Coin",
+          "version": "2"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://tiresapi.com/api/v1/query",
+    "x402_version": 2,
+    "accept_count": 5
+  },
+  "_signals": {
+    "host": "tiresapi.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 3,
+    "network_names": "Arbitrum, Base, Polygon",
+    "listed_on_count": 2,
+    "total_calls_30d": 20,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "tiresapi is an **agent-native** car tire intelligence API. Free tier-1 answer\nendpoints cover the common questions (best price near zip, stores near zip,\nfitment); paid tier-2 corpus endpoints return bounded datasets. A paid tier-3 SQL sandbox is also available when no curated endpoint fits.\n\n**Workflow**\n1. Mint a wallet-bound agent at `/connect` ($0.20 starting virtual USD\n   balance ≈ 200 tier-1 answers + multi-wallet MPP support) or headless via\n   `POST /api/v1/agents/wallet-register` after SIWE.\n2. Use tier-1 answer endpoints by default: `/api/v1/answers/best_price_near`,\n   `/api/v1/answers/stores_near`. Single small JSON answers, $0.001/call\n   debited from your virtual balance first.\n3. For bulk reads pay per call via x402 v2 USDC on Base mainnet:\n   - `$5.000` `/api/v1/corpus/catalogue`, `/api/v1/corpus/retailers` — paged at 100 rows/call (`x-pricing.unit_rows=100`)\n   - `$0.010` `/api/v1/corpus/inventory/latest|by-day`\n   - `$0.030` `/api/v1/corpus/price-history/sku|size`\n   - `$0.050` `/api/v1/corpus/inventory/history`, `/api/v1/corpus/price-deltas/dma|zip`\n   - `$0.010` `/api/v1/requests/retailer-coverage|data` (free-form / coverage requests; auto-credit on existing coverage)\n4. Last resort: `POST /api/v1/query` with `{ \"sql\": \"SELECT ...\", \"reason\": \"...\" }` — SELECT-only against `dbo.v_*` sandbox views (no `v_inventory_history`; history is `v_inventory_by_day` or `/corpus/inventory/history`), capped at 500 rows / 90 s. Flat $0.020 per call.\n\n**Free pre-flight:** `GET /openapi-free.json` documents mint, fitment, and\nper-dimension corpus facets (`/api/v1/corpus/facets/*`). Paid catalogue:\n`GET /openapi.json`.\n\n**Payment:** Every billed call FIRST debits your agent's virtual USD\nbalance; the x402 v2 challenge only fires after the balance is exhausted.\nThe server runs the official `x402[fastapi,evm]` Python SDK — envelopes\nfollow the canonical v2 spec (base64 `payment-required:` header carrying\n`accepts[]` with CAIP-2 networks like `eip155:8453` and atomic-units\n`amount` strings like `\"10000\"` for $0.010 USDC, plus\n`extensions.tireapi-mpp` and `extensions.bazaar` for wallet allowance +\nJSON Schemas). Settle by signing an EIP-3009 `TransferWithAuthorization`\nto the listed `payTo` and retrying with `X-PAYMENT: <base64>`. After-settle\nreceipts arrive in the `payment-response: <base64>` header. Catalogue:\n`GET /.well-known/x402`. Bazaar-style discovery for facilitator indexers:\n`GET /discovery/resources`.\n",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

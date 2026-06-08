@@ -1,8 +1,8 @@
 {
   "pay_protocol": "0.0.1",
   "id": "bazaar.promptqualityscore-com-api-score",
-  "title": "PQS score - 8-dimensional prompt quality breakdown with top fixes",
-  "description": "PQS score - 8-dimensional prompt quality breakdown with top fixes",
+  "title": "PQS score - 8-dimensional prompt quality breakdown across 5 frameworks with top ",
+  "description": "PQS score - 8-dimensional prompt quality breakdown across 5 frameworks with top fixes",
   "capabilities": [
     "prompt-quality",
     "llm",
@@ -20,7 +20,7 @@
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
     "price_hint": "0.025",
-    "pay_to": "0xD2DfC5796de622E08C13f3016E92cfa15Ea33D0F",
+    "pay_to": "0xB40a687ca5483Ebc02F870348f6e08971Cae1308",
     "scheme": "exact",
     "extra": {
       "name": "USD Coin",
@@ -29,7 +29,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://promptqualityscore.com/api/score",
     "x402_version": 2,
     "accept_count": 1
@@ -44,10 +44,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 1,
+    "total_calls_30d": 6,
     "x402_volume_usd_30d": 0,
     "x_guidance": "POST a prompt to /api/score/free for a free basic score, /api/score for a paid detailed score ($0.025 USDC), /api/score/full for optimized prompt + before/after outputs ($0.125 USDC). Anonymous x402 payment on Base mainnet is the default; bearer PQS_... API keys accepted for subscribed customers.",
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

@@ -1,0 +1,48 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.oracle-api-production-766f-up-railway-app-v1-npb-games-date-win-prob",
+  "title": "Japanese baseball (NPB) win probability oracle. Returns home_win_prob (0-1), pre",
+  "description": "Japanese baseball (NPB) win probability oracle. Returns home_win_prob (0-1), predicted_winner (team name), confidence (low/mid/high), and starting pitcher matchup for each game on the given date. XGBoost model trained on 28,968 historical NPB games (2008-2025), incorporating Asian Handicap data, ballpark factors, and pitcher-batter splits. Use cases: betting bots, fantasy baseball agents, sportsbook arbitrage detection, Japanese sports analytics. Input: :date (YYYY-MM-DD, JST). Output: JSON {date, league, model_version, generated_at, games[]}. Pay-per-call $0.01 USDC on Solana mainnet.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://oracle-api-production-766f.up.railway.app/v1/npb/games/:date/win-prob"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "solana-mainnet",
+    "currency": "UNKNOWN",
+    "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "price_hint": "0.01",
+    "pay_to": "D2pqw2UyM59v9NEsDdWGfE9LkFa9afJwV14VnTjiNG4c",
+    "scheme": "exact",
+    "extra": {
+      "feePayer": "BENrLoUbndxoNMUS5JXApGMtNykLjFXXixMtpDwDR9SP"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://oracle-api-production-766f.up.railway.app/v1/npb/games/:date/win-prob",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "oracle-api-production-766f.up.railway.app",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Solana",
+    "listed_on_count": 1,
+    "total_calls_30d": 3563,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.signalsfeed-com-api-v1-sentiment",
+  "title": "Financial news sentiment API for AI agents. Covers market mood, bullish or beari",
+  "description": "Financial news sentiment API for AI agents. Covers market mood, bullish or bearish tone, risk-on or risk-off shifts, and policy-driven sentiment changes. Structured signals with credibility scoring. Pay-per-request via x402; free discovery available.",
+  "capabilities": [
+    "sentiment",
+    "finance",
+    "signals",
+    "x402"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://signalsfeed.com/api/v1/sentiment"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01",
+    "pay_to": "0xcde02cB53DA623D929FEf26d56C1cD9Ddc9ca880",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://signalsfeed.com/api/v1/sentiment",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "signalsfeed.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 46,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Use GET /api/v1/feed with domain and filter parameters to query macroeconomic data, trading signals, financial news sentiment, or event-driven policy intelligence. Alias paths such as /api/v1/macro and /api/v1/trading are preset views over the same backend feed.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

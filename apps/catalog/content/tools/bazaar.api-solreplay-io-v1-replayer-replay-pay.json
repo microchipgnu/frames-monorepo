@@ -19,19 +19,19 @@
     "pay_to": "743MFooQus1GvgKiVDNwALUk8eqNDUYrA4YFXkDtWc7o",
     "scheme": "exact",
     "extra": {
-      "feePayer": "BENrLoUbndxoNMUS5JXApGMtNykLjFXXixMtpDwDR9SP"
+      "feePayer": "GVJJ7rdGiXr5xaYbRwRbjfaJL7fmwRygFi1H6aGqDveb"
     }
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://api.solreplay.io/v1/replayer/replay-pay",
     "x402_version": 1,
     "accept_count": 1
   },
   "_signals": {
     "host": "api.solreplay.io",
-    "is_active_14d": true,
+    "is_active_14d": false,
     "is_infra": false,
     "is_recognized": false,
     "is_mass_lister": false,
@@ -42,7 +42,7 @@
     "total_calls_30d": 5,
     "x402_volume_usd_30d": 0,
     "x_guidance": "SolReplay exposes TWO related capabilities:\n\n- **Replay a transaction** — full pre/post account state for every account a confirmed tx touched, with SPL Token / Token-2022 / ALT / programdata enrichment. Endpoints: `POST /v1/replayer/replay` (credits) and `POST /v1/replayer/replay-pay` (x402 USDC).\n- **Read accounts at a slot anchor** — the state of N pubkeys at the start of a given slot, in a single IndexDb call (no tx, no block replay). Strictly cheaper than `/replay`. Endpoints: `POST /v1/replayer/replay-slot` (credits) and `POST /v1/replayer/replay-slot-pay` (x402 USDC).\n\nThere are TWO ways to pay, identical for both capabilities:\n\n1. **Pay-per-request (x402, no account)** — POST `/v1/replayer/replay-pay` or `/v1/replayer/replay-slot-pay`. First call without `X-Payment` header → 402 challenge in `x-payment-required` (base64) and `accepts[]` (JSON body). Sign a USDC transfer matching the challenge with the CDP-provided fee payer (partial-signature flow), base64-encode the x402 v1 payload, and re-send with `X-Payment: <base64>`. Idempotent on the SHA-256 of the signed tx — never settles twice. Use this if you don't want to manage an account.\n\n2. **Credit-based (account, cheaper at scale)** — POST `/v1/replayer/replay` or `/v1/replayer/replay-slot` with `X-Api-Key: pk_live_…` (or `Authorization: Bearer <jwt>`). Sub-credit pricing for slot reads, 1 credit base for tx replays (+ small surcharges for `program_details` and oversized account lists). Top up via POST `/v1/top-up` (also x402, but JWT-gated for the dApp).\n\nBefore calling either endpoint, GET `/status` to know the queryable slot range (`minQuerySlot` … `maxIndexedSlot`) — both `/replay` (resolves slot from signature) and `/replay-slot` (slot in body) need the slot to lie inside that window.\n\nFor full reference: GET `/openapi.json`, GET `/docs/guide` (Markdown), GET `/llm.txt` (LLM-optimised summary).",
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

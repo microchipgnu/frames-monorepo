@@ -2,7 +2,7 @@
   "catalog_protocol": "0.0.1",
   "host": "promptqualityscore.com",
   "display_name": "promptqualityscore.com",
-  "description": "PQS score - 8-dimensional prompt quality breakdown with top fixes",
+  "description": "Pass/Fail before you waste budget on a doomed call. Decide whether to make a paid LLM call before you make it. Preflight scores your prompt against an 8-dimension quality rubric (pass/fail at 28/80) and optionally pulls the target endpoint's on-chain trust signals — total payments, unique payers, last activity. Two-in-one circuit breaker for agents that don't want to waste budget on weak prompts o",
   "category": "other",
   "category_source": "none",
   "x_guidance": "POST a prompt to /api/score/free for a free basic score, /api/score for a paid detailed score ($0.025 USDC), /api/score/full for optimized prompt + before/after outputs ($0.125 USDC). Anonymous x402 payment on Base mainnet is the default; bearer PQS_... API keys accepted for subscribed customers.",
@@ -27,9 +27,9 @@
   "has_openapi": true,
   "per_route_schemas": 0,
   "mpp_source": "none",
-  "bazaar_resource_count": 1,
-  "bazaar_last_updated": "2026-05-06T14:55:02.236Z",
-  "total_calls_30d": 1,
+  "bazaar_resource_count": 5,
+  "bazaar_last_updated": "2026-06-03T22:35:55.02Z",
+  "total_calls_30d": 6,
   "tempo_tx_count": 0,
   "tempo_volume_usd": 0,
   "tempo_latest_tx": null,
@@ -45,19 +45,23 @@
   "is_mass_lister": false,
   "is_infra": false,
   "is_recognized": false,
-  "min_price_usd": 0.025,
-  "max_price_usd": 0.025,
-  "endpoint_count": 1,
-  "paid_endpoint_count": 1,
+  "min_price_usd": 0.001,
+  "max_price_usd": 0.1,
+  "endpoint_count": 5,
+  "paid_endpoint_count": 5,
   "siwx_endpoint_count": 0,
-  "observed_at": "2026-05-13T15:54:06.733Z",
+  "observed_at": "2026-06-08T19:22:53.903Z",
   "evidence": {
-    "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=0",
+    "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=1000",
     "agentic_market": "https://api.agentic.market/v1/services/promptqualityscore-com",
     "probe": "https://promptqualityscore.com"
   },
   "tools": [
-    "bazaar.promptqualityscore-com-api-score"
+    "bazaar.promptqualityscore-com-api-fix-injection",
+    "bazaar.promptqualityscore-com-api-pqs-grade",
+    "bazaar.promptqualityscore-com-api-preflight",
+    "bazaar.promptqualityscore-com-api-score",
+    "bazaar.promptqualityscore-com-api-variants"
   ],
   "quality": "long-tail"
 }

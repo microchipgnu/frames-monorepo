@@ -1,0 +1,50 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.agentpay-tools-v1-session-create",
+  "title": "A stateful, multi-chain spending session for AI agents. One session enforces a h",
+  "description": "A stateful, multi-chain spending session for AI agents. One session enforces a hard USDC budget cap across every tool call, with a verifiable receipt and running ledger for each payment — not a one-shot budget check, but persistent spend governance with a full audit trail. USDC on Base or Stellar.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://agentpay.tools/v1/session/create"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01",
+    "pay_to": "0xE8B25A72dD6aeF69515452a61AD231C7DF2843b7",
+    "scheme": "exact",
+    "extra": {
+      "assetTransferMethod": "eip3009",
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://agentpay.tools/v1/session/create",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "agentpay.tools",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 12,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

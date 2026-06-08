@@ -1,0 +1,77 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.try-madhousewallet-com-api-public-requirements-refresh",
+  "title": "Refresh recipient bank-detail fields for conditional inputs. Send the currency p",
+  "description": "Refresh recipient bank-detail fields for conditional inputs. Send the currency plus the account type and the details collected so far; returns the updated field set, revealing any fields that depend on the chosen values (e.g. branch fields after picking a bank). Pay 0.01 USDC.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://try.madhousewallet.com/api/public/requirements/refresh"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01",
+    "pay_to": "0xf802283ff77D5972FFD109B91B70d34591B5459e",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "polygon",
+        "currency": "USDC",
+        "asset": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "price_hint": "0.01",
+        "pay_to": "0xf802283ff77D5972FFD109B91B70d34591B5459e",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "arbitrum",
+        "currency": "UNKNOWN",
+        "asset": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+        "price_hint": "0.01",
+        "pay_to": "0xf802283ff77D5972FFD109B91B70d34591B5459e",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://try.madhousewallet.com/api/public/requirements/refresh",
+    "x402_version": 2,
+    "accept_count": 3
+  },
+  "_signals": {
+    "host": "try.madhousewallet.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 3,
+    "network_names": "Arbitrum, Base, Polygon",
+    "listed_on_count": 2,
+    "total_calls_30d": 20,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Typical flow: 1) GET /api/public/quote (targetCurrency + sourceAmount) to get quoteId and the recipient amount. 2) GET /api/public/requirements?currency=... to learn required bank fields (POST /api/public/requirements/refresh to resolve conditional fields). 3) POST /api/public/recipients to create a recipient and get recipientId. 4) POST /api/public/transfer with quote_id + recipientId to get transfer_id and a Base USDC deposit_address. 5) Fund the deposit address, then POST /api/public/confirm-transfer with the tx hash. 6) GET /api/public/transfer-status?id=... to track. Every call costs 0.01 USDC via x402.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

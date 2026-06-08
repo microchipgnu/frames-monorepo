@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.book-bot-app-api-books-search",
+  "title": "Search Anna's Archive for matching books. Returns up to 10 result entries with U",
+  "description": "Search Anna's Archive for matching books. Returns up to 10 result entries with URLs that can be passed to /api/books/download-link.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://book-bot.app/api/books/search"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.1",
+    "pay_to": "0x26b354827942a0802552e433d357c78d78d2e987",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://book-bot.app/api/books/search",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "book-bot.app",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 14,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "# BookBot API\n\nPaid agent tools for finding ebooks and audiobooks.\n\n## Ebook endpoints (Anna's Archive)\n\n- **POST /api/books/find** ($0.50) — Full agent: resolve an EPUB download link from a book title (and optional author) in one call.\n- **POST /api/books/search** ($0.10) — Search Anna's Archive; returns up to 10 result entries with URLs.\n- **POST /api/books/download-link** ($0.10) — Resolve a direct EPUB download URL from an Anna's Archive result page URL.\n\n## Audiobook endpoints (audiobookbay.lu)\n\n- **POST /api/audiobooks/search** ($0.005) — Search audiobookbay.lu; returns up to ~12 entries with title, slug, cover, category, language, and keywords.\n- **POST /api/audiobooks/details** ($0.02) — Fetch full metadata + a magnet URI (info hash + all backup trackers) for one audiobook by slug.\n\n## Typical flows\n\n**Ebook**: call `/api/books/search` with `{ bookName, author? }` to list candidates, then pass a result `url` to `/api/books/download-link` for the final EPUB URL. Or skip both and call `/api/books/find` for the agent to do the full pipeline in one paid request.\n\n**Audiobook**: call `/api/audiobooks/search` with `{ query }` to find titles, then pass a result `slug` to `/api/audiobooks/details` to get a ready-to-use magnet link.\n\nAll routes accept JSON bodies and return JSON. Unauthenticated requests receive HTTP 402 with an x402/MPP payment challenge.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

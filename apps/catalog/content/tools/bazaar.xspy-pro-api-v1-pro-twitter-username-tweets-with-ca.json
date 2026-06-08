@@ -1,0 +1,63 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.xspy-pro-api-v1-pro-twitter-username-tweets-with-ca",
+  "title": "Real-time crawl of a Twitter/X account's recent tweets mentioning token contract",
+  "description": "Real-time crawl of a Twitter/X account's recent tweets mentioning token contract addresses (CAs), with detected chain and address. Freshest data.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://xspy.pro/api/v1/pro/twitter/:username/tweets-with-ca"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.25",
+    "pay_to": "0x93958d39D88eb8372BB9C1c82c0d6C0c332848af",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.25",
+        "pay_to": "6ucu12DZUVrqCyn5t7J3HnvTAbqDvbXfXWLkNXLRv9Um",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "GVJJ7rdGiXr5xaYbRwRbjfaJL7fmwRygFi1H6aGqDveb"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://xspy.pro/api/v1/pro/twitter/:username/tweets-with-ca",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "xspy.pro",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 2,
+    "network_names": "Base, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 31,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "This is a pay-per-request API. To call any endpoint:\n1. Make the request without payment → you will receive HTTP 402 with exact payment details.\n2. Pay the requested amount to the address in the 402 response (USDC on the chosen network).\n3. Retry the exact same request, attaching the payment proof in the X-PAYMENT header (or use an x402-compatible client).\nSee https://x402.org and the Coinbase x402 docs for client libraries and agent integration patterns. Prices and descriptions are the source of truth for discovery and billing.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

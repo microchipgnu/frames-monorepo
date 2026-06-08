@@ -27,9 +27,9 @@
   "has_openapi": true,
   "per_route_schemas": 0,
   "mpp_source": "probe",
-  "bazaar_resource_count": 3,
-  "bazaar_last_updated": "2026-05-02T00:42:33.94Z",
-  "total_calls_30d": 4,
+  "bazaar_resource_count": 2,
+  "bazaar_last_updated": "2026-06-05T08:21:08.959Z",
+  "total_calls_30d": 9,
   "tempo_tx_count": 0,
   "tempo_volume_usd": 0,
   "tempo_latest_tx": null,
@@ -45,12 +45,12 @@
   "is_mass_lister": false,
   "is_infra": false,
   "is_recognized": false,
-  "min_price_usd": 0.001,
+  "min_price_usd": 0.01,
   "max_price_usd": 0.01,
-  "endpoint_count": 3,
-  "paid_endpoint_count": 3,
+  "endpoint_count": 2,
+  "paid_endpoint_count": 2,
   "siwx_endpoint_count": 0,
-  "observed_at": "2026-05-13T15:54:06.733Z",
+  "observed_at": "2026-06-08T19:22:53.903Z",
   "evidence": {
     "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=0",
     "agentic_market": "https://api.agentic.market/v1/services/api-agentinternetruntime-com",
@@ -58,8 +58,7 @@
   },
   "tools": [
     "bazaar.api-agentinternetruntime-com-v1-registry-discover",
-    "bazaar.api-agentinternetruntime-com-v1-sdk-capabilities",
-    "bazaar.api-agentinternetruntime-com-v1-trust-report"
+    "bazaar.api-agentinternetruntime-com-v1-sdk-capabilities"
   ],
   "quality": "long-tail"
 }

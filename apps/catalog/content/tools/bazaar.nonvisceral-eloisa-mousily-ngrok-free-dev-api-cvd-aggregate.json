@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.nonvisceral-eloisa-mousily-ngrok-free-dev-api-cvd-aggregate",
+  "title": "Cross-venue BTC taker-flow CVD aggregated across 7 exchanges (Binance/Bybit/OKX/",
+  "description": "Cross-venue BTC taker-flow CVD aggregated across 7 exchanges (Binance/Bybit/OKX/Bitget/Coinbase/MEXC/Hyperliquid). Per-venue cvd_btc + cvd_usd + buy_vol_btc + sell_vol_btc, aggregate verdict (buy_pressure/sell_pressure/neutral/diverging) and directional consensus 0-1 (fraction of venues agreeing with the aggregate sign). Cross-venue taker-flow rotation signal beyond single-venue CVD.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://nonvisceral-eloisa-mousily.ngrok-free.dev/api/cvd-aggregate"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.02",
+    "pay_to": "0x671e9400266F99c5Cb63661392A07C205e1accEa",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://nonvisceral-eloisa-mousily.ngrok-free.dev/api/cvd-aggregate",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "nonvisceral-eloisa-mousily.ngrok-free.dev",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 591,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

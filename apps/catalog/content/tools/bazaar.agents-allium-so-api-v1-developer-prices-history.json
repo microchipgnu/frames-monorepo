@@ -16,12 +16,12 @@
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
     "price_hint": "0.02",
-    "pay_to": "0x221d84f40ef62848b86d31121013e197306213b0",
+    "pay_to": "0xd9d857635a2dfc5c91dc36c3badeb759ebca7983",
     "scheme": "exact",
     "extra": {
       "name": "USD Coin",
       "stripe_mode": "custody",
-      "stripe_payment_intent_id": "pi_3TRB0kIfpVe57BNU1vbgQKBc",
+      "stripe_payment_intent_id": "pi_3Tg1NZIfpVe57BNU2x0fvjzK",
       "version": "2"
     },
     "accepts": [
@@ -31,13 +31,26 @@
         "currency": "UNKNOWN",
         "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
         "price_hint": "0.02",
-        "pay_to": "8oCACMWrXQMakzz5vwLscdSuZk8HZGwWipgZSn96ZHjz",
+        "pay_to": "AdGFh8M9ApGQVbcG96sfNHUM6YYC4q5RTYPdBjq4btCa",
         "scheme": "exact",
         "extra": {
-          "feePayer": "BFK9TLC3edb13K6v4YyH3DwPb5DSUpkWvb7XnqCL9b4F",
+          "feePayer": "BENrLoUbndxoNMUS5JXApGMtNykLjFXXixMtpDwDR9SP",
           "name": "USDC",
           "stripe_mode": "custody",
-          "stripe_payment_intent_id": "pi_3TRB0kIfpVe57BNU1vbgQKBc",
+          "stripe_payment_intent_id": "pi_3Tg1NZIfpVe57BNU2x0fvjzK",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "eip155:196",
+        "currency": "UNKNOWN",
+        "asset": "0x74b7f16337b8972027f6196a17a631ac6de26d22",
+        "price_hint": "0.02",
+        "pay_to": "0x61Fdbe66c1AEaF491b8e121C83070aa750DDCada",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
           "version": "2"
         }
       }
@@ -45,10 +58,10 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://agents.allium.so/api/v1/developer/prices/history",
     "x402_version": 2,
-    "accept_count": 2
+    "accept_count": 3
   },
   "_signals": {
     "host": "agents.allium.so",
@@ -57,13 +70,13 @@
     "is_recognized": true,
     "is_mass_lister": false,
     "category": "data",
-    "network_count": 3,
-    "network_names": "Base, Solana, Tempo",
+    "network_count": 4,
+    "network_names": "Base, Solana, Tempo, X Layer",
     "listed_on_count": 3,
-    "total_calls_30d": 97,
+    "total_calls_30d": 28,
     "x402_volume_usd_30d": 0,
     "x_guidance": "## Allium API\n\nBlockchain data APIs for token prices, wallet balances, and SQL queries.\n\n- **Docs:** https://docs.allium.so\n- **Support:** support@allium.so",
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "curated"
   }
 }

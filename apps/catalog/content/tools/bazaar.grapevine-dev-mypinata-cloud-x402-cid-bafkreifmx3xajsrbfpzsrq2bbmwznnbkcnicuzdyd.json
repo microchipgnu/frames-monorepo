@@ -25,14 +25,14 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://grapevine.dev-mypinata.cloud/x402/cid/bafkreifmx3xajsrbfpzsrq2bbmwznnbkcnicuzdydi6yixuubd3c325x2e",
     "x402_version": 1,
     "accept_count": 1
   },
   "_signals": {
     "host": "grapevine.dev-mypinata.cloud",
-    "is_active_14d": true,
+    "is_active_14d": false,
     "is_infra": false,
     "is_recognized": false,
     "is_mass_lister": false,
@@ -40,10 +40,10 @@
     "network_count": 0,
     "network_names": "",
     "listed_on_count": 1,
-    "total_calls_30d": 39,
+    "total_calls_30d": 0,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

@@ -21,29 +21,43 @@
     "extra": {
       "name": "USD Coin",
       "version": "2"
-    }
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.01",
+        "pay_to": "3mLYhZb1Lwee6XnNoiCyQwBxRm3AvBDNjCDnpBQwViDt",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "D6NX9AfBXNGPycKFzDJSjhhj24N3GXAUvexhsBMzoPUq"
+        }
+      }
+    ]
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://web-production-60258.up.railway.app/macro/derived",
     "x402_version": 2,
-    "accept_count": 1
+    "accept_count": 2
   },
   "_signals": {
     "host": "web-production-60258.up.railway.app",
-    "is_active_14d": true,
+    "is_active_14d": false,
     "is_infra": false,
     "is_recognized": false,
     "is_mass_lister": false,
     "category": "other",
-    "network_count": 1,
-    "network_names": "Base",
+    "network_count": 2,
+    "network_names": "Base, Solana",
     "listed_on_count": 2,
-    "total_calls_30d": 8,
+    "total_calls_30d": 20,
     "x402_volume_usd_30d": 0,
-    "x_guidance": "This service provides US macro economic data from FRED, BEA, and Treasury APIs. All endpoints require micropayment via x402 (USDC on Base Sepolia) or MPP (Tempo). No API key or account setup required — pay per query. Workflow: (1) GET /macro/snapshot — full macro picture: 13 indicators including GDP, CPI, unemployment, rates, yield curve, M2. (2) GET /macro/series (no params, free, no payment required) — list all 43 available series names and IDs. GET /macro/series?name=<indicator> to fetch historical data (paid). (3) GET /macro/derived — computed indicators: real yield, breakeven inflation, yield curve spread, GDP growth rate. (4) GET /macro/releases — which datasets published in the last 30 days; check data freshness before querying. (5) GET /macro/delta?periods=4 — period-over-period % change across 8 key indicators, or a single series with ?series=. Optional: send X-Agent-Name and X-Agent-Purpose request headers to label your traffic. Example: X-Agent-Name: portfolio-rebalancer, X-Agent-Purpose: inflation-monitoring. These are logged for analytics and may qualify you for early access to new endpoints.",
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "x_guidance": "This service provides professional-grade data across economics, biomedical, legal, and real estate verticals via per-query micropayment. No account setup required — pay per call via x402 (USDC on Base) or MPP (Tempo). All endpoints require micropayment via x402 (USDC on Base Sepolia) or MPP (Tempo). No API key or account setup required — pay per query. Workflow: (1) GET /macro/snapshot — full macro picture: 13 indicators including GDP, CPI, unemployment, rates, yield curve, M2. (2) GET /macro/series (no params, free, no payment required) — list all 43 available series names and IDs. GET /macro/series?name=<indicator> to fetch historical data (paid). (3) GET /macro/derived — computed indicators: real yield, breakeven inflation, yield curve spread, GDP growth rate. (4) GET /macro/releases — which datasets published in the last 30 days; check data freshness before querying. (5) GET /macro/delta?periods=4 — period-over-period % change across 8 key indicators, or a single series with ?series=. Optional: send X-Agent-Name and X-Agent-Purpose request headers to label your traffic. Example: X-Agent-Name: portfolio-rebalancer, X-Agent-Purpose: inflation-monitoring. These are logged for analytics and may qualify you for early access to new endpoints.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

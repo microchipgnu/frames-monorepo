@@ -32,14 +32,14 @@
         "pay_to": "FehC2Hu4ocQnxNWhpePQNV4kwPA2v6oHaaLnuXJXUwtn",
         "scheme": "exact",
         "extra": {
-          "feePayer": "Hc3sdEAsCGQcpgfivywog9uwtk8gUBUZgsxdME1EJy88"
+          "feePayer": "BENrLoUbndxoNMUS5JXApGMtNykLjFXXixMtpDwDR9SP"
         }
       }
     ]
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://law-mcp.toulaw.workers.dev/api/v1/search",
     "x402_version": 2,
     "accept_count": 2
@@ -57,7 +57,7 @@
     "total_calls_30d": 2,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

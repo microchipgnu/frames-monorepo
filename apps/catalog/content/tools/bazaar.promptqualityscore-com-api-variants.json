@@ -1,0 +1,53 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.promptqualityscore-com-api-variants",
+  "title": "PQS variants - N ranked prompt rewrites scored on the 8-dimension rubric, return",
+  "description": "PQS variants - N ranked prompt rewrites scored on the 8-dimension rubric, returned best-first",
+  "capabilities": [
+    "prompt-quality",
+    "llm",
+    "variants",
+    "x402",
+    "pqs"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://promptqualityscore.com/api/variants"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.1",
+    "pay_to": "0xB40a687ca5483Ebc02F870348f6e08971Cae1308",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://promptqualityscore.com/api/variants",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "promptqualityscore.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 6,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "POST a prompt to /api/score/free for a free basic score, /api/score for a paid detailed score ($0.025 USDC), /api/score/full for optimized prompt + before/after outputs ($0.125 USDC). Anonymous x402 payment on Base mainnet is the default; bearer PQS_... API keys accepted for subscribed customers.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

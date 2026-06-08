@@ -1,0 +1,54 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.store-nosub-club-v1-files-public",
+  "title": "Upload a file, get a link back",
+  "description": "Upload a file, get a link back",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://store.nosub.club/v1/files/public"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+    "price_hint": "0.04",
+    "pay_to": "0x1697e369cbbe8eb7b710152b64c59a6f5d26a56a",
+    "scheme": "exact",
+    "extra": {
+      "decimals": 6,
+      "intentId": "pi_c2e82e5a6cb0fe81a297434e2be2b2fb063b99dd99adf90fe7713affa7313e19",
+      "name": "USD Coin",
+      "operation": "upload",
+      "quoteExpiresAt": "2026-05-31T18:22:11.338Z",
+      "symbol": "USDC",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://store.nosub.club/v1/files/public",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "store.nosub.club",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 1,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "This API stores public files on Walrus after payment. Choose an upload method based on file size:\n\nMETHOD 1 — Inline upload (files under ~1 MB raw): POST /v1/files/public with Content-Type: application/octet-stream and raw bytes, or with a JSON body containing contentBase64 or contentText, plus a duration query parameter. On success returns HTTP 201 with blobId, storageObjectId, aggregatorUrl, and expiresAt. Note: base64 encoding adds ~33% overhead, so a 1 MB file becomes ~1.37 MB in the request body; prefer the upload session method for anything larger.\n\nMETHOD 2 — Upload session (files up to 10 MB): POST /v1/files/public with a JSON body containing maxSizeBytes, contentType, and duration. On success returns HTTP 200 with an uploadUrl, method (PUT), expiresAt, maxSizeBytes, and contentType. Then PUT the raw file bytes directly to that uploadUrl before expiresAt, using the same contentType you declared (not application/octet-stream) and a body no larger than maxSizeBytes. The session is single-use and needs no payment or auth header on the PUT.\n\nFor both methods, a 402 response is expected before payment and contains the authoritative payment challenge; after paying, retry the same POST request with the payment proof. To renew storage for a blob created by this service, call POST /v1/files/public/{blobId}/extend with a JSON body containing duration and, when available, storageObjectId. Pricing is advertised as dynamic USD; runtime 402 challenges remain authoritative for exact settlement parameters.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

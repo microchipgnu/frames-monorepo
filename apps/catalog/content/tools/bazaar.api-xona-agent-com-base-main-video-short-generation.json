@@ -1,0 +1,54 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-xona-agent-com-base-main-video-short-generation",
+  "title": "AI short video generation using Grok Imagine Video model (Base Mainnet).",
+  "description": "AI short video generation using Grok Imagine Video model (Base Mainnet).",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.xona-agent.com/base-main/video/short-generation"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.5",
+    "pay_to": "0x515e7Bce44Baa5F6e42D16d4B5f27768E7f2F8cC",
+    "scheme": "exact",
+    "extra": {
+      "decimals": 6,
+      "eip712": {
+        "name": "USD Coin",
+        "version": "2"
+      },
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://api.xona-agent.com/base-main/video/short-generation",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "api.xona-agent.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 58,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "payment-signature header carries the x402 payment credential. PAYMENT-REQUIRED response header carries the encoded x402 requirements JSON. X-PAYMENT-RESPONSE response header carries the encoded settlement confirmation.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

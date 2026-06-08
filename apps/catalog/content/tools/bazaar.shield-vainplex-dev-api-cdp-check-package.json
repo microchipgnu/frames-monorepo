@@ -1,14 +1,14 @@
 {
   "pay_protocol": "0.0.1",
   "id": "bazaar.shield-vainplex-dev-api-cdp-check-package",
-  "title": "ShieldAPI - Supply chain Pre-Flight Check for software packages",
-  "description": "ShieldAPI - Supply chain Pre-Flight Check for software packages",
+  "title": "ShieldAPI - x402 security preflight before agents install or run npm/PyPI depend",
+  "description": "ShieldAPI - x402 security preflight before agents install or run npm/PyPI dependencies",
   "capabilities": [
     "unspecified"
   ],
   "invocation": {
     "method": "POST",
-    "url": "https://shield.vainplex.dev/api/cdp/check/package"
+    "url": "https://shield.vainplex.dev/api/cdp/check-package"
   },
   "payment": {
     "protocol": "x402v2",
@@ -25,8 +25,8 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
-    "upstream_id": "https://shield.vainplex.dev/api/cdp/check/package",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://shield.vainplex.dev/api/cdp/check-package",
     "x402_version": 2,
     "accept_count": 1
   },
@@ -40,10 +40,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 51,
+    "total_calls_30d": 17,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

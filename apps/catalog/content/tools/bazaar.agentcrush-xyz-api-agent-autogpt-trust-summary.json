@@ -1,0 +1,54 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.agentcrush-xyz-api-agent-autogpt-trust-summary",
+  "title": "Current trust state, rank, and multi-signal score for an AI agent on AgentCrush.",
+  "description": "Current trust state, rank, and multi-signal score for an AI agent on AgentCrush. Updated every 4 hours.",
+  "capabilities": [
+    "ai-agents",
+    "trust",
+    "verification",
+    "analytics",
+    "identity",
+    "kya"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://agentcrush.xyz/api/agent/autogpt/trust-summary"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.02",
+    "pay_to": "0x58e632Fa698383820FFC22156352C9836790E2c0",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://agentcrush.xyz/api/agent/autogpt/trust-summary",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "agentcrush.xyz",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 14,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

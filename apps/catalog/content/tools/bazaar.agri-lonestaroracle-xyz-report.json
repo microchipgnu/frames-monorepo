@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.agri-lonestaroracle-xyz-report",
+  "title": "Full agricultural commodity report with AI summary",
+  "description": "Full agricultural commodity report with AI summary",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://agri.lonestaroracle.xyz/report"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.03",
+    "pay_to": "0x52Ab53912D37759B2ad364f22dD06B16714b6C06",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://agri.lonestaroracle.xyz/report",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "agri.lonestaroracle.xyz",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 15,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Global agricultural commodity intelligence — grains (corn, wheat, soybeans, rice), softs (cotton, coffee, cocoa, sugar), livestock (beef, pork) with trend and AI narrative. $0.03/query via x402 USDC on Base.  |  Also from LoneStarOracle: CrownBlock (crownblock.lonestaroracle.xyz) for crude oil & gas intel  |  MacroPulse (macro.lonestaroracle.xyz) for broader macro indicators  |  RealEstatePulse (realestate.lonestaroracle.xyz) for mortgage & housing data  |  Full catalog: lonestaroracle.xyz",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

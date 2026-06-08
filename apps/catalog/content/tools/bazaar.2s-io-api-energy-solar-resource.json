@@ -1,0 +1,65 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.2s-io-api-energy-solar-resource",
+  "title": "Get average solar resource estimates for any latitude/longitude via NREL. Return",
+  "description": "Get average solar resource estimates for any latitude/longitude via NREL. Returns annual + monthly averages for: Direct Normal Irradiance (DNI, kWh/m²/day — solar concentrators), Global Horizontal Irradiance (GHI, kWh/m²/day — flat-plate panels), and Tilted-At-Latitude irradiance (optimal fixed-panel orientation). Sourced from NREL National Solar Radiation Database (NSRDB). Useful for rooftop solar feasibility, off-grid design, and renewable-energy modeling.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://2s.io/api/energy/solar-resource"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.0012",
+    "pay_to": "0x2b6D4988Db4723E6908Db86Ab2b8dFBc51FC32C5",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.0012",
+        "pay_to": "TW6ntaGzvj63ZgPjszd4FCGmVTGfzv1MAYZbjYcyWhn",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "D6ZhtNQ5nT9ZnTHUbqXZsTx5MH2rPFiBBggX4hY1WePM",
+          "name": "USDC",
+          "version": "1"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://2s.io/api/energy/solar-resource",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "2s.io",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 2,
+    "network_names": "Base, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 561,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

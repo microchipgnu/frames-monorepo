@@ -1,0 +1,63 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.orbisapi-com-proxy-education-level-intel-api-9ac938",
+  "title": "Live education level intel data and intelligence for agents and automated workfl",
+  "description": "Live education level intel data and intelligence for agents and automated workflows",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://orbisapi.com/proxy/education-level-intel-api-9ac938"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.005",
+    "pay_to": "0x2bb72231EeD303cc91a462A1fA738b42B6a9ac6d",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.005",
+        "pay_to": "GX6SKV6NahzGAocGs1uiAjFATUsdeEqT4dsEjwU6UrUE",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "GX6SKV6NahzGAocGs1uiAjFATUsdeEqT4dsEjwU6UrUE"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://orbisapi.com/proxy/education-level-intel-api-9ac938",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "orbisapi.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": true,
+    "category": "other",
+    "network_count": 2,
+    "network_names": "Base, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 104074,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Orbis is an API marketplace with 24,000+ payable APIs. How to use:\n1. Discover APIs: GET https://orbisapi.com/api/v2/x402/discovery/resources?page=1&limit=100 — returns slugs, names, descriptions, and per-call prices.\n2. Call any API: GET or POST https://orbisapi.com/proxy/{slug}/{path} — the server will respond with 402 and payment instructions.\n3. Pay: Re-send the request with the X-PAYMENT header populated per the x402 protocol (USDC on Base via Coinbase CDP facilitator).\n4. Result: The server verifies the payment and returns the proxied API response.\nAlternatively, use the Orbis LLM Gateway (OpenAI-compatible): POST https://orbisapi.com/proxy/llm-gateway/v1/chat/completions with x402 payment — supports GPT-4o, Claude Opus, Gemini 2.5 Pro, and more.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

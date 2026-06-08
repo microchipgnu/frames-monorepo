@@ -1,0 +1,63 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.glim-sh-api-v1-twitter-users",
+  "title": "Batch fetch users by IDs",
+  "description": "Batch fetch users by IDs",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://glim.sh/api/v1/twitter/users"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "solana-mainnet",
+    "currency": "UNKNOWN",
+    "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "price_hint": "0.004",
+    "pay_to": "9MkM5Ra48KFcSv9HDQ8sb3C3r5HjouEwGQ6sp1cx1vde",
+    "scheme": "exact",
+    "extra": {
+      "feePayer": "Hc3sdEAsCGQcpgfivywog9uwtk8gUBUZgsxdME1EJy88"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "base",
+        "currency": "USDC",
+        "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "price_hint": "0.004",
+        "pay_to": "0xC751344Ee09B5159160173F77D4a1169bCd386A1",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://glim.sh/api/v1/twitter/users",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "glim.sh",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 2,
+    "network_names": "Base, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 50,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "glim is a pay-per-use research and inference API. Every /api/v1 endpoint accepts an x402 or MPP wallet payment, or a glim API key / OAuth token (apiKey query param or Authorization: Bearer <key>) charged to your account. The MCP server at /mcp accepts the same credential types.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

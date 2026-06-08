@@ -30,7 +30,7 @@
   },
   "_meta": {
     "catalog": "mpp",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "allium:POST:/api/v1/developer/wallet/balances/history"
   },
   "_signals": {
@@ -40,13 +40,13 @@
     "is_recognized": true,
     "is_mass_lister": false,
     "category": "data",
-    "network_count": 3,
-    "network_names": "Base, Solana, Tempo",
+    "network_count": 4,
+    "network_names": "Base, Solana, Tempo, X Layer",
     "listed_on_count": 3,
-    "total_calls_30d": 97,
+    "total_calls_30d": 28,
     "x402_volume_usd_30d": 0,
     "x_guidance": "## Allium API\n\nBlockchain data APIs for token prices, wallet balances, and SQL queries.\n\n- **Docs:** https://docs.allium.so\n- **Support:** support@allium.so",
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "curated"
   }
 }

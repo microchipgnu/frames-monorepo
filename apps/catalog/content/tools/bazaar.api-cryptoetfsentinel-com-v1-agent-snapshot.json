@@ -1,0 +1,63 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-cryptoetfsentinel-com-v1-agent-snapshot",
+  "title": "Crypto ETF Sentinel — Single-call market snapshot for US spot crypto ETFs (Bitco",
+  "description": "Crypto ETF Sentinel — Single-call market snapshot for US spot crypto ETFs (Bitcoin, Ethereum, Solana, XRP and more). DB totals, filings broken down by cryptocurrency + form type, regulatory-stage counts (how many issuers are trading / launch_imminent / under_review / etc.), and an ``as_of`` ISO timestamp for stale-checking. Useful as a heartbeat for monitoring agents deciding whether to drill into the catalogue.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.cryptoetfsentinel.com/v1/agent/snapshot"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.05",
+    "pay_to": "0x169Bf49c6ee5A179190121Ab8D180B50e31683d1",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.05",
+        "pay_to": "Ezzbt3d3K76pmQpwbeXkggCs5n7Q3JWG3iCmtdKdpMxk",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "BFK9TLC3edb13K6v4YyH3DwPb5DSUpkWvb7XnqCL9b4F"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://api.cryptoetfsentinel.com/v1/agent/snapshot",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "api.cryptoetfsentinel.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 2,
+    "network_names": "Base, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 119,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

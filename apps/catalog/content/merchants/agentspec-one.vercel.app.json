@@ -2,7 +2,7 @@
   "catalog_protocol": "0.0.1",
   "host": "agentspec-one.vercel.app",
   "display_name": "agentspec-one.vercel.app",
-  "description": "Inspect an OpenAPI spec and return agent-readiness score, risks, recommendations, and x402 Bazaar candidates.",
+  "description": "Inspect MCP tools and return agent-readiness score, risky tools, missing schemas, and marketplace candidates.",
   "category": "other",
   "category_source": "none",
   "x_guidance": null,
@@ -28,8 +28,8 @@
   "per_route_schemas": 0,
   "mpp_source": "none",
   "bazaar_resource_count": 4,
-  "bazaar_last_updated": "2026-05-10T08:14:27.548Z",
-  "total_calls_30d": 4,
+  "bazaar_last_updated": "2026-05-29T23:13:17.08Z",
+  "total_calls_30d": 9,
   "tempo_tx_count": 0,
   "tempo_volume_usd": 0,
   "tempo_latest_tx": null,
@@ -50,9 +50,9 @@
   "endpoint_count": 4,
   "paid_endpoint_count": 4,
   "siwx_endpoint_count": 0,
-  "observed_at": "2026-05-13T15:54:06.733Z",
+  "observed_at": "2026-06-08T19:22:53.903Z",
   "evidence": {
-    "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=5000",
+    "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=2000",
     "agentic_market": "https://api.agentic.market/v1/services/agentspec-one-vercel-app"
   },
   "tools": [

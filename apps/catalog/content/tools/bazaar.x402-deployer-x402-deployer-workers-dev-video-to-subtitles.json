@@ -1,8 +1,8 @@
 {
   "pay_protocol": "0.0.1",
   "id": "bazaar.x402-deployer-x402-deployer-workers-dev-video-to-subtitles",
-  "title": "Generate SRT or VTT subtitle files from any video or audio URL using Whisper v3.",
-  "description": "Generate SRT or VTT subtitle files from any video or audio URL using Whisper v3.",
+  "title": "Generate subtitles from video / video subtitle generator / auto-subtitle / close",
+  "description": "Generate subtitles from video / video subtitle generator / auto-subtitle / closed captions / video captions / SRT generator / VTT generator / video CC / accessibility captions. Whisper v3 powered. Word-wrapped, ready for VLC / Premiere / FFmpeg. Auto-detect language + translate-to-English.",
   "capabilities": [
     "unspecified"
   ],
@@ -15,7 +15,7 @@
     "network": "base",
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-    "price_hint": "0.08",
+    "price_hint": "0.02",
     "pay_to": "0x6c0752c09e7F6fA6526fCDf40e456a159ebB5621",
     "scheme": "exact",
     "extra": {
@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://x402-deployer.x402-deployer.workers.dev/video-to-subtitles",
     "x402_version": 2,
     "accept_count": 1
@@ -40,10 +40,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 2141,
+    "total_calls_30d": 125,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

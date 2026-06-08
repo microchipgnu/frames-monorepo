@@ -1,0 +1,63 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-entit-ai-v1-jobs",
+  "title": "Analyse a TikTok, Instagram Reel, or YouTube Shorts video. Omit format for full ",
+  "description": "Analyse a TikTok, Instagram Reel, or YouTube Shorts video. Omit format for full VideoAnalysis (transcript, scenes, visual summary). Optional format selects a workflow template (24 formats: brand safety, creator brief, recipe, tutorials, e-commerce, health, education, news, music, sports, travel — see entit.ai/docs/api#workflow-formats). Caches are per format — switching format requires a new paid job. POST a video URL; poll the returned URL (free) until ready.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.entit.ai/v1/jobs"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.1",
+    "pay_to": "0x4d4864fc495963690561c53289Ae7eD7cFd4aAB0",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.1",
+        "pay_to": "DoNRjUNwqtsGN22o1ZDtSpRNhhXixAtR7tAeW2vGFrHg",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "BFK9TLC3edb13K6v4YyH3DwPb5DSUpkWvb7XnqCL9b4F"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://api.entit.ai/v1/jobs",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "api.entit.ai",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 2,
+    "network_names": "Base, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 15,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Paid: POST /v1/jobs with x402 ($0.10 USDC on Base or Solana). Send X-Payment on submit; poll GET /v1/jobs/{jobId} for free. Default (omit format): full VideoAnalysis. Optional format: one of 24 workflow templates (creator-brief, content-screening, recipe, …) — https://entit.ai/docs/api#workflow-formats. Docs: https://entit.ai/docs/api",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

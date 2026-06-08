@@ -1,0 +1,64 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.2s-io-api-edu-college-scorecard",
+  "title": "Search US colleges + universities via the Department of Education College Scorec",
+  "description": "Search US colleges + universities via the Department of Education College Scorecard API. Filter by free-text name (q), OPE/IPEDS school id, state, city, zip, ownership (1=Public | 2=Private nonprofit | 3=Private for-profit), predominant degree level (0=Not classified | 1=Certificate | 2=Associate | 3=Bachelor | 4=Graduate), enrollment range. Returns a curated field set per school: identity (name, alias, URL, location), classification (Carnegie, locale, religious affiliation, minority-serving designation), latest admissions (admit rate, SAT/ACT midpoints), cost (in-state + out-of-state tuition, total cost of attendance), aid (median debt, federal-loan rate, Pell rate), completion rate, 10-year median earnings, repayment rate, lat/lon. Every accredited US institution. Use perPage + page for pagination; page is 0-indexed.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://2s.io/api/edu/college-scorecard"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.0012",
+    "pay_to": "0x2b6D4988Db4723E6908Db86Ab2b8dFBc51FC32C5",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.0012",
+        "pay_to": "TW6ntaGzvj63ZgPjszd4FCGmVTGfzv1MAYZbjYcyWhn",
+        "scheme": "exact",
+        "extra": {
+          "name": "USDC",
+          "version": "1"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://2s.io/api/edu/college-scorecard",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "2s.io",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 2,
+    "network_names": "Base, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 561,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

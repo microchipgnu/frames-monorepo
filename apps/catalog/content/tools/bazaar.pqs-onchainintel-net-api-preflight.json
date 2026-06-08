@@ -2,7 +2,7 @@
   "pay_protocol": "0.0.1",
   "id": "bazaar.pqs-onchainintel-net-api-preflight",
   "title": "Pass/Fail before you waste budget on a doomed call. Decide whether to make a pai",
-  "description": "Pass/Fail before you waste budget on a doomed call. Decide whether to make a paid LLM call before you make it. Preflight scores your prompt against an 8-dimension quality rubric (pass/fail at 28/80) and optionally pulls the target endpoint's on-chain trust signals — total payments, unique payers, last activity. Two-in-one circuit breaker for agents that don't want to waste budget on weak prompts or sketchy endpoints.",
+  "description": "Pass/Fail before you waste budget on a doomed call. Decide whether to make a paid LLM call before you make it. Preflight scores your prompt against an 8-dimension quality rubric (pass/fail at 28/80) and optionally pulls the target endpoint's on-chain trust signals — total payments, unique payers, last activity. Two-in-one circuit breaker for agents that don't want to waste budget on weak prompts or sketchy endpoints. (rev 2)",
   "capabilities": [
     "preflight",
     "prompt-quality",
@@ -20,7 +20,7 @@
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
     "price_hint": "0.05",
-    "pay_to": "0xD2DfC5796de622E08C13f3016E92cfa15Ea33D0F",
+    "pay_to": "0xB40a687ca5483Ebc02F870348f6e08971Cae1308",
     "scheme": "exact",
     "extra": {
       "name": "USD Coin",
@@ -29,7 +29,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://pqs.onchainintel.net/api/preflight",
     "x402_version": 2,
     "accept_count": 1
@@ -44,10 +44,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 8,
+    "total_calls_30d": 2,
     "x402_volume_usd_30d": 0,
     "x_guidance": "POST a prompt to /api/score/free for a free basic score, /api/score for a paid detailed score ($0.025 USDC), /api/score/full for optimized prompt + before/after outputs ($0.125 USDC). Anonymous x402 payment on Base mainnet is the default; bearer PQS_... API keys accepted for subscribed customers.",
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

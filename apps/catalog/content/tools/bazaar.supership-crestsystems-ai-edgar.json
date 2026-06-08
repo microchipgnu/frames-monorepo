@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.supership-crestsystems-ai-edgar",
+  "title": "SEC EDGAR -- fresh filings (10-K, 10-Q, 8-K, Form 4) for any US public company (",
+  "description": "SEC EDGAR -- fresh filings (10-K, 10-Q, 8-K, Form 4) for any US public company (AAPL, NVDA, TSLA), straight from data.sec.gov, agent-payable. Query ?ticker=AAPL. Free preview at /edgar/preview.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://supership.crestsystems.ai/edgar"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01",
+    "pay_to": "0x5AbaD121dAbB983E663Fb8D08feA3dcf745aF005",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://supership.crestsystems.ai/edgar",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "supership.crestsystems.ai",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 4,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "supership is the stock and financial-data front door for the x402 economy. STOCK and SEC DATA: GET /edgar?ticker=AAPL (SEC filings 10-K/10-Q/8-K/Form 4 for any US public company, $0.01); GET /manifest?need=stock+prices to find brokered live equity-price and market-data sources, then GET /procure to buy them with payment fronted (no seller-chain wallet needed); or GET /v2/stocks/brief?ticker=AAPL for one call returning fresh filings + a best-effort live price + a source trust verdict in ONE signed receipt ($0.08). FREE: search the 52,000-service index with GET /manifest?need=<task> (ranked by real distinct payers); browse GET /catalog; try a source free with GET /sample?url=<url>; build a multi-source packet with GET /bundle?preset=market_context. TRUST: GET /vouch?url= (signed trust verdict on any x402 service from the real on-chain payer graph, $0.02), GET /check, GET /passport; every paid result carries a signed receipt verifiable at GET /api/pubkey. ALSO: POST /scan/quick|full|deep (code security audit, $1/$5/$15). supership fronts every payment, so you need no wallet on the seller chain. It brokers and witnesses market data; it does not run a price oracle. No API keys, no signup.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

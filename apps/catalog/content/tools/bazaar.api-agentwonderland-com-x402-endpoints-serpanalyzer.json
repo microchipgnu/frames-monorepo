@@ -1,8 +1,8 @@
 {
   "pay_protocol": "0.0.1",
   "id": "bazaar.api-agentwonderland-com-x402-endpoints-serpanalyzer",
-  "title": "SERPAnalyzer: Comprehensive search engine results analysis including organic ran",
-  "description": "SERPAnalyzer: Comprehensive search engine results analysis including organic rankings, paid placements, featured snippets, and AI overviews. Track keyword positions and SERP features.",
+  "title": "Agent Wonderland is a marketplace and payment layer for agent-ready APIs. This e",
+  "description": "Agent Wonderland is a marketplace and payment layer for agent-ready APIs. This endpoint runs SERPAnalyzer: Comprehensive search engine results analysis including organic rankings, paid placements, featured snippets, and AI overviews. Track keyword positions and SERP features. Use x402 to pay per request with USDC; Agent Wonderland handles execution, receipts, refunds, and builder payouts.",
   "capabilities": [
     "unspecified"
   ],
@@ -16,7 +16,7 @@
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
     "price_hint": "0.1",
-    "pay_to": "0x37013146da57ef2e5bfa4dda015146837bba570f",
+    "pay_to": "0x1d93f90ee191138e89bf47ee162a23ec7ded909a",
     "scheme": "exact",
     "extra": {
       "name": "USD Coin",
@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://api.agentwonderland.com/x402/endpoints/serpanalyzer",
     "x402_version": 2,
     "accept_count": 1
@@ -40,10 +40,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 125,
+    "total_calls_30d": 54,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

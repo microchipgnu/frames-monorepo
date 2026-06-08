@@ -1,0 +1,56 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.tradeos-tech-x402-v1-intelligence-tradeos-risk-gated-discovery",
+  "title": "Run discovery plus token-risk, market-regime, and VPIN checks in one paid respon",
+  "description": "Run discovery plus token-risk, market-regime, and VPIN checks in one paid response. Designed for scanner agents that need candidates already filtered for obvious risk, liquidity stress, and unsafe market conditions. This is the agentic crypto risk gate for discovery workflows.",
+  "capabilities": [
+    "crypto",
+    "discovery",
+    "risk",
+    "vpin",
+    "agents"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://tradeos.tech/x402/v1/intelligence/tradeos-risk-gated-discovery"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.5",
+    "pay_to": "0xB445F611Cc899B623462f07C11bFEaCfD20D3C70",
+    "scheme": "exact",
+    "extra": {
+      "channelId": "x402-direct",
+      "name": "USD Coin",
+      "resourceId": "tradeos-risk-gated-discovery",
+      "resourceType": "intelligence_report",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://tradeos.tech/x402/v1/intelligence/tradeos-risk-gated-discovery",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "tradeos.tech",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 44,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

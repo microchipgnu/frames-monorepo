@@ -33,85 +33,21 @@
   },
   "payment": {
     "protocol": "x402v2",
-    "scheme": "exact",
     "network": "base",
     "currency": "USDC",
-    "asset": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
-    "amount": "5000",
     "price_hint": "0.005",
-    "pay_to": "0xe62923133a417cEe4241677865Ed5a63F44F4B54",
-    "max_timeout_seconds": 800,
-    "extra": {
-      "name": "USD Coin",
-      "version": "2"
-    },
     "accepts": [
       {
         "protocol": "x402v2",
-        "scheme": "exact",
-        "network": "base",
-        "currency": "USDT",
-        "asset": "0xfde4c96c8593536e31f229ea8f37b2ada2699bb2",
-        "amount": "5000",
-        "price_hint": "0.005",
-        "pay_to": "0xe62923133a417cEe4241677865Ed5a63F44F4B54",
-        "max_timeout_seconds": 800,
-        "extra": {
-          "permit2": {
-            "address": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
-            "chainId": 8453,
-            "spender": "0xe62923133a417cEe4241677865Ed5a63F44F4B54"
-          }
-        }
-      },
-      {
-        "protocol": "x402v2",
-        "scheme": "exact",
         "network": "solana-mainnet",
         "currency": "USDC",
-        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
-        "amount": "5000",
-        "price_hint": "0.005",
-        "pay_to": "2DaBonP27dnavQ3AXoDAwnXyKyGBC2DPse24xaCYu7th",
-        "max_timeout_seconds": 800,
-        "extra": {
-          "feePayer": "2DaBonP27dnavQ3AXoDAwnXyKyGBC2DPse24xaCYu7th"
-        }
-      },
-      {
-        "protocol": "x402v2",
-        "scheme": "exact",
-        "network": "solana-mainnet",
-        "currency": "USDT",
-        "asset": "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB",
-        "amount": "5000",
-        "price_hint": "0.005",
-        "pay_to": "2DaBonP27dnavQ3AXoDAwnXyKyGBC2DPse24xaCYu7th",
-        "max_timeout_seconds": 800,
-        "extra": {
-          "feePayer": "2DaBonP27dnavQ3AXoDAwnXyKyGBC2DPse24xaCYu7th"
-        }
-      },
-      {
-        "protocol": "x402v2",
-        "scheme": "exact",
-        "network": "solana-mainnet",
-        "currency": "CASH",
-        "asset": "CASHx9KJUStyftLFWGvEVf59SGeG9sh5FfcnZMVPCASH",
-        "amount": "5000",
-        "price_hint": "0.005",
-        "pay_to": "2DaBonP27dnavQ3AXoDAwnXyKyGBC2DPse24xaCYu7th",
-        "max_timeout_seconds": 800,
-        "extra": {
-          "feePayer": "2DaBonP27dnavQ3AXoDAwnXyKyGBC2DPse24xaCYu7th",
-          "tokenProgram": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
-        }
+        "price_hint": "0.005"
       }
     ]
   },
   "_meta": {
     "catalog": "frames-registry",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "coingecko:POST:/api/token-info",
     "service_slug": "coingecko"
   },
@@ -128,7 +64,7 @@
     "total_calls_30d": 0,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "curated"
   }
 }

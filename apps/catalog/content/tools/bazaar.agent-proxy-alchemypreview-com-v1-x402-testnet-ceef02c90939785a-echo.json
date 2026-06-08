@@ -1,0 +1,85 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.agent-proxy-alchemypreview-com-v1-x402-testnet-ceef02c90939785a-echo",
+  "title": "echo",
+  "description": "echo",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://agent-proxy.alchemypreview.com/v1/x402-testnet/ceef02c90939785a/echo/"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base-sepolia",
+    "currency": "USDC",
+    "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "price_hint": "0.01",
+    "pay_to": "0xBd6f25475EF5625E309D06f9135FB1178D730A00",
+    "scheme": "exact",
+    "extra": {
+      "name": "USDC",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU",
+        "price_hint": "0.01",
+        "pay_to": "EMwHXkEUR878JcCd3v5nrgK3fc9psQ3sNkAvEmaCSt7J",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "Hc3sdEAsCGQcpgfivywog9uwtk8gUBUZgsxdME1EJy88"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "base-sepolia",
+        "currency": "USDC",
+        "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+        "price_hint": "0.01",
+        "pay_to": "0xBd6f25475EF5625E309D06f9135FB1178D730A00",
+        "scheme": "exact",
+        "extra": {
+          "assets": [
+            {
+              "address": "0x036cbd53842c5426634e7929541ec2318f3dcf7e",
+              "decimals": 6,
+              "symbol": "USDC"
+            }
+          ],
+          "minValiditySeconds": 604800,
+          "name": "GatewayWalletBatched",
+          "verifyingContract": "0x0077777d7eba4688bdef3e311b846f25870a19b9",
+          "version": "1"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://agent-proxy.alchemypreview.com/v1/x402-testnet/ceef02c90939785a/echo/",
+    "x402_version": 2,
+    "accept_count": 3
+  },
+  "_signals": {
+    "host": "agent-proxy.alchemypreview.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Solana",
+    "listed_on_count": 1,
+    "total_calls_30d": 5,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

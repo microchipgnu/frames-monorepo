@@ -27,9 +27,9 @@
   "has_openapi": true,
   "per_route_schemas": 0,
   "mpp_source": "probe",
-  "bazaar_resource_count": 3,
-  "bazaar_last_updated": "2026-05-07T04:01:29.647Z",
-  "total_calls_30d": 329,
+  "bazaar_resource_count": 2,
+  "bazaar_last_updated": "2026-06-05T06:43:55.496Z",
+  "total_calls_30d": 487,
   "tempo_tx_count": 0,
   "tempo_volume_usd": 0,
   "tempo_latest_tx": null,
@@ -48,9 +48,9 @@
   "min_price_usd": 0.000001,
   "max_price_usd": 4.5,
   "endpoint_count": 3,
-  "paid_endpoint_count": 3,
+  "paid_endpoint_count": 2,
   "siwx_endpoint_count": 0,
-  "observed_at": "2026-05-13T15:54:06.733Z",
+  "observed_at": "2026-06-08T19:22:53.903Z",
   "evidence": {
     "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=0",
     "agentic_market": "https://api.agentic.market/v1/services/x402-clashofcoins-com",
@@ -58,7 +58,6 @@
   },
   "tools": [
     "bazaar.x402-clashofcoins-com-agent-wallet-x402-fund",
-    "bazaar.x402-clashofcoins-com-shop-x402-buy",
     "bazaar.x402-clashofcoins-com-x402-cheap-health"
   ],
   "quality": "long-tail"

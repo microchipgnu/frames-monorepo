@@ -1,0 +1,50 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.short-wdh-sh",
+  "title": "A pay-per-link URL shortener: POST a long URL (optionally a custom slug and TTL)",
+  "description": "A pay-per-link URL shortener: POST a long URL (optionally a custom slug and TTL) and get back a short wdh.sh link. Handy anywhere characters are scarce — social posts, SMS, podcast show-notes, slides, business cards — or as a stable redirect behind a printed QR code, so the destination can change without reprinting.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://short.wdh.sh/"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.001",
+    "pay_to": "0x04b563909fdAFEACE9cba26f1848141bd140D741",
+    "scheme": "exact",
+    "extra": {
+      "description": "URL shortener for character-limited contexts.",
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://short.wdh.sh/",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "short.wdh.sh",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 4,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "A pay-per-link URL shortener: POST a long URL (optionally a custom slug and TTL) and get back a short wdh.sh link. Handy anywhere characters are scarce — social posts, SMS, podcast show-notes, slides, business cards — or as a stable redirect behind a printed QR code, so the destination can change without reprinting.\n\nPOST a JSON body to https://short.wdh.sh/. Payment is settled in USDC on Base via x402.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

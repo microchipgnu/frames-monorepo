@@ -1,0 +1,54 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.vibesprings-net-api-exchange",
+  "title": "Foreign exchange (Forex) rate database sourced from the European Central Bank (E",
+  "description": "Foreign exchange (Forex) rate database sourced from the European Central Bank (ECB). Access real-time spot rates, historical currency matrices, and cross-rate charts for over 30 global fiat currencies (including USD, EUR, GBP, JPY, CAD, CHF, AUD). Ideal for international billing, accounting ledger reconciliations, and currency pricing calculators.",
+  "capabilities": [
+    "currency",
+    "forex",
+    "exchange-rates",
+    "finance",
+    "banking",
+    "international-payments"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://vibesprings.net/api/exchange"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.002",
+    "pay_to": "0x38C063312719220c676E988f0DEE14B4ec0e44C8",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://vibesprings.net/api/exchange",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "vibesprings.net",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 91,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

@@ -1,8 +1,8 @@
 {
   "pay_protocol": "0.0.1",
   "id": "bazaar.api-seerium-xyz-v1-pulse-news-market-links",
-  "title": "News-to-prediction-market links for agents, matching global pulse headlines to r",
-  "description": "News-to-prediction-market links for agents, matching global pulse headlines to relevant Polymarket market questions and context.",
+  "title": "News prediction market API and crypto news feed for agents. Matches global headl",
+  "description": "News prediction market API and crypto news feed for agents. Matches global headlines to Polymarket questions, catalysts, and market context.",
   "capabilities": [
     "unspecified"
   ],
@@ -32,14 +32,14 @@
         "pay_to": "2h752kAbb9z1jpdSzqMEYg9JHv6TPJ6T2BfAJMyjLFtZ",
         "scheme": "exact",
         "extra": {
-          "feePayer": "BENrLoUbndxoNMUS5JXApGMtNykLjFXXixMtpDwDR9SP"
+          "feePayer": "BFK9TLC3edb13K6v4YyH3DwPb5DSUpkWvb7XnqCL9b4F"
         }
       }
     ]
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://api.seerium.xyz/v1/pulse/news-market-links",
     "x402_version": 2,
     "accept_count": 2
@@ -54,10 +54,10 @@
     "network_count": 2,
     "network_names": "Base, Solana",
     "listed_on_count": 2,
-    "total_calls_30d": 103,
+    "total_calls_30d": 658,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

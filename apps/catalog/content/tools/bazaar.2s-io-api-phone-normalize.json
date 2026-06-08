@@ -1,0 +1,64 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.2s-io-api-phone-normalize",
+  "title": "Parse, validate and canonicalize a phone number using Google's libphonenumber me",
+  "description": "Parse, validate and canonicalize a phone number using Google's libphonenumber metadata. Query: number (required; E.164 like \"+14155552671\" or national like \"(415) 555-2671\"), country (optional ISO 3166-1 alpha-2 like US/GB/JP — required when number is not E.164). Returns {input, valid (matches a real number range), possible (right shape/length), e164, national, international, rfc3966, country, countryCallingCode, type (mobile|fixed_line|fixed_line_or_mobile|toll_free|premium_rate|shared_cost|voip|personal_number|pager|uan|voicemail|unknown), possibleCountries[]}. Returns valid:false (not an error) for unparseable input.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://2s.io/api/phone/normalize"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.001",
+    "pay_to": "0x2b6D4988Db4723E6908Db86Ab2b8dFBc51FC32C5",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.001",
+        "pay_to": "TW6ntaGzvj63ZgPjszd4FCGmVTGfzv1MAYZbjYcyWhn",
+        "scheme": "exact",
+        "extra": {
+          "name": "USDC",
+          "version": "1"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://2s.io/api/phone/normalize",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "2s.io",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 2,
+    "network_names": "Base, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 561,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

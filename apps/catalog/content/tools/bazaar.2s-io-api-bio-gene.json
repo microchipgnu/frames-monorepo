@@ -1,0 +1,65 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.2s-io-api-bio-gene",
+  "title": "Look up a gene by its official symbol (e.g. \"TP53\", \"BRCA1\", \"CFTR\") and organis",
+  "description": "Look up a gene by its official symbol (e.g. \"TP53\", \"BRCA1\", \"CFTR\") and organism (taxid, default 9606 = human), merging NCBI Gene with UniProt. Returns the gene symbol, NCBI Gene ID, full description, organism, chromosome + cytogenetic map location, alias symbols, and the curated RefSeq function summary; plus the reviewed protein from UniProt — accession, entry id, recommended protein name, length in amino acids, and the curated function description. NCBI + UniProt links. Bioinformatics, clinical-genetics research, education. Public-domain NCBI + CC-BY UniProt data. Common organism taxids: human 9606, mouse 10090, zebrafish 7955, fruit fly 7227, yeast 559292.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://2s.io/api/bio/gene"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.00192",
+    "pay_to": "0x2b6D4988Db4723E6908Db86Ab2b8dFBc51FC32C5",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.00192",
+        "pay_to": "TW6ntaGzvj63ZgPjszd4FCGmVTGfzv1MAYZbjYcyWhn",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "Hc3sdEAsCGQcpgfivywog9uwtk8gUBUZgsxdME1EJy88",
+          "name": "USDC",
+          "version": "1"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://2s.io/api/bio/gene",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "2s.io",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 2,
+    "network_names": "Base, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 561,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://mpp.hyreagent.fun/cdp/trenches/token",
     "x402_version": 1,
     "accept_count": 1
@@ -40,10 +40,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 98,
+    "total_calls_30d": 50,
     "x402_volume_usd_30d": 0,
     "x_guidance": "HYRE Agent provides 24 DeFi intelligence endpoints across 5 segments. Three payment chains supported via x402, all routed through the PayAI facilitator (facilitator.payai.network):\n\n**Solana:** Root paths (/, /trenches/*, /traders/*, etc.). Network solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp. Gas sponsored via PayAI feePayer 2wKupLR9q6wXYppw8Gr2NvWxKBUqm4PPJKkQfoxHDBg4.\n\n**Base:** Prefixed /base/* paths (/base/trenches/*, /base/defi/*, etc.). Network eip155:8453.\n\n**SKALE:** Prefixed /skale/* paths (/skale/trenches/*, /skale/defi/*, etc.). Network eip155:1187947933. Zero gas fees.\n\n**ME Protocol agents (/agents/:name/*):** Each claimed .me agent proxies a subset of the catalog above. Calls to /agents/alice/trenches/verdict/<token> route payment to alice's Asset Signer PDA instead of HYRE's wallet. Template gating rejects endpoints the agent's template does not cover. See the /agents/{name} operation below for details.\n\nAll chains return identical AI-enriched data. Every response includes: data, insight, signal, confidence, model_used, latency_ms.",
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

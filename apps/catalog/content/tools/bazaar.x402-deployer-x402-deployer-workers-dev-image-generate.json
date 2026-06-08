@@ -1,8 +1,8 @@
 {
   "pay_protocol": "0.0.1",
   "id": "bazaar.x402-deployer-x402-deployer-workers-dev-image-generate",
-  "title": "Image generate / text-to-image / AI art / SDXL alternative / cyberpunk image / p",
-  "description": "Image generate / text-to-image / AI art / SDXL alternative / cyberpunk image / photorealistic generation / fast image gen. Text-to-image via Venice with three tiers: 'fast' (z-image-turbo, default), 'quality' (qwen-image), 'uncensored' (lustify-v8). Returns a permanent fal-hosted PNG URL plus the model used and dimensions. Width/height range 256-2048.",
+  "title": "Image generate (fast/cheap) / text-to-image / AI art. SFW, sub-5s turnaround. Fo",
+  "description": "Image generate (fast/cheap) / text-to-image / AI art. SFW, sub-5s turnaround. Four tiers backed by curated $0.01 Venice models: 'fast' (z-image-turbo, default), 'creative' (chroma), 'anime' (wai-Illustrious), 'sd35' (venice-sd35). For top-tier quality use image-generate-pro ($0.10, Flux 2 Pro / Recraft / Seedream / Qwen Image 2 Pro) or image-generate-ultra ($0.30, Google nano-banana-pro / OpenAI gpt-image-2). Returns a permanent fal-hosted PNG URL.",
   "capabilities": [
     "unspecified"
   ],
@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://x402-deployer.x402-deployer.workers.dev/image-generate",
     "x402_version": 2,
     "accept_count": 1
@@ -40,10 +40,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 2141,
+    "total_calls_30d": 125,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

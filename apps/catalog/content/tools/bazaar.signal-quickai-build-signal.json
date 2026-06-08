@@ -1,8 +1,8 @@
 {
   "pay_protocol": "0.0.1",
   "id": "bazaar.signal-quickai-build-signal",
-  "title": "Quick Signal TA v3.0.0 – One Query, Ten Indicators with Assessment | Professiona",
-  "description": "Quick Signal TA v3.0.0 – One Query, Ten Indicators with Assessment | Professional crypto technical analysis",
+  "title": "Quick Signal TA v3.1.0 — Crypto technical analysis. Ten indicators with natural-",
+  "description": "Quick Signal TA v3.1.0 — Crypto technical analysis. Ten indicators with natural-language assessments. Query params: token (required), timeframe, bollinger_period, rsi_period.",
   "capabilities": [
     "unspecified"
   ],
@@ -15,7 +15,7 @@
     "network": "base",
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-    "price_hint": "0.2",
+    "price_hint": "0.05",
     "pay_to": "0x85557C90027354eAeFFe9Ee4B4f4014818d8D3e1",
     "scheme": "exact",
     "extra": {
@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://signal.quickai.build/signal",
     "x402_version": 2,
     "accept_count": 1
@@ -40,10 +40,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 11,
+    "total_calls_30d": 8,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

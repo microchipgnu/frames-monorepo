@@ -2,7 +2,7 @@
   "catalog_protocol": "0.0.1",
   "host": "transit402.dev",
   "display_name": "transit402.dev",
-  "description": "Nearby bus stops with real-time arrival predictions",
+  "description": "Active subway service alerts with direction, severity, and estimated delay minutes",
   "category": "other",
   "category_source": "none",
   "x_guidance": "Use this API when the user needs real-time NYC subway, bus, or Citi Bike availability near a known coordinate. Resolve place names to latitude/longitude before calling; the API does not geocode.\n\nCanonical agent invocation uses POST with JSON body { lat, lng, limit? }. limit defaults to 5 and must be an integer between 1 and 10. Reason over the full result set to answer constraint queries (e.g. stations with ≥3 e-bikes, stops within 8 walking minutes, specific subway lines, return docks with ≥5 open slots), then present the top 3 results to the user unless they ask for more. Equivalent GET query routes remain available for browser and manual use, but OpenAPI POST operations are the preferred discovery target.\n\nChoose /subway/nearest for live train arrivals, /bus/nearest for live bus ETAs, /citibike/nearest for bike pickup availability, and /citibike/dock for return docks. For trip-planning questions, call origin and destination endpoints in parallel and compare walking time, arrival minutes, and bike or dock counts. Example: compare /subway/nearest and /citibike/nearest near the trip origin, then /subway/nearest and /citibike/dock near the destination.",
@@ -27,9 +27,9 @@
   "has_openapi": true,
   "per_route_schemas": 0,
   "mpp_source": "probe",
-  "bazaar_resource_count": 1,
-  "bazaar_last_updated": "2026-05-11T21:42:14.17Z",
-  "total_calls_30d": 1,
+  "bazaar_resource_count": 5,
+  "bazaar_last_updated": "2026-06-06T23:14:08.965Z",
+  "total_calls_30d": 39,
   "tempo_tx_count": 0,
   "tempo_volume_usd": 0,
   "tempo_latest_tx": null,
@@ -47,17 +47,21 @@
   "is_recognized": false,
   "min_price_usd": 0.02,
   "max_price_usd": 0.02,
-  "endpoint_count": 1,
-  "paid_endpoint_count": 1,
+  "endpoint_count": 5,
+  "paid_endpoint_count": 5,
   "siwx_endpoint_count": 0,
-  "observed_at": "2026-05-13T15:54:06.733Z",
+  "observed_at": "2026-06-08T19:22:53.903Z",
   "evidence": {
     "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=0",
     "agentic_market": "https://api.agentic.market/v1/services/transit402-dev",
     "probe": "https://transit402.dev"
   },
   "tools": [
-    "bazaar.transit402-dev-bus-nearest"
+    "bazaar.transit402-dev-bus-nearest",
+    "bazaar.transit402-dev-citibike-dock",
+    "bazaar.transit402-dev-citibike-nearest",
+    "bazaar.transit402-dev-subway-alerts",
+    "bazaar.transit402-dev-subway-nearest"
   ],
   "quality": "long-tail"
 }

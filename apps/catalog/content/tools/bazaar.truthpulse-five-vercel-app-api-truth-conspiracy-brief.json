@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.truthpulse-five-vercel-app-api-truth-conspiracy-brief",
+  "title": "TruthPulse — conspiracy theory deep-dive: synthesize all available public record",
+  "description": "TruthPulse — conspiracy theory deep-dive: synthesize all available public records, FOIA releases, declassified docs, and court filings on any theory — what the evidence actually shows",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://truthpulse-five.vercel.app/api/truth/conspiracy-brief"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.2",
+    "pay_to": "0x50ab2018c06c6E4eAA9BA52057Eb55eD284912fc",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://truthpulse-five.vercel.app/api/truth/conspiracy-brief",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "truthpulse-five.vercel.app",
+    "is_active_14d": true,
+    "is_infra": true,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 38,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

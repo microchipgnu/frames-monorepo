@@ -1,0 +1,133 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-molty-cash-puchhu337-a2a",
+  "title": "Tip or hire @puchhu337 - send USDC payments",
+  "description": "Tip or hire @puchhu337 - send USDC payments",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.molty.cash/puchhu337/a2a"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "1.03",
+    "pay_to": "0x8755a2Faf86C9e3758450d703f8BBCADA343c62e",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "1.03",
+        "pay_to": "FWoD65bNMnYuvA4sjSokrJvTV61nUbPfAuxgjiGZtNT9",
+        "scheme": "exact",
+        "extra": {
+          "features": {
+            "xSettlementAccountSupported": true
+          },
+          "feePayer": "2wKupLR9q6wXYppw8Gr2NvWxKBUqm4PPJKkQfoxHDBg4",
+          "name": "USDC",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "tempo",
+        "currency": "UNKNOWN",
+        "asset": "0x20c000000000000000000000b9537d11c60e8b50",
+        "price_hint": "1.03",
+        "pay_to": "0x7ad9d5Bc20a096a686595fCaAE2d177484514608",
+        "scheme": "exact",
+        "extra": {
+          "name": "USDC",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "stellar:pubnet",
+        "currency": "UNKNOWN",
+        "asset": "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75",
+        "price_hint": "10.3",
+        "pay_to": "GB6QDRW5UL42MGAGG6ELQ43YMEMKNBXYDQJ72HVFHEPB23ROWPKDPR7I",
+        "scheme": "exact",
+        "extra": {
+          "name": "USDC",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "eip155:143",
+        "currency": "UNKNOWN",
+        "asset": "0x754704Bc059F8C67012fEd69BC8A327a5aafb603",
+        "price_hint": "1.03",
+        "pay_to": "0x42e0E75E5835059e7eC3b299F9cB5d7f0E84Ac6c",
+        "scheme": "exact",
+        "extra": {
+          "name": "USDC",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "eip155:480",
+        "currency": "UNKNOWN",
+        "asset": "0x79A02482A880bCE3F13e09Da970dC34db4CD24d1",
+        "price_hint": "1.03",
+        "pay_to": "0x180785ecc3E9256b3F09181C0a368D53167aa75e",
+        "scheme": "exact",
+        "extra": {
+          "name": "USDC",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "eip155:1187947933",
+        "currency": "UNKNOWN",
+        "asset": "0x85889c8c714505E0c94b30fcfcF64fE3Ac8FCb20",
+        "price_hint": "1.03",
+        "pay_to": "0x93559995092d99C616F6D682EfeaeB2cF25f0E57",
+        "scheme": "exact",
+        "extra": {
+          "name": "USDC",
+          "version": "2"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://api.molty.cash/puchhu337/a2a",
+    "x402_version": 2,
+    "accept_count": 8
+  },
+  "_signals": {
+    "host": "api.molty.cash",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": true,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 7,
+    "network_names": "Base, Monad, SKALE Base, Solana, Stellar, Tempo, World Chain",
+    "listed_on_count": 3,
+    "total_calls_30d": 5360,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Use POST /a2a with JSON-RPC 2.0 body for global operations (gig.create, gig.list, gig.pick, gig.submit_proof). Use POST /{username}/a2a for per-user operations (tip, hire). Payment methods: tip and hire require x402 or MPP payment. gig.create requires payment plus identity_token in params. Earner methods (gig.list, gig.pick, gig.submit_proof) require only identity_token, no payment. Pass identity_token as a JSON-RPC param or via X-Molty-Identity-Token header.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "curated"
+  }
+}

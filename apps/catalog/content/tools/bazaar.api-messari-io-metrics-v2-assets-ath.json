@@ -1,0 +1,76 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-messari-io-metrics-v2-assets-ath",
+  "title": "Get all-time-high cryptocurrency price snapshots and drawdown context by asset.",
+  "description": "Get all-time-high cryptocurrency price snapshots and drawdown context by asset.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.messari.io/metrics/v2/assets/ath"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.1",
+    "pay_to": "0x75Ddd3c42eAce13c59EA0CD1141B886A1c70D2A5",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.1",
+        "pay_to": "jPt2dffmPi7WEtV8J6UFHJQaatEJVyuSFmz5b4DHFG8",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "Hc3sdEAsCGQcpgfivywog9uwtk8gUBUZgsxdME1EJy88"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "eip155:196",
+        "currency": "UNKNOWN",
+        "asset": "0x779Ded0c9e1022225f8E0630b35a9b54bE713736",
+        "price_hint": "0.1",
+        "pay_to": "0x9e730985cb9925e8addb9e7701c2a45a5cd226a9",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD₮0",
+          "version": "1"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://api.messari.io/metrics/v2/assets/ath",
+    "x402_version": 2,
+    "accept_count": 3
+  },
+  "_signals": {
+    "host": "api.messari.io",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": true,
+    "is_mass_lister": false,
+    "category": "data",
+    "network_count": 3,
+    "network_names": "Base, Solana, X Layer",
+    "listed_on_count": 2,
+    "total_calls_30d": 60,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "# Messari API\n\nComprehensive crypto data for institutions with pay-per-request x402 access.\n\nhttps://docs.messari.io/api-reference/x402-payments",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "curated"
+  }
+}

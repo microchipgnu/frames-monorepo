@@ -50,7 +50,7 @@
   "endpoint_count": 4,
   "paid_endpoint_count": 4,
   "siwx_endpoint_count": 0,
-  "observed_at": "2026-05-13T15:54:06.733Z",
+  "observed_at": "2026-06-08T19:22:53.903Z",
   "evidence": {
     "mpp_directory": "https://mpp.dev/api/services/exa"
   },

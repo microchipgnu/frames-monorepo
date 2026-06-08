@@ -1,0 +1,56 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.tradeos-tech-x402-v1-intelligence-tradeos-fusion-signals-history-24h",
+  "title": "A one-day signal history window for dashboard backfills, recent behavior audits,",
+  "description": "A one-day signal history window for dashboard backfills, recent behavior audits, and agents that need context beyond the latest snapshot. It returns up to 200 sanitized historical rows with filters, timestamps, scores, decision states, and freshness metadata, so consumers can replay what changed without buying or reselling a raw feed. Read-only history, not execution.",
+  "capabilities": [
+    "crypto",
+    "signal-history",
+    "backfill",
+    "audit",
+    "agents"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://tradeos.tech/x402/v1/intelligence/tradeos-fusion-signals-history-24h"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.75",
+    "pay_to": "0xB445F611Cc899B623462f07C11bFEaCfD20D3C70",
+    "scheme": "exact",
+    "extra": {
+      "channelId": "x402-direct",
+      "name": "USD Coin",
+      "resourceId": "tradeos-fusion-signals-history-24h",
+      "resourceType": "intelligence_report",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://tradeos.tech/x402/v1/intelligence/tradeos-fusion-signals-history-24h",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "tradeos.tech",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 44,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

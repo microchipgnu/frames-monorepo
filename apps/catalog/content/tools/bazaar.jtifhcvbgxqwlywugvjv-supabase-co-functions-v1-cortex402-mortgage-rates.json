@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.jtifhcvbgxqwlywugvjv-supabase-co-functions-v1-cortex402-mortgage-rates",
+  "title": "Live US mortgage and macro rates from the Federal Reserve. Returns 30-year and 1",
+  "description": "Live US mortgage and macro rates from the Federal Reserve. Returns 30-year and 15-year fixed mortgage rates, prime rate, fed funds rate, and CPI year-over-year. Sourced from FRED (Freddie Mac PMMS series).",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://jtifhcvbgxqwlywugvjv.supabase.co/functions/v1/cortex402-mortgage-rates"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.02",
+    "pay_to": "0x0d59A2a9E70fa6574dFA78c0AB5250C3aCcbB956",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://jtifhcvbgxqwlywugvjv.supabase.co/functions/v1/cortex402-mortgage-rates",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "jtifhcvbgxqwlywugvjv.supabase.co",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 22,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

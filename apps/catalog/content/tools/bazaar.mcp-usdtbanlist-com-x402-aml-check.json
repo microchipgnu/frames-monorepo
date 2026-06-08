@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.mcp-usdtbanlist-com-x402-aml-check",
+  "title": "Deep AML risk analysis of a USDT/USDC wallet address. Returns risk score (0-100)",
+  "description": "Deep AML risk analysis of a USDT/USDC wallet address. Returns risk score (0-100), risk level, fund sources breakdown.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://mcp.usdtbanlist.com/x402/aml-check"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "1.5",
+    "pay_to": "0x5254ef64d31Dec7c7491678b92661B55ab6CbE7d",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://mcp.usdtbanlist.com/x402/aml-check",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "mcp.usdtbanlist.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 82,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

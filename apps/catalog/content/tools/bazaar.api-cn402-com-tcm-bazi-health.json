@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-cn402-com-tcm-bazi-health",
+  "title": "TCM health by BaZi / Chinese medicine birth chart health analysis / 八字健康分析 / TCM",
+  "description": "TCM health by BaZi / Chinese medicine birth chart health analysis / 八字健康分析 / TCM body constitution from BaZi / Five Elements health / 五行养生 / personalized Chinese medicine recommendation from birth date. Analyze a person's likely TCM body type and health vulnerabilities from their BaZi birth chart, with diet and lifestyle recommendations.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.cn402.com/tcm/bazi-health"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0",
+    "pay_to": "0x4466d4A84b7c49a6A094ec6eef4a0712D6dd125e",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://api.cn402.com/tcm/bazi-health",
+    "x402_version": 1,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "api.cn402.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 1284,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

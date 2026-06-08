@@ -47,16 +47,17 @@
   "is_recognized": true,
   "min_price_usd": 0.003,
   "max_price_usd": 0.3,
-  "endpoint_count": 16,
-  "paid_endpoint_count": 16,
+  "endpoint_count": 17,
+  "paid_endpoint_count": 17,
   "siwx_endpoint_count": 0,
-  "observed_at": "2026-05-13T15:54:06.733Z",
+  "observed_at": "2026-06-08T19:22:53.903Z",
   "evidence": {
     "mpp_directory": "https://mpp.dev/api/services/fal"
   },
   "tools": [
     "mpp.fal.post.fal-ai-fast-sdxl",
     "mpp.fal.post.fal-ai-flux-dev",
+    "mpp.fal.post.fal-ai-flux-dev-image-to-image",
     "mpp.fal.post.fal-ai-flux-pro-v1-1",
     "mpp.fal.post.fal-ai-flux-pro-v1-1-ultra",
     "mpp.fal.post.fal-ai-flux-schnell",

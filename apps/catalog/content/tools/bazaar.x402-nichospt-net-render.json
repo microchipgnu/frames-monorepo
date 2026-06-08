@@ -1,0 +1,76 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-nichospt-net-render",
+  "title": "Convert a complete HTML document into a print-ready PDF. POST raw HTML with inli",
+  "description": "Convert a complete HTML document into a print-ready PDF. POST raw HTML with inline CSS (up to 2MB); returns application/pdf with configurable page format (A4/Letter), orientation, and margins. Ideal for agent-generated invoices, reports, and receipts.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.nichospt.net/render"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "solana-mainnet",
+    "currency": "UNKNOWN",
+    "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "price_hint": "0.005",
+    "pay_to": "HJfYcc2XtmrLgr4kze6kdp1JNHsqrdfJiHucpKNQaoJe",
+    "scheme": "exact",
+    "extra": {
+      "feePayer": "BFK9TLC3edb13K6v4YyH3DwPb5DSUpkWvb7XnqCL9b4F"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "base",
+        "currency": "USDC",
+        "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "price_hint": "0.005",
+        "pay_to": "0x954c90740b8247e4b0d4a3f92201167895405555",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "polygon",
+        "currency": "USDC",
+        "asset": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "price_hint": "0.005",
+        "pay_to": "0x954c90740b8247e4b0d4a3f92201167895405555",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://x402.nichospt.net/render",
+    "x402_version": 2,
+    "accept_count": 3
+  },
+  "_signals": {
+    "host": "x402.nichospt.net",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 3,
+    "network_names": "Base, Polygon, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 38,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "x402-tools is a set of pay-per-call utility APIs for AI agents, settled in USDC via the x402 protocol — no API keys, no accounts. Each endpoint is a single POST with a JSON body; an unpaid request returns HTTP 402 with payment requirements, and the same request retried with a PAYMENT-SIGNATURE header returns the result. Use an x402 client library (e.g. @x402/fetch with @x402/svm for Solana or @x402/evm for Base/Polygon) to handle the payment handshake. Prices are fixed per endpoint and listed under x-payment-info on each operation.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

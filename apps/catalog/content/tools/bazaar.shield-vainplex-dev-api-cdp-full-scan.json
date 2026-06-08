@@ -1,14 +1,14 @@
 {
   "pay_protocol": "0.0.1",
   "id": "bazaar.shield-vainplex-dev-api-cdp-full-scan",
-  "title": "ShieldAPI - Full security scan — all checks combined",
-  "description": "ShieldAPI - Full security scan — all checks combined",
+  "title": "ShieldAPI - x402 security preflight for high-risk agent payment, trust, or conne",
+  "description": "ShieldAPI - x402 security preflight for high-risk agent payment, trust, or connection decisions",
   "capabilities": [
     "unspecified"
   ],
   "invocation": {
     "method": "POST",
-    "url": "https://shield.vainplex.dev/api/cdp/full/scan"
+    "url": "https://shield.vainplex.dev/api/cdp/full-scan"
   },
   "payment": {
     "protocol": "x402v2",
@@ -25,8 +25,8 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
-    "upstream_id": "https://shield.vainplex.dev/api/cdp/full/scan",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://shield.vainplex.dev/api/cdp/full-scan",
     "x402_version": 2,
     "accept_count": 1
   },
@@ -40,10 +40,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 51,
+    "total_calls_30d": 17,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

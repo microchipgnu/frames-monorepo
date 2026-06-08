@@ -1,8 +1,8 @@
 {
   "pay_protocol": "0.0.1",
   "id": "bazaar.theloopbreaker-com-api-x402-actions-register-agent",
-  "title": "Register an AI agent on the ERC-8004 Identity Registry. Pay $0.50 in USDC and re",
-  "description": "Register an AI agent on the ERC-8004 Identity Registry. Pay $0.50 in USDC and receive a fully-encoded unsigned transaction (calldata + gas estimate + chain ID) — sign locally in your wallet to become the registered agent. No private keys ever touch our servers.",
+  "title": "Register an AI agent on the ERC-8004 Identity Registry. Pay $0.10 in USDC and re",
+  "description": "Register an AI agent on the ERC-8004 Identity Registry. Pay $0.10 in USDC and receive a fully-encoded unsigned transaction (calldata + gas estimate + chain ID) — sign locally in your wallet to become the registered agent. No private keys ever touch our servers.",
   "capabilities": [
     "unspecified"
   ],
@@ -19,13 +19,26 @@
     "pay_to": "0xfA15Ee28939B222B0448261A22156070f0A7813C",
     "scheme": "exact",
     "extra": {
+      "category": "Agent Trust",
+      "iconUrl": "https://theloopbreaker.com/icon-512.png",
       "name": "USD Coin",
+      "serviceDescription": "Vaultfire — on-chain accountability and trust infrastructure for AI agents. Self-describing x402 endpoints, KYA (Know Your Agent), no custody, no token, multi-chain.",
+      "serviceName": "Vaultfire — Register Agent",
+      "serviceUrl": "https://theloopbreaker.com",
+      "tags": [
+        "vaultfire",
+        "agent",
+        "register",
+        "erc-8004",
+        "identity",
+        "onboarding"
+      ],
       "version": "2"
     }
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://theloopbreaker.com/api/x402/actions/register-agent",
     "x402_version": 1,
     "accept_count": 1
@@ -40,10 +53,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 97,
+    "total_calls_30d": 46,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

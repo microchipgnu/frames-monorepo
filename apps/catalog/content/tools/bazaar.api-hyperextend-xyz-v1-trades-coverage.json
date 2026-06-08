@@ -1,0 +1,63 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-hyperextend-xyz-v1-trades-coverage",
+  "title": "Archive coverage for a coin over a window (≤7 days): which archived hours hold i",
+  "description": "Archive coverage for a coin over a window (≤7 days): which archived hours hold its trades and where the gaps are. Warms the cache for everyone after. Priced floor + $0.05 per archived hour examined.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.hyperextend.xyz/v1/trades/coverage"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.001",
+    "pay_to": "0x548fC289526ab2F0391D562a723cdA64Bbf1abc4",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "hyperliquid:mainnet",
+        "currency": "UNKNOWN",
+        "asset": "USDC:0x6d1e7cde53ba9467b783cb7c530ce054",
+        "price_hint": "0",
+        "pay_to": "0x548fC289526ab2F0391D562a723cdA64Bbf1abc4",
+        "scheme": "exact",
+        "extra": {
+          "destinationDex": "spot"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://api.hyperextend.xyz/v1/trades/coverage",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "api.hyperextend.xyz",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 78,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Free discovery first: GET /v1/discovery to orient (dexes, coins, intervals, availability lag). Paid data — candles, open interest (/v1/asset_ctx), and HIP-4 outcome markets — answers 402 until you pay via x402 v2: read the PAYMENT-REQUIRED header and retry with a PAYMENT-SIGNATURE header. The 402's `accepts` offers two rails — Base (USDC, eip155:8453) and Hyperliquid HyperCore (hyperliquid:mainnet, the same USDC you trade and open positions with). Price = $0.001/request + a per-row rate ($0.00001 base, $0.000025 premium), capped at 5000 rows/page; paginate with the X-Next-Start response header. Omit start/end on a range endpoint for the most-recent page. Candle history runs to ~2 days ago; for fresher data query Hyperliquid directly. Raw trades (/v1/trades/{coin}) mirror HL's WsTrade verbatim (incl. the buyer/seller addresses and trade hash), priced PER ASSET-HOUR ($0.015 base, $0.03 HIP-3/HIP-4) plus $0.05 per uncached archive hour pulled, up to 24 asset-hours/request — and carry NO availability lag (served live). Forced liquidations (/v1/liquidations/{coin}) are an archive-derived tape (Hyperliquid has no public liquidations feed) priced a third of trades per asset-hour ($0.005 base, $0.01 HIP-3/HIP-4) plus the same $0.05 per uncached archive hour, available ~2h after the hour closes. Buyer guide: https://hyperextend.xyz/docs.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "mpp.sayer-and-stone.post.purchase",
+  "title": "Sayer & Stone — POST /purchase",
+  "description": "Purchase a jewelry piece",
+  "capabilities": [
+    "jewelry",
+    "commerce",
+    "physical-goods",
+    "lab-grown-diamond",
+    "made-to-order",
+    "luxury",
+    "web"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://agents.sayerandstone.com/purchase"
+  },
+  "payment": {
+    "protocol": "mpp",
+    "network": "tempo",
+    "currency": "0x20c000000000000000000000b9537d11c60e8b50",
+    "price_hint": "dynamic"
+  },
+  "_meta": {
+    "catalog": "mpp",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "sayer-and-stone:POST:/purchase"
+  },
+  "_signals": {
+    "host": "agents.sayerandstone.com",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": true,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Tempo",
+    "listed_on_count": 1,
+    "total_calls_30d": 0,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "curated"
+  }
+}

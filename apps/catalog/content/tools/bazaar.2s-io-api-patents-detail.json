@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.2s-io-api-patents-detail",
+  "title": "Full US patent application file-wrapper detail by application number. Returns bi",
+  "description": "Full US patent application file-wrapper detail by application number. Returns bibliographic data (title, inventors, applicants, dates, status, examiner, art unit, docket #, confirmation #) plus the file-wrapper event timeline (filing, IDS, Office Actions, allowance, abandonment, …), continuity chain (parent / continuation / divisional / national stage), recorded assignments (assignor → assignee with reel/frame + conveyance text), and foreign priority claims under 35 USC § 119. Application number is the 6-10 digit USPTO ID (e.g. 18566276).",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://2s.io/api/patents/detail"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.0018",
+    "pay_to": "0x2b6D4988Db4723E6908Db86Ab2b8dFBc51FC32C5",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://2s.io/api/patents/detail",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "2s.io",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 2,
+    "network_names": "Base, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 561,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.agent-security-gateway-onrender-com-api-security-metadata-sanitize",
+  "title": "Scan payment metadata for PII, credentials, and suspicious instructions",
+  "description": "Scan payment metadata for PII, credentials, and suspicious instructions",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://agent-security-gateway.onrender.com/api/security/metadata-sanitize"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.05",
+    "pay_to": "0x60c402878EfcEcAe5733A88075328Aa2320C39BE",
+    "scheme": "exact"
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://agent-security-gateway.onrender.com/api/security/metadata-sanitize",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "agent-security-gateway.onrender.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 4,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Agent Security Gateway provides x402-paid security tools for autonomous AI agents. Use /api/security/scan before any external API call to detect Japanese prompt injection. Use /api/security/pre-payment before x402 payments to check payment metadata safety. Use /api/validate/deterministic for rule-based content validation without AI. Useful for AI agent security, prompt injection detection, USDC/Base payments.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

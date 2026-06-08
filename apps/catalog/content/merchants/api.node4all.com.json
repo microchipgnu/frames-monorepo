@@ -27,9 +27,9 @@
   "has_openapi": true,
   "per_route_schemas": 0,
   "mpp_source": "none",
-  "bazaar_resource_count": 4,
-  "bazaar_last_updated": "2026-05-12T01:24:29.839Z",
-  "total_calls_30d": 13,
+  "bazaar_resource_count": 3,
+  "bazaar_last_updated": "2026-05-29T20:41:25.265Z",
+  "total_calls_30d": 5,
   "tempo_tx_count": 0,
   "tempo_volume_usd": 0,
   "tempo_latest_tx": null,
@@ -48,16 +48,15 @@
   "min_price_usd": 0.001,
   "max_price_usd": 0.05,
   "endpoint_count": 4,
-  "paid_endpoint_count": 4,
+  "paid_endpoint_count": 3,
   "siwx_endpoint_count": 0,
-  "observed_at": "2026-05-13T15:54:06.733Z",
+  "observed_at": "2026-06-08T19:22:53.903Z",
   "evidence": {
-    "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=0",
+    "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=1000",
     "agentic_market": "https://api.agentic.market/v1/services/api-node4all-com",
     "probe": "https://api.node4all.com"
   },
   "tools": [
-    "bazaar.api-node4all-com-v1-coinbase-x402-test",
     "bazaar.api-node4all-com-v1-md2pdf",
     "bazaar.api-node4all-com-v1-pdf2md",
     "bazaar.api-node4all-com-v1-x402-test"

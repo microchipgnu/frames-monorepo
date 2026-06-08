@@ -1,0 +1,116 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-asterpay-io-v2-x402-offramp-estimate",
+  "title": "Get real-time USDC to EUR settlement estimate. Returns exchange rate, EUR amount",
+  "description": "Get real-time USDC to EUR settlement estimate. Returns exchange rate, EUR amount, fees, and estimated SEPA delivery time. The only x402 endpoint offering EUR fiat settlement.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.asterpay.io/v2/x402/offramp/estimate"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.005",
+    "pay_to": "0xd5f8481D8F25d3966d2010DBf9B47fFbdf745A9E",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "polygon",
+        "currency": "USDC",
+        "asset": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "price_hint": "0.005",
+        "pay_to": "0xd5f8481D8F25d3966d2010DBf9B47fFbdf745A9E",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "arbitrum",
+        "currency": "UNKNOWN",
+        "asset": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+        "price_hint": "0.005",
+        "pay_to": "0xd5f8481D8F25d3966d2010DBf9B47fFbdf745A9E",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "optimism",
+        "currency": "UNKNOWN",
+        "asset": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+        "price_hint": "0.005",
+        "pay_to": "0xd5f8481D8F25d3966d2010DBf9B47fFbdf745A9E",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "ethereum",
+        "currency": "USDC",
+        "asset": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "price_hint": "0.005",
+        "pay_to": "0xd5f8481D8F25d3966d2010DBf9B47fFbdf745A9E",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "eip155:1187947933",
+        "currency": "UNKNOWN",
+        "asset": "0x85889c8c714505E0c94b30fcfcF64fE3Ac8FCb20",
+        "price_hint": "0.005",
+        "pay_to": "0xd5f8481D8F25d3966d2010DBf9B47fFbdf745A9E",
+        "scheme": "exact",
+        "extra": {
+          "name": "USDC",
+          "version": "1"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://x402.asterpay.io/v2/x402/offramp/estimate",
+    "x402_version": 2,
+    "accept_count": 6
+  },
+  "_signals": {
+    "host": "x402.asterpay.io",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 6,
+    "network_names": "Arbitrum, Base, Ethereum, Optimism, Polygon, SKALE Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 6,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "AsterPay is an API for AI agents that provides trust scoring, market data, AI tools, crypto analytics, and fiat settlement.\n\nFREE endpoints (no payment):\n- GET /v1/agent/trust-score/{address} — Score any agent 0-100\n- GET /v1/agent/verify/{address} — ERC-8004 identity check\n- GET /v1/settlement/estimate?amount={usdc} — EUR settlement estimate\n- GET /v1/agent/discovery — Full API discovery\n- GET /v2/x402/market/rates — Market rates\n- GET /v1/market/price/{symbol} — Real-time crypto price (also /ohlcv, /trending)\n- POST /v1/ai/summarize — Text summarization (also /sentiment, /translate, /fact-check)\n- GET /v1/crypto/whale-alerts — Recent whale movements\n\nPAID endpoints (x402 or MPP, USDC on Base):\n- GET /v1/agent/deep-analysis/{address} — $0.01 — Deep behavioral analysis\n- GET /v1/crypto/token-analysis/{address} — $0.10 — Token security analysis\n- GET /v1/crypto/wallet-score/{address} — $0.05 — Wallet reputation score\n- POST /v1/ai/code-review — $0.05 — Code security & quality analysis\n- GET /v2/x402/crypto/prices — $0.005 — Aggregated price feed\n\nPayment: Send USDC on Base to the address in the 402 challenge. Both x402 (PAYMENT-SIGNATURE header) and MPP (Authorization: Payment header) are accepted.\nSettlement: After payment, AsterPay can settle USDC to EUR via SEPA Instant in under 10 seconds.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

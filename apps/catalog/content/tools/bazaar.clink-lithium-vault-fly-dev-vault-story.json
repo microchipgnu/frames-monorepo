@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.clink-lithium-vault-fly-dev-vault-story",
+  "title": "Lithium Research Vault - cited narrative on any lithium mining company or mine, ",
+  "description": "Lithium Research Vault - cited narrative on any lithium mining company or mine, written only from primary-source vault data. Covers spodumene and brine producers across hardrock and brine cost curves: production, AISC, reserves, ownership, offtakes. Every sentence carries an inline citation resolving to a SEC/ASX/TSX filing URL. 40 operators and 49 mines incl. Greenbushes, Pilgangoora, Kings Mountain; tickers SGML, ALB, ATUSF. Same corpus as /vault ($0.05) and /vault/summary ($0.02).",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://clink-lithium-vault.fly.dev/vault/story"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.2",
+    "pay_to": "0xB1eF5415E9D3695e16977B8be422AB7512F788C0",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://clink-lithium-vault.fly.dev/vault/story",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "clink-lithium-vault.fly.dev",
+    "is_active_14d": true,
+    "is_infra": true,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 66,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

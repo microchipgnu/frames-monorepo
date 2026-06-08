@@ -23,7 +23,7 @@
   },
   "_meta": {
     "catalog": "mpp",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "kicksdb:GET:/v3/shopify/shops"
   },
   "_signals": {
@@ -39,7 +39,7 @@
     "total_calls_30d": 0,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "curated"
   }
 }

@@ -27,9 +27,9 @@
   "has_openapi": true,
   "per_route_schemas": 0,
   "mpp_source": "none",
-  "bazaar_resource_count": 5,
-  "bazaar_last_updated": "2026-05-13T05:03:27.558Z",
-  "total_calls_30d": 1193,
+  "bazaar_resource_count": 15,
+  "bazaar_last_updated": "2026-06-04T14:42:33.376Z",
+  "total_calls_30d": 29554,
   "tempo_tx_count": 0,
   "tempo_volume_usd": 0,
   "tempo_latest_tx": null,
@@ -47,21 +47,31 @@
   "is_recognized": false,
   "min_price_usd": 0.001,
   "max_price_usd": 0.05,
-  "endpoint_count": 5,
-  "paid_endpoint_count": 5,
+  "endpoint_count": 15,
+  "paid_endpoint_count": 15,
   "siwx_endpoint_count": 0,
-  "observed_at": "2026-05-13T15:54:06.733Z",
+  "observed_at": "2026-06-08T19:22:53.903Z",
   "evidence": {
     "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=0",
     "agentic_market": "https://api.agentic.market/v1/services/win-oneshotagent-com",
     "probe": "https://win.oneshotagent.com"
   },
   "tools": [
+    "bazaar.win-oneshotagent-com-v1-tools-commerce-search",
     "bazaar.win-oneshotagent-com-v1-tools-enrich-email",
     "bazaar.win-oneshotagent-com-v1-tools-enrich-profile",
+    "bazaar.win-oneshotagent-com-v1-tools-research",
+    "bazaar.win-oneshotagent-com-v1-tools-research-articles",
+    "bazaar.win-oneshotagent-com-v1-tools-research-interactions",
+    "bazaar.win-oneshotagent-com-v1-tools-research-interests",
+    "bazaar.win-oneshotagent-com-v1-tools-research-newsfeed",
+    "bazaar.win-oneshotagent-com-v1-tools-research-people",
     "bazaar.win-oneshotagent-com-v1-tools-research-person",
+    "bazaar.win-oneshotagent-com-v1-tools-research-social",
     "bazaar.win-oneshotagent-com-v1-tools-search",
-    "bazaar.win-oneshotagent-com-v1-tools-verify-email"
+    "bazaar.win-oneshotagent-com-v1-tools-verify-email",
+    "bazaar.win-oneshotagent-com-v1-tools-voice-call",
+    "bazaar.win-oneshotagent-com-v1-tools-web-read"
   ],
   "quality": "long-tail"
 }

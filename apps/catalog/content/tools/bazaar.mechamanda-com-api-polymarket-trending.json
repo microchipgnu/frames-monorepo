@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://mechamanda.com/api/polymarket/trending",
     "x402_version": 2,
     "accept_count": 1
@@ -40,10 +40,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 8,
+    "total_calls_30d": 2,
     "x402_volume_usd_30d": 0,
     "x_guidance": "# Mechamanda's x402 API Resources\n\nMost endpoints cost $0.01 per request (USDC on Base). The `upTo` complete endpoint authorizes up to $0.02 on Base Sepolia and settles per actual output token via `Settlement-Overrides`.\n\n## Endpoints\n\n- **GET /api/horoscope** — Daily horoscope by zodiac sign. $0.01 on Base mainnet. Params: `sign` (required: aries/taurus/gemini/cancer/leo/virgo/libra/scorpio/sagittarius/capricorn/aquarius/pisces), `date` (today or YYYY-MM-DD).\n- **GET /api/horoscope/testnet** — Same as above on Base Sepolia. Supports Permit2 + EIP-2612 gas-sponsorship extensions.\n- **GET /api/horoscope/testnet-permit2** — Same horoscope on Base Sepolia, Permit2 only (no gas-sponsoring extensions).\n- **GET /api/concerts** — Search upcoming music concerts via Ticketmaster. $0.01 on Base mainnet. Params: `city`, `startDateTime`, `endDateTime`, `genre`, `countryCode` (default US), `page` (default 0), `artists` (comma-separated filter).\n- **GET /api/polymarket/trending** — Top trending active Polymarket prediction markets sorted by 24h volume. $0.01 on Base mainnet. Params: `limit` (default 5), `offset`, `tag_slug`.\n- **GET /api/polymarket/historical** — Resolved Polymarket markets sorted by end date. $0.01 on Base mainnet. Params: `limit` (default 5), `offset`, `tag_slug`, `slug`, `endDateMin`, `endDateMax`.\n- **GET /api/upto/complete/testnet** — Mock LLM completion on Base Sepolia using the `upto` scheme. Billed per output token at $0.0001/token; authorizes up to $0.02 and settles actual usage via `Settlement-Overrides`. Params: `prompt` (required, max 2048 chars), `maxTokens` (1–200, default 200).\n\n## Payment\n\nSend a GET request to any endpoint. The server responds with `402 Payment Required` including payment details. Use an x402-compatible client to pay and access the resource.",
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

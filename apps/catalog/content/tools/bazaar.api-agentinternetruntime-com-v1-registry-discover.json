@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://api.agentinternetruntime.com/v1/registry/discover",
     "x402_version": 2,
     "accept_count": 1
@@ -40,10 +40,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 4,
+    "total_calls_30d": 9,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Call POST /v1/air with a natural language query to get structured data, execution plans, or capability matches. Direct callers must authenticate with an API key, session ticket, or x402 payment; anonymous browser usage continues through AIR’s first-party server-side proxy. For SDK browser automation, use /v1/sdk/capabilities to discover actions. Curated seller routes are published for Bazaar-compatible discovery, while legacy /v1/extract and /v1/capabilities stay live for SDK/x402 compatibility.",
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

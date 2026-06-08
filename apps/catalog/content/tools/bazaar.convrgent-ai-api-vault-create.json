@@ -1,0 +1,63 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.convrgent-ai-api-vault-create",
+  "title": "Create a new persistent human profile in the vault. Agent-namespaced by wallet a",
+  "description": "Create a new persistent human profile in the vault. Agent-namespaced by wallet address. Accepts initial identity, text samples, observations, and birth data.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://convrgent.ai/api/vault/create"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01",
+    "pay_to": "0xc273630dB49632EcD077C7dF606B306E400A9882",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.01",
+        "pay_to": "7jw5Bfxo8muSQk9ZGXWvoYQ7newrT52zF8VPXV5ao6fS",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "BENrLoUbndxoNMUS5JXApGMtNykLjFXXixMtpDwDR9SP"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://convrgent.ai/api/vault/create",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "convrgent.ai",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 2,
+    "network_names": "Base, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 3,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "3 products, pick what you need: KYH (personality analysis — start with /api/kyh/mbti for typing or /api/kyh/portrait for full profile), BLAH (communication coaching — /api/blah/adapt for tone, /api/blah/respond for reply drafts), KYB (sales intelligence — /api/kyb/profile for buyer type, /api/kyb/pitch for personalized pitch). Most agents need just 1-3 endpoints. Use /api/kyh/convergence ($5) only after running 2+ individual frameworks.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

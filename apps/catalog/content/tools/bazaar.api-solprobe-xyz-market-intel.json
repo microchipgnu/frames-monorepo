@@ -1,0 +1,63 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-solprobe-xyz-market-intel",
+  "title": "Solana token market signal — is it pumping or dumping? In under 10 seconds: curr",
+  "description": "Solana token market signal — is it pumping or dumping? In under 10 seconds: current price, volume, buy/sell pressure, large-transaction (whale) detection, and a BULLISH/BEARISH/NEUTRAL call. Market context a trading agent needs before sizing or executing a Solana position.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.solprobe.xyz/market/intel"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.2",
+    "pay_to": "0x8D2460E139a8BE2fdB72a44a52bc494F7326adfC",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.2",
+        "pay_to": "FQ3VL8vv8niMMJRY6SVGw6wgJ8bbs5WstN9fK2d6cAc9",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "BENrLoUbndxoNMUS5JXApGMtNykLjFXXixMtpDwDR9SP"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://api.solprobe.xyz/market/intel",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "api.solprobe.xyz",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 2,
+    "network_names": "Base, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 10,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "SolProbe is a Solana token risk scanner. Scanner endpoints take a Solana mint address (token_address, base58 32–44 chars) and return safety, market, or adversarial risk data. Always call POST /scan/quick before any token swap to screen structural safety. Use POST /market/intel for live market signal, POST /scan/deep for adversarial deep dive (insider clustering, wash trading, dev wallet history). POST /trade/quote (free) returns an unsigned Solana swap tx and runs a risk gate. Sign locally, then POST /trade/execute ($0.15) with the signed tx for broadcast — Mode A BYOW, SolProbe never holds private keys. Payment flow: POST any paid endpoint, parse the 402 response's `payment-required` header (base64-encoded JSON with the PaymentRequired payload). It offers two `accepts[]` options at the same price — USDC on Base (eip155:8453, sign an EIP-3009 transferWithAuthorization permit) or USDC on Solana (solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp, sign the SPL-token transfer per the x402 exact-SVM scheme). Retry with the signed payment in X-PAYMENT. Also listed on Virtuals Protocol ACP: https://app.virtuals.io/acp/agent/019ddf5c-62c0-706d-a3c2-99c6e08a5388 (price parity across both channels).",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

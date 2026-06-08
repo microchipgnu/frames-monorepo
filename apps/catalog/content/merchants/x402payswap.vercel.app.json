@@ -27,9 +27,9 @@
   "has_openapi": false,
   "per_route_schemas": 0,
   "mpp_source": "none",
-  "bazaar_resource_count": 2,
-  "bazaar_last_updated": "2026-04-28T23:54:21.515Z",
-  "total_calls_30d": 8,
+  "bazaar_resource_count": 1,
+  "bazaar_last_updated": "2026-05-21T22:06:00.337Z",
+  "total_calls_30d": 1,
   "tempo_tx_count": 0,
   "tempo_volume_usd": 0,
   "tempo_latest_tx": null,
@@ -48,16 +48,15 @@
   "min_price_usd": 0.001,
   "max_price_usd": 0.01,
   "endpoint_count": 2,
-  "paid_endpoint_count": 2,
+  "paid_endpoint_count": 1,
   "siwx_endpoint_count": 0,
-  "observed_at": "2026-05-13T15:54:06.733Z",
+  "observed_at": "2026-06-08T19:22:53.903Z",
   "evidence": {
-    "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=36000",
+    "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=19000",
     "agentic_market": "https://api.agentic.market/v1/services/x402payswap-vercel-app"
   },
   "tools": [
-    "bazaar.x402payswap-vercel-app-api-premium",
-    "bazaar.x402payswap-vercel-app-api-weather"
+    "bazaar.x402payswap-vercel-app-api-premium"
   ],
   "quality": "long-tail"
 }

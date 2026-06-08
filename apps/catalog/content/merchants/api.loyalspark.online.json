@@ -2,7 +2,7 @@
   "catalog_protocol": "0.0.1",
   "host": "api.loyalspark.online",
   "display_name": "api.loyalspark.online",
-  "description": "Loyal Spark API — recipient-api/balances",
+  "description": "Onchain loyalty platform on Base Network. Businesses launch branded rewards in minutes. Customers earn real value with every purchase. AI agents automate the rest.",
   "category": "other",
   "category_source": "none",
   "x_guidance": "Loyal Spark on Base L2 (chain 8453, USDC native).\n\nAuth modes:\n• Merchant agents — header x-api-key: lsk_... (or Authorization: Bearer lsk_...). Get a key in https://loyalspark.online/merchant → AI Agents.\n• Holder agents — header x-api-key: rwk_... (or Authorization: Bearer rwk_...). Issued via SIWE: https://loyalspark.online/.well-known/agent.json.\n• x402 corridor — pay USDC on Base per call. Discovery: https://loyalspark.online/.well-known/x402.\n\nTypical merchant flow:\n1. GET /me — profile and scopes\n2. POST /programs — factory calldata to deploy ERC-20\n3. POST /register-program — persist program\n4. POST /update-program-config — set cashback_rate / points_per_dollar\n5. POST /activate-program — unpause\n6. POST /mint or POST /earn — distribute points\n7. POST /rewards — catalog\n8. GET /analytics — metrics\n\nMCP mirrors REST: 32 merchant tools at https://api.loyalspark.online/loyalty-mcp and 14 recipient tools at https://api.loyalspark.online/recipient-loyalty-mcp. Each MCP tool also has a paid x402 path under /x402-gateway/mcp-tools/<name> and /x402-gateway/recipient-mcp-tools/<name>.\n\nDocs: https://loyalspark.online/api-docs · llms: https://loyalspark.online/llms.txt · agent manifest: https://loyalspark.online/.well-known/agent.json",
@@ -27,9 +27,9 @@
   "has_openapi": true,
   "per_route_schemas": 0,
   "mpp_source": "probe",
-  "bazaar_resource_count": 12,
-  "bazaar_last_updated": "2026-04-30T09:34:56.326Z",
-  "total_calls_30d": 42,
+  "bazaar_resource_count": 9,
+  "bazaar_last_updated": "2026-06-06T04:32:56.508Z",
+  "total_calls_30d": 34,
   "tempo_tx_count": 0,
   "tempo_volume_usd": 0,
   "tempo_latest_tx": null,
@@ -48,9 +48,9 @@
   "min_price_usd": 0.001,
   "max_price_usd": 0.005,
   "endpoint_count": 12,
-  "paid_endpoint_count": 12,
+  "paid_endpoint_count": 9,
   "siwx_endpoint_count": 0,
-  "observed_at": "2026-05-13T15:54:06.733Z",
+  "observed_at": "2026-06-08T19:22:53.903Z",
   "evidence": {
     "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=1000",
     "agentic_market": "https://api.agentic.market/v1/services/api-loyalspark-online",
@@ -58,17 +58,14 @@
   },
   "tools": [
     "bazaar.api-loyalspark-online-x402-gateway-analytics",
-    "bazaar.api-loyalspark-online-x402-gateway-balance",
     "bazaar.api-loyalspark-online-x402-gateway-customers",
     "bazaar.api-loyalspark-online-x402-gateway-offers",
     "bazaar.api-loyalspark-online-x402-gateway-programs",
-    "bazaar.api-loyalspark-online-x402-gateway-recipient-api-balance",
     "bazaar.api-loyalspark-online-x402-gateway-recipient-api-balances",
     "bazaar.api-loyalspark-online-x402-gateway-recipient-api-offers",
     "bazaar.api-loyalspark-online-x402-gateway-recipient-api-rewards",
     "bazaar.api-loyalspark-online-x402-gateway-recipient-api-vouchers",
-    "bazaar.api-loyalspark-online-x402-gateway-rewards",
-    "bazaar.api-loyalspark-online-x402-gateway-vouchers"
+    "bazaar.api-loyalspark-online-x402-gateway-rewards"
   ],
   "quality": "long-tail"
 }

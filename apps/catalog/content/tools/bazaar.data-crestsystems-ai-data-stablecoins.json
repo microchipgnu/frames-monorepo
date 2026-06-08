@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.data-crestsystems-ai-data-stablecoins",
+  "title": "Crest · stablecoins — Fetch top 15 stablecoins ranked by circulating supply. Ret",
+  "description": "Crest · stablecoins — Fetch top 15 stablecoins ranked by circulating supply. Returns name, supply, peg type, and chain count for USDT, USDC, DAI, and more.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://data.crestsystems.ai/data/stablecoins"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.002",
+    "pay_to": "0xAe0DFe00827c07b7Db4514683bCc3aD0E85200b1",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://data.crestsystems.ai/data/stablecoins",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "data.crestsystems.ai",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 1348,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

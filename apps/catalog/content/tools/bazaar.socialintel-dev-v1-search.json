@@ -32,7 +32,7 @@
         "pay_to": "Fj2MVB43hefNzf2XtJp9wGYqS6zHyLzewZ2Vbo4EmBvV",
         "scheme": "exact",
         "extra": {
-          "feePayer": "BENrLoUbndxoNMUS5JXApGMtNykLjFXXixMtpDwDR9SP"
+          "feePayer": "Hc3sdEAsCGQcpgfivywog9uwtk8gUBUZgsxdME1EJy88"
         }
       },
       {
@@ -65,7 +65,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://socialintel.dev/v1/search",
     "x402_version": 2,
     "accept_count": 4
@@ -80,10 +80,10 @@
     "network_count": 4,
     "network_names": "Arbitrum, Base, Polygon, Solana",
     "listed_on_count": 3,
-    "total_calls_30d": 17,
+    "total_calls_30d": 9,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Social Intel API: find Instagram influencers by niche, country, and follower count. Get business emails for ~50% of accounts. No signup, no API keys, no subscription. Try free: GET /v1/search?query=yoga&demo=true (3 results, no payment). Full access: $0.50 for 20 results, up to $1.30 for 100 results (USDC on Base or Solana via x402).",
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "curated"
   }
 }

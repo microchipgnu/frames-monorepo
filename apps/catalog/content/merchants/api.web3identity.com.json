@@ -2,7 +2,7 @@
   "catalog_protocol": "0.0.1",
   "host": "api.web3identity.com",
   "display_name": "api.web3identity.com",
-  "description": "Global crypto market statistics including total market cap and dominance",
+  "description": "ENS name valuation estimate based on length, characters, and market data",
   "category": "other",
   "category_source": "none",
   "x_guidance": null,
@@ -50,7 +50,7 @@
   "endpoint_count": 107,
   "paid_endpoint_count": 0,
   "siwx_endpoint_count": 0,
-  "observed_at": "2026-05-13T15:54:06.733Z",
+  "observed_at": "2026-06-08T19:22:53.903Z",
   "evidence": {
     "agentic_market": "https://api.agentic.market/v1/services/api-web3identity-com"
   },

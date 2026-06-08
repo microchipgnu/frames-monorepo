@@ -1,8 +1,8 @@
 {
   "pay_protocol": "0.0.1",
   "id": "bazaar.api-quantoracle-dev-v1-hedging-recommend",
-  "title": "QuantOracle: hedging/recommend",
-  "description": "QuantOracle: hedging/recommend",
+  "title": "QuantOracle: /v1/hedging/recommend",
+  "description": "QuantOracle: /v1/hedging/recommend",
   "capabilities": [
     "unspecified"
   ],
@@ -30,13 +30,16 @@
         "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
         "price_hint": "0.04",
         "pay_to": "9biztrXscReJ3Wi8EfkD2gL3WXzYUmzTEohD26Bxp39u",
-        "scheme": "exact"
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "D6ZhtNQ5nT9ZnTHUbqXZsTx5MH2rPFiBBggX4hY1WePM"
+        }
       }
     ]
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://api.quantoracle.dev/v1/hedging/recommend",
     "x402_version": 2,
     "accept_count": 2
@@ -51,10 +54,10 @@
     "network_count": 2,
     "network_names": "Base, Solana",
     "listed_on_count": 2,
-    "total_calls_30d": 83,
+    "total_calls_30d": 12,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

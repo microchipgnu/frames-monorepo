@@ -27,9 +27,9 @@
   "has_openapi": true,
   "per_route_schemas": 0,
   "mpp_source": "none",
-  "bazaar_resource_count": 23,
-  "bazaar_last_updated": "2026-04-30T01:58:15.564Z",
-  "total_calls_30d": 4,
+  "bazaar_resource_count": 21,
+  "bazaar_last_updated": "2026-06-05T07:31:15.769Z",
+  "total_calls_30d": 5,
   "tempo_tx_count": 0,
   "tempo_volume_usd": 0,
   "tempo_latest_tx": null,
@@ -48,11 +48,11 @@
   "min_price_usd": 0.002,
   "max_price_usd": 0.1,
   "endpoint_count": 23,
-  "paid_endpoint_count": 23,
+  "paid_endpoint_count": 21,
   "siwx_endpoint_count": 0,
-  "observed_at": "2026-05-13T15:54:06.733Z",
+  "observed_at": "2026-06-08T19:22:53.903Z",
   "evidence": {
-    "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=0",
+    "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=1000",
     "agentic_market": "https://api.agentic.market/v1/services/x402-silverbackdefi-app",
     "probe": "https://x402.silverbackdefi.app"
   },
@@ -70,7 +70,6 @@
     "bazaar.x402-silverbackdefi-app-api-v1-solana-trending",
     "bazaar.x402-silverbackdefi-app-api-v1-swap",
     "bazaar.x402-silverbackdefi-app-api-v1-swap-quote",
-    "bazaar.x402-silverbackdefi-app-api-v1-technical-analysis",
     "bazaar.x402-silverbackdefi-app-api-v1-token-audit",
     "bazaar.x402-silverbackdefi-app-api-v1-token-metadata-address",
     "bazaar.x402-silverbackdefi-app-api-v1-token-metadata-ethereum",
@@ -78,7 +77,6 @@
     "bazaar.x402-silverbackdefi-app-api-v1-top-pools",
     "bazaar.x402-silverbackdefi-app-api-v1-top-protocols",
     "bazaar.x402-silverbackdefi-app-api-v1-trending-tokens",
-    "bazaar.x402-silverbackdefi-app-api-v1-wallet-portfolio",
     "bazaar.x402-silverbackdefi-app-api-v1-whale-moves"
   ],
   "quality": "long-tail"

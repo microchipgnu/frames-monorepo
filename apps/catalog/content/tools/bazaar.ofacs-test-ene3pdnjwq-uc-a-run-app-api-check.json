@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.ofacs-test-ene3pdnjwq-uc-a-run-app-api-check",
+  "title": "Screen a wallet address or entity / alias name against the OFAC SDN list. Return",
+  "description": "Screen a wallet address or entity / alias name against the OFAC SDN list. Returns 503 if the list has never loaded (deny-on-error policy).",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://ofacs-test-ene3pdnjwq-uc.a.run.app/api/check"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base-sepolia",
+    "currency": "USDC",
+    "asset": "0x036cbd53842c5426634e7929541ec2318f3dcf7e",
+    "price_hint": "0.001",
+    "pay_to": "0x8f5eff5d3f4a20be46694f13c935a5d09c0f9149",
+    "scheme": "exact",
+    "extra": {
+      "name": "USDC",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://ofacs-test-ene3pdnjwq-uc.a.run.app/api/check",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "ofacs-test-ene3pdnjwq-uc.a.run.app",
+    "is_active_14d": true,
+    "is_infra": true,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 0,
+    "network_names": "",
+    "listed_on_count": 1,
+    "total_calls_30d": 3,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

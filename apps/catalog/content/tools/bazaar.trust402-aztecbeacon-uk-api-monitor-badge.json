@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.trust402-aztecbeacon-uk-api-monitor-badge",
+  "title": "Generate a one-shot Trust402 badge payload from a snapshot.",
+  "description": "Generate a one-shot Trust402 badge payload from a snapshot.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://trust402.aztecbeacon.uk/api/monitor/badge"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.02",
+    "pay_to": "0x3f4CEE4c6bad04FcCA3138dFFDEE579ddf17049B",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://trust402.aztecbeacon.uk/api/monitor/badge",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "trust402.aztecbeacon.uk",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 16,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Trust402 is a dry-run-first trust router for x402 resources. Use it to check endpoints, score resources, compare candidates, plan spend, and produce diligence reports before any live procurement.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

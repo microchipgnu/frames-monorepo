@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.www-x402scan-com-api-x402-resources",
+  "title": "Paginated list of all indexed x402 resources",
+  "description": "Paginated list of all indexed x402 resources",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://www.x402scan.com/api/x402/resources"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01",
+    "pay_to": "0x2EC4545f96A24876764bF2B04D54E66A1351bE71",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://www.x402scan.com/api/x402/resources",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "www.x402scan.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 107,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "x402scan is a payment data explorer and registry for the x402 protocol.\n\n## Authentication\n- Most data endpoints require a $0.01–$0.02 x402 micropayment (use fetch with X-Payment header).\n- Registry write endpoints (register, register-origin) require SIWX wallet authentication (use fetch_with_auth).\n\n## Data endpoints ($0.01–$0.02 each)\n- GET /api/x402/wallets/{address}/transactions — paginated transfers where wallet is sender\n- GET /api/x402/wallets/{address}/stats — aggregate stats for a wallet\n- GET /api/x402/buyers — top senders by volume\n- GET /api/x402/merchants — top recipients by volume\n- GET /api/x402/merchants/{address}/transactions — paginated transfers where merchant is recipient\n- GET /api/x402/merchants/{address}/stats — aggregate stats for a merchant\n- GET /api/x402/facilitators — list of facilitators with stats\n- GET /api/x402/facilitators/stats — overall facilitator stats\n- GET /api/x402/resources — all indexed x402 resources\n- GET /api/x402/resources/search?q= — full-text search across resources ($0.02)\n- GET /api/x402/origins/{id}/resources — resources for a specific origin\n- GET /api/x402/registry/origin?url= — all registered resources for an origin\n\n## Registry endpoints (SIWX, free)\n- POST /api/x402/registry/register — register a single x402 resource by URL\n- POST /api/x402/registry/register-origin — discover and register all resources from an origin via OpenAPI or .well-known/x402\n\n## Send endpoint (x402, dynamic price)\n- POST /api/x402/send — send USDC to an address on Base or Solana",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

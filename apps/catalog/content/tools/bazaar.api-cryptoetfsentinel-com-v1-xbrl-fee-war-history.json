@@ -1,8 +1,8 @@
 {
   "pay_protocol": "0.0.1",
   "id": "bazaar.api-cryptoetfsentinel-com-v1-xbrl-fee-war-history",
-  "title": "Quarterly fee-war progression — average + median expense ratios over time across",
-  "description": "Quarterly fee-war progression — average + median expense ratios over time across the trading cohort. Documents how fee competition has compressed since spot Bitcoin ETF launch.",
+  "title": "Crypto ETF Sentinel — Quarterly fee-war progression — average + median expense r",
+  "description": "Crypto ETF Sentinel — Quarterly fee-war progression — average + median expense ratios over time across the US spot crypto ETF trading cohort. Documents how fee competition has compressed since spot Bitcoin ETF launch in Jan 2024.",
   "capabilities": [
     "unspecified"
   ],
@@ -15,20 +15,34 @@
     "network": "base",
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-    "price_hint": "0.02",
+    "price_hint": "0.1",
     "pay_to": "0x169Bf49c6ee5A179190121Ab8D180B50e31683d1",
     "scheme": "exact",
     "extra": {
       "name": "USD Coin",
       "version": "2"
-    }
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.1",
+        "pay_to": "Ezzbt3d3K76pmQpwbeXkggCs5n7Q3JWG3iCmtdKdpMxk",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "D6ZhtNQ5nT9ZnTHUbqXZsTx5MH2rPFiBBggX4hY1WePM"
+        }
+      }
+    ]
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://api.cryptoetfsentinel.com/v1/xbrl/fee-war/history",
     "x402_version": 2,
-    "accept_count": 1
+    "accept_count": 2
   },
   "_signals": {
     "host": "api.cryptoetfsentinel.com",
@@ -37,13 +51,13 @@
     "is_recognized": false,
     "is_mass_lister": false,
     "category": "other",
-    "network_count": 1,
-    "network_names": "Base",
+    "network_count": 2,
+    "network_names": "Base, Solana",
     "listed_on_count": 2,
-    "total_calls_30d": 20,
+    "total_calls_30d": 119,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

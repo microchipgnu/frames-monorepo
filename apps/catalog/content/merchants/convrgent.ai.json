@@ -27,9 +27,9 @@
   "has_openapi": true,
   "per_route_schemas": 0,
   "mpp_source": "probe",
-  "bazaar_resource_count": 5,
-  "bazaar_last_updated": "2026-04-20T16:12:55.913Z",
-  "total_calls_30d": 6,
+  "bazaar_resource_count": 3,
+  "bazaar_last_updated": "2026-06-03T22:37:59.274Z",
+  "total_calls_30d": 3,
   "tempo_tx_count": 0,
   "tempo_volume_usd": 0,
   "tempo_latest_tx": null,
@@ -41,27 +41,25 @@
   "x402_volume_usd_30d": 0,
   "x402_buyers_30d": 0,
   "x402_facilitators": "",
-  "is_active_14d": false,
+  "is_active_14d": true,
   "is_mass_lister": false,
   "is_infra": false,
   "is_recognized": false,
   "min_price_usd": 0.01,
   "max_price_usd": 1,
   "endpoint_count": 46,
-  "paid_endpoint_count": 5,
+  "paid_endpoint_count": 3,
   "siwx_endpoint_count": 0,
-  "observed_at": "2026-05-13T15:54:06.733Z",
+  "observed_at": "2026-06-08T19:22:53.903Z",
   "evidence": {
-    "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=0",
+    "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=2000",
     "agentic_market": "https://api.agentic.market/v1/services/convrgent-ai",
     "probe": "https://convrgent.ai"
   },
   "tools": [
-    "bazaar.convrgent-ai-api-blah-respond",
-    "bazaar.convrgent-ai-api-kyh-chinese-astrology",
-    "bazaar.convrgent-ai-api-kyh-mbti",
+    "bazaar.convrgent-ai-api-kyh-communication",
     "bazaar.convrgent-ai-api-kyh-micro",
-    "bazaar.convrgent-ai-api-kyh-timing"
+    "bazaar.convrgent-ai-api-vault-create"
   ],
   "quality": "long-tail"
 }

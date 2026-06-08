@@ -1,8 +1,8 @@
 {
   "pay_protocol": "0.0.1",
   "id": "bazaar.x402-dellbot-win-chat-nano",
-  "title": "Cheapest LLM on CDP x402 Bazaar. OpenAI-compatible chat completion via Llama 3.3",
-  "description": "Cheapest LLM on CDP x402 Bazaar. OpenAI-compatible chat completion via Llama 3.3 70B (Venice AI). Supports tools/tool_choice for function calling and stream:true SSE passthrough.",
+  "title": "Cheapest LLM on CDP x402 Bazaar. OpenAI-compatible chat completion. Default Open",
+  "description": "Cheapest LLM on CDP x402 Bazaar. OpenAI-compatible chat completion. Default OpenAI GPT-OSS 120B; also offers Llama 3.3 70B, Llama 3.2 3B, Mistral Small 24B, Gemma 3 27B, Qwen3.5 9B, and Nemotron Nano 30B (all via Venice AI). Supports tools/tool_choice and stream:true SSE.",
   "capabilities": [
     "unspecified"
   ],
@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://x402.dellbot.win/chat-nano",
     "x402_version": 2,
     "accept_count": 1
@@ -40,10 +40,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 4,
+    "total_calls_30d": 18,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

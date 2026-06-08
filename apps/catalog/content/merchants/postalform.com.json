@@ -5,7 +5,7 @@
   "description": "Print and mail real letters via AI agents",
   "category": "messaging",
   "category_source": "agentic_market",
-  "x_guidance": "Use OpenAPI as the canonical discovery source for this origin. The /.well-known/x402 manifest is a lightweight compatibility layer for crawlers and agent runtimes that do not yet ingest the full OpenAPI document.\n\nFor both machine payment families, call the validate endpoint first to verify the payload and get a quote before attempting payment.\n\nWhen retrying a create call after a 402 challenge, reuse the same request_id and the exact same JSON body. PostalForm treats request_id as the strict idempotency key and rejects payload drift for that request_id.\n\nIf you intend to send the same document to the same addresses again after a prior order is paid or settled, generate a fresh request_id. PostalForm only collapses recent unpaid duplicate drafts.\n\nFor each address party, choose exactly one strategy: Address with *_address_id and *_address_text, or Manual with *_address_manual. Do not send both strategies for the same party.\n\nPrefer pdf as { \"upload_token\": \"...\" } for the most reliable automation path. The create endpoint also accepts { download_url, file_id }, a data:application/pdf;base64 URL, or an allowlisted HTTPS URL.\n\nFor structured workflow forms, discover forms with GET /api/machine/forms, fetch GET /api/machine/forms/{slug}/schema, then send a top-level form object instead of pdf to the same create/validate endpoints.\n\nFor bulk mailing campaigns, send a bulk object instead of recipient_name and recipient address fields. bulk.csv_content holds the recipient CSV, bulk.content_mode selects text, html, or pdf rendering, and validation returns bulk.recipient_count plus bulk.content_mode.\n\nBulk machine create and poll responses may include campaign_url. Use that route to inspect row-level mailed-item status, delivery events, and tracking for each CSV recipient.\n\nFor flower letters, use the dedicated /api/machine/flower-letters or /api/machine/mpp/flower-letters endpoints. They require a Florist One product code, recipient ZIP, delivery date, full delivery address, and a 200-character card note.\n\nFor postcards, keep using the same endpoints and payment flow. Set mailpiece_type to postcard, provide postcard_size, and supply pdf as the fully composed postcard PDF. See https://postalform.com/postcard-pdf-guidelines for the required 2-page bleed templates and mailing-side layout.\n\nUse POST /api/machine/orders for x402. The server returns 402 with PAYMENT-REQUIRED and expects PAYMENT-SIGNATURE on retry.\n\nUse POST /api/machine/mpp/orders for MPP. The server returns 402 with one or more WWW-Authenticate: Payment challenges and expects Authorization: Payment on retry.\n\nPoll GET /api/machine/orders/{id} or GET /api/machine/mpp/orders/{id} until payment_status becomes paid or the order reaches its terminal status. Those status endpoints accept either the canonical order_id or any aliased request_id returned during create/validate.",
+  "x_guidance": null,
   "networks_accepted": "eip155:8453,stripe,tempo",
   "network_names": "Base, Tempo",
   "primary_network": "Base",
@@ -50,9 +50,9 @@
   "endpoint_count": 3,
   "paid_endpoint_count": 1,
   "siwx_endpoint_count": 0,
-  "observed_at": "2026-05-13T15:54:06.733Z",
+  "observed_at": "2026-06-08T19:22:53.903Z",
   "evidence": {
-    "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=1000",
+    "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=2000",
     "agentic_market": "https://api.agentic.market/v1/services/postalform-com",
     "mpp_directory": "https://mpp.dev/api/services/postalform",
     "probe": "https://postalform.com"

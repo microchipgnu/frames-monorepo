@@ -29,7 +29,7 @@
         "currency": "UNKNOWN",
         "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
         "price_hint": "0.03",
-        "pay_to": "6x5ocVNEwuBpi2Gs7z8fo1ptd4TyTf578Aqr2FME99ND",
+        "pay_to": "6u5LMGQC2qk9peNibahmRWxGVXrBypk8nhTCcqtiuqMY",
         "scheme": "exact",
         "extra": {
           "decimals": 6,
@@ -37,7 +37,7 @@
             "xSettlementAccountSupported": true
           },
           "feePayer": "AepWpq3GQwL8CeKMtZyKtKPa7W91Coygh3ropAJapVdU",
-          "recentBlockhash": "FQMnaKdR2Cs3YwgV3SBhfQqFB2QaiaJUA6Kt4gKLbv5G",
+          "recentBlockhash": "JBFnzCniWPw6ssboFAbxk73XWzZjab5Dc2ZuUBtWTqnj",
           "tokenProgram": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         }
       }
@@ -45,7 +45,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://stabletravel.dev/api/flightaware/airports/MAD",
     "x402_version": 2,
     "accept_count": 2
@@ -60,10 +60,10 @@
     "network_count": 3,
     "network_names": "Base, Solana, Tempo",
     "listed_on_count": 3,
-    "total_calls_30d": 266,
+    "total_calls_30d": 2007,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "curated"
   }
 }

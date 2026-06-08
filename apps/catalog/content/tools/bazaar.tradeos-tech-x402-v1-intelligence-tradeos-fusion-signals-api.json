@@ -1,0 +1,56 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.tradeos-tech-x402-v1-intelligence-tradeos-fusion-signals-api",
+  "title": "TradeOS turns live crypto market, token-risk, signal, forecast, order-flow stres",
+  "description": "TradeOS turns live crypto market, token-risk, signal, forecast, order-flow stress, and dataset context into clean JSON with reasons, filters, freshness, and safety boundaries. Use this low-cost snapshot when an agent, dashboard, or screener needs up to 25 current signal candidates without cleaning raw feeds or receiving trade instructions. Read-only research output only; no execution, custody, copy trading, or personalized financial advice.",
+  "capabilities": [
+    "crypto",
+    "signal-snapshot",
+    "signal-api",
+    "signal-decision",
+    "agents"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://tradeos.tech/x402/v1/intelligence/tradeos-fusion-signals-api"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.15",
+    "pay_to": "0xB445F611Cc899B623462f07C11bFEaCfD20D3C70",
+    "scheme": "exact",
+    "extra": {
+      "channelId": "x402-direct",
+      "name": "USD Coin",
+      "resourceId": "tradeos-fusion-signals-api",
+      "resourceType": "intelligence_report",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://tradeos.tech/x402/v1/intelligence/tradeos-fusion-signals-api",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "tradeos.tech",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 44,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

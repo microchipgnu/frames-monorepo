@@ -47,10 +47,10 @@
   "is_recognized": true,
   "min_price_usd": 0.001,
   "max_price_usd": 0.4,
-  "endpoint_count": 45,
+  "endpoint_count": 58,
   "paid_endpoint_count": 0,
   "siwx_endpoint_count": 0,
-  "observed_at": "2026-05-13T15:54:06.733Z",
+  "observed_at": "2026-06-08T19:22:53.903Z",
   "evidence": {
     "agentic_market": "https://api.agentic.market/v1/services/www-flightaware-com"
   },

@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://trace.sociologic.ai/trace",
     "x402_version": 2,
     "accept_count": 1
@@ -40,10 +40,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 4,
+    "total_calls_30d": 1,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Use this API to find phone numbers, emails, and owner information for a person at a given address. Set find_owner=true to discover who owns a property. Payment is automatic via x402 - send a request, receive a 402 with payment details, pay USDC on Base, retry with the X-PAYMENT header.",
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

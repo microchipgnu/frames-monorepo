@@ -1,8 +1,8 @@
 {
   "pay_protocol": "0.0.1",
   "id": "bazaar.emc2ai-io-x402-bitquery-candles-raw",
-  "title": "OHLCV candlestick chart data for technical analysis. Returns full OHLC bars with",
-  "description": "OHLCV candlestick chart data for technical analysis. Returns full OHLC bars with volume metrics.",
+  "title": "OHLCV candlestick chart data. Raw variant: data only ($0.25). Analyzed variant: ",
+  "description": "OHLCV candlestick chart data. Raw variant: data only ($0.25). Analyzed variant: data + AI commentary + TimesFM/Kronos forecast with quantile bands ($1.00).",
   "capabilities": [
     "unspecified"
   ],
@@ -54,7 +54,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://emc2ai.io/x402/bitquery/candles/raw",
     "x402_version": 1,
     "accept_count": 3
@@ -69,10 +69,10 @@
     "network_count": 3,
     "network_names": "Base, Lightning, Solana",
     "listed_on_count": 2,
-    "total_calls_30d": 36,
+    "total_calls_30d": 35,
     "x402_volume_usd_30d": 0,
-    "x_guidance": null,
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "x_guidance": "Pay-per-call blockchain intelligence via x402 (USDC on Base, eip155:8453). POST a JSON body to any /x402/bitquery/* or /x402/einstein/* endpoint; an unpaid request returns a 402 challenge with payment requirements. Each operation requestBody documents required parameters. Chart-forecast endpoints (tokenchart/ohlcv/candles) add TimesFM+Kronos predictions on the analyzed variant.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "curated"
   }
 }

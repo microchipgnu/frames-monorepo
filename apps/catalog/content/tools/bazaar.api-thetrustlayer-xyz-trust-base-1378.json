@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-thetrustlayer-xyz-trust-base-1378",
+  "title": "Full ERC-8004 feedback forensics. Sybil detection, reviewer reputation weighting",
+  "description": "Full ERC-8004 feedback forensics. Sybil detection, reviewer reputation weighting, cross-chain identity resolution, temporal anomaly flags, risk assessment. Covers every ERC-8004 registry chain plus Solana.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.thetrustlayer.xyz/trust/base:1378"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.001",
+    "pay_to": "0x7B390424b3e211C0739585778de97ae719ccD137",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://api.thetrustlayer.xyz/trust/base:1378",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "api.thetrustlayer.xyz",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 11,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Agent IDs use chain:id format (e.g. base:1378, bsc:1629, ethereum:13446). Use /trust/{agentId} for full Sybil forensics, /score/{agentId} for a quick score, /gate?agent={agentId} for pass/fail trust checks before payments. Free demo at /demo/trust/{agentId} (5 req/hr). All paid endpoints cost $0.001 USDC via x402 on Base.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

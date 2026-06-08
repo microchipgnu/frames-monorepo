@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.nonvisceral-eloisa-mousily-ngrok-free-dev-api-liq-aggregate",
+  "title": "Cross-venue BTC liquidations aggregated across reachable venues (OKX + Hyperliqu",
+  "description": "Cross-venue BTC liquidations aggregated across reachable venues (OKX + Hyperliquid; Binance/Bybit/Bitget/MEXC require an API key for live liquidation tape and are excluded). Per-venue 1h long_liq_usd + short_liq_usd + n_events, aggregate long/short totals in USD, side_skew (-1=long-heavy, +1=short-heavy), cascade_alert boolean, and verdict (cascade/quiet/neutral). Cross-venue liquidation-tape signal beyond single-venue Hyperliquid liquidations.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://nonvisceral-eloisa-mousily.ngrok-free.dev/api/liq-aggregate"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.02",
+    "pay_to": "0x671e9400266F99c5Cb63661392A07C205e1accEa",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://nonvisceral-eloisa-mousily.ngrok-free.dev/api/liq-aggregate",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "nonvisceral-eloisa-mousily.ngrok-free.dev",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 591,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

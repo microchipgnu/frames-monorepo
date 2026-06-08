@@ -1,15 +1,17 @@
 {
   "pay_protocol": "0.0.1",
   "id": "bazaar.boundary-guard-x402-onrender-com-json-extract",
-  "title": "Extract or repair a JSON payload from mixed prose, markdown, or malformed model ",
-  "description": "Extract or repair a JSON payload from mixed prose, markdown, or malformed model output before downstream parsing.",
+  "title": "Extract and repair JSON from messy model output so agents can pass valid structu",
+  "description": "Extract and repair JSON from messy model output so agents can pass valid structured data downstream.",
   "capabilities": [
     "agents",
     "json",
     "extract",
     "json-repair",
     "structured-output",
-    "parsing"
+    "parsing",
+    "llm-output",
+    "tool-calling"
   ],
   "invocation": {
     "method": "POST",
@@ -30,7 +32,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://boundary-guard-x402.onrender.com/json-extract",
     "x402_version": 2,
     "accept_count": 1
@@ -45,10 +47,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 14,
+    "total_calls_30d": 28,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

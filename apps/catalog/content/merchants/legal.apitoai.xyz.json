@@ -50,9 +50,9 @@
   "endpoint_count": 10,
   "paid_endpoint_count": 10,
   "siwx_endpoint_count": 0,
-  "observed_at": "2026-05-13T15:54:06.733Z",
+  "observed_at": "2026-06-08T19:22:53.903Z",
   "evidence": {
-    "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=1000",
+    "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=4000",
     "agentic_market": "https://api.agentic.market/v1/services/legal-apitoai-xyz",
     "probe": "https://legal.apitoai.xyz"
   },

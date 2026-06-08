@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-trustsource-cc-sslcheck",
+  "title": "Check whether a domain's TLS/SSL certificate is valid, trusted, and not expiring",
+  "description": "Check whether a domain's TLS/SSL certificate is valid, trusted, and not expiring before connecting to it. Performs a live handshake and returns a 0–100 score and tier (VALID/WEAK/EXPIRING/EXPIRED/UNTRUSTED/INVALID) with chain trust, days-to-expiry, signature algorithm, TLS version, and cipher quality. Use before submitting credentials, posting to a webhook, or following a payment link, to catch expired, self-signed, or MITM-risk certificates.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.trustsource.cc/sslcheck"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.002",
+    "pay_to": "0xC1FE5Ce97fB6038527D9660cF290b716a264e874",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://api.trustsource.cc/sslcheck",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "api.trustsource.cc",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 38,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

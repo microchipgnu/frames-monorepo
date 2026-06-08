@@ -37,7 +37,7 @@
             "xSettlementAccountSupported": true
           },
           "feePayer": "AepWpq3GQwL8CeKMtZyKtKPa7W91Coygh3ropAJapVdU",
-          "recentBlockhash": "GEoKhNRfbGrGd3JcvyMjujWFJiq7jtd27N2TW4c4SsLk",
+          "recentBlockhash": "Gm8CqdCEf7uByWvhuyPqpYhTY7WQBb7Rm31udRRLthk3",
           "tokenProgram": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         }
       }
@@ -45,7 +45,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://stableupload.dev/api/site",
     "x402_version": 2,
     "accept_count": 2
@@ -60,10 +60,10 @@
     "network_count": 3,
     "network_names": "Base, Solana, Tempo",
     "listed_on_count": 4,
-    "total_calls_30d": 719,
+    "total_calls_30d": 1059,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "curated"
   }
 }

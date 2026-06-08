@@ -29,7 +29,7 @@
         "currency": "UNKNOWN",
         "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
         "price_hint": "0.01",
-        "pay_to": "BX1v9we4BCt28GM3hWwfXwnXDXpYHKWMFcWaHNytnbNL",
+        "pay_to": "GedsrmCHThhYpCVmxBuCVariiXXeVN8iJPtbuXDouJ3K",
         "scheme": "exact",
         "extra": {
           "decimals": 6,
@@ -37,7 +37,7 @@
             "xSettlementAccountSupported": true
           },
           "feePayer": "AepWpq3GQwL8CeKMtZyKtKPa7W91Coygh3ropAJapVdU",
-          "recentBlockhash": "CkgKMrPoNRqb2kiqsWKEq2Jq9FaymXGB6rf6qqJ5yh61",
+          "recentBlockhash": "9kP6ky97px6j1bj7z7yVnkcCLQqNxYmTmSyk5wsZb25G",
           "tokenProgram": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         }
       }
@@ -45,7 +45,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://stablecrypto.dev/api/coingecko/global",
     "x402_version": 2,
     "accept_count": 2
@@ -60,10 +60,10 @@
     "network_count": 2,
     "network_names": "Base, Solana",
     "listed_on_count": 3,
-    "total_calls_30d": 20,
+    "total_calls_30d": 73,
     "x402_volume_usd_30d": 0,
-    "x_guidance": "# StableCrypto API\n> Crypto market data via x402/MPP micropayments. All endpoints POST, $0.01 each.\n\n## Base URL\nhttps://stablecrypto.dev\n\n## Auth\nx402/MPP payment (USDC on Base, Solana, or Tempo). Use check_endpoint_schema on any endpoint to get its request schema before calling.\n\n## CoinGecko — Market Data\n/api/coingecko/price, /markets, /coin, /chart, /ohlc, /history, /trending, /global, /categories, /top-movers, /exchange, /exchange/tickers, /exchange/volume-chart\nExample: POST /api/coingecko/price { \"ids\": [\"bitcoin\"], \"vs_currencies\": [\"usd\"] }\n\n## CoinGecko — On-Chain\n/api/coingecko/onchain/networks, /search, /trending, /new-pools, /categories, /pool, /pool/info, /pool/ohlcv, /pool/trades, /network/dexes, /network/trending, /network/new-pools, /network/pools, /category/pools\n\n## DefiLlama — DeFi Data\n/api/defillama/protocols, /protocol, /tvl, /chains, /chain-tvl, /coins/prices, /coins/prices-historical, /coins/batch-historical, /coins/chart, /coins/block, /stablecoins, /stablecoin, /stablecoin-charts, /stablecoin-chains, /dex-overview, /dex-summary, /options-overview, /derivatives-overview, /fees-overview, /fees-summary, /yields/pools, /yields/chart, /yields/pools-borrow, /yields/perps, /yields/lsd-rates, /emissions, /emission, /defi-categories, /forks, /oracles, /hacks, /raises, /etfs/overview, /etfs/history, /bridges, /bridge, /bridge-volume, /bridge-transactions, /treasuries, /treasury\n\n## Alchemy — Blockchain Data\n/api/alchemy/token/token-balances, /token-metadata, /token-allowance, /transfers/asset-transfers, /prices/by-symbol, /prices/by-address, /prices/historical, /portfolio/tokens, /portfolio/token-balances, /portfolio/nfts, /portfolio/nft-collections, /simulation/simulate-asset-changes, /simulation/simulate-execution, /utility/transaction-receipts, /node/rpc\n\n## Etherscan — Ethereum Explorer\n/api/etherscan/account/balance, /balance-multi, /txlist, /txlist-internal, /tokentx, /tokennfttx, /token1155tx, /contract/getabi, /getsourcecode, /getcontractcreation, /transaction/getstatus, /gettxreceiptstatus, /block/getblockreward, /logs/getLogs, /token/tokensupply, /tokeninfo, /gas/gasestimate, /gasoracle, /stats/ethprice, /ethsupply, /nodecount, /chainsize, /dailytx\n",
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "x_guidance": "# StableCrypto API\n> Crypto market data and wallet intelligence via x402/MPP micropayments. All endpoints POST.\n\n## Base URL\nhttps://stablecrypto.dev\n\n## Auth\nx402/MPP payment (USDC on Base, Solana, or Tempo). Use check_endpoint_schema on any endpoint to get its request schema before calling.\n\n## Arkham — Wallet Intelligence\n93 stateless Arkham endpoints under /api/arkham, priced from Arkham credits at $0.01 per credit. Free Arkham endpoints stay free. Per-row endpoints price from request limit (default 50 when omitted). Failed upstream requests are not charged. Routes cover analytics, ARKM supply, chains, address/entity balances, Solana subaccounts, clusters, counterparties, flows, history, address/entity/token intelligence, intelligence updates, loans, network status/history, Polymarket, portfolio time series, swaps, tags, token market/holders/price/flow/volume, transfers/histograms/tx, transfer volume, and WebSocket pricing info. Stateful Arkham account mutation routes such as alerts, private labels/entities, and WebSocket session lifecycle are intentionally not exposed.\nCore: /chains, /search, /intelligence/address, /intelligence/address-all, /intelligence/address-batch, /intelligence/address-batch-all, /intelligence/address-enriched, /intelligence/address-enriched-all, /intelligence/address-enriched-batch, /intelligence/address-enriched-batch-all, /intelligence/entity, /intelligence/entity-summary, /intelligence/token, /balances/address, /balances/entity, /portfolio/address, /portfolio/entity, /counterparties/address, /counterparties/entity, /transfers, /transfers/tx, /tx\nExamples: POST /api/arkham/search { \"query\": \"Coinbase\", \"arkhamEntities\": 3, \"tokens\": 2 }; POST /api/arkham/intelligence/entity-summary { \"entity\": \"coinbase\" }\n\n## CoinGecko — Market Data\n/api/coingecko/price, /markets, /coin, /chart, /ohlc, /history, /trending, /global, /categories, /top-movers, /exchange, /exchange/tickers, /exchange/volume-chart\nExample: POST /api/coingecko/price { \"ids\": [\"bitcoin\"], \"vs_currencies\": [\"usd\"] }\n\n## CoinGecko — On-Chain\n/api/coingecko/onchain/networks, /search, /trending, /new-pools, /categories, /pool, /pool/info, /pool/ohlcv, /pool/trades, /network/dexes, /network/trending, /network/new-pools, /network/pools, /category/pools\n\n## DefiLlama — DeFi Data\n/api/defillama/protocols, /protocol, /tvl, /chains, /chain-tvl, /coins/prices, /coins/prices-historical, /coins/block, /stablecoins, /stablecoin, /stablecoin-charts, /stablecoin-chains, /dex-overview, /dex-summary, /options-overview, /fees-overview, /fees-summary\n\n## Alchemy — Blockchain Data\n/api/alchemy/token/token-balances, /token-metadata, /token-allowance, /transfers/asset-transfers, /prices/by-symbol, /prices/by-address, /prices/historical, /portfolio/tokens, /portfolio/token-balances, /portfolio/nfts, /portfolio/nft-collections, /simulation/simulate-asset-changes, /simulation/simulate-execution, /utility/transaction-receipts, /node/rpc\n\n## Etherscan — Ethereum Explorer\n/api/etherscan/account/balance, /balance-multi, /txlist, /txlist-internal, /tokentx, /tokennfttx, /token1155tx, /contract/getabi, /getsourcecode, /getcontractcreation, /transaction/getstatus, /gettxreceiptstatus, /block/getblockreward, /logs/getLogs, /token/tokensupply, /tokeninfo, /gas/gasestimate, /gasoracle, /stats/ethprice, /ethsupply, /nodecount, /chainsize, /dailytx\n",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "curated"
   }
 }

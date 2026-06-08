@@ -28,8 +28,8 @@
   "per_route_schemas": 0,
   "mpp_source": "none",
   "bazaar_resource_count": 2,
-  "bazaar_last_updated": "2026-05-09T13:59:33.276Z",
-  "total_calls_30d": 8,
+  "bazaar_last_updated": "2026-05-28T17:46:33.551Z",
+  "total_calls_30d": 4,
   "tempo_tx_count": 0,
   "tempo_volume_usd": 0,
   "tempo_latest_tx": null,
@@ -50,9 +50,9 @@
   "endpoint_count": 2,
   "paid_endpoint_count": 2,
   "siwx_endpoint_count": 0,
-  "observed_at": "2026-05-13T15:54:06.733Z",
+  "observed_at": "2026-06-08T19:22:53.903Z",
   "evidence": {
-    "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=33000",
+    "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=16000",
     "agentic_market": "https://api.agentic.market/v1/services/x402-next-mainnet-wheat-vercel-app"
   },
   "tools": [

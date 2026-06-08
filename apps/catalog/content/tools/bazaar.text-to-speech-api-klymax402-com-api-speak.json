@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.text-to-speech-api-klymax402-com-api-speak",
+  "title": "Convert text to speech audio",
+  "description": "Convert text to speech audio",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://text-to-speech.api.klymax402.com/api/speak"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.005",
+    "pay_to": "0x6E8B64638b24C6D625b045dD353120d850064E2E",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://text-to-speech.api.klymax402.com/api/speak",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "text-to-speech.api.klymax402.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 3,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Convert text to speech audio -- 20+ languages, base64 MP3 output. Google TTS engine, fast and reliable.. Pay-per-call via x402 protocol (USDC on Base).",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

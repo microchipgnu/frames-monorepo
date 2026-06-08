@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.wellknown-audit-corpus-mtree-workers-dev-v1-wellknowns-readiness-report",
+  "title": "Paid agent discovery readiness audit route for autonomous agents. Returns JSON w",
+  "description": "Paid agent discovery readiness audit route for autonomous agents. Returns JSON with provenance, route-specific evidence, and machine-readable fields. Price 0.05 USDC on Base via x402. Demo/preview: https://wellknown-audit-corpus.mtree.workers.dev/demo/readiness_report. Contact: https://wellknown-audit-corpus.mtree.workers.dev/contact.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://wellknown-audit-corpus.mtree.workers.dev/v1/wellknowns/readiness_report"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.05",
+    "pay_to": "0x1664530DC2A1CA350B1dbaD1Fc1F1a70c90fe4de",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://wellknown-audit-corpus.mtree.workers.dev/v1/wellknowns/readiness_report",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "wellknown-audit-corpus.mtree.workers.dev",
+    "is_active_14d": true,
+    "is_infra": true,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 10,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

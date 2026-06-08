@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.base-intel-api-jakemaxsigal-workers-dev-pools-hot",
+  "title": "Base DEX pool API / hot liquidity pools on Base / Aerodrome and Uniswap pool scr",
+  "description": "Base DEX pool API / hot liquidity pools on Base / Aerodrome and Uniswap pool screener / trending pools / LP opportunity finder. Ranks top Base DEX pools by sustainable volume and separates healthy pools from pump/wash-trade pools using volume-to-TVL ratios. For AI trading agents and liquidity providers on Base.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://base-intel-api.jakemaxsigal.workers.dev/pools/hot"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0",
+    "pay_to": "0x9dc9a48611b53145bfaa3535dbc1d01df89159bd",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://base-intel-api.jakemaxsigal.workers.dev/pools/hot",
+    "x402_version": 1,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "base-intel-api.jakemaxsigal.workers.dev",
+    "is_active_14d": true,
+    "is_infra": true,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 98,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

@@ -14,37 +14,13 @@
   },
   "payment": {
     "protocol": "x402v2",
-    "scheme": "exact",
-    "network": "base-sepolia",
+    "network": "solana-mainnet",
     "currency": "USDC",
-    "asset": "0x036cbd53842c5426634e7929541ec2318f3dcf7e",
-    "amount": "1000",
-    "price_hint": "0.001",
-    "pay_to": "0xe62923133a417cEe4241677865Ed5a63F44F4B54",
-    "max_timeout_seconds": 800,
-    "extra": {
-      "name": "USDC",
-      "version": "2"
-    },
-    "accepts": [
-      {
-        "protocol": "x402v2",
-        "scheme": "exact",
-        "network": "solana-devnet",
-        "asset": "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU",
-        "amount": "1000",
-        "price_hint": "0.001",
-        "pay_to": "2DaBonP27dnavQ3AXoDAwnXyKyGBC2DPse24xaCYu7th",
-        "max_timeout_seconds": 800,
-        "extra": {
-          "feePayer": "2DaBonP27dnavQ3AXoDAwnXyKyGBC2DPse24xaCYu7th"
-        }
-      }
-    ]
+    "price_hint": "0.001"
   },
   "_meta": {
     "catalog": "frames-registry",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "test:POST:/api/invoke",
     "service_slug": "test"
   },
@@ -61,7 +37,7 @@
     "total_calls_30d": 0,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "curated"
   }
 }

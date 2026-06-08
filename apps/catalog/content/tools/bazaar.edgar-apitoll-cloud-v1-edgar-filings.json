@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.edgar-apitoll-cloud-v1-edgar-filings",
+  "title": "Normalized SEC EDGAR filings (10-K, 10-Q, 8-K). Resolve by ticker or CIK. Return",
+  "description": "Normalized SEC EDGAR filings (10-K, 10-Q, 8-K). Resolve by ticker or CIK. Returns the rich envelope (resolved company, items[], truncation, source). Backed by data.sec.gov submissions. Form 4 + 13F-HR ship in Phase 2.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://edgar.apitoll.cloud/v1/edgar/filings"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01",
+    "pay_to": "0x58BdAD5e654691aC5eD4631758f3d8DA00666B6c",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://edgar.apitoll.cloud/v1/edgar/filings",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "edgar.apitoll.cloud",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 1,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Cheapest agent-native source for SEC filings. Call GET /v1/edgar/filings?ticker=AAPL&form=10-K (or ?cik=320193). Flat $0.01 per response across 10-K / 10-Q / 8-K. Phase-2 forms (4, 13F-HR) accept their aliases but route to /v1/edgar/insider and /v1/edgar/holdings, which return 503 today. Empty result still returns 200 (proof of absence). 4xx/5xx never charge.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

@@ -39,7 +39,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://api.oatp.cc/tools/tx_explainer",
     "x402_version": 2,
     "accept_count": 2
@@ -54,10 +54,10 @@
     "network_count": 2,
     "network_names": "Base, Solana",
     "listed_on_count": 2,
-    "total_calls_30d": 42552,
+    "total_calls_30d": 52,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Discover services via GET /v1/services ($0.001), then invoke tools via MCP JSON-RPC at POST / with a PAYMENT-SIGNATURE header (x402 v2). USDC settled on Solana or Base via Coinbase CDP. Full skill spec: https://api.oatp.cc/SKILL.md",
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

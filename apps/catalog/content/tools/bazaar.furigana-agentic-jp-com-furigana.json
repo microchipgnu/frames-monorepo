@@ -1,0 +1,64 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.furigana-agentic-jp-com-furigana",
+  "title": "Convert kanji-mixed Japanese (JP) text to hiragana, katakana, or romaji (Hepburn",
+  "description": "Convert kanji-mixed Japanese (JP) text to hiragana, katakana, or romaji (Hepburn/Nippon/Passport), with a per-token breakdown of surface form, reading, and part-of-speech. Backed by the kuromoji morphological analyzer. Use to generate ruby readings, build search indexes, or preprocess text for speech synthesis.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://furigana.agentic-jp.com/furigana"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.001",
+    "pay_to": "0x38c9F689274E2fC3AE360744eF88ce212077a584",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "polygon",
+        "currency": "USDC",
+        "asset": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "price_hint": "0.001",
+        "pay_to": "0x38c9F689274E2fC3AE360744eF88ce212077a584",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://furigana.agentic-jp.com/furigana",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "furigana.agentic-jp.com",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 2,
+    "network_names": "Base, Polygon",
+    "listed_on_count": 2,
+    "total_calls_30d": 6,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

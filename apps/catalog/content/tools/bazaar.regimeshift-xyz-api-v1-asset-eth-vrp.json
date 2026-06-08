@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.regimeshift-xyz-api-v1-asset-eth-vrp",
+  "title": "ETH Volatility Risk Premium — DVOL minus Parkinson realized vol (72h). Positive ",
+  "description": "ETH Volatility Risk Premium — DVOL minus Parkinson realized vol (72h). Positive = sell-vol opportunity, negative = buy-vol. Response includes regime classification (LOW/MID/HIGH), raw inputs for audit (DVOL, RV_72h, RV_6h, spot), timestamp, and open methodology URL.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://regimeshift.xyz/api/v1/asset/eth/vrp"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.001",
+    "pay_to": "0x82B17D0bb4De9ae6c3491257B60E8245e70acd7B",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://regimeshift.xyz/api/v1/asset/eth/vrp",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "regimeshift.xyz",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 284,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Pay-per-call data + on-chain RFQ capital market for AI agents on Base mainnet. Agents pay $0.001 USDC via x402 to read Agent-SOFR (decentralized USD short-rate benchmark), max-LTV (variance-aware loan terms), or ETH/BTC volatility risk premium. Free clearinghouse endpoints let agents lend/borrow USDC vs WETH at 15-30 min tenors with atomic on-chain settlement (InterAgentRepoV4, Foundry-tested, 3 audit rounds resolved). Two-tier facilitator (Coinbase CDP primary + self-hosted fallback) — every paid 200 is a real USDC.transferWithAuthorization tx visible on BaseScan. Methodology IPFS-pinned with SHA-256 in every response.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

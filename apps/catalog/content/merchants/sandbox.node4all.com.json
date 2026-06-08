@@ -27,9 +27,9 @@
   "has_openapi": true,
   "per_route_schemas": 0,
   "mpp_source": "none",
-  "bazaar_resource_count": 4,
-  "bazaar_last_updated": "2026-05-13T09:46:58.367Z",
-  "total_calls_30d": 39,
+  "bazaar_resource_count": 2,
+  "bazaar_last_updated": "2026-06-05T20:46:53.934Z",
+  "total_calls_30d": 62,
   "tempo_tx_count": 0,
   "tempo_volume_usd": 0,
   "tempo_latest_tx": null,
@@ -47,18 +47,16 @@
   "is_recognized": false,
   "min_price_usd": null,
   "max_price_usd": null,
-  "endpoint_count": 4,
-  "paid_endpoint_count": 4,
+  "endpoint_count": 2,
+  "paid_endpoint_count": 2,
   "siwx_endpoint_count": 0,
-  "observed_at": "2026-05-13T15:54:06.733Z",
+  "observed_at": "2026-06-08T19:22:53.903Z",
   "evidence": {
     "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=0",
     "probe": "https://sandbox.node4all.com"
   },
   "tools": [
-    "bazaar.sandbox-node4all-com-v1-coinbase-x402-test",
     "bazaar.sandbox-node4all-com-v1-md2pdf",
-    "bazaar.sandbox-node4all-com-v1-pdf2md",
     "bazaar.sandbox-node4all-com-v1-x402-test"
   ],
   "quality": "long-tail"

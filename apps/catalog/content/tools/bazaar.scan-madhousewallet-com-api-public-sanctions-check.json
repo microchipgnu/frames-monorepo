@@ -1,0 +1,77 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.scan-madhousewallet-com-api-public-sanctions-check",
+  "title": "Screen any person, company, or entity against OpenSanctions -- 1.3M+ entries fro",
+  "description": "Screen any person, company, or entity against OpenSanctions -- 1.3M+ entries from OFAC SDN, EU Sanctions, UN List, and 330+ sources. Returns sanctioned: true/false, entity type, risk topics (sanction, debarment, role.pep), and source datasets. Optional: country (ISO-2), address, birthDate narrow false positives. For AML/KYC pre-screening and off-ramp compliance. Pay with USDC on Base, Polygon, or Arbitrum.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://scan.madhousewallet.com/api/public/sanctions-check"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.04",
+    "pay_to": "0xf802283ff77D5972FFD109B91B70d34591B5459e",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "polygon",
+        "currency": "USDC",
+        "asset": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "price_hint": "0.04",
+        "pay_to": "0xf802283ff77D5972FFD109B91B70d34591B5459e",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "arbitrum",
+        "currency": "UNKNOWN",
+        "asset": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+        "price_hint": "0.04",
+        "pay_to": "0xf802283ff77D5972FFD109B91B70d34591B5459e",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://scan.madhousewallet.com/api/public/sanctions-check",
+    "x402_version": 2,
+    "accept_count": 3
+  },
+  "_signals": {
+    "host": "scan.madhousewallet.com",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 4,
+    "network_names": "Arbitrum, Base, Polygon, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 39,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Two compliance tools available. Wallet risk: pay $0.01 USDC per call -- use /api/public/quick-scan (fast, ~350ms) or /api/public/scan (full, ~9s); key field is shouldFlag -- any non-zero toxicScore means flagged. Sanctions screening: pay $0.04 USDC per call -- use /api/public/sanctions-check; key field is sanctioned -- true means the name matched an OFAC/EU/UN or other sanctions list entry. Each endpoint has network-specific variants: no suffix = Base/Polygon/Arbitrum (CDP), /solana = Solana (CDP).",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

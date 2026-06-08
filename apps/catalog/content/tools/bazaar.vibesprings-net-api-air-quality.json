@@ -1,0 +1,55 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.vibesprings-net-api-air-quality",
+  "title": "Real-time and forecast air quality index (AQI) and particulate matter database. ",
+  "description": "Real-time and forecast air quality index (AQI) and particulate matter database. Retrieves PM2.5, PM10, ozone (O3), nitrogen dioxide (NO2), sulfur dioxide (SO2), carbon monoxide (CO), US AQI scale labels, and European AQI parameters for any location globally. Crucial for smart city analytics, health monitoring, outdoor event planning, and environmental geointelligence.",
+  "capabilities": [
+    "air-quality",
+    "environmental-data",
+    "pollution",
+    "geointelligence",
+    "pm25",
+    "ozone",
+    "smog-index"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://vibesprings.net/api/air-quality"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.002",
+    "pay_to": "0x38C063312719220c676E988f0DEE14B4ec0e44C8",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://vibesprings.net/api/air-quality",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "vibesprings.net",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 91,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

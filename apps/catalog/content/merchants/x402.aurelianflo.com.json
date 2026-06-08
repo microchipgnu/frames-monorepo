@@ -5,7 +5,7 @@
   "description": "Low-friction batch restricted-party screen for up to 25 counterparties in one paid call. Returns per-name screening results, flagged counterparties, a batch-level proceed-or-pause recommendation, and machine-readable review signals for procurement, payouts, and cross-border onboarding workflows. Required query param: names separated with the pipe character (|). Optional query params: workflow, min",
   "category": "other",
   "category_source": "none",
-  "x_guidance": "Use OpenAPI as canonical discovery. Paid endpoints return 402 until settled. For each route, pass required path/query/body fields exactly as documented and include payment settlement before retrying.",
+  "x_guidance": null,
   "networks_accepted": "eip155:8453",
   "network_names": "Base",
   "primary_network": "Base",
@@ -19,12 +19,12 @@
   "on_frames_registry": false,
   "listed_on_count": 1,
   "advertises_mpp": false,
-  "advertises_x402": true,
+  "advertises_x402": false,
   "advertises_siwx": false,
-  "advertised_methods": "paid, x402",
+  "advertised_methods": "",
   "advertised_networks": "",
-  "probe_status": "ok",
-  "has_openapi": true,
+  "probe_status": "untried",
+  "has_openapi": false,
   "per_route_schemas": 0,
   "mpp_source": "none",
   "bazaar_resource_count": 0,
@@ -50,10 +50,9 @@
   "endpoint_count": 339,
   "paid_endpoint_count": 0,
   "siwx_endpoint_count": 0,
-  "observed_at": "2026-05-13T15:54:06.733Z",
+  "observed_at": "2026-06-08T19:22:53.903Z",
   "evidence": {
-    "agentic_market": "https://api.agentic.market/v1/services/x402-aurelianflo-com",
-    "probe": "https://x402.aurelianflo.com"
+    "agentic_market": "https://api.agentic.market/v1/services/x402-aurelianflo-com"
   },
   "tools": [],
   "quality": "long-tail"

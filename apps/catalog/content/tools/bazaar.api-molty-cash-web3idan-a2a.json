@@ -1,14 +1,14 @@
 {
   "pay_protocol": "0.0.1",
   "id": "bazaar.api-molty-cash-web3idan-a2a",
-  "title": "Tip or hire @web3Idan - send USDC payments",
-  "description": "Tip or hire @web3Idan - send USDC payments",
+  "title": "Tip or hire @web3idan - send USDC payments",
+  "description": "Tip or hire @web3idan - send USDC payments",
   "capabilities": [
     "unspecified"
   ],
   "invocation": {
     "method": "POST",
-    "url": "https://api.molty.cash/web3Idan/a2a"
+    "url": "https://api.molty.cash/web3idan/a2a"
   },
   "payment": {
     "protocol": "x402v2",
@@ -96,8 +96,8 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
-    "upstream_id": "https://api.molty.cash/web3Idan/a2a",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://api.molty.cash/web3idan/a2a",
     "x402_version": 2,
     "accept_count": 6
   },
@@ -108,13 +108,13 @@
     "is_recognized": true,
     "is_mass_lister": false,
     "category": "other",
-    "network_count": 6,
-    "network_names": "Base, Monad, Solana, Stellar, Tempo, World Chain",
+    "network_count": 7,
+    "network_names": "Base, Monad, SKALE Base, Solana, Stellar, Tempo, World Chain",
     "listed_on_count": 3,
-    "total_calls_30d": 14572,
+    "total_calls_30d": 5360,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Use POST /a2a with JSON-RPC 2.0 body for global operations (gig.create, gig.list, gig.pick, gig.submit_proof). Use POST /{username}/a2a for per-user operations (tip, hire). Payment methods: tip and hire require x402 or MPP payment. gig.create requires payment plus identity_token in params. Earner methods (gig.list, gig.pick, gig.submit_proof) require only identity_token, no payment. Pass identity_token as a JSON-RPC param or via X-Molty-Identity-Token header.",
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "curated"
   }
 }

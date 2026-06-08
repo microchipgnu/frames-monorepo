@@ -32,14 +32,14 @@
         "pay_to": "7jw5Bfxo8muSQk9ZGXWvoYQ7newrT52zF8VPXV5ao6fS",
         "scheme": "exact",
         "extra": {
-          "feePayer": "GVJJ7rdGiXr5xaYbRwRbjfaJL7fmwRygFi1H6aGqDveb"
+          "feePayer": "D6ZhtNQ5nT9ZnTHUbqXZsTx5MH2rPFiBBggX4hY1WePM"
         }
       }
     ]
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://scan.convrgent.ai/api/aeo/audit",
     "x402_version": 2,
     "accept_count": 2
@@ -54,10 +54,10 @@
     "network_count": 2,
     "network_names": "Base, Solana",
     "listed_on_count": 2,
-    "total_calls_30d": 5,
+    "total_calls_30d": 7,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Start with scan_site (POST /api/aeo/scan) — it's free and returns triple scores (AEO + GEO + Agent Readiness), AI Identity Card, and business profile. Use the business profile to decide which scores matter most. For detailed breakdown, call audit (POST /api/aeo/audit, $1). For generated fix code with score projections, call fix (POST /api/aeo/fix, $5). After applying fixes, rescan to verify improvement.",
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

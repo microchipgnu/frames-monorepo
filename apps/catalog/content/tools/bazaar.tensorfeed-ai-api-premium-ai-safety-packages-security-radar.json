@@ -1,0 +1,50 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.tensorfeed-ai-api-premium-ai-safety-packages-security-radar",
+  "title": "AI-package security radar. Per-package risk_score (0-100) over the daily OSV sna",
+  "description": "AI-package security radar. Per-package risk_score (0-100) over the daily OSV snapshot of curated AI/ML PyPI + npm packages: critical_count_30d * 25 + high_30d * 12 + critical_90d * 6 + high_90d * 3 + min(open_count, 20) + 5 if any advisory in last 7d, saturated to 100. Risk_band classifications (calm <10 / watch 10-25 / hot 25-50 / critical 50+) plus notable_movers (top-5 by_critical_30d, by_risk_score, new_in_last_7d). The \"which AI deps should I be worried about right now\" call.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://tensorfeed.ai/api/premium/ai-safety/packages/security/radar"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.02",
+    "pay_to": "0x549c82e6bfc54bdae9a2073744cbc2af5d1fc6d1",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "resource": "https://tensorfeed.ai/api/premium/ai-safety/packages/security/radar",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://tensorfeed.ai/api/premium/ai-safety/packages/security/radar",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "tensorfeed.ai",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 36,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "For agents discovering this API: most endpoints are free and require no auth. Hit /api/meta to see every endpoint with parameters. The MCP server `@tensorfeed/mcp-server` exposes 42 tools (8 free, 14 premium); install with `npx -y @tensorfeed/mcp-server`. Premium endpoints under /api/premium/* cost 1-3 credits each ($0.02 each at base rate, USDC on Base mainnet). Buy a bearer token via POST /api/payment/buy-credits + /api/payment/confirm, OR pay per call via x402 by retrying with X-Payment-Tx header. Every paid call returns an Ed25519-signed receipt verifiable at /api/receipt/verify. AFTA-certified: no charge on 5xx, breaker, schema failure, or stale data; standard at /.well-known/agent-fair-trade.json.\n",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.war-tracker-com-event-type-slug",
+  "title": "Event-type hub page at /event-type/{slug}. Aggregates events matching one classi",
+  "description": "Event-type hub page at /event-type/{slug}. Aggregates events matching one classification slug (e.g. drone-strike, airstrike, skirmish). HTML with embedded CollectionPage + Dataset JSON-LD pointing back at /api/v1/events?event_type={slug}.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://war-tracker.com/event-type/:slug"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.001",
+    "pay_to": "0x8B7243F652D3641F661619862157686992640b37",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "base",
+        "currency": "USDC",
+        "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "price_hint": "0.002",
+        "pay_to": "0x2633ba64e28A6F6989c343Cb98d43Ea06Bd9bd89",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "polygon",
+        "currency": "USDC",
+        "asset": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "price_hint": "0.002",
+        "pay_to": "0x2633ba64e28A6F6989c343Cb98d43Ea06Bd9bd89",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "base",
+        "currency": "USDC",
+        "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "price_hint": "0.002",
+        "pay_to": "0xF50C0D73C68EF2d8B3388Ec060ED39edCeb62BAF",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "polygon",
+        "currency": "USDC",
+        "asset": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "price_hint": "0.002",
+        "pay_to": "0xF50C0D73C68EF2d8B3388Ec060ED39edCeb62BAF",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "eip155:43114",
+        "currency": "UNKNOWN",
+        "asset": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
+        "price_hint": "0.002",
+        "pay_to": "0xF50C0D73C68EF2d8B3388Ec060ED39edCeb62BAF",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "base",
+        "currency": "USDC",
+        "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "price_hint": "0.001",
+        "pay_to": "0x9FfDCaEAf9ef166b4fA16f8707923CB89F2A09fe",
+        "scheme": "exact",
+        "extra": {
+          "assetTransferMethod": "permit2",
+          "name": "USD Coin",
+          "version": "2"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://war-tracker.com/event-type/:slug",
+    "x402_version": 2,
+    "accept_count": 7
+  },
+  "_signals": {
+    "host": "war-tracker.com",
+    "is_active_14d": false,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 3,
+    "network_names": "Avalanche, Base, Polygon",
+    "listed_on_count": 2,
+    "total_calls_30d": 51,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "War-Tracker is **live OSINT** conflict intelligence plus AIS maritime data:\nclassified events as JSON, `/share/{id}/{slug}` articles (schema.org JSON-LD),\nvessel APIs, and Hormuz transit feeds.\n\n**Tiers**\n1. **Free taxonomy** (60 req/min/IP): `/api/v1/regions`, `/countries`,\n   `/event-types`, `/vessels/facets` — call once per session before paid\n   `/vessels/*` so filters use legal enum values.\n2. **Events JSON** (`/api/v1/events`, `/events/{id}`): browsers and\n   AI-search/link-preview bots free at 5 req/min/IP (`X-RateLimit-*`).\n   Automation and training crawlers pay per request via x402; paid retries\n   are not IP-capped. 402 challenges do not count toward IP limits.\n3. **Paid OSINT surfaces** (x402 for training-crawler UAs): `/share/{id}/{slug}`,\n   `/media/{id}`, `/region/{slug}`, `/country/{iso2}`, `/event-type/{slug}`.\n4. **Paid maritime** (same UA rule): `/vessels/search` $0.002,\n   `/in-area` $0.010 (snapshot cursor), `/sanctioned` $0.025,\n   `/{imo}` $0.001, `/{imo}/position` $0.001, `/{imo}/sanctions` $0.002,\n   `/{imo}/track` $0.010 (1h), `/hormuz/crossings` $0.010,\n   `/hormuz/summary` $0.005. OpenAPI path keys are **concrete probe URLs**\n   (e.g. `/share/397003/strike`); substitute your own ids at runtime.\n\n**Workflow**\n1. `GET /api/v1/regions` (+ countries, event-types) for valid slugs.\n2. `GET /api/v1/events?region=middle-east&limit=200&confidence=HIGH` —\n   `confidence=HIGH` = corroborated or reviewed; default `ALL`.\n3. Cite each event's `url` field (`/share/{id}/{slug}`). Do not cite\n   `/llms-full.txt`, `/openapi.json`, or this spec.\n\n**Pagination:** pass `next_cursor` alone; do not repeat filter query params\nwith a cursor. Restart without a cursor to change filters.\n\n**Regions:** country groups (`middle-east`, `europe`, …) and maritime boxes\n(`strait-of-hormuz`, `red-sea`, …) — `GET /api/v1/regions` is canonical.\n\n**Payment:** x402 v2 USDC. Paid routes return HTTP 402 + `PaymentRequired`\nwith `accepts[]` (one entry per facilitator/network/payTo). Sign EIP-3009\nfor the chosen `payTo`, retry with `X-PAYMENT: <base64>`. Facilitators:\n**xpay** (default, gas-sponsored Base), **CDP** (JWT; Base/Polygon/Arbitrum/Solana),\n**PayAI** (Base + alt L1s + Solana), **Dexter** (gas-sponsored Base).\nCDP/PayAI may add ~$0.001/tx on top of list price. Catalogue: `GET /x402.json`;\ncurl walkthrough: `GET /x402`.\n",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

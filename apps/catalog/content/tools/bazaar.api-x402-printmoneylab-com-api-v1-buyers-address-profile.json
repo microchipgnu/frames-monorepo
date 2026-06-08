@@ -20,6 +20,7 @@
     "scheme": "exact",
     "extra": {
       "name": "USD Coin",
+      "resource": "https://api.x402.printmoneylab.com/api/v1/buyers/0x742d35Cc6634C0532925a3b844Bc9e7595f42bE/profile",
       "version": "2"
     },
     "accepts": [
@@ -32,14 +33,15 @@
         "pay_to": "3Ywxk31SvWKwZBdY6bLvjmn5h4mzWcT3HJ5UZbYXoVy9",
         "scheme": "exact",
         "extra": {
-          "feePayer": "D6ZhtNQ5nT9ZnTHUbqXZsTx5MH2rPFiBBggX4hY1WePM"
+          "feePayer": "Hc3sdEAsCGQcpgfivywog9uwtk8gUBUZgsxdME1EJy88",
+          "resource": "https://api.x402.printmoneylab.com/api/v1/buyers/0x742d35Cc6634C0532925a3b844Bc9e7595f42bE/profile"
         }
       }
     ]
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://api.x402.printmoneylab.com/api/v1/buyers/:address/profile",
     "x402_version": 2,
     "accept_count": 2
@@ -54,10 +56,10 @@
     "network_count": 2,
     "network_names": "Base, Solana",
     "listed_on_count": 2,
-    "total_calls_30d": 19,
+    "total_calls_30d": 9,
     "x402_volume_usd_30d": 0,
-    "x_guidance": null,
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "x_guidance": "Endpoints with `x-payment-info` require an x402 payment. Send an empty request to receive a 402 with a `payment-required` header; complete payment via the x402 facilitator; replay the request with `X-Payment: <signed-payload>`. Endpoints with `security: []` are free.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "long-tail"
   }
 }

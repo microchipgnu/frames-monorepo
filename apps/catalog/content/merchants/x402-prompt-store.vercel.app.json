@@ -2,7 +2,7 @@
   "catalog_protocol": "0.0.1",
   "host": "x402-prompt-store.vercel.app",
   "display_name": "X402-prompt-store.vercel.app",
-  "description": "Ship evals that predict prod failures.",
+  "description": "Resize, watermark, deliver at scale.",
   "category": "other",
   "category_source": "none",
   "x_guidance": null,
@@ -27,9 +27,9 @@
   "has_openapi": false,
   "per_route_schemas": 0,
   "mpp_source": "none",
-  "bazaar_resource_count": 2,
-  "bazaar_last_updated": "2026-05-07T21:52:08.423Z",
-  "total_calls_30d": 1,
+  "bazaar_resource_count": 1,
+  "bazaar_last_updated": "2026-02-17T23:15:21.987Z",
+  "total_calls_30d": 0,
   "tempo_tx_count": 0,
   "tempo_volume_usd": 0,
   "tempo_latest_tx": null,
@@ -41,21 +41,20 @@
   "x402_volume_usd_30d": 0,
   "x402_buyers_30d": 0,
   "x402_facilitators": "",
-  "is_active_14d": true,
+  "is_active_14d": false,
   "is_mass_lister": false,
   "is_infra": true,
   "is_recognized": false,
   "min_price_usd": null,
   "max_price_usd": null,
-  "endpoint_count": 2,
-  "paid_endpoint_count": 2,
+  "endpoint_count": 1,
+  "paid_endpoint_count": 1,
   "siwx_endpoint_count": 0,
-  "observed_at": "2026-05-13T15:54:06.733Z",
+  "observed_at": "2026-06-08T19:22:53.903Z",
   "evidence": {
-    "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=36000"
+    "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=29000"
   },
   "tools": [
-    "bazaar.x402-prompt-store-vercel-app-api-ideas-agent-evals",
     "bazaar.x402-prompt-store-vercel-app-api-ideas-image-microservice"
   ],
   "quality": "long-tail"

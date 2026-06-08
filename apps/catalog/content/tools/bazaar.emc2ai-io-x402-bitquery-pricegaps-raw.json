@@ -21,14 +21,43 @@
     "extra": {
       "name": "USD Coin",
       "version": "2"
-    }
+    },
+    "accepts": [
+      {
+        "protocol": "x402",
+        "network": "solana",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0",
+        "pay_to": "3H8oRdbRf18b2aaMVBfgJVDhnjhiXjCVTP5ZnNmPuikb",
+        "scheme": "exact",
+        "extra": {
+          "chain": "solana",
+          "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+        }
+      },
+      {
+        "protocol": "x402",
+        "network": "lightning:mainnet",
+        "currency": "UNKNOWN",
+        "asset": "sat",
+        "price_hint": "0",
+        "pay_to": "520ca7be-8ffe-4b50-ba8a-c1d8d6c2141a",
+        "scheme": "exact",
+        "extra": {
+          "chain": "lightning",
+          "merchantId": "520ca7be-8ffe-4b50-ba8a-c1d8d6c2141a",
+          "usdEquivalent": "1.00"
+        }
+      }
+    ]
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-05-13T15:54:06.759Z",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
     "upstream_id": "https://emc2ai.io/x402/bitquery/pricegaps/raw",
     "x402_version": 1,
-    "accept_count": 1
+    "accept_count": 3
   },
   "_signals": {
     "host": "emc2ai.io",
@@ -40,10 +69,10 @@
     "network_count": 3,
     "network_names": "Base, Lightning, Solana",
     "listed_on_count": 2,
-    "total_calls_30d": 36,
+    "total_calls_30d": 35,
     "x402_volume_usd_30d": 0,
-    "x_guidance": null,
-    "observed_at": "2026-05-13T15:54:06.759Z",
+    "x_guidance": "Pay-per-call blockchain intelligence via x402 (USDC on Base, eip155:8453). POST a JSON body to any /x402/bitquery/* or /x402/einstein/* endpoint; an unpaid request returns a 402 challenge with payment requirements. Each operation requestBody documents required parameters. Chart-forecast endpoints (tokenchart/ohlcv/candles) add TimesFM+Kronos predictions on the analyzed variant.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
     "quality": "curated"
   }
 }

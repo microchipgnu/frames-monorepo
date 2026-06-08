@@ -1,0 +1,50 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.charts-wdh-sh-chart",
+  "title": "Measuring progress over time and watching financial markets. Embeds chart images",
+  "description": "Measuring progress over time and watching financial markets. Embeds chart images in dashboards, agent reports, and trading screenshots.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://charts.wdh.sh/chart"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.005",
+    "pay_to": "0x04b563909fdAFEACE9cba26f1848141bd140D741",
+    "scheme": "exact",
+    "extra": {
+      "description": "Chart rendering proxy backed by chartsplat.",
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://charts.wdh.sh/chart",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "charts.wdh.sh",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 13,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "A Chart.js-compatible charting endpoint: POST a standard Chart.js config — the same `{ type, data, options }` you'd hand to `new Chart()` — and get back a rendered PNG. Backed by chartsplat.com, it renders every chart type chartsplat supports: bar, line, pie, doughnut, radar, polar area, and OHLC/candlestick (financial) charts, with the full set of Chart.js options (labels, multiple datasets, colors, titles, legends, scales). Made for embedding charts as images in agent reports, dashboards, Discord/Slack messages, and trading screenshots — anywhere you need a static image, not an interactive widget.\n\nPOST a JSON body to https://charts.wdh.sh/chart. Payment is settled in USDC on Base via x402.",
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}

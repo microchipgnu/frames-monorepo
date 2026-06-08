@@ -1,0 +1,77 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-compatify-io-v1-compatibility",
+  "title": "Compatify compatibility check",
+  "description": "Compatify compatibility check",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.compatify.io/v1/compatibility"
+  },
+  "payment": {
+    "protocol": "x402",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0",
+    "pay_to": "0x13273fE5CfEe0C289EE30DAC40ea58D4Fb823c36",
+    "scheme": "exact",
+    "extra": {
+      "name": "USDC",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402",
+        "network": "polygon",
+        "currency": "USDC",
+        "asset": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "price_hint": "0",
+        "pay_to": "0x13273fE5CfEe0C289EE30DAC40ea58D4Fb823c36",
+        "scheme": "exact",
+        "extra": {
+          "name": "USDC",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402",
+        "network": "ethereum",
+        "currency": "USDC",
+        "asset": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "price_hint": "0",
+        "pay_to": "0x13273fE5CfEe0C289EE30DAC40ea58D4Fb823c36",
+        "scheme": "exact",
+        "extra": {
+          "name": "USDC",
+          "version": "2"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "upstream_id": "https://api.compatify.io/v1/compatibility",
+    "x402_version": 1,
+    "accept_count": 3
+  },
+  "_signals": {
+    "host": "api.compatify.io",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 3,
+    "network_names": "Base, Ethereum, Polygon",
+    "listed_on_count": 2,
+    "total_calls_30d": 1,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-08T19:22:53.989Z",
+    "quality": "long-tail"
+  }
+}
