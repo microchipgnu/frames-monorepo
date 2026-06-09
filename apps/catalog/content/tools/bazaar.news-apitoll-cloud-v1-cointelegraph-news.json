@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://news.apitoll.cloud/v1/cointelegraph/news",
     "x402_version": 2,
     "accept_count": 1
@@ -40,10 +40,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 4,
+    "total_calls_30d": 6,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Cheapest agent-native source for Cointelegraph crypto news. Call GET /v1/cointelegraph/news to fetch the latest feed by locale, or pass ?search= for full-text search across the archive. $0.005 USDC per call, settled instantly via x402 on Base.",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

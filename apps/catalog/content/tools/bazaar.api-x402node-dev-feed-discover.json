@@ -1,8 +1,8 @@
 {
   "pay_protocol": "0.0.1",
   "id": "bazaar.api-x402node-dev-feed-discover",
-  "title": "discover rss feed / find rss feed / rss autodiscovery / find atom feed / discove",
-  "description": "discover rss feed / find rss feed / rss autodiscovery / find atom feed / discover feeds from URL / rss feed finder / detect rss feed / rss feed discovery / atom feed discovery / website rss feeds / extract feed URLs / find subscribe URL. Discover RSS/Atom feed URLs declared by a website HTML link rel=alternate tags. Returns array of {url, type, title}. Use ?url=https://www.theverge.com. For AI agents subscribing to sites programmatically.",
+  "title": "discover rss feed, find rss feed, rss autodiscovery, find atom feed, discover fe",
+  "description": "discover rss feed, find rss feed, rss autodiscovery, find atom feed, discover feeds from URL, rss feed finder, detect rss feed, rss feed discovery, atom feed discovery, website rss feeds, extract feed URLs, find subscribe URL. Discover RSS/Atom feed URLs declared by a website HTML link rel=alternate tags. Returns array of {url, type, title}. Use url param For AI agents subscribing to sites programmatically.",
   "capabilities": [
     "unspecified"
   ],
@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://api.x402node.dev/feed/discover",
     "x402_version": 1,
     "accept_count": 1
@@ -40,10 +40,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 1485,
+    "total_calls_30d": 1523,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

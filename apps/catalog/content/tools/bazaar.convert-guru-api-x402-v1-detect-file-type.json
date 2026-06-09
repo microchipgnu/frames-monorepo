@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://convert.guru/api/x402/v1/detect-file-type",
     "x402_version": 2,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 48,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Use POST /api/x402/v1/detect-file-type to detect the likely real file type. Use POST /api/x402/v1/convert-file to start an asynchronous conversion job. POST /convert-file requires the uploaded file, target_format, filename, created_at, and size_bytes. It returns a job_id and status_url; it does not return the converted file or result_url immediately. Poll GET /api/x402/v1/convert-file/{job_id}/status until status is done or failed. If status is done, the status response includes result_url. Call result_url and pay the x402 exact result price. Result pricing is tiered and predictable: 0.02 USDC for files up to 10 MB, 0.04 USDC for files over 10 MB and up to 40 MB. After successful payment, the result endpoint returns a short-lived download_url.",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

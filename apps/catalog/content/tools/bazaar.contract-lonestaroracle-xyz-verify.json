@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://contract.lonestaroracle.xyz/verify",
     "x402_version": 2,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 10,
     "x402_volume_usd_30d": 0,
     "x_guidance": "AI-powered smart contract security audit: honeypots, rug vectors, hidden ownership, tax manipulation + Claude AI verdict. $0.05/query via x402 USDC on Base.  |  Also from LoneStarOracle: TokenScope (token.lonestaroracle.xyz)  |  WalletRisk (wallet.lonestaroracle.xyz)  |  ChainScout (chain.lonestaroracle.xyz)  |  Full catalog: lonestaroracle.xyz",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

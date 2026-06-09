@@ -39,7 +39,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://x402-cybercentry.up.railway.app/api/services/openclaw_ai_agent_verification",
     "x402_version": 2,
     "accept_count": 2
@@ -57,7 +57,7 @@
     "total_calls_30d": 9,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Cybercentry exposes fixed-price security & verification services, payable with x402 (scheme \"exact\", networks eip155:8453 and solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp, asset USDC). Call a service by POSTing inputs as a JSON body matching the requestBody schema to /api/services/<service>. You will receive HTTP 402 with a PAYMENT-REQUIRED header; construct and sign an x402 \"exact\" payment and retry with the PAYMENT-SIGNATURE header to receive the deliverable. Each operation's price and accepted networks are in its x-payment-info. (Endpoints also accept GET with inputs as query-string params for manual/browser use.) If you hold a prepaid subscription token, call any service with the X-Subscription-Token header instead of paying per call (subscriptions are purchased on the website).",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

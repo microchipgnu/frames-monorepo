@@ -30,7 +30,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://api.xona-agent.com/base-main/tokens-api/asset-risk-details",
     "x402_version": 2,
     "accept_count": 1
@@ -45,10 +45,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 58,
+    "total_calls_30d": 64,
     "x402_volume_usd_30d": 0,
     "x_guidance": "payment-signature header carries the x402 payment credential. PAYMENT-REQUIRED response header carries the encoded x402 requirements JSON. X-PAYMENT-RESPONSE response header carries the encoded settlement confirmation.",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

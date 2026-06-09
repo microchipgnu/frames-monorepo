@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://btcnode.uk/api/tx/:hash",
     "x402_version": 2,
     "accept_count": 1
@@ -40,10 +40,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 121,
+    "total_calls_30d": 124,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Agent Surveillance endpoints ($0.01-0.10): address surveillance, whale alerts, coin taint analysis, node ops, scraping. Bitcoin endpoints ($0.001-0.005): fees, mempool, info, tx lookup, address portfolio, transaction trace, fee forecast, whale monitor. SEC insider trades ($0.05), URL scraping ($0.005), AI summarization ($0.01), Systems theory ($0.01), Game theory ($0.01), Omni theory ($0.03 — all 6 lenses), Capital flows ($0.02 — follow the money). Reddit API ($0.001): hot posts, search, comments, trending. All via x402 micropayments on Base network.",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://api.linkedpanda.com/agent/v1/profiles/:profile",
     "x402_version": 2,
     "accept_count": 1
@@ -40,10 +40,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 56,
+    "total_calls_30d": 57,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Use POST /agent/v1/profiles/enrich for bulk LinkedIn profile enrichment and B2B lead enrichment. Use GET /agent/v1/profiles/enrich for one LinkedIn profile, GET /agent/v1/profiles/email for verified work-email lookup, and GET /agent/v1/posts/reactions for LinkedIn post engagement. Profile inputs must be real LinkedIn person profile URLs or public identifiers from linkedin.com/in/<linkedinId>; do not pay for placeholder values such as test-profile, alex-example, or replace-with-real-linkedin-id. Call a paid route without PAYMENT-SIGNATURE, sign the x402 USDC challenge, then retry the same URL with PAYMENT-SIGNATURE. The API is read-only.",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

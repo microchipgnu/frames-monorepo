@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://api.iris-ai.dev/campaigns",
     "x402_version": 2,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 2,
     "x402_volume_usd_30d": 0,
     "x_guidance": "iris runs multi-channel AI outreach campaigns (email, Twitter DM, Instagram DM). most endpoints require an API key (Authorization: Bearer is_live_...) - create one at https://www.iris-ai.dev/settings/api. POST /campaigns is the only paid operation: x402 wallets pay $2.25 USDC on Base per campaign; MPP agents buy a 5-credit pack for $12.00 at POST /agent/credits ($2.40 effective per campaign). 1 credit covers contact discovery, AI drafting, and 240 message sends. iris does not offer an x402 free tier. see https://www.iris-ai.dev/docs#agent-payments for the full payment flow and https://api.iris-ai.dev/llms.txt for product context.",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

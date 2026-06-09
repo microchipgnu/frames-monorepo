@@ -39,7 +39,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://xspy.pro/api/v1/pro/twitter/:username/smart-followers/count",
     "x402_version": 2,
     "accept_count": 2
@@ -57,7 +57,7 @@
     "total_calls_30d": 31,
     "x402_volume_usd_30d": 0,
     "x_guidance": "This is a pay-per-request API. To call any endpoint:\n1. Make the request without payment → you will receive HTTP 402 with exact payment details.\n2. Pay the requested amount to the address in the 402 response (USDC on the chosen network).\n3. Retry the exact same request, attaching the payment proof in the X-PAYMENT header (or use an x402-compatible client).\nSee https://x402.org and the Coinbase x402 docs for client libraries and agent integration patterns. Prices and descriptions are the source of truth for discovery and billing.",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

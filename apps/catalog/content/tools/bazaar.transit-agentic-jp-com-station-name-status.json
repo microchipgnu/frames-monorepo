@@ -35,15 +35,27 @@
           "name": "USD Coin",
           "version": "2"
         }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.005",
+        "pay_to": "2BTzdCAcCLaNA2SSZ1YjJvTtscNCpUMUEjLY3LyBpNMk",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "Hc3sdEAsCGQcpgfivywog9uwtk8gUBUZgsxdME1EJy88"
+        }
       }
     ]
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://transit.agentic-jp.com/station/:name/status",
     "x402_version": 2,
-    "accept_count": 2
+    "accept_count": 3
   },
   "_signals": {
     "host": "transit.agentic-jp.com",
@@ -55,10 +67,10 @@
     "network_count": 3,
     "network_names": "Base, Polygon, Solana",
     "listed_on_count": 2,
-    "total_calls_30d": 11,
+    "total_calls_30d": 15,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

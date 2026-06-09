@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://evm-gas.apitoll.cloud/v1/evm/gas",
     "x402_version": 2,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 7,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Universal cross-chain gas-tier source for AI agents. Call GET /v1/evm/gas?chain=<id> before submitting any on-chain tx on any of 17 EVM chains to pick a fair maxFeePerGas + maxPriorityFeePerGas. Returns gas_model so callers know if the chain is clean EIP-1559 or has gas-model caveats. $0.001 USDC per call, settled instantly via x402 on Base.",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

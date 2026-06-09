@@ -50,7 +50,7 @@
   "endpoint_count": 1,
   "paid_endpoint_count": 0,
   "siwx_endpoint_count": 0,
-  "observed_at": "2026-06-08T19:22:53.903Z",
+  "observed_at": "2026-06-09T06:42:05.104Z",
   "evidence": {
     "agentic_market": "https://api.agentic.market/v1/services/test-987659876-xyz"
   },

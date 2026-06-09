@@ -37,7 +37,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://x402-resource-scanner.vercel.app/v1/x402/agent-tools/readiness",
     "x402_version": 2,
     "accept_count": 2
@@ -55,7 +55,7 @@
     "total_calls_30d": 1,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

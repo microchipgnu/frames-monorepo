@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://vu.velvetdao.xyz/api/v1/trending_402",
     "x402_version": 2,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 7,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Velvet Unicorn AI DeFi API. All 5 endpoints cost $0.01 USDC on Base (eip155:8453) via x402. Workflow: POST JSON body → HTTP 402 challenge → sign EIP-3009 → retry with X-PAYMENT header. \n\nEndpoint usage:\n- POST /api/v1/token_402 — body: {\"token\": \"ETH\"} — AI token analysis\n- POST /api/v1/wallet_402 — body: {\"wallet\": \"0x..address..\"} — AI wallet portfolio analysis\n- POST /api/v1/trending_402 — body: {\"instruction\": \"Show me trending tokens on Base\"} (instruction optional) — trending tokens\n- POST /api/v1/swap_402 — body: {\"instruction\": \"Swap 10 USDC to ETH from wallet 0x...\"} — DeFi swap route + tx data\n- POST /api/v1/ask_402 — body: {\"question\": \"What are best yields on Base?\"} — crypto Q&A\n\nAll bodies are JSON. Always include Content-Type: application/json header.",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

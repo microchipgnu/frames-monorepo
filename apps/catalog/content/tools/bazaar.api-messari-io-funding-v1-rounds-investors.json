@@ -52,7 +52,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://api.messari.io/funding/v1/rounds/investors",
     "x402_version": 2,
     "accept_count": 3
@@ -70,7 +70,7 @@
     "total_calls_30d": 60,
     "x402_volume_usd_30d": 0,
     "x_guidance": "# Messari API\n\nComprehensive crypto data for institutions with pay-per-request x402 access.\n\nhttps://docs.messari.io/api-reference/x402-payments",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "curated"
   }
 }

@@ -32,14 +32,14 @@
         "pay_to": "7SdBWQZZM46E1ZmsFhbNN1UD4UquyYsvNGNoas6UCHip",
         "scheme": "exact",
         "extra": {
-          "feePayer": "D6ZhtNQ5nT9ZnTHUbqXZsTx5MH2rPFiBBggX4hY1WePM"
+          "feePayer": "BFK9TLC3edb13K6v4YyH3DwPb5DSUpkWvb7XnqCL9b4F"
         }
       }
     ]
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://miroshark-x402-production.up.railway.app/run",
     "x402_version": 2,
     "accept_count": 2
@@ -54,10 +54,10 @@
     "network_count": 2,
     "network_names": "Base, Solana",
     "listed_on_count": 2,
-    "total_calls_30d": 26,
+    "total_calls_30d": 27,
     "x402_volume_usd_30d": 0,
     "x_guidance": "POST /run and pay $1 USDC via x402 on EITHER Base (eip155:8453) or Solana (solana mainnet) — see x-payment-info.accepts for the exact networks, USDC asset, and payTo per chain. Provide exactly one seed: {\"prompt\": \"<scenario or question, 4-4000 chars>\"}, OR {\"url\": \"<article URL>\"}, OR {\"article\": \"<raw text>\"}. Optionally set \"deep_research\": true for a live-web context sweep first (adds web calls that count toward run cost), and pin the central market with \"prediction_market\" (string or object). You get back a run_id plus wait_url (HTML) and status_url (JSON, pollable, no auth); when status==completed, share_url points at the report. Not sure what to run? POST /suggest (free) with {\"prompt\": \"<vague topic>\"} to get launchable ideas first.",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

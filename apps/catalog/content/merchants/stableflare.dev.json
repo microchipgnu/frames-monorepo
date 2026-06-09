@@ -28,8 +28,8 @@
   "per_route_schemas": 0,
   "mpp_source": "probe",
   "bazaar_resource_count": 4,
-  "bazaar_last_updated": "2026-06-04T21:54:15.374Z",
-  "total_calls_30d": 31,
+  "bazaar_last_updated": "2026-06-09T02:56:08.588Z",
+  "total_calls_30d": 32,
   "tempo_tx_count": 0,
   "tempo_volume_usd": 0,
   "tempo_latest_tx": null,
@@ -50,9 +50,9 @@
   "endpoint_count": 4,
   "paid_endpoint_count": 4,
   "siwx_endpoint_count": 8,
-  "observed_at": "2026-06-08T19:22:53.903Z",
+  "observed_at": "2026-06-09T06:42:05.104Z",
   "evidence": {
-    "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=2000",
+    "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=1000",
     "agentic_market": "https://api.agentic.market/v1/services/stableflare-dev",
     "probe": "https://stableflare.dev"
   },

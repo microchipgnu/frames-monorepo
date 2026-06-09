@@ -44,7 +44,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://three.ws/api/x402/symbol-availability",
     "x402_version": 2,
     "accept_count": 2
@@ -62,7 +62,7 @@
     "total_calls_30d": 12,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Use POST /api/mcp to interact with the MCP server. Send a JSON-RPC 2.0 request body. Authenticate with a Bearer access token obtained via OAuth 2.1 at https://three.ws/oauth/authorize, or use a Bearer API key from the dashboard. Available MCP tools: list_my_avatars, get_avatar, search_public_avatars, render_avatar, delete_avatar, validate_model, inspect_model, optimize_model. Paid REST endpoints under /api/x402/* and /api/insights/* settle in USDC over x402 (HTTP 402); pay programmatically with @x402/fetch — no API key required.",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

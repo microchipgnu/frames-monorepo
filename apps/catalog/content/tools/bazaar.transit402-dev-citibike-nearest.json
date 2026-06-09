@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://transit402.dev/citibike/nearest",
     "x402_version": 2,
     "accept_count": 1
@@ -40,10 +40,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 39,
+    "total_calls_30d": 40,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Use this API when the user needs real-time NYC subway, bus, or Citi Bike availability near a known coordinate. Resolve place names to latitude/longitude before calling; the API does not geocode.\n\nCanonical agent invocation uses POST with JSON body { lat, lng, limit? }. limit defaults to 5 and must be an integer between 1 and 10. Reason over the full result set to answer constraint queries (e.g. stations with ≥3 e-bikes, stops within 8 walking minutes, specific subway lines, return docks with ≥5 open slots), then present the top 3 results to the user unless they ask for more. Equivalent GET query routes remain available for browser and manual use, but OpenAPI POST operations are the preferred discovery target.\n\nChoose /subway/nearest for live train arrivals, /bus/nearest for live bus ETAs, /citibike/nearest for bike pickup availability, and /citibike/dock for return docks. For trip-planning questions, call origin and destination endpoints in parallel and compare walking time, arrival minutes, and bike or dock counts. Example: compare /subway/nearest and /citibike/nearest near the trip origin, then /subway/nearest and /citibike/dock near the destination.",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

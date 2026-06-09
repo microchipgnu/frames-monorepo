@@ -1,30 +1,30 @@
 {
-  "refreshed_at": "2026-06-08T19:22:53.838Z",
-  "total_ms": 204071,
+  "refreshed_at": "2026-06-09T06:42:05.037Z",
+  "total_ms": 205557,
   "sources": [
     {
       "name": "bazaar",
       "status": "ok",
-      "ms": 22379,
+      "ms": 25177,
       "output_files": [
         "staging/bazaar-items.json",
         "staging/bazaar-merchants.json"
       ],
-      "output_bytes": 84861238
+      "output_bytes": 85699589
     },
     {
       "name": "agentic-market",
       "status": "ok",
-      "ms": 37260,
+      "ms": 37113,
       "output_files": [
         "staging/agentic-market.json"
       ],
-      "output_bytes": 642140
+      "output_bytes": 641222
     },
     {
       "name": "paysh",
       "status": "ok",
-      "ms": 363,
+      "ms": 293,
       "output_files": [
         "staging/paysh.json"
       ],
@@ -33,7 +33,7 @@
     {
       "name": "mpp-directory",
       "status": "ok",
-      "ms": 539,
+      "ms": 285,
       "output_files": [
         "staging/mpp-directory-services.json",
         "staging/mpp-directory-merchants.json"
@@ -43,7 +43,7 @@
     {
       "name": "mppscan",
       "status": "fail",
-      "ms": 546,
+      "ms": 348,
       "err": "→ mppscan via SIWX (wallet 0x27Ad71a95a8e139bf4D0E3C85B65DBB47d9F303f)…\n  live scrape failed: mppscan 0: HTTP 402\n  no cache to fall back to — bailing\n",
       "output_files": [],
       "output_bytes": 0
@@ -51,7 +51,7 @@
     {
       "name": "x402scan",
       "status": "ok",
-      "ms": 5797,
+      "ms": 3668,
       "output_files": [
         "staging/x402scan.json"
       ],
@@ -60,7 +60,7 @@
     {
       "name": "frames-registry",
       "status": "ok",
-      "ms": 3392,
+      "ms": 1004,
       "output_files": [
         "staging/frames-registry-services.json",
         "staging/frames-registry-merchants.json"
@@ -70,11 +70,11 @@
     {
       "name": "probe-discovery",
       "status": "ok",
-      "ms": 166809,
+      "ms": 168443,
       "output_files": [
         "staging/probe-results.json"
       ],
-      "output_bytes": 1973797
+      "output_bytes": 2043389
     }
   ]
 }

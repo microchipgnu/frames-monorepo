@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://api.justaname.id/ens/v2/reverse",
     "x402_version": 2,
     "accept_count": 1
@@ -40,10 +40,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 16,
+    "total_calls_30d": 18,
     "x402_volume_usd_30d": 0,
     "x_guidance": "JustaName ENS resolution: GET /ens/v2/resolve?ens=<name> for forward, GET /ens/v2/reverse?address=<addr> for reverse. Both are pay-per-call (0.001 USDC on Base via x402 v2 or MPP-charge draft-01). Send X-Rpc-Url with your own HTTPS Ethereum RPC URL to skip payment (caller pays upstream RPC compute). Batch up to 50 names/addresses per call by repeating the query parameter.",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

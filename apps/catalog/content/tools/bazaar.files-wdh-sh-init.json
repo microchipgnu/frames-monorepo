@@ -26,7 +26,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://files.wdh.sh/init",
     "x402_version": 2,
     "accept_count": 1
@@ -44,7 +44,7 @@
     "total_calls_30d": 4,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Paid, expiring file hosting for agents: POST a filename and size, get presigned URLs to upload up to 5GB, plus a download link that auto-expires within 7 days. Built for the artifacts that blow past chat limits — long-form audio, multi-GB datasets, model weights, build outputs — when a Discord or Slack attachment (capped around 100MB) won't cut it.\n\nPOST a JSON body to https://files.wdh.sh/init. Payment is settled in USDC on Base via x402.",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

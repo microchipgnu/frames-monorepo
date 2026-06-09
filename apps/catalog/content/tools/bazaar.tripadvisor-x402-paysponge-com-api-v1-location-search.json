@@ -16,7 +16,7 @@
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
     "price_hint": "0.01",
-    "pay_to": "0xD73912BA30832328a3db96BeE73ebfaB58b7429f",
+    "pay_to": "0x6302D9e6DBB22fEC3c350551568Bb39B4b35Ad57",
     "scheme": "exact",
     "extra": {
       "name": "USD Coin",
@@ -29,7 +29,7 @@
         "currency": "UNKNOWN",
         "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
         "price_hint": "0.01",
-        "pay_to": "9hw9Py9uMGtXRNpABZjifcK1t3suwzjyri9L9QYKg6zZ",
+        "pay_to": "9246XrsAEKH6hAyEQe5PvdpUL1p5Ktj9c7ySnwQn6ois",
         "scheme": "exact",
         "extra": {
           "feePayer": "2wKupLR9q6wXYppw8Gr2NvWxKBUqm4PPJKkQfoxHDBg4"
@@ -39,14 +39,14 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://tripadvisor.x402.paysponge.com/api/v1/location/search",
     "x402_version": 2,
     "accept_count": 2
   },
   "_signals": {
     "host": "tripadvisor.x402.paysponge.com",
-    "is_active_14d": false,
+    "is_active_14d": true,
     "is_infra": false,
     "is_recognized": true,
     "is_mass_lister": false,
@@ -54,10 +54,10 @@
     "network_count": 2,
     "network_names": "Base, Solana",
     "listed_on_count": 3,
-    "total_calls_30d": 25,
+    "total_calls_30d": 26,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "curated"
   }
 }

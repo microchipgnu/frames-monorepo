@@ -53,7 +53,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://scan.madhousewallet.com/api/public/quick-scan",
     "x402_version": 2,
     "accept_count": 3
@@ -68,10 +68,10 @@
     "network_count": 4,
     "network_names": "Arbitrum, Base, Polygon, Solana",
     "listed_on_count": 2,
-    "total_calls_30d": 39,
+    "total_calls_30d": 40,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Two compliance tools available. Wallet risk: pay $0.01 USDC per call -- use /api/public/quick-scan (fast, ~350ms) or /api/public/scan (full, ~9s); key field is shouldFlag -- any non-zero toxicScore means flagged. Sanctions screening: pay $0.04 USDC per call -- use /api/public/sanctions-check; key field is sanctioned -- true means the name matched an OFAC/EU/UN or other sanctions list entry. Each endpoint has network-specific variants: no suffix = Base/Polygon/Arbitrum (CDP), /solana = Solana (CDP).",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

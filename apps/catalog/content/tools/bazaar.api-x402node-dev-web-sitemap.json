@@ -2,7 +2,7 @@
   "pay_protocol": "0.0.1",
   "id": "bazaar.api-x402node-dev-web-sitemap",
   "title": "Fetch and parse sitemap.xml. Returns up to 500 URLs with lastmod/changefreq/prio",
-  "description": "Fetch and parse sitemap.xml. Returns up to 500 URLs with lastmod/changefreq/priority. Auto-detects sitemap index. Built for AI agents indexing sites, tracking content changes, and SEO audit. Use ?url=https://example.com/sitemap.xml.",
+  "description": "Fetch and parse sitemap.xml. Returns up to 500 URLs with lastmod/changefreq/priority. Auto-detects sitemap index. Built for AI agents indexing sites, tracking content changes, and SEO audit. Use url param",
   "capabilities": [
     "unspecified"
   ],
@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://api.x402node.dev/web/sitemap",
     "x402_version": 1,
     "accept_count": 1
@@ -40,10 +40,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 1485,
+    "total_calls_30d": 1523,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

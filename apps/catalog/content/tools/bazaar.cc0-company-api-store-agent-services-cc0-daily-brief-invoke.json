@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.cc0-company-api-store-agent-services-cc0-daily-brief-invoke",
+  "title": "Hourly-refreshed top-5 CC0 NFT collections digest. Returns synchronous JSON with",
+  "description": "Hourly-refreshed top-5 CC0 NFT collections digest. Returns synchronous JSON with per-collection 24h metrics (volume, sales, floor, holders), cc0pedia editorial context, and an LLM-synthesized narrative + macro headline. Output license: CC0 (free reuse by AI agents and humans).",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://cc0.company/api/store/agent-services/cc0-daily-brief/invoke"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.05",
+    "pay_to": "0x14849AfA040eDeee524a40c52b877fe1B6E6c2c5",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "upstream_id": "https://cc0.company/api/store/agent-services/cc0-daily-brief/invoke",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "cc0.company",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 15,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-09T06:42:05.186Z",
+    "quality": "long-tail"
+  }
+}

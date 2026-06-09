@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://solana-launches.api.klymax402.com/api/launches",
     "x402_version": 2,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 6,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Scan new Solana token launches from pump.fun, Raydium, PumpSwap, Orca -- with liquidity and holder data.. Pay-per-call via x402 protocol (USDC on Base).",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

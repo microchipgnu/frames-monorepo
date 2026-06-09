@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://rng.sociologic.ai/dice",
     "x402_version": 2,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 34,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Use this API when you need unbiased random numbers, UUIDs, dice rolls, coin flips, array shuffling, or weighted random selection. All endpoints return raw entropy for cryptographic verification. Payment is automatic via x402  - send a request, receive a 402 with payment details, pay USDC on Base, retry with the X-PAYMENT header.",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

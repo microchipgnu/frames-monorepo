@@ -29,7 +29,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://promptqualityscore.com/api/score",
     "x402_version": 2,
     "accept_count": 1
@@ -47,7 +47,7 @@
     "total_calls_30d": 6,
     "x402_volume_usd_30d": 0,
     "x_guidance": "POST a prompt to /api/score/free for a free basic score, /api/score for a paid detailed score ($0.025 USDC), /api/score/full for optimized prompt + before/after outputs ($0.125 USDC). Anonymous x402 payment on Base mainnet is the default; bearer PQS_... API keys accepted for subscribed customers.",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://api.mnemospark.ai/api/mnemospark-lite/upload",
     "x402_version": 2,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 3,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Use POST /api/mnemospark-lite/upload to create a paid upload slot. First, call it without payment headers to receive a 402 Payment Required challenge in the PAYMENT-REQUIRED header. Pay the exact accepts[0].amount from that challenge using x402, then retry POST /api/mnemospark-lite/upload with the payment payload in PAYMENT-SIGNATURE or x-payment. Upload the file bytes with an HTTP PUT to the returned uploadUrl. Finally, call POST /api/mnemospark-lite/upload/complete with uploadId and completion_token to mint a share URL. Use GET /api/mnemospark-lite/uploads and GET /api/mnemospark-lite/download/{uploadId} with the returned bearer token to list and fetch download details. Use POST /api/mnemospark-lite/share to mint a 24-hour share URL and POST /api/mnemospark-lite/shares/exchange to redeem a share token for a presigned download URL.",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

@@ -52,7 +52,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://api.nansen.ai/api/v1/tgm/transfers",
     "x402_version": 2,
     "accept_count": 3
@@ -67,10 +67,10 @@
     "network_count": 4,
     "network_names": "Base, Solana, Tempo, X Layer",
     "listed_on_count": 4,
-    "total_calls_30d": 4146,
+    "total_calls_30d": 4214,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "curated"
   }
 }

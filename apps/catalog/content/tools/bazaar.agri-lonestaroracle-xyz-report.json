@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://agri.lonestaroracle.xyz/report",
     "x402_version": 2,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 15,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Global agricultural commodity intelligence — grains (corn, wheat, soybeans, rice), softs (cotton, coffee, cocoa, sugar), livestock (beef, pork) with trend and AI narrative. $0.03/query via x402 USDC on Base.  |  Also from LoneStarOracle: CrownBlock (crownblock.lonestaroracle.xyz) for crude oil & gas intel  |  MacroPulse (macro.lonestaroracle.xyz) for broader macro indicators  |  RealEstatePulse (realestate.lonestaroracle.xyz) for mortgage & housing data  |  Full catalog: lonestaroracle.xyz",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

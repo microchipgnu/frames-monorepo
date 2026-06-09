@@ -26,14 +26,14 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://tensorfeed.ai/api/premium/research/citation-velocity",
     "x402_version": 2,
     "accept_count": 1
   },
   "_signals": {
     "host": "tensorfeed.ai",
-    "is_active_14d": true,
+    "is_active_14d": false,
     "is_infra": false,
     "is_recognized": false,
     "is_mass_lister": false,
@@ -44,7 +44,7 @@
     "total_calls_30d": 36,
     "x402_volume_usd_30d": 0,
     "x_guidance": "For agents discovering this API: most endpoints are free and require no auth. Hit /api/meta to see every endpoint with parameters. The MCP server `@tensorfeed/mcp-server` exposes 42 tools (8 free, 14 premium); install with `npx -y @tensorfeed/mcp-server`. Premium endpoints under /api/premium/* cost 1-3 credits each ($0.02 each at base rate, USDC on Base mainnet). Buy a bearer token via POST /api/payment/buy-credits + /api/payment/confirm, OR pay per call via x402 by retrying with X-Payment-Tx header. Every paid call returns an Ed25519-signed receipt verifiable at /api/receipt/verify. AFTA-certified: no charge on 5xx, breaker, schema failure, or stale data; standard at /.well-known/agent-fair-trade.json.\n",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

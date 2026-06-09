@@ -50,9 +50,9 @@
   "endpoint_count": 1,
   "paid_endpoint_count": 1,
   "siwx_endpoint_count": 0,
-  "observed_at": "2026-06-08T19:22:53.903Z",
+  "observed_at": "2026-06-09T06:42:05.104Z",
   "evidence": {
-    "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=18000",
+    "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=19000",
     "agentic_market": "https://api.agentic.market/v1/services/stable-media-git-ben-test-agentcash-router-pr-227-merit-systems-vercel-app"
   },
   "tools": [

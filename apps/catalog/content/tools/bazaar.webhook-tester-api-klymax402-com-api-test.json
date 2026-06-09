@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://webhook-tester.api.klymax402.com/api/test",
     "x402_version": 2,
     "accept_count": 1
@@ -40,10 +40,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 3,
+    "total_calls_30d": 4,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Test webhook endpoints -- send POST/PUT/PATCH/DELETE with custom headers and payloads. Measure latency and TLS.. Pay-per-call via x402 protocol (USDC on Base).",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

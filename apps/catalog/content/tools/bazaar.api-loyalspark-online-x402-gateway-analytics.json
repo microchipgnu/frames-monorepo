@@ -31,7 +31,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://api.loyalspark.online/x402-gateway/analytics",
     "x402_version": 2,
     "accept_count": 1
@@ -49,7 +49,7 @@
     "total_calls_30d": 34,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Loyal Spark on Base L2 (chain 8453, USDC native).\n\nAuth modes:\n• Merchant agents — header x-api-key: lsk_... (or Authorization: Bearer lsk_...). Get a key in https://loyalspark.online/merchant → AI Agents.\n• Holder agents — header x-api-key: rwk_... (or Authorization: Bearer rwk_...). Issued via SIWE: https://loyalspark.online/.well-known/agent.json.\n• x402 corridor — pay USDC on Base per call. Discovery: https://loyalspark.online/.well-known/x402.\n\nTypical merchant flow:\n1. GET /me — profile and scopes\n2. POST /programs — factory calldata to deploy ERC-20\n3. POST /register-program — persist program\n4. POST /update-program-config — set cashback_rate / points_per_dollar\n5. POST /activate-program — unpause\n6. POST /mint or POST /earn — distribute points\n7. POST /rewards — catalog\n8. GET /analytics — metrics\n\nMCP mirrors REST: 32 merchant tools at https://api.loyalspark.online/loyalty-mcp and 14 recipient tools at https://api.loyalspark.online/recipient-loyalty-mcp. Each MCP tool also has a paid x402 path under /x402-gateway/mcp-tools/<name> and /x402-gateway/recipient-mcp-tools/<name>.\n\nDocs: https://loyalspark.online/api-docs · llms: https://loyalspark.online/llms.txt · agent manifest: https://loyalspark.online/.well-known/agent.json",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

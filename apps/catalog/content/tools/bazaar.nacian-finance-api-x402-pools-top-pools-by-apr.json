@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://nacian.finance/api/x402/pools/top-pools-by-apr",
     "x402_version": 1,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 0,
     "x402_volume_usd_30d": 0,
     "x_guidance": "# Nacian x402 API\n\nThis origin exposes two paid x402 endpoints:\n- `POST https://api.nacian.app/query` — one-shot DeFi data query, streamed NDJSON response.\n- `POST https://api.nacian.app/alert` — create a time-bounded monitoring alert with webhook notification.\n- Protocol version: x402 v2\n\nSupported protocol coverage by chain:\n- Ethereum: Uniswap V2, Uniswap V3, Uniswap V4, Sushiswap V2/V3, Pancakeswap V2/V3, Aave V2, Aave V3, Compound V3, ENS, Lido\n- Base: Uniswap V3, Sushiswap V2/V3, Pancakeswap V2/V3, Aerodrome V3, Aave V3\n- Arbitrum: Uniswap V3, Sushiswap V2/V3, Camelot V3, Aave V3, Compound V3\n- Polygon: \n\nValidation schema:\n- `https://api.nacian.app/.well-known/x402-schemas/validate`\n- Returned in endpoint headers as `X-Validation-Schema` for x402scan.\n\nPOST /query request body:\n- `messages` (required): chat history in OpenAI-style message format.\n- `model` (optional): `deepseek3.2` | `minimax-2.5` | `gemini-3-flash`.\n- `maxOutputTokens` (optional): integer between 1500 and 5000.\n\nPOST /alert request body:\n- `messages` (required): chat history describing the alert condition.\n- `webhookUrl` (required): HTTPS URL to POST when the alert condition is triggered.\n- `model` (optional): `deepseek3.2` | `minimax-2.5` | `gemini-3-flash`.\n- `maxOutputTokens` (optional): integer between 1500 and 5000.\n- `maxMinutes` (optional): alert lifetime in minutes (5–10080, default 5).\n- `frequencySeconds` (optional): check interval in seconds (30–86400, default 300).\n\nResponse format (both endpoints):\n- NDJSON stream. /query: `{\"type\":\"content\",\"text\":\"...\"}`. /alert additionally emits `{\"type\":\"alert-created\",\"alert\":{...}}`.",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

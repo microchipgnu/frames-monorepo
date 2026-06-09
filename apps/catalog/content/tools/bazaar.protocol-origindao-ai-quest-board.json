@@ -29,7 +29,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://protocol.origindao.ai/quest/board",
     "x402_version": 2,
     "accept_count": 1
@@ -47,7 +47,7 @@
     "total_calls_30d": 8,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Origin Protocol is a trust-gated agent economy on Base. 10 paid endpoints across 3 tiers. Tier 1 ($0.001 USD): GET quest board, quest status, agent BC, agent grade, leaderboard, memory summary — read-only lookups for agent and quest data. Tier 2 ($0.005 USD): POST quest claim, quest submit — write operations that lock reputation or submit work. Tier 3 ($0.01 USD): POST buy/sell CLAMS — AMM swaps on the trust-gated exchange. All payments are x402 USDC micropayments on Base. Pass the agent wallet address as a path param or in the JSON body. Quest IDs are integers starting from 0.",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

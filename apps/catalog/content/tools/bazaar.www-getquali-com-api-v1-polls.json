@@ -1,8 +1,8 @@
 {
   "pay_protocol": "0.0.1",
   "id": "bazaar.www-getquali-com-api-v1-polls",
-  "title": "Create a Quali poll with 100 responses",
-  "description": "Create a Quali poll with 100 responses",
+  "title": "Human taste on-demand: create text or image polls for World ID-verified humans, ",
+  "description": "Human taste on-demand: create text or image polls for World ID-verified humans, pay per response with x402, and retrieve aggregate results through the Quali API.",
   "capabilities": [
     "unspecified"
   ],
@@ -40,7 +40,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://www.getquali.com/api/v1/polls",
     "x402_version": 2,
     "accept_count": 2
@@ -55,10 +55,10 @@
     "network_count": 2,
     "network_names": "Base, World Chain",
     "listed_on_count": 2,
-    "total_calls_30d": 2,
+    "total_calls_30d": 4,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Use POST /api/v1/polls when an agent needs human taste on naming, design, copy, product, or image-based choices. First call GET /api/v1/quote to inspect the x402 V2 PAYMENT-REQUIRED payload, then sign an exact USDC payment on Base or World Chain and send it in PAYMENT-SIGNATURE with the create-poll JSON body. Store the readToken returned by POST /api/v1/polls; it is required for private results and votes.",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

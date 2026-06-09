@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://stableninja.dev/api/play-store-apps/top-free-apps",
     "x402_version": 2,
     "accept_count": 1
@@ -40,10 +40,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 76,
+    "total_calls_30d": 83,
     "x402_volume_usd_30d": 0,
     "x_guidance": "# StableNinja API\n\nStableNinja wraps selected OpenWebNinja data APIs with x402 pay-per-request access. Callers do not need an OpenWebNinja or RapidAPI account.\n\nBase URL: https://stableninja.dev\n\nAll data endpoints cost $0.01 per successful call via x402 on Base.\n\n## Use StableNinja For\n\n- Waze live traffic alerts, jams, venues, and place autocomplete.\n- Google Play Store app search, details, reviews, categories, and charts.\n- Yelp business search, details, and reviews.\n- Walmart product search/details/reviews and Wayfair product search/details.\n- Amazon product search/details/reviews/offers, best sellers, and deals.\n\n## Use Other Stables Instead\n\n- Product recommendations, Wirecutter picks, or Channel3 catalog data: use StableProducts.\n- Jobs: use StableJobs.\n- Zillow/Redfin/general real estate: use StableEstate.\n- Glassdoor or Trustpilot summaries: use existing employer/review endpoints.\n- Video search: use existing video search or extraction endpoints.\n\n## Waze Happy Path\n\n1. Use GET /api/waze/autocomplete with q and coordinates to resolve a place-like query.\n2. Use GET /api/waze/alerts-and-jams with bottom_left and top_right, or center and radius, to inspect live incidents in an area.\n3. Use GET /api/waze/venues with bottom_left and top_right to list Waze venues in a map area.\n\nCoordinate pairs are strings formatted as \"latitude,longitude\".\n\n## Play Store Happy Path\n\n1. Use GET /api/play-store-apps/search with q to find Android apps.\n2. Use app_id from search results with GET /api/play-store-apps/app-details.\n3. Use GET /api/play-store-apps/app-reviews for reviews; pass cursor for pagination.\n4. Use chart endpoints such as /api/play-store-apps/top-free-apps or /api/play-store-apps/top-grossing-games for ranked lists.\n\n## Yelp Happy Path\n\n1. Use GET /api/yelp/business-search with query and location.\n2. Use business_id from search results with GET /api/yelp/business-details.\n3. Use GET /api/yelp/business-reviews for paginated reviews.\n\n## Walmart Happy Path\n\n1. Use GET /api/walmart/search with query, or /api/walmart/products-by-category with category_id.\n2. Use product_id from results with /api/walmart/product-details.\n3. Use /api/walmart/product-offers for seller offers and /api/walmart/product-reviews for reviews.\n\n## Wayfair Happy Path\n\n1. Use GET /api/wayfair/search with query, category_id, or manufacturer_id.\n2. Use sku from results with /api/wayfair/product-details.\n\n## Amazon Happy Path\n\n1. Use GET /api/amazon/search with query and optional country/page to find products.\n2. Use asin from search results with GET /api/amazon/product-details for current price, availability, media, variants, and product facts.\n3. Use GET /api/amazon/product-reviews for customer reviews; pass page, sort_by, star_rating, or verified_purchases_only when needed.\n4. Use GET /api/amazon/product-offers for seller offers and buying options.\n5. Use GET /api/amazon/best-sellers with category for ranked products, or GET /api/amazon/todays-deals for current deals.\n",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

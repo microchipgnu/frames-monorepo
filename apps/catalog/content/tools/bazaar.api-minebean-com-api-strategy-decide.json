@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://api.minebean.com/api/strategy/decide",
     "x402_version": 1,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 31,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Submit a single POST per round you want a recommendation for — responses are 'fire now or discard'. The tx.value already reflects the EV-optimal deployment; do not scale it. The recommendation is statistical, not guaranteed; a positive expectedRoiPct can still lose on a single round.",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

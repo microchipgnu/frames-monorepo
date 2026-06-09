@@ -30,7 +30,7 @@
   },
   "_meta": {
     "catalog": "mpp",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "stablestudio:POST:/api/generate/nano-banana-pro/edit"
   },
   "_signals": {
@@ -43,10 +43,10 @@
     "network_count": 3,
     "network_names": "Base, Solana, Tempo",
     "listed_on_count": 3,
-    "total_calls_30d": 6,
+    "total_calls_30d": 10,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "curated"
   }
 }

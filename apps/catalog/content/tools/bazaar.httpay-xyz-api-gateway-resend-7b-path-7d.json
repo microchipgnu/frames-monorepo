@@ -26,7 +26,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://httpay.xyz/api/gateway/resend/%7B*path%7D/*",
     "x402_version": 1,
     "accept_count": 1
@@ -41,10 +41,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 664,
+    "total_calls_30d": 687,
     "x402_volume_usd_30d": 0,
     "x_guidance": "httpay.xyz is a pay-per-call API marketplace with 287 native endpoints + a Universal API Gateway proxying 37 services (~9,700 upstream endpoints). Pay with USDC on Base via x402. No API keys or subscriptions required. Gateway usage: GET/POST /api/gateway/{service}/{path} — pass X-Upstream-Token for authenticated services. Demo mode: ?demo=true for free testing. Use an x402-compatible client (x402-fetch, x402-axios, or the MCP server `npx @httpay/mcp`) to handle payments automatically. See https://httpay.xyz/agent.md for agent context or https://httpay.xyz for full documentation.",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }

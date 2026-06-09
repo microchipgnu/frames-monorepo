@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-08T19:22:53.989Z",
+    "fetched_at": "2026-06-09T06:42:05.186Z",
     "upstream_id": "https://x402.deepsearch.com/v1/context/company/:ticker",
     "x402_version": 2,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 3,
     "x402_volume_usd_30d": 0,
     "x_guidance": "This API provides Korean stock market intelligence packs for AI agents. Call /v1/context/company/{ticker} first for valuation and financials ($0.1). Call /v1/context/issue/{ticker} to understand current news sentiment ($0.1). Call /v1/context/risk/{ticker} before making an investment recommendation ($0.1). Ticker accepts a 6-digit KRX code OR company name in English or Korean (e.g. 005930, samsung, 삼성전자 all resolve to Samsung Electronics). Payment is handled automatically via x402 protocol — send a USDC micropayment on Base Mainnet (eip155:8453) when you receive a 402 response.",
-    "observed_at": "2026-06-08T19:22:53.989Z",
+    "observed_at": "2026-06-09T06:42:05.186Z",
     "quality": "long-tail"
   }
 }
