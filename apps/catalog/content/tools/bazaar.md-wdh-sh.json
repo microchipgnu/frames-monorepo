@@ -26,7 +26,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://md.wdh.sh/",
     "x402_version": 2,
     "accept_count": 1
@@ -44,7 +44,7 @@
     "total_calls_30d": 5,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Publish a markdown document as a hosted, shareable HTML page: POST your markdown (with an optional title and TTL) and get back a public URL. Good for when an agent produces a plan, guide, review, or report and a raw chat message isn't enough — render it and share the link instead of pasting walls of text.\n\nPOST a JSON body to https://md.wdh.sh/. Payment is settled in USDC on Base via x402.",
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

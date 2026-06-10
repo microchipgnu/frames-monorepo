@@ -45,7 +45,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://stablefinance.dev/api/insider-trades",
     "x402_version": 2,
     "accept_count": 2
@@ -60,10 +60,10 @@
     "network_count": 2,
     "network_names": "Base, Solana",
     "listed_on_count": 2,
-    "total_calls_30d": 193,
+    "total_calls_30d": 221,
     "x402_volume_usd_30d": 0,
     "x_guidance": "# StableFinance API\n\nStableFinance wraps the Financial Datasets AI API (US equities fundamentals,\nprices, SEC filings, 13F, insider trades, central-bank rates) with x402\nand MPP pay-per-request access. No Financial Datasets account required.\n\nBase URL: https://stablefinance.dev\n\nAll data endpoints cost $0.02 per successful call. US stocks only — no crypto,\noptions, FX, or international equities. Identifier rule: most company-scoped\nendpoints accept `ticker` OR `cik` (mutually exclusive); 13F accepts\n`ticker` OR `filer_cik`.\n\n## Happy Paths\n\n### Fundamental analysis on a single company\n1. GET /api/company/facts?ticker=AAPL — metadata (sector, industry, CIK).\n2. GET /api/financials?ticker=AAPL&period=annual&limit=5 — income, balance,\n   cash flow.\n3. GET /api/financial-metrics/snapshot?ticker=AAPL — live ratios, market cap.\n4. GET /api/earnings?ticker=AAPL&limit=4 — recent quarterly results.\n\n### Stock screener -> drilldown\n1. POST /api/financials/search/screener — filter by fundamental criteria\n   (gross_margin, revenue_growth, sector, etc.).\n2. For each result: GET /api/prices/snapshot?ticker=... and\n   GET /api/financial-metrics?ticker=...&period=ttm&limit=1.\n\n### Cross-ticker line-item compare\nPOST /api/financials/search/line-items with\n{ line_items: [\"revenue\",\"free_cash_flow\"], tickers: [\"AAPL\",\"MSFT\",\"GOOGL\"],\nperiod: \"ttm\", limit: 4 }.\n\n### SEC filing research\n1. GET /api/filings?ticker=AAPL&filing_type=10-K&limit=3\n2. GET /api/filings/items?ticker=AAPL&filing_type=10-K&year=2024&item=Item-1A\n   — extracted item-level text (e.g., Risk Factors).\n\n### Insider-flow scanning\nGET /api/insider-trades?ticker=NVDA&filing_date_gte=2026-01-01&limit=200 —\nForm 4 transactions. Cross-reference with /api/prices.\n\n### 13F follow-the-money\n1. GET /api/institutional-holdings/investors?name=Berkshire — find filer CIK.\n2. GET /api/institutional-holdings?filer_cik=...&limit=200 — positions held.\n\n### Macro context\n1. GET /api/macro/interest-rates/banks — supported central banks.\n2. GET /api/macro/interest-rates/snapshot?bank=FED — current policy rate.\n\n### As-reported financials (raw filer concepts, not normalized)\nGET /api/financials/as-reported?ticker=AAPL&period=annual&limit=4 — plus the\nper-statement variants under /as-reported (/income-statements,\n/balance-sheets, /cash-flow-statements). Same ticker|cik + period rules as\nthe normalized statements.\n\n### Index funds / ETFs\n1. GET /api/index-funds/tickers — available fund tickers.\n2. GET /api/index-funds?ticker=SPY — a fund's holdings.\n3. GET /api/index-funds?holding=AAPL — the funds that hold a given security.\n   Pass exactly one of `ticker` or `holding`.\n\n## Conventions\n\n- **Period filters**: `report_period`, `report_period_gte/_lte/_gt/_lt`\n  on financial, metrics, and 13F endpoints.\n- **Insider trades** uses `filing_date[_gte|_lte|_gt|_lt]` instead.\n- **Identifier exclusivity**: pass exactly one of `ticker` / `cik` (or\n  `ticker` / `filer_cik` for 13F). Both omitted or both set returns 400.\n- **Pagination**: `limit` integer only; no cursors. Use date filters for\n  windowing.\n- **`/api/prices`** requires `interval` (day|week|month|year) plus\n  `start_date` and `end_date` in YYYY-MM-DD.\n\n## Do Not Use For\n\n- Crypto, options, FX, indices, or international equities — not covered.\n- Realtime tick data — `/api/prices/snapshot` is the finest granularity.\n- Historical 13F backtesting beyond ~30 years.\n",
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

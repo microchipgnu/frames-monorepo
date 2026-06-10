@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://www.surplusintelligence.ai/x402/api/twitter/v2/users/by/username/:username",
     "x402_version": 2,
     "accept_count": 2
@@ -40,10 +40,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 1147,
+    "total_calls_30d": 1101,
     "x402_volume_usd_30d": 0,
     "x_guidance": "For x402 pay-per-request inference, POST to /x402/api/inference/v1/chat/completions without Authorization. Prefer accepts[].find(a => a.scheme === \"upto\") and use exact only as fallback. Sign the chosen payment requirement, include base64(JSON.stringify(paymentPayload)) in PAYMENT-SIGNATURE, and resend the same body. Successful paid responses return HTTP 200, PAYMENT-RESPONSE, and an OpenAI-compatible completion body. When using @x402/evm with viem, pass a signer object with explicit address; do not rely on walletClient.address if undefined.",
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

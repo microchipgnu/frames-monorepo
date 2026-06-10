@@ -39,7 +39,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://orbisapi.com/proxy/agent-orchestration-overhead-estimator-api-d85802",
     "x402_version": 2,
     "accept_count": 2
@@ -54,10 +54,10 @@
     "network_count": 2,
     "network_names": "Base, Solana",
     "listed_on_count": 2,
-    "total_calls_30d": 107279,
+    "total_calls_30d": 25665,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

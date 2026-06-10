@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://x402.creative-tim.com/api/shadcn-block",
     "x402_version": 2,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 4,
     "x402_volume_usd_30d": 0,
     "x_guidance": "# Creative Tim x402 Resources\n\nPay-per-request API and content protected by the [x402 Protocol](https://www.x402.org/).\n\n## Resources\n\n- **Message** (`/api/message`) – Simple paid message API\n- **UI/UX Book** (`/api/ui-ux-book`) – Access to Roots of UI/UX Design Book and resources\n- **ShadCN Block** (`/api/shadcn-block`) – ShadCN UI component blocks (query param: `block_name`, e.g. `testimonials-02`)\n\n## Discovery\n\nFull X402 v2 discovery (accepts, resource, extensions): `GET https://x402.creative-tim.com/api`\n",
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

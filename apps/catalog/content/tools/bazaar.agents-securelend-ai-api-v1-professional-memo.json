@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://agents.securelend.ai/api/v1/professional-memo",
     "x402_version": 2,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 17,
     "x402_volume_usd_30d": 0,
     "x_guidance": "All endpoints require payment via MPP or x402. Send a payment credential in the Authorization: Payment header (MPP) or X-PAYMENT header (x402). First request returns a 402 challenge with exact payment requirements. Supports USDC on Base L2 and USD via Stripe. Use Delegare AP2 mandates for scoped agent spending — see https://delegare.dev.",
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

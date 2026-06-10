@@ -1,0 +1,57 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.flashpoint-ai-mcp",
+  "title": "Primary research data on demand — surveys, synthetic respondents, demographics, ",
+  "description": "Primary research data on demand — surveys, synthetic respondents, demographics, and AI-powered analysis, served as an MCP server with x402 pay-per-call. Tools available (price per call): chat ($0.01), demographics ($0.05), presentation ($0.25), tool_survey ($0.50), panel (dynamic), payment_confirmation (intent amount). Call any of them via JSON-RPC tools/call — see info.input.body for the canonical envelope.",
+  "capabilities": [
+    "mcp",
+    "ai-agent",
+    "surveys",
+    "research",
+    "panels",
+    "demographics",
+    "synthetic"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://flashpoint.ai/mcp"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.05",
+    "pay_to": "0x4Acb1a8763F3C86Af821fbd37031Ca36d11FEE2F",
+    "scheme": "exact",
+    "extra": {
+      "assetTransferMethod": "eip3009",
+      "name": "USD Coin",
+      "resourceUrl": "https://flashpoint.ai/mcp",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "upstream_id": "https://flashpoint.ai/mcp",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "flashpoint.ai",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 1,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-10T06:51:58.856Z",
+    "quality": "long-tail"
+  }
+}

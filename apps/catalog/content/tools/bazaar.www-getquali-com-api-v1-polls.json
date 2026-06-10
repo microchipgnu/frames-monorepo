@@ -40,7 +40,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://www.getquali.com/api/v1/polls",
     "x402_version": 2,
     "accept_count": 2
@@ -58,7 +58,7 @@
     "total_calls_30d": 4,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Use POST /api/v1/polls when an agent needs human taste on naming, design, copy, product, or image-based choices. First call GET /api/v1/quote to inspect the x402 V2 PAYMENT-REQUIRED payload, then sign an exact USDC payment on Base or World Chain and send it in PAYMENT-SIGNATURE with the create-poll JSON body. Store the readToken returned by POST /api/v1/polls; it is required for private results and votes.",
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

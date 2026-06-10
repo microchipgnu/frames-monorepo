@@ -11,11 +11,11 @@
     "url": "https://api-production-17e1.up.railway.app/search"
   },
   "payment": {
-    "protocol": "x402",
+    "protocol": "x402v2",
     "network": "base",
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-    "price_hint": "0",
+    "price_hint": "0.001",
     "pay_to": "0xF7fdEFfc3ABc97379418b0A687FDb54e1CBcE163",
     "scheme": "exact",
     "extra": {
@@ -25,9 +25,9 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://api-production-17e1.up.railway.app/search",
-    "x402_version": 1,
+    "x402_version": 2,
     "accept_count": 1
   },
   "_signals": {
@@ -40,10 +40,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 23,
+    "total_calls_30d": 91,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

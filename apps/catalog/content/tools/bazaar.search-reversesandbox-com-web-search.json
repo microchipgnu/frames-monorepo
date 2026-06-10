@@ -65,7 +65,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://search.reversesandbox.com/web/search",
     "x402_version": 2,
     "accept_count": 4
@@ -83,7 +83,7 @@
     "total_calls_30d": 14,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Three tools available: web search (GET /web/search?q=query), web scraping (POST /scrape/extract with JSON body {url}), and screenshots (GET /screenshot/?url=URL). All paid with USDC on Base via x402.",
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

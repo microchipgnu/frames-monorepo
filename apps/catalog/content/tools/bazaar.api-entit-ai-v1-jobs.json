@@ -39,7 +39,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://api.entit.ai/v1/jobs",
     "x402_version": 2,
     "accept_count": 2
@@ -57,7 +57,7 @@
     "total_calls_30d": 15,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Paid: POST /v1/jobs with x402 ($0.10 USDC on Base or Solana). Send X-Payment on submit; poll GET /v1/jobs/{jobId} for free. Default (omit format): full VideoAnalysis. Optional format: one of 24 workflow templates (creator-brief, content-screening, recipe, …) — https://entit.ai/docs/api#workflow-formats. Docs: https://entit.ai/docs/api",
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

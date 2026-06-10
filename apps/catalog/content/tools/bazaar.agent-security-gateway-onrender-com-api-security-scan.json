@@ -21,7 +21,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://agent-security-gateway.onrender.com/api/security/scan",
     "x402_version": 2,
     "accept_count": 1
@@ -39,7 +39,7 @@
     "total_calls_30d": 4,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Agent Security Gateway provides x402-paid security tools for autonomous AI agents. Use /api/security/scan before any external API call to detect Japanese prompt injection. Use /api/security/pre-payment before x402 payments to check payment metadata safety. Use /api/validate/deterministic for rule-based content validation without AI. Useful for AI agent security, prompt injection detection, USDC/Base payments.",
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

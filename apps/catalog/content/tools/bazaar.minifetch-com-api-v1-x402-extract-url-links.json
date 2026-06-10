@@ -1,8 +1,8 @@
 {
   "pay_protocol": "0.0.1",
   "id": "bazaar.minifetch-com-api-v1-x402-extract-url-links",
-  "title": "Extracts all links from a URL categorized by type (internal/external/anchor) wit",
-  "description": "Extracts all links from a URL categorized by type (internal/external/anchor) with SEO metadata. Detects image links, nofollow attributes, and analyzes external domain distribution",
+  "title": "For SEO link audits: Extracts and categorizes all links on a page (internal, ext",
+  "description": "For SEO link audits: Extracts and categorizes all links on a page (internal, external, anchor) for SEO audits and site-structure analysis. Returns nofollow/rel attributes, anchor text, image links missing alt text, and external domain distribution",
   "capabilities": [
     "unspecified"
   ],
@@ -32,14 +32,14 @@
         "pay_to": "46vMcwuC4sK11sB3gkLhyA7J7GEwfkhn5rFyDtihBwqe",
         "scheme": "exact",
         "extra": {
-          "feePayer": "GVJJ7rdGiXr5xaYbRwRbjfaJL7fmwRygFi1H6aGqDveb"
+          "feePayer": "BENrLoUbndxoNMUS5JXApGMtNykLjFXXixMtpDwDR9SP"
         }
       }
     ]
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://minifetch.com/api/v1/x402/extract/url-links",
     "x402_version": 2,
     "accept_count": 2
@@ -54,10 +54,10 @@
     "network_count": 2,
     "network_names": "Base, Solana",
     "listed_on_count": 2,
-    "total_calls_30d": 8,
+    "total_calls_30d": 17,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "curated"
   }
 }

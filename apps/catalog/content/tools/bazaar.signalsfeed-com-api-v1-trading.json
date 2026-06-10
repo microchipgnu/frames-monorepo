@@ -28,7 +28,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://signalsfeed.com/api/v1/trading",
     "x402_version": 2,
     "accept_count": 1
@@ -43,10 +43,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 48,
+    "total_calls_30d": 43,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Use GET /api/v1/feed with domain and filter parameters to query macroeconomic data, trading signals, financial news sentiment, or event-driven policy intelligence. Alias paths such as /api/v1/macro and /api/v1/trading are preset views over the same backend feed.",
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

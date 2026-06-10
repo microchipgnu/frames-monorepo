@@ -39,7 +39,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://api.hyperextend.xyz/v1/outcome_ctx/%231000",
     "x402_version": 2,
     "accept_count": 3
@@ -53,11 +53,11 @@
     "category": "other",
     "network_count": 1,
     "network_names": "Base",
-    "listed_on_count": 2,
+    "listed_on_count": 1,
     "total_calls_30d": 78,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Free discovery first: GET /v1/discovery to orient (dexes, coins, intervals, availability lag). Paid data — candles, open interest (/v1/asset_ctx), and HIP-4 outcome markets — answers 402 until you pay via x402 v2: read the PAYMENT-REQUIRED header and retry with a PAYMENT-SIGNATURE header. The 402's `accepts` offers two rails — Base (USDC, eip155:8453) and Hyperliquid HyperCore (hyperliquid:mainnet, the same USDC you trade and open positions with). Price = $0.001/request + a per-row rate ($0.00001 base, $0.000025 premium), capped at 5000 rows/page; paginate with the X-Next-Start response header. Omit start/end on a range endpoint for the most-recent page. Candle history runs to ~2 days ago; for fresher data query Hyperliquid directly. Raw trades (/v1/trades/{coin}) mirror HL's WsTrade verbatim (incl. the buyer/seller addresses and trade hash), priced PER ASSET-HOUR ($0.015 base, $0.03 HIP-3/HIP-4) plus $0.05 per uncached archive hour pulled, up to 24 asset-hours/request — and carry NO availability lag (served live). Forced liquidations (/v1/liquidations/{coin}) are an archive-derived tape (Hyperliquid has no public liquidations feed) priced a third of trades per asset-hour ($0.005 base, $0.01 HIP-3/HIP-4) plus the same $0.05 per uncached archive hour, available ~2h after the hour closes. Buyer guide: https://hyperextend.xyz/docs.",
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

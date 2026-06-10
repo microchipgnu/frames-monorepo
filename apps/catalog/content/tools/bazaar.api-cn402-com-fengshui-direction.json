@@ -1,8 +1,8 @@
 {
   "pay_protocol": "0.0.1",
   "id": "bazaar.api-cn402-com-fengshui-direction",
-  "title": "Feng Shui direction analysis / 风水方位 / 8 cardinal directions / Chinese compass / ",
-  "description": "Feng Shui direction analysis / 风水方位 / 8 cardinal directions / Chinese compass / luopan / 罗盘 / lucky direction by birth / personal kua number direction / 命卦方位 / north south east west northeast southeast southwest northwest auspicious direction. Compute lucky and unlucky directions based on birth year and gender using Eight Mansions (Ba Zhai) method.",
+  "title": "Feng Shui direction analysis, 风水方位, 8 cardinal directions, Chinese compass, luop",
+  "description": "Feng Shui direction analysis, 风水方位, 8 cardinal directions, Chinese compass, luopan, 罗盘, lucky direction by birth, personal kua number direction, 命卦方位, north south east west northeast southeast southwest northwest auspicious direction. Compute lucky and unlucky directions based on birth year and gender using Eight Mansions (Ba Zhai) method.",
   "capabilities": [
     "unspecified"
   ],
@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://api.cn402.com/fengshui/direction",
     "x402_version": 1,
     "accept_count": 1
@@ -40,10 +40,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 1293,
+    "total_calls_30d": 1323,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

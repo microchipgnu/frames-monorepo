@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://www.paylog.dev/api/v1/content/x402-implementation",
     "x402_version": 1,
     "accept_count": 1
@@ -40,10 +40,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 8,
+    "total_calls_30d": 7,
     "x402_volume_usd_30d": 0,
     "x_guidance": "x402 endpoints (Base mainnet, $0.01 USDC): GET /api/v1/x402/report — x402 spending history for a Base wallet; GET /api/v1/x402/services — x402 service registry; GET /api/v1/content/{slug} — paid blog content. JPYC x402 endpoints (Polygon mainnet eip155:137, asset 0xe7c3d8c9a439fede00d2600032d5db0be71c3c29 via x402-jpyc facilitator https://x402-jpyc.vercel.app): GET /api/v1/content/adding-jpyc-polygon-x402 (2 JPYC); GET /api/v1/content/jpyc-ascii (0.1 JPYC) — include EIP-3009 signature in X-Payment header. MPP endpoints (Tempo chain, $0.001 USDC): GET /api/v1/report — MPP spending report (also accepts JPYC payment: 2 JPYC on Polygon mainnet eip155:137 via x402-jpyc facilitator https://x402-jpyc.vercel.app — include EIP-3009 signature in X-Payment header); GET /api/v1/insights — cost optimization tips; GET /api/v1/services — MPP service registry. For MPP endpoints use mppx or Tempo CLI. For x402 endpoints use @x402/fetch or CDP wallet.",
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

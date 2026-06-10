@@ -50,9 +50,9 @@
   "endpoint_count": 5,
   "paid_endpoint_count": 5,
   "siwx_endpoint_count": 0,
-  "observed_at": "2026-06-09T06:42:05.104Z",
+  "observed_at": "2026-06-10T06:51:58.760Z",
   "evidence": {
-    "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=1000",
+    "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=0",
     "agentic_market": "https://api.agentic.market/v1/services/api-northeastdealintel-com",
     "probe": "https://api.northeastdealintel.com"
   },

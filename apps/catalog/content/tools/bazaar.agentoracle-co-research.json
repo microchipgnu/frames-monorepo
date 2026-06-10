@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://agentoracle.co/research",
     "x402_version": 2,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 1,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Use POST /preview (free, truncated) to evaluate the API before paying. Use POST /research ($0.02 per call) for single-query verification with confidence + sources. Use POST /evaluate ($0.02 per call) when you have a specific factual claim to verify and need a per-claim verdict. Use POST /deep-research ($0.10 per call) for multi-step analysis that needs a more capable model. All paid endpoints settle in USDC on Base mainnet via x402; agents should follow the 402 challenge to authorize payment.",
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

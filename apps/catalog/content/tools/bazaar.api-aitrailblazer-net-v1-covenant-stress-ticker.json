@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://api.aitrailblazer.net/v1/covenant-stress/:ticker",
     "x402_version": 2,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 142,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Use public /help, /companies, and /openapi.json for orientation. Public MCP callers use POST /mcp with Base x402 payment. Use /mpp/v1/* routes for Tempo-backed Machine Payments Protocol access. Agentic Market uses /v1/* routes for Base x402 access. Do not translate between route families unless the caller switches payment rails.",
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

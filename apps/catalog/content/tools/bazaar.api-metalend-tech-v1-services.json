@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://api.metalend.tech/v1/services",
     "x402_version": 2,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 5,
     "x402_volume_usd_30d": 0,
     "x_guidance": "AI agents MUST read https://api.metalend.tech/SKILL.md before implementing any MetaLend operation. It contains critical signing formats, required headers, wizard flows for config setup, and known failure modes.",
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

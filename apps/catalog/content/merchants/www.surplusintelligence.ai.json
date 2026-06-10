@@ -27,9 +27,9 @@
   "has_openapi": true,
   "per_route_schemas": 0,
   "mpp_source": "none",
-  "bazaar_resource_count": 17,
-  "bazaar_last_updated": "2026-06-08T15:36:03.197Z",
-  "total_calls_30d": 1147,
+  "bazaar_resource_count": 13,
+  "bazaar_last_updated": "2026-06-09T17:05:18.583Z",
+  "total_calls_30d": 1101,
   "tempo_tx_count": 0,
   "tempo_volume_usd": 0,
   "tempo_latest_tx": null,
@@ -48,9 +48,9 @@
   "min_price_usd": 0.003013,
   "max_price_usd": 0.983,
   "endpoint_count": 17,
-  "paid_endpoint_count": 17,
+  "paid_endpoint_count": 13,
   "siwx_endpoint_count": 0,
-  "observed_at": "2026-06-09T06:42:05.104Z",
+  "observed_at": "2026-06-10T06:51:58.760Z",
   "evidence": {
     "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=0",
     "agentic_market": "https://api.agentic.market/v1/services/www-surplusintelligence-ai",
@@ -58,7 +58,6 @@
   },
   "tools": [
     "bazaar.www-surplusintelligence-ai-x402-api-inference-v1-chat-completions",
-    "bazaar.www-surplusintelligence-ai-x402-api-inference-v1-completions",
     "bazaar.www-surplusintelligence-ai-x402-api-twitter-v2-trends-by-woeid-woeid",
     "bazaar.www-surplusintelligence-ai-x402-api-twitter-v2-tweets",
     "bazaar.www-surplusintelligence-ai-x402-api-twitter-v2-tweets-counts-all",
@@ -70,10 +69,7 @@
     "bazaar.www-surplusintelligence-ai-x402-api-twitter-v2-users",
     "bazaar.www-surplusintelligence-ai-x402-api-twitter-v2-users-by-username-username",
     "bazaar.www-surplusintelligence-ai-x402-api-twitter-v2-users-userid",
-    "bazaar.www-surplusintelligence-ai-x402-api-twitter-v2-users-userid-followers",
-    "bazaar.www-surplusintelligence-ai-x402-api-twitter-v2-users-userid-following",
-    "bazaar.www-surplusintelligence-ai-x402-api-twitter-v2-users-userid-tweets",
-    "bazaar.www-surplusintelligence-ai-x402-api-venice-crypto-rpc-network"
+    "bazaar.www-surplusintelligence-ai-x402-api-twitter-v2-users-userid-tweets"
   ],
   "quality": "long-tail"
 }

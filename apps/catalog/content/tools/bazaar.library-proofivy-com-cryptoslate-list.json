@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://library.proofivy.com/cryptoslate_list",
     "x402_version": 2,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 3,
     "x402_volume_usd_30d": 0,
     "x_guidance": "This API lets an agent fetch articles from publishers, and Apple device submitted content, paying per request via x402 on Base mainnet (eip155:8453). All payable routes return HTTP 402 with payment instructions on the first call; retry with the required payment header to receive content.\n\nTypical flow:\n1. Discover a content slug. For CryptoSlate articles, GET /cryptoslate_list returns every available slug with its last modified date. For Proofivy posts, you must already know the slug or full URL. For Apple device content, you must already know the Proofivy CID.\n2. Fetch the content. POST /proofivy, or /cryptoslate with {\"content_url\": \"<slug-or-url>\"}; or GET /apple_devices/{cid} for user submitted Apple device content.\n3. Every successful response carries {\"status\": \"success\", \"proofivy_cid\": \"bafkrei...\", \"text\": \"...\"}. The proofivy_cid is a CIDv1 over the returned text and can be independently verified.\n\nPricing: most routes are a flat 0.01 USD, settled in USDC on Base. The /apple_devices/{cid} route uses per content pricing set by the original submitter and is therefore dynamic.",
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

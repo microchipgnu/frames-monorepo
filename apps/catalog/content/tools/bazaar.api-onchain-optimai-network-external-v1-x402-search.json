@@ -49,7 +49,7 @@
           "decimals": 6,
           "displayAmount": "0.001",
           "displayAsset": "USDC",
-          "feePayer": "BENrLoUbndxoNMUS5JXApGMtNykLjFXXixMtpDwDR9SP",
+          "feePayer": "Hc3sdEAsCGQcpgfivywog9uwtk8gUBUZgsxdME1EJy88",
           "name": "USD Coin",
           "outputSchema": "search-result-v1",
           "version": "1"
@@ -59,7 +59,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://api-onchain.optimai.network/external/v1/x402/search",
     "x402_version": 2,
     "accept_count": 2
@@ -74,10 +74,10 @@
     "network_count": 2,
     "network_names": "Base, Solana",
     "listed_on_count": 2,
-    "total_calls_30d": 11,
+    "total_calls_30d": 13,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Use POST /external/v1/x402/search with application/json {\"query\":\"...\"}. If the response is 402, read the payment-required header, satisfy one accepted x402 v2 payment requirement, then retry with PAYMENT-SIGNATURE. A successful paid request returns an accepted OptimAI Search request for agent-ready web, social, and crypto research with cited results.",
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

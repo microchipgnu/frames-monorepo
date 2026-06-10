@@ -39,7 +39,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://api.crinkl.xyz/x402/crinkl-verified-commerce-signals",
     "x402_version": 2,
     "accept_count": 2
@@ -57,7 +57,7 @@
     "total_calls_30d": 2,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Use the paid x402 GET operations for privacy-thresholded aggregate commerce signals. Start with /x402/crinkl-verified-commerce-signals for provider fit or /x402/category-pulse for demand trend checks. Crinkl does not return raw receipts, wallet histories, line items, or identifiable purchase records.",
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

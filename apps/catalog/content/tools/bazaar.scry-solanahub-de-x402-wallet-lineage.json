@@ -2,7 +2,7 @@
   "pay_protocol": "0.0.1",
   "id": "bazaar.scry-solanahub-de-x402-wallet-lineage",
   "title": "Solana wallet lineage API via query parameter. Pass `address` to get cached fund",
-  "description": "Solana wallet lineage API via query parameter. Pass `address` to get cached funding-lineage, upstream funder evidence, hop depth, freshness, identity hints, loop detection, and coverage/confidence. No API keys, no subscriptions; x402 exact payment per request.",
+  "description": "Solana wallet lineage API via query parameter. Pass `address` to get cached funding-lineage, upstream funder evidence, hop depth, freshness, identity hints, loop detection, and coverage/confidence. No API keys, no subscriptions; x402 exact payment per request. Search aliases: wallet source of funds solana api; solana funding lineage api; who funded this solana wallet; solana wallet lineage api; wallet lineage solana api; solana wallet funding lineage api; solana wallet provenance api; wallet funder lookup solana. Primary object: single wallet source of funds.",
   "capabilities": [
     "unspecified"
   ],
@@ -39,7 +39,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://scry.solanahub.de/x402/wallet-lineage",
     "x402_version": 2,
     "accept_count": 2
@@ -54,10 +54,10 @@
     "network_count": 2,
     "network_names": "Base, Solana",
     "listed_on_count": 2,
-    "total_calls_30d": 16,
+    "total_calls_30d": 25,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

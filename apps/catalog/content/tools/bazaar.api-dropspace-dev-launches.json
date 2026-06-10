@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://api.dropspace.dev/launches",
     "x402_version": 2,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 1,
     "x402_volume_usd_30d": 0,
     "x_guidance": "dropspace lets agents schedule multi-platform social media launches. most endpoints require an API key (Authorization: Bearer ds_live_...) - create one at https://www.dropspace.dev/settings/api. POST /launches and related read endpoints additionally accept x402 wallet auth: x402 wallets get 5 free launches per month per identity, then $0.55 USDC on Base per launch. publishing is always free; only launch creation past the free tier settles. see https://www.dropspace.dev/docs#x402-payments for the full payment flow and https://api.dropspace.dev/llms.txt for product context.",
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

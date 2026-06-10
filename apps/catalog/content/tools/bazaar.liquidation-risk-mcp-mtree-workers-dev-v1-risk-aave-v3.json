@@ -1,8 +1,8 @@
 {
   "pay_protocol": "0.0.1",
   "id": "bazaar.liquidation-risk-mcp-mtree-workers-dev-v1-risk-aave-v3",
-  "title": "Paid liquidation risk mcp route for autonomous agents. Returns JSON with provena",
-  "description": "Paid liquidation risk mcp route for autonomous agents. Returns JSON with provenance, route-specific evidence, and machine-readable fields. Buyer-intent match: Aave liquidation risk, health factor API. Price 0.03 USDC on Base via x402. Demo/preview: https://liquidation-risk-mcp.mtree.workers.dev/demo/aave_v3. Contact: https://liquidation-risk-mcp.mtree.workers.dev/contact.",
+  "title": "Paid Aave V3 liquidation-risk verdict for agents before they borrow, lever, liqu",
+  "description": "Paid Aave V3 liquidation-risk verdict for agents before they borrow, lever, liquidate, or allow autopay. Returns buyer_decision, evidence_summary, execution_policy, next_action, live health factor, and liquidation trigger distance. Buyer-intent match: Aave liquidation risk, health factor API. Price 0.03 USDC on Base via x402. Demo/preview: https://liquidation-risk-mcp.mtree.workers.dev/demo/aave_v3. Contact: https://liquidation-risk-mcp.mtree.workers.dev/contact.",
   "capabilities": [
     "unspecified"
   ],
@@ -25,14 +25,14 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://liquidation-risk-mcp.mtree.workers.dev/v1/risk/aave_v3",
     "x402_version": 2,
     "accept_count": 1
   },
   "_signals": {
     "host": "liquidation-risk-mcp.mtree.workers.dev",
-    "is_active_14d": false,
+    "is_active_14d": true,
     "is_infra": true,
     "is_recognized": false,
     "is_mass_lister": false,
@@ -40,10 +40,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 2,
+    "total_calls_30d": 3,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

@@ -28,7 +28,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://hirescrape.com/api/tools/youtube",
     "x402_version": 2,
     "accept_count": 1
@@ -43,10 +43,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 59,
+    "total_calls_30d": 139,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Two paid surfaces: POST /api/tools/{tool} for the first-party scrapers (records × $0.002, async over 200 records returns snapshot_id), and POST /api/skills/{slug}/run for the 703-API marketplace (flat min $0.03, sync only). Both return 402 with x402 + MPP challenges; pick what your wallet supports. Discovery: GET /api/skills lists the marketplace catalog (free). GET /api/skills/runs (SIWX) lists wallet's past skill runs. Idempotency-Key replays cached responses for 10 min on either surface.",
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

@@ -39,7 +39,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://scan.convrgent.ai/api/aeo/audit",
     "x402_version": 2,
     "accept_count": 2
@@ -57,7 +57,7 @@
     "total_calls_30d": 7,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Start with scan_site (POST /api/aeo/scan) — it's free and returns triple scores (AEO + GEO + Agent Readiness), AI Identity Card, and business profile. Use the business profile to decide which scores matter most. For detailed breakdown, call audit (POST /api/aeo/audit, $1). For generated fix code with score projections, call fix (POST /api/aeo/fix, $5). After applying fixes, rescan to verify improvement.",
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

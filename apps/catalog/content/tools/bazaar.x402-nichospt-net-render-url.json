@@ -52,7 +52,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://x402.nichospt.net/render-url",
     "x402_version": 2,
     "accept_count": 3
@@ -66,11 +66,11 @@
     "category": "other",
     "network_count": 3,
     "network_names": "Base, Polygon, Solana",
-    "listed_on_count": 2,
+    "listed_on_count": 1,
     "total_calls_30d": 46,
     "x402_volume_usd_30d": 0,
     "x_guidance": "x402-tools is a set of pay-per-call utility APIs for AI agents, settled in USDC via the x402 protocol — no API keys, no accounts. Each endpoint is a single POST with a JSON body; an unpaid request returns HTTP 402 with payment requirements, and the same request retried with a PAYMENT-SIGNATURE header returns the result. Use an x402 client library (e.g. @x402/fetch with @x402/svm for Solana or @x402/evm for Base/Polygon) to handle the payment handshake. Prices are fixed per endpoint and listed under x-payment-info on each operation.",
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

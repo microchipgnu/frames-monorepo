@@ -30,7 +30,7 @@
   },
   "_meta": {
     "catalog": "mpp",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "allium:POST:/api/v1/developer/prices"
   },
   "_signals": {
@@ -46,7 +46,7 @@
     "total_calls_30d": 30,
     "x402_volume_usd_30d": 0,
     "x_guidance": "## Allium API\n\nBlockchain data APIs for token prices, wallet balances, and SQL queries.\n\n- **Docs:** https://docs.allium.so\n- **Support:** support@allium.so",
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "curated"
   }
 }

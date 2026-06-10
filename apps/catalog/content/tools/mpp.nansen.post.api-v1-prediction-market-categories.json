@@ -29,7 +29,7 @@
   },
   "_meta": {
     "catalog": "mpp",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "nansen:POST:/api/v1/prediction-market/categories"
   },
   "_signals": {
@@ -42,10 +42,10 @@
     "network_count": 4,
     "network_names": "Base, Solana, Tempo, X Layer",
     "listed_on_count": 4,
-    "total_calls_30d": 4214,
+    "total_calls_30d": 4181,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "curated"
   }
 }

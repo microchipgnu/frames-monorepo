@@ -27,9 +27,9 @@
   "has_openapi": true,
   "per_route_schemas": 0,
   "mpp_source": "none",
-  "bazaar_resource_count": 66,
-  "bazaar_last_updated": "2026-06-09T04:28:41.693Z",
-  "total_calls_30d": 375,
+  "bazaar_resource_count": 71,
+  "bazaar_last_updated": "2026-06-10T03:06:15.69Z",
+  "total_calls_30d": 387,
   "tempo_tx_count": 0,
   "tempo_volume_usd": 0,
   "tempo_latest_tx": null,
@@ -47,12 +47,12 @@
   "is_recognized": false,
   "min_price_usd": 0.01,
   "max_price_usd": 0.25,
-  "endpoint_count": 66,
-  "paid_endpoint_count": 66,
+  "endpoint_count": 71,
+  "paid_endpoint_count": 71,
   "siwx_endpoint_count": 0,
-  "observed_at": "2026-06-09T06:42:05.104Z",
+  "observed_at": "2026-06-10T06:51:58.760Z",
   "evidence": {
-    "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=1000",
+    "bazaar": "https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000&offset=0",
     "agentic_market": "https://api.agentic.market/v1/services/x402stock-xyz",
     "probe": "https://x402stock.xyz"
   },
@@ -105,6 +105,7 @@
     "bazaar.x402stock-xyz-api-v1-perps",
     "bazaar.x402stock-xyz-api-v1-perps-predicted-funding",
     "bazaar.x402stock-xyz-api-v1-portfolio-xray",
+    "bazaar.x402stock-xyz-api-v1-prediction-markets",
     "bazaar.x402stock-xyz-api-v1-prev-close-aapl",
     "bazaar.x402stock-xyz-api-v1-private-stocks",
     "bazaar.x402stock-xyz-api-v1-quote-aapl",
@@ -120,9 +121,13 @@
     "bazaar.x402stock-xyz-api-v1-ticker-types",
     "bazaar.x402stock-xyz-api-v1-tickers",
     "bazaar.x402stock-xyz-api-v1-treasury-yields",
+    "bazaar.x402stock-xyz-api-v1-trending",
     "bazaar.x402stock-xyz-api-v1-trending-4chan",
     "bazaar.x402stock-xyz-api-v1-trending-reddit",
-    "bazaar.x402stock-xyz-api-v1-unified-snapshot"
+    "bazaar.x402stock-xyz-api-v1-unified-snapshot",
+    "bazaar.x402stock-xyz-api-v1-x402-economy",
+    "bazaar.x402stock-xyz-api-v1-x402-services",
+    "bazaar.x402stock-xyz-api-v1-xstocks"
   ],
   "quality": "long-tail"
 }

@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://trust402.aztecbeacon.uk/api/trust/compare-resources",
     "x402_version": 2,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 17,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Trust402 is a dry-run-first trust router for x402 resources. Use it to check endpoints, score resources, compare candidates, plan spend, and produce diligence reports before any live procurement.",
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

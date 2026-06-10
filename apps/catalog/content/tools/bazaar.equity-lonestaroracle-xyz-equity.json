@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://equity.lonestaroracle.xyz/equity",
     "x402_version": 2,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 38,
     "x402_volume_usd_30d": 0,
     "x_guidance": "AI-powered stock fundamentals + Claude AI investment analysis: valuation, analyst outlook, key risks. $0.05/query via x402 USDC on Base.  |  Also from LoneStarOracle: OptionsFlow (options.lonestaroracle.xyz)  |  InsiderFlow (insider.lonestaroracle.xyz)  |  RealEstatePulse (realestate.lonestaroracle.xyz)  |  MacroPulse (macro.lonestaroracle.xyz)  |  Full catalog: lonestaroracle.xyz",
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

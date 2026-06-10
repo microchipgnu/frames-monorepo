@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://agentres.dev/api/book",
     "x402_version": 2,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 14,
     "x402_volume_usd_30d": 0,
     "x_guidance": "This API lets an agent book restaurant reservations on Resy on behalf of a user. Authentication: use a per-user API key (x-agent-key header, starts with agentres_) or a crypto wallet (x402/MPP). API key auth carries user identity — no userId parameter needed. See /skill.md for full setup. IMPORTANT: Start by calling GET /api/me to check if the user already has an account and linked Resy. If resy_linked is true, skip straight to searching. If you get a 401 (wallet not linked), start setup. Setup is presented to the user as a single action: \"link your Resy account\". Ask the user for their Resy email ONCE and reuse it for every setup call. Never mention \"creating an account\" in user-facing messages — it's internal plumbing. Setup (only if needed): 1) POST /api/account with { \"email\": \"<user's Resy email>\" } — creates the account and links the wallet. SKIP this call if GET /api/me returned 200 (account already exists). Do not narrate this call to the user. 2) POST /api/link-resy with { \"em_address\": \"<same Resy email>\" } — sends an OTP code to the user's Resy email.    Then POST /api/link-resy with { \"em_address\": \"<same Resy email>\", \"code\": \"<code>\" } — submit the code to complete linking. Booking workflow (after setup): 3) GET /api/search?query=<name> — search for restaurants by name. 4) GET /api/availability?venue_id=<id>&party_size=<n>&day=<YYYY-MM-DD> — check available time slots. 5) POST /api/book with { \"venue_id\", \"config_id\", \"party_size\", \"day\" } — book a reservation (costs $0.01 USDC via wallet, free with API key). Ad-hoc: GET /api/reservations?type=upcoming — use when the user asks \"what reservations do I have?\" or similar. Returns the user's existing reservations with full venue details inlined. Identity-only ($0). Cancel flow: when the user asks to cancel a reservation, you MUST first call GET /api/reservations to locate the reservation and extract its resy_token field, then call POST /api/cancel with { \"resy_token\" } to cancel. Never guess resy_token. Always confirm with the user before cancelling. Identity-only ($0). CRITICAL: Before calling /api/book, always present a full booking summary (restaurant, date, time, party size, price) and wait for an EXPLICIT \"yes\" confirmation from the user. Never book on implicit intent. All error responses include \"retryable\" (boolean) and \"next_step\" (what to do) fields. Follow next_step to recover from errors.",
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

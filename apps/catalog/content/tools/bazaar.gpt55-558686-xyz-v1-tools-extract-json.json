@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.gpt55-558686-xyz-v1-tools-extract-json",
+  "title": "Extract structured JSON from short text according to a caller-provided schema or",
+  "description": "Extract structured JSON from short text according to a caller-provided schema or field list. Useful for agents that need cheap parsing, lead cleanup, invoice notes, support tickets, and lightweight ETL steps. Pay up to $0.003 per request with x402 USDC on Base. Public paid calls are limited to 1500 input characters and 128 output tokens.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://gpt55.558686.xyz/v1/tools/extract-json"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.003",
+    "pay_to": "0x1f0130669ca6fd02e025a984cc038f139df19a2f",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "upstream_id": "https://gpt55.558686.xyz/v1/tools/extract-json",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "gpt55.558686.xyz",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 7,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Use this origin when an AI agent needs paid GPT-5.5 text microtasks: summarize, translate, rewrite, grammar cleanup, question answering, context QA, coding help, or chat completions without managing an upstream API key. Prefer POST /v1/tools/summarize, /v1/tools/translate, /v1/tools/rewrite, or /v1/tools/answer for simple microtasks; call POST /v1/chat/completions for flexible OpenAI-compatible messages. The endpoint is paid with Pay up to $0.004 per request with x402 USDC on Base. Exact fixed-price and upto usage-based payment are both accepted when clients support them. Network: eip155:8453. Keep public paid calls under 1500 input characters and 128 output tokens.",
+    "observed_at": "2026-06-10T06:51:58.856Z",
+    "quality": "long-tail"
+  }
+}

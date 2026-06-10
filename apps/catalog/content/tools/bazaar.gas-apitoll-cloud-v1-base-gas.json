@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-09T06:42:05.186Z",
+    "fetched_at": "2026-06-10T06:51:58.856Z",
     "upstream_id": "https://gas.apitoll.cloud/v1/base/gas",
     "x402_version": 2,
     "accept_count": 1
@@ -39,11 +39,11 @@
     "category": "other",
     "network_count": 1,
     "network_names": "Base",
-    "listed_on_count": 1,
-    "total_calls_30d": 5,
+    "listed_on_count": 2,
+    "total_calls_30d": 6,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Cheapest agent-native source for Base mainnet gas. Call GET /v1/base/gas before submitting any on-chain tx to pick a fair maxFeePerGas + maxPriorityFeePerGas, or before deciding whether to wait out congestion. Optionally pass ?blocks=N to widen or narrow the percentile sample (1..50, default 20). $0.001 USDC per call, settled instantly via x402 on Base.",
-    "observed_at": "2026-06-09T06:42:05.186Z",
+    "observed_at": "2026-06-10T06:51:58.856Z",
     "quality": "long-tail"
   }
 }

@@ -1,30 +1,30 @@
 {
-  "refreshed_at": "2026-06-09T06:42:05.037Z",
-  "total_ms": 205557,
+  "refreshed_at": "2026-06-10T06:51:58.691Z",
+  "total_ms": 199894,
   "sources": [
     {
       "name": "bazaar",
       "status": "ok",
-      "ms": 25177,
+      "ms": 15724,
       "output_files": [
         "staging/bazaar-items.json",
         "staging/bazaar-merchants.json"
       ],
-      "output_bytes": 85699589
+      "output_bytes": 76436674
     },
     {
       "name": "agentic-market",
       "status": "ok",
-      "ms": 37113,
+      "ms": 35857,
       "output_files": [
         "staging/agentic-market.json"
       ],
-      "output_bytes": 641222
+      "output_bytes": 622799
     },
     {
       "name": "paysh",
       "status": "ok",
-      "ms": 293,
+      "ms": 285,
       "output_files": [
         "staging/paysh.json"
       ],
@@ -33,17 +33,17 @@
     {
       "name": "mpp-directory",
       "status": "ok",
-      "ms": 285,
+      "ms": 372,
       "output_files": [
         "staging/mpp-directory-services.json",
         "staging/mpp-directory-merchants.json"
       ],
-      "output_bytes": 476209
+      "output_bytes": 476789
     },
     {
       "name": "mppscan",
       "status": "fail",
-      "ms": 348,
+      "ms": 507,
       "err": "→ mppscan via SIWX (wallet 0x27Ad71a95a8e139bf4D0E3C85B65DBB47d9F303f)…\n  live scrape failed: mppscan 0: HTTP 402\n  no cache to fall back to — bailing\n",
       "output_files": [],
       "output_bytes": 0
@@ -51,7 +51,7 @@
     {
       "name": "x402scan",
       "status": "ok",
-      "ms": 3668,
+      "ms": 3693,
       "output_files": [
         "staging/x402scan.json"
       ],
@@ -60,7 +60,7 @@
     {
       "name": "frames-registry",
       "status": "ok",
-      "ms": 1004,
+      "ms": 1831,
       "output_files": [
         "staging/frames-registry-services.json",
         "staging/frames-registry-merchants.json"
@@ -70,11 +70,11 @@
     {
       "name": "probe-discovery",
       "status": "ok",
-      "ms": 168443,
+      "ms": 164036,
       "output_files": [
         "staging/probe-results.json"
       ],
-      "output_bytes": 2043389
+      "output_bytes": 2046857
     }
   ]
 }
