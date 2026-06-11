@@ -1,3 +1,11 @@
+> **⚠ MOVED (2026-06-11).** The catalog now lives in
+> [`frames-engineering/frames-agent-models-gateway`](https://github.com/frames-engineering/frames-agent-models-gateway)
+> at `apps/catalog/`, with content served from the `frames-catalog-content`
+> R2 bucket (synced by that repo's `catalog-refresh.yml`; no more git
+> commits). The `catalog-refresh` workflow HERE is disabled. The `content/`
+> snapshot below is kept FROZEN as the deployed worker's bucket-miss
+> fallback source — do not refresh or edit it.
+
 # catalog
 
 The canonical hosted tool catalog for [pay](https://github.com/microchipgnu/pay) — and a per-host **merchant directory** of the agentic economy. One publisher among many — federation lives in pay's `tools.yml`, not here.
