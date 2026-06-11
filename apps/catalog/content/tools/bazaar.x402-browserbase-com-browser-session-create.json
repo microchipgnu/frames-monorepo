@@ -16,7 +16,7 @@
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
     "price_hint": "0",
-    "pay_to": "0xC22E7B7A7cD2EF346ACb8Cc4101C3d4F8ad90A53",
+    "pay_to": "0x36eA41238E941E82C0f45395e7044f2Ff7A97D47",
     "scheme": "exact",
     "extra": {
       "name": "USD Coin",
@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://x402.browserbase.com/browser/session/create",
     "x402_version": 1,
     "accept_count": 1
@@ -40,10 +40,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 1119,
+    "total_calls_30d": 1080,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "curated"
   }
 }

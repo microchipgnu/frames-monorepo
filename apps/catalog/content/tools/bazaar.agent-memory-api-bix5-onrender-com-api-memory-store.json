@@ -21,7 +21,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://agent-memory-api-bix5.onrender.com/api/memory/store",
     "x402_version": 2,
     "accept_count": 1
@@ -39,7 +39,7 @@
     "total_calls_30d": 1,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Agent Memory API provides x402-paid encrypted memory tools for autonomous AI agents. Use /api/memory/store to persist memory across sessions with AES-256 encryption. Use /api/memory/recall to retrieve stored memory. Use /api/trust/verify to detect hallucinations and verify content trustworthiness. Use /api/memory/audit for compliance audit logs. Useful for AI agent memory management, USDC/Base payments, and Japanese AI workflows.",
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "long-tail"
   }
 }

@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://grid.lonestaroracle.xyz/report",
     "x402_version": 2,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 16,
     "x402_volume_usd_30d": 0,
     "x_guidance": "US electricity grid intelligence — real-time demand, generation mix (% renewable/gas/nuclear), day-ahead forecasts, and grid stress signals for 7 major US regions. $0.03/report via x402 USDC on Base. | Also from LoneStarOracle: CrownBlock (crownblock.lonestaroracle.xyz) for oil/gas prices | MacroPulse (macro.lonestaroracle.xyz) for macro indicators | Full catalog: lonestaroracle.xyz",
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "long-tail"
   }
 }

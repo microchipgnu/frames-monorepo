@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.blockrun-web-vbsbhh7lea-uc-a-run-app-api-v1-stocks-us-history-dis",
+  "title": "US Stock OHLC bars for DIS @ D",
+  "description": "US Stock OHLC bars for DIS @ D",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://blockrun-web-vbsbhh7lea-uc.a.run.app/api/v1/stocks/us/history/DIS"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.001",
+    "pay_to": "0xe9030014F5DAe217d0A152f02A043567b16c1aBf",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
+    "upstream_id": "https://blockrun-web-vbsbhh7lea-uc.a.run.app/api/v1/stocks/us/history/DIS",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "blockrun-web-vbsbhh7lea-uc.a.run.app",
+    "is_active_14d": true,
+    "is_infra": true,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 960,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-11T06:59:48.580Z",
+    "quality": "long-tail"
+  }
+}

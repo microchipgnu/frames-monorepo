@@ -1,8 +1,8 @@
 {
   "pay_protocol": "0.0.1",
   "id": "bazaar.meryol-agenticmarket-x402-hf-space-gas-now-chain",
-  "title": "Live gas snapshot: base fee + p50/p90 priority fee in gwei from eth_feeHistory, ",
-  "description": "Live gas snapshot: base fee + p50/p90 priority fee in gwei from eth_feeHistory, plus USD cost per common tx type (native transfer, ERC-20 transfer, swap). ETH/USD from CoinGecko folded in. Use to size gas budgets or skip txs when network is congested. Chains: ethereum, base, arbitrum, optimism.",
+  "title": "Pre-broadcast gas check: base fee + p50/p90 priority fee in gwei from eth_feeHis",
+  "description": "Pre-broadcast gas check: base fee + p50/p90 priority fee in gwei from eth_feeHistory, plus USD cost per common tx type (native transfer, ERC-20 transfer, swap) at live ETH/USD. Size gas budgets or postpone txs under congestion. Never returns null costs — degraded upstreams are a free 502, not a paid empty answer. Chains: ethereum, base, arbitrum, optimism.",
   "capabilities": [
     "gas",
     "fee",
@@ -37,7 +37,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://meryol-agenticmarket-x402.hf.space/gas/now/:chain",
     "x402_version": 2,
     "accept_count": 1
@@ -51,11 +51,11 @@
     "category": "other",
     "network_count": 1,
     "network_names": "Base",
-    "listed_on_count": 2,
-    "total_calls_30d": 31,
+    "listed_on_count": 1,
+    "total_calls_30d": 40,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "long-tail"
   }
 }

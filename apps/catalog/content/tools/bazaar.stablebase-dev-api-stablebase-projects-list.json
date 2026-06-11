@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://stablebase.dev/api/stablebase/projects/list",
     "x402_version": 2,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 2,
     "x402_volume_usd_30d": 0,
     "x_guidance": "# Stablebase\n> On-demand Postgres databases via Stablebase. All endpoints POST. Pay per request with x402/MPP. Wallet-based access control — you can only see and manage databases you created.\n\n## Base URL\nhttps://stablebase.dev\n\n## Auth\nx402/MPP payment (USDC on Base, Solana, or Tempo). Your wallet identity determines which projects you can access.\n\n---\n\n## Projects — Database Provisioning\n\n### Create a database ($1.00)\n/api/stablebase/projects/create — Provision a new Postgres database\nExample: POST /api/stablebase/projects/create { \"name\": \"my-agent-db\", \"db_pass\": \"securepass123\", \"region\": \"us-east-1\" }\nReturns project ref and Postgres connection URL. The paying wallet becomes the owner.\n\n### List your projects ($0.01)\n/api/stablebase/projects/list — List all projects owned by your wallet\nExample: POST /api/stablebase/projects/list {}\n\n### Get project details ($0.01)\n/api/stablebase/projects/get — Get full project details including status, region, and endpoints\nExample: POST /api/stablebase/projects/get { \"ref\": \"abcdefghijklmnop\" }\n\n### Restore a project ($0.01)\n/api/stablebase/projects/restore — Restore a paused project\nExample: POST /api/stablebase/projects/restore { \"ref\": \"abcdefghijklmnop\" }\n\n### Delete a project ($0.05)\n/api/stablebase/projects/delete — Permanently delete a project and its data\nExample: POST /api/stablebase/projects/delete { \"ref\": \"abcdefghijklmnop\" }\n\n### Project health ($0.01)\n/api/stablebase/projects/health — Check service health for a project\nExample: POST /api/stablebase/projects/health { \"ref\": \"abcdefghijklmnop\" }\n\n---\n\n## Database — Query & Types\n\n### Run SQL query ($0.02)\n/api/stablebase/database/query — Execute a SQL query against a project's database\nExample: POST /api/stablebase/database/query { \"ref\": \"abcdefghijklmnop\", \"query\": \"SELECT * FROM users LIMIT 10\" }\n\n### Generate TypeScript types ($0.01)\n/api/stablebase/database/types — Generate TypeScript types from database schema\nExample: POST /api/stablebase/database/types { \"ref\": \"abcdefghijklmnop\" }\n\n---\n\n## Lifecycle\n\n1. Agent calls POST /api/stablebase/projects/create (paid) — gets a Postgres connection URL.\n2. Agent queries the database via POST /api/stablebase/database/query or directly via the connection URL.\n3. Resume previously paused projects with POST /api/stablebase/projects/restore.\n\n## Access Control\nAll project operations are scoped to the wallet that created the project. You cannot see, query, restore, or delete projects owned by other wallets.\n",
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "long-tail"
   }
 }

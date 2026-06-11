@@ -50,7 +50,7 @@
   "endpoint_count": 1,
   "paid_endpoint_count": 0,
   "siwx_endpoint_count": 0,
-  "observed_at": "2026-06-10T06:51:58.760Z",
+  "observed_at": "2026-06-11T06:59:48.493Z",
   "evidence": {
     "agentic_market": "https://api.agentic.market/v1/services/x402engine-app"
   },

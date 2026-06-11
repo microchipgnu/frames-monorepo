@@ -2,7 +2,7 @@
   "pay_protocol": "0.0.1",
   "id": "bazaar.api-dripmetrics-ai-metrics-roll-spread",
   "title": "DripMetricsAI (api description at https://dripmetrics.ai/) provides on-demand cr",
-  "description": "DripMetricsAI (api description at https://dripmetrics.ai/) provides on-demand crypto market microstructure and risk metrics for agents and developers. Agents can pay per request via x402 and receive structured JSON metrics without subscriptions or API keys. Roll Spread estimates a spread proxy derived from lagged price changes. Discovery examples use the latest 1h window.",
+  "description": "DripMetricsAI (api description at https://dripmetrics.ai/) provides on-demand crypto market microstructure and risk metrics for agents and developers. Agents can pay per request via x402 and receive structured JSON metrics without subscriptions or API keys. Roll Spread estimates a spread proxy derived from lagged price changes. Discovery examples use the latest 30m window.",
   "capabilities": [
     "unspecified"
   ],
@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://api.dripmetrics.ai/metrics/roll-spread",
     "x402_version": 2,
     "accept_count": 1
@@ -39,11 +39,11 @@
     "category": "other",
     "network_count": 1,
     "network_names": "Base",
-    "listed_on_count": 2,
-    "total_calls_30d": 51,
+    "listed_on_count": 1,
+    "total_calls_30d": 59,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "long-tail"
   }
 }

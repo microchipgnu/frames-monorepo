@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://stablepeopledata.dev/api/pdl/company/enrich",
     "x402_version": 2,
     "accept_count": 1
@@ -40,10 +40,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 76,
+    "total_calls_30d": 60,
     "x402_volume_usd_30d": 0,
     "x_guidance": "# People Data Labs API Reference\n## Authentication\n\nAll endpoints require micropayment. Include payment headers as per the HTTP 402 specification. Payments are processed on Base mainnet (eip155:8453), Solana, or Tempo.\n\n## Agent Workflow (Progressive)\n\n1. Discover candidate endpoints with `mcp__agentcash__discover_api_endpoints`.\n2. For selected POST/PUT/PATCH endpoints, call `mcp__agentcash__check_endpoint_schema` before first fetch.\n3. Execute with `mcp__agentcash__fetch`.\n\n## Search Endpoint Pricing\n\n`/api/pdl/person/search` and `/api/pdl/company/search` charge **per result returned**, not per call:\n\n- **Person search**: $0.28 × `size` (e.g. `size: 5` = $1.40, `size: 100` = $28.00)\n- **Company search**: $0.10 × `size` (e.g. `size: 5` = $0.50, `size: 100` = $10.00)\n\n**Recommended `size`: 1-5.** Start small. The `size` field accepts up to 100, but anything above ~10 can run into multiple dollars per call. Use `scroll_token` to paginate further only if you need more results after reviewing the first batch.\n\nAlways call `mcp__agentcash__check_endpoint_schema` with your intended request body to get an exact USD quote before `mcp__agentcash__fetch`.\n",
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "long-tail"
   }
 }

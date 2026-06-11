@@ -39,7 +39,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://web-production-60258.up.railway.app/procurement",
     "x402_version": 2,
     "accept_count": 2
@@ -57,7 +57,7 @@
     "total_calls_30d": 20,
     "x402_volume_usd_30d": 0,
     "x_guidance": "This service provides professional-grade data across economics, biomedical, legal, and real estate verticals via per-query micropayment. No account setup required — pay per call via x402 (USDC on Base) or MPP (Tempo). All endpoints require micropayment via x402 (USDC on Base Sepolia) or MPP (Tempo). No API key or account setup required — pay per query. Workflow: (1) GET /macro/snapshot — full macro picture: 13 indicators including GDP, CPI, unemployment, rates, yield curve, M2. (2) GET /macro/series (no params, free, no payment required) — list all 43 available series names and IDs. GET /macro/series?name=<indicator> to fetch historical data (paid). (3) GET /macro/derived — computed indicators: real yield, breakeven inflation, yield curve spread, GDP growth rate. (4) GET /macro/releases — which datasets published in the last 30 days; check data freshness before querying. (5) GET /macro/delta?periods=4 — period-over-period % change across 8 key indicators, or a single series with ?series=. Optional: send X-Agent-Name and X-Agent-Purpose request headers to label your traffic. Example: X-Agent-Name: portfolio-rebalancer, X-Agent-Purpose: inflation-monitoring. These are logged for analytics and may qualify you for early access to new endpoints.",
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "long-tail"
   }
 }

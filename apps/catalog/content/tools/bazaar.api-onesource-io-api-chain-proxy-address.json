@@ -1,0 +1,52 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.api-onesource-io-api-chain-proxy-address",
+  "title": "Detect upgradeable proxy patterns (EIP-1967, UUPS, Transparent) via eth_getStora",
+  "description": "Detect upgradeable proxy patterns (EIP-1967, UUPS, Transparent) via eth_getStorageAt - returns the implementation address behind a proxy",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://api.onesource.io/api/chain/proxy/:address"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.005",
+    "pay_to": "0x52E29e0d2Aa49bfBfC548C0A9F2196F4aa51f3ea",
+    "scheme": "exact",
+    "extra": {
+      "credentialTypes": [
+        "authorization"
+      ],
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
+    "upstream_id": "https://api.onesource.io/api/chain/proxy/:address",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "api.onesource.io",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 386,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "OneSource exposes a curated catalog of live Ethereum RPC calls across Ethereum mainnet and the Sepolia testnet (select via the `network` parameter). Every /api/chain/* endpoint is a thin wrapper around a single eth_* RPC method (eth_getBalance, eth_call, eth_getLogs, eth_getTransactionReceipt, eth_getBlockByNumber, etc.) against a OneSource-operated Ethereum node - there is no cached or indexed data here; every response is freshly fetched. Pay via x402 (USDC on Base): per-call with the `exact` scheme or batch/session with the `x402-batch` scheme. Pay via MPP on Tempo: per-call charges accept pathUSD or USDC.e; session-mode payments are USDC.e-only (`tempo.session`). Tempo CLI managed wallets (`tempo request`) sign with USDC.e by default; mpp-go and direct-keypair clients can pay in either currency. See /openapi.json for the full operation schema and per-endpoint pricing.",
+    "observed_at": "2026-06-11T06:59:48.580Z",
+    "quality": "long-tail"
+  }
+}

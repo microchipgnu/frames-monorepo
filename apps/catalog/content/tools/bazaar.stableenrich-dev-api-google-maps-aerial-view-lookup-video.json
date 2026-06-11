@@ -37,7 +37,7 @@
             "xSettlementAccountSupported": true
           },
           "feePayer": "AepWpq3GQwL8CeKMtZyKtKPa7W91Coygh3ropAJapVdU",
-          "recentBlockhash": "HPjdEs6TmEoh4ybU6oySPV54JGeoWR9yBc12M42RYTKZ",
+          "recentBlockhash": "8uissys4SjS8VWHx9rugiTPfFWQ2YtbEZkARZYBTRLuL",
           "tokenProgram": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
         }
       }
@@ -45,7 +45,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://stableenrich.dev/api/google-maps/aerial-view/lookup-video",
     "x402_version": 2,
     "accept_count": 2
@@ -60,10 +60,10 @@
     "network_count": 3,
     "network_names": "Base, Solana, Tempo",
     "listed_on_count": 4,
-    "total_calls_30d": 5641,
+    "total_calls_30d": 6478,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "curated"
   }
 }

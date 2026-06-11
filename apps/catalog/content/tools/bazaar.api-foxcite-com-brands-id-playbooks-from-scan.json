@@ -42,7 +42,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://api.foxcite.com/brands/:id/playbooks/from-scan",
     "x402_version": 2,
     "accept_count": 2
@@ -56,11 +56,11 @@
     "category": "other",
     "network_count": 1,
     "network_names": "Base",
-    "listed_on_count": 1,
+    "listed_on_count": 2,
     "total_calls_30d": 0,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Foxcite is an AI-native SEO and brand visibility platform.\nIt helps you monitor how brands are cited and perceived across AI search engines (ChatGPT, Claude, Gemini, Grok, Perplexity).\n\nDiscovery:\n- OpenAPI is the source of truth for what can be invoked. Fetch /openapi.json.\n- For POST/PUT/PATCH routes, use requestBody.application/json with the schema in the OpenAPI document.\n\nAuth and Payments:\n- SIWX (identity-only) routes use the SIGN-IN-WITH-X header. If you receive a 401, sign the challenge provided in the 'x-siwx-challenge' header and retry.\n- Payable routes use the x402 protocol. Call the route without payment to receive a 402 challenge, pay the fee on the Base network, and retry with the transaction hash in the 'x-payment-token' header.\n- Use /credits/recharge to fund background scans. 1 USDC = 100 credits.\n\nSequence of Operations:\n1. Identify Brand: GET /brands (SIWX required)\n2. Run Audit: POST /quick-audit (x402 required)\n3. Enable Tracking: POST /brands/{brand_id}/toggle-query-tracking (SIWX required)\n4. Recharge: POST /credits/recharge (x402 required)",
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "long-tail"
   }
 }

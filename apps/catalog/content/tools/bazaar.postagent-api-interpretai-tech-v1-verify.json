@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.postagent-api-interpretai-tech-v1-verify",
+  "title": "Verify a postal address for deliverability, paid in USDC. POST a JSON body { \"ad",
+  "description": "Verify a postal address for deliverability, paid in USDC. POST a JSON body { \"address\": { \"line1\", \"city\", \"state\", \"zip\", \"country?\" } } with an X-PAYMENT header to get CASS-standardized deliverability (US) or international verification (2-letter non-US country code). Flat price per call; the same request without a payment header returns the 402 challenge.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://postagent-api.interpretai.tech/v1/verify"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.02",
+    "pay_to": "0x4ecc58bb1e8FC25eEfA23f071bd78c98660A007F",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
+    "upstream_id": "https://postagent-api.interpretai.tech/v1/verify",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "postagent-api.interpretai.tech",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 7,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-11T06:59:48.580Z",
+    "quality": "long-tail"
+  }
+}

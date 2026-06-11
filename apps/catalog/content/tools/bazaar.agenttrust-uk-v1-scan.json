@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://agenttrust.uk/v1/scan",
     "x402_version": 2,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 17,
     "x402_volume_usd_30d": 0,
     "x_guidance": "# AgentTrust\n\n- Scan AI agent skills for security threats\n- Free tier: POST /v1/scan/free (5 rules, no payment)\n- Full scan: POST /v1/scan ($0.015 USDC via x402)\n- Trust lookup: GET /v1/trust/:address ($0.010 USDC)\n- Verify integrity: POST /v1/verify ($0.005 USDC)\n- Full audit report: POST /v1/report ($0.050 USDC)",
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "long-tail"
   }
 }

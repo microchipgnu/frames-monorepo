@@ -24,7 +24,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://api.deepnets.ai/api/token/stats",
     "x402_version": 2,
     "accept_count": 1
@@ -39,10 +39,10 @@
     "network_count": 1,
     "network_names": "Solana",
     "listed_on_count": 1,
-    "total_calls_30d": 7087,
+    "total_calls_30d": 7205,
     "x402_volume_usd_30d": 0,
     "x_guidance": "All token endpoints accept a Solana mint address (base58 string, typically 32-44 chars) as a `mint` query parameter. Start with GET /api/token-safety?mint=… to check a token's risk level before deeper analysis. Use GET /api/watchlist to discover interesting tokens. GET /api/token-details?mint=… ($0.15) gives the deepest holder breakdown — use it when you need network and individual holder data. Use GET /api/wallet-details?address=… and GET /api/network-details?networkAddress=… to investigate wallets and funding networks. Basic reads cost $0.01; holder analysis costs $0.15. All responses are JSON.",
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "long-tail"
   }
 }

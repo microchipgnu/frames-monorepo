@@ -45,7 +45,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://stablejobs.dev/api/coresignal/job-search",
     "x402_version": 2,
     "accept_count": 2
@@ -60,10 +60,10 @@
     "network_count": 2,
     "network_names": "Base, Solana",
     "listed_on_count": 2,
-    "total_calls_30d": 205,
+    "total_calls_30d": 185,
     "x402_volume_usd_30d": 0,
     "x_guidance": "# StableJobs API\n> Job search via Coresignal. x402/MPP micropayments, $1.67/request (USDC on Base/Solana/Tempo).\n\n## Base URL\nhttps://stablejobs.dev\n\n## Endpoints\n- POST /api/coresignal/job-search $1.67 — search job postings by filters and return { jobs, normalized, ignored }.\n\n## Job Search Request\nCanonical filters: title, keyword_description, employment_type, location, company_id, company_name, company_domain, company_exact_website, company_professional_network_url, deleted, application_active, country, industry, created_at_gte, created_at_lte, last_updated_gte, last_updated_lte.\n\nAliases are accepted and echoed in normalized: job_title -> title, keywords -> keyword_description, company -> company_name. employment_type values are normalized where possible: full_time/fulltime/Full time -> Full-time; part_time -> Part-time; contract -> Contract; intern -> Internship.\n\nUnsupported meaningful filters such as remote, salary, salary_min, salary_max, seniority, and experience_level return a free 400 before payment. Pagination hints limit, page, offset, per_page, and size are ignored and echoed in ignored because this endpoint currently returns at most 10 collected jobs.\n\nLocation matching is literal to Coresignal data. Prefer broader strings such as \"San Francisco Bay Area\" over \"San Francisco\" when a city-only filter returns no jobs.\n\nExample:\n{ \"job_title\": \"Software Engineer\", \"country\": \"United States\", \"employment_type\": \"full_time\", \"application_active\": true }\n",
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "long-tail"
   }
 }

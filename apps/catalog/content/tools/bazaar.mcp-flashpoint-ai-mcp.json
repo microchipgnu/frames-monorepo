@@ -1,8 +1,8 @@
 {
   "pay_protocol": "0.0.1",
   "id": "bazaar.mcp-flashpoint-ai-mcp",
-  "title": "Primary research data on demand — surveys, synthetic respondents, demographics, ",
-  "description": "Primary research data on demand — surveys, synthetic respondents, demographics, and AI-powered analysis, served as an MCP server with x402 pay-per-call. Tools available (price per call): chat ($0.01), demographics ($0.05), presentation ($0.25), tool_survey ($0.50), panel (dynamic), payment_confirmation (intent amount). Call any of them via JSON-RPC tools/call — see info.input.body for the canonical envelope.",
+  "title": "Your agent surveys real people, anywhere. Pay-per-call MCP server backed by Flas",
+  "description": "Your agent surveys real people, anywhere. Pay-per-call MCP server backed by Flashpoint.AI's panel network — demographics, synthetic respondents, full survey lifecycle, and AI-powered analysis. Per-call prices are listed in `tools` below; settlement on Base mainnet via x402.",
   "capabilities": [
     "mcp",
     "ai-agent",
@@ -33,7 +33,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://mcp.flashpoint.ai/mcp",
     "x402_version": 2,
     "accept_count": 1
@@ -47,11 +47,11 @@
     "category": "other",
     "network_count": 1,
     "network_names": "Base",
-    "listed_on_count": 2,
-    "total_calls_30d": 3,
+    "listed_on_count": 1,
+    "total_calls_30d": 4,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "long-tail"
   }
 }

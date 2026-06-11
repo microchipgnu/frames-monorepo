@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://portfolio.lonestaroracle.xyz/analyze",
     "x402_version": 2,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 8,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Portfolio risk analysis - VaR, correlation, drawdown, sector exposure. $0.10/query via x402 USDC on Base.  |  Also from LoneStarOracle: EquityScope (equity.lonestaroracle.xyz)  |  OptionsFlow (options.lonestaroracle.xyz)  |  MacroPulse (macro.lonestaroracle.xyz)  |  Full catalog: lonestaroracle.xyz",
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "long-tail"
   }
 }

@@ -33,7 +33,7 @@
         "pay_to": "6apuZvJQ51Led9iEjnHw6f5jfnXL4qjt8S1h58PeXzuR",
         "scheme": "exact",
         "extra": {
-          "feePayer": "GVJJ7rdGiXr5xaYbRwRbjfaJL7fmwRygFi1H6aGqDveb",
+          "feePayer": "Hc3sdEAsCGQcpgfivywog9uwtk8gUBUZgsxdME1EJy88",
           "resource": "https://api.anchor-x402.com/v1/attest"
         }
       },
@@ -55,7 +55,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://api.anchor-x402.com/v1/attest",
     "x402_version": 2,
     "accept_count": 3
@@ -70,10 +70,10 @@
     "network_count": 3,
     "network_names": "Base, Polygon, Solana",
     "listed_on_count": 2,
-    "total_calls_30d": 441,
+    "total_calls_30d": 462,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "long-tail"
   }
 }

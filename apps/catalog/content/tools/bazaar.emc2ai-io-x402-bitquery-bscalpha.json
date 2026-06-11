@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://emc2ai.io/x402/bitquery/bscalpha",
     "x402_version": 1,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 35,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Pay-per-call blockchain intelligence via x402 (USDC on Base, eip155:8453). POST a JSON body to any /x402/bitquery/* or /x402/einstein/* endpoint; an unpaid request returns a 402 challenge with payment requirements. Each operation requestBody documents required parameters. Chart-forecast endpoints (tokenchart/ohlcv/candles) add TimesFM+Kronos predictions on the analyzed variant.",
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "curated"
   }
 }

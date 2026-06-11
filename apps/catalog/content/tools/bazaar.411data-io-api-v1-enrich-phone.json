@@ -1,0 +1,98 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.411data-io-api-v1-enrich-phone",
+  "title": "Reverse phone lookup (bill-on-match). Returns person name, emails, and addresses",
+  "description": "Reverse phone lookup (bill-on-match). Returns person name, emails, and addresses tied to the number.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://411data.io/api/v1/enrich/phone"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.33",
+    "pay_to": "0x1dDfB3f5dEB9F1381e171f636ba18867eaa39f11",
+    "scheme": "exact",
+    "extra": {
+      "facilitator": "https://facilitator.xpay.sh",
+      "facilitatorId": "xpay",
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "base",
+        "currency": "USDC",
+        "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "price_hint": "0.33",
+        "pay_to": "0x3fC6db388eD7715339ac0a211cD8B4493805b324",
+        "scheme": "exact",
+        "extra": {
+          "facilitator": "https://api.cdp.coinbase.com/platform/v2/x402",
+          "facilitatorId": "cdp",
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "arbitrum",
+        "currency": "UNKNOWN",
+        "asset": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+        "price_hint": "0.33",
+        "pay_to": "0x3fC6db388eD7715339ac0a211cD8B4493805b324",
+        "scheme": "exact",
+        "extra": {
+          "facilitator": "https://api.cdp.coinbase.com/platform/v2/x402",
+          "facilitatorId": "cdp",
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "polygon",
+        "currency": "USDC",
+        "asset": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "price_hint": "0.33",
+        "pay_to": "0x3fC6db388eD7715339ac0a211cD8B4493805b324",
+        "scheme": "exact",
+        "extra": {
+          "facilitator": "https://api.cdp.coinbase.com/platform/v2/x402",
+          "facilitatorId": "cdp",
+          "name": "USD Coin",
+          "version": "2"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
+    "upstream_id": "https://411data.io/api/v1/enrich/phone",
+    "x402_version": 2,
+    "accept_count": 4
+  },
+  "_signals": {
+    "host": "411data.io",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 3,
+    "network_names": "Arbitrum, Base, Polygon",
+    "listed_on_count": 2,
+    "total_calls_30d": 20,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "411data is an **agent-native** lead and data enrichment API. Live paid endpoints\ncover reverse phone and person lookup, LLM web-search enrichment, and\nagentic lead-session orchestration; **bill-on-match** auto-credits when no row\nis found.\n\n**Workflow**\n1. Mint a wallet-bound agent at `/connect` ($0.20 starting virtual USD\n   balance + multi-wallet MPP support) or headless via\n   `POST /api/v1/agents/wallet-register` after SIWE.\n2. Call enrichment routes (debited from virtual balance first):\n   - `$0.330` `POST /api/v1/enrich/phone` (reverse phone lookup)\n   - `$0.500` `POST /api/v1/enrich/person` (person search)\n   - `$1.000` `POST /api/v1/enrich/websearch` (deep research → decision makers + contact info)\n   - `$1.500` base `POST /api/v1/enrich/lead-session` (+ usage true-up)\n   - Bill up to `$1.500` `POST /api/v1/enrich/jobs` (async websearch / lead-session;\n     virtual precharge with bearer or CDP upto when anonymous) + poll\n     `GET /api/v1/enrich/jobs/{job_id}` with `poll_bearer`\n   - `$0.010` `POST /api/v1/support/tickets` (bug reports: $1.00 virtual credit after confirmation)\n   Catalog routes (`enrich/email`, `enrich/company`, `leads/search`) are\n   offline by default — see `GET /pricing` for the live catalogue.\n3. Pre-flight with free cookbook: `GET /cookbook/search?q=…` then\n   `GET /cookbook/read/{slug}` for worked recipes.\n\n**Free surface:** `GET /openapi-free.json` documents mint + cookbook.\nPaid catalogue: `GET /openapi.json`.\n\n**Payment:** Every billed call FIRST debits your agent's virtual USD\nbalance; the x402 v2 challenge only fires after the balance is exhausted.\nThe server runs the official `x402[fastapi,evm]` Python SDK — envelopes\nfollow the canonical v2 spec (base64 `payment-required:` header carrying\n`accepts[]` with CAIP-2 networks like `eip155:8453` and atomic-units\n`amount` strings like `\"10000\"` for $0.010 USDC, plus\n`extensions.411data-mpp` and `extensions.bazaar` for wallet allowance +\nJSON Schemas). Settle by signing an EIP-3009 `TransferWithAuthorization`\nto the listed `payTo` and retrying with `X-PAYMENT: <base64>`. After-settle\nreceipts arrive in the `payment-response: <base64>` header. Catalogue:\n`GET /.well-known/x402`. Bazaar-style discovery for facilitator indexers:\n`GET /discovery/resources`.\n",
+    "observed_at": "2026-06-11T06:59:48.580Z",
+    "quality": "long-tail"
+  }
+}

@@ -16,12 +16,12 @@
     "currency": "USDC",
     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
     "price_hint": "0.01",
-    "pay_to": "0xebb436f809d223314c9c411e198499e3fb0dd3a6",
+    "pay_to": "0x5446c62f4e6b3e0a4e2afc75adf55a7330d5484f",
     "scheme": "exact",
     "extra": {
       "name": "USD Coin",
       "stripe_mode": "custody",
-      "stripe_payment_intent_id": "pi_3TgDMXIfpVe57BNU1eYpf8Ya",
+      "stripe_payment_intent_id": "pi_3TgwhdIfpVe57BNU2PcgIVEY",
       "version": "2"
     },
     "accepts": [
@@ -31,13 +31,13 @@
         "currency": "UNKNOWN",
         "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
         "price_hint": "0.01",
-        "pay_to": "81QwtL2J7L2swJwu7ZyRE8pgtgQv7zxxdoy44qUrda64",
+        "pay_to": "DVucRtDCYjAHPc6PXwgB7AEE8uChwCvwCeFRS1Yr5Yvt",
         "scheme": "exact",
         "extra": {
-          "feePayer": "D6ZhtNQ5nT9ZnTHUbqXZsTx5MH2rPFiBBggX4hY1WePM",
+          "feePayer": "GVJJ7rdGiXr5xaYbRwRbjfaJL7fmwRygFi1H6aGqDveb",
           "name": "USDC",
           "stripe_mode": "custody",
-          "stripe_payment_intent_id": "pi_3TgDMXIfpVe57BNU1eYpf8Ya",
+          "stripe_payment_intent_id": "pi_3TgwhdIfpVe57BNU2PcgIVEY",
           "version": "2"
         }
       },
@@ -58,7 +58,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://agents.allium.so/api/v1/explorer/queries/run-async",
     "x402_version": 2,
     "accept_count": 3
@@ -73,10 +73,10 @@
     "network_count": 4,
     "network_names": "Base, Solana, Tempo, X Layer",
     "listed_on_count": 3,
-    "total_calls_30d": 30,
+    "total_calls_30d": 32,
     "x402_volume_usd_30d": 0,
     "x_guidance": "## Allium API\n\nBlockchain data APIs for token prices, wallet balances, and SQL queries.\n\n- **Docs:** https://docs.allium.so\n- **Support:** support@allium.so",
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "curated"
   }
 }

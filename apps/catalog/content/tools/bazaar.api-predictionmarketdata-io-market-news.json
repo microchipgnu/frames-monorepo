@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://api.predictionmarketdata.io/market-news",
     "x402_version": 2,
     "accept_count": 1
@@ -39,11 +39,11 @@
     "category": "other",
     "network_count": 1,
     "network_names": "Base",
-    "listed_on_count": 2,
-    "total_calls_30d": 21,
+    "listed_on_count": 1,
+    "total_calls_30d": 33,
     "x402_volume_usd_30d": 0,
-    "x_guidance": null,
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "x_guidance": "All endpoints are GET-only and return JSON. Pay per-call via x402 (USDC on Base mainnet, eip155:8453) — no signup needed. Start with GET /prediction-markets to search events; use the returned `event_ticker` to call GET /prediction-markets/similar or GET /price-history (requires `exchangeId`: 4141=Kalshi, 4137=Polymarket, 4008=Gemini). Time-series endpoints (/market-overview, /open-interest, /prediction-total-volume) require `from`, `to` (ISO-8601 UTC), and `interval` (milliseconds, e.g. 3600000 for 1h). For taxonomy, GET /prediction-markets/taxonomy lists the PMCS codes used to filter searches.",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "long-tail"
   }
 }

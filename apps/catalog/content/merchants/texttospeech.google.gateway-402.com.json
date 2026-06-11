@@ -50,7 +50,7 @@
   "endpoint_count": 2,
   "paid_endpoint_count": 0,
   "siwx_endpoint_count": 0,
-  "observed_at": "2026-06-10T06:51:58.760Z",
+  "observed_at": "2026-06-11T06:59:48.493Z",
   "evidence": {
     "paysh": "https://pay.sh/services/solana-foundation/google/texttospeech"
   },

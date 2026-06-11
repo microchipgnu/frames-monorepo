@@ -26,7 +26,7 @@
   },
   "_meta": {
     "catalog": "mpp",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "stabletravel:GET:/api/flightaware/airports/:id/weather/forecast"
   },
   "_signals": {
@@ -39,10 +39,10 @@
     "network_count": 3,
     "network_names": "Base, Solana, Tempo",
     "listed_on_count": 3,
-    "total_calls_30d": 2087,
+    "total_calls_30d": 2132,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "curated"
   }
 }

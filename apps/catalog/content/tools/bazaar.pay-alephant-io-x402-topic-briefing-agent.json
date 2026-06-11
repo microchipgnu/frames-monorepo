@@ -1,0 +1,65 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.pay-alephant-io-x402-topic-briefing-agent",
+  "title": "Based on a user-provided topic tag, it automatically finds the latest related ne",
+  "description": "Based on a user-provided topic tag, it automatically finds the latest related news and turns it into a clear, easy-to-read briefing. It aggregates information from multiple sources, highlights key points, removes duplicate results, and generates summaries that are easy for general readers to understand, helping users stay up to date on the latest developments around a topic.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://pay.alephant.io/x402/topic-briefing-agent"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "1",
+    "pay_to": "0x9986bc9307f69B144eA30F5e5436CBF21518d631",
+    "scheme": "exact",
+    "extra": {
+      "activityId": "3273e0e8-ee8c-4500-a7d6-35dab99454f8",
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "1",
+        "pay_to": "GyUs49MRZj61Yj4uDJh4WBgNWPAkABZSQ3UZiJsXVrJv",
+        "scheme": "exact",
+        "extra": {
+          "activityId": "3273e0e8-ee8c-4500-a7d6-35dab99454f8",
+          "feePayer": "BENrLoUbndxoNMUS5JXApGMtNykLjFXXixMtpDwDR9SP"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
+    "upstream_id": "https://pay.alephant.io/x402/topic-briefing-agent",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "pay.alephant.io",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 2,
+    "network_names": "Base, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 6,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-11T06:59:48.580Z",
+    "quality": "long-tail"
+  }
+}

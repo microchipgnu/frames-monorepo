@@ -39,7 +39,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://gateway.spraay.app/api/v1/escrow/list",
     "x402_version": 2,
     "accept_count": 2
@@ -54,10 +54,10 @@
     "network_count": 2,
     "network_names": "Base, Solana",
     "listed_on_count": 2,
-    "total_calls_30d": 126,
+    "total_calls_30d": 134,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Spraay is a multi-chain payment and AI inference gateway with 139 paid endpoints. Use POST /api/v1/chat/completions for LLM chat (200+ models, OpenAI-compatible). POST /api/v1/batch/execute for batch USDC payments. GET /api/v1/oracle/prices for real-time price feeds. POST /api/v1/robots/task to dispatch robot tasks via RTP. POST /api/v1/search/qna for structured Q&A. Bittensor decentralized AI at /bittensor/v1/chat/completions. Supply chain at /api/v1/sctp/*. All endpoints accept micropayments via x402 and MPP (USDC on Base). No API keys needed — just pay per call.",
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "long-tail"
   }
 }

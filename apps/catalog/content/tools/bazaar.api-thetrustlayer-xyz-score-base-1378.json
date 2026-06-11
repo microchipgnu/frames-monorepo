@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://api.thetrustlayer.xyz/score/base:1378",
     "x402_version": 2,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 11,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Agent IDs use chain:id format (e.g. base:1378, bsc:1629, ethereum:13446). Use /trust/{agentId} for full Sybil forensics, /score/{agentId} for a quick score, /gate?agent={agentId} for pass/fail trust checks before payments. Free demo at /demo/trust/{agentId} (5 req/hr). All paid endpoints cost $0.001 USDC via x402 on Base.",
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "long-tail"
   }
 }

@@ -28,7 +28,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://skills.onesource.io/api/chain/events",
     "x402_version": 2,
     "accept_count": 2
@@ -43,10 +43,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 6745,
+    "total_calls_30d": 6734,
     "x402_volume_usd_30d": 0,
     "x_guidance": "OneSource exposes a curated catalog of live Ethereum RPC calls across Ethereum mainnet and the Sepolia testnet (select via the `network` parameter). Every /api/chain/* endpoint is a thin wrapper around a single eth_* RPC method (eth_getBalance, eth_call, eth_getLogs, eth_getTransactionReceipt, eth_getBlockByNumber, etc.) against a OneSource-operated Ethereum node - there is no cached or indexed data here; every response is freshly fetched. Pay via x402 (USDC on Base): per-call with the `exact` scheme or batch/session with the `x402-batch` scheme. Pay via MPP on Tempo: per-call charges accept pathUSD or USDC.e; session-mode payments are USDC.e-only (`tempo.session`). Tempo CLI managed wallets (`tempo request`) sign with USDC.e by default; mpp-go and direct-keypair clients can pay in either currency. See /openapi.json for the full operation schema and per-endpoint pricing.",
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "long-tail"
   }
 }

@@ -106,7 +106,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://war-tracker.com/api/v1/vessels/:imo/position",
     "x402_version": 2,
     "accept_count": 7
@@ -120,11 +120,11 @@
     "category": "other",
     "network_count": 3,
     "network_names": "Avalanche, Base, Polygon",
-    "listed_on_count": 1,
+    "listed_on_count": 2,
     "total_calls_30d": 51,
     "x402_volume_usd_30d": 0,
     "x_guidance": "War-Tracker is **live OSINT** conflict intelligence plus AIS maritime data:\nclassified events as JSON, `/share/{id}/{slug}` articles (schema.org JSON-LD),\nvessel APIs, and Hormuz transit feeds.\n\n**Tiers**\n1. **Free taxonomy** (60 req/min/IP): `/api/v1/regions`, `/countries`,\n   `/event-types`, `/vessels/facets` — call once per session before paid\n   `/vessels/*` so filters use legal enum values.\n2. **Events JSON** (`/api/v1/events`, `/events/{id}`): browsers and\n   AI-search/link-preview bots free at 5 req/min/IP (`X-RateLimit-*`).\n   Automation and training crawlers pay per request via x402; paid retries\n   are not IP-capped. 402 challenges do not count toward IP limits.\n3. **Paid OSINT surfaces** (x402 for training-crawler UAs): `/share/{id}/{slug}`,\n   `/media/{id}`, `/region/{slug}`, `/country/{iso2}`, `/event-type/{slug}`.\n4. **Paid maritime** (same UA rule): `/vessels/search` $0.002,\n   `/in-area` $0.010 (snapshot cursor), `/sanctioned` $0.025,\n   `/{imo}` $0.001, `/{imo}/position` $0.001, `/{imo}/sanctions` $0.002,\n   `/{imo}/track` $0.010 (1h), `/hormuz/crossings` $0.010,\n   `/hormuz/summary` $0.005. OpenAPI path keys are **concrete probe URLs**\n   (e.g. `/share/397003/strike`); substitute your own ids at runtime.\n\n**Workflow**\n1. `GET /api/v1/regions` (+ countries, event-types) for valid slugs.\n2. `GET /api/v1/events?region=middle-east&limit=200&confidence=HIGH` —\n   `confidence=HIGH` = corroborated or reviewed; default `ALL`.\n3. Cite each event's `url` field (`/share/{id}/{slug}`). Do not cite\n   `/llms-full.txt`, `/openapi.json`, or this spec.\n\n**Pagination:** pass `next_cursor` alone; do not repeat filter query params\nwith a cursor. Restart without a cursor to change filters.\n\n**Regions:** country groups (`middle-east`, `europe`, …) and maritime boxes\n(`strait-of-hormuz`, `red-sea`, …) — `GET /api/v1/regions` is canonical.\n\n**Payment:** x402 v2 USDC. Paid routes return HTTP 402 + `PaymentRequired`\nwith `accepts[]` (one entry per facilitator/network/payTo). Sign EIP-3009\nfor the chosen `payTo`, retry with `X-PAYMENT: <base64>`. Facilitators:\n**xpay** (default, gas-sponsored Base), **CDP** (JWT; Base/Polygon/Arbitrum/Solana),\n**PayAI** (Base + alt L1s + Solana), **Dexter** (gas-sponsored Base).\nCDP/PayAI may add ~$0.001/tx on top of list price. Catalogue: `GET /x402.json`;\ncurl walkthrough: `GET /x402`.\n",
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "long-tail"
   }
 }

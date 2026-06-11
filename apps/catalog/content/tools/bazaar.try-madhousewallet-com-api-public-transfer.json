@@ -53,7 +53,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://try.madhousewallet.com/api/public/transfer",
     "x402_version": 2,
     "accept_count": 3
@@ -71,7 +71,7 @@
     "total_calls_30d": 20,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Typical flow: 1) GET /api/public/quote (targetCurrency + sourceAmount) to get quoteId and the recipient amount. 2) GET /api/public/requirements?currency=... to learn required bank fields (POST /api/public/requirements/refresh to resolve conditional fields). 3) POST /api/public/recipients to create a recipient and get recipientId. 4) POST /api/public/transfer with quote_id + recipientId to get transfer_id and a Base USDC deposit_address. 5) Fund the deposit address, then POST /api/public/confirm-transfer with the tx hash. 6) GET /api/public/transfer-status?id=... to track. Every call costs 0.01 USDC via x402.",
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "long-tail"
   }
 }

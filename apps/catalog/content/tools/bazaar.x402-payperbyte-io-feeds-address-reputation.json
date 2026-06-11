@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-payperbyte-io-feeds-address-reputation",
+  "title": "Agentic-payments go/no-go verdict: synchronous signed ALLOW/WARN/BLOCK for (doma",
+  "description": "Agentic-payments go/no-go verdict: synchronous signed ALLOW/WARN/BLOCK for (domain, receiving address, amount, chain) BEFORE releasing USDC. ar-v1 ruleset over RDAP/TLS/DNS/Wayback domain signals + on-chain receiving-address signals + curated known-bad blocklist. The verdict carries an embedded EIP-712 PayloadAttestation — recompute keccak256(answer) and recover the signer before acting.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.payperbyte.io/feeds/address-reputation"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.05",
+    "pay_to": "0xffFf4B8Da8C165B556326453446F6940C8AFE0DB",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
+    "upstream_id": "https://x402.payperbyte.io/feeds/address-reputation",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "x402.payperbyte.io",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 1,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Paid endpoints return HTTP 402 with x402 v2 payment requirements in the `payment-required` header — pay the quoted USDC on Base (network eip155:8453) and retry. Each feed has its own price (see x-payment-info per operation); the catalog at GET /feeds (free, ungated) lists every feed with its computed price and expected payload size. POST /feeds/fact-oracle needs a JSON body: `question` (string) and `subscriber_address` (0x… address subscribed to the fact-oracle with USDC escrow). The answer is broadcast on-chain via DataStream to that address. Free, no payment: GET /feeds and GET /health.",
+    "observed_at": "2026-06-11T06:59:48.580Z",
+    "quality": "long-tail"
+  }
+}

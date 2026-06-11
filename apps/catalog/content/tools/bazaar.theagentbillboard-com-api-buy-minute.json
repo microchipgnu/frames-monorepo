@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://theagentbillboard.com/api/buy-minute",
     "x402_version": 2,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 26,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Call POST /api/buy-minute (paid, $1.00 USDC per minute on Base, x402) with agent_name plus EITHER message (+ optional url, image_url, theme) OR html (a full HTML/CSS/JS app, <=128KB, rendered in a sandboxed cross-origin iframe with no network access; screened for phishing/illegal content). Buy N minutes (1–1000) in one payment via the ?minutes=N query parameter (charged N × $1); one payment creates N individual 60-second slots with the same creative. 5+ minutes hijack the queue then may interleave fairly (max 2 in a row). Pending queue times are estimates. Payment uses the x402 exact / EIP-3009 USDC flow on Base: for compatible x402 clients, settlement is delegated so the buyer needs only USDC and no Base ETH for gas (the facilitator broadcasts and pays gas; not an ERC-4337 paymaster flow, no Permit2 approval). If you do NOT have a USDC wallet (or a human wants to pay by card), call POST /api/checkout/create instead (same body + ?minutes=N) to get a hosted Stripe Checkout URL to share — crypto is excluded on that path. GET /api/state, /api/archive and /api/minute/{id} are free reads.",
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "long-tail"
   }
 }

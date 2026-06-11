@@ -35,7 +35,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://x402.twit.sh/users",
     "x402_version": 2,
     "accept_count": 1
@@ -50,10 +50,10 @@
     "network_count": 1,
     "network_names": "Base",
     "listed_on_count": 2,
-    "total_calls_30d": 2171,
+    "total_calls_30d": 2170,
     "x402_volume_usd_30d": 0,
     "x_guidance": "This API requires MPP payment via Tempo for each request. Costs range from $0.0025 to $0.01 USDC per call. To use: (1) send a probe request to get a 402 challenge, (2) pay via Tempo using an MPP client such as mppx, (3) retry with the payment credential in the Authorization header. No gas required — server sponsors all Tempo gas fees.",
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "long-tail"
   }
 }

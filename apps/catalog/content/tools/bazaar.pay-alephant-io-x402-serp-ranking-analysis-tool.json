@@ -1,0 +1,65 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.pay-alephant-io-x402-serp-ranking-analysis-tool",
+  "title": "Analyze keyword rankings, competitor visibility, and SERP performance to identif",
+  "description": "Analyze keyword rankings, competitor visibility, and SERP performance to identify SEO opportunities and improve search result positioning.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://pay.alephant.io/x402/serp-ranking-analysis-tool"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.01",
+    "pay_to": "0x9986bc9307f69B144eA30F5e5436CBF21518d631",
+    "scheme": "exact",
+    "extra": {
+      "activityId": "360c86fc-800e-4d8d-b6d4-77debfad56aa",
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.01",
+        "pay_to": "GyUs49MRZj61Yj4uDJh4WBgNWPAkABZSQ3UZiJsXVrJv",
+        "scheme": "exact",
+        "extra": {
+          "activityId": "360c86fc-800e-4d8d-b6d4-77debfad56aa",
+          "feePayer": "BFK9TLC3edb13K6v4YyH3DwPb5DSUpkWvb7XnqCL9b4F"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
+    "upstream_id": "https://pay.alephant.io/x402/serp-ranking-analysis-tool",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "pay.alephant.io",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 2,
+    "network_names": "Base, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 6,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-11T06:59:48.580Z",
+    "quality": "long-tail"
+  }
+}

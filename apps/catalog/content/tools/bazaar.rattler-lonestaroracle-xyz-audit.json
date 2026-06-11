@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://rattler.lonestaroracle.xyz/audit",
     "x402_version": 2,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 2,
     "x402_volume_usd_30d": 0,
     "x_guidance": "RattlerAI — autonomous Solidity smart contract security auditor. POST /audit with contract source or GitHub URL. Returns structured report in Code4rena format. $2.00/audit via x402 USDC on Base. | Also from LoneStarOracle: TokenScope (token.lonestaroracle.xyz) for token due diligence | ChainScout (chainscout.lonestaroracle.xyz) for on-chain intelligence | Full catalog: lonestaroracle.xyz",
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "long-tail"
   }
 }

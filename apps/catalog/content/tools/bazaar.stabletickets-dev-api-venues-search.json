@@ -45,7 +45,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://stabletickets.dev/api/venues/search",
     "x402_version": 2,
     "accept_count": 2
@@ -63,7 +63,7 @@
     "total_calls_30d": 27,
     "x402_volume_usd_30d": 0,
     "x_guidance": "# StableTickets API\n\nBase URL: https://stabletickets.dev\n\nStableTickets wraps Ticketmaster Discovery API v2 with x402/MPP pay-per-request access. Callers do not need a Ticketmaster developer account or API key.\n\nUse this API when an agent needs live public Ticketmaster discovery data: events, venues, attractions, classifications, event images, or typeahead-style suggestions. This API does not sell, reserve, or purchase tickets.\n\n## Happy Path\n\n1. Search events with POST /api/events/search. Use countryCode, city, postalCode, geoPoint+radius, startDateTime/endDateTime, classificationName, or keyword to narrow results.\n2. Pick an event id from _embedded.events[].id.\n3. Call POST /api/events/details with { \"id\": \"...\" } for full event, venue, attraction, sales, dates, price range, and purchase URL data.\n4. If the user asks for venue context, call POST /api/venues/details with the embedded venue id.\n\n## Endpoint Guide\n\n- POST /api/events/search: Search Ticketmaster events. Prefer this for \"concerts near me\", \"sports in NYC this weekend\", and date/location/category queries.\n- POST /api/events/details: Get one event by id.\n- POST /api/events/images: Get images for one event by id.\n- POST /api/attractions/search: Search artists, teams, performers, and other attractions.\n- POST /api/attractions/details: Get one attraction by id.\n- POST /api/venues/search: Search venues by name, city, state, country, postal code, or geoPoint.\n- POST /api/venues/details: Get one venue by id.\n- POST /api/classifications/search: Search Ticketmaster segments, genres, and subgenres.\n- POST /api/classifications/details: Get one classification by id.\n- POST /api/suggest: Fast suggestions across events, attractions, venues, and products.\n\n## Query Notes\n\nDates use Ticketmaster ISO date-time strings, e.g. \"2026-06-01T00:00:00Z\". Ticketmaster deep paging only supports the first 1000 items: keep size * page < 1000. Use locale \"*\" when the caller does not care about locale. Use source only when the caller asks for a specific Ticketmaster source such as ticketmaster, universe, frontgate, or tmr.\n\n## Pricing\n\nAll endpoints cost $0.01 per successful call.\n",
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "long-tail"
   }
 }

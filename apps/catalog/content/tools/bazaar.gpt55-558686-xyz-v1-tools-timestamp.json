@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.gpt55-558686-xyz-v1-tools-timestamp",
+  "title": "Convert Unix seconds, Unix milliseconds, or date strings into ISO, Unix seconds,",
+  "description": "Convert Unix seconds, Unix milliseconds, or date strings into ISO, Unix seconds, Unix milliseconds, and UTC fields without calling an upstream model. Pay up to $0.001 per request with x402 USDC on Base. Public paid calls are limited to 1500 input characters and 128 output tokens.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://gpt55.558686.xyz/v1/tools/timestamp"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.001",
+    "pay_to": "0x1f0130669ca6fd02e025a984cc038f139df19a2f",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
+    "upstream_id": "https://gpt55.558686.xyz/v1/tools/timestamp",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "gpt55.558686.xyz",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 61,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Use this origin when an AI agent needs low-price GPT-5.5 text microtasks: summarize, translate, rewrite, grammar cleanup, question answering, context QA, coding help, or chat completions without managing an upstream API key. Market benchmark: public x402 API listings commonly use per-call pricing around $0.001-$0.01; this gateway advertises a $0.0001 compact GPT-5.5 entry request, $0.002134 long-output GPT-5.5 requests, and $0.066667 true max-output GPT-5.5 requests. Token-metered upto pricing: input ~$0.055667/1M tokens, cached input ~$0.005567/1M tokens, output ~$0.334/1M tokens, 0.0001 minimum, capped by the selected tier price, target gross margin 70.1%. Prefer POST /v1/tools/summarize, /v1/tools/translate, /v1/tools/rewrite, or /v1/tools/answer for simple microtasks; call POST /v1/chat/completions for compact OpenAI-compatible messages; call POST /v1/chat/completions/long for longer generations; call POST /v1/chat/completions/max for true max-output generations. The endpoint is paid with Pay up to $0.0001 per request with x402 USDC on Base. Exact fixed-price payment and upto token-metered payment are both accepted when clients support them; upto settlements use actual response usage, a 0.0001 minimum, and the selected tier price as the cap. Network: eip155:8453. Keep public paid calls under 1500 input characters; compact output cap is 192, long output cap is 4096, max output cap is 128000.",
+    "observed_at": "2026-06-11T06:59:48.580Z",
+    "quality": "long-tail"
+  }
+}

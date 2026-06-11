@@ -1,0 +1,65 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.2s-io-api-calendar-business-days",
+  "title": "Holiday-aware business-day calculator for 200+ countries. Three modes: pass star",
+  "description": "Holiday-aware business-day calculator for 200+ countries. Three modes: pass start + addDays (signed integer) to shift a date by N business days; pass start + end to count business days between two dates (exclusive of start, inclusive of end); pass start alone to check one date (is it a business day, which holiday, next/previous business day). Query: country (ISO 3166-1 alpha-2), start (YYYY-MM-DD), optional region (subdivision code), addDays XOR end, optional weekend (comma-separated days, default sat,sun — e.g. fri,sat for the Gulf), optional types (holiday types treated as closures, default public,bank). Skipped holidays are itemized in the response. Use for payment terms, SLA deadlines, and delivery-date math.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://2s.io/api/calendar/business-days"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.001",
+    "pay_to": "0x2b6D4988Db4723E6908Db86Ab2b8dFBc51FC32C5",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.001",
+        "pay_to": "TW6ntaGzvj63ZgPjszd4FCGmVTGfzv1MAYZbjYcyWhn",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "BFK9TLC3edb13K6v4YyH3DwPb5DSUpkWvb7XnqCL9b4F",
+          "name": "USDC",
+          "version": "1"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
+    "upstream_id": "https://2s.io/api/calendar/business-days",
+    "x402_version": 2,
+    "accept_count": 2
+  },
+  "_signals": {
+    "host": "2s.io",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 2,
+    "network_names": "Base, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 608,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-11T06:59:48.580Z",
+    "quality": "long-tail"
+  }
+}

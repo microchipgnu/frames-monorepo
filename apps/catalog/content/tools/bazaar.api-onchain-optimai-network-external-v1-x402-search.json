@@ -59,7 +59,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://api-onchain.optimai.network/external/v1/x402/search",
     "x402_version": 2,
     "accept_count": 2
@@ -77,7 +77,7 @@
     "total_calls_30d": 13,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Use POST /external/v1/x402/search with application/json {\"query\":\"...\"}. If the response is 402, read the payment-required header, satisfy one accepted x402 v2 payment requirement, then retry with PAYMENT-SIGNATURE. A successful paid request returns an accepted OptimAI Search request for agent-ready web, social, and crypto research with cited results.",
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "long-tail"
   }
 }

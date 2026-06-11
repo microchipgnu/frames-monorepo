@@ -53,7 +53,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://kyc.madhousewallet.com/api/public/kyc/status",
     "x402_version": 2,
     "accept_count": 3
@@ -67,11 +67,11 @@
     "category": "other",
     "network_count": 4,
     "network_names": "Arbitrum, Base, Polygon, Solana",
-    "listed_on_count": 1,
+    "listed_on_count": 2,
     "total_calls_30d": 14,
     "x402_volume_usd_30d": 0,
     "x_guidance": "STEP 1 -- Quick check (free): GET /api/public/kyc/verified?wallet=<address>. No payment, no auth. Returns { verified: true/false } from DB. 60 req/min. STEP 2 -- Start KYC: POST /api/public/kyc/start with $0.05 USDC via x402. The paying wallet address is extracted automatically from the x402 payment-signature header -- no request body needed. Response: { kycUrl, walletAddress }. Open kycUrl in a browser to complete identity verification. STEP 3 -- Authoritative status: GET /api/public/kyc/status?wallet=<address> with $0.01 USDC. Cross-checks on-chain for revocation. When verified:true the attestation is valid -- use this to gate access. STEP 4 (optional) -- Sanctions: GET /api/public/kyc/sanctions?wallet=<address> with $0.02 USDC. Returns sanctioned (bool) and match details. No PII is ever returned. Use @x402/fetch (wrapFetchWithPayment) to handle the 402 challenge/response cycle automatically.",
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "long-tail"
   }
 }

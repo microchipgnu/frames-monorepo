@@ -23,7 +23,7 @@
   },
   "_meta": {
     "catalog": "mpp",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "goflightlabs:GET:/flights-callsign"
   },
   "_signals": {
@@ -39,7 +39,7 @@
     "total_calls_30d": 0,
     "x402_volume_usd_30d": 0,
     "x_guidance": null,
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "curated"
   }
 }

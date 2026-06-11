@@ -25,7 +25,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://skim402.com/api/v2/read",
     "x402_version": 2,
     "accept_count": 1
@@ -43,7 +43,7 @@
     "total_calls_30d": 7,
     "x402_volume_usd_30d": 0,
     "x_guidance": "Skim exposes four x402 v2 endpoints for agents: GET /api/v2/read (single URL → markdown), GET /api/v2/read/js (JS-rendered pages), POST /api/v2/read/batch (up to 10 URLs in one paid call), POST /api/v2/extract (URL + JSON Schema → schema-conforming JSON via LLM). Every endpoint returns 402 Payment Required with x402 v2 payment details; sign the EIP-3009 USDC authorization with any x402 v2 client, retry, and you get the result. Pricing: $0.002 basic read, $0.005 JS render, $0.02 batch (10× single), $0.015 structured extract — all settled in USDC on Base mainnet. No account, no API key, no rate-limit-by-tier — your wallet is your identity. Settlement happens only on 2xx responses, so failed reads are never charged. Identical v1 POST endpoints remain available for legacy clients at /api/v1/*.",
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "long-tail"
   }
 }

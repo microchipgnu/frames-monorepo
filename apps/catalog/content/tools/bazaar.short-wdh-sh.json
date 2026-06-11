@@ -26,7 +26,7 @@
   },
   "_meta": {
     "catalog": "bazaar",
-    "fetched_at": "2026-06-10T06:51:58.856Z",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
     "upstream_id": "https://short.wdh.sh/",
     "x402_version": 2,
     "accept_count": 1
@@ -44,7 +44,7 @@
     "total_calls_30d": 4,
     "x402_volume_usd_30d": 0,
     "x_guidance": "A pay-per-link URL shortener: POST a long URL (optionally a custom slug and TTL) and get back a short wdh.sh link. Handy anywhere characters are scarce — social posts, SMS, podcast show-notes, slides, business cards — or as a stable redirect behind a printed QR code, so the destination can change without reprinting.\n\nPOST a JSON body to https://short.wdh.sh/. Payment is settled in USDC on Base via x402.",
-    "observed_at": "2026-06-10T06:51:58.856Z",
+    "observed_at": "2026-06-11T06:59:48.580Z",
     "quality": "long-tail"
   }
 }

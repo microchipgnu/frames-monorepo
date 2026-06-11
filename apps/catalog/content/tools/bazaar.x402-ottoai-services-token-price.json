@@ -1,0 +1,104 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-ottoai-services-token-price",
+  "title": "Live DEX token price in USD by ticker symbol or contract address (Base, Ethereum",
+  "description": "Live DEX token price in USD by ticker symbol or contract address (Base, Ethereum, Solana, Polygon, BSC, Arbitrum, Optimism, Avalanche — bare 0x address defaults to Base, else network:address). Symbols resolve to the CANONICAL top-market-cap asset (CoinGecko listing — squat-proof). Returns price, 24h change, volume, market cap, FDV, liquidity as flat JSON, echoing the matched deployment. Token price, crypto price, DEX price. $0.001 per call.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402.ottoai.services/token-price"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.001",
+    "pay_to": "0x0E84dDEdAaE6A779c462C22a59F301EC31B6b808",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "accepts": [
+      {
+        "protocol": "x402v2",
+        "network": "base",
+        "currency": "USDC",
+        "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "price_hint": "0.001",
+        "pay_to": "0x0E84dDEdAaE6A779c462C22a59F301EC31B6b808",
+        "scheme": "exact",
+        "extra": {
+          "assetTransferMethod": "permit2",
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "polygon",
+        "currency": "USDC",
+        "asset": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "price_hint": "0.001",
+        "pay_to": "0x0E84dDEdAaE6A779c462C22a59F301EC31B6b808",
+        "scheme": "exact",
+        "extra": {
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "polygon",
+        "currency": "USDC",
+        "asset": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+        "price_hint": "0.001",
+        "pay_to": "0x0E84dDEdAaE6A779c462C22a59F301EC31B6b808",
+        "scheme": "exact",
+        "extra": {
+          "assetTransferMethod": "permit2",
+          "name": "USD Coin",
+          "version": "2"
+        }
+      },
+      {
+        "protocol": "x402v2",
+        "network": "solana-mainnet",
+        "currency": "UNKNOWN",
+        "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "price_hint": "0.001",
+        "pay_to": "6XcSfqJHr9vNW2vbiRaMqUYVm7shDgLepca54wUTDPN5",
+        "scheme": "exact",
+        "extra": {
+          "feePayer": "D6ZhtNQ5nT9ZnTHUbqXZsTx5MH2rPFiBBggX4hY1WePM"
+        }
+      }
+    ]
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
+    "upstream_id": "https://x402.ottoai.services/token-price",
+    "x402_version": 2,
+    "accept_count": 5
+  },
+  "_signals": {
+    "host": "x402.ottoai.services",
+    "is_active_14d": true,
+    "is_infra": false,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 3,
+    "network_names": "Base, Polygon, Solana",
+    "listed_on_count": 2,
+    "total_calls_30d": 7095,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": "Otto AI exposes 49 pay-per-call endpoints across five capability tags — Market & Token Intelligence, DeFi & Markets Data, AI Creative & Tools, Portfolio & Accounts, and Execution. All endpoints require x402 V2 payment (USDC on Base, Polygon, or Solana).\n\nHow to use:\n1. GET/POST any endpoint — receive 402 with PAYMENT-REQUIRED header (base64-encoded)\n2. Decode header to find accepts[] array with payment options (EIP-3009 USDC, Permit2 any ERC-20, Solana USDC)\n3. Sign payment and retry with PAYMENT-SIGNATURE header\n4. Receive 200 with data + signed receipt in PAYMENT-RESPONSE header\n5. For read-only endpoints: use SIGN-IN-WITH-X header on subsequent requests (1hr free access)\n\nEndpoint categories:\n- Market & Token Intelligence (16): News (full feed, one-paragraph recaps, Base-ecosystem vertical), KOL sentiment, token analysis/details/fundamentals/price/security, trending, top-holders, holder analytics, Base Season, mega-report\n- DeFi & Markets Data (10): DeFi TVL/yield, stablecoin peg-watch, protocol fees/revenue, DEX pool search, funding rates, perp/HL market data, TradFi macro, US equities intel\n- AI Creative & Tools (4): Image gen, video gen, AI research, tx explainer\n- Portfolio & Accounts (10): Wallet balances/holdings bagcheck, positions, transaction history, yield positions, idle capital\n- Execution (9): Swap (Odos), bridge (LiFi), deposit, withdraw, Hyperliquid perps (trade/close/modify/margin/deposit-withdraw)",
+    "observed_at": "2026-06-11T06:59:48.580Z",
+    "quality": "long-tail"
+  }
+}

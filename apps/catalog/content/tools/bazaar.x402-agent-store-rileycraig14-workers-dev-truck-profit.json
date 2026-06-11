@@ -1,0 +1,49 @@
+{
+  "pay_protocol": "0.0.1",
+  "id": "bazaar.x402-agent-store-rileycraig14-workers-dev-truck-profit",
+  "title": "Given a freight load (rate, loaded miles, deadhead miles, fuel price, MPG, fixed",
+  "description": "Given a freight load (rate, loaded miles, deadhead miles, fuel price, MPG, fixed+variable cost per mile), returns net profit, true cost-per-mile, break-even rate-per-mile, and an accept/reject verdict. For logistics and dispatch agents evaluating loads.",
+  "capabilities": [
+    "unspecified"
+  ],
+  "invocation": {
+    "method": "POST",
+    "url": "https://x402-agent-store.rileycraig14.workers.dev/truck/profit"
+  },
+  "payment": {
+    "protocol": "x402v2",
+    "network": "base",
+    "currency": "USDC",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "price_hint": "0.001",
+    "pay_to": "0xc91cE6291eDC0713ec753BAFBA002506ffb2b95c",
+    "scheme": "exact",
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    }
+  },
+  "_meta": {
+    "catalog": "bazaar",
+    "fetched_at": "2026-06-11T06:59:48.580Z",
+    "upstream_id": "https://x402-agent-store.rileycraig14.workers.dev/truck/profit",
+    "x402_version": 2,
+    "accept_count": 1
+  },
+  "_signals": {
+    "host": "x402-agent-store.rileycraig14.workers.dev",
+    "is_active_14d": true,
+    "is_infra": true,
+    "is_recognized": false,
+    "is_mass_lister": false,
+    "category": "other",
+    "network_count": 1,
+    "network_names": "Base",
+    "listed_on_count": 2,
+    "total_calls_30d": 5,
+    "x402_volume_usd_30d": 0,
+    "x_guidance": null,
+    "observed_at": "2026-06-11T06:59:48.580Z",
+    "quality": "long-tail"
+  }
+}
